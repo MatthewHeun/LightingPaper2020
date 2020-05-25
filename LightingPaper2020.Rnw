@@ -78,6 +78,8 @@
 % etoolbox, tabto, xcolor, soul, multirow, microtype, tikz, totcount, amsthm, 
 % hyphenat, natbib, hyperref, footmisc, url, geometry, newfloat, caption
 
+\usetikzlibrary{arrows,positioning}         % For diagrams with tikz
+
 
 %=================================================================
 %% Please use the following mathematics environments: 
@@ -237,6 +239,48 @@ Suggested 6250 words.
 **** 
 Write up the heat portion of the ``thoughts on the exergy of light'' document.
 ****
+
+\begin{figure}
+\centering
+\begin{tikzpicture}[font=\sffamily]
+  % Set up the nodes of the main path
+  % Machine node
+  \node(machine)[draw, rounded corners, fill=yellow!25!white, minimum width = 4 cm, minimum height = 2 cm] at (0cm, 0cm) {\strut Machine};
+  % Number nodes
+  \node[left=3cm of machine] (1)[circle, fill=red!25!white] {\strut 1};
+  \node[above right = -0.7cm and 3cm of machine] (2)[circle, fill=red!25!white] {\strut 2};
+  \node[below right = -0.7cm and 3cm of machine] (3)[circle, fill=red!25!white] {\strut 3};
+  % Arrows
+  \draw[arrows=-triangle 45] (1) -- node [above] {$T_1 , \; \dot{Q}_1 \; \text{(heat)}$} (machine);
+  \draw[arrows=-triangle 45] (2 -| machine.east) -- node [above] {$\dot{Q}_2 \; \text{(heat)}, \; T_2$} (2.west);
+  \draw[arrows=-triangle 45] (3 -| machine.east) -- node [below] {$\dot{W}_3 \; \text{(work)}$} (3.west);
+\end{tikzpicture}
+\caption{The exergy of heat and work.}
+\label{fig:exergy_of_heat_and_work}
+\end{figure}
+
+
+
+\begin{figure}
+\centering
+\begin{tikzpicture}[font=\sffamily]
+  % Set up the nodes of the main path
+  % Machine node
+  \node(lamp)[draw, rounded corners, fill=yellow!25!white, minimum width = 4 cm, minimum height = 2 cm] at (0cm, 0cm) {\strut Lamp};
+  % Number nodes
+  \node[left=3cm of lamp] (1)[circle, fill=red!25!white] {\strut 1};
+  \node[above right = -0.7cm and 3cm of lamp] (2)[circle, fill=red!25!white] {\strut 2};
+  \node[below right = -0.7cm and 3cm of lamp] (3)[circle, fill=red!25!white] {\strut 3};
+  % Arrows
+  \draw[arrows=-triangle 45] (1) -- node [above] {$\dot{W}_1 \; \text{(electricity)}$} (lamp);
+  \draw[arrows=-triangle 45] (2 -| lamp.east) -- node [above] {$\dot{Q}_2 \; \text{(heat)}, \; T_2$} (2.west);
+  \draw[arrows=-triangle 45] (3 -| lamp.east) -- node [below] {$\dot{L}_3 \; \text{(light)}$} (3.west);
+\end{tikzpicture}
+\caption{The exergy of light.}
+\label{fig:exergy_of_light}
+\end{figure}
+
+
 
 %++++++++++++++++++++++++++++++
 \subsection{Exergy of lighting framework (MKH, 500 words)}
