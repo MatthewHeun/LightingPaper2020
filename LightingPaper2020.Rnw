@@ -240,9 +240,32 @@ Suggested 6250 words.
 Write up the heat portion of the ``thoughts on the exergy of light'' document.
 ****
 
+Energy and exergy are two different ways to quantify the physical property that,
+when transferred to an object,
+heats it or performs work on it.
+For this discussion we can't call the ``physical property'' energy or exergy, 
+because the concepts need to be separated. 
+So, we use the term ``physical property.''
+We discuss the energy and exergy quantifications in the sections below.
+
+%------------------------------
+\subsubsection{Energy ($\dot{E}$) and exergy ($\dot{X}$) of heat and work } 
+\label{sec:energy_and_exergy_of_heat_and_work}
+%------------------------------
+
+Energy quantifies the physical property as heat.
+Thus, heat is pure energy.
+Thanks to Thompson's canon experiment, 
+we know that work can be converted perfectly into heat.
+
+Figure~\ref{fig:energy_of_heat_and_work} shows a generic machine (a heat engine) that converts 
+heat at 1 to 
+work at 3
+with a waste heat byproduct at 2. 
+
 \begin{figure}
 \centering
-\begin{tikzpicture}[font=\sffamily]
+\begin{tikzpicture}
   % Set up the nodes of the main path
   % Machine node
   \node(machine)[draw, rounded corners, fill=yellow!25!white, minimum width = 4 cm, minimum height = 2 cm] at (0cm, 0cm) {\strut Machine};
@@ -256,14 +279,52 @@ Write up the heat portion of the ``thoughts on the exergy of light'' document.
   \draw[arrows=-triangle 45] (3 -| machine.east) -- node [below] {$\dot{W}_3 \; \text{(work)}$} (3.west);
 \end{tikzpicture}
 \caption{The exergy of heat and work.}
-\label{fig:exergy_of_heat_and_work}
+\label{fig:energy_of_heat_and_work}
 \end{figure}
+
+For the heat engine, all streams can be counted as energy.
+%
+\begin{equation} \label{eq:all_streams_energy}
+  \dot{E}_1 = \dot{Q}_1, \; \dot{E}_2 = \dot{Q}_2, \; \dot{E}_3 = \dot{W}_3
+\end{equation}
+
+Energy efficiency is defined as $\eta_E \equiv \frac{\text{energy out}}{\text{enertgy in}}$.
+For the example of Figure~\ref{fig:energy_of_heat_and_work}, 
+%
+\begin{equation} \label{eq:energy_efficiency}
+  \eta_E = \frac{\dot{E}_2 + \dot{E}_3}{\dot{E}_1} = \frac{\dot{Q}_2 + \dot{W}_3}{\dot{Q}_1} \; .
+\end{equation}
+%
+Because energy is conserved ($\dot{Q}_1 = \dot{Q}_2 + \dot{W}_3$), 
+energy efficiency is 1.
+
+That said, only one of the products in Figure~\ref{fig:energy_of_heat_and_work} is deemed valuable, the work ($\dot{W}_3$).
+Thus, the \emph{valuable} energy efficiency is 
+%
+\begin{equation} \label{eq:valuable_energy_efficiency}
+  \eta_{E,V} = \frac{\dot{E}_3}{\dot{E}_1} = \frac{\dot{W}_3}{\dot{Q}_1} < 1 \; .
+\end{equation}
+%
+
+On the other hand, exergy quantifies that physical property as work potential.
+Exergy provides the answer to the question, 
+``what is the maximum work we could obtain from a stream of this physical property?''
+Actual work being performed is pure exergy. 
+
+
+
+%------------------------------
+\subsubsection{Energy and exergy of light)} 
+\label{sec:energy_and_exergy_of_light}
+%------------------------------
+
+
 
 
 
 \begin{figure}
 \centering
-\begin{tikzpicture}[font=\sffamily]
+\begin{tikzpicture}
   % Set up the nodes of the main path
   % Machine node
   \node(lamp)[draw, rounded corners, fill=yellow!25!white, minimum width = 4 cm, minimum height = 2 cm] at (0cm, 0cm) {\strut Lamp};
@@ -440,6 +501,15 @@ LD & linear dichroism
 \end{tabular}}
 
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Nomenclature}
+\label{sec:nomenclature}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{pieces/nomenclature.tex}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% optional
 \appendixtitles{yes} 
@@ -452,39 +522,7 @@ LD & linear dichroism
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \appendix
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{First appendix}
-\label{sec:app_1}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\unskip
-
-
-%++++++++++++++++++++++++++++++
-\subsection{appendix subsection 1}
-\label{sec:appendix_subsection_1}
-%++++++++++++++++++++++++++++++
-
-% The appendix is an optional section that can contain 
-% details and data supplemental to the main text. 
-% For example, explanations of experimental details 
-% that would disrupt the flow of the main text, but 
-% nonetheless remain crucial to understanding and reproducing the research shown; 
-% figures of replicates for experiments 
-% of which representative data is shown in the main text 
-% can be added here if brief, or as Supplementary data. 
-% Mathematical proofs of results not central to the paper can be added as an appendix.
-
-
-%++++++++++++++++++++++++++++++
-\subsection{appdendix subsection 2}
-\label{sec:appendix_subsection_2}
-%++++++++++++++++++++++++++++++
-
-% All appendix sections must be cited in the main text. 
-% In the appendixes, Figures, Tables, etc. should be labeled starting with `A', 
-% e.g., Figure A1, Figure A2, etc. 
+\input{pieces/appendix.tex}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
