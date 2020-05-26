@@ -275,10 +275,10 @@ Discuss Fouquet~\cite{Fouquet:2006}, who looked at energy, but not exergy.
 \label{sec:framework}
 %++++++++++++++++++++++++++++++
 
-Energy and exergy are two different ways to quantify the physical property that,
+Energy and exergy are two methods to quantify the physical property that,
 when transferred to an object,
 heats it or performs work on it.
-(For this discussion we can't call the ``physical property'' energy or exergy, 
+(For this discussion, we can't call the ``physical property'' energy or exergy, 
 because the concepts need to be separated. 
 So, we must use the generic term ``physical property.'')
 We discuss energy and exergy quantifications of the physical property in the sections below, 
@@ -298,14 +298,14 @@ Thus, heat is pure energy.
 Thanks to Thompson's cannon experiment~\cite{Thompson:1798aa}, 
 we know that work can be converted, without loss, into heat.
 
-Figure~\ref{fig:heat_engine} shows a generic machine (a heat engine) that converts 
+Figure~\ref{fig:heat_engine} shows a heat engine that converts 
 heat at $1$ to 
 work at $3$
 with a waste heat byproduct at $2$. 
 All streams can be counted as energy, such that 
 %
 \begin{equation} \label{eq:all_streams_energy}
-  \dot{E}_1 = \dot{Q}_1, \; \dot{E}_2 = \dot{Q}_2, \; \text{and} \; \dot{E}_3 = \dot{W}_3
+  \dot{E}_1 = \dot{Q}_1, \; \dot{E}_2 = \dot{Q}_2, \; \text{and} \; \dot{E}_3 = \dot{W}_3 \; .
 \end{equation}
 
 \begin{figure}
@@ -383,19 +383,33 @@ Assuming, again, that work is valuable gives
 \end{equation}
 
 Note that both $\eta_{E,v}$ and $\eta_{X,v}$ 
-are independent of human experience.
+are independent of human presence.
 The work created ($\dot{W}_3$) could be 
 a spinning driveshaft on an automobile carrying four passengers down the freeway or
-the same spinning driveshaft on dynamometer in an unoccupied laboratory;
-the efficiencies ($\eta_{E,v}$ and $\eta_{X,v}$) would be the same.
+the same spinning driveshaft on dynamometer in an unoccupied laboratory.
+Both
+%
+\begin{enumerate*}[label={(\alph*)}]
+	
+  \item the energy and exergy of the work and heat ($\dot{Q}_2$ and $\dot{W}_3$) and
+  
+  \item the efficiencies of the heat engine ($\eta_{E,v}$ and $\eta_{X,v}$)
+    
+\end{enumerate*}
+%
+would be the same, regardless.
 
-In other words, the energy and exergy efficiencies of a heat engine
-are evaluated at the useful stage of the energy conversion chain 
-(where heat and work exist),
-prior to the \emph{energy service} stage (where transport exists).
-Both the energy and exergy of work and heat as well as 
-the energy and exergy efficiency of heat engines are
-independent of the energy service that the heat engine provides.
+In other words, both 
+%
+\begin{enumerate*}[label={(\alph*)}]
+	
+  \item the energy and exergy of work and heat and
+  
+  \item the efficiencies of the heat engine
+    
+\end{enumerate*}
+%
+are independent of human presence and the energy service provided by the heat engine.
 
 We now turn to the production of light instead of work at 3.
 
@@ -456,9 +470,9 @@ has provided a method for calculating $\phi_L$.
 Delgado-Bonal's estimate 
 is $\phi_L = 0.931$
 for solar spectrum electromagnetic radiation
- \cite[Figure~3]{Delgado-Bonal:2017aa}.
+\cite[Figure~3]{Delgado-Bonal:2017aa}.
 A similar estimate comes from the maximum efficiency 
-of converting solar-spectrum electromagnetic radiation (at 5800~K) 
+of converting blackbody electromagnetic radiation (at 5800~K, the temperature of the sun) 
 to electricity (pure work and, therefore, pure exergy), 
 rejecting waste heat to an ambient temperature of 300~K:
 %
@@ -466,11 +480,11 @@ rejecting waste heat to an ambient temperature of 300~K:
   \phi_L \approx \eta_C = 1 - \frac{T_0}{T_{sun}} = 1 - \frac{300 \; \text{K}}{5800 \; \text{K}} = 0.948 \; .
 \end{equation}
 %
-Different values for $\phi_L$ are needed when emitted light is
-different from the full solar electromagnetic spectrum,
+Other values for $\phi_L$ are needed when the spectra of emitted light is
+different from the spectra of blackbody radiation,
 as discussed in Section~\ref{sec:physics_of_light}.
 
-The exergetic efficiency of lighting for Figure~\ref{fig:lamp} is given by
+The exergy efficiency of lighting for Figure~\ref{fig:lamp} is given by
 %
 \begin{equation}
   \eta_X = \frac{\dot{X}_2 + \dot{X}_3}{\dot{X}_1} 
@@ -484,7 +498,7 @@ The valuable exergetic efficiency of lighting for Figure~\ref{fig:lamp} is given
               = \frac{\phi_L \dot{L}_3 }{\dot{W}_1} < \eta_X \; .
 \end{equation}
 
-Note that both $\eta_X$ and $\eta_{X,v}$ are independent of human experience;
+Note that both $\eta_X$ and $\eta_{X,v}$ are independent of human presence;
 the efficiencies ($\eta_X$ and $\eta_{X,v}$) would be the same 
 whether the lamp is illuminating
 in an unoccupied room or a crowded bar, 
@@ -496,22 +510,23 @@ are evaluated at the useful stage of the energy conversion chain
 (where light energy and exergy exist),
 prior to the \emph{energy service} stage
 (where illumination exists).
-Both the energy and exergy of light as well as 
-the energy and exergy efficiency of lamps are
-independent of the energy service that the lamp provides.
+Both 
+%
+\begin{enumerate*}[label={(\alph*)}]
+	
+  \item the energy and exergy of light and
+  
+  \item the energy and exergy efficiency of lamps 
+    
+\end{enumerate*}
+%
+are independent of the energy service provided by the lamp.
 
 
 %++++++++++++++++++++++++++++++
 \subsection{Theoretical challenges and analyst decisions with application to societal exergy analysis (MKH, 250 words)}
 \label{sec:challenges_and_decisions}
 %++++++++++++++++++++++++++++++
-
-****
-Point out the decisions that an analyst must make, especially regarding the wavelength sensitivity of the human eye.
-Where does that belong? 
-In the service efficiency? 
-Or in the useful work efficiency?
-****
 
 There are several challenges facing the societal exergy analyst regarding 
 the exergy of light, including
@@ -542,10 +557,10 @@ We noted above that both
 
 \end{enumerate*}
 %
-are independent of human experience.
+are independent of human presence.
 But what about human \emph{perception}?
 
-Human eyes perceive only a portion of the electromagnetic spectra emitted by lamps 
+Human eyes perceive only a portion of the electromagnetic spectrum emitted by lamps 
 (approximately \humaneyesensitivity).
 (Human skin can perceive a much wider range of the electromagnetic spectrum, 
 especially thermal radiation.)
@@ -554,13 +569,13 @@ is uneven, peaking at 555~nm (green),
 with reductions in sensitivity at both longer and shorter wavelengths.
 
 Human perception of light exhibits nuances that are not present
-when considering human perception of work and heat
-for the purposes of societal exergy analysis.
-In particular, 
-there is no analogue to the sensitivity of the human eye to wavelengths of light
-when considering work and heat.
-Neither heat nor work present to human beings at different wavelengths.
-(Strictly speaking, the absorption spectra of human skin is deferentially sensitive
+when considering human perception of work and heat, and 
+the nuances are important for societal exergy analysis.
+Specifically,
+when considering work and heat,
+there is no analogue to the sensitivity of the human eye to wavelengths of light.
+Neither heat nor work present to human beings as differentiated by wavelength or other characteristic.
+(Strictly speaking, the absorption spectra of human skin is differentially sensitive
 to wavelengths of thermal radiation, 
 but this effect is usually small and neglected by societal exergy analysts, 
 because convection is usually the dominant mode 
@@ -571,11 +586,11 @@ when accounting for work and heat in societal exergy analysis.
 In contrast, the analyst must decide how to account for human perception of light.
 Three options are apparent.
 
-First, the analyst could account for the human perception of light in the useful-to-services efficiency.
+First, the analyst can account for the human perception of light in the useful-to-services efficiency.
 In this approach, the useful energy and exergy of light is unaffected by human perception, and
 the energy or exergy \emph{service} provided by light is deemed to be
-the possibility of exciting rods and cones in the human eye.
-For the purposes of accounting at the useful stage, 
+the possibility that it excites rods and cones in the human eye.
+For the purposes of accounting at the \emph{useful} stage of the energy conversion chain, 
 all energy and exergy in electromagnetic radiation emitted by a lamp is counted,
 regardless of its wavelength.
 
@@ -590,27 +605,38 @@ when determining the useful energy or exergy of light.
 I.e., the analyst counts only light in the range \humaneyesensitivity as useful, 
 assuming that the human eye perceives all wavelengths in that range equally.
 
-The third option adds wavelength sensitivity of the human eye to the second.
+The third option adds wavelength sensitivity of the human eye to the second option,
+weighting the energy or exergy content of light by its ability to excite rods and cones
+at each wavelength.
+
+In summary, the analyst must make at least one and possibly two choices:
+%
+\begin{enumerate*}[label={(\alph*)}]
+	
+  \item whether to account for the spectral sensitivity of the human eye
+        at the services stage (Option 1) or the useful stage (Options 2 and 3) of the ECC and       
+  
+  \item if accounting for human perception at the useful stage, 
+        whether to weight by the spectral sensitivity of the human eye (no for Option 2, yes for Option 3)
+        to determine the useful energy and exergy content of light.
+    
+\end{enumerate*}
+
+Sections~\ref{sec:physics_of_light} and \ref{sec:results} provide more details 
+about the implications of Options 1, 2, and 3.
+
+
+%------------------------------
+\subsubsection{Waste heat from lamps} 
+\label{sec:waste_heat}
+%------------------------------
+
+Every lamp produces waste heat ($\dot{Q}_2$ in Figure~\ref{fig:lamp})
+as it converts electrical energy into light energy.
 
 
 
-while 
-by incoming electromagnetic radiation. 
-The useful energy or exergy remains the same, 
-whether or not rods and cones are excited by
-electromagnetic radiation that enters the eye. 
-
-
-If rods and cones are not excited, the useful energy or exergy re
-
-reduced by the effects of human perception. 
-
-
-
-
-Should it be accounted in the exergy-to-energy ratio for light~($\phi_L$)?
-Or should it be account in the useful-to-services efficiency ($\eta_{u-s}$)?
-
+Discuss waste heat reducing space heating loads but increasing space cooling loads. 
 
 
 %++++++++++++++++++++++++++++++
