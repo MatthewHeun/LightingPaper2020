@@ -82,7 +82,6 @@
 \usepackage[makeroom]{cancel}               % To show terms go to zero
 
 
-
 %=================================================================
 %% Please use the following mathematics environments: 
 %% Theorem, Lemma, Corollary, Proposition, Characterization, Property, 
@@ -90,6 +89,10 @@
 %% Definition, Notation, Assumption
 %% For proofs, please use the proof environment 
 %% (the amsthm package is loaded by the MDPI class).
+
+
+% Author macros
+\input{pieces/macros.tex}
 
 
 %=================================================================
@@ -204,7 +207,31 @@ Install the wordcount package from \url{https://github.com/benmarwick/wordcounta
 % to scientists outside your particular field of research. 
 % Citing a journal paper or book~\cite{Delgado-Bonal:2017aa}. 
 
-**** Write introduction ****
+****
+Write introduction 
+****
+
+****
+Need to discuss societal exergy analysis.
+****
+
+****
+Need to discuss the energy conversion chain and P, F, U, S stages.
+(Needed for Section~\ref{sec:framework} later.)
+Point out that human perception and satisfaction of human needs 
+is accomplished post-useful stage.
+****
+
+****
+Discuss lighting as one aspect of ECC analysis.
+Probably more important in earlier years.
+But studies are pushing back to 1800s,
+so getting this right is important.
+****
+
+****
+Discuss Fouquet~\cite{Fouquet:2006}, who looked at energy, but not exergy.
+****
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -240,19 +267,17 @@ Install the wordcount package from \url{https://github.com/benmarwick/wordcounta
 \label{sec:framework}
 %++++++++++++++++++++++++++++++
 
-**** 
-Write up the heat portion of the ``thoughts on the exergy of light'' document.
-****
-
 Energy and exergy are two different ways to quantify the physical property that,
 when transferred to an object,
 heats it or performs work on it.
 (For this discussion we can't call the ``physical property'' energy or exergy, 
 because the concepts need to be separated. 
 So, we must use the generic term ``physical property.'')
-We discuss  energy and exergy quantifications of the physical property in the sections below, 
+We discuss energy and exergy quantifications of the physical property in the sections below, 
 beginning with heat and work, 
 the concepts for which energy and exergy originated.
+Thereafter, we develop a framework for the energy and exergy of light
+in a parallel manner to the energy and exergy of heat and work.
 
 
 %------------------------------
@@ -277,20 +302,10 @@ All streams can be counted as energy, such that
 
 \begin{figure}
 \centering
-\begin{tikzpicture}
-  % Set up the nodes of the main path
-  % Machine node
-  \node(machine)[draw, rounded corners, fill=yellow!25!white, 
-                 minimum width = 4 cm, minimum height = 2 cm] at (0cm, 0cm) {\strut Heat engine};
-  % Number nodes
-  \node[left=3cm of machine] (1)[circle, fill=red!25!white] {\strut 1};
-  \node[above right = -0.7cm and 3cm of machine] (2)[circle, fill=red!25!white] {\strut 2};
-  \node[below right = -0.7cm and 3cm of machine] (3)[circle, fill=red!25!white] {\strut 3};
-  % Arrows
-  \draw[arrows=-triangle 45] (1) -- node [above] {$T_1 , \; \dot{Q}_1 \; \text{(heat)}$} (machine);
-  \draw[arrows=-triangle 45] (2 -| machine.east) -- node [above] {$\dot{Q}_2 \; \text{(heat)}, \; T_2$} (2.west);
-  \draw[arrows=-triangle 45] (3 -| machine.east) -- node [below] {$\dot{W}_3 \; \text{(work)}$} (3.west);
-\end{tikzpicture}
+\machinefigure{Heat engine}
+              {$T_1 , \; \dot{Q}_1 \; \text{(heat)}$}
+              {$\dot{Q}_2 \; \text{(heat)}, \; T_2$}
+              {$\dot{W}_3 \; \text{(work)}$}
 \caption{A heat engine that produces heat and work.}
 \label{fig:heat_engine}
 \end{figure}
@@ -307,10 +322,10 @@ states that energy is conserved ($\dot{Q}_1 = \dot{Q}_2 + \dot{W}_3$).
 
 That said, typically only one of the products in Figure~\ref{fig:heat_engine} 
 is deemed valuable: the work produced by the heat engine ($\dot{W}_3$).
-Thus, the \emph{valuable} energy efficiency ($\eta_{E,V}$) is 
+Thus, the \emph{valuable} energy efficiency ($\eta_{E,v}$) is 
 %
 \begin{equation} \label{eq:valuable_energy_efficiency}
-  \eta_{E,V} = \frac{\dot{E}_3}{\dot{E}_1} = \frac{\dot{W}_3}{\dot{Q}_1} < 1 \; .
+  \eta_{E,v} = \frac{\dot{E}_3}{\dot{E}_1} = \frac{\dot{W}_3}{\dot{Q}_1} < 1 \; .
 \end{equation}
 %
 
@@ -341,7 +356,6 @@ In this context, the Carnot efficiency~($\eta_C$) becomes the exergy-to-energy r
 for heat streams ($\phi_Q = \eta_C$).
 The exergy-to-energy ratio for work is $\phi_W = 1$.
 
-
 Exergy efficiency is defined as $\eta_X \equiv \frac{\text{exergy out}}{\text{exergy in}}$.
 For the heat engine in Figure~\ref{fig:heat_engine}, 
 %
@@ -356,14 +370,22 @@ states that exergy is always destroyed ($\dot{X}_1 > \dot{X}_2 + \dot{X}_3$).
 Assuming, again, that work is valuable means that
 %
 \begin{equation} \label{eq:valuable_exergy_efficiency}
-  \eta_{X,V} = \frac{\dot{W}_3}{\dot{Q}_1 \left( 1 - \frac{T_0}{T_1} \right) } < \eta_X \; .
+  \eta_{X,v} = \frac{\dot{W}_3}{\dot{Q}_1 \left( 1 - \frac{T_0}{T_1} \right) } < \eta_X \; .
 \end{equation}
 
-Note that neither $\eta_{E,V}$ nor $\eta_{X,V}$ involves human perception.
+Note that both $\eta_{E,v}$ and $\eta_{X,v}$ are independent of human perception.
 The work created ($\dot{W}_3$) could be 
 a spinning driveshaft on an automobile carrying 4 passengers down the freeway or
 the same spinning driveshaft on dynamometer in an unoccupied laboratory;
-the efficiencies ($\eta_{E,V}$ and $\eta_{X,V}$) would be the same.
+the efficiencies ($\eta_{E,v}$ and $\eta_{X,v}$) would be the same.
+
+In other words, the energy and exergy efficiencies of a heat engine
+are evaluated at the useful stage of the energy conversion chain 
+(where heat and work exist),
+prior to the \emph{energy service} stage (where transport exists).
+Both the energy and exergy of work and heat as well as 
+the energy and exergy efficiency of heat engines are
+independent of the energy service that the heat engine provides.
 
 We now turn to the production of light instead of work at 3.
 
@@ -375,19 +397,10 @@ We now turn to the production of light instead of work at 3.
 
 \begin{figure}
 \centering
-\begin{tikzpicture}
-  % Set up the nodes of the main path
-  % Machine node
-  \node(lamp)[draw, rounded corners, fill=yellow!25!white, minimum width = 4 cm, minimum height = 2 cm] at (0cm, 0cm) {\strut Lamp};
-  % Number nodes
-  \node[left=3cm of lamp] (1)[circle, fill=red!25!white] {\strut 1};
-  \node[above right = -0.7cm and 3cm of lamp] (2)[circle, fill=red!25!white] {\strut 2};
-  \node[below right = -0.7cm and 3cm of lamp] (3)[circle, fill=red!25!white] {\strut 3};
-  % Arrows
-  \draw[arrows=-triangle 45] (1) -- node [above] {$\dot{W}_1 \; \text{(electricity)}$} (lamp);
-  \draw[arrows=-triangle 45] (2 -| lamp.east) -- node [above] {$\dot{Q}_2 \; \text{(heat)}, \; T_2$} (2.west);
-  \draw[arrows=-triangle 45] (3 -| lamp.east) -- node [below] {$\dot{L}_3 \; \text{(light)}$} (3.west);
-\end{tikzpicture}
+\machinefigure{Lamp}
+              {$\dot{W}_1 \; \text{(electricity)}$}
+              {$\dot{Q}_2 \; \text{(heat)}, \; T_2$}
+              {$\dot{L}_3 \; \text{(light)}$}
 \caption{A lamp that produces heat and light.}
 \label{fig:lamp}
 \end{figure}
@@ -395,11 +408,11 @@ We now turn to the production of light instead of work at 3.
 Figure~\ref{fig:lamp} replaces the heat engine with a lamp 
 that produces light instead of work at 3.
 Waste heat is still produced at 2, and electricity powers the lamp at 1.
-Both electricity and light can be converted to heat without loss, so both are pure energy.
+Both electricity and light can be converted to heat without loss, so they are pure energy.
 Thus,
 %
 \begin{equation}
-  \dot{E}_1 = \dot{W}_1, \; \dot{E}_2 = \dot{Q}_2, \; \text{and} \; \dot{E}_3 = \dot{L}_3 \; .
+  \dot{E}_1 = \dot{W}_1 = \dot{W}_1, \; \dot{E}_2 = \dot{Q}_2, \; \text{and} \; \dot{E}_3 = \dot{L}_3 \; .
 \end{equation}
 %
 Energy efficiency for Figure~\ref{fig:lamp} is 
@@ -412,24 +425,28 @@ and valuable energy efficiency for Figure~\ref{fig:lamp}
 (assuming that light is the valuable output from the lamp) is
 %
 \begin{equation}
-  \eta_{E,V} = \frac{\dot{E}_3}{\dot{E}_1} = \frac{\dot{L}_3}{\dot{W}_1} < 1 \; .
+  \eta_{E,v} = \frac{\dot{E}_3}{\dot{E}_1} = \frac{\dot{L}_3}{\dot{W}_1} < 1 \; .
 \end{equation}
 
 Because electricity can be converted to work without loss in a frictionless motor,
-electricity is considered pure exergy.
+electricity is considered pure exergy, i.e., $\phi_{elect} = 1$.
 Thus, the exergy of each stream in Figure~\ref{fig:lamp} is given by 
 %
 \begin{equation}
-  \dot{X}_1 = \dot{W}_1, \; \dot{X}_2 = \left( 1 - \frac{T_0}{T_2} \right) \dot{Q}_2, \; \text{and} \; \dot{X}_3 = \phi_L \dot{L}_3 \; ,
+  \dot{X}_1 = \cancelto{1}{\phi_{elect}} \dot{W}_1 = \dot{W}_1, \; 
+              \dot{X}_2 = \left( 1 - \frac{T_0}{T_2} \right) \dot{Q}_2, \; \text{and} \; 
+              \dot{X}_3 = \phi_L \dot{L}_3 \; ,
 \end{equation}
 %
 where $\phi_L$ is the exergy-to-energy ratio for light.
 
 Recent work by Delgado-Bonal~\cite{Delgado-Bonal:2017aa}
-has provided access to a method for calculating $\phi_L$.
+has provided a method for calculating $\phi_L$.
 (See Section~\ref{sec:physics_of_light} for details.)
-Delgado-Bonal's estimate for solar spectrum electromagnetic radiation
-is $\phi_L = 0.931$ \cite[Figure~3]{Delgado-Bonal:2017aa}.
+Delgado-Bonal's estimate 
+is $\phi_L = 0.931$
+for solar spectrum electromagnetic radiation
+ \cite[Figure~3]{Delgado-Bonal:2017aa}.
 A similar estimate comes from the maximum efficiency 
 of converting solar-spectrum electromagnetic radiation (at 5800~K) 
 to electricity (pure work and, therefore, pure exergy), 
@@ -453,27 +470,29 @@ The exergetic efficiency of lighting for Figure~\ref{fig:lamp} is given by
 The valuable exergetic efficiency of lighting for Figure~\ref{fig:lamp} is given by
 %
 \begin{equation}
-  \eta_{X,V} = \frac{\dot{X}_3}{\dot{X}_1} 
+  \eta_{X,v} = \frac{\dot{X}_3}{\dot{X}_1} 
               = \frac{\phi_L \dot{L}_3 }{\dot{W}_1} < \eta_X \; .
 \end{equation}
-%
 
+Note that both $\eta_X$ and $\eta_{X,v}$ are independent of human perception;
+the efficiencies ($\eta_X$ and $\eta_{X,v}$) would be the same 
+whether the lamp is illuminating
+in an unoccupied room or a crowded bar, 
+whether the illumination stimulates the rods and cones of a human eye or
+excites band gap electrons in an amorphous silicon solar cell.
 
+Strictly speaking, the energy and exergy efficiencies of a lamp
+are evaluated at the useful stage of the energy conversion chain
+(where light energy and exergy exist),
+prior to the \emph{energy service} stage
+(where illumination exists).
+Both the energy and exergy of light as well as 
+the energy and exergy efficiency of lamps are
+independent of the energy service that the lamp provides.
 
-Note that 
 
 %++++++++++++++++++++++++++++++
-\subsection{Philosophical issues regarding the exergy of lighting (MKH, 500 words)}
-\label{sec:philosophy}
-%++++++++++++++++++++++++++++++
-
-****
-Write up the light portion of the ``thoughts on the exergy of light'' document.
-****
-
-
-%++++++++++++++++++++++++++++++
-\subsection{Theoretical challenges and decisions (MKH, 250 words)}
+\subsection{Theoretical challenges and analyst decisions with application to societal exergy analysis (MKH, 250 words)}
 \label{sec:challenges_and_decisions}
 %++++++++++++++++++++++++++++++
 
@@ -483,6 +502,9 @@ Where does that belong?
 In the service efficiency? 
 Or in the useful work efficiency?
 ****
+
+
+
 
 
 %++++++++++++++++++++++++++++++
