@@ -518,9 +518,9 @@ the exergy of light, including
 %
 \begin{enumerate*}[label={(\alph*)}]
 	
-  \item how to account for the human perception of light,        
+  \item how to account for the human perception of light and   
   
-  \item how to account for waste heat from lamps,
+  \item how to account for waste heat from lamps.
     
 \end{enumerate*}
 %
@@ -536,23 +536,80 @@ We noted above that both
 %
 \begin{enumerate*}[label={(\alph*)}]
 
-  \item energy and exergy and
+  \item energy and exergy of light and
 
-  \item energy and exergy efficiency
+  \item energy and exergy efficiency of lamps
 
 \end{enumerate*}
 %
 are independent of human experience.
 But what about human \emph{perception}?
+
 Human eyes perceive only a portion of the electromagnetic spectra emitted by lamps 
-(approximately 380 nm < $\lambda$ < 750 nm).
+(approximately \humaneyesensitivity).
 (Human skin can perceive a much wider range of the electromagnetic spectrum, 
 especially thermal radiation.)
 Furthermore, the wavelength sensitivity of the human eye 
-is uneven, peaking at 555~nm (green) with reductions
-in sensitivity at both shorter and longer wavelengths.
-Should human perception of light be accounted in the exergy-to-energy ratio for light~($\phi_L$)?
-Or should human perception of light be account in the useful-to-services efficiency ($\eta_{u-s}$)?
+is uneven, peaking at 555~nm (green),
+with reductions in sensitivity at both longer and shorter wavelengths.
+
+Human perception of light exhibits nuances that are not present
+when considering human perception of work and heat
+for the purposes of societal exergy analysis.
+In particular, 
+there is no analogue to the sensitivity of the human eye to wavelengths of light
+when considering work and heat.
+Neither heat nor work present to human beings at different wavelengths.
+(Strictly speaking, the absorption spectra of human skin is deferentially sensitive
+to wavelengths of thermal radiation, 
+but this effect is usually small and neglected by societal exergy analysts, 
+because convection is usually the dominant mode 
+of heat transfer experienced by humans in heated spaces.)
+So there is no need to consider human perception 
+when accounting for work and heat in societal exergy analysis.
+
+In contrast, the analyst must decide how to account for human perception of light.
+Three options are apparent.
+
+First, the analyst could account for the human perception of light in the useful-to-services efficiency.
+In this approach, the useful energy and exergy of light is unaffected by human perception, and
+the energy or exergy \emph{service} provided by light is deemed to be
+the possibility of exciting rods and cones in the human eye.
+For the purposes of accounting at the useful stage, 
+all energy and exergy in electromagnetic radiation emitted by a lamp is counted,
+regardless of its wavelength.
+
+The second and third options account for human perception of light at the useful stage. 
+In the second option, light is deemed \emph{useful} only if it \emph{could}
+stimulate rods and cones, 
+regardless of the sensitivity of the human eye 
+to any given wavelength of light in the range \humaneyesensitivity.
+In this option, the analyst simply excludes the energy or exergy content of light 
+in wavelengths outside the range of perception by the human eye
+when determining the useful energy or exergy of light.
+I.e., the analyst counts only light in the range \humaneyesensitivity as useful, 
+assuming that the human eye perceives all wavelengths in that range equally.
+
+The third option adds wavelength sensitivity of the human eye to the second.
+
+
+
+while 
+by incoming electromagnetic radiation. 
+The useful energy or exergy remains the same, 
+whether or not rods and cones are excited by
+electromagnetic radiation that enters the eye. 
+
+
+If rods and cones are not excited, the useful energy or exergy re
+
+reduced by the effects of human perception. 
+
+
+
+
+Should it be accounted in the exergy-to-energy ratio for light~($\phi_L$)?
+Or should it be account in the useful-to-services efficiency ($\eta_{u-s}$)?
 
 
 
