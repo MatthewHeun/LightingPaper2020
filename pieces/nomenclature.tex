@@ -4,6 +4,7 @@
 %!TEX root = ../LightingPaper2020.Rnw
 
 Table~\ref{tab:symbols} shows symbols and abbreviations, their meanings, and example units.
+Table~\ref{tab:greek} shows greek letters and their meaning.
 Table~\ref{tab:decorations} shows symbol decorations and their meanings.
 Table~\ref{tab:subscripts} shows subscripts and their meanings.
 
@@ -21,11 +22,31 @@ Symbol & Meaning [example units] \\
 \midrule
 $E$ & Energy [MJ] \\
 $Q$ & Heat [MJ] \\
+$T$ & Temperature [K] \\
 $W$ & Work [MJ] \\
 $X$ & Exergy [MJ] \\
 \bottomrule
 \end{tabular}
 \label{tab:symbols}
+\end{table}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Greek
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{table}
+\centering % Centered table
+\caption{Greek letters.}
+\begin{tabular}{r l}
+  \toprule
+  Greek letter & Meaning [example units] \\
+  \midrule
+  $\eta$ & efficiency [--] \\
+  $\phi$ & exergy-to-energy ratio [--] \\
+  \bottomrule
+\end{tabular}
+\label{tab:greek}
 \end{table}
 
 
@@ -58,7 +79,10 @@ $\dot{X}$ & rate of $X$ [units of X/s] \\
 \toprule
 Subscript & Meaning \\
 \midrule
+$0$ & ambient temperature \\
+$C$ & Carnot efficiency \\
 $E$ & energy \\
+$sys$ & system operating temperature \\
 $V$ & valuable \\
 $X$ & exergy \\
 \bottomrule

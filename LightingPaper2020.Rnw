@@ -79,6 +79,8 @@
 % hyphenat, natbib, hyperref, footmisc, url, geometry, newfloat, caption
 
 \usetikzlibrary{arrows,positioning}         % For diagrams with tikz
+\usepackage[makeroom]{cancel}               % To show terms go to zero
+
 
 
 %=================================================================
@@ -182,7 +184,7 @@ keyword 1; keyword 2; keyword 3
 % For any questions, please contact the editorial office of the journal or
 % support@mdpi.com. For LaTeX related questions please contact latex@mdpi.com.
 
-Suggested 6250 words.
+Suggested 6750 words.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction (PB, 500 words)}
@@ -232,7 +234,7 @@ Suggested 6250 words.
 
 
 %++++++++++++++++++++++++++++++
-\subsection{Exergy theory (MKH, 500 words)}
+\subsection{Exergy theory (MKH, 1000 words)}
 \label{sec:framework}
 %++++++++++++++++++++++++++++++
 
@@ -243,25 +245,32 @@ Write up the heat portion of the ``thoughts on the exergy of light'' document.
 Energy and exergy are two different ways to quantify the physical property that,
 when transferred to an object,
 heats it or performs work on it.
-For this discussion we can't call the ``physical property'' energy or exergy, 
+(For this discussion we can't call the ``physical property'' energy or exergy, 
 because the concepts need to be separated. 
-So, we use the term ``physical property.''
-We discuss the energy and exergy quantifications in the sections below.
+So, we must use the generic term ``physical property.'')
+We discuss the energy and exergy quantifications in the sections below, 
+beginning with the energy and exergy of heat and work.
+
 
 %------------------------------
 \subsubsection{Energy ($\dot{E}$) and exergy ($\dot{X}$) of heat and work } 
 \label{sec:energy_and_exergy_of_heat_and_work}
 %------------------------------
 
-Energy quantifies the physical property as heat.
+Energy quantifies the physical property by its heat content.
 Thus, heat is pure energy.
-Thanks to Thompson's canon experiment, 
-we know that work can be converted perfectly into heat.
+Thanks to Thompson's cannon experiment~\cite{Thompson:1798aa}, 
+we know that work can be converted, without loss, into heat.
 
 Figure~\ref{fig:energy_of_heat_and_work} shows a generic machine (a heat engine) that converts 
-heat at 1 to 
-work at 3
-with a waste heat byproduct at 2. 
+heat at $1$ to 
+work at $3$
+with a waste heat byproduct at $2$. 
+All streams can be counted as energy, such that 
+%
+\begin{equation} \label{eq:all_streams_energy}
+  \dot{E}_1 = \dot{Q}_1, \; \dot{E}_2 = \dot{Q}_2, \; \dot{E}_3 = \dot{W}_3
+\end{equation}
 
 \begin{figure}
 \centering
@@ -282,35 +291,75 @@ with a waste heat byproduct at 2.
 \label{fig:energy_of_heat_and_work}
 \end{figure}
 
-For the heat engine, all streams can be counted as energy.
-%
-\begin{equation} \label{eq:all_streams_energy}
-  \dot{E}_1 = \dot{Q}_1, \; \dot{E}_2 = \dot{Q}_2, \; \dot{E}_3 = \dot{W}_3
-\end{equation}
-
-Energy efficiency is defined as $\eta_E \equiv \frac{\text{energy out}}{\text{enertgy in}}$.
+Energy efficiency is defined as $\eta_E \equiv \frac{\text{energy out}}{\text{energy in}}$.
 For the example of Figure~\ref{fig:energy_of_heat_and_work}, 
 %
 \begin{equation} \label{eq:energy_efficiency}
-  \eta_E = \frac{\dot{E}_2 + \dot{E}_3}{\dot{E}_1} = \frac{\dot{Q}_2 + \dot{W}_3}{\dot{Q}_1} \; .
+  \eta_E = \frac{\dot{E}_2 + \dot{E}_3}{\dot{E}_1} = \frac{\dot{Q}_2 + \dot{W}_3}{\dot{Q}_1} = 1 \; .
 \end{equation}
 %
-Because energy is conserved ($\dot{Q}_1 = \dot{Q}_2 + \dot{W}_3$), 
-energy efficiency is 1.
+Energy efficiency ($\eta_E$) is 1, because the first law of thermodynamics 
+states that energy is conserved ($\dot{Q}_1 = \dot{Q}_2 + \dot{W}_3$).
 
-That said, only one of the products in Figure~\ref{fig:energy_of_heat_and_work} is deemed valuable, the work ($\dot{W}_3$).
-Thus, the \emph{valuable} energy efficiency is 
+That said, typically only one of the products in Figure~\ref{fig:energy_of_heat_and_work} 
+is deemed valuable: the work produced by the machine ($\dot{W}_3$).
+Thus, the \emph{valuable} energy efficiency ($\eta_{E,V}$) is 
 %
 \begin{equation} \label{eq:valuable_energy_efficiency}
   \eta_{E,V} = \frac{\dot{E}_3}{\dot{E}_1} = \frac{\dot{W}_3}{\dot{Q}_1} < 1 \; .
 \end{equation}
 %
 
-On the other hand, exergy quantifies that physical property as work potential.
+On the other hand, exergy quantifies the physical property by its work potential.
 Exergy provides the answer to the question, 
 ``what is the maximum work we could obtain from a stream of this physical property?''
-Actual work being performed is pure exergy. 
+Thus, work is pure exergy. 
 
+The Kelvin-Planck statement of the second law of thermodynamics 
+states that heat cannot be converted to work without loss. 
+To find the maximum possible work that can be created from heat 
+(and, therefore, the exergy of heat), 
+we consider the Carnot heat engine which operates at the maximum possible valuable energy efficiency, 
+%
+\begin{equation} \label{eq:eta_C}
+  \eta_C = 1 - \frac{T_0}{T_{sys}} \; .
+\end{equation}
+%
+The exergy of each stream in Figure~\ref{fig:energy_of_heat_and_work} is then
+%
+\begin{align}
+  \dot{X}_1 &= \phi_1 \dot{Q}_1 = \left(1 - \frac{T_0}{T_1} \right) \dot{Q}_1, \\
+  \dot{X}_2 &= \phi_2 \dot{Q}_2 = \left(1 - \frac{T_0}{T_2} \right) \dot{Q}_2, \; \text{and} \\
+  \dot{X}_3 &= \cancelto{1}{\phi_3} \dot{W}_3 = \dot{W}_3 \; .
+\end{align}
+%
+In this context, the Carnot efficiency~($\eta_C$) becomes the exergy-to-energy ratio
+for heat streams ($\phi_Q = \eta_C$).
+The exergy-to-energy ratio for work is $\phi_W = 1$.
+
+
+Exergy efficiency is defined as $\eta_X \equiv \frac{\text{exergy out}}{\text{exergy in}}$.
+For the heat engine in Figure~\ref{fig:energy_of_heat_and_work}, 
+%
+\begin{equation} \label{eq:exergy_efficiency}
+  \eta_X = \frac{\dot{X}_2 + \dot{X}_3}{\dot{X}_1} = \frac{\dot{Q}_2 \left( 1 - \frac{T_0}{T_2} \right)  + \dot{W}_3}
+                {\dot{Q}_1 \left( 1 - \frac{T_0}{T_1} \right) } < 1 \; .
+\end{equation}
+%
+Exergy efficiency ($\eta_X$) is less than 1, because the second law of thermodynamics 
+states that exergy is always destroyed ($\dot{X}_1 > \dot{X}_2 + \dot{X}_3$).
+
+Assuming, again, that work is valuable means that
+%
+\begin{equation} \label{eq:valuable_exergy_efficiency}
+  \eta_{X,V} = \frac{\dot{W}_3}{\dot{Q}_1 \left( 1 - \frac{T_0}{T_1} \right) } < \eta_X \; .
+\end{equation}
+
+Note that neither $\eta_{E,V}$ nor $\eta_{X,V}$ involves human perception.
+The work created ($\dot{W}_3$) could be 
+a spinning driveshaft on an automobile carrying 4 passengers down the freeway or
+the same spinning driveshaft on dynamometer in an unoccupied laboratory;
+the efficiencies ($\eta_{E,V} and \eta_{X,V}$) would be the same.
 
 
 %------------------------------
