@@ -1,0 +1,37 @@
+% The next command tells RStudio to do "Compile PDF" on book.Rnw,
+% instead of this chapter, thereby eliminating the need to switch back to book.Rnw 
+% before making the book.
+%!TEX root = ../LightingPaper2020.Rnw
+
+
+
+
+%
+% Tikz figures for machines
+% Arguments:
+%   {#1}: text for machine name
+%   {#2}: text for arrow from statepoint 1
+%   {#3}: text for arrow from statepoint 2
+%   {#4}: text for arrow from statepoint 3
+%
+\newcommand{\machinefigure}[4]{%
+\begin{tikzpicture}
+  % Set up the nodes of the main path
+  % Machine node
+  \node(machine)[draw, rounded corners, fill=yellow!25!white, 
+                 minimum width = 4 cm, minimum height = 2 cm] at (0cm, 0cm) {\strut #1};
+  % Number nodes
+  \node[left=3cm of machine] (1)[circle, fill=red!25!white] {\strut 1};
+  \node[above right = -0.7cm and 3cm of machine] (2)[circle, fill=red!25!white] {\strut 2};
+  \node[below right = -0.7cm and 3cm of machine] (3)[circle, fill=red!25!white] {\strut 3};
+  % Arrows
+  \draw[arrows=-triangle 45] (1) -- node [above] {#2} (machine);
+  \draw[arrows=-triangle 45] (2 -| machine.east) -- node [above] {#3} (2.west);
+  \draw[arrows=-triangle 45] (3 -| machine.east) -- node [below] {#4} (3.west);
+\end{tikzpicture}
+}
+
+
+
+% Human eye wavelength sensitivity range
+\newcommand{\humaneyesensitivity}{380 nm < $\lambda$ < 750 nm}

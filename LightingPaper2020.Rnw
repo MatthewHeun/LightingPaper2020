@@ -1,6 +1,11 @@
 %  LaTeX support: latex@mdpi.com 
 %  In case you need support, please attach all files that are necessary for compiling as well as the log file, and specify the details of your LaTeX setup (which operating system and LaTeX version / tools you are using).
 
+% The helpful information at 
+% https://nuanceabounds.org/fix-latex-package-option-clash-error-passoptionstopackage/
+% indicates the \PassOptionsToPackage command must occur BEFORE the \documentclass command.
+\PassOptionsToPackage{inline}{enumitem}
+
 %=================================================================
 \documentclass[energies,article,submit,moreauthors,pdftex]{Definitions/mdpi} 
 
@@ -78,6 +83,12 @@
 % etoolbox, tabto, xcolor, soul, multirow, microtype, tikz, totcount, amsthm, 
 % hyphenat, natbib, hyperref, footmisc, url, geometry, newfloat, caption
 
+\usetikzlibrary{arrows,positioning}         % For diagrams with tikz
+\usepackage[makeroom]{cancel}               % To show terms go to zero
+
+% \usepackage[inline]{enumitem}               % For inline enumeration %>%
+
+
 
 %=================================================================
 %% Please use the following mathematics environments: 
@@ -86,6 +97,10 @@
 %% Definition, Notation, Assumption
 %% For proofs, please use the proof environment 
 %% (the amsthm package is loaded by the MDPI class).
+
+
+% Author macros
+\input{pieces/macros.tex}
 
 
 %=================================================================
@@ -180,7 +195,70 @@ keyword 1; keyword 2; keyword 3
 % For any questions, please contact the editorial office of the journal or
 % support@mdpi.com. For LaTeX related questions please contact latex@mdpi.com.
 
-Suggested 6250 words.
+Suggested 6750 words.
+
+Install the wordcount package from \url{https://github.com/benmarwick/wordcountaddin} to count words.
+
+Terminology for this paper:
+%
+\begin{enumerate}
+
+  \item Light is a portion of the electromagnetic spectrum.
+  
+  \item ``spectrum'' means a range of wavelengths.
+  
+  \item ``spectra'' are several ranges of wavelengths.
+
+  \item Lamps are devices that convert electricity into light.
+  
+  \item To avoid ambiguity, we should not use ``lights'' to mean ``lamps.''
+
+  \item Always be specific about energy and exergy.  
+        Any time you use the words energy or exergy, be sure you mean it.  
+        If you mean either, say ``energy or exergy.''
+
+  \item Never use the word ``useful'' unless you mean the useful stage of the energy conversion chain.
+  
+  \item Let's be very clear about power and energy.  Use overdots ($\dot{X}$) to indicate powers (rates).
+  
+  \item Review the nomenclature tables at the end of the paper.  
+        If you use a new variable name, be sure you can't use a letter that already exists in the nomenclature tables.
+        If you must use a new variable letter, add it to the table the first time you use it.
+        
+  \item Only single letters for main variable names.  
+        Use subscripts to provide additional meaning.  
+        Use decorations to indicate rates.
+        
+  \item The exergy-to-energy ratio ($\phi$) is \emph{not} second law efficiency ($\eta_X$)
+        $\phi$ applies at a statepoint.  
+        $\eta_X$ applies across a device.
+
+\end{enumerate}
+%
+
+Style for this paper:
+%
+\begin{enumerate}
+
+  \item Do not use ``this,'' ``that'', or ``it'' as the subject of a sentence. (MKH pet peeve!)
+        Sentences that have those words as subjects are 
+        almost never clear to the reader
+        yet almost always clear to the writer.
+        Why? The antecedent is almost always ambiguous.
+
+  \item Spell out ``Figure~X,'' ``Equation~Y,'' and ``Figure~Z.''  Capitalize both.
+  
+  \item Use SI units for everything.
+  
+  \item Every number that deserves a unit must have a unit.  Do not write ``683'' without units, for example. 
+  
+  \item Use the Oxford comma:  ``This, that, and the other;'' not ``This, that and the other.''
+  
+  \item Write comments to other authors in the text with ``**** comment --- MKH ****''.
+
+\end{enumerate}
+%
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction (PB, 500 words)}
@@ -198,7 +276,31 @@ Suggested 6250 words.
 % to scientists outside your particular field of research. 
 % Citing a journal paper or book~\cite{Delgado-Bonal:2017aa}. 
 
-**** Write introduction ****
+****
+PB: Write introduction 
+****
+
+****
+PB: Need to discuss societal exergy analysis.
+****
+
+****
+PB: Need to discuss the energy conversion chain and P, F, U, S stages.
+(Needed for Section~\ref{sec:framework} later.)
+Point out that human perception and satisfaction of human needs 
+is accomplished post-useful stage.
+****
+
+****
+PB: Discuss lighting as one aspect of ECC analysis.
+Probably more important in earlier years.
+But studies are pushing back to 1800s,
+so getting this right is important.
+****
+
+****
+PB: Discuss Fouquet~\cite{Fouquet:2006}, who looked at energy, but not exergy.
+****
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -230,44 +332,430 @@ Suggested 6250 words.
 
 
 %++++++++++++++++++++++++++++++
-\subsection{Exergy theory (MKH, 500 words)}
+\subsection{Exergy theory (MKH, 1000 words)}
 \label{sec:framework}
 %++++++++++++++++++++++++++++++
 
-**** 
-Write up the heat portion of the ``thoughts on the exergy of light'' document.
-****
+Energy and exergy are two methods to quantify the physical property that,
+when transferred to an object,
+heats it or performs work on it.
+(For this discussion, we can't call the ``physical property'' energy or exergy, 
+because the concepts need to be separated. 
+So, we must use the generic term ``physical property.'')
+We discuss energy and exergy quantifications of the physical property in the sections below, 
+beginning with heat and work, 
+the concepts for which energy and exergy originated.
+Thereafter, we develop a framework for the energy and exergy of light
+in a parallel manner to the energy and exergy of heat and work.
+
+
+%------------------------------
+\subsubsection{Energy ($\dot{E}$) and exergy ($\dot{X}$) of heat and work } 
+\label{sec:energy_and_exergy_of_heat_and_work}
+%------------------------------
+
+Energy quantifies the physical property by its heat content.
+Thus, heat is pure energy.
+Thanks to Thompson's cannon experiment~\cite{Thompson:1798aa}, 
+we know that work can be converted, without loss, into heat.
+
+Figure~\ref{fig:heat_engine} shows a heat engine that converts 
+heat at $1$ to 
+work at $3$
+with a waste heat byproduct at $2$. 
+All streams can be counted as energy, such that 
+%
+\begin{equation} \label{eq:all_streams_energy}
+  \dot{E}_1 = \dot{Q}_1, \; \dot{E}_2 = \dot{Q}_2, \; \text{and} \; \dot{E}_3 = \dot{W}_3 \; .
+\end{equation}
+
+\begin{figure}
+\centering
+\machinefigure{Heat engine}
+              {$T_1 , \; \dot{Q}_1 \; \text{(heat)}$}
+              {$\dot{Q}_2 \; \text{(heat)}, \; T_2$}
+              {$\dot{W}_3 \; \text{(work)}$}
+\caption{A heat engine that produces heat and work.}
+\label{fig:heat_engine}
+\end{figure}
+
+Energy efficiency is defined as $\eta_E \equiv \frac{\text{energy out}}{\text{energy in}}$.
+For the example of Figure~\ref{fig:heat_engine}, 
+%
+\begin{equation} \label{eq:energy_efficiency}
+  \eta_E = \frac{\dot{E}_2 + \dot{E}_3}{\dot{E}_1} = \frac{\dot{Q}_2 + \dot{W}_3}{\dot{Q}_1} = 1 \; .
+\end{equation}
+%
+Energy efficiency ($\eta_E$) is 1, because the first law of thermodynamics 
+states that energy is conserved ($\dot{Q}_1 = \dot{Q}_2 + \dot{W}_3$).
+
+That said, typically only one of the products in Figure~\ref{fig:heat_engine} 
+is deemed valuable: the work produced by the heat engine ($\dot{W}_3$).
+Thus, the \emph{valuable} energy efficiency ($\eta_{E,v}$) is 
+%
+\begin{equation} \label{eq:valuable_energy_efficiency}
+  \eta_{E,v} = \frac{\dot{E}_3}{\dot{E}_1} = \frac{\dot{W}_3}{\dot{Q}_1} < 1 \; .
+\end{equation}
+%
+
+On the other hand, exergy quantifies the physical property by its work potential.
+Exergy provides the answer to the question, 
+``what is the maximum work we could obtain from a stream of this physical property?''
+Thus, work is pure exergy. 
+
+The Kelvin-Planck statement of the second law of thermodynamics 
+states that heat cannot be converted to work without loss. 
+To find the maximum possible work that can be created from heat 
+(and, therefore, the exergy of heat), 
+we consider the Carnot heat engine which operates at the maximum possible valuable energy efficiency, 
+%
+\begin{equation} \label{eq:eta_C}
+  \eta_C = 1 - \frac{T_0}{T_{sys}} \; .
+\end{equation}
+%
+The exergy of each stream in Figure~\ref{fig:heat_engine} is then
+%
+\begin{align}
+  \dot{X}_1 &= \phi_1 \dot{Q}_1 = \left(1 - \frac{T_0}{T_1} \right) \dot{Q}_1, \\
+  \dot{X}_2 &= \phi_2 \dot{Q}_2 = \left(1 - \frac{T_0}{T_2} \right) \dot{Q}_2, \; \text{and} \\
+  \dot{X}_3 &= \cancelto{1}{\phi_3} \dot{W}_3 = \dot{W}_3 \; .
+\end{align}
+%
+In this context, the Carnot efficiency~($\eta_C$) becomes the exergy-to-energy ratio
+for heat streams ($\phi_Q = \eta_C$).
+The exergy-to-energy ratio for work is $\phi_W = 1$, 
+because work is pure exergy.
+
+Exergy efficiency is defined as $\eta_X \equiv \frac{\text{exergy out}}{\text{exergy in}}$.
+For the heat engine in Figure~\ref{fig:heat_engine}, 
+%
+\begin{equation} \label{eq:exergy_efficiency}
+  \eta_X = \frac{\dot{X}_2 + \dot{X}_3}{\dot{X}_1} = \frac{\dot{Q}_2 \left( 1 - \frac{T_0}{T_2} \right)  + \dot{W}_3}
+                {\dot{Q}_1 \left( 1 - \frac{T_0}{T_1} \right) } < 1 \; .
+\end{equation}
+%
+Exergy efficiency ($\eta_X$) is less than 1, because the second law of thermodynamics 
+states that exergy is always destroyed ($\dot{X}_1 > \dot{X}_2 + \dot{X}_3$).
+
+Assuming, again, that work is valuable gives
+%
+\begin{equation} \label{eq:valuable_exergy_efficiency}
+  \eta_{X,v} = \frac{\dot{W}_3}{\dot{Q}_1 \left( 1 - \frac{T_0}{T_1} \right) } < \eta_X \; .
+\end{equation}
+
+Note that both $\eta_{E,v}$ and $\eta_{X,v}$ 
+are independent of human presence.
+The work created ($\dot{W}_3$) could be 
+a spinning driveshaft on an automobile carrying four passengers down the freeway or
+the same spinning driveshaft on dynamometer in an unoccupied laboratory.
+Both
+%
+\begin{enumerate*}[label={(\alph*)}]
+	
+  \item the energy and exergy of the work and heat ($\dot{Q}_2$ and $\dot{W}_3$) and
+  
+  \item the efficiencies of the heat engine ($\eta_{E,v}$ and $\eta_{X,v}$)
+    
+\end{enumerate*}
+%
+would be the same, regardless.
+
+In other words, both 
+%
+\begin{enumerate*}[label={(\alph*)}]
+	
+  \item the energy and exergy of work and heat and
+  
+  \item the efficiencies of the heat engine
+    
+\end{enumerate*}
+%
+are independent of human presence and the energy service provided by the heat engine.
+
+We now turn to the production of light instead of work at 3.
+
+
+%------------------------------
+\subsubsection{Energy ($\dot{E}$) and exergy ($\dot{X}$) of light} 
+\label{sec:energy_and_exergy_of_light}
+%------------------------------
+
+\begin{figure}
+\centering
+\machinefigure{Lamp}
+              {$\dot{W}_1 \; \text{(electricity)}$}
+              {$\dot{Q}_2 \; \text{(heat)}, \; T_2$}
+              {$\dot{L}_3 \; \text{(light)}$}
+\caption{A lamp that produces heat and light.}
+\label{fig:lamp}
+\end{figure}
+
+Figure~\ref{fig:lamp} replaces the heat engine with a lamp 
+that produces light instead of work at 3.
+Waste heat is still produced at 2, and electricity powers the lamp at 1.
+Both electricity and light can be converted to heat without loss, so they are pure energy.
+Thus,
+%
+\begin{equation}
+  \dot{E}_1 = \dot{W}_1 = \dot{W}_1, \; \dot{E}_2 = \dot{Q}_2, \; \text{and} \; \dot{E}_3 = \dot{L}_3 \; .
+\end{equation}
+%
+Energy efficiency for Figure~\ref{fig:lamp} is 
+%
+\begin{equation}  
+  \eta_E = \frac{\dot{E}_2 + \dot{E}_3}{\dot{E}_1} = \frac{\dot{Q}_2 + \dot{L}_3}{\dot{W}_1} = 1 \; ,
+\end{equation}
+%
+and valuable energy efficiency for Figure~\ref{fig:lamp} 
+(assuming that light is the valuable output from the lamp) is
+%
+\begin{equation}
+  \eta_{E,v} = \frac{\dot{E}_3}{\dot{E}_1} = \frac{\dot{L}_3}{\dot{W}_1} < 1 \; .
+\end{equation}
+
+Because electricity can be converted to work without loss in a frictionless motor,
+electricity is considered pure exergy, i.e., $\phi_{elect} = 1$.
+Thus, the exergy of each stream in Figure~\ref{fig:lamp} is given by 
+%
+\begin{equation}
+  \dot{X}_1 = \cancelto{1}{\phi_{elect}} \dot{W}_1 = \dot{W}_1, \; 
+              \dot{X}_2 = \left( 1 - \frac{T_0}{T_2} \right) \dot{Q}_2, \; \text{and} \; 
+              \dot{X}_3 = \phi_L \dot{L}_3 \; ,
+\end{equation}
+%
+where $\phi_L$ is the exergy-to-energy ratio for light.
+
+Recent work by Delgado-Bonal~\cite{Delgado-Bonal:2017aa}
+has provided a method for calculating $\phi_L$.
+(See Section~\ref{sec:physics_of_light} for details.)
+Delgado-Bonal's estimate 
+is $\phi_L = 0.931$
+for solar spectrum electromagnetic radiation
+\cite[Figure~3]{Delgado-Bonal:2017aa}.
+A similar estimate comes from the maximum efficiency 
+of converting blackbody electromagnetic radiation (at 5800~K, the temperature of the sun) 
+to electricity (pure work and, therefore, pure exergy), 
+rejecting waste heat to an ambient temperature of 300~K:
+%
+\begin{equation}
+  \phi_L \approx \eta_C = 1 - \frac{T_0}{T_{sun}} = 1 - \frac{300 \; \text{K}}{5800 \; \text{K}} = 0.948 \; .
+\end{equation}
+%
+Other values for $\phi_L$ are needed when the spectra of emitted light is
+different from the spectra of blackbody radiation,
+as discussed in Section~\ref{sec:physics_of_light}.
+
+The exergy efficiency of lighting for Figure~\ref{fig:lamp} is given by
+%
+\begin{equation}
+  \eta_X = \frac{\dot{X}_2 + \dot{X}_3}{\dot{X}_1} 
+          = \frac{\left( 1 - \frac{T_0}{T_2} \right) \dot{Q}_2 + \phi_L \dot{L}_3 }{\dot{W}_1} < 1 \; .
+\end{equation}
+%
+The valuable exergetic efficiency of lighting for Figure~\ref{fig:lamp} is given by
+%
+\begin{equation}
+  \eta_{X,v} = \frac{\dot{X}_3}{\dot{X}_1} 
+              = \frac{\phi_L \dot{L}_3 }{\dot{W}_1} < \eta_X \; .
+\end{equation}
+
+Note that both $\eta_X$ and $\eta_{X,v}$ are independent of human presence;
+the efficiencies ($\eta_X$ and $\eta_{X,v}$) would be the same 
+whether the lamp is illuminating
+in an unoccupied room or a crowded bar, 
+whether the illumination stimulates the rods and cones of a human eye or
+excites band gap electrons in an amorphous silicon solar cell.
+
+Strictly speaking, the energy and exergy efficiencies of a lamp
+are evaluated at the useful stage of the energy conversion chain
+(where light energy and exergy exist),
+prior to the \emph{energy service} stage
+(where illumination exists).
+Both 
+%
+\begin{enumerate*}[label={(\alph*)}]
+	
+  \item the energy and exergy of light and
+  
+  \item the energy and exergy efficiency of lamps 
+    
+\end{enumerate*}
+%
+are independent of the energy service provided by the lamp.
+
 
 %++++++++++++++++++++++++++++++
-\subsection{Exergy of lighting framework (MKH, 500 words)}
-\label{sec:placeholder_label}
-%++++++++++++++++++++++++++++++
-
-****
-Write up the light portion of the ``thoughts on the exergy of light'' document.
-****
-
-
-%++++++++++++++++++++++++++++++
-\subsection{Theoretical challenges and decisions (MKH, 250 words)}
+\subsection{Theoretical challenges and analyst decisions with application to societal exergy analysis (MKH, 250 words)}
 \label{sec:challenges_and_decisions}
 %++++++++++++++++++++++++++++++
 
+There are two challenges facing the societal exergy analyst regarding 
+the exergy of light, including
+%
+\begin{enumerate*}[label={(\alph*)}]
+	
+  \item how to account for waste heat from lamps and
+  
+  \item how to account for the human perception of light.
+
+\end{enumerate*}
+%
+We discuss each challenge in the sections below.
+
 ****
-Point out the decisions that an analyst must make, especially regarding the wavelength sensitivity of the human eye.
-Where does that belong? 
-In the service efficiency? 
-Or in the useful work efficiency?
+Are there any other challenges we want to address in this paper? ---MKH
 ****
+
+
+%------------------------------
+\subsubsection{Waste heat from lamps} 
+\label{sec:waste_heat}
+%------------------------------
+
+****
+Do we want to include this section? ---MKH
+****
+
+Every lamp produces waste heat ($\dot{Q}_2$ in Figure~\ref{fig:lamp})
+as it converts electrical energy into light energy.
+In Section~\ref{sec:energy_and_exergy_of_light}
+waste heat was deemed the un-valuable product of the lamp.
+However, in some circumstances, the waste heat from lamps is, in fact, valuable,
+because it displaces energy for space heating,
+especially in winter climates.
+In summer climates, waste heat from lamps adds to space cooling loads.
+For locations where both summer cooling and winter heating are performed,
+the winter/summer effects of lamps cancel, to first order.
+
+The societal exergy analyst must decide how to treat waste heat from lamps
+when determining the quantity of useful energy delivered to a society.
+To our knowledge, societal exergy analysis has, to date, 
+ignored waste heat from lamps, 
+implicitly assuming that winter and summer effects cancel.
+We contend that the issue deserves further study,
+but that is a topic for another paper. 
+
+
+%------------------------------
+\subsubsection{Human perception of light} 
+\label{sec:human_perception_of_light}
+%------------------------------
+
+We noted above that both 
+%
+\begin{enumerate*}[label={(\alph*)}]
+
+  \item energy and exergy of light and
+
+  \item energy and exergy efficiency of lamps
+
+\end{enumerate*}
+%
+are independent of human presence.
+But what about human \emph{perception}?
+
+Human eyes perceive only a portion of the electromagnetic spectrum emitted by lamps 
+(approximately \humaneyesensitivity).
+(Human skin can perceive the thermal radiation portion of the broader electromagnetic spectrum, 
+approximately 100 nm < $\lambda$ < 10,000 nm)
+Furthermore, the wavelength sensitivity of the human eye 
+is uneven, peaking at 555~nm (green),
+with reductions in sensitivity at both longer and shorter wavelengths.
+
+Human perception of light exhibits nuances that are not present
+when considering human perception of work and heat, and 
+the nuances are important for societal exergy analysis.
+Specifically,
+when considering work and heat,
+there is no analogue to the sensitivity of the human eye to wavelengths of light.
+Neither heat nor work present to human beings as differentiated by wavelength or other characteristic.
+(Strictly speaking, the absorption spectra of human skin is differentially sensitive
+to wavelengths of thermal radiation, 
+but this effect is usually small and neglected by societal exergy analysts, 
+because convection is usually the dominant mode 
+of heat transfer experienced by humans in heated spaces.)
+So there is no need to consider human perception 
+when accounting for work and heat in societal exergy analysis.
+
+In contrast, the analyst must decide how to account for human perception of light.
+Three options are apparent.
+
+First, the analyst can account for the human perception of light in the useful-to-services efficiency.
+In this approach, the useful energy and exergy of light is unaffected by human perception, and
+the energy or exergy \emph{service} provided by light is deemed to be
+the possibility that it excites rods and cones in the human eye.
+For the purposes of accounting at the \emph{useful} stage of the energy conversion chain, 
+all energy and exergy in electromagnetic radiation emitted by a lamp is counted,
+regardless of its wavelength.
+When choosing Option 1, $\dot{X}_3$ is unchanged from the analysis in Section~\ref{sec:energy_and_exergy_of_light}, 
+i.e., $\dot{X}_3 = \phi_L \dot{L}_3$.
+
+The second and third options account for human perception of light at the useful stage. 
+In the second option, light is deemed \emph{useful} only if it \emph{could}
+stimulate rods and cones, 
+regardless of the sensitivity of the human eye 
+to any given wavelength of light in the range \humaneyesensitivity.
+In this option, the analyst simply excludes the energy or exergy content of light 
+in wavelengths outside the range of perception by the human eye
+when determining the useful energy or exergy of light.
+I.e., the analyst counts only light in the range \humaneyesensitivity{} as useful, 
+assuming that the human eye perceives all wavelengths in that range equally.
+When choosing Option 2, the exergy of light becomes (with reference to Figure~\ref{fig:lamp})
+%
+\begin{equation}
+  \dot{X}_3 = g \phi_L \dot{L}_3 \; ,
+\end{equation}
+%
+where $g < 1$ accounts for neglecting the energy beyond the visible portion of the electromagnetic spectrum.
+
+****
+Should we include Option 2?
+Options 2 and 3 could be combined easily. ---MKH
+****
+
+The third option adds wavelength sensitivity of the human eye to the second option,
+weighting the energy or exergy content of light by its ability to excite rods and cones
+at each wavelength.
+When choosing Option 3, the exergy of light becomes (with reference to Figure~\ref{fig:lamp})
+%
+\begin{equation}
+  \dot{X}_3 = f \phi_L \dot{L}_3 \; ,
+\end{equation}
+%
+where $f < 1$ accounts for the spectral sensitivity of the human eye.
+
+****
+My idea here is the Zeke can develop specific expressions 
+(involving integrals) 
+for $f$ and $g$ in sections that follow. ---MKH
+****
+
+In summary, the analyst must make at least one and possibly two choices:
+%
+\begin{enumerate*}[label={(\alph*)}]
+	
+  \item whether to account for the spectral sensitivity of the human eye
+        at the services stage (Option 1) or the useful stage (Options 2 and 3) of the ECC and       
+  
+  \item if accounting for human perception at the useful stage, 
+        whether to weight by the spectral sensitivity of the human eye (no for Option 2, yes for Option 3)
+        to determine the useful energy and exergy content of light.
+    
+\end{enumerate*}
+
+Sections~\ref{sec:physics_of_light} and \ref{sec:results} provide more details 
+about the implications of Options 1, 2, and 3.
+
+
 
 
 %++++++++++++++++++++++++++++++
 \subsection{The physics of light (Zeke, 1000 words)}
-\label{sec:physics_of_ligth}
+\label{sec:physics_of_light}
 %++++++++++++++++++++++++++++++
 
 ****
-Discuss various integrations over wavelength and our conclusions that some features don't matter.
+ZM: Discuss various integrations over wavelength and our conclusions that some features don't matter.
 Maybe discuss sources of data
 Include discussion of \cite{Delgado-Bonal:2017aa}.
 ****
@@ -289,7 +777,7 @@ Include discussion of \cite{Delgado-Bonal:2017aa}.
 % \end{quote}
 
 **** 
-Develop examples with two lighting technologies, one old and one LED.
+ZM: Develop examples with two lighting technologies, one old and one LED.
 Do calculations with various permutations and show graphs.
 ****
 
@@ -306,7 +794,7 @@ in the broadest context possible.
 Future research directions may also be highlighted.
 
 ****
-Discuss how our results for the examples vary from results that would have been obtained with 
+ZM: Discuss how our results for the examples vary from results that would have been obtained with 
 previous methods of determining the exergy of lighting.
 ****
 
@@ -320,7 +808,13 @@ previous methods of determining the exergy of lighting.
 % This section is not mandatory, but can be added to the manuscript if the discussion is unusually long or complex.
 
 ****
-Recommend using our method for SEA going forward.
+MKH: Recommend using our method for SEA going forward.
+****
+
+
+****
+MKH: Include a future work section.
+Do we want to include something about waste heat from lamps?
 ****
 
 
@@ -396,6 +890,15 @@ LD & linear dichroism
 \end{tabular}}
 
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Nomenclature}
+\label{sec:nomenclature}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{pieces/nomenclature.tex}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% optional
 \appendixtitles{yes} 
@@ -408,39 +911,7 @@ LD & linear dichroism
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \appendix
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{First appendix}
-\label{sec:app_1}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\unskip
-
-
-%++++++++++++++++++++++++++++++
-\subsection{appendix subsection 1}
-\label{sec:appendix_subsection_1}
-%++++++++++++++++++++++++++++++
-
-% The appendix is an optional section that can contain 
-% details and data supplemental to the main text. 
-% For example, explanations of experimental details 
-% that would disrupt the flow of the main text, but 
-% nonetheless remain crucial to understanding and reproducing the research shown; 
-% figures of replicates for experiments 
-% of which representative data is shown in the main text 
-% can be added here if brief, or as Supplementary data. 
-% Mathematical proofs of results not central to the paper can be added as an appendix.
-
-
-%++++++++++++++++++++++++++++++
-\subsection{appdendix subsection 2}
-\label{sec:appendix_subsection_2}
-%++++++++++++++++++++++++++++++
-
-% All appendix sections must be cited in the main text. 
-% In the appendixes, Figures, Tables, etc. should be labeled starting with `A', 
-% e.g., Figure A1, Figure A2, etc. 
+\input{pieces/appendix.tex}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
