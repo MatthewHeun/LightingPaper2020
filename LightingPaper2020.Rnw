@@ -528,18 +528,51 @@ are independent of the energy service provided by the lamp.
 \label{sec:challenges_and_decisions}
 %++++++++++++++++++++++++++++++
 
-There are several challenges facing the societal exergy analyst regarding 
+There are two challenges facing the societal exergy analyst regarding 
 the exergy of light, including
 %
 \begin{enumerate*}[label={(\alph*)}]
 	
-  \item how to account for the human perception of light and   
+  \item how to account for waste heat from lamps and
   
-  \item how to account for waste heat from lamps.
-    
+  \item how to account for the human perception of light.
+
 \end{enumerate*}
 %
 We discuss each challenge in the sections below.
+
+****
+Are there any other challenges we want to address in this paper? ---MKH
+****
+
+
+%------------------------------
+\subsubsection{Waste heat from lamps} 
+\label{sec:waste_heat}
+%------------------------------
+
+****
+Do we want to include this section? ---MKH
+****
+
+Every lamp produces waste heat ($\dot{Q}_2$ in Figure~\ref{fig:lamp})
+as it converts electrical energy into light energy.
+In Section~\ref{sec:energy_and_exergy_of_light}
+waste heat was deemed the un-valuable product of the lamp.
+However, in some circumstances, the waste heat from lamps is, in fact, valuable,
+because it displaces energy for space heating,
+especially in winter climates.
+In summer climates, waste heat from lamps adds to space cooling loads.
+For locations where both summer cooling and winter heating are performed,
+the winter/summer effects of lamps cancel, to first order.
+
+The societal exergy analyst must decide how to treat waste heat from lamps
+when determining the quantity of useful energy delivered to a society.
+To our knowledge, societal exergy analysis has, to date, 
+ignored waste heat from lamps, 
+implicitly assuming that winter and summer effects cancel.
+We contend that the issue deserves further study,
+but that is a topic for another paper. 
 
 
 %------------------------------
@@ -562,8 +595,8 @@ But what about human \emph{perception}?
 
 Human eyes perceive only a portion of the electromagnetic spectrum emitted by lamps 
 (approximately \humaneyesensitivity).
-(Human skin can perceive a much wider range of the electromagnetic spectrum, 
-especially thermal radiation.)
+(Human skin can perceive the thermal radiation portion of the broader electromagnetic spectrum, 
+approximately 100 nm < $\lambda$ < 10,000 nm)
 Furthermore, the wavelength sensitivity of the human eye 
 is uneven, peaking at 555~nm (green),
 with reductions in sensitivity at both longer and shorter wavelengths.
@@ -602,7 +635,7 @@ to any given wavelength of light in the range \humaneyesensitivity.
 In this option, the analyst simply excludes the energy or exergy content of light 
 in wavelengths outside the range of perception by the human eye
 when determining the useful energy or exergy of light.
-I.e., the analyst counts only light in the range \humaneyesensitivity as useful, 
+I.e., the analyst counts only light in the range \humaneyesensitivity{} as useful, 
 assuming that the human eye perceives all wavelengths in that range equally.
 
 The third option adds wavelength sensitivity of the human eye to the second option,
@@ -626,17 +659,6 @@ Sections~\ref{sec:physics_of_light} and \ref{sec:results} provide more details
 about the implications of Options 1, 2, and 3.
 
 
-%------------------------------
-\subsubsection{Waste heat from lamps} 
-\label{sec:waste_heat}
-%------------------------------
-
-Every lamp produces waste heat ($\dot{Q}_2$ in Figure~\ref{fig:lamp})
-as it converts electrical energy into light energy.
-
-
-
-Discuss waste heat reducing space heating loads but increasing space cooling loads. 
 
 
 %++++++++++++++++++++++++++++++
@@ -699,6 +721,12 @@ previous methods of determining the exergy of lighting.
 
 ****
 Recommend using our method for SEA going forward.
+****
+
+
+****
+Include a future work section.
+Do we want to include something about waste heat from lamps?
 ****
 
 
