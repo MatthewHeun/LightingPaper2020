@@ -199,6 +199,67 @@ Suggested 6750 words.
 
 Install the wordcount package from \url{https://github.com/benmarwick/wordcountaddin} to count words.
 
+Terminology for this paper:
+%
+\begin{enumerate}
+
+  \item Light is a portion of the electromagnetic spectrum.
+  
+  \item ``spectrum'' means a range of wavelengths.
+  
+  \item ``spectra'' are several ranges of wavelengths.
+
+  \item Lamps are devices that convert electricity into light.
+  
+  \item To avoid ambiguity, we should not use ``lights'' to mean ``lamps.''
+
+  \item Always be specific about energy and exergy.  
+        Any time you use the words energy or exergy, be sure you mean it.  
+        If you mean either, say ``energy or exergy.''
+
+  \item Never use the word ``useful'' unless you mean the useful stage of the energy conversion chain.
+  
+  \item Let's be very clear about power and energy.  Use overdots ($\dot{X}$) to indicate powers (rates).
+  
+  \item Review the nomenclature tables at the end of the paper.  
+        If you use a new variable name, be sure you can't use a letter that already exists in the nomenclature tables.
+        If you must use a new variable letter, add it to the table the first time you use it.
+        
+  \item Only single letters for main variable names.  
+        Use subscripts to provide additional meaning.  
+        Use decorations to indicate rates.
+        
+  \item The exergy-to-energy ratio ($\phi$) is \emph{not} second law efficiency ($\eta_X$)
+        $\phi$ applies at a statepoint.  
+        $\eta_X$ applies across a device.
+
+\end{enumerate}
+%
+
+Style for this paper:
+%
+\begin{enumerate}
+
+  \item Do not use ``this,'' ``that'', or ``it'' as the subject of a sentence. (MKH pet peeve!)
+        Sentences that have those words as subjects are 
+        almost never clear to the reader
+        yet almost always clear to the writer.
+        Why? The antecedent is almost always ambiguous.
+
+  \item Spell out ``Figure~X,'' ``Equation~Y,'' and ``Figure~Z.''  Capitalize both.
+  
+  \item Use SI units for everything.
+  
+  \item Every number that deserves a unit must have a unit.  Do not write ``683'' without units, for example. 
+  
+  \item Use the Oxford comma:  ``This, that, and the other;'' not ``This, that and the other.''
+  
+  \item Write comments to other authors in the text with ``**** comment --- MKH ****''.
+
+\end{enumerate}
+%
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction (PB, 500 words)}
 \label{sec:introduction}
@@ -216,29 +277,29 @@ Install the wordcount package from \url{https://github.com/benmarwick/wordcounta
 % Citing a journal paper or book~\cite{Delgado-Bonal:2017aa}. 
 
 ****
-Write introduction 
+PB: Write introduction 
 ****
 
 ****
-Need to discuss societal exergy analysis.
+PB: Need to discuss societal exergy analysis.
 ****
 
 ****
-Need to discuss the energy conversion chain and P, F, U, S stages.
+PB: Need to discuss the energy conversion chain and P, F, U, S stages.
 (Needed for Section~\ref{sec:framework} later.)
 Point out that human perception and satisfaction of human needs 
 is accomplished post-useful stage.
 ****
 
 ****
-Discuss lighting as one aspect of ECC analysis.
+PB: Discuss lighting as one aspect of ECC analysis.
 Probably more important in earlier years.
 But studies are pushing back to 1800s,
 so getting this right is important.
 ****
 
 ****
-Discuss Fouquet~\cite{Fouquet:2006}, who looked at energy, but not exergy.
+PB: Discuss Fouquet~\cite{Fouquet:2006}, who looked at energy, but not exergy.
 ****
 
 
@@ -626,6 +687,8 @@ the possibility that it excites rods and cones in the human eye.
 For the purposes of accounting at the \emph{useful} stage of the energy conversion chain, 
 all energy and exergy in electromagnetic radiation emitted by a lamp is counted,
 regardless of its wavelength.
+When choosing Option 1, $\dot{X}_3$ is unchanged from the analysis in Section~\ref{sec:energy_and_exergy_of_light}, 
+i.e., $\dot{X}_3 = \phi_L \dot{L}_3$.
 
 The second and third options account for human perception of light at the useful stage. 
 In the second option, light is deemed \emph{useful} only if it \emph{could}
@@ -637,10 +700,35 @@ in wavelengths outside the range of perception by the human eye
 when determining the useful energy or exergy of light.
 I.e., the analyst counts only light in the range \humaneyesensitivity{} as useful, 
 assuming that the human eye perceives all wavelengths in that range equally.
+When choosing Option 2, the exergy of light becomes (with reference to Figure~\ref{fig:lamp})
+%
+\begin{equation}
+  \dot{X}_3 = g \phi_L \dot{L}_3 \; ,
+\end{equation}
+%
+where $g < 1$ accounts for neglecting the energy beyond the visible portion of the electromagnetic spectrum.
+
+****
+Should we include Option 2?
+Options 2 and 3 could be combined easily. ---MKH
+****
 
 The third option adds wavelength sensitivity of the human eye to the second option,
 weighting the energy or exergy content of light by its ability to excite rods and cones
 at each wavelength.
+When choosing Option 3, the exergy of light becomes (with reference to Figure~\ref{fig:lamp})
+%
+\begin{equation}
+  \dot{X}_3 = f \phi_L \dot{L}_3 \; ,
+\end{equation}
+%
+where $f < 1$ accounts for the spectral sensitivity of the human eye.
+
+****
+My idea here is the Zeke can develop specific expressions 
+(involving integrals) 
+for $f$ and $g$ in sections that follow. ---MKH
+****
 
 In summary, the analyst must make at least one and possibly two choices:
 %
@@ -667,7 +755,7 @@ about the implications of Options 1, 2, and 3.
 %++++++++++++++++++++++++++++++
 
 ****
-Discuss various integrations over wavelength and our conclusions that some features don't matter.
+ZM: Discuss various integrations over wavelength and our conclusions that some features don't matter.
 Maybe discuss sources of data
 Include discussion of \cite{Delgado-Bonal:2017aa}.
 ****
@@ -689,7 +777,7 @@ Include discussion of \cite{Delgado-Bonal:2017aa}.
 % \end{quote}
 
 **** 
-Develop examples with two lighting technologies, one old and one LED.
+ZM: Develop examples with two lighting technologies, one old and one LED.
 Do calculations with various permutations and show graphs.
 ****
 
@@ -706,7 +794,7 @@ in the broadest context possible.
 Future research directions may also be highlighted.
 
 ****
-Discuss how our results for the examples vary from results that would have been obtained with 
+ZM: Discuss how our results for the examples vary from results that would have been obtained with 
 previous methods of determining the exergy of lighting.
 ****
 
@@ -720,12 +808,12 @@ previous methods of determining the exergy of lighting.
 % This section is not mandatory, but can be added to the manuscript if the discussion is unusually long or complex.
 
 ****
-Recommend using our method for SEA going forward.
+MKH: Recommend using our method for SEA going forward.
 ****
 
 
 ****
-Include a future work section.
+MKH: Include a future work section.
 Do we want to include something about waste heat from lamps?
 ****
 
