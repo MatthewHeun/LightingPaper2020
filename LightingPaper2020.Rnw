@@ -256,8 +256,8 @@ Terminology for this paper:
         Use decorations to indicate rates.
         
   \item The exergy-to-energy ratio ($\phi$) is \emph{not} second law efficiency ($\eta_X$)
-        $\phi$ applies at a statepoint.  
-        $\eta_X$ applies across a device.
+        The energy-to-exergy ratio ($\phi$) applies at every statepoint.  
+        $\eta_E$ and $\eta_X$ apply across energy conversion devices.
 
 \end{enumerate}
 %
