@@ -281,6 +281,12 @@ PB: Write introduction
 ****
 
 ****
+PB: Make the paper broader than SEA.
+Also discuss other fields: highly-technical lighting papers, Emergy, etc. 
+All have different ways of dealing with the \enaex{} of light.
+****
+
+****
 PB: Need to discuss societal exergy analysis.
 ****
 
@@ -300,6 +306,11 @@ so getting this right is important.
 
 ****
 PB: Discuss Fouquet~\cite{Fouquet:2006}, who looked at energy, but not exergy.
+****
+
+**** 
+Point out that we are discussing light for illumination, not for 
+horticultural and other purposes.
 ****
 
 
@@ -350,7 +361,7 @@ in a parallel manner to the \enaex{} of heat and work.
 
 
 %------------------------------
-\subsubsection{Energy ($\dot{E}$) and exergy ($\dot{X}$) of heat and work } 
+\subsubsection{\Enaex{} ($\dot{E}$ and $\dot{X}$) of heat and work} 
 \label{sec:energy_and_exergy_of_heat_and_work}
 %------------------------------
 
@@ -476,7 +487,7 @@ We now turn to the production of light instead of work at 3.
 
 
 %------------------------------
-\subsubsection{Energy ($\dot{E}$) and exergy ($\dot{X}$) of light} 
+\subsubsection{\Enaex{} ($\dot{E}$ and $\dot{X}$) of light} 
 \label{sec:energy_and_exergy_of_light}
 %------------------------------
 
@@ -783,7 +794,7 @@ Do calculations with various permutations and show graphs.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Discussion (ZM, 1000 words)}
+\section{Discussion (ZM, PB, 1000 words)}
 \label{sec:discussion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -798,6 +809,9 @@ ZM: Discuss how our results for the examples vary from results that would have b
 previous methods of determining the exergy of lighting.
 ****
 
+****
+ZM and PB: Be sure to spike the set from the introduction.
+****
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
