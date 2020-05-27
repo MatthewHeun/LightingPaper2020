@@ -105,7 +105,7 @@
 
 %=================================================================
 % Full title of the paper (Capitalized)
-\Title{The Exergy of Lighting: Application to Societal Exergy Analysis}
+\Title{The Energy and Exergy of Light}
 
 
 % Author Orchid ID: enter ID or remove command
@@ -203,7 +203,7 @@ Terminology for this paper:
 %
 \begin{enumerate}
 
-  \item Light is a portion of the electromagnetic spectrum.
+  \item Light is the visible portion of the electromagnetic spectrum.
   
   \item ``spectrum'' means a range of wavelengths.
   
@@ -344,9 +344,9 @@ because the concepts need to be separated.
 So, we must use the generic term ``physical property.'')
 We discuss energy and exergy quantifications of the physical property in the sections below, 
 beginning with heat and work, 
-the concepts for which energy and exergy originated.
-Thereafter, we develop a framework for the energy and exergy of light
-in a parallel manner to the energy and exergy of heat and work.
+the concepts for which \enaex{} originated.
+Thereafter, we develop a framework for the \enaex{} of light
+in a parallel manner to the \enaex{} of heat and work.
 
 
 %------------------------------
@@ -452,7 +452,7 @@ Both
 %
 \begin{enumerate*}[label={(\alph*)}]
 	
-  \item the energy and exergy of the work and heat ($\dot{Q}_2$ and $\dot{W}_3$) and
+  \item the \enaex{} of the work and heat ($\dot{Q}_2$ and $\dot{W}_3$) and
   
   \item the efficiencies of the heat engine ($\eta_{E,v}$ and $\eta_{X,v}$)
     
@@ -464,7 +464,7 @@ In other words, both
 %
 \begin{enumerate*}[label={(\alph*)}]
 	
-  \item the energy and exergy of work and heat and
+  \item the \enaex{} of work and heat and
   
   \item the efficiencies of the heat engine
     
@@ -566,18 +566,18 @@ in an unoccupied room or a crowded bar,
 whether the illumination stimulates the rods and cones of a human eye or
 excites band gap electrons in an amorphous silicon solar cell.
 
-Strictly speaking, the energy and exergy efficiencies of a lamp
+Strictly speaking, the \enaex{} efficiencies of a lamp
 are evaluated at the useful stage of the energy conversion chain
-(where light energy and exergy exist),
+(where light \enaex{} exist),
 prior to the \emph{energy service} stage
 (where illumination exists).
 Both 
 %
 \begin{enumerate*}[label={(\alph*)}]
 	
-  \item the energy and exergy of light and
+  \item the \enaex{} of light and
   
-  \item the energy and exergy efficiency of lamps 
+  \item the \enaex{} efficiency of lamps 
     
 \end{enumerate*}
 %
@@ -645,9 +645,9 @@ We noted above that both
 %
 \begin{enumerate*}[label={(\alph*)}]
 
-  \item energy and exergy of light and
+  \item \enaex{} of light and
 
-  \item energy and exergy efficiency of lamps
+  \item \enaex{} efficiency of lamps
 
 \end{enumerate*}
 %
@@ -681,11 +681,11 @@ In contrast, the analyst must decide how to account for human perception of ligh
 Three options are apparent.
 
 First, the analyst can account for the human perception of light in the useful-to-services efficiency.
-In this approach, the useful energy and exergy of light is unaffected by human perception, and
-the energy or exergy \emph{service} provided by light is deemed to be
+In this approach, the useful \enaex{} of light is unaffected by human perception, and
+the \enoex{} \emph{service} provided by light is deemed to be
 the possibility that it excites rods and cones in the human eye.
 For the purposes of accounting at the \emph{useful} stage of the energy conversion chain, 
-all energy and exergy in electromagnetic radiation emitted by a lamp is counted,
+all \enaex{} in electromagnetic radiation emitted by a lamp is counted,
 regardless of its wavelength.
 When choosing Option 1, $\dot{X}_3$ is unchanged from the analysis in Section~\ref{sec:energy_and_exergy_of_light}, 
 i.e., $\dot{X}_3 = \phi_L \dot{L}_3$.
@@ -695,9 +695,9 @@ In the second option, light is deemed \emph{useful} only if it \emph{could}
 stimulate rods and cones, 
 regardless of the sensitivity of the human eye 
 to any given wavelength of light in the range \humaneyesensitivity.
-In this option, the analyst simply excludes the energy or exergy content of light 
+In this option, the analyst simply excludes the \enoex{} content of light 
 in wavelengths outside the range of perception by the human eye
-when determining the useful energy or exergy of light.
+when determining the useful \enoex{} of light.
 I.e., the analyst counts only light in the range \humaneyesensitivity{} as useful, 
 assuming that the human eye perceives all wavelengths in that range equally.
 When choosing Option 2, the exergy of light becomes (with reference to Figure~\ref{fig:lamp})
@@ -714,7 +714,7 @@ Options 2 and 3 could be combined easily. ---MKH
 ****
 
 The third option adds wavelength sensitivity of the human eye to the second option,
-weighting the energy or exergy content of light by its ability to excite rods and cones
+weighting the \enoex{} content of light by its ability to excite rods and cones
 at each wavelength.
 When choosing Option 3, the exergy of light becomes (with reference to Figure~\ref{fig:lamp})
 %
@@ -739,7 +739,7 @@ In summary, the analyst must make at least one and possibly two choices:
   
   \item if accounting for human perception at the useful stage, 
         whether to weight by the spectral sensitivity of the human eye (no for Option 2, yes for Option 3)
-        to determine the useful energy and exergy content of light.
+        to determine the useful \enaex{} content of light.
     
 \end{enumerate*}
 
