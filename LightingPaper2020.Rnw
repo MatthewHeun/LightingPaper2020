@@ -563,7 +563,7 @@ Thus, the exergy of each stream in Figure~\ref{fig:lamp} is given by
 where $\phi_L$ is the exergy-to-energy ratio for light.
 
 Recent work by Delgado-Bonal~\cite{Delgado-Bonal:2017aa}
-has provided a method for calculating $\phi_L$.
+provides a method for calculating $\phi_L$.
 (See Section~\ref{sec:physics_of_light} for details.)
 Delgado-Bonal's estimate 
 is $\phi_L = 0.931$
@@ -694,7 +694,7 @@ But what about human \emph{perception}?
 Human eyes perceive only a portion of the electromagnetic spectrum emitted by lamps 
 (approximately \humaneyesensitivity).
 (Human skin can perceive the thermal radiation portion of the broader electromagnetic spectrum, 
-approximately 100 nm < $\lambda$ < 10,000 nm)
+approximately 100 nm < $\lambda$ < 10,000 nm.)
 Furthermore, the wavelength sensitivity of the human eye 
 is uneven, peaking at 555~nm (green),
 with reductions in sensitivity at both longer and shorter wavelengths.
@@ -705,8 +705,8 @@ the nuances are important for societal exergy analysis.
 Specifically,
 when considering work and heat,
 there is no analogue to the sensitivity of the human eye to wavelengths of light.
-Neither heat nor work present to human beings as differentiated by wavelength or other characteristic.
-(Strictly speaking, the absorption spectra of human skin is differentially sensitive
+Neither heat nor work present to human beings as differentiated by wavelength or other characteristics.
+(Strictly speaking, the absorption spectrum of human skin is differentially sensitive
 to wavelengths of thermal radiation, 
 but this effect is usually small and neglected by societal exergy analysts, 
 because convection is usually the dominant mode 
@@ -720,7 +720,7 @@ Three options are apparent.
 First, the analyst can account for the human perception of light in the useful-to-services efficiency.
 In this approach, the useful \enaex{} of light is unaffected by human perception, and
 the \enoex{} \emph{service} provided by light is deemed to be
-the possibility that it excites rods and cones in the human eye.
+the possibility that light excites rods and cones in the human eye.
 For the purposes of accounting at the \emph{useful} stage of the energy conversion chain, 
 all \enaex{} in electromagnetic radiation emitted by a lamp is counted,
 regardless of its wavelength.
@@ -728,7 +728,7 @@ When choosing Option 1, $\dot{X}_3$ is unchanged from the analysis in Section~\r
 i.e., $\dot{X}_3 = \phi_L \dot{L}_3$.
 
 The second and third options account for human perception of light at the useful stage. 
-In the second option, light is deemed \emph{useful} only if it \emph{could}
+In the second option, light is deemed useful only if it \emph{could}
 stimulate rods and cones, 
 regardless of the sensitivity of the human eye 
 to any given wavelength of light in the range \humaneyesensitivity.
@@ -743,7 +743,7 @@ When choosing Option 2, the exergy of light becomes (with reference to Figure~\r
   \dot{X}_3 = g \phi_L \dot{L}_3 \; ,
 \end{equation}
 %
-where $g < 1$ accounts for neglecting the energy beyond the visible portion of the electromagnetic spectrum.
+where $ g \in (0,1)$ accounts for neglecting the energy beyond the visible portion of the electromagnetic spectrum.
 
 ****
 Should we include Option 2?
@@ -759,10 +759,10 @@ When choosing Option 3, the exergy of light becomes (with reference to Figure~\r
   \dot{X}_3 = f \phi_L \dot{L}_3 \; ,
 \end{equation}
 %
-where $f < 1$ accounts for the spectral sensitivity of the human eye.
+where $f \in (0,1)$ accounts for the spectral sensitivity of the human eye.
 
 ****
-My idea here is the Zeke can develop specific expressions 
+My idea here is that Zeke can develop specific expressions 
 (involving integrals) 
 for $f$ and $g$ in sections that follow. ---MKH
 ****
