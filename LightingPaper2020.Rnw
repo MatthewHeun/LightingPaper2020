@@ -1,6 +1,32 @@
 %  LaTeX support: latex@mdpi.com 
 %  In case you need support, please attach all files that are necessary for compiling as well as the log file, and specify the details of your LaTeX setup (which operating system and LaTeX version / tools you are using).
 
+
+<<setup-knitr, cache=FALSE, include=FALSE>>=
+library(knitr)
+
+# Set default knitr options for chunks.
+opts_chunk$set(
+  # ********************************************************
+  eval = TRUE,
+  include = TRUE,
+  echo = FALSE, 
+  warning = FALSE
+  # ********************************************************
+)
+@
+
+
+<<setup-R, include=FALSE>>=
+library(dplyr)
+library(ggplot2)
+library(magrittr)
+library(MKHthemes)
+library(tibble)
+library(tidyr)
+@
+
+
 % The helpful information at 
 % https://nuanceabounds.org/fix-latex-package-option-clash-error-passoptionstopackage/
 % indicates the \PassOptionsToPackage command must occur BEFORE the \documentclass command.
@@ -770,6 +796,58 @@ ZM: Discuss various integrations over wavelength and our conclusions that some f
 Maybe discuss sources of data
 Include discussion of \cite{Delgado-Bonal:2017aa}.
 ****
+
+
+Zeke: Here is the way to include chunks of R code.
+
+Things to consider:
+%
+\begin{enumerate}
+
+  \item \texttt{library(X)} statements go in the \texttt{setup-R} chunk, early in the document.
+  
+  \item Name chunks with capital letters, no spaces, \_ to separate words (by convention). 
+
+  \item \texttt{ggplot} figures go in their own chunks, one graph per chunk.
+  
+  \item Variables in previous chunks are available to \texttt{R} code in later chunks.
+  
+  \item Use \texttt{::} syntax to identify \texttt{package::function} to eliminate ambiguity.
+  
+  \item Data and calculations go in their own chunk.
+  
+  \item Graphs go in a separate chunk.
+  
+  \item R-generated graphs will be automatically stashed in the \texttt{figure/} directory.
+        Don't put anything else in \texttt{figure/}, because \texttt{figure/} is excluded from GitHub.
+
+\end{enumerate}
+%
+
+<<Chunk_Name>>=
+a_string <- "abc"
+@
+
+
+<<Zekes_First_Visible_Chunk>>=
+print(a_string)
+@
+
+<<Zekes_First_Data>>=
+DF <- tibble::tibble(x = -100:100) %>% 
+  dplyr::mutate(
+    y = x^2
+  )
+@
+
+
+<<Zekes_First_Plot, fig.width = 5, fig.height = 3, fig.cap = "Zeke's first graph.">>=
+DF %>% 
+  ggplot2::ggplot(mapping = aes(x = x, y = y)) +
+  geom_line() + 
+  MKHthemes::xy_theme()
+@
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
