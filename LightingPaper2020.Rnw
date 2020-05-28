@@ -776,14 +776,16 @@ In summary, the analyst must make at least one and possibly two choices:
   
   \item if accounting for human perception at the useful stage, 
         whether to weight by the spectral sensitivity of the human eye (no for Option 2, yes for Option 3)
-        to determine the useful \enaex{} content of light.
+        when determining the useful \enaex{} content of light.
     
 \end{enumerate*}
 
 Sections~\ref{sec:physics_of_light} and \ref{sec:results} provide more details 
 about the implications of Options 1, 2, and 3.
 
-
+****
+Where to insert the issue of which model of human eye perception should be used?
+****
 
 
 %++++++++++++++++++++++++++++++
