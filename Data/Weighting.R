@@ -1,3 +1,9 @@
+# Importing the luminosity functions (i may need to change this name)
+
+library(readxl)
+Luminosity_functions <- read_excel("Data/Luminosity_functions_calcs.xlsx")
+View(Luminosity_functions)
+
 ## INC Globe A19 Lamp
 
 # Calculating the photopically weighted radiative flux
@@ -60,6 +66,16 @@ colnames(INC_Globe_A19_m) <- c("Wavelength", "MelanopsinWeightedRadiativeFlux")
 
 View(INC_Globe_A19_m)
 
+# Calculating the Photosythesis
+
+INC_Globe_A19_ph <- INC_Globe_A19[,2]*Luminosity_functions[,9]
+
+INC_Globe_A19_ph <- cbind(Wavelength_vector, INC_Globe_A19_ph)
+
+colnames(INC_Globe_A19_ph) <- c("Wavelength", "PhotosynthWeightedRadiativeFlux")
+
+View(INC_Globe_A19_ph)
+
 ## LED Phillips BR30 Lamp
 
 # Calculating the photopically weighted radiative flux
@@ -121,4 +137,15 @@ LED_Phillips_BR30_m <- cbind(Wavelength_vector, LED_Phillips_BR30_m)
 colnames(LED_Phillips_BR30_m) <- c("Wavelength", "MelanopsinWeightedRadiativeFlux")
 
 View(LED_Phillips_BR30_m)
+
+# Calculating the Photosynthesis
+
+LED_Phillips_BR30_ph <- LED_Phillips_BR30[,2]*Luminosity_functions[,9]
+
+LED_Phillips_BR30_ph <- cbind(Wavelength_vector, LED_Phillips_BR30_ph)
+
+colnames(LED_Phillips_BR30_ph) <- c("Wavelength", "PhotosynthWeightedRadiativeFlux")
+
+View(LED_Phillips_BR30_ph)
+
 
