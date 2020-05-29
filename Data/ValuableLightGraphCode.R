@@ -35,9 +35,14 @@ chlorob <- ggplot(data = Luminosity_functions, aes(x= Wavelength, y=Chlorophyll_
   labs(title = 'Chlorophyll B', y = 'Normalised Response',x = 'Wavelength') +
   xy_theme(base_size = 8)
 
+photosyn <- ggplot(data = Luminosity_functions, aes(x= Wavelength, y=PhotosynthesisActionSpectrum)) +
+  geom_line() + 
+  labs(title = 'Photosynthesis Action Spectrum', y = 'Normalised Response',x = 'Wavelength') +
+  xy_theme(base_size = 8)
+
 melanopsin <- ggplot(data = Luminosity_functions, aes(x= Wavelength, y=Melanopsin)) +
   geom_line() +
-  labs(title = 'Melanopsin', y = 'Normalised Response',x = 'Wavelength') +
+  labs(title = 'Melanopic Luminosity Function', y = 'Normalised Response',x = 'Wavelength') +
   xy_theme(base_size = 8)
 
 # Plotting the spectral power distribution of the INC Globe A19 lamp, and associated valuable portions of the spectrum
@@ -90,6 +95,13 @@ plot_g <- ggplot(data = INC_Globe_A19, mapping = aes(x=Wavelength, y=RadiativeFl
   xy_theme(base_size = 8) +
   ggtitle("M-Weighted INC Globe A19 SPD")
 
+plot_inc_ph <- ggplot(data = INC_Globe_A19, mapping = aes(x=Wavelength, y=RadiativeFlux)) + 
+  geom_area(fill = "blue") + 
+  geom_area(data = INC_Globe_A19_ph, mapping = aes(x=Wavelength, y=PhotosynthWeightedRadiativeFlux), fill = "red") +
+  scale_y_continuous(limits = c(0, 0.125)) +
+  xy_theme(base_size = 8) +
+  ggtitle("Ph-Weighted INC Globe A19 SPD")
+
 # Plotting the spectral power distribution of the LED Phillips BR30 lamp, and associated valuable portions of the spectrum
 
 plot_h <- ggplot(data = LED_Phillips_BR30, mapping = aes(x=Wavelength, y=RadiativeFlux)) + 
@@ -140,9 +152,16 @@ plot_n <- ggplot(data = LED_Phillips_BR30, mapping = aes(x=Wavelength, y=Radiati
   xy_theme(base_size = 8) +
   ggtitle("M-Weighted LED Phillips BR30 SPD")
 
+plot_LED_ph <- ggplot(data = LED_Phillips_BR30, mapping = aes(x=Wavelength, y=RadiativeFlux)) + 
+  geom_area(fill = "blue") + 
+  geom_area(data = LED_Phillips_BR30_ph, mapping = aes(x=Wavelength, y=PhotosynthWeightedRadiativeFlux), fill = "red") +
+  scale_y_continuous(limits = c(0, 0.125)) +
+  xy_theme(base_size = 8) +
+  ggtitle("Ph-Weighted LED Phillips BR30 SPD")
+
 # Compiling the individual plots into a composite graph
 
-plot_grid(nfunction, plot_a, plot_h, vspectrum, plot_d, plot_k, pfunction, plot_b, plot_i, melanopsin, plot_g, plot_n, ufunction, plot_c, plot_j, chloroa, plot_e, plot_l, chlorob, plot_f, plot_m, ncol = 3, labels = "AUTO")
+plot_grid(nfunction, plot_a, plot_h, vspectrum, plot_d, plot_k, pfunction, plot_b, plot_i, melanopsin, plot_g, plot_n, ufunction, plot_c, plot_j, photosyn, plot_inc_ph, plot_LED_ph, ncol = 3, labels = "AUTO")
 
 
 # scale_fill_manual(values = colorRampPalette(brewer.pal(11, "Spectral"))(1253)) +
