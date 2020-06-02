@@ -1,6 +1,11 @@
 require(ggplot2)
 require(cowplot)
 require(MKHthemes)
+require(RColorBrewer)
+
+# Establishes the color palette
+
+
 
 # Plotting the various luminosity functions, action spectra and response curves
 
