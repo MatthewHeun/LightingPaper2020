@@ -6,6 +6,33 @@
 # Lamp tabs are prefixed with "lamp_".
 
 
+weighted_flux <- function(weighting_function, lamp) {
+  # Get name of lamp
+  wf_name <- weighting_function[["wf_name"]] %>%
+    unique()
+  if (length(wf_name) != 1) {
+    stop(paste("Got more than 1 weighting function:", wf_name))
+  }
+  
+  # Interpolate weighting function at each lamp wavelength
+  interpolated_wf <- stats::approx(x = weighting_function[["Wavelength [nm]"]], 
+                                   y = weighting_function[["normalized_response"]], 
+                                   xout = lamp[["Wavelength [nm]"]]) %>%
+    data.frame() %>%
+    dplyr::mutate(
+      wf_name = wf_name
+    ) %>%
+    magrittr::set_colnames(colnames(weighting_function))
+
+  # Multiply lamp's radiative flux by interpolated weighting function at each wavelength
+  dplyr::left_join(lamp, interpolated_wf, by = "Wavelength [nm]") %>% 
+    dplyr::mutate(
+      weighted_radiant_flux = radiative_flux * normalized_response
+    )
+}
+
+
+
 # Get names of all tabs in a list
 master_lighting_data_path <- file.path("Data", "master_lighting_data.xlsx")
 tabs <- readxl::excel_sheets(path = master_lighting_data_path)
@@ -16,7 +43,7 @@ wf_tabs <- tabs[startsWith(tabs, prefix = "wf_")]
 # Get lamps list
 lamp_tabs <- tabs[startsWith(tabs, prefix = "lamp_")]
 
-# Pull data from each tab
+# Pull data from each tab and combine data frames
 wf_data <- lapply(wf_tabs, FUN = function(tab_name){
   DF <- readxl::read_excel(master_lighting_data_path, sheet = tab_name)
   cnames <- colnames(DF)
@@ -29,9 +56,7 @@ wf_data <- lapply(wf_tabs, FUN = function(tab_name){
       response = NULL, 
       wf_name = tab_name
     )
-}) %>%
-  dplyr::bind_rows()
-
+})
 
 lamp_data <- lapply(lamp_tabs, FUN = function(tab_name){
   DF <- readxl::read_excel(master_lighting_data_path, sheet = tab_name)
@@ -41,12 +66,22 @@ lamp_data <- lapply(lamp_tabs, FUN = function(tab_name){
     magrittr::set_colnames(cnames)
   DF %>%
     dplyr::mutate(
-      wf_name = tab_name
+      lamp_name = tab_name
     )
-}) %>%
-  dplyr::bind_rows()
+})
 
-# Combine in one big data frame
+
+weighted_responses <- list()
+
+for (l in lamp_data) {
+  # Apply all weighting functions
+  for (wf in wf_data) {
+    res <- weighted_flux(weighting_function = wf, lamp = l)
+    rlist::list.append(weighted_responses, res)
+  }
+}
+
+
 
 
 
