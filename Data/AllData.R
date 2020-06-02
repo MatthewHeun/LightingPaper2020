@@ -31,8 +31,6 @@ weighted_flux <- function(weighting_function, lamp) {
     )
 }
 
-
-
 # Get names of all tabs in a list
 master_lighting_data_path <- file.path("Data", "master_lighting_data.xlsx")
 tabs <- readxl::excel_sheets(path = master_lighting_data_path)
@@ -71,16 +69,17 @@ lamp_data <- lapply(lamp_tabs, FUN = function(tab_name){
 })
 
 
-weighted_responses <- list()
+weighted_responses_list <- list()
 
 for (l in lamp_data) {
   # Apply all weighting functions
   for (wf in wf_data) {
     res <- weighted_flux(weighting_function = wf, lamp = l)
-    rlist::list.append(weighted_responses, res)
+    weighted_responses_list <- rlist::list.append(weighted_responses_list, res)
   }
 }
 
+weighted_responses_df <- dplyr::bind_rows(weighted_responses_list)
 
 
 
