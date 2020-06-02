@@ -1,10 +1,9 @@
 # AllData script
 
 # This script pulls data from the master_lighting_data.xlsx spreadsheet and builds a massive data frame
-# containing weighting functions and lamps.
+# containing weighting functions, lamps, and weighted emission spectra.
 # Weighting function tabs are prefixed with "wf_".
 # Lamp tabs are prefixed with "lamp_".
-
 
 weighted_flux <- function(weighting_function, lamp) {
   # Get name of lamp
@@ -25,7 +24,7 @@ weighted_flux <- function(weighting_function, lamp) {
     magrittr::set_colnames(colnames(weighting_function))
 
   # Multiply lamp's radiative flux by interpolated weighting function at each wavelength
-  dplyr::left_join(lamp, interpolated_wf, by = "Wavelength [nm]") %>% 
+  dplyr::full_join(lamp, interpolated_wf, by = "Wavelength [nm]") %>% 
     dplyr::mutate(
       weighted_radiant_flux = radiative_flux * normalized_response
     )
@@ -67,7 +66,6 @@ lamp_data <- lapply(lamp_tabs, FUN = function(tab_name){
       lamp_name = tab_name
     )
 })
-
 
 weighted_responses_list <- list()
 
