@@ -790,7 +790,7 @@ Where to insert the issue of which model of human eye perception should be used?
 
 
 %++++++++++++++++++++++++++++++
-\subsection{The physics of light (Zeke, 1000 words)}
+\subsection{The physics of light (Zeke and Emmanuel, 1000 words)}
 \label{sec:physics_of_light}
 %++++++++++++++++++++++++++++++
 
@@ -854,7 +854,7 @@ DF %>%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Results (ZM, 2000 words)}
+\section{Results (Zeke and Emmanuel, 2000 words)}
 \label{sec:results}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  
