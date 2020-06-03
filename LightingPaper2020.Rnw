@@ -340,6 +340,9 @@ Point out that we are discussing light for illumination, not for
 horticultural and other purposes.
 ****
 
+****
+Are we still limiting our discussion to illumination? I think we should first point out the numerous uses of light i.e. Illumination, physiological regulation, photosynthesis in horticulture, sterilisation (incl. water purification), reprography, medical purposes (incl. phototherapy), insect trapping, spectroscopy etc. Then we can move on to say "for the purposes of this paper we choose to examine the use of light for A, B and C", where A, B and C are the uses for the lamps and weighting functions we choose to compare in section 3, likely illumination, horticulture and phototherapy. --- ZM 
+****
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Methods (2250 words)}
