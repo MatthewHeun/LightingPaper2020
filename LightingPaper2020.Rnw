@@ -341,7 +341,13 @@ horticultural and other purposes.
 ****
 
 ****
-Are we still limiting our discussion to illumination? I think we should first point out the numerous uses of light i.e. Illumination, physiological regulation, photosynthesis in horticulture, sterilisation (incl. water purification), reprography, medical purposes (incl. phototherapy), insect trapping, spectroscopy etc. Then we can move on to say "for the purposes of this paper we choose to examine the use of light for A, B and C", where A, B and C are the uses for the lamps and weighting functions we choose to compare in section 3, likely illumination, horticulture and phototherapy. --- ZM 
+Are we still limiting our discussion to illumination? I think we should first point out the numerous uses of light i.e. Illumination, physiological regulation, photosynthesis in horticulture, sterilisation (incl. water purification), reprography, medical purposes (incl. phototherapy), insect trapping, spectroscopy etc. Then we can move on to say "for the purposes of this paper we choose to examine the use of light for A, B and C", where A, B and C are the uses for the lamps we choose to compare in section 3 in order to highlight the subjectivity of the lumen and different weighting functions.
+
+I also think we should define light early on, especially if we are examining uses of electromagnetic radiation other than illumination and therefore often the use of wavelengths of light outside the visible spectrum.
+
+The Oxford Dictionary of Physics defines light as "The form of electromagnetic radiation to which the human eye is sensitive" (https://www.oxfordreference.com/view/10.1093/acref/9780199233991.001.0001/acref-9780199233991-e-1704?rskey=yagtE4)
+
+If you agree I propose that we either use the term 'electromagentic radiation' or define light for the purposes of this paper as 'electromagnetic radiation of all wavelengths'--- ZM 
 ****
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -771,6 +777,10 @@ My idea here is that Zeke can develop specific expressions
 for $f$ and $g$ in sections that follow. ---MKH
 ****
 
+****
+From what I understand f is not a constant as weighting functions are all a function of wavelength and therefore f would be different for every spectral power distribution analysed. I have included my logic in section 2.3 below. ---ZM
+****
+
 In summary, the analyst must make at least one and possibly two choices:
 %
 \begin{enumerate*}[label={(\alph*)}]
@@ -802,6 +812,18 @@ ZM: Discuss various integrations over wavelength and our conclusions that some f
 Maybe discuss sources of data
 Include discussion of \cite{Delgado-Bonal:2017aa}.
 ****
+
+To calculate \L_3 which represents the light, electromagnetic radiation or radiant flux emitted by a lamp, data for the spectral power distribution of a lamp (SPD) is utilised. Firstly, the radiant power 
+
+\begin{equation}
+  \int P_\lambda d\lambda
+\end{equation}
+
+If Option 3 is adopted and it decided that a weighting function should be used to assess the 'usefulness' of relative utility of different wavelengths of light for a given purpose (e.g. illumination) the above equation becomes.
+
+\begin{equation}
+  \int P_\lambda Wf_\lambda d\lambda
+\end{equation}
 
 
 Zeke: Here is the way to include chunks of R code.
