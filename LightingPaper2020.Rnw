@@ -814,20 +814,20 @@ Maybe discuss sources of data
 Include discussion of \cite{Delgado-Bonal:2017aa}.
 ****
 
-To calculate \L_3 which represents the light emitted by a lamp, data for the spectral power distribution of a lamp (SPD) is required. Firstly, the radiant power (light) emitted by a lamp is given by
+To calculate $L_3$ which represents the light emitted by a lamp, data for the spectral power distribution of a lamp (SPD) is required. Firstly, the radiant power (light) emitted by a lamp is given by
 %
 \begin{equation}
   L_3 = \int P_\lambda d\lambda \; .
 \end{equation}
 %
-Where P_\lambda is the spectral power distribution of a lamp, representing the radiant power (W) per unit wavelength (nm) of the lamp. If Option 3 is adopted and it decided that a weighting function should be used to assess the 'usefulness' of relative utility of different wavelengths of light for a given purpose (e.g. illumination) the above equation becomes
+Where $P_\lambda$ is the spectral power distribution of a lamp, representing the radiant power (W) per unit wavelength (nm) of the lamp. If Option 3 is adopted and it decided that a weighting function should be used to assess the 'usefulness' of relative utility of different wavelengths of light for a given purpose (e.g. illumination) the above equation becomes
 %
 \begin{equation}
   L_{useful} = \int P_\lambda Wf_\lambda d\lambda \; .
 \end{equation}
 %
 
-Where ef_\lambda is equal to a given weighting function.
+Where $ef_\lambda$ is equal to a given weighting function.
 
 Zeke: Here is the way to include chunks of R code.
 
