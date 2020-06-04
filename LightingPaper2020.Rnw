@@ -345,9 +345,9 @@ Are we still limiting our discussion to illumination? I think we should first po
 
 I also think we should define light early on, especially if we are examining uses of electromagnetic radiation other than illumination and therefore often the use of wavelengths of light outside the visible spectrum.
 
-The Oxford Dictionary of Physics defines light as "The form of electromagnetic radiation to which the human eye is sensitive" (https://www.oxfordreference.com/view/10.1093/acref/9780199233991.001.0001/acref-9780199233991-e-1704?rskey=yagtE4)
+The Oxford Dictionary of Physics defines light as "The form of electromagnetic radiation to which the human eye is sensitive" (https://www.oxfordreference.com/view/10.1093/acref/9780199233991.001.0001/acref-9780199233991-e-1704?rskey=yagtE4).
 
-If you agree I propose that we either use the term 'electromagentic radiation' or define light for the purposes of this paper as 'electromagnetic radiation of all wavelengths'--- ZM 
+I propose that we either 1) only assess illumination, 2) use the term 'electromagentic radiation', or 3) define light for the purposes of this paper as 'electromagnetic radiation of all wavelengths'--- ZM 
 ****
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -813,18 +813,18 @@ Maybe discuss sources of data
 Include discussion of \cite{Delgado-Bonal:2017aa}.
 ****
 
-To calculate \L_3 which represents the light, electromagnetic radiation or radiant flux emitted by a lamp, data for the spectral power distribution of a lamp (SPD) is utilised. Firstly, the radiant power 
-
+To calculate L which represents the light emitted by a lamp, data for the spectral power distribution of a lamp (SPD) is required. Firstly, the radiant power (light) emitted by a lamp is given by
+%
 \begin{equation}
-  \int P_\lambda d\lambda
+  \int P_\lambda d\lambda \; .
 \end{equation}
-
-If Option 3 is adopted and it decided that a weighting function should be used to assess the 'usefulness' of relative utility of different wavelengths of light for a given purpose (e.g. illumination) the above equation becomes.
-
+%
+If Option 3 is adopted and it decided that a weighting function should be used to assess the 'usefulness' of relative utility of different wavelengths of light for a given purpose (e.g. illumination) the above equation becomes
+%
 \begin{equation}
-  \int P_\lambda Wf_\lambda d\lambda
+  \int P_\lambda Wf_\lambda d\lambda \; .
 \end{equation}
-
+%
 
 Zeke: Here is the way to include chunks of R code.
 
