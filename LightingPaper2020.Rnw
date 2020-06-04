@@ -827,7 +827,7 @@ Where $P_\lambda$ is the spectral power distribution of a lamp, representing the
 \end{equation}
 
 
-where $ef_\lambda$ is equal to a given weighting function.
+where $Wf_\lambda$ is equal to a given weighting function.
 
 
 Zeke: Here is the way to include chunks of R code.
