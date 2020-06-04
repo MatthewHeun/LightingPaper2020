@@ -814,7 +814,7 @@ Maybe discuss sources of data
 Include discussion of \cite{Delgado-Bonal:2017aa}.
 ****
 
-To calculate L_3 which represents the light emitted by a lamp, data for the spectral power distribution of a lamp (SPD) is required. Firstly, the radiant power (light) emitted by a lamp is given by
+To calculate \L_3 which represents the light emitted by a lamp, data for the spectral power distribution of a lamp (SPD) is required. Firstly, the radiant power (light) emitted by a lamp is given by
 %
 \begin{equation}
   L_3 = \int P_\lambda d\lambda \; .
