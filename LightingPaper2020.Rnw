@@ -823,7 +823,7 @@ To calculate L which represents the light emitted by a lamp, data for the spectr
 If Option 3 is adopted and it decided that a weighting function should be used to assess the 'usefulness' of relative utility of different wavelengths of light for a given purpose (e.g. illumination) the above equation becomes
 %
 \begin{equation}
-  \L_{useful} = \int P_\lambda Wf_\lambda d\lambda \; .
+  L_{useful} = \int P_\lambda Wf_\lambda d\lambda \; .
 \end{equation}
 %
 
