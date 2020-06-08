@@ -1,5 +1,3 @@
-library(ggplot2)
-
 # I need to:
 # 1 - Plot the chosen weighting functions in the first column
 # 2 - Plot the unweighted chosen lamps in the top row, one lamp type per column
@@ -8,6 +6,9 @@ library(ggplot2)
 
 # MKHthemes::xy_theme() I'm not sure whether MKHthemes xy_theme is suited to facet_grid formatting
 
+library(ggplot2)
+library(forcats)
+library(dplyr)
 
 # Changes the first column name of the 'weighted_responses_df' dataframe from "Wavelength [nm]" to "Wavelength" so the "aes()" arguement in ggplot works
 # is there a way to retain the name "Wavelength [nm]"?
@@ -52,7 +53,7 @@ val_light_comp <- ggplot2::ggplot(weighted_responses_plot, aes(x = Wavelength)) 
   theme(legend.position = "bottom")
   #scale_fill_discrete()
   #scale_fill_manual(values=c("blue", "red")) +
-  #scale_colour_manual(values=c("blue", "red"))
+  #scale_colour_manual(values=c("blue", "red")) +
   #theme(legend.position="bottom") +
   
 
