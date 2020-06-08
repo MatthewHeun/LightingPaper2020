@@ -1,3 +1,5 @@
+library(ggplot2)
+
 # I need to:
 # 1 - Plot the chosen weighting functions in the first column
 # 2 - Plot the unweighted chosen lamps in the top row, one lamp type per column
@@ -13,18 +15,45 @@
 colnames(weighted_responses_df)[1] <- "Wavelength"
 
 # This currently plots two lamps ("lamp_inc_globe_a19" & "lamp_led_phil_a19") and two weighting functions ("wf_nw" & wf_ca")
-# How do i add a second geom_area plot onto the wf_ca row?
-# How do i rearrange the order of the columns and rows in facet grid?
 # How do i add make the first column a geom_line plot of the weighting function?
 
-val_light_comp <- ggplot2::ggplot(subset(weighted_responses_df, wf_name %in% c("wf_nw", "wf_ca") & lamp_name %in% c("lamp_inc_globe_a19", "lamp_led_phil_a19")), aes(Wavelength, weighted_radiant_flux)) + 
-  ggplot2::geom_area(fill = "blue")
-val_light_comp + facet_grid(vars(wf_name), vars(lamp_name))
+
+# Selecting weighting functions and lamps.
+# Plots will be done in the same order as these character vectors are specified.
+
+wf_list <- c("wf_ca", "wf_nw")
+lamp_list <- c("lamp_led_phil_a19", "lamp_inc_globe_a19")
 
 
+# Preparing ready-to-plot dataframe based on user-defined wf_list and lamp_list
+
+weighted_responses_plot <- weighted_responses_df %>%
+  filter(wf_name %in% wf_list, lamp_name %in% lamp_list) %>%
+  mutate(lamp_name = as.factor(lamp_name),
+         wf_name = as.factor(wf_name),
+         lamp_name = fct_relevel(.f = lamp_name, lamp_list),
+         wf_name = fct_relevel(.f = wf_name, wf_list))
+
+levels(weighted_responses_plot$lamp_name); levels(weighted_responses_plot$wf_name)
 
 
+# Now, plotting
 
+val_light_comp <- ggplot2::ggplot(weighted_responses_plot, aes(x = Wavelength)) +
+  ggplot2::geom_area(aes(y = radiative_flux, color = "Radiant Flux"), fill = "blue", show.legend = TRUE) +
+  ggplot2::geom_area(aes(y = weighted_radiant_flux, color = "Weighted Radiant Flux"), fill = "red", show.legend = TRUE) +
+  ylab("Radiative flux") +
+  scale_y_continuous(sec.axis = sec_axis(~ . / max(.))) +
+  geom_line(aes(y = normalized_response * max(radiative_flux), color = "Weighting Function"), linetype = 2, size = 0.3) +
+  labs() +
+  scale_color_manual(values = c(NA, NA, "black")) +
+  scale_fill_manual(values = c("blue", "red", NA)) +
+  scale_linetype_manual(values = c(NA, NA, 2)) +
+  theme(legend.position = "bottom")
+  #scale_fill_discrete()
+  #scale_fill_manual(values=c("blue", "red")) +
+  #scale_colour_manual(values=c("blue", "red"))
+  #theme(legend.position="bottom") +
+  
 
-                                 
-                                 
+val_light_comp + facet_grid(rows = vars(wf_name), cols = vars(lamp_name))
