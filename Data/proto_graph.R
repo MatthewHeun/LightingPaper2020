@@ -35,7 +35,7 @@ weighted_responses_plot <- weighted_responses_df %>%
          lamp_name = fct_relevel(.f = lamp_name, lamp_list),
          wf_name = fct_relevel(.f = wf_name, wf_list))
 
-levels(weighted_responses_plot$lamp_name); levels(weighted_responses_plot$wf_name)
+# levels(weighted_responses_plot$lamp_name); levels(weighted_responses_plot$wf_name)
 
 
 # Now, plotting
@@ -58,3 +58,4 @@ val_light_comp <- ggplot2::ggplot(weighted_responses_plot, aes(x = Wavelength)) 
   
 
 val_light_comp + facet_grid(rows = vars(wf_name), cols = vars(lamp_name))
+
