@@ -41,21 +41,16 @@ weighted_responses_plot <- weighted_responses_df %>%
 # Now, plotting
 
 val_light_comp <- ggplot2::ggplot(weighted_responses_plot, aes(x = Wavelength)) +
-  ggplot2::geom_area(aes(y = radiative_flux, color = "Radiant Flux"), fill = "blue", show.legend = TRUE) +
-  ggplot2::geom_area(aes(y = weighted_radiant_flux, color = "Weighted Radiant Flux"), fill = "red", show.legend = TRUE) +
+  ggplot2::geom_area(aes(y = radiative_flux, fill = "Radiant Flux"), show.legend = TRUE) +
+  ggplot2::geom_area(aes(y = weighted_radiant_flux, fill = "Weighted Radiant Flux"), show.legend = TRUE) +
   ylab("Radiative flux") +
   scale_y_continuous(sec.axis = sec_axis(~ . / max(.))) +
-  geom_line(aes(y = normalized_response * max(radiative_flux), color = "Weighting Function"), linetype = 2, size = 0.3) +
-  labs() +
-  scale_color_manual(values = c(NA, NA, "black")) +
-  scale_fill_manual(values = c("blue", "red", NA)) +
-  scale_linetype_manual(values = c(NA, NA, 2)) +
-  theme(legend.position = "bottom")
-  #scale_fill_discrete()
-  #scale_fill_manual(values=c("blue", "red")) +
-  #scale_colour_manual(values=c("blue", "red")) +
-  #theme(legend.position="bottom") +
-  
+  geom_line(aes(y = normalized_response * max(radiative_flux), col = "WF"), linetype = 2, size = 0.3) +
+  scale_color_manual(values = c("WF" = "black")) +
+  scale_fill_manual(values = c("Radiant Flux" = "blue", "Weighted Radiant Flux" = "red")) +
+  theme_light() +
+  theme(legend.position = "bottom") +
+  labs(fill = "", colour = "")
 
 val_light_comp + facet_grid(rows = vars(wf_name), cols = vars(lamp_name))
 
