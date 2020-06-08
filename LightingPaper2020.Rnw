@@ -849,7 +849,7 @@ If Option 3 is adopted the above equation becomes
   Luminous\ flux = 683\cdot \int P_\lambda V_\lambda d\lambda \; ,
 \end{equation}
 
-
+ 
 where $V_\lambda$ is the photopic luminosity function, as defined by the Commission Internationale de l' Éclairage (CIE) most recently in 2006(?), representing the sensitivity of the human eye to daytime light levels. The above equation is the standard measure of the quantity of visible light (luminous flux or power), the SI derived unit of the Lumen. The constant of 683 is applied in accordance with the definition of the lumen and candela, which states that a monochromatic lamp emitting light at a wavelength of 555nm (the wavelength at which the human eye is deemed to be most sensitive) has a luminous efficacy of 683 lumens per watt. 
 
 The use of the photopic luminosity function been subject to much criticism for its long-wave bias, as it represents the sensitivity of the long-wave and medium-wave cones to daytime light levels, whilst neglecting the differing sensitivities of the human eyes other light receptors. Namely the short-wave cones, rods and intrinsically photosensitive retinal ganglion cells (ipRGCs), which are responsible for vision in low-light settings and also physiological functions such as the regulation of circadian rhythms.
