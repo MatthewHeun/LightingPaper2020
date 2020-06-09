@@ -348,15 +348,6 @@ Point out that we are discussing light for illumination, not for
 horticultural and other purposes.
 ****
 
-****
-Are we still limiting our discussion to illumination? I think we should first point out the numerous uses of light i.e. Illumination, physiological regulation, photosynthesis in horticulture, sterilisation (incl. water purification), reprography, medical purposes (incl. phototherapy), insect trapping, spectroscopy etc. Then we can move on to say "for the purposes of this paper we choose to examine the use of light for A, B and C", where A, B and C are the uses for the lamps we choose to compare in section 3 in order to highlight the subjectivity of the lumen and different weighting functions.
-
-I also think we should define light early on, especially if we are examining uses of electromagnetic radiation other than illumination, and therefore the use of wavelengths of light outside the visible spectrum.
-
-The Oxford Dictionary of Physics defines light as "The form of electromagnetic radiation to which the human eye is sensitive".
-
-I propose that we either 1) use the term 'electromagnetic radiation', 2) define light for the purposes of this paper as 'electromagnetic radiation of all wavelengths' (which is often done colloquially), or alternatively 3) limit our paper to the discussion of illumination --- ZM 
-****
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Methods (2250 words)}
@@ -661,10 +652,6 @@ We discuss each challenge in the sections below.
 Are there any other challenges we want to address in this paper? ---MKH
 ****
 
-****
-If we decide to compare lamps and weighting functions for non-illumination purposes I think we should change item 2 to "How to account for the different utility of wavelengths of light for a desired work output?" ---ZM
-****
-
 
 %------------------------------
 \subsubsection{Waste heat from lamps} 
@@ -676,7 +663,7 @@ Do we want to include this section? ---MKH
 ****
 
 ****
-Absolutely, I've added one line detailing the niche use of heat lamps for various purposes. However, I'm in two minds as to whether we should move on. Examining a heat lamp and subseqeuntly classifying infrared radiation as 'useful light' would result in high efficiencies, and would emphasize our point that the selection of a portion of a SPD is a subjective exercise! ---ZM
+Absolutely, I've added two sentences detailing the niche use of heat lamps for various purposes.  ---ZM
 ****
 
 Every lamp produces waste heat ($\dot{Q}_2$ in Figure~\ref{fig:lamp})
@@ -690,7 +677,7 @@ In summer climates, waste heat from lamps adds to space cooling loads.
 For locations where both summer cooling and winter heating are performed,
 the winter/summer effects of lamps cancel, to first order. 
 
-Furthermore, some lamps, commonly termed heat or infrared lamps are explicitly designed to produce heat, and are used for various purposes including: space heating, incubator heating, plastic manufacture, food preparation, and warming animals in captivity.
+Furthermore, some lamps, commonly termed heat or infrared lamps are explicitly designed to produce heat, and are used for various purposes including: space heating, incubator heating, plastic manufacture, food preparation, and warming animals in captivity. As the infrared portion of light emitted by these lamps is considered useful they typically display high efficiencies.
 
 **** 
 Where is the line between an electric heater and an incandescent lamp? Is it just the design purpose? ---ZM
@@ -824,7 +811,7 @@ Where to insert the issue of which model of human eye perception should be used?
 ****
 
 ****
-I believe the best place for this would be at the end of section 2.3 (see below) ---ZM
+I believe the best place for this would be at the end of section 4 in the discussion (see below) ---ZM
 ****
 
 
@@ -839,45 +826,41 @@ Maybe discuss sources of data
 Include discussion of \cite{Delgado-Bonal:2017aa}.
 ****
 
-To understand how the measurement of a lamps efficiency varies according to its purpose....
-
-****
-I will write this opening paragraph after we have decided as a group which uses of light to examine (see comment in section 1 above) ---ZM
-****
+To understand how the measurement of a lamps efficiency varies according to which wavelengths of light induce the strongest response in the human eyes light receptors, or more broadly the response of any mechanism to light, data for the spectral power distribution of a lamp is required.
 
 
-The calculation of $L_3$, the light (or radiant power/flux) emitted by a lamp, represents Option 1 and is given by
-
+Firstly, and representing Option 1, the calculation of $\dot{L}_3$, the light (or radiant power/flux) emitted by a lamp is given by
+%
 \begin{equation}
   \dot{L}_3 = \int \dot{P}_\lambda d\lambda \; ,
 \end{equation}
-
+%
 where $\dot{P}_\lambda$ is the spectral power distribution of a lamp, representing the radiant power (W) per unit wavelength (nm) of the lamp. 
 
 If Option 2 is adopted the upper and lower bounds of the integral are set by the upper and lower limits of the visible spectrum (\humaneyesensitivity).
-
+%
 \begin{equation}
   \dot{L}_{vis} = \int_{380}^{750} \dot{P}_\lambda d\lambda \; .
 \end{equation}
-
+%
 If Option 3 is adopted the above equation becomes
-
+%
 \begin{equation}
-  Luminous\ flux = 683\cdot \int \dot{P}_\lambda V_\lambda d\lambda \; ,
+  Luminous\ flux = 683\ lm/W \cdot \int \dot{P}_\lambda V_\lambda d\lambda \; ,
 \end{equation}
-
+%
 where $V_\lambda$ is the photopic luminosity function, as defined by the Commission Internationale de l' Éclairage (CIE) most recently in 2006(?), and representing the sensitivity of the human eye to daytime light levels. The above equation is the SI derived unit for the quantity of visible light (luminous flux or power) - the Lumen. The constant of 683 is applied in accordance with the definition of the lumen and candela, which states that a monochromatic lamp emitting light at a wavelength of 555nm (the wavelength at which the human eye is deemed to be most sensitive) has a luminous efficacy of 683 lumens per watt. 
 
 The use of the photopic luminosity function been subject to much criticism for its long-wave bias, as it represents the sensitivity of the long-wave and medium-wave cones to daytime light levels, whilst neglecting the differing sensitivities of the human eyes other light receptors. Namely the short-wave cones, rods and intrinsically photosensitive retinal ganglion cells (ipRGCs), which are responsible for vision in low-light settings and physiological functions such as the regulation of circadian rhythms respectively.
 
 Given that the industry-standard measure of lighting efficiency is the luminous efficacy (the quotient of the lumen output and power input of a lamp), the use of the photopic luminosity function to measure light output under-represents the power of wavelengths other than 555nm emitted by a lamp, and in the case where other uses of light are desired the utility of these wavelengths of light are also under-represented. 
 
-For the analyst interested in examining what proportion of a spectral power distribution is 'useful' for any given purpose an appropriate weighting function must be selected (including the photopic luminosity function). The useful light ($L_{useful}$) emitted by a lamp is then given by
-
+For the analyst interested in examining what proportion of a spectral power distribution is 'useful' for any given purpose an appropriate weighting function must be selected (including the photopic luminosity function). The useful light ($\dot{L}_{useful}$) emitted by a lamp is then given by
+%
 \begin{equation}
   \dot{L}_{useful} = \int \dot{P}_\lambda Wf_\lambda d\lambda \; ,
 \end{equation}
-
+%
 where $Wf_\lambda$ is equal to a given weighting function, with values between 0 and 1. 
 
 Depending on the option taken and the weighting function selected the valuable energy efficiency of a lamp to the useful stage is given by
@@ -893,9 +876,6 @@ To demonstrate how the use of selection of various weighting functions alters th
 Which lamps are we assessing? ---ZM
 ****
 
-****
-Which uses of light are we comparing, and therefore which weighting functions are we choosing for comparison? --- ZM
-****
 
 In addition to examining the energy efficiency of these lamps, we also calculate the ratio of the useful light (as determined by a given weighting function), to both the radiant power and the electricity consumption of the device.
 
@@ -996,7 +976,7 @@ previous methods of determining the exergy of lighting.
 Examining our results in view of previous studies....
 
 Considering the equivalency of the previous SEA approach when using a maximum luminous efficacy figure of 683 lm/W, and the approach detailed in this paper when using the photopic luminosity function \ref{sec:physics_of_light}, any future studies which select different weighting functions are likely to produce considerably different results. For example, the use of 400 lm/W as the maximum luminous efficacy figure by Ayres et al (2005) and Guevara et al (2016) overestimates the lighting efficiencies by a factor of $\frac {683}{400}$ = 1.71, \emph{if} it is decided that light has the greatest utility at a wavelength of 555nm. 
-The choice of any weighting function is a subjective decision for the analyst, however to provide consistency for SEA community moving forward we propose to adopt the universal luminosity function in accordance with Rea and Biermann (2018), \emph{if} the simplified assumption is made that lamps are solely used for illumination in society. A more comprehensive approach would be to select a representative range of uses for lamps, which are then assessed based on their respective weighting functions. 
+The choice of any weighting function is a subjective decision for the analyst, however to provide consistency for SEA community moving forward we propose to adopt the universal luminosity function in accordance with Rea and Biermann (2018), \emph{if} the assumption is made that lamps are solely used for illumination in society. A more comprehensive approach would be to select a representative range of uses for lamps, which are then assessed based on their respective weighting functions. 
 
 Secondly are differences in the exergy-energy factor between previous studies, this paper, and our reccomendation for future studies......
 
