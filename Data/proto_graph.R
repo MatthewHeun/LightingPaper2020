@@ -6,9 +6,9 @@
 
 # MKHthemes::xy_theme() I'm not sure whether MKHthemes xy_theme is suited to facet_grid formatting
 
-library(ggplot2)
-library(forcats)
-library(dplyr)
+# library(ggplot2)
+# library(forcats)
+# library(dplyr)
 
 # Changes the first column name of the 'weighted_responses_df' dataframe from "Wavelength [nm]" to "Wavelength" so the "aes()" arguement in ggplot works
 # is there a way to retain the name "Wavelength [nm]"?
@@ -28,20 +28,27 @@ lamp_list <- c("lamp_led_phil_a19", "lamp_inc_globe_a19")
 
 # Preparing ready-to-plot dataframe based on user-defined wf_list and lamp_list
 
-weighted_responses_plot <- weighted_responses_df %>%
-  filter(wf_name %in% wf_list, lamp_name %in% lamp_list) %>%
-  mutate(lamp_name = as.factor(lamp_name),
-         wf_name = as.factor(wf_name),
-         lamp_name = fct_relevel(.f = lamp_name, lamp_list),
-         wf_name = fct_relevel(.f = wf_name, wf_list))
+# weighted_responses_plot <- weighted_responses_df %>%
+#   filter(wf_name %in% wf_list, lamp_name %in% lamp_list) %>%
+#   mutate(lamp_name = as.factor(lamp_name),
+#          wf_name = as.factor(wf_name),
+#          lamp_name = fct_relevel(.f = lamp_name, lamp_list),
+#          wf_name = fct_relevel(.f = wf_name, wf_list))
+
+
+weighted_responses_to_be_plotted <- weighted_responses_df %>%
+  dplyr::filter(wf_name %in% wf_list, lamp_name %in% lamp_list) %>%
+  dplyr::mutate(lamp_name = factor(lamp_name, levels = lamp_list),
+                wf_name = factor(wf_name, levels = wf_list))
 
 # levels(weighted_responses_plot$lamp_name); levels(weighted_responses_plot$wf_name)
 
 
 # Now, plotting
 
-val_light_comp <- ggplot2::ggplot(weighted_responses_plot, aes(x = Wavelength)) +
-  ggplot2::geom_area(aes(y = radiative_flux, fill = "Radiant Flux"), show.legend = TRUE) +
+val_light_comp <- ggplot2::ggplot(data = weighted_responses_to_be_plotted, 
+                                  mapping = aes(x = Wavelength)) +
+  ggplot2::geom_area(aes(y = radiative_flux, fill = "Radiant Flux")) +
   ggplot2::geom_area(aes(y = weighted_radiant_flux, fill = "Weighted Radiant Flux"), show.legend = TRUE) +
   ylab("Radiative flux") +
   scale_y_continuous(sec.axis = sec_axis(~ . / max(.))) +
