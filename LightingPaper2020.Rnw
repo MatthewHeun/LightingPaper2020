@@ -293,6 +293,18 @@ Style for this paper:
 \end{enumerate}
 %
 
+\LaTeX{} hints:
+%
+\begin{enumerate}
+	
+  \item Use short lines.  
+  
+  \item Comment lines after the equation environment to continue a sentence or paragraph.
+  
+  \item Check comments in \texttt{LightingPaper2020.bib} file for hints about bibliography generation.
+    
+\end{enumerate}
+%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction (PB, 500 words)}
