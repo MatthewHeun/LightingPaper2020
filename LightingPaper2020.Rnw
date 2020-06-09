@@ -949,7 +949,7 @@ DF <- tibble::tibble(x = -100:100) %>%
 
 <<Zekes_First_Plot, fig.width = 5, fig.height = 3, fig.cap = "Zeke's first graph.">>=
 DF %>% 
-  ggplot2::ggplot(mapping = aes(x = x, y = y)) +
+  ggplot2::ggplot(mapping = ggplot2::aes(x = x, y = y)) +
   geom_line() + 
   MKHthemes::xy_theme()
 @
