@@ -852,13 +852,13 @@ where $\dot{P}_\lambda$ is the spectral power distribution of a lamp, representi
 If Option 2 is adopted the upper and lower bounds of the integral are set by the upper and lower limits of the visible spectrum (\humaneyesensitivity).
 %
 \begin{equation}
-  \dot{L}_{vis} = \int_{380}^{750} \dot{P}_\lambda d\lambda \; .
+  \dot{L}_{vis} = \int_{380 \text{ nm}}^{750 \text{ nm}} {P}_\lambda d\lambda \; .
 \end{equation}
 %
 If Option 3 is adopted the above equation becomes
 %
 \begin{equation}
-  Luminous\ flux = 683\ lm/W \cdot \int \dot{P}_\lambda V_\lambda d\lambda \; ,
+  Luminous\ flux = 683 \text{ lm/W} \int \dot{P}_\lambda V_\lambda d\lambda \; ,
 \end{equation}
 %
 where $V_\lambda$ is the photopic luminosity function, as defined by the Commission Internationale de l' Éclairage (CIE) most recently in 2006(?), and representing the sensitivity of the human eye to daytime light levels. The above equation is the SI derived unit for the quantity of visible light (luminous flux or power) - the Lumen. The constant of 683 is applied in accordance with the definition of the lumen and candela, which states that a monochromatic lamp emitting light at a wavelength of 555nm (the wavelength at which the human eye is deemed to be most sensitive) has a luminous efficacy of 683 lumens per watt. 
