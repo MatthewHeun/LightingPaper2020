@@ -1006,12 +1006,58 @@ ZM: Discuss how our results for the examples vary from results that would have b
 previous methods of determining the exergy of lighting.
 ****
 
-Examining our results in view of previous studies....
+%------------------------------
+\subsubsection{Comparison with previous approaches in Societal Exergy Analysis} 
+\label{sec:compwithSEA}
+%------------------------------
+The luminous (or second law) efficiency of lighting 
+has previously been calculated in SEA 
+by taking the quotient of the minimum energy required to produce a given output,
+and the energy required to produce a given output by the device in question.
 
-Considering the equivalency of the previous SEA approach when using a maximum luminous efficacy figure of 683 lm/W, and the approach detailed in this paper when using the photopic luminosity function \ref{sec:physics_of_light}, any future studies which select different weighting functions are likely to produce considerably different results. For example, the use of 400 lm/W as the maximum luminous efficacy figure by Ayres et al (2005) and Guevara et al (2016) overestimates the lighting efficiencies by a factor of $\frac {683}{400}$ = 1.71, \emph{if} it is decided that light has the greatest utility at a wavelength of 555nm. 
-The choice of any weighting function is a subjective decision for the analyst, however to provide consistency for SEA community moving forward we propose to adopt the universal luminosity function in accordance with Rea and Biermann (2018), \emph{if} the assumption is made that lamps are solely used for illumination in society. A more comprehensive approach would be to select a representative range of uses for lamps, which are then assessed based on their respective weighting functions. 
+This approach has been recommended for outputs such as light, sound and information
+\textit "because the useful output cannot or is not typically measured in energy units" 
+\cite{Sousa2017}.
 
-Secondly are differences in the exergy-energy factor between previous studies, this paper, and our reccomendation for future studies......
+For lighting this constitutes taking the quotient 
+of the theoretical minimum quantity of energy required to emit one lumen, 
+and the actual energy used to emit one lumen of light by the lamp, 
+values which are derived by taking the inverse of the luminous efficacy values,
+with the equation therefore equivalent to
+the quotient of the devices luminous efficacy
+and the maximum luminous efficacy.
+%
+\begin{equation}
+  \frac{1}{\epsilon_{max}} / \frac{1}{\epsilon_{lamp}} \equiv \frac{1}{\epsilon_{max}} \cdot \frac{\epsilon_{lamp}}{1} \equiv \frac{\epsilon_{lamp}}{\epsilon_{max}}\; ,
+\end{equation}
+%
+where $\epsilon_{max}$ is equal to the maximum luminous efficacy (683 lm/W), 
+and $\epsilon_{lamp}$ is equal to the luminous efficacy of the lamp.
+
+As detailed above in \ref{sec:energy_and_exergy_of_light} 
+the valuable exergy of the light emitted by a lamp if given by
+%
+\begin{equation}
+  \eta_{X,v} = \frac{\phi_L \dot{L}_3 }{\dot{W}_1} \; .
+\end{equation}
+
+
+
+Considering the equivalency of the previous SEA approach 
+when using a maximum luminous efficacy figure of 683 lm/W, 
+and the approach detailed in this paper when using the photopic luminosity function, 
+any future studies which select different weighting functions 
+are likely to produce considerably different results. 
+For example, the use of 400 lm/W as the maximum luminous efficacy figure by Ayres et al (2005) and Guevara et al (2016) 
+results in lighting efficiencies being overestimated by a factor of $\frac {683}{400}$ = 1.71, 
+\emph{if} it is decided that light has the greatest utility at a wavelength of 555nm,
+and is the desired work output. 
+The choice of any weighting function is a subjective decision for the analyst, 
+however to provide consistency for SEA community moving forward 
+we propose to adopt the universal luminosity function in accordance with Rea and Biermann (2018), 
+\emph{if} the assumption is made that lamps are solely used for illumination in society. 
+A more comprehensive approach would be to select a representative range of uses for lamps, 
+which are then assessed based on their respective weighting functions. 
 
 
 ****
