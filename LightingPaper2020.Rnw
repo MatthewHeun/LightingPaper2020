@@ -947,8 +947,8 @@ Do calculations with various permutations and show graphs.
 # Creates the weighted_responses_df data frame.
 source(file = file.path("Data", "AllData.R"))
 # Trim down to the weighting functions and lamps we want
-wf_list <- c("wf_ca", "wf_nw")
-lamp_list <- c("lamp_led_phil_a19", "lamp_inc_globe_a19")
+wf_list <- c("wf_nw", "wf_v", "wf_p2", "wf_u")
+lamp_list <- c("lamp_inc_globe_a19", "lamp_hal_globe_r20", "lamp_cfl_es_tw", "lamp_led_phil_a19")
 response_data <- weighted_responses_df %>% 
   dplyr::filter(
     wf_name %in% wf_list, 
@@ -980,11 +980,12 @@ response_data %>%
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
   geom_area(mapping = aes(y = radiative_flux, fill = "Radiant flux")) +
   geom_area(aes(y = weighted_radiant_flux, fill = "Weighted radiant flux"), show.legend = TRUE) +
-  ylab(expression("Radiative flux [W/m"^2*"]")) +
+  ylab(expression("Radiative flux [W/nm"^2*"]")) +
   scale_fill_manual(values = c("Radiant flux" = "blue", "Weighted radiant flux" = "red")) +
   labs(fill = element_blank(), colour = element_blank()) +
   facet_grid(rows = vars(wf_name), cols = vars(lamp_name)) + 
   MKHthemes::xy_theme()
+  # Where do we call the legend.position = "bottom" argument to reposition the legend?
 @
 
 
