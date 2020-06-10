@@ -922,31 +922,6 @@ Things to consider:
 \end{enumerate}
 %
 
-<<Chunk_Name>>=
-a_string <- "abc"
-@
-
-
-<<Zekes_First_Visible_Chunk>>=
-print(a_string)
-@
-
-<<Zekes_First_Data>>=
-DF <- tibble::tibble(x = -100:100) %>% 
-  dplyr::mutate(
-    y = x^2
-  )
-@
-
-
-<<Zekes_First_Plot, fig.width = 5, fig.height = 3, fig.cap = "Zeke's first graph.">>=
-DF %>% 
-  ggplot2::ggplot(mapping = ggplot2::aes(x = x, y = y)) +
-  geom_line() + 
-  MKHthemes::xy_theme()
-@
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results (Zeke and Emmanuel, 2000 words)}
