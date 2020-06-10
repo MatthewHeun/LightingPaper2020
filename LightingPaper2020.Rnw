@@ -297,11 +297,15 @@ Style for this paper:
 %
 \begin{enumerate}
 	
-  \item Use short lines.  
+  \item Use short lines with return characters after every clause.  
   
   \item Comment lines after the equation environment to continue a sentence or paragraph.
   
   \item Check comments in \texttt{LightingPaper2020.bib} file for hints about bibliography generation.
+  
+  \item Use ``\textasciitilde'' character for non-breaking space. 
+        ``\textasciitilde'' is especially useful between numbers and their units.
+        E.g., 683\textasciitilde{}lm/W.
     
 \end{enumerate}
 %
