@@ -620,7 +620,7 @@ The valuable exergetic efficiency of lighting for Figure~\ref{fig:lamp} is given
 Note that both $\eta_X$ and $\eta_{X,v}$ are independent of human presence;
 the efficiencies ($\eta_X$ and $\eta_{X,v}$) would be the same 
 whether the lamp is illuminating
-in an unoccupied room or a crowded bar, 
+an unoccupied room or a crowded bar, 
 whether the illumination stimulates the rods and cones of a human eye or
 excites band gap electrons in an amorphous silicon solar cell.
 
