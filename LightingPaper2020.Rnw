@@ -1018,11 +1018,13 @@ response_data %>%
 response_data %>% 
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
   geom_area(mapping = aes(y = radiative_flux, fill = "Radiant flux")) +
-  geom_area(aes(y = weighted_radiant_flux, fill = "Weighted radiant flux"), show.legend = TRUE) +
+  geom_area(mapping = aes(y = weighted_radiant_flux, fill = "Weighted radiant flux"), show.legend = TRUE) +
+  # ggspectra::stat_color(mapping = aes(y = weighted_radiant_flux), geom = "bar") +
   xlab(expression(lambda*" [nm]")) +
   ylab(expression("Radiative flux [W/nm"^2*"]")) +
   scale_x_continuous(breaks = c(380, 550, 750)) + 
   scale_fill_manual(values = c("Radiant flux" = "darkgray", "Weighted radiant flux" = "red")) +
+  # scale_fill_manual(values = c("Radiant flux" = "darkgray")) +
   labs(fill = element_blank(), colour = element_blank()) +
   facet_grid(rows = vars(wf_name), cols = vars(lamp_name)) + 
   MKHthemes::xy_theme() + 
