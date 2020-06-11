@@ -997,11 +997,12 @@ response_data %>%
     normalized_response = tidyr::replace_na(normalized_response, 0)
   ) %>% 
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
+  geom_vline(xintercept = 555, size = 0.2, color = "darkgray") +
   geom_line(mapping = aes(y = normalized_response)) +
   facet_grid(rows = vars(wf_name), cols = vars(header)) + 
   xlab(expression(lambda*" [nm]")) +
   ylab("Normalized response [-]") +
-  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 550, 750, 900)) + 
+  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) + 
   scale_y_continuous(breaks = c(0, 0.2, 0.4, 0.6, 0.8, 1)) +
   MKHthemes::xy_theme() + 
   # Eliminate labels on right facet. Pick up from lamp radiative fluxes
@@ -1022,7 +1023,7 @@ response_data %>%
   # ggspectra::stat_color(mapping = aes(y = weighted_radiant_flux), geom = "bar") +
   xlab(expression(lambda*" [nm]")) +
   ylab(expression("Radiative flux [W/nm"^2*"]")) +
-  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 550, 750, 900)) + 
+  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) + 
   scale_fill_manual(values = c("Radiant flux" = "darkgray", "Weighted radiant flux" = "red")) +
   # scale_fill_manual(values = c("Radiant flux" = "darkgray")) +
   labs(fill = element_blank(), colour = element_blank()) +
