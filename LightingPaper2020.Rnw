@@ -1039,75 +1039,12 @@ response_data %>%
              ``LED'' is a 11~W Phillips A19 LED.
              ``Unweighted'' is ****.
              ``Visible'' restricts to visible wavelengths, \humaneyesensitivity{}.
-             ``Phot.\ Lum.\'' is the standard photopic luminosity weighting function.
+             ``Phot.\ Lum.{}'' is the standard photopic luminosity weighting function.
              ``Universal'' is the universal weighting function.
-             **** Do we have the correct units on radiative flux? ****}
+             **** Do we have the correct units on radiative flux? ****
+             **** Provide references for each of the weighting functions and lamps? ****}
 	\label{fig:wfs_and_lamps}
 \end{figure}
-
-
-
-
-% \begin{figure}
-% \centering
-% <<Weighting_Function_Graph, fig.width=1, fig.height=6>>=
-% response_data %>% 
-%   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>% 
-%   dplyr::filter(!is.na(normalized_response)) %>% 
-%   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
-%   geom_line(mapping = aes(y = normalized_response)) +
-%   facet_grid(rows = vars(wf_name)) + 
-%   xlab(expression(lambda*" [nm]")) +
-%   ylab("Normalized response [-]") +
-%   scale_y_continuous(breaks = c(0, 0.2, 0.4, 0.6, 0.8, 1)) +
-%   MKHthemes::xy_theme() + 
-%   theme(strip.text.y = element_blank())
-% @
-% ~%
-% <<Responses_Graph, fig.width=3, fig.height=6.5>>=
-% response_data %>% 
-%   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
-%   geom_area(mapping = aes(y = radiative_flux, fill = "Radiant flux")) +
-%   geom_area(aes(y = weighted_radiant_flux, fill = "Weighted radiant flux"), show.legend = TRUE) +
-%   xlab(expression(lambda*" [nm]")) +
-%   ylab(expression("Radiative flux [W/nm"^2*"]")) +
-%   scale_fill_manual(values = c("Radiant flux" = "blue", "Weighted radiant flux" = "red")) +
-%   labs(fill = element_blank(), colour = element_blank()) +
-%   facet_grid(rows = vars(wf_name), cols = vars(lamp_name)) + 
-%   MKHthemes::xy_theme() + 
-%   theme(legend.position = "bottom")
-% @
-% \caption{Weighting functions and responses of different lamps.}
-% \label{fig:wfs_and_lamps}
-% \end{figure}
-
-
-% <<Weighting_Function_Graph, fig.width=1.5, fig.height=6>>=
-% response_data %>% 
-%   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>% 
-%   dplyr::filter(!is.na(normalized_response)) %>% 
-%   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
-%   geom_line(mapping = aes(y = normalized_response)) +
-%   facet_grid(rows = vars(wf_name)) + 
-%   xlab(expression(lambda*" [nm]")) +
-%   ylab("Normalized response [-]") +
-%   scale_y_continuous(breaks = c(0, 0.2, 0.4, 0.6, 0.8, 1)) +
-%   MKHthemes::xy_theme() + 
-%   theme(strip.text.y = element_blank())
-% @
-% <<Responses_Graph, fig.width=4, fig.height=6.5>>=
-% response_data %>% 
-%   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
-%   geom_area(mapping = aes(y = radiative_flux, fill = "Radiant flux")) +
-%   geom_area(aes(y = weighted_radiant_flux, fill = "Weighted radiant flux"), show.legend = TRUE) +
-%   xlab(expression(lambda*" [nm]")) +
-%   ylab(expression("Radiative flux [W/nm"^2*"]")) +
-%   scale_fill_manual(values = c("Radiant flux" = "blue", "Weighted radiant flux" = "red")) +
-%   labs(fill = element_blank(), colour = element_blank()) +
-%   facet_grid(rows = vars(wf_name), cols = vars(lamp_name)) + 
-%   MKHthemes::xy_theme() + 
-%   theme(legend.position = "bottom")
-% @
 
 
 
