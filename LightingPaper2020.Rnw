@@ -1016,22 +1016,42 @@ response_data %>%
     % or a blank line to force the subfigure onto a new line.
     \begin{subfigure}[t]{0.74\textwidth}
 <<Responses_Graph, fig.width=4.5, fig.height=6.25>>=
-response_data %>% 
+# This version is the red/gray version that we previously.
+# response_data %>% 
+#   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
+#   geom_area(mapping = aes(y = radiative_flux, fill = "Radiant flux")) +
+#   geom_area(mapping = aes(y = weighted_radiant_flux, fill = "Weighted radiant flux"), show.legend = TRUE) +
+#   xlab(expression(lambda*" [nm]")) +
+#   ylab(expression("Radiative flux [W/nm"^2*"]")) +
+#   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
+#   scale_fill_manual(values = c("Radiant flux" = "darkgray", "Weighted radiant flux" = "red")) +
+#   labs(fill = element_blank(), colour = element_blank()) +
+#   facet_grid(rows = vars(wf_name), cols = vars(lamp_name)) +
+#   MKHthemes::xy_theme() +
+#   theme(legend.position = "bottom",
+#         axis.text.x = element_text(size = rel(0.8), angle = 90),
+#         axis.text.y = element_text(size = rel(0.8)))
+response_data %>%
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
-  geom_area(mapping = aes(y = radiative_flux, fill = "Radiant flux")) +
-  geom_area(mapping = aes(y = weighted_radiant_flux, fill = "Weighted radiant flux"), show.legend = TRUE) +
-  # ggspectra::stat_color(mapping = aes(y = weighted_radiant_flux), geom = "bar") +
+  geom_area(mapping = aes(y = radiative_flux, fill = "Radiant flux"), fill = "darkgray") +
+  # geom_area(mapping = aes(y = weighted_radiant_flux, fill = "Weighted radiant flux"), show.legend = TRUE) +
+  ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = weighted_radiant_flux), 
+                        geom = "bar",
+                        chroma.type = photobiology::cone_fundamentals10.spct) +
+  scale_fill_identity() + 
+  scale_color_identity() +
+
   xlab(expression(lambda*" [nm]")) +
   ylab(expression("Radiative flux [W/nm"^2*"]")) +
-  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) + 
-  scale_fill_manual(values = c("Radiant flux" = "darkgray", "Weighted radiant flux" = "red")) +
-  # scale_fill_manual(values = c("Radiant flux" = "darkgray")) +
+  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
+  # scale_fill_manual(values = c("Weighted radiant flux" = "red")) +
   labs(fill = element_blank(), colour = element_blank()) +
-  facet_grid(rows = vars(wf_name), cols = vars(lamp_name)) + 
-  MKHthemes::xy_theme() + 
-  theme(legend.position = "bottom", 
-        axis.text.x = element_text(size = rel(0.8), angle = 90), 
+  facet_grid(rows = vars(wf_name), cols = vars(lamp_name)) +
+  MKHthemes::xy_theme() +
+  theme(legend.position = "bottom",
+        axis.text.x = element_text(size = rel(0.8), angle = 90),
         axis.text.y = element_text(size = rel(0.8)))
+
 @
         \label{fig:lamp_responses}
     \end{subfigure}
