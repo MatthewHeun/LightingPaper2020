@@ -1038,13 +1038,14 @@ response_data %>%
              ``A19'' is a 100~W incandescent A19 globe. 
              ``Halogen'' is a 29~W halogen R20 globe.
              ``CFL'' is a 20~W EnergyStar twister compact fluorescent.
-             ``LED'' is a 11~W Phillips A19 LED.
+             ``LED'' is an 11~W Phillips A19 LED.
              ``Unweighted'' is ****.
              ``Visible'' restricts to visible wavelengths, \humaneyesensitivity{}.
              ``Phot.\ Lum.{}'' is the standard photopic luminosity weighting function.
              ``Universal'' is the universal weighting function.
              **** Do we have the correct units on radiative flux? ****
-             **** Provide references for each of the weighting functions and lamps? ****}
+             **** Provide references for each of the weighting functions and lamps? ****
+             **** Shall we add luminous intensity annotations to each graph? ****}
 	\label{fig:wfs_and_lamps}
 \end{figure}
 
