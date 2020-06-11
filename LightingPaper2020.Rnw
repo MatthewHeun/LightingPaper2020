@@ -112,6 +112,8 @@ library(forcats)
 
 \usetikzlibrary{arrows,positioning}         % For diagrams with tikz
 \usepackage[makeroom]{cancel}               % To show terms go to zero
+\usepackage{subcaption}                     % For Figure 12 (a), Figure 12 (b), etc.
+
 
 % \usepackage[inline]{enumitem}               % For inline enumeration %>%
 
@@ -955,46 +957,157 @@ Do calculations with various permutations and show graphs.
 # Creates the weighted_responses_df data frame.
 source(file = file.path("Data", "AllData.R"))
 # Trim down to the weighting functions and lamps we want
-wf_list <- c("wf_nw", "wf_v", "wf_p2", "wf_u")
-lamp_list <- c("lamp_inc_globe_a19", "lamp_hal_globe_r20", "lamp_cfl_es_tw", "lamp_led_phil_a19")
+wf_list <- c("nw", "v", "p2", "u")
+lamp_list <- c("inc_globe_a19", "hal_globe_r20", "cfl_es_tw", "led_phil_a19")
 response_data <- weighted_responses_df %>% 
+  dplyr::mutate(
+    lamp_name = sub(pattern = "lamp_", replacement = "", x = lamp_name),
+    wf_name = sub(pattern = "wf_", replacement = "", x = wf_name)
+  ) %>% 
   dplyr::filter(
     wf_name %in% wf_list, 
     lamp_name %in% lamp_list, 
   ) %>% 
   dplyr::mutate(
+    wf_name = factor(wf_name, levels = wf_list), 
+    wf_name = dplyr::recode_factor(wf_name,
+                                   nw = "Unweighted",
+                                   v = "Visible",
+                                   p2 = "Phot. lum.",
+                                   u = "Universal"),
     lamp_name = factor(lamp_name, levels = lamp_list),
-    wf_name = factor(wf_name, levels = wf_list)
+    lamp_name = dplyr::recode_factor(lamp_name, 
+                                     inc_globe_a19 = "A19",
+                                     hal_globe_r20 = "Halogen", 
+                                     cfl_es_tw = "CFL",
+                                     led_phil_a19 = "LED")
   ) 
 @
 
 
-
-<<Weighting_Function_Graph>>=
+\begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.25\textwidth}
+<<Weighting_Function_Graph, fig.width=1.5, fig.height=5.7>>=
 response_data %>% 
   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>% 
-  dplyr::filter(!is.na(normalized_response)) %>% 
+  dplyr::mutate(
+    header = "Weight. Func.",
+    # Get nice tails at 0.
+    normalized_response = tidyr::replace_na(normalized_response, 0)
+  ) %>% 
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
   geom_line(mapping = aes(y = normalized_response)) +
-  facet_grid(rows = vars(wf_name)) + 
+  facet_grid(rows = vars(wf_name), cols = vars(header)) + 
+  xlab(expression(lambda*" [nm]")) +
   ylab("Normalized response [-]") +
+  scale_x_continuous(breaks = c(380, 550, 750)) + 
   scale_y_continuous(breaks = c(0, 0.2, 0.4, 0.6, 0.8, 1)) +
-  MKHthemes::xy_theme()
+  MKHthemes::xy_theme() + 
+  # Eliminate labels on right facet. Pick up from lamp radiative fluxes
+  theme(strip.text.y = element_blank(), 
+        axis.text.x = element_text(size = rel(0.8)), 
+        axis.text.y = element_text(size = rel(0.8)))
 @
-
-
-<<Responses_Graph>>=
+        \label{fig:weighting_functions}
+    \end{subfigure}
+    % add desired spacing between images (e.g., ~, \quad, \qquad, \hfill, etc.)
+    % or a blank line to force the subfigure onto a new line.
+    \begin{subfigure}[t]{0.74\textwidth}
+<<Responses_Graph, fig.width=4.5, fig.height=6.25>>=
 response_data %>% 
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
   geom_area(mapping = aes(y = radiative_flux, fill = "Radiant flux")) +
   geom_area(aes(y = weighted_radiant_flux, fill = "Weighted radiant flux"), show.legend = TRUE) +
+  xlab(expression(lambda*" [nm]")) +
   ylab(expression("Radiative flux [W/nm"^2*"]")) +
+  scale_x_continuous(breaks = c(380, 550, 750)) + 
   scale_fill_manual(values = c("Radiant flux" = "blue", "Weighted radiant flux" = "red")) +
   labs(fill = element_blank(), colour = element_blank()) +
   facet_grid(rows = vars(wf_name), cols = vars(lamp_name)) + 
-  MKHthemes::xy_theme()
-  # Where do we call the legend.position = "bottom" argument to reposition the legend?
+  MKHthemes::xy_theme() + 
+  theme(legend.position = "bottom", 
+        axis.text.x = element_text(size = rel(0.8)), 
+        axis.text.y = element_text(size = rel(0.8)))
 @
+        \label{fig:lamp_responses}
+    \end{subfigure}
+    \caption{Weighting functions and responses of example lamps. 
+             ``A19'' is a 100~W incandescent A19 globe. 
+             ``Halogen'' is a 29~W halogen R20 globe.
+             ``CFL'' is a 20~W EnergyStar twister compact fluorescent.
+             ``LED'' is a 11~W Phillips A19 LED.
+             ``Unweighted'' is ****.
+             ``Visible'' restricts to visible wavelengths, \humaneyesensitivity{}.
+             ``Phot.\ Lum.\'' is the standard photopic luminosity weighting function.
+             ``Universal'' is the universal weighting function.
+             **** Do we have the correct units on radiative flux? ****}
+	\label{fig:wfs_and_lamps}
+\end{figure}
+
+
+
+
+% \begin{figure}
+% \centering
+% <<Weighting_Function_Graph, fig.width=1, fig.height=6>>=
+% response_data %>% 
+%   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>% 
+%   dplyr::filter(!is.na(normalized_response)) %>% 
+%   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
+%   geom_line(mapping = aes(y = normalized_response)) +
+%   facet_grid(rows = vars(wf_name)) + 
+%   xlab(expression(lambda*" [nm]")) +
+%   ylab("Normalized response [-]") +
+%   scale_y_continuous(breaks = c(0, 0.2, 0.4, 0.6, 0.8, 1)) +
+%   MKHthemes::xy_theme() + 
+%   theme(strip.text.y = element_blank())
+% @
+% ~%
+% <<Responses_Graph, fig.width=3, fig.height=6.5>>=
+% response_data %>% 
+%   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
+%   geom_area(mapping = aes(y = radiative_flux, fill = "Radiant flux")) +
+%   geom_area(aes(y = weighted_radiant_flux, fill = "Weighted radiant flux"), show.legend = TRUE) +
+%   xlab(expression(lambda*" [nm]")) +
+%   ylab(expression("Radiative flux [W/nm"^2*"]")) +
+%   scale_fill_manual(values = c("Radiant flux" = "blue", "Weighted radiant flux" = "red")) +
+%   labs(fill = element_blank(), colour = element_blank()) +
+%   facet_grid(rows = vars(wf_name), cols = vars(lamp_name)) + 
+%   MKHthemes::xy_theme() + 
+%   theme(legend.position = "bottom")
+% @
+% \caption{Weighting functions and responses of different lamps.}
+% \label{fig:wfs_and_lamps}
+% \end{figure}
+
+
+% <<Weighting_Function_Graph, fig.width=1.5, fig.height=6>>=
+% response_data %>% 
+%   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>% 
+%   dplyr::filter(!is.na(normalized_response)) %>% 
+%   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
+%   geom_line(mapping = aes(y = normalized_response)) +
+%   facet_grid(rows = vars(wf_name)) + 
+%   xlab(expression(lambda*" [nm]")) +
+%   ylab("Normalized response [-]") +
+%   scale_y_continuous(breaks = c(0, 0.2, 0.4, 0.6, 0.8, 1)) +
+%   MKHthemes::xy_theme() + 
+%   theme(strip.text.y = element_blank())
+% @
+% <<Responses_Graph, fig.width=4, fig.height=6.5>>=
+% response_data %>% 
+%   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
+%   geom_area(mapping = aes(y = radiative_flux, fill = "Radiant flux")) +
+%   geom_area(aes(y = weighted_radiant_flux, fill = "Weighted radiant flux"), show.legend = TRUE) +
+%   xlab(expression(lambda*" [nm]")) +
+%   ylab(expression("Radiative flux [W/nm"^2*"]")) +
+%   scale_fill_manual(values = c("Radiant flux" = "blue", "Weighted radiant flux" = "red")) +
+%   labs(fill = element_blank(), colour = element_blank()) +
+%   facet_grid(rows = vars(wf_name), cols = vars(lamp_name)) + 
+%   MKHthemes::xy_theme() + 
+%   theme(legend.position = "bottom")
+% @
 
 
 
