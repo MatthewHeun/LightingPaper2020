@@ -1001,12 +1001,12 @@ response_data %>%
   facet_grid(rows = vars(wf_name), cols = vars(header)) + 
   xlab(expression(lambda*" [nm]")) +
   ylab("Normalized response [-]") +
-  scale_x_continuous(breaks = c(380, 550, 750)) + 
+  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 550, 750, 900)) + 
   scale_y_continuous(breaks = c(0, 0.2, 0.4, 0.6, 0.8, 1)) +
   MKHthemes::xy_theme() + 
   # Eliminate labels on right facet. Pick up from lamp radiative fluxes
   theme(strip.text.y = element_blank(), 
-        axis.text.x = element_text(size = rel(0.8)), 
+        axis.text.x = element_text(size = rel(0.8), angle = 90), 
         axis.text.y = element_text(size = rel(0.8)))
 @
         \label{fig:weighting_functions}
@@ -1022,14 +1022,14 @@ response_data %>%
   # ggspectra::stat_color(mapping = aes(y = weighted_radiant_flux), geom = "bar") +
   xlab(expression(lambda*" [nm]")) +
   ylab(expression("Radiative flux [W/nm"^2*"]")) +
-  scale_x_continuous(breaks = c(380, 550, 750)) + 
+  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 550, 750, 900)) + 
   scale_fill_manual(values = c("Radiant flux" = "darkgray", "Weighted radiant flux" = "red")) +
   # scale_fill_manual(values = c("Radiant flux" = "darkgray")) +
   labs(fill = element_blank(), colour = element_blank()) +
   facet_grid(rows = vars(wf_name), cols = vars(lamp_name)) + 
   MKHthemes::xy_theme() + 
   theme(legend.position = "bottom", 
-        axis.text.x = element_text(size = rel(0.8)), 
+        axis.text.x = element_text(size = rel(0.8), angle = 90), 
         axis.text.y = element_text(size = rel(0.8)))
 @
         \label{fig:lamp_responses}
