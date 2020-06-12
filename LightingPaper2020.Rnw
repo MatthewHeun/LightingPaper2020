@@ -8,7 +8,7 @@ library(knitr)
 # Set default knitr options for chunks.
 opts_chunk$set(
   # ********************************************************
-  eval = FALSE,
+  eval = TRUE,
   include = TRUE,
   echo = FALSE, 
   warning = FALSE
@@ -1205,8 +1205,10 @@ response_data %>%
 #         axis.text.y = element_text(size = rel(0.8)))
 response_data %>%
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
-  geom_area(mapping = aes(y = radiative_flux, fill = "Radiant flux"), fill = "darkgray") +
-  ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = weighted_radiant_flux), 
+  # geom_area(mapping = aes(y = radiative_flux, fill = "Radiant flux"), fill = "darkgray") +
+  geom_area(mapping = aes(y = actual_radiant_flux, fill = "Radiant flux"), fill = "darkgray") +
+  # ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = weighted_radiant_flux), 
+  ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = actual_weighted_radiant_flux), 
                         geom = "bar",
                         # chroma.type = photobiology::cone_fundamentals10.spct,
                         # chroma.type = photobiology::ciexyzCC2.spct, 

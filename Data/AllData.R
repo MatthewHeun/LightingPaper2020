@@ -109,7 +109,10 @@ comp_flux_df <- dplyr::full_join(lamp_info, received_luminous_flux, by = "lamp_n
 # Join comp_flux_df to received_weighted_responses DF,
 # Add a column for the actual radiant flux and
 # add a column for the actual weighted radiant flux
-weighted_responses_df <- dplyr::full_join(received_weighted_responses_df, comp_flux_df %>% dplyr::select(lamp_name, scaling_factor), by = "lamp_name") %>%
+weighted_responses_df <- dplyr::full_join(
+  received_weighted_responses_df, 
+  comp_flux_df %>% dplyr::select(lamp_name, scaling_factor), by = "lamp_name"
+) %>%
   dplyr::mutate(
     actual_radiant_flux = received_radiative_flux * scaling_factor,
     actual_weighted_radiant_flux = actual_radiant_flux * normalized_response
