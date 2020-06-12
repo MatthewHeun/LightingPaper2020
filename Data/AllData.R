@@ -23,10 +23,10 @@ weighted_flux <- function(weighting_function, lamp) {
     ) %>%
     magrittr::set_colnames(colnames(weighting_function))
 
-  # Multiply lamp's radiative flux by interpolated weighting function at each wavelength
+  # Multiply lamp's received radiative flux by interpolated weighting function at each wavelength
   dplyr::full_join(lamp, interpolated_wf, by = "Wavelength [nm]") %>% 
     dplyr::mutate(
-      weighted_radiant_flux = radiative_flux * normalized_response
+      received_weighted_radiant_flux = received_radiative_flux * normalized_response
     )
 }
 
@@ -58,7 +58,7 @@ wf_data <- lapply(wf_tabs, FUN = function(tab_name){
 lamp_data <- lapply(lamp_tabs, FUN = function(tab_name){
   DF <- readxl::read_excel(master_lighting_data_path, sheet = tab_name)
   cnames <- colnames(DF)
-  cnames[[2]] <- "radiative_flux"
+  cnames[[2]] <- "received_radiative_flux"
   DF <- DF %>%
     magrittr::set_colnames(cnames)
   DF %>%
@@ -77,8 +77,43 @@ for (l in lamp_data) {
   }
 }
 
-weighted_responses_df <- dplyr::bind_rows(weighted_responses_list)
+# This data frame represents the integrals calculated from the received data, 
+# which we know is wrong. 
+# But we use this calculation as the starting point for fixing the responses.
+# Extract wrong luminous fluxes from relative intensities
+received_weighted_responses_df <- dplyr::bind_rows(weighted_responses_list)
+  # This picks up the standard photopic luminosity function
+received_luminous_flux <- received_weighted_responses_df %>%
+  dplyr::filter(wf_name == "wf_p2", !is.na(normalized_response)) %>%
+  dplyr::group_by(lamp_name) %>%
+  dplyr::summarise(
+   #sum = sum(weighted_radiant_flux*683), 
+    wrong_luminous_flux = MESS::auc(x = `Wavelength [nm]`, y = received_weighted_radiant_flux) * 683
+  )
 
+# Read in lamp information
+lamp_info <- readxl::read_excel(master_lighting_data_path, sheet = "data_lamp") %>%
+  dplyr::mutate(
+    luminous_flux = `Luminous Efficacy [lm/W]` * `Electricity Consumption [W]`
+  )
+
+# Combines the lamp information from manufacturer (lamp_info)
+# with luminous efficacies calculated from SPD (received_luminous_flux)
+comp_flux_df <- dplyr::full_join(lamp_info, received_luminous_flux, by = "lamp_name") %>%
+
+# Calculates the scaling factor 
+  dplyr::mutate(
+    scaling_factor = luminous_flux / wrong_luminous_flux
+)
+
+# Join comp_flux_df to received_weighted_responses DF,
+# Add a column for the actual radiant flux and
+# add a column for the actual weighted radiant flux
+weighted_responses_df <- dplyr::full_join(received_weighted_responses_df, comp_flux_df %>% dplyr::select(lamp_name, scaling_factor), by = "lamp_name") %>%
+  dplyr::mutate(
+    actual_radiant_flux = received_radiative_flux * scaling_factor,
+    actual_weighted_radiant_flux = actual_radiant_flux * normalized_response
+  )
 
 
 

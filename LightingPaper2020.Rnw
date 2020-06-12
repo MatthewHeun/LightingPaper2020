@@ -391,13 +391,10 @@ First, is to understand what we mean by ‘light’.
 Electromagnetic radiation is quantified in terms of energy, wavelength and frequency, related by Planck’s equation:
 %
 \begin{equation}
-  % \{E}= \{hv}= \frac{{hc}{λ}\; .
   E = h \nu = \frac{hc}{\lambda} \; ,
 \end{equation}
 %
 where $E$ is energy, $h$ is Planks constant, $\nu$ is frequency, $c$ is the speed of light, and $\lambda$ is wavelength.
-% Where E is energy, h is Planks constant, v is frequency, c is the speed of light, and λ is the wavelength.
-% Only radiation within the range of wavelengths ~380nm-750nm is considered as ‘light’,
 Only radiation within the range of wavelengths \humaneyesensitivity{} is considered to be ``light,''
 i.e.\ part of the visible light spectrum ~\cite{campbell2017}.
 Only within this spectrum are wavelengths to which the human retina respond
@@ -414,9 +411,7 @@ Only within this spectrum are wavelengths to which the human retina respond
 
 Second, modern lighting is provided by energy conversion through three stages:
 primary energy (e.g., coal) which is then converted to
-% final energy (i.e., electricity, measured in Watts), and last to
 final energy (i.e., electricity, measured in watts), and last to
-% useful energy output (i.e., the provision of visible light energy, measured in Lumens).
 useful energy output (i.e., the provision of visible light energy, measured in lumens).
 The efficiency conversion from final-to-useful stage energy is the focus of this paper,
 though we note that human perception and satisfaction of human needs is accomplished as an energy service,
@@ -429,7 +424,6 @@ which occurs at the post-useful stage.
 %++++++++++++++++++++++++++++++
 
 From this point, however, we stumble into various key sources of confusion surrounding 
-% the conversion efficiency (\eta) of light.
 the conversion efficiency ($\eta$) of light.
 A conventional term is luminous efficacy (in lumens/watt, or lm/W),
 which is the luminous flux produced (light output, in lm)
