@@ -1204,6 +1204,17 @@ response_data %>%
 #         axis.text.x = element_text(size = rel(0.8), angle = 90),
 #         axis.text.y = element_text(size = rel(0.8)))
 response_data %>%
+  # This code divides the output of only the spikey CFL by a factor of 10.
+  # dplyr::mutate(
+  #   actual_radiant_flux = dplyr::case_when(
+  #     lamp_name == "CFL" ~ actual_radiant_flux / 10, 
+  #     TRUE ~ actual_radiant_flux
+  #   ),
+  #   actual_weighted_radiant_flux = dplyr::case_when(
+  #     lamp_name == "CFL" ~ actual_weighted_radiant_flux / 10, 
+  #     TRUE ~ actual_weighted_radiant_flux
+  #   )
+  # ) %>% 
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
   # geom_area(mapping = aes(y = radiative_flux, fill = "Radiant flux"), fill = "darkgray") +
   geom_area(mapping = aes(y = actual_radiant_flux, fill = "Radiant flux"), fill = "darkgray") +
@@ -1222,7 +1233,7 @@ response_data %>%
   scale_color_identity() +
 
   xlab(expression(lambda*" [nm]")) +
-  ylab(expression("Radiative flux [W/nm"^2*"]")) +
+  ylab(expression("Radiative flux [W/m"^2*"-nm]")) +
   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
   labs(fill = element_blank(), colour = element_blank()) +
   facet_grid(rows = vars(wf_name), cols = vars(lamp_name)) +
