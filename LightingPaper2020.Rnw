@@ -567,8 +567,8 @@ and energy-to-exergy useful stage efficiency of 90--93\%.
 
 The article proceeds as follows.
 In Section~\ref{sec:methods}, we set out the energy and exergy fundamentals of light.
-In Section~\ref{sec:results}, we show the results before presenting 
-in Section~\ref{sec:discussion} the Discussion and finally 
+In Section~\ref{sec:results}, we show  results for example weighting functions and lamps before
+presenting a discussion in Section~\ref{sec:discussion}. 
 Section~\ref{sec:conclusions} concludes.
 Our key finding is that the maximum efficacy limit of lamps should be taken as 400~lm/W.
 
