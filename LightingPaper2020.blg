@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2020)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: LightingPaper2020.aux
+The style file: Definitions/mdpi.bst
+Database file #1: LightingPaper2020.bib
+Warning--empty institution in IEA2019
+Warning--there's a number but no series in Nordhaus1996
+Warning--empty publisher in Nordhaus1996
+You've used 12 entries,
+            2865 wiz_defined-function locations,
+            651 strings with 6368 characters,
+and the built_in function-call counts, 4358 in all, are:
+= -- 376
+> -- 206
+< -- 9
++ -- 84
+- -- 60
+* -- 381
+:= -- 702
+add.period$ -- 39
+call.type$ -- 12
+change.case$ -- 13
+chr.to.int$ -- 12
+cite$ -- 15
+duplicate$ -- 214
+empty$ -- 392
+format.name$ -- 76
+if$ -- 913
+int.to.chr$ -- 1
+int.to.str$ -- 12
+missing$ -- 15
+newline$ -- 67
+num.names$ -- 36
+pop$ -- 84
+preamble$ -- 0
+purify$ -- 12
+quote$ -- 0
+skip$ -- 105
+stack$ -- 0
+substring$ -- 203
+swap$ -- 45
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 72
+warning$ -- 3
+while$ -- 39
+width$ -- 0
+write$ -- 158
+(There were 3 warnings)

@@ -402,14 +402,15 @@ Only radiation within the range of wavelengths \humaneyesensitivity{} is conside
 i.e.\ part of the visible light spectrum ~\cite{campbell2017}.
 Only within this spectrum are wavelengths to which the human retina respond
 - as shown in Figure~\ref{fig:visible_spectrum} and as such are used by humans for illumination.
- 
-% \begin{figure}
-% \centering
-% \machinefigure{visible_spectrum}
-% **** not sure how to bring the figure in****
-% \caption{The visible spectrum of light ~\cite{schubert2006}}
-% \label{fig:visible_spectrum}
-% \end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=1\linewidth]{figure_other/visible_spectrum.jpg}
+\caption{The visible spectrum of light~\cite{schubert2006}}
+\label{fig:visible_spectrum}
+\end{figure}
+
+**** MKH make our own graph with the ggspectra package. ****
 
 Second, modern lighting is provided by energy conversion through three stages:
 primary energy (e.g., coal) which is then converted to
