@@ -77,10 +77,44 @@ for (l in lamp_data) {
   }
 }
 
-weighted_responses_df <- dplyr::bind_rows(weighted_responses_list)
+# This data frame represents the integrals calculated from the received data, 
+# which we know is wrong. 
+# But we use this calculation as the starting point for fixing the responses.
+received_weighted_responses_df <- dplyr::bind_rows(weighted_responses_list) %>%
+  # This picks up the standard photopic luminosity function
+  dplyr::filter(wf_name == "wf_p2", !is.na(normalized_response)) %>%
+  dplyr::group_by(lamp_name) %>%
+  dplyr::mutate(
+    pre_sum_col = radiative_flux * normalized_response
+  ) %>%
+  dplyr::summarise(
+    sum = sum(pre_sum_col), 
+    wrong_luminous_flux = MESS::auc(x = `Wavelength [nm]`, y = radiative_flux) * 683
+  )
+
+
+
+# Extract wrong luminous fluxes from relative intensities
+wrong_luminous_fluxes <- weighted_responses_df %>%
+  dplyr::summarise()
 
 
 
 
+# Read in lamp information
+lamp_info <- readxl::read_excel(master_lighting_data_path, sheet = "data_lamp") %>%
+  dplyr::mutate(
+    luminous_flux = `Luminous Efficacy [lm/W]` * `Electricity Consumption [W]`
+  )
 
+fix_magnitues <- dplyr::full_join(weighted_responses_df, lamp_info, by = "lamp_name") %>%
+  dplyr::filter(wf_name == "wf_p2") %>%
+  dplyr::mutate(
+    MESS::
+  )
+
+
+
+
+# Need to end by calculating the weighted_responses_df
 
