@@ -8,7 +8,7 @@ library(knitr)
 # Set default knitr options for chunks.
 opts_chunk$set(
   # ********************************************************
-  eval = TRUE,
+  eval = FALSE,
   include = TRUE,
   echo = FALSE, 
   warning = FALSE
@@ -442,61 +442,67 @@ commonly taken to represent energy efficiency, they are not equivalent.
 
 Others (***REF***),), more correctly define efficiency of light provision on a thermodynamic basis, as follows:
 %
-\begin{equation}
-  \eta = \frac{actual lamp efficacy (lm/W)}{theoretical maximum efficacy limit (lm/W)} \; .
+\begin{equation} \label{eq:eta_eqn}
+  \eta = \frac{\text{actual lamp efficacy [lm/W]}}{\text{theoretical maximum efficacy limit [lm/W]}} \; .
 \end{equation}
 
-% However, that takes us straight into two further sources of confusion. 
-% One – as set out by ~\cite{Paoli2020} 
-% - is the calculation of the numerator (actual lamp efficacy), 
-% both in terms of the luminous flux output 
-% (the total lamp lumens produced versus the directional output that emerges from the lamp)
-% and electrical energy input 
-% (electrical energy input to the wall plug versus a reduction 
-% to include plug conversion and other losses?).
-% 
-% The other, and perhaps most controversial of all, 
-% is the denominator: \emph{what is the theoretical maximum efficacy limit} (in lm/W)? 
-% Within the literature, three common values are adopted: 
-% 220lm/W  ~\cite{Ayres2003} ~\cite{USDepartmentofEnergyDoE2011} (Table 5.6.9); 
-% 400 lm/W ~\cite{Ayres2005} ~\cite{Tsao2010solidstate} ~\cite{Summers1971} ~\cite{Guevara2016}, 
-% and finally 683lm/W ~\cite{Kondo2009} ~\cite{Serrenho2014}. 
-% 
-% Even within technical lighting papers, 
-% there are divergences over the theoretical maximum efficacy limit of lamps, 
-% due to differing decisions of what ‘luminosity function’ to adopt, 
-% as the eye is sensitive to different wavelengths within the visible range 380-750nm.  
-% Such differences are still very recent, 
-% as shown by for example, ~\cite{Delgado-bonal2017};
-% ~\cite{Pattison2018LEDphotons}; ~\cite{Rea2018}; 
-% ~\cite{Royer2016}. 
-% Due to the introduction of LED lamps, which have much higher efficacies, 
-% the issue has urgency, 
-% as shown in Figure~\ref{fig:history_efficacy}: 
-% 
-% \begin{figure}
-% \centering
-% \machinefigure{history_efficacy}
-% **** not sure how to bring the figure in****
-% \caption{A history of lighting technology luminous efficacy (1800-2050): taken from ~\cite{Pattison2018LEDphotons}}
-% \label{fig:history_efficacy}
-% \end{figure}
-% 
-% A final source of confusion is the differences between first law (energy) and second law (exergy) efficiencies. 
-% Few authors make the distinction, 
-% most indirectly adopt a second law efficiency as given earlier in equation Y.  
-% ~\cite{Schaeffer1992} and ~\cite{Nakicenovic1996} provide rare exceptions, 
-% by defining both final-to-useful energy efficiency of lamps 
-% (ranging from incandescent ~ 5\% to fluorescent ~20\%) 
-% and energy-to-exergy useful stage efficiency of 90-93\%.  
-% 
-% ****
-% \textbf{(Paper structure)} 
-% The article proceeds as follows. 
-% In section 2 Methods we set out the energy and exergy fundamentals of light.  
-% In section 3 we show the Results before presenting in section 4 the Discussion and finally Section 5 Conclusions. 
-% Our key finding is that the maximum efficacy limit of lamps should be taken as 400lm/W.
-% ****
+However, that takes us straight into two further sources of confusion.
+One---as set out by~\cite{Paoli2020}---is the calculation of the numerator (actual lamp efficacy),
+both in terms of the luminous flux output
+(the total lamp lumens produced versus the directional output that emerges from the lamp)
+and electrical energy input
+(electrical energy input to the wall plug versus a reduction
+to include plug conversion and other losses?).
+
+The other, and perhaps most controversial of all,
+is the denominator: \emph{what is the theoretical maximum efficacy limit} (in lm/W)?
+Within the literature, three common values are adopted:
+220~lm/W \cite[Table~5.6.9]{Ayres2003, USDepartmentofEnergyDoE2011},
+400~lm/W \cite{Ayres2005, Tsao2010solidstate, Summers1971, Guevara2016},
+and finally 683~lm/W ~\cite{Kondo2009, Serrenho2014}.
+
+Even within technical lighting papers,
+there are divergences over the theoretical maximum efficacy limit of lamps,
+due to differing decisions of what ``luminosity function'' to adopt,
+as the eye is sensitive to different wavelengths within the visible range (\humaneyesensitivity{}).
+Such differences are still very recent
+\cite{Delgado-Bonal:2017aa, Pattison2018LEDphotons, Rea2018, Royer2016}.
+Due to the introduction of LED lamps, which have much higher efficacies,
+the issue has urgency,
+as shown in Figure~\ref{fig:history_efficacy}.
+
+\begin{figure}
+\centering
+\includegraphics[width=1\linewidth]{figure_other/history_efficacy.jpg}
+\caption{A history of lighting technology luminous efficacy (1800--2050): 
+          taken from~\cite{Pattison2018LEDphotons}.}
+\label{fig:history_efficacy}
+\end{figure}
+
+A final source of confusion is the differences between 
+first law (energy) and second law (exergy) efficiencies.
+Few authors make the distinction,
+most indirectly adopt a second law efficiency 
+as given earlier in Equation~\ref{eq:eta_eqn}.
+Schaeffer and Wirtshafter~\cite{Schaeffer1992} and 
+Nakicenovic et al.~\cite{Nakicenovic1996} 
+provide rare exceptions,
+by defining both final-to-useful energy efficiency of lamps
+(ranging from incandescent, 5~\%, to fluorescent, 20\%)
+and energy-to-exergy useful stage efficiency of 90--93\%.
+
+
+%++++++++++++++++++++++++++++++
+\subsection{Paper structure}
+\label{sec:paper_structure}
+%++++++++++++++++++++++++++++++
+
+The article proceeds as follows.
+In Section~\ref{sec:methods}, we set out the energy and exergy fundamentals of light.
+In Section~\ref{sec:results}, we show the results before presenting 
+in Section~\ref{sec:discussion} the Discussion and finally 
+Section~\ref{sec:conclusions} concludes.
+Our key finding is that the maximum efficacy limit of lamps should be taken as 400~lm/W.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
