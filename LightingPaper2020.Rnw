@@ -282,7 +282,7 @@ Style for this paper:
         yet almost always clear to the writer.
         Why? The antecedent is almost always ambiguous.
 
-  \item Spell out ``Figure~X,'' ``Equation~Y,'' and ``Figure~Z.''  Capitalize both.
+  \item Spell out ``Figure~X,'' ``Equation~Y,'' and ``Figure~Z.''  Capitalize all.
   
   \item Use SI units for everything.
   
@@ -334,155 +334,174 @@ Style for this paper:
 
 ****
 
-%PB: Make the paper broader than SEA.
-%Also discuss other fields: highly-technical lighting papers, Emergy, etc %All have different ways of dealing with the \enaex{} of light.
-%PB: Need to discuss societal exergy analysis.
-%PB: Need to discuss the energy conversion chain and P, F, U, S stages.
-%(Needed for Section~\ref{sec:framework} later.)
-%Point out that human perception and satisfaction of human needs is accomplished post-useful stage.
-%PB: Discuss lighting as one aspect of ECC analysis.
-%Probably more important in earlier years.
-%But studies are pushing back to 1800s,
-%so getting this right is important.
-%PB: Discuss Fouquet~\cite{Fouquet:2006}, who looked at energy, but not exergy.
-%Point out that we are discussing light for illumination, not for horticultural and other purposes.
+PB: Make the paper broader than SEA.
+Also discuss other fields: highly-technical lighting papers, Emergy, etc
+All have different ways of dealing with the \enaex{} of light.
+PB: Need to discuss societal exergy analysis.
+PB: Need to discuss the energy conversion chain and P, F, U, S stages.
+(Needed for Section~\ref{sec:framework} later.)
+Point out that human perception and satisfaction of human needs is accomplished post-useful stage.
+PB: Discuss lighting as one aspect of ECC analysis.
+Probably more important in earlier years.
+But studies are pushing back to 1800s,
+so getting this right is important.
+PB: Discuss Fouquet~\cite{Fouquet:2006}, who looked at energy, but not exergy.
+Point out that we are discussing light for illumination, not for horticultural and other purposes.
 
-\textbf{(Broad context and the problem)} 
-Artificial light provides an invaluable energy service, allowing activities to be undertaken when it is too dark for natural light. 
-Around 20\% of global grid-connected electricity consumption is taken by lighting ~\cite{waide2006}. 
-With the modern breakthrough technology of light emitting diode (LED) lamps, 
-which now make up 40\% of residential lamp sales ~\cite{IEA2019}, 
+
+
+% \textbf{(Broad context and the problem)}
+
+%++++++++++++++++++++++++++++++
+\subsection{Broad context and the problem}
+\label{sec:broad_context}
+%++++++++++++++++++++++++++++++
+
+Artificial light provides an invaluable energy service, allowing activities to be undertaken when it is too dark for natural light.
+Around 20\% of global grid-connected electricity consumption is taken by lighting ~\cite{waide2006}.
+With the modern breakthrough technology of light emitting diode (LED) lamps,
+which now make up 40\% of residential lamp sales ~\cite{IEA2019},
 applications have spread beyond illumination to many other fields
-including human physiology and photosynthesis for horticulture ~\cite{Pattison2018LEDefficacy}. 
+including human physiology and photosynthesis for horticulture ~\cite{Pattison2018LEDefficacy}.
 The use and analysis of lighting energy efficiency is applied to a range of fields,
-including energy economics (***REF***), 
-societal exergy analysis ~\cite{Ayres2005}, 
-energy history ~\cite{Fouquet:2006}, 
-and forecasting energy efficiency improvements ~\cite{IEA2019}. 
+including energy economics (***REF***),
+societal exergy analysis ~\cite{Ayres2005},
+energy history ~\cite{Fouquet:2006},
+and forecasting energy efficiency improvements ~\cite{IEA2019}.
 However, a key problem for the energy analyst *** or practitioner?***
-arises: there are differing concepts and definitions of what lighting efficiency is, which matters on two counts. 
-First, is that with the rise of LED lamps, 
-the proximity to the efficiency limits of lighting appears within reach – but what is the limit? 
-Second, following on, given the expanding role that global artificial lighting plays now, 
-understanding precisely its envisaged contribution - via increasing efficiency - 
-to reducing energy use to meet carbon targets is very important.  
-The aim of this paper is therefore to bring clarity to the analyst *** or practitioner?*** 
-of the definitions of the energy and exergy conversion efficiency of artificial light for illumination. 
-We exclude non-illumination purposes, such as horticulture. 
+arises: there are differing concepts and definitions of what lighting efficiency is, which matters on two counts.
+First, is that with the rise of LED lamps,
+the proximity to the efficiency limits of lighting appears within reach – but what is the limit?
+Second, following on, given the expanding role that global artificial lighting plays now,
+understanding precisely its envisaged contribution - via increasing efficiency -
+to reducing energy use to meet carbon targets is very important.
+The aim of this paper is therefore to bring clarity to the analyst *** or practitioner?***
+of the definitions of the energy and exergy conversion efficiency of artificial light for illumination.
+We exclude non-illumination purposes, such as horticulture.
 
-*****
 
-\textbf{(Lighting fundamentals)} 
-We require at this point two key aspects of lighting fundamentals 
+%++++++++++++++++++++++++++++++
+\subsection{Lighting fundamentals}
+\label{sec:lighting_fundamentals}
+%++++++++++++++++++++++++++++++
+
+We require at this point two key aspects of lighting fundamentals
 (noting we will get into more detail later in ***Sections X and Y ***).
-First, is to understand what we mean by ‘light’. 
-Electromagnetic radiation is quantified in terms of energy, wavelength and frequency, related by Planck’s equation: 
-
+First, is to understand what we mean by ‘light’.
+Electromagnetic radiation is quantified in terms of energy, wavelength and frequency, related by Planck’s equation:
 %
 \begin{equation}
-  \{E}= \{hv}= \frac{{hc}{λ}\; .
+  % \{E}= \{hv}= \frac{{hc}{λ}\; .
+  E = h \nu = \frac{hc}{\lambda} \; ,
 \end{equation}
 %
+where $E$ is energy, $h$ is Planks constant, $\nu$ is frequency, $c$ is the speed of light, and $\lambda$ is wavelength.
+% Where E is energy, h is Planks constant, v is frequency, c is the speed of light, and λ is the wavelength.
+% Only radiation within the range of wavelengths ~380nm-750nm is considered as ‘light’,
+Only radiation within the range of wavelengths \humaneyesensitivity{} is considered to be ``light,''
+i.e.\ part of the visible light spectrum ~\cite{campbell2017}.
+Only within this spectrum are wavelengths to which the human retina respond
+- as shown in Figure~\ref{fig:visible_spectrum} and as such are used by humans for illumination.
+ 
+% \begin{figure}
+% \centering
+% \machinefigure{visible_spectrum}
+% **** not sure how to bring the figure in****
+% \caption{The visible spectrum of light ~\cite{schubert2006}}
+% \label{fig:visible_spectrum}
+% \end{figure}
 
-Where E is energy, h is Planks constant, v is frequency, c is the speed of light, and λ is the wavelength. 
-Only radiation within the range of wavelengths ~380nm-750nm is considered as ‘light’, 
-i.e. part of the visible light spectrum ~\cite{campbell2017}. 
-Only within this spectrum are wavelengths to which the human retina respond 
-- as shown in Figure~\ref{fig:visible_spectrum} and as such are used by humans for illumination. 
-
-\begin{figure}
-\centering
-\machinefigure{visible_spectrum}
-**** not sure how to bring the figure in****
-\caption{The visible spectrum of light ~\cite{schubert2006}}
-\label{fig:visible_spectrum}
-\end{figure}
-
-Second, modern lighting is provided by energy conversion through three stages: 
-primary energy (e.g. coal) which is then converted to 
-final energy (i.e. electricity, measured in Watts), and last to 
-useful energy output (i.e. the provision of visible light energy, measured in Lumens). 
-The efficiency conversion from final-to-useful stage energy is the focus of this paper, 
-though we note that human perception and satisfaction of human needs is accomplished as an energy service, 
+Second, modern lighting is provided by energy conversion through three stages:
+primary energy (e.g., coal) which is then converted to
+% final energy (i.e., electricity, measured in Watts), and last to
+final energy (i.e., electricity, measured in watts), and last to
+% useful energy output (i.e., the provision of visible light energy, measured in Lumens).
+useful energy output (i.e., the provision of visible light energy, measured in lumens).
+The efficiency conversion from final-to-useful stage energy is the focus of this paper,
+though we note that human perception and satisfaction of human needs is accomplished as an energy service,
 which occurs at the post-useful stage.
 
-****
-\textbf{(Diverging approaches to lighting efficiency)} 
-From this point, however, we stumble into various key sources of confusion surrounding the conversion efficiency (\eta) of light. 
-A conventional term is luminous efficacy (in lumens/Watt, or lm/W), 
-which is the luminous flux produced (light output, in lm) 
-for a given electricity energy input (in W). 
-The first source of confusion is that some practitioners 
-equate luminous efficacy with luminous (or light) efficiency. 
-For example, ~\cite{Nordhaus1996} provides estimates of historical ‘lighting efficiencies’ 
-from the earliest time of open wood fires (0.002lm/W), 
-through to candles (~0.1lm/W), 
-tungsten filament lamps (~10lm/W) and 
-compact fluorescent light bulbs (68lm/W). 
-~\cite{Tsao2010appetitelight} is very clear, 
-stating “Luminous efficacy represents the efficiency with which energy is used to produce visible light”(p.265). 
-Fundamentally this is not correct, as although luminous efficacy is a proxy 
-commonly taken to represent energy efficiency, they are not equivalent. 
+
+%++++++++++++++++++++++++++++++
+\subsection{Diverging approaches to lighting efficiency}
+\label{sec:divergent_approaches}
+%++++++++++++++++++++++++++++++
+
+From this point, however, we stumble into various key sources of confusion surrounding 
+% the conversion efficiency (\eta) of light.
+the conversion efficiency ($\eta$) of light.
+A conventional term is luminous efficacy (in lumens/watt, or lm/W),
+which is the luminous flux produced (light output, in lm)
+for a given electricity energy input (in W).
+The first source of confusion is that some practitioners
+equate luminous efficacy with luminous (or light) efficiency.
+For example, ~\cite{Nordhaus1996} provides estimates of historical ‘lighting efficiencies’
+from the earliest time of open wood fires (0.002lm/W),
+through to candles (~0.1lm/W),
+tungsten filament lamps (~10lm/W) and
+compact fluorescent light bulbs (68lm/W).
+~\cite{Tsao2010appetitelight} is very clear,
+stating “Luminous efficacy represents the efficiency with which energy is used to produce visible light”(p.265).
+Fundamentally this is not correct, as although luminous efficacy is a proxy
+commonly taken to represent energy efficiency, they are not equivalent.
 
 Others (***REF***),), more correctly define efficiency of light provision on a thermodynamic basis, as follows:
-
 %
-\begin{equation} 
+\begin{equation}
   \eta = \frac{actual lamp efficacy (lm/W)}{theoretical maximum efficacy limit (lm/W)} \; .
 \end{equation}
-%
 
-However, that takes us straight into two further sources of confusion. 
-One – as set out by ~\cite{Paoli2020} 
-- is the calculation of the numerator (actual lamp efficacy), 
-both in terms of the luminous flux output 
-(the total lamp lumens produced versus the directional output that emerges from the lamp)
-and electrical energy input 
-(electrical energy input to the wall plug versus a reduction 
-to include plug conversion and other losses?).
-
-The other, and perhaps most controversial of all, 
-is the denominator: \emph{what is the theoretical maximum efficacy limit} (in lm/W)? 
-Within the literature, three common values are adopted: 
-220lm/W  ~\cite{Ayres2003} ~\cite{USDepartmentofEnergyDoE2011} (Table 5.6.9); 
-400 lm/W ~\cite{Ayres2005} ~\cite{Tsao2010solidstate} ~\cite{Summers1971} ~\cite{Guevara2016}, 
-and finally 683lm/W ~\cite{Kondo2009} ~\cite{Serrenho2014}. 
-
-Even within technical lighting papers, 
-there are divergences over the theoretical maximum efficacy limit of lamps, 
-due to differing decisions of what ‘luminosity function’ to adopt, 
-as the eye is sensitive to different wavelengths within the visible range 380-750nm.  
-Such differences are still very recent, 
-as shown by for example, ~\cite{Delgado-bonal2017};
-~\cite{Pattison2018LEDphotons}; ~\cite{Rea2018}; 
-~\cite{Royer2016}. 
-Due to the introduction of LED lamps, which have much higher efficacies, 
-the issue has urgency, 
-as shown in Figure~\ref{fig:history_efficacy}: 
-
-\begin{figure}
-\centering
-\machinefigure{history_efficacy}
-**** not sure how to bring the figure in****
-\caption{A history of lighting technology luminous efficacy (1800-2050): taken from ~\cite{Pattison2018LEDphotons}}
-\label{fig:history_efficacy}
-\end{figure}
-
-A final source of confusion is the differences between first law (energy) and second law (exergy) efficiencies. 
-Few authors make the distinction, 
-most indirectly adopt a second law efficiency as given earlier in equation Y.  
-~\cite{Schaeffer1992} and ~\cite{Nakicenovic1996} provide rare exceptions, 
-by defining both final-to-useful energy efficiency of lamps 
-(ranging from incandescent ~ 5\% to fluorescent ~20\%) 
-and energy-to-exergy useful stage efficiency of 90-93\%.  
-
-****
-\textbf{(Paper structure)} 
-The article proceeds as follows. 
-In section 2 Methods we set out the energy and exergy fundamentals of light.  
-In section 3 we show the Results before presenting in section 4 the Discussion and finally Section 5 Conclusions. 
-Our key finding is that the maximum efficacy limit of lamps should be taken as 400lm/W.
-****
+% However, that takes us straight into two further sources of confusion. 
+% One – as set out by ~\cite{Paoli2020} 
+% - is the calculation of the numerator (actual lamp efficacy), 
+% both in terms of the luminous flux output 
+% (the total lamp lumens produced versus the directional output that emerges from the lamp)
+% and electrical energy input 
+% (electrical energy input to the wall plug versus a reduction 
+% to include plug conversion and other losses?).
+% 
+% The other, and perhaps most controversial of all, 
+% is the denominator: \emph{what is the theoretical maximum efficacy limit} (in lm/W)? 
+% Within the literature, three common values are adopted: 
+% 220lm/W  ~\cite{Ayres2003} ~\cite{USDepartmentofEnergyDoE2011} (Table 5.6.9); 
+% 400 lm/W ~\cite{Ayres2005} ~\cite{Tsao2010solidstate} ~\cite{Summers1971} ~\cite{Guevara2016}, 
+% and finally 683lm/W ~\cite{Kondo2009} ~\cite{Serrenho2014}. 
+% 
+% Even within technical lighting papers, 
+% there are divergences over the theoretical maximum efficacy limit of lamps, 
+% due to differing decisions of what ‘luminosity function’ to adopt, 
+% as the eye is sensitive to different wavelengths within the visible range 380-750nm.  
+% Such differences are still very recent, 
+% as shown by for example, ~\cite{Delgado-bonal2017};
+% ~\cite{Pattison2018LEDphotons}; ~\cite{Rea2018}; 
+% ~\cite{Royer2016}. 
+% Due to the introduction of LED lamps, which have much higher efficacies, 
+% the issue has urgency, 
+% as shown in Figure~\ref{fig:history_efficacy}: 
+% 
+% \begin{figure}
+% \centering
+% \machinefigure{history_efficacy}
+% **** not sure how to bring the figure in****
+% \caption{A history of lighting technology luminous efficacy (1800-2050): taken from ~\cite{Pattison2018LEDphotons}}
+% \label{fig:history_efficacy}
+% \end{figure}
+% 
+% A final source of confusion is the differences between first law (energy) and second law (exergy) efficiencies. 
+% Few authors make the distinction, 
+% most indirectly adopt a second law efficiency as given earlier in equation Y.  
+% ~\cite{Schaeffer1992} and ~\cite{Nakicenovic1996} provide rare exceptions, 
+% by defining both final-to-useful energy efficiency of lamps 
+% (ranging from incandescent ~ 5\% to fluorescent ~20\%) 
+% and energy-to-exergy useful stage efficiency of 90-93\%.  
+% 
+% ****
+% \textbf{(Paper structure)} 
+% The article proceeds as follows. 
+% In section 2 Methods we set out the energy and exergy fundamentals of light.  
+% In section 3 we show the Results before presenting in section 4 the Discussion and finally Section 5 Conclusions. 
+% Our key finding is that the maximum efficacy limit of lamps should be taken as 400lm/W.
+% ****
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
