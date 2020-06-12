@@ -442,7 +442,7 @@ response_data <- weighted_responses_df %>%
 @
 
 
-<<Vis_Graph, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="Alternative visible range figure.">>=
+<<Vis_Graph, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="Alternative visible range figure that matches style of later figures.">>=
 response_data %>% 
   dplyr::filter(wf_name == "Phot. lum.") %>% 
   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>% 
