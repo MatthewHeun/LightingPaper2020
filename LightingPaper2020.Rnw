@@ -989,6 +989,27 @@ response_data <- weighted_responses_df %>%
     \centering
     \begin{subfigure}[t]{0.25\textwidth}
 <<Weighting_Function_Graph, fig.width=1.5, fig.height=5.7>>=
+# The commented code below gives the previous line version of this graph.
+# response_data %>% 
+#   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>% 
+#   dplyr::mutate(
+#     header = "Weight. Func.",
+#     # Get nice tails at 0.
+#     normalized_response = tidyr::replace_na(normalized_response, 0)
+#   ) %>% 
+#   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
+#   geom_vline(xintercept = 555, size = 0.2, color = "darkgray") +
+#   geom_line(mapping = aes(y = normalized_response)) +
+#   facet_grid(rows = vars(wf_name), cols = vars(header)) + 
+#   xlab(expression(lambda*" [nm]")) +
+#   ylab("Normalized response [-]") +
+#   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) + 
+#   scale_y_continuous(breaks = c(0, 0.2, 0.4, 0.6, 0.8, 1)) +
+#   MKHthemes::xy_theme() + 
+#   # Eliminate labels on right facet. Pick up from lamp radiative fluxes.
+#   theme(strip.text.y = element_blank(), 
+#         axis.text.x = element_text(size = rel(0.8), angle = 90), 
+#         axis.text.y = element_text(size = rel(0.8)))
 response_data %>% 
   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>% 
   dplyr::mutate(
@@ -997,26 +1018,40 @@ response_data %>%
     normalized_response = tidyr::replace_na(normalized_response, 0)
   ) %>% 
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
+  ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = normalized_response), 
+                        geom = "bar",
+                        # chroma.type = photobiology::cone_fundamentals10.spct,
+                        # chroma.type = photobiology::ciexyzCC2.spct, 
+                        # chroma.type = photobiology::ciexyzCC2.spct, 
+                        # chroma.type = photobiology::ciexyzCMF2.spct,
+                        # chroma.type = photobiology::ciexyzCMF10.spct,
+                        # chroma.type = "CC",
+                        chroma.type = "CMF",
+                        size = 0) +   # Eliminates borders
+  scale_fill_identity() +
+  scale_color_identity() +
+  geom_line(mapping = aes(y = normalized_response), color = "darkgray") +
   geom_vline(xintercept = 555, size = 0.2, color = "darkgray") +
-  geom_line(mapping = aes(y = normalized_response)) +
+
   facet_grid(rows = vars(wf_name), cols = vars(header)) + 
   xlab(expression(lambda*" [nm]")) +
   ylab("Normalized response [-]") +
   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) + 
   scale_y_continuous(breaks = c(0, 0.2, 0.4, 0.6, 0.8, 1)) +
   MKHthemes::xy_theme() + 
-  # Eliminate labels on right facet. Pick up from lamp radiative fluxes
+  # Eliminate labels on right facet. Pick up from lamp radiative fluxes.
   theme(strip.text.y = element_blank(), 
         axis.text.x = element_text(size = rel(0.8), angle = 90), 
         axis.text.y = element_text(size = rel(0.8)))
+
 @
         \label{fig:weighting_functions}
     \end{subfigure}
     % add desired spacing between images (e.g., ~, \quad, \qquad, \hfill, etc.)
     % or a blank line to force the subfigure onto a new line.
     \begin{subfigure}[t]{0.74\textwidth}
-<<Responses_Graph, fig.width=4.5, fig.height=6.25>>=
-# This version is the red/gray version that we previously.
+<<Responses_Graph, fig.width=4.5, fig.height=5.7>>=
+# The commented code below gives the previous red/gray version.
 # response_data %>% 
 #   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
 #   geom_area(mapping = aes(y = radiative_flux, fill = "Radiant flux")) +
@@ -1034,28 +1069,34 @@ response_data %>%
 response_data %>%
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
   geom_area(mapping = aes(y = radiative_flux, fill = "Radiant flux"), fill = "darkgray") +
-  # geom_area(mapping = aes(y = weighted_radiant_flux, fill = "Weighted radiant flux"), show.legend = TRUE) +
   ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = weighted_radiant_flux), 
                         geom = "bar",
-                        chroma.type = photobiology::cone_fundamentals10.spct) +
-  scale_fill_identity() + 
+                        # chroma.type = photobiology::cone_fundamentals10.spct,
+                        # chroma.type = photobiology::ciexyzCC2.spct, 
+                        # chroma.type = photobiology::ciexyzCC2.spct, 
+                        # chroma.type = photobiology::ciexyzCMF2.spct,
+                        # chroma.type = photobiology::ciexyzCMF10.spct,
+                        # chroma.type = "CC",
+                        chroma.type = "CMF",
+                        size = 0) +   # Eliminates borders
+  scale_fill_identity() +
   scale_color_identity() +
 
   xlab(expression(lambda*" [nm]")) +
   ylab(expression("Radiative flux [W/nm"^2*"]")) +
   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
-  # scale_fill_manual(values = c("Weighted radiant flux" = "red")) +
   labs(fill = element_blank(), colour = element_blank()) +
   facet_grid(rows = vars(wf_name), cols = vars(lamp_name)) +
   MKHthemes::xy_theme() +
   theme(legend.position = "bottom",
         axis.text.x = element_text(size = rel(0.8), angle = 90),
         axis.text.y = element_text(size = rel(0.8)))
-
 @
         \label{fig:lamp_responses}
     \end{subfigure}
-    \caption{Weighting functions and responses of example lamps. 
+    \caption{Weighting functions, lamp emission, and weighted responses. 
+             Gray regions show lamp emission.
+             Rainbow regions give weighted responses and indicate human perception of color.
              ``A19'' is a 100~W incandescent A19 globe. 
              ``Halogen'' is a 29~W halogen R20 globe.
              ``CFL'' is a 20~W EnergyStar twister compact fluorescent.
@@ -1066,7 +1107,9 @@ response_data %>%
              ``Universal'' is the universal weighting function.
              **** Do we have the correct units on radiative flux? ****
              **** Provide references for each of the weighting functions and lamps? ****
-             **** Shall we add luminous intensity annotations to each graph? ****}
+             **** Shall we add luminous intensity annotations to each graph? ****
+             **** Do we want another coloring for the weighted functions? 
+             (Green is not at 550 nm.) ****}
 	\label{fig:wfs_and_lamps}
 \end{figure}
 
