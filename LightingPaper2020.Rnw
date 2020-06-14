@@ -430,7 +430,7 @@ response_data <- weighted_responses_df %>%
     wf_name = dplyr::recode_factor(wf_name,
                                    nw = "Unweighted",
                                    v = "Visible",
-                                   p2 = "Phot. lum.",
+                                   p2 = "Photopic lum.",
                                    u = "Universal"),
     lamp_name = factor(lamp_name, levels = lamp_list),
     lamp_name = dplyr::recode_factor(lamp_name, 
@@ -1253,7 +1253,7 @@ response_data %>%
              ``LED'' is an 11~W Phillips A19 LED.
              ``Unweighted'' spans the entire wavelength range of the graph, 250 nm < $\lambda$ < 900 nm.
              ``Visible'' restricts to visible wavelengths, \humaneyesensitivity{}.
-             ``Phot.\ Lum.{}'' is the standard photopic luminosity weighting function.
+             ``Photopic lum.{}'' is the standard photopic luminosity weighting function.
              ``Universal'' is the universal weighting function.
              **** What symbol do we want for vertical axis?  It is not precisely radiative flux if it is per-nm. ****
              **** Provide references for each of the weighting functions and lamps? ****
