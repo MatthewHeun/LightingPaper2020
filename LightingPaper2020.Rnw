@@ -1257,7 +1257,10 @@ response_data %>%
              ``Universal'' is the universal weighting function.
              **** What symbol do we want for vertical axis?  It is not precisely radiative flux if it is per-nm. ****
              **** Provide references for each of the weighting functions and lamps? ****
-             **** Shall we add luminous intensity annotations to each graph? ****}
+             **** Yep! I'll add the reference for the LPSDD database in the .bib ---ZM****
+             **** Shall we add luminous intensity annotations to each graph? ****
+             **** Yes, we should add the weighted 'spectral radiative flux' for each graph, 
+             me and Emmanuel are working on these calcs! ---ZM}
 	\label{fig:wfs_and_lamps}
 \end{figure}
 
