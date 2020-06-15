@@ -23,6 +23,13 @@ integration_weighted_radiant_flux <- weighted_responses_df %>%
   dplyr::filter(!is.na(actual_weighted_radiant_flux)) %>%
   dplyr::group_by(lamp_name, wf_name) %>%
   dplyr::summarise(
-    integrated_wrf = MESS::auc(x = `Wavelength [nm]`, y = actual_weighted_radiant_flux) * 683,
+    integrated_wrf = MESS::auc(x = `Wavelength [nm]`, y = actual_weighted_radiant_flux),
     integrated_rf = MESS::auc(x = `Wavelength [nm]`, y = actual_radiant_flux)
   )
+
+
+
+weighted_responses_df %>% dplyr::filter(lamp_name == "lamp_cfl_es_tw",
+                                        is.na(actual_weighted_radiant_flux),
+                                        !is.na(actual_radiant_flux)) %>%
+  print()

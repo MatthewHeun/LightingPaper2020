@@ -26,9 +26,9 @@ weighted_flux <- function(weighting_function, lamp) {
       wf_name = wf_name
     ) %>%
     magrittr::set_colnames(colnames(weighting_function))
-
+  
   # Multiply lamp's received radiative flux by interpolated weighting function at each wavelength
-  dplyr::full_join(lamp, interpolated_wf, by = "Wavelength [nm]") %>% 
+  dplyr::full_join(lamp, interpolated_wf, by = "Wavelength [nm]") %>%
     dplyr::mutate(
       received_weighted_radiant_flux = received_radiative_flux * normalized_response
     )
@@ -81,12 +81,23 @@ for (l in lamp_data) {
   }
 }
 
+ 
+received_weighted_responses_df <- dplyr::bind_rows(weighted_responses_list) %>%
+  dplyr::mutate(
+   normalized_response = tidyr::replace_na(normalized_response, 0),
+   received_weighted_radiant_flux = received_radiative_flux * normalized_response
+  )
+ 
+#Checking whether there are still NAs in weighted radiant flux
+#received_weighted_responses_df %>% dplyr::filter(is.na(received_weighted_radiant_flux)) %>% print()
+
+
 # This data frame represents the integrals calculated from the received data, 
 # which we know is wrong. 
 # But we use this calculation as the starting point for fixing the responses.
 # Extract wrong luminous fluxes from relative intensities
-received_weighted_responses_df <- dplyr::bind_rows(weighted_responses_list)
-  # This picks up the standard photopic luminosity function
+
+# This picks up the standard photopic luminosity function
 received_luminous_flux <- received_weighted_responses_df %>%
   dplyr::filter(wf_name == "wf_p2", !is.na(normalized_response)) %>%
   dplyr::group_by(lamp_name) %>%
@@ -121,8 +132,4 @@ weighted_responses_df <- dplyr::full_join(
     actual_radiant_flux = received_radiative_flux * scaling_factor,
     actual_weighted_radiant_flux = actual_radiant_flux * normalized_response
   )
-
-
-
-
 
