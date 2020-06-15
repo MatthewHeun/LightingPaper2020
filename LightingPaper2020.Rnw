@@ -444,13 +444,13 @@ response_data <- weighted_responses_df %>%
 
 <<Vis_Graph, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="Alternative visible range figure that matches style of later figures.">>=
 response_data %>% 
-  dplyr::filter(wf_name == "Phot. lum.") %>% 
+  dplyr::filter(wf_name == "Photopic lum.") %>% 
   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>% 
   dplyr::mutate(
     # Get nice tails at 0.
     normalized_response = tidyr::replace_na(normalized_response, 0)
   ) %>% 
-  ggplot(mapping = aes(x = `Wavelength [nm]`)) +
+  ggplot2::ggplot(mapping = aes(x = `Wavelength [nm]`)) +
   ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = normalized_response), 
                         geom = "bar",
                         # chroma.type = photobiology::cone_fundamentals10.spct,
