@@ -1097,10 +1097,10 @@ Depending on the option taken and the weighting function selected the valuable e
 To demonstrate how the use of selection of various weighting functions alters the measurement of the efficiency of a lighting device we choose to compare the following lamps and weighting functions
 
 ****
-Which lamps are we assessing? ---ZM
+Inset names of lamps here.
 ****
 
-To examine the energy efficiency of these lamps, we therefore calculate the ratio of the useful light (as determined by a given weighting function), to both the radiant power and the electricity consumption of the device. We term these the Electricity to Light efficiency and Radiation to Light efficiency respectively. In photometry when using the photopic luminosity function to calculate the luminous flux these metrics are simply referred to as the 'luminous efficacy of radiation' and 'luminous efficacy' respectively. Though in this case no constant is applied in accordance with EQUATION? 
+Furthermore, the valuable light energy efficiency can be calculated in two ways, by taking the quotient of the useful light (as determined by a given weighting function), and both the radiant power and the electricity consumption of the device. We term these the Electricity to Light efficiency and Radiation to Light efficiency respectively. In photometry when using the photopic luminosity function to calculate the luminous flux these metrics are simply referred to as the 'luminous efficacy of radiation' and 'luminous efficacy' respectively. Though in this case no constant is applied in accordance with EQUATION? 
 
 
 \begin{equation}
@@ -1112,6 +1112,7 @@ To examine the energy efficiency of these lamps, we therefore calculate the rati
 \end{equation}
 
 **** Do we want to report the Radiation to Light efficiency? ---ZM ****
+**** If so we need better names and to assign further subscripts to eta ---ZM ****
 
 
 Zeke: Here is the way to include chunks of R code.
@@ -1313,25 +1314,57 @@ and the maximum luminous efficacy.
   \frac{1}{\epsilon_{max}} / \frac{1}{\epsilon_{lamp}} \equiv \frac{1}{\epsilon_{max}} \cdot \frac{\epsilon_{lamp}}{1} \equiv \frac{\epsilon_{lamp}}{\epsilon_{max}}\; ,
 \end{equation}
 %
-where $\epsilon_{max}$ is equal to the maximum luminous efficacy (683 lm/W), 
+where $\epsilon_{max}$ is equal to the maximum luminous efficacy, 
 and $\epsilon_{lamp}$ is equal to the luminous efficacy of the lamp.
-
-As detailed above in \ref{sec:energy_and_exergy_of_light} 
-the valuable exergy of the light emitted by a lamp if given by
+In the case where $\epsilon_{max}$ is equal to 683 lm/W this equation becomes 
 %
 \begin{equation}
-  \eta_{X,v} = \frac{\phi_L \dot{L}_3 }{\dot{W}_1} \; .
+  \frac{\epsilon_{lamp}}{683 \text{ lm/W}}\; .
 \end{equation}
+%
+As detailed above in \ref{sec:energy_and_exergy_of_light} 
+the luminous efficacy of a lamp is equal to the quotient 
+of the luminous flux and electricity consumption of the device, and given by
+%
+\begin{equation}
+ Luminous\ efficacy = \epsilon_{lamp} = \frac {683 \text{ lm/W} \int \dot{P}_\lambda V_\lambda d\lambda}{\dot{W}_1} \; ,
+\end{equation}
+%
+Equation? then becomes,
+%
+\begin{equation}
+  \frac{\frac {683 \text{ lm/W} \int \dot{P}_\lambda V_\lambda d\lambda}{\dot{W}_1}}{683 \text{ lm/W}} \; .
+\end{equation}
+%
+The two instances of 683 lm/W cancel, giving
+%
+\begin{equation}
+  \frac {\int \dot{P}_\lambda V_\lambda d\lambda}{\dot{W}_1}\; .
+\end{equation}
+%
+
+This is equivalent to the equation for the valuable energy efficiency of light 
+as given in section \ref{sec:physics_of_light}, 
+
+%
+\begin{equation}
+  \eta_{X,v} = \frac{\int \dot{P}_\lambda Wf_\lambda d\lambda}{\dot{W}_1} = \frac{\dot{L}_{useful}}{\dot{W}_1} \; .
+\end{equation}
+%
+
+but only if the photopic luminosity function is selected as the weighting function, 
+and 683 lm/W taken as the maximum luminous efficacy value ($\epsilon_{max}$).
 
 Considering the equivalency of the previous SEA approach 
 when using a maximum luminous efficacy figure of 683 lm/W, 
 and the approach detailed in this paper when using the photopic luminosity function, 
 any future studies which select different weighting functions 
 are likely to produce considerably different results. 
-For example, the use of 400 lm/W as the maximum luminous efficacy figure by Ayres et al (2005) and Guevara et al (2016) 
+For example, the use of 400 lm/W as the maximum luminous efficacy figure
+by Ayres et al (2005) and Guevara et al (2016) 
 results in lighting efficiencies being overestimated by a factor of $\frac {683}{400}$ = 1.71, 
 \emph{if} it is decided that light has the greatest utility at a wavelength of 555nm,
-and is the desired work output. 
+and is therefore desired work output. 
 The choice of any weighting function is a subjective decision for the analyst, 
 however to provide consistency for SEA community moving forward 
 we propose to adopt the universal luminosity function in accordance with Rea and Biermann (2018), 
