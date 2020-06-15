@@ -134,7 +134,7 @@ library(forcats)
 
 %=================================================================
 % Full title of the paper (Capitalized)
-\Title{The Energy and Exergy of Light} % for illumination
+\Title{The Energy and Exergy of Light With Application to Societal Exergy Analysis} % for illumination
 
 
 % Author Orchid ID: enter ID or remove command
@@ -797,7 +797,7 @@ where $\phi_L$ is the exergy-to-energy ratio for light.
 
 Recent work by Delgado-Bonal~\cite{Delgado-Bonal:2017aa}
 provides a method for calculating $\phi_L$.
-(See Section~\ref{sec:physics_of_light} for details.)
+(See Section~\ref{sec:energy_of_light} for details.)
 Delgado-Bonal's estimate 
 is $\phi_L = 0.931$
 for solar spectrum electromagnetic radiation
@@ -813,7 +813,7 @@ rejecting waste heat to an ambient temperature of 300~K:
 %
 Other values for $\phi_L$ are needed when the spectra of emitted light is
 different from the spectra of blackbody radiation,
-as discussed in Section~\ref{sec:physics_of_light}.
+as discussed in Section~\ref{sec:energy_of_light}.
 
 The exergy efficiency of lighting for Figure~\ref{fig:lamp} is given by
 %
@@ -878,6 +878,17 @@ Are there any other challenges we want to address in this paper? ---MKH
 
 
 %------------------------------
+\subsubsection{The boundary between useful energy and energy services (MKH)} 
+\label{sec:useful_services_boundary}
+%------------------------------
+
+****
+Discuss the boundary between useful energy and energy services. 
+This is a decision that the analyst must make. 
+****
+
+
+%------------------------------
 \subsubsection{Waste heat from lamps} 
 \label{sec:waste_heat}
 %------------------------------
@@ -914,6 +925,17 @@ ignored waste heat from lamps,
 implicitly assuming that winter and summer effects cancel.
 We contend that the issue deserves further study,
 but that is a topic for another paper. 
+
+
+%------------------------------
+\subsubsection{Waste light from lamps (MKH)} 
+\label{sec:waste_light}
+%------------------------------
+
+****
+Discuss the problem of waste light.
+****
+
 
 
 %------------------------------
@@ -1027,7 +1049,7 @@ In summary, the analyst must make at least one and possibly two choices:
     
 \end{enumerate*}
 
-Sections~\ref{sec:physics_of_light} and \ref{sec:results} provide more details 
+Sections~\ref{sec:energy_of_light} and \ref{sec:results} provide more details 
 about the implications of Options 1, 2, and 3.
 
 ****
@@ -1040,8 +1062,8 @@ I believe the best place for this would be at the end of section 4 in the discus
 
 
 %++++++++++++++++++++++++++++++
-\subsection{The physics of light (Zeke and Emmanuel, 1000 words)}
-\label{sec:physics_of_light}
+\subsection{The energy of light (Zeke and Emmanuel, 500 words)}
+\label{sec:energy_of_light}
 %++++++++++++++++++++++++++++++
 
 ****
@@ -1073,13 +1095,40 @@ If Option 3 is adopted the above equation becomes
   Luminous\ flux = 683 \text{ lm/W} \int \dot{P}_\lambda V_\lambda d\lambda \; ,
 \end{equation}
 %
-where $V_\lambda$ is the photopic luminosity function, as defined by the Commission Internationale de l' Éclairage (CIE) most recently in 2006(?), and representing the sensitivity of the human eye to daytime light levels. The above equation is the SI derived unit for the quantity of visible light (luminous flux or power) - the Lumen. The constant of 683 is applied in accordance with the definition of the lumen and candela, which states that a monochromatic lamp emitting light at a wavelength of 555nm (the wavelength at which the human eye is deemed to be most sensitive) has a luminous efficacy of 683 lumens per watt. 
+where $V_\lambda$ is the photopic luminosity function, 
+as defined by the Commission Internationale de l' Éclairage (CIE) 
+most recently in 2006(?), and
+representing the sensitivity of the human eye to daytime light levels. 
+The above equation is the SI derived unit for the quantity of visible light 
+(luminous flux or power)---the Lumen. 
+The constant of 683 **** units? You're killing me! ---MKH ****
+is applied in accordance with the definition of the lumen and candela, 
+which states that a monochromatic lamp emitting light at a 
+wavelength of 555~nm (the wavelength at which the human eye is deemed to be most sensitive) 
+has a luminous efficacy of 683~lm/W.
 
-The use of the photopic luminosity function been subject to much criticism for its long-wave bias, as it represents the sensitivity of the long-wave and medium-wave cones to daytime light levels, whilst neglecting the differing sensitivities of the human eyes other light receptors. Namely the short-wave cones, rods and intrinsically photosensitive retinal ganglion cells (ipRGCs), which are responsible for vision in low-light settings and physiological functions such as the regulation of circadian rhythms respectively.
+The use of the photopic luminosity function been subject 
+to much criticism for its long-wave bias, 
+as it represents the sensitivity of the long-wave and medium-wave cones 
+to daytime light levels, whilst
+neglecting the differing sensitivities of the human eyes other light receptors. 
+Namely the short-wave cones, 
+rods, and intrinsically photosensitive retinal ganglion cells (ipRGCs),
+which are responsible for vision in low-light settings and
+physiological functions such as the regulation of circadian rhythms respectively.
 
-Given that the industry-standard measure of lighting efficiency is the luminous efficacy (the quotient of the lumen output and power input of a lamp), the use of the photopic luminosity function to measure light output under-represents the power of wavelengths other than 555nm emitted by a lamp, and in the case where other uses of light are desired the utility of these wavelengths of light are also under-represented. 
+Given that the industry-standard measure of lighting efficiency
+is the luminous efficacy 
+(the quotient of the lumen output and power input of a lamp),
+the use of the photopic luminosity function to measure light output 
+under-represents the power of wavelengths other than 555~nm emitted by a lamp, and
+in the case where other uses of light are desired 
+the utility of these wavelengths of light are also under-represented. 
 
-For the analyst interested in examining what proportion of a spectral power distribution is 'useful' for any given purpose an appropriate weighting function must be selected (including the photopic luminosity function). The useful light ($\dot{L}_{useful}$) emitted by a lamp is then given by
+For the analyst interested in examining what proportion 
+of a spectral power distribution is \emph{useful} for any given purpose 
+an appropriate weighting function must be selected (including the photopic luminosity function). 
+The useful light ($\dot{L}_{useful}$) emitted by a lamp is then given by
 %
 \begin{equation}
   \dot{L}_{useful} = \int \dot{P}_\lambda Wf_\lambda d\lambda \; ,
@@ -1088,11 +1137,10 @@ For the analyst interested in examining what proportion of a spectral power dist
 where $Wf_\lambda$ is equal to a given weighting function, with values between 0 and 1. 
 
 Depending on the option taken and the weighting function selected the valuable energy efficiency of a lamp to the useful stage is given by
-
+%
 \begin{equation}
  \eta_{X,v} = \frac{\int \dot{P}_\lambda Wf_\lambda d\lambda}{\dot{W}_1} = \frac{\dot{L}_{useful}}{\dot{W}_1} \; .
 \end{equation}
-
 
 To demonstrate how the use of selection of various weighting functions alters the measurement of the efficiency of a lighting device we choose to compare the following lamps and weighting functions
 
@@ -1142,6 +1190,15 @@ Things to consider:
 %
 
 
+%++++++++++++++++++++++++++++++
+\subsection{The exergy of light (Zeke and Emmanuel, 500 words)}
+\label{sec:exergy_of_light}
+%++++++++++++++++++++++++++++++
+
+**** Discuss the DB approach to calculating the energy-to-exergy ratio. ****
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results (Zeke and Emmanuel, 2000 words)}
 \label{sec:results}
@@ -1162,6 +1219,7 @@ ZM: Develop examples with two lighting technologies, one old and one LED.
 Do calculations with various permutations and show graphs.
 ****
 
+See Figure~\ref{fig:wfs_and_lamps}, which provides visual representation of several weighting functions and lamps.
 
 \begin{figure}
     \centering
@@ -1344,7 +1402,7 @@ The two instances of 683 lm/W cancel, giving
 %
 
 This is equivalent to the equation for the valuable energy efficiency of light 
-as given in section \ref{sec:physics_of_light}, 
+as given in section \ref{sec:energy_of_light}, 
 
 %
 \begin{equation}
