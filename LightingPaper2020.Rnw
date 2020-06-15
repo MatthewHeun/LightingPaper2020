@@ -134,7 +134,7 @@ library(forcats)
 
 %=================================================================
 % Full title of the paper (Capitalized)
-\Title{The Energy and Exergy of Light}
+\Title{The Energy and Exergy of Light} % for illumination
 
 
 % Author Orchid ID: enter ID or remove command
