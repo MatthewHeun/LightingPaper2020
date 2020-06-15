@@ -1090,7 +1090,7 @@ where $Wf_\lambda$ is equal to a given weighting function, with values between 0
 Depending on the option taken and the weighting function selected the valuable energy efficiency of a lamp to the useful stage is given by
 
 \begin{equation}
- \eta_{X,v} = \frac{\dot{L}_{useful}}{\dot{W}_1} = \frac{\int \dot{P}_\lambda Wf_\lambda d\lambda}{\dot{W}_1} \; .
+ \eta_{X,v} = \frac{\int \dot{P}_\lambda Wf_\lambda d\lambda}{\dot{W}_1} = \frac{\dot{L}_{useful}}{\dot{W}_1} \; .
 \end{equation}
 
 
@@ -1100,12 +1100,18 @@ To demonstrate how the use of selection of various weighting functions alters th
 Which lamps are we assessing? ---ZM
 ****
 
+To examine the energy efficiency of these lamps, we therefore calculate the ratio of the useful light (as determined by a given weighting function), to both the radiant power and the electricity consumption of the device. We term these the Electricity to Light efficiency and Radiation to Light efficiency respectively. In photometry when using the photopic luminosity function to calculate the luminous flux these metrics are simply referred to as the 'luminous efficacy of radiation' and 'luminous efficacy' respectively. Though in this case no constant is applied in accordance with EQUATION? 
 
-In addition to examining the energy efficiency of these lamps, we also calculate the ratio of the useful light (as determined by a given weighting function), to both the radiant power and the electricity consumption of the device.
 
-****
-Insert additional metrics here ---ZM
-****
+\begin{equation}
+ Electricity\ to\ Light\ efficiency = \frac{\dot{L}_{useful}}{\dot{W}_1} \; .
+\end{equation}
+
+\begin{equation}
+ Radiation\ to\ Light\ efficiency = \frac{\dot{L}_{useful}}{\dot{L}_1} \; .
+\end{equation}
+
+**** Do we want to report the Radiation to Light efficiency? ---ZM ****
 
 
 Zeke: Here is the way to include chunks of R code.
@@ -1289,7 +1295,7 @@ previous methods of determining the exergy of lighting.
 The luminous (or second law) efficiency of lighting 
 has previously been calculated in SEA 
 by taking the quotient of the minimum energy required to produce a given output,
-and the energy required to produce a given output by the device in question.
+and the energy required to produce a given output by the device in question (Section \ref{sec:divergent_approaches}).
 
 This approach has been recommended for outputs such as light, sound and information
 \textit "because the useful output cannot or is not typically measured in energy units" 
