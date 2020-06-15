@@ -5,6 +5,10 @@
 # Weighting function tabs are prefixed with "wf_".
 # Lamp tabs are prefixed with "lamp_".
 
+# Libraries
+library(magrittr)
+
+# Main code
 weighted_flux <- function(weighting_function, lamp) {
   # Get name of lamp
   wf_name <- weighting_function[["wf_name"]] %>%
