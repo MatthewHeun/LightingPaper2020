@@ -5,8 +5,6 @@
 # Weighting function tabs are prefixed with "wf_".
 # Lamp tabs are prefixed with "lamp_".
 
-# Libraries
-library(magrittr)
 
 # Main code
 weighted_flux <- function(weighting_function, lamp) {
@@ -103,7 +101,7 @@ received_luminous_flux <- received_weighted_responses_df %>%
   dplyr::group_by(lamp_name) %>%
   dplyr::summarise(
    #sum = sum(weighted_radiant_flux*683), 
-    wrong_luminous_flux = MESS::auc(x = `Wavelength [nm]`, y = received_weighted_radiant_flux) * 683
+    wrong_luminous_flux = MESS::auc(x = `Wavelength [nm]`, y = received_weighted_radiant_flux) * 683, .groups = "drop"
   )
 
 # Read in lamp information
