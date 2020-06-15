@@ -415,7 +415,7 @@ Only within this spectrum are wavelengths to which the human retina respond
 source(file = file.path("Data", "AllData.R"))
 # Trim down to the weighting functions and lamps we want
 wf_list <- c("nw", "v", "p2", "u")
-lamp_list <- c("inc_globe_a19", "hal_globe_r20", "cfl_es_tw", "led_phil_a19")
+lamp_list <- c("inc_globe_a19", "hal_globe_r20", "cfl_es_tw_15", "led_phil_a19")
 response_data <- weighted_responses_df %>% 
   dplyr::mutate(
     lamp_name = sub(pattern = "lamp_", replacement = "", x = lamp_name),
@@ -436,7 +436,7 @@ response_data <- weighted_responses_df %>%
     lamp_name = dplyr::recode_factor(lamp_name, 
                                      inc_globe_a19 = "A19",
                                      hal_globe_r20 = "Halogen", 
-                                     cfl_es_tw = "CFL",
+                                     cfl_es_tw_15 = "CFL",
                                      led_phil_a19 = "LED")
   ) 
 @
@@ -1249,7 +1249,7 @@ response_data %>%
              Colored regions give weighted responses and indicate human perception of color.
              ``A19'' is a 100~W incandescent A19 globe. 
              ``Halogen'' is a 29~W halogen R20 globe.
-             ``CFL'' is a 20~W EnergyStar twister compact fluorescent.
+             ``CFL'' is a 15~W EnergyStar twister compact fluorescent.
              ``LED'' is an 11~W Phillips A19 LED.
              ``Unweighted'' spans the entire wavelength range of the graph, 250 nm < $\lambda$ < 900 nm.
              ``Visible'' restricts to visible wavelengths, \humaneyesensitivity{}.
