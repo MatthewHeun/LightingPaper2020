@@ -270,6 +270,14 @@ Terminology for this paper:
   \item The exergy-to-energy ratio ($\phi$) is \emph{not} second law efficiency ($\eta_X$)
         The energy-to-exergy ratio ($\phi$) applies at every statepoint.  
         $\eta_E$ and $\eta_X$ apply across energy conversion devices.
+        
+  \item Power is energy per time. watts are power.
+  
+  \item Flux is quantity per unit area per unit time. W/m$^2$ is a flux.
+        
+  \item Do not confuse power and flux.  Do not write ``radiant power/flux,''
+        seemingly indicating that power and flux
+        are synonyms.  Power and flux are not synonyms.
 
 \end{enumerate}
 %
@@ -295,6 +303,8 @@ Style for this paper:
   \item Write comments to other authors in the text with ``**** comment --- MKH ****''.
   
   \item Let's use a space between numbers and percent signs. Best to use a non-breaking space (see below).
+  
+  \item The word data is plural, not singular.  The word datum is singular.
 
 \end{enumerate}
 %
@@ -503,6 +513,12 @@ which occurs after the useful stage.
 \subsection{Diverging approaches to lighting efficiency}
 \label{sec:divergent_approaches}
 %++++++++++++++++++++++++++++++
+
+**** Section~\ref{sec:divergent_approaches} feels a bit like Section~\ref{sec:challenges_and_decisions}.
+We need to synchrnoize the two sections.
+Furthermore, any issues raised here should be addressed clearly below. 
+Sorting out this issue is mine.
+For now, PB should do the edits that I suggest.---MKH ****
 
 From this point, however, we stumble into sources of confusion surrounding 
 the energy conversion efficiency ($\eta$) of lamps.
@@ -1103,8 +1119,8 @@ I believe the best place for this would be at the end of section 4 in the discus
 
 
 %++++++++++++++++++++++++++++++
-\subsection{The energy of light (Zeke and Emmanuel, 500 words)}
-\label{sec:energy_of_light}
+\subsection{The energy efficiency of light (Zeke and Emmanuel, 500 words)}
+\label{sec:energy_efficiency_of_light}
 %++++++++++++++++++++++++++++++
 
 ****
@@ -1113,21 +1129,27 @@ Maybe discuss sources of data
 Include discussion of \cite{Delgado-Bonal:2017aa}.
 ****
 
-To understand how the measurement of a lamps efficiency varies according to which wavelengths of light induce the strongest response in the human eyes light receptors, or more broadly the response of any mechanism to light, data for the spectral power distribution of a lamp is required.
+**** Need an intro sentence or two for this section.
+But let's wait to write until we have a better idea of how everything fits together.---MKH ****
 
+To understand how a lamp's efficiency 
+varies according to which wavelengths of light
+are deemed valuable, data for the spectral power distribution of a lamp are required.
 
-Firstly, and representing Option 1, the calculation of $\dot{L}_3$, the light (or radiant power/flux) emitted by a lamp is given by
+Firstly, and representing Option 1, the calculation of radiant power of light emitted by a lamp
+($\dot{L}_3$ in Figure~\ref{fig:lamp}) is given by
 %
 \begin{equation}
-  \dot{L}_3 = \int \dot{P}_\lambda d\lambda \; ,
+  \dot{L} = \int \dot{P}_\lambda d\lambda \; ,
 \end{equation}
 %
-where $\dot{P}_\lambda$ is the spectral power distribution of a lamp, representing the radiant power (W) per unit wavelength (nm) of the lamp. 
+where $\dot{P}_\lambda$ is the spectral power distribution of a lamp
+(in units of W/nm). 
 
-If Option 2 is adopted the upper and lower bounds of the integral are set by the upper and lower limits of the visible spectrum (\humaneyesensitivity).
+If Option 2 is adopted, the upper and lower bounds of the integral are set by the upper and lower limits of the visible spectrum (\humaneyesensitivity{}).
 %
 \begin{equation}
-  \dot{L}_{vis} = \int_{380 \text{ nm}}^{750 \text{ nm}} {P}_\lambda d\lambda \; .
+  \dot{L}_{vis} = \int_{380 \text{ nm}}^{750 \text{ nm}} {\dot{P}}_\lambda d\lambda \; .
 \end{equation}
 %
 If Option 3 is adopted the above equation becomes
@@ -1240,8 +1262,8 @@ Things to consider:
 
 
 %++++++++++++++++++++++++++++++
-\subsection{The exergy of light (Zeke and Emmanuel, 500 words)}
-\label{sec:exergy_of_light}
+\subsection{The exergetic efficiency of light (Zeke and Emmanuel, 500 words)}
+\label{sec:exergetic_efficiency_of_light}
 %++++++++++++++++++++++++++++++
 
 **** Discuss the DB approach to calculating the energy-to-exergy ratio. ****
@@ -1400,6 +1422,7 @@ previous methods of determining the exergy of lighting.
 \subsubsection{Comparison with previous approaches in Societal Exergy Analysis} 
 \label{sec:compwithSEA}
 %------------------------------
+%
 The luminous (or second law) efficiency of lighting 
 has previously been calculated in SEA 
 by taking the quotient of the minimum energy required to produce a given output,
@@ -1419,6 +1442,12 @@ and the maximum luminous efficacy.
 %
 \begin{equation}
   \frac{1}{\epsilon_{max}} / \frac{1}{\epsilon_{lamp}} \equiv \frac{1}{\epsilon_{max}} \cdot \frac{\epsilon_{lamp}}{1} \equiv \frac{\epsilon_{lamp}}{\epsilon_{max}}\; ,
+\end{equation}
+%
+\begin{equation}
+  \frac{\; \; \frac{1}{\epsilon_{max}} \; \; }{\frac{1}{\epsilon_{lamp}}} 
+       = \frac{1}{\epsilon_{max}} \cdot \frac{\epsilon_{lamp}}{1}
+       = \frac{\epsilon_{lamp}}{\epsilon_{max}} \; ,
 \end{equation}
 %
 where $\epsilon_{max}$ is equal to the maximum luminous efficacy, 
