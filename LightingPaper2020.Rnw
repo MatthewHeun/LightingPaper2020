@@ -410,7 +410,7 @@ Only within this spectrum are wavelengths to which the human retina respond
 
 **** MKH make our own graph with the ggspectra package. ****
 
-<<Load_Data>>=
+<<Load_Data, cache=TRUE, cache.extra.1=tools::md5sum('Data/master_lighting_data.xlsx'), cache.extra.2=tools::md5sum('Data/AllData.R')>>=
 # Creates the weighted_responses_df data frame.
 source(file = file.path("Data", "AllData.R"))
 # Trim down to the weighting functions and lamps we want
@@ -442,7 +442,7 @@ response_data <- weighted_responses_df %>%
 @
 
 
-<<Vis_Graph, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="Alternative visible range figure that matches style of later figures.">>=
+<<Vis_Graph, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="Alternative visible range figure that matches style of later figures.", cache=TRUE>>=
 response_data %>% 
   dplyr::filter(wf_name == "Photopic lum.") %>% 
   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>% 
@@ -1148,7 +1148,15 @@ To demonstrate how the use of selection of various weighting functions alters th
 Inset names of lamps here.
 ****
 
-Furthermore, the valuable light energy efficiency can be calculated in two ways, by taking the quotient of the useful light (as determined by a given weighting function), and both the radiant power and the electricity consumption of the device. We term these the Electricity to Light efficiency and Radiation to Light efficiency respectively. In photometry when using the photopic luminosity function to calculate the luminous flux these metrics are simply referred to as the 'luminous efficacy of radiation' and 'luminous efficacy' respectively. Though in this case no constant is applied in accordance with EQUATION? 
+Furthermore, the valuable light energy efficiency can be calculated in two ways, 
+by taking the quotient of the useful light (as determined by a given weighting function), 
+and both the radiant power and the electricity consumption of the device. 
+We term these the Electricity to Light efficiency and Radiation 
+to Light efficiency respectively. 
+In photometry when using the photopic luminosity function 
+to calculate the luminous flux these metrics are simply referred to as
+the 'luminous efficacy of radiation' and 'luminous efficacy' respectively. 
+Though in this case no constant is applied in accordance with EQUATION? 
 
 
 \begin{equation}
@@ -1224,7 +1232,7 @@ See Figure~\ref{fig:wfs_and_lamps}, which provides visual representation of seve
 \begin{figure}
     \centering
     \begin{subfigure}[t]{0.25\textwidth}
-<<Weighting_Function_Graph, fig.width=1.5, fig.height=5>>=
+<<Weighting_Function_Graph, fig.width=1.5, fig.height=5, cache=TRUE>>=
 response_data %>% 
   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>% 
   dplyr::mutate(
@@ -1265,7 +1273,7 @@ response_data %>%
     % add desired spacing between images (e.g., ~, \quad, \qquad, \hfill, etc.)
     % or a blank line to force the subfigure onto a new line.
     \begin{subfigure}[t]{0.74\textwidth}
-<<Responses_Graph, fig.width=4.5, fig.height=5>>=
+<<Responses_Graph, fig.width=4.5, fig.height=5, cache=TRUE>>=
 response_data %>%
   # This code divides the output of only the spikey CFL by a factor of 10.
   # dplyr::mutate(
