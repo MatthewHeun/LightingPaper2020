@@ -43,14 +43,14 @@ spd_metrics <- dplyr::full_join(
   lamp_info %>% dplyr::select(lamp_name, `Electricity Consumption [W]`), by = "lamp_name"
 ) %>%
     
-# Calculates the ratio of weighted radiant flux to electricity consumption
+# Calculates the quotient of the weighted radiant flux to electricity consumption - valuable energy efficiency
 dplyr::mutate(
-  wrf_to_ec = integrated_wrf / `Electricity Consumption [W]`
+  wrf_div_ec = integrated_wrf / `Electricity Consumption [W]`
 ) %>%
 
-# Calculates the ratio of weighted radiant flux to radiant flux
+# Calculates the quotient of the weighted radiant flux to radiant flux
 dplyr::mutate(
-    wrf_to_rf = integrated_wrf / integrated_rf
+    wrf_div_rf = integrated_wrf / integrated_rf
 )
 
 
