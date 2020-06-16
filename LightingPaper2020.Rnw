@@ -1286,7 +1286,7 @@ Though in this case no constant is applied in accordance with EQUATION?
 
 **** Do we want to report the Radiation to Light efficiency? ---ZM ****
 **** If so we need better names and to assign further subscripts to eta ---ZM ****
-
+**** I think we should also add the Electricity to radiation efficiency as this is what I would call the "first law efficiency" --- EAR"
 
 Zeke: Here is the way to include chunks of R code.
 
