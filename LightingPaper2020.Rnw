@@ -933,6 +933,9 @@ We discuss each challenge in the sections below.
 Are there any other challenges we want to address in this paper? ---MKH
 ****
 
+**** I'd add "whether to account for the human perception of light". And it feeds well into 2.2.1 on Boundary between useful energy and energy services --- EAR ****
+
+**** And we could add "how to account for exergy content of light" --- EAR ****
 
 %------------------------------
 \subsubsection{The boundary between useful energy and energy services (MKH)} 
@@ -983,6 +986,7 @@ implicitly assuming that winter and summer effects cancel.
 We contend that the issue deserves further study,
 but that is a topic for another paper. 
 
+**** If it is for another paper and we are not going to deal with it in Results, perhaps it should be removed from the theoretical challenges of 2.2, and it should instead go into a discussion section "further work" --- EAR ****
 
 %------------------------------
 \subsubsection{Waste light from lamps (MKH)} 
@@ -1027,14 +1031,14 @@ the nuances are important for societal exergy analysis.
 Specifically,
 when considering work and heat,
 there is no analogue to the sensitivity of the human eye to wavelengths of light.
-Neither heat nor work present to human beings as differentiated by wavelength or other characteristics.
+Neither heat **** Actually I'm not sure I agree here. Our sensitivity to heat is differentiated by heat temperature, right? --- EAR ****  nor work present to human beings as differentiated by wavelength or other characteristics.
 (Strictly speaking, the absorption spectrum of human skin is differentially sensitive
 to wavelengths of thermal radiation, 
 but this effect is usually small and neglected by societal exergy analysts, 
 because convection is usually the dominant mode 
 of heat transfer experienced by humans in heated spaces.)
 So there is no need to consider human perception 
-when accounting for work and heat in societal exergy analysis.
+when accounting for work and heat in societal exergy analysis. **** See above, I agree that there is no need to consider human perception in SEA, but disagree with the argument --- EAR ****
 
 In contrast, the analyst must decide how to account for human perception of light.
 Three options are apparent.
@@ -1048,6 +1052,9 @@ all \enaex{} in electromagnetic radiation emitted by a lamp is counted,
 regardless of its wavelength.
 When choosing Option 1, $\dot{X}_3$ is unchanged from the analysis in Section~\ref{sec:energy_and_exergy_of_light}, 
 i.e., $\dot{X}_3 = \phi_L \dot{L}_3$.
+
+**** Slightly disagree with "For the purpose... regardless of its wavelength." Accounting to the useful stage does imply do answer the question "what portion of the light output do we consider "valuable"?", which is a value judgment. So "valuable" energy cannot really be defined independently of human judgement/perception. So actually I don't think that the equivalent of Equation \ref{} is obtained by using the whole electromagnetic energy as numerator (just because it is in the same physical form?), rather, I think the equivalent would be using only electromagnetic energy contained by visible wavelength, that is, what is called "Option 2" here. --- EAR ****
+
 
 The second and third options account for human perception of light at the useful stage. 
 In the second option, light is deemed useful only if it \emph{could}
@@ -1286,7 +1293,7 @@ Though in this case no constant is applied in accordance with EQUATION?
 
 **** Do we want to report the Radiation to Light efficiency? ---ZM ****
 **** If so we need better names and to assign further subscripts to eta ---ZM ****
-**** I think we should also add the Electricity to radiation efficiency as this is what I would call the "first law efficiency" --- EAR"
+**** Should we also include the electricity to radiation efficiency? --- EAR"
 
 Zeke: Here is the way to include chunks of R code.
 
