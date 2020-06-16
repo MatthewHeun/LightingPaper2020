@@ -857,7 +857,7 @@ provides a method for calculating $\phi_L$.
 (See Section~\ref{sec:energy_of_light} for details.)
 Delgado-Bonal's estimate 
 is $\phi_L = 0.931$
-for solar spectrum electromagnetic radiation
+for blackbody solar spectrum electromagnetic radiation
 \cite[Figure~3]{Delgado-Bonal:2017aa}.
 A similar estimate comes from the maximum efficiency 
 of converting blackbody electromagnetic radiation (at 5800~K, the temperature of the sun) 
@@ -1126,15 +1126,45 @@ I believe the best place for this would be at the end of section 4 in the discus
 ****
 ZM: Discuss various integrations over wavelength and our conclusions that some features don't matter.
 Maybe discuss sources of data
-Include discussion of \cite{Delgado-Bonal:2017aa}.
 ****
 
-**** Need an intro sentence or two for this section.
-But let's wait to write until we have a better idea of how everything fits together.---MKH ****
+**** 
+Need an intro sentence or two for this section.
+But let's wait to write until we have a better idea of how everything fits together.---MKH 
+****
 
 To understand how a lamp's efficiency 
 varies according to which wavelengths of light
 are deemed valuable, data for the spectral power distribution of a lamp are required.
+
+****
+I don't think you're discussing the SPDs here.
+I think you're discussing the weighting functions. 
+As I understand it, the SPDs are the gray portions of the graphs in Figure~\ref{fig:wfs_and_lamps},
+while the left column gives the weighting functions.
+Please take another run at this.  
+Seems like you should talk about the SPDs first.
+Something like:
+
+SPDs are normally given on graphs with spectral radiative flux on the vertical axis
+and wavelength on the horizontal axis. 
+The area under the area under the curve gives the radiative flux in units of W/m$^2$.
+The area under the curve is calculated by <<start equations here>>.
+Say that each lamp has its own SPD. 
+Say we'll look at four lamps and, therefore, four SPDs.
+
+Then, refer to the section above (Section~\ref{sec:human_perception_of_light})
+to bring in the idea that 
+researchers weight the SPD for assumed utility to humans.
+Then discuss weighting functions. 
+Let's discuss whether we want to move material from Section~\ref{sec:human_perception_of_light}
+down to this point in the paper.
+Or, perhaps some of the integrals from this section should move up to Section~\ref{sec:human_perception_of_light}
+and this section should focus on \emph{efficiency}. 
+Regardless, tying $f$ and $g$ (or just $f$)
+from Section~\ref{sec:human_perception_of_light} to this discussion
+will clean up a lot of ambiguity.---MKH
+****
 
 Firstly, and representing Option 1, the calculation of radiant power of light emitted by a lamp
 ($\dot{L}_3$ in Figure~\ref{fig:lamp}) is given by
@@ -1147,12 +1177,33 @@ where $\dot{P}_\lambda$ is the spectral power distribution of a lamp
 (in units of W/nm). 
 
 If Option 2 is adopted, the upper and lower bounds of the integral are set by the upper and lower limits of the visible spectrum (\humaneyesensitivity{}).
+**** I would rather show integration over all wavelengths for all of these $\dot{L}$ calculations.
+But each row is a different weighting function.
+The top row (unweighted) uses $f = 1$.
+The second row (Visible) uses a weighting function that is 1 in visible wavelenghts and 0 elsewhere.
+The third row (Photopic lum.) uses a the classic weighting.  (Is there a functional form? If so, we should put it in the paper.)
+The fourth row (Universal) uses a different weighting.  (Also, is there a functional form?)
+In other words, we have only 1 equation like Equation~\ref{eq:power_eqn}:
+
+\begin{equation} \label{eq:power_eqn}
+  \dot{L} = \int f_\lambda \dot{P}_\lambda d\lambda \; ,
+\end{equation}
+
+And $f_\lambda$ takes on different forms for each weighting function, i.e., for each row of our 
+tables and for each row of Figure~\ref{fig:wfs_and_lamps}.---MKH
+****
 %
 \begin{equation}
   \dot{L}_{vis} = \int_{380 \text{ nm}}^{750 \text{ nm}} {\dot{P}}_\lambda d\lambda \; .
 \end{equation}
 %
 If Option 3 is adopted the above equation becomes
+**** 
+I think this should start out as a version of $f_\lambda$.  
+But after we show the equation for $f_\lambda$, 
+we also introduce the leading constant (683 lm/W) to show how that gets us to 
+luminous efficacy.---MKH
+****
 %
 \begin{equation}
   Luminous\ flux = 683 \text{ lm/W} \int \dot{P}_\lambda V_\lambda d\lambda \; ,
@@ -1192,9 +1243,12 @@ For the analyst interested in examining what proportion
 of a spectral power distribution is \emph{useful} for any given purpose 
 an appropriate weighting function must be selected (including the photopic luminosity function). 
 The useful light ($\dot{L}_{useful}$) emitted by a lamp is then given by
+****
+What is $W$ in the equation below?---MKH
+****
 %
 \begin{equation}
-  \dot{L}_{useful} = \int \dot{P}_\lambda Wf_\lambda d\lambda \; ,
+  \dot{L}_{useful} = \int \dot{P}_\lambda W f_\lambda d\lambda \; ,
 \end{equation}
 %
 where $Wf_\lambda$ is equal to a given weighting function, with values between 0 and 1. 
