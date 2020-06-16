@@ -658,6 +658,23 @@ Our key finding is that the maximum efficacy limit of lamps should be taken as 4
 % that provided approval and the corresponding ethical approval code. 
 
 
+We may need to break this up into a theory section and a methods and data section.
+
+EA suggests a paragraph discussing:
+%
+\begin{enumerate}
+
+  \item Where we got the data (both SPDs of lamps and weighting functions)
+
+  \item How we chose lamps and SPDs and weighting functions for our case study
+  
+  \item How we adjusted SPDs and scaled them up to fit the efficacy and lamp data provided by the manufacturer
+
+\end{enumerate}
+%
+all this stuff that someone trying to reproduce the study would need. So perhaps that could be a 2.5 "methodology and data"?
+
+
 %++++++++++++++++++++++++++++++
 \subsection{Exergy theory (MKH, 1000 words)}
 \label{sec:framework}
@@ -1328,6 +1345,11 @@ Things to consider:
 %++++++++++++++++++++++++++++++
 
 **** Discuss the DB approach to calculating the energy-to-exergy ratio. ****
+
+
+
+
+
 
 
 
