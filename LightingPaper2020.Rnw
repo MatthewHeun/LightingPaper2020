@@ -784,7 +784,7 @@ states that exergy is always destroyed ($\dot{X}_1 > \dot{X}_2 + \dot{X}_3$).
 Assuming, again, that work is valuable gives
 %
 \begin{equation} \label{eq:valuable_exergy_efficiency}
-  \eta_{X,v} = \frac{\dot{W}_3}{\dot{Q}_1 \left( 1 - \frac{T_0}{T_1} \right) } < \eta_X \; .
+  \eta_{X,v} = \frac{\dot{W}_3}{\dot{Q}_1 \left( 1 - \frac{T_0}{T_1} \right) } < \eta_X < 1\; .
 \end{equation}
 
 Note that both $\eta_{E,v}$ and $\eta_{X,v}$ 
@@ -841,7 +841,7 @@ Both electricity and light can be converted to heat without loss, so they are pu
 Thus,
 %
 \begin{equation}
-  \dot{E}_1 = \dot{W}_1 = \dot{W}_1, \; \dot{E}_2 = \dot{Q}_2, \; \text{and} \; \dot{E}_3 = \dot{L}_3 \; .
+  \dot{E}_1 = \dot{W}_1, \; \dot{E}_2 = \dot{Q}_2, \; \text{and} \; \dot{E}_3 = \dot{L}_3 \; .
 \end{equation}
 %
 Energy efficiency for Figure~\ref{fig:lamp} is 
@@ -868,6 +868,21 @@ Thus, the exergy of each stream in Figure~\ref{fig:lamp} is given by
 \end{equation}
 %
 where $\phi_L$ is the exergy-to-energy ratio for light.
+
+The term $\dot{L}_3$ is the power of electromagnetic~(EM) radiation
+emitted by a lamp
+in units of energy per unit time.
+In general, the EM power of a lamp is a spectral quantity,
+meaning that it varies with wavelength.
+Spectral power~($\dot{P}_\lambda$)
+describes the EM emissive power available between any two wavelengths 
+such that total EM emissive power~($\dot{P}$) is given by
+%
+\begin{equation} \label{eq:emissive_power}
+  \dot{P} = \int \dot{P}_\lambda \mathrm{d}\lambda \; .
+\end{equation}
+%
+Visually, $\dot{P}$ is the area under a curve of $\dot{P}_\lambda$ vs.\ $\lambda$.
 
 Recent work by Delgado-Bonal~\cite{Delgado-Bonal:2017aa}
 provides a method for calculating $\phi_L$.
@@ -910,22 +925,22 @@ an unoccupied room or a crowded bar,
 whether the illumination stimulates the rods and cones of a human eye or
 excites band gap electrons in an amorphous silicon solar cell.
 
-Strictly speaking, the \enaex{} efficiencies of a lamp
-are evaluated at the useful stage of the energy conversion chain
-(where light \enaex{} exist),
-prior to the \emph{energy service} stage
-(where illumination exists).
-Both 
-%
-\begin{enumerate*}[label={(\alph*)}]
-	
-  \item the \enaex{} of light and
-  
-  \item the \enaex{} efficiency of lamps 
-    
-\end{enumerate*}
-%
-are independent of the energy service provided by the lamp.
+% Strictly speaking, the \enaex{} efficiencies of a lamp
+% are evaluated between the final and useful stages of the energy conversion chain
+% (where light \enaex{} exist),
+% prior to the \emph{energy service} stage
+% (where illumination exists).
+% Both 
+% %
+% \begin{enumerate*}[label={(\alph*)}]
+% 	
+%   \item the \enaex{} of light and
+%   
+%   \item the \enaex{} efficiency of lamps 
+%     
+% \end{enumerate*}
+% %
+% are independent of the energy service provided by the lamp.
 
 
 %++++++++++++++++++++++++++++++
@@ -954,65 +969,6 @@ Are there any other challenges we want to address in this paper? ---MKH
 
 **** And we could add "how to account for exergy content of light" --- EAR ****
 
-%------------------------------
-\subsubsection{The boundary between useful energy and energy services (MKH)} 
-\label{sec:useful_services_boundary}
-%------------------------------
-
-****
-Discuss the boundary between useful energy and energy services. 
-This is a decision that the analyst must make. 
-****
-
-
-%------------------------------
-\subsubsection{Waste heat from lamps} 
-\label{sec:waste_heat}
-%------------------------------
-
-****
-Do we want to include this section? ---MKH
-****
-
-****
-Absolutely, I've added two sentences detailing the niche use of heat lamps for various purposes.  ---ZM
-****
-
-Every lamp produces waste heat ($\dot{Q}_2$ in Figure~\ref{fig:lamp})
-as it converts electrical energy into light energy.
-In Section~\ref{sec:energy_and_exergy_of_light}
-waste heat was deemed the un-valuable product of the lamp.
-However, in some circumstances, the waste heat from lamps is, in fact, valuable,
-because it displaces energy for space heating,
-especially in winter climates.
-In summer climates, waste heat from lamps adds to space cooling loads.
-For locations where both summer cooling and winter heating are performed,
-the winter/summer effects of lamps cancel, to first order. 
-
-Furthermore, some lamps, commonly termed heat or infrared lamps are explicitly designed to produce heat, and are used for various purposes including: space heating, incubator heating, plastic manufacture, food preparation, and warming animals in captivity. As the infrared portion of light emitted by these lamps is considered useful they typically display high efficiencies.
-
-**** 
-Where is the line between an electric heater and an incandescent lamp? Is it just the design purpose? ---ZM
-****
-
-The societal exergy analyst must decide how to treat waste heat from lamps
-when determining the quantity of useful energy delivered to a society.
-To our knowledge, societal exergy analysis has, to date, 
-ignored waste heat from lamps, 
-implicitly assuming that winter and summer effects cancel.
-We contend that the issue deserves further study,
-but that is a topic for another paper. 
-
-**** If it is for another paper and we are not going to deal with it in Results, perhaps it should be removed from the theoretical challenges of 2.2, and it should instead go into a discussion section "further work" --- EAR ****
-
-%------------------------------
-\subsubsection{Waste light from lamps (MKH)} 
-\label{sec:waste_light}
-%------------------------------
-
-****
-Discuss the problem of waste light.
-****
 
 
 
@@ -1496,6 +1452,13 @@ The findings and their implications should be discussed
 in the broadest context possible. 
 Future research directions may also be highlighted.
 
+
+****
+ZM and PB: Be sure to spike the set from the introduction.
+****
+
+
+
 ****
 ZM: Discuss how our results for the examples vary from results that would have been obtained with 
 previous methods of determining the exergy of lighting.
@@ -1592,9 +1555,52 @@ A more comprehensive approach would be to select a representative range of uses 
 which are then assessed based on their respective weighting functions. 
 
 
+
+
+%++++++++++++++++++++++++++++++
+\subsection{Waste heat from lamps} 
+\label{sec:waste_heat}
+%++++++++++++++++++++++++++++++
+
+Every lamp produces waste heat ($\dot{Q}_2$ in Figure~\ref{fig:lamp})
+as it converts electrical energy into light energy.
+In Section~\ref{sec:energy_and_exergy_of_light}
+waste heat was deemed the un-valuable product of the lamp.
+However, in some circumstances, the waste heat from lamps is, in fact, valuable,
+because it displaces energy for space heating,
+especially in winter climates.
+In summer climates, waste heat from lamps adds to space cooling loads.
+For locations where both summer cooling and winter heating are performed,
+the winter/summer effects of lamps cancel, to first order. 
+
+Furthermore, some lamps, commonly termed heat lamps or infrared lamps are
+explicitly designed to produce heat for various purposes, including
+space heating, incubator heating, plastic manufacture, food preparation, and warming animals in captivity. 
+As the infrared portion of light emitted by these lamps is
+considered useful, they typically display high efficiencies.
+
+**** 
+Where is the line between an electric heater and an incandescent lamp? Is it just the design purpose? ---ZM
 ****
-ZM and PB: Be sure to spike the set from the introduction.
+
+The societal exergy analyst must decide how to treat waste heat from lamps
+when determining the quantity of useful energy delivered to a society.
+To our knowledge, societal exergy analysis has, to date, 
+ignored waste heat from lamps, 
+implicitly assuming that winter and summer effects cancel.
+We contend that the issue deserves further study,
+but that is a topic for another paper. 
+
+
+%------------------------------
+\subsubsection{Waste light from lamps (MKH)} 
+\label{sec:waste_light}
+%------------------------------
+
 ****
+Discuss the problem of waste light.
+****
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
