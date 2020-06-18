@@ -1050,7 +1050,7 @@ captures this broader sensitivity.
 So, for option 4,
 %
 \begin{equation} \label{eq:f4}
-  f_{\lambda,u} = U_\lambda \; .
+  f_{\lambda,univ} = U_\lambda \; .
 \end{equation}
 
 The leftmost column of Figure~\ref{fig:wfs_and_lamps} shows 
