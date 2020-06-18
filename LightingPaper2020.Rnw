@@ -891,7 +891,7 @@ Visually, $\dot{L}$ is the area under a curve of $\dot{L}_\lambda$ vs.\ $\lambda
 The term $\phi_L$ is the exergy-to-energy ratio for light.
 Recent work by Delgado-Bonal~\cite{Delgado-Bonal:2017aa}
 provides a method for calculating $\phi_L$.
-(See Section~\ref{sec:energy_of_light} for details.)
+(See Section~\ref{sec:phi_light} for details.)
 Delgado-Bonal's estimate 
 is $\phi_L = 0.931$
 for blackbody solar spectrum electromagnetic radiation
@@ -907,7 +907,7 @@ rejecting waste heat to an ambient temperature of 300~K:
 %
 Other values for $\phi_L$ are needed when the spectra of emitted light is
 different from the spectra of blackbody radiation,
-as discussed in Section~\ref{sec:energy_of_light}.
+as discussed in Section~\ref{sec:phi_light}.
 
 The exergy efficiency of lighting for Figure~\ref{fig:lamp} is given by
 %
@@ -999,11 +999,20 @@ to include a weighting function~($f_\lambda$) such that
 with $0 \le f_\lambda \le 1$.
 
 Given Equation~\ref{eq:weighted_emissive_power}, 
-accounting for human visual perception amounts to selecting a functional form for $f_\lambda$.
-At least four options for $f_\lambda$ are apparent.
+accounting for human visual perception amounts 
+to selecting a functional form for the weighting function $f_\lambda$.
+
+
+%++++++++++++++++++++++++++++++
+\subsection{Weighting functions}
+\label{sec:weighting_functions}
+%++++++++++++++++++++++++++++++
+
+For the purposes of this paper, 
+at least four options for the weighting function ($f_\lambda$) are apparent.
 The first option is degenerate: 
-the analyst could ignore the nuances of human visual perception,
-implicitly deciding that all EM radiation emitted from a lamp is valuable, 
+the analyst could decide to ignore the nuances of human visual perception altogether,
+implicitly assuming that all EM radiation emitted from a lamp is valuable, 
 whether or not it is within the visible portion of the EM spectrum.
 For the first option, 
 %
@@ -1013,8 +1022,8 @@ For the first option,
 
 Second, the analyst could 
 deem a lamp's EM radiation to be useful if and only if it \emph{could}
-stimulate rods and cones,
-regardless of the spectral sensitivity of the human eye.
+stimulate photoreceptive cells in the human eye,
+regardless of the spectral sensitivity of those cells.
 In the second option, the analyst excludes the \enoex{} content of light
 in wavelengths outside the range of perception by the human eye
 when determining the useful \enoex{} of light.
@@ -1032,21 +1041,55 @@ f_{\lambda,vis} =
 But the human eye is spectrally sensitive to EM radiation, 
 with a sensitivity peak at 555~nm (green)
 and lesser sensitivities at both longer and shorter wavelengths.
-(See Figure~\ref{fig:Vis_Graph}.)
 A third option involves weighting a lamp's emitted EM radiation 
-by the photopic sensitivity of the human eye (dominated by the M and L cones).
+by the photopic sensitivity of the human eye.
 The photopic luminosity (pl) function~($V_f$) describes this sensitivity, 
 as shown in Figure~\ref{fig:Vis_Graph}.
+$V_\lambda$ is the photopic luminosity function, 
+first defined by the Commission Internationale de l' Éclairage (CIE)
+most recently in 2006(?), and 
+it represents the sensitivity of M and L cones
+at daytime light levels. **** Need reference here.---MKH ****
 So, for Option 3,
 %
 \begin{equation} \label{eq:f3}
   f_{\lambda,pl} = V_\lambda \; .
 \end{equation}
 
-A fourth option weights emissions by the sensitivity of all five light receptors in the human eye
+Substituting Equation~\ref{eq:f3} into Equation~\ref{eq:weighted_emissive_power}
+provides the basis for calculating a lamp's output of visible light in lumens (lm)
+%
+\begin{equation} \label{eq:lumen}
+  P_{pl} = 683 \text{ lm/W} \int V_\lambda \dot{L} \mathrm{d}\lambda \; ,
+\end{equation}
+%
+where 683~lm/W is the EM radiation emission of a light source emitting at 555 nm. 
+
+The photopic luminosity function~($V_\lambda$) is the industry standard for determining lumen output
+of lamps, but it has been criticized for under-representing
+the power of wavelengths less than 555~nm, 
+a long-wave bias.
+The photopic luminosity function
+neglects the differential sensitivity of the human eye's other light receptors,
+namely the short-wave cones,
+rods, and intrinsically photosensitive retinal ganglion cells (ipRGCs),
+which are responsible for vision in low-light settings and
+physiological functions such as the regulation of circadian rhythms.
+
+Given that the industry-standard measure of lighting efficiency
+is the luminous efficacy
+(the quotient between a lamp's lumen output and the power input),
+the use of the photopic luminosity function 
+under-represents the power at short wavelengths in lighting efficiency estimates.
+This state of affairs biases lighting manufacturers to reduce short wavelength
+output of lamps, even when short wavelength EM radiation would be beneficial
+for biological regulation. 
+
+A fourth option weights a lamps EM radiation output 
+by the sensitivity of all five light receptors in the human eye
 (not just the M and L cones as in $V_\lambda$). 
 The universal luminous efficiency function ($U_\lambda$) **** reference ****
-captures this broader sensitivity.
+captures the actual, broader sensitivity of the human eye.
 So, for option 4,
 %
 \begin{equation} \label{eq:f4}
@@ -1055,151 +1098,161 @@ So, for option 4,
 
 The leftmost column of Figure~\ref{fig:wfs_and_lamps} shows 
 the four options for weighting a lamp's EM radiation output
-when determining the useful exergy of light.
+when determining the useful \enoex{} of light.
+
+
 
 
 %++++++++++++++++++++++++++++++
-\subsection{The energy efficiency of light (Zeke and Emmanuel, 500 words)}
-\label{sec:energy_efficiency_of_light}
+% \subsection{The energy efficiency of light (Zeke and Emmanuel, 500 words)}
+% \label{sec:energy_efficiency_of_light}
 %++++++++++++++++++++++++++++++
 
-****
-ZM: Discuss various integrations over wavelength and our conclusions that some features don't matter.
-Maybe discuss sources of data
-****
+% ****
+% ZM: Discuss various integrations over wavelength and our conclusions that some features don't matter.
+% Maybe discuss sources of data
+% ****
+% 
+% ****
+% Need an intro sentence or two for this section.
+% But let's wait to write until we have a better idea of how everything fits together.---MKH
+% ****
 
-****
-Need an intro sentence or two for this section.
-But let's wait to write until we have a better idea of how everything fits together.---MKH
-****
+% To understand how a lamp's efficiency
+% varies according to which wavelengths of light
+% are deemed valuable, data for the spectral power distribution of a lamp are required.
+% 
+% ****
+% I don't think you're discussing the SPDs here.
+% I think you're discussing the weighting functions.
+% As I understand it, the SPDs are the gray portions of the graphs in Figure~\ref{fig:wfs_and_lamps},
+% while the left column gives the weighting functions.
+% Please take another run at this.
+% Seems like you should talk about the SPDs first.
+% Something like:
+% 
+% SPDs are normally given on graphs with spectral radiative flux on the vertical axis
+% and wavelength on the horizontal axis.
+% The area under the area under the curve gives the radiative flux in units of W/m$^2$.
+% The area under the curve is calculated by <<start equations here>>.
+% Say that each lamp has its own SPD.
+% Say we'll look at four lamps and, therefore, four SPDs.
+% 
+% Then, refer to the section above (Section~\ref{sec:human_perception_of_light})
+% to bring in the idea that
+% researchers weight the SPD for assumed utility to humans.
+% Then discuss weighting functions.
+% Let's discuss whether we want to move material from Section~\ref{sec:human_perception_of_light}
+% down to this point in the paper.
+% Or, perhaps some of the integrals from this section should move up to Section~\ref{sec:human_perception_of_light}
+% and this section should focus on \emph{efficiency}.
+% Regardless, tying $f$ and $g$ (or just $f$)
+% from Section~\ref{sec:human_perception_of_light} to this discussion
+% will clean up a lot of ambiguity.---MKH
+% ****
 
-To understand how a lamp's efficiency
-varies according to which wavelengths of light
-are deemed valuable, data for the spectral power distribution of a lamp are required.
+% Firstly, and representing Option 1, the calculation of radiant power of light emitted by a lamp
+% ($\dot{L}_3$ in Figure~\ref{fig:lamp}) is given by
+% %
+% \begin{equation}
+%   \dot{L} = \int \dot{P}_\lambda d\lambda \; ,
+% \end{equation}
+% %
+% where $\dot{P}_\lambda$ is the spectral power distribution of a lamp
+% (in units of W/nm).
+% 
+% If Option 2 is adopted, the upper and lower bounds of the integral are set by the upper and lower limits of the visible spectrum (\humaneyesensitivity{}).
+% **** I would rather show integration over all wavelengths for all of these $\dot{L}$ calculations.
+% But each row is a different weighting function.
+% The top row (unweighted) uses $f = 1$.
+% The second row (Visible) uses a weighting function that is 1 in visible wavelenghts and 0 elsewhere.
+% The third row (Photopic lum.) uses a the classic weighting.  (Is there a functional form? If so, we should put it in the paper.)
+% The fourth row (Universal) uses a different weighting.  (Also, is there a functional form?)
+% In other words, we have only 1 equation like Equation~\ref{eq:power_eqn}:
+% 
+% \begin{equation} \label{eq:power_eqn}
+%   \dot{L} = \int f_\lambda \dot{P}_\lambda d\lambda \; ,
+% \end{equation}
+% 
+% And $f_\lambda$ takes on different forms for each weighting function, i.e., for each row of our
+% tables and for each row of Figure~\ref{fig:wfs_and_lamps}.---MKH
+% ****
+% %
+% \begin{equation}
+%   \dot{L}_{vis} = \int_{380 \text{ nm}}^{750 \text{ nm}} {\dot{P}}_\lambda d\lambda \; .
+% \end{equation}
+% %
+% If Option 3 is adopted the above equation becomes
+% ****
+% I think this should start out as a version of $f_\lambda$.
+% But after we show the equation for $f_\lambda$,
+% we also introduce the leading constant (683 lm/W) to show how that gets us to
+% luminous efficacy.---MKH
+% ****
+% %
+% \begin{equation}
+%   Luminous\ flux = 683 \text{ lm/W} \int \dot{P}_\lambda V_\lambda d\lambda \; ,
+% \end{equation}
+% %
+% where $V_\lambda$ is the photopic luminosity function,
+% as defined by the Commission Internationale de l' Éclairage (CIE)
+% most recently in 2006(?), and
+% representing the sensitivity of the human eye to daytime light levels.
+% The above equation is the SI derived unit for the quantity of visible light
+% (luminous flux or power)---the Lumen.
+% The constant of 683 **** units? You're killing me! ---MKH ****
+% is applied in accordance with the definition of the lumen and candela,
+% which states that a monochromatic lamp emitting light at a
+% wavelength of 555~nm (the wavelength at which the human eye is deemed to be most sensitive)
+% has a luminous efficacy of 683~lm/W.
 
-****
-I don't think you're discussing the SPDs here.
-I think you're discussing the weighting functions.
-As I understand it, the SPDs are the gray portions of the graphs in Figure~\ref{fig:wfs_and_lamps},
-while the left column gives the weighting functions.
-Please take another run at this.
-Seems like you should talk about the SPDs first.
-Something like:
+% The use of the photopic luminosity function been subject
+% to much criticism for its long-wave bias,
+% as it represents the sensitivity of the long-wave and medium-wave cones
+% to daytime light levels, whilst
+% neglecting the differing sensitivities of the human eyes other light receptors.
+% Namely the short-wave cones,
+% rods, and intrinsically photosensitive retinal ganglion cells (ipRGCs),
+% which are responsible for vision in low-light settings and
+% physiological functions such as the regulation of circadian rhythms respectively.
 
-SPDs are normally given on graphs with spectral radiative flux on the vertical axis
-and wavelength on the horizontal axis.
-The area under the area under the curve gives the radiative flux in units of W/m$^2$.
-The area under the curve is calculated by <<start equations here>>.
-Say that each lamp has its own SPD.
-Say we'll look at four lamps and, therefore, four SPDs.
+% Given that the industry-standard measure of lighting efficiency
+% is the luminous efficacy
+% (the quotient of the lumen output and power input of a lamp),
+% the use of the photopic luminosity function to measure light output
+% under-represents the power of wavelengths other than 555~nm emitted by a lamp, and
+% in the case where other uses of light are desired
+% the utility of these wavelengths of light are also under-represented.
 
-Then, refer to the section above (Section~\ref{sec:human_perception_of_light})
-to bring in the idea that
-researchers weight the SPD for assumed utility to humans.
-Then discuss weighting functions.
-Let's discuss whether we want to move material from Section~\ref{sec:human_perception_of_light}
-down to this point in the paper.
-Or, perhaps some of the integrals from this section should move up to Section~\ref{sec:human_perception_of_light}
-and this section should focus on \emph{efficiency}.
-Regardless, tying $f$ and $g$ (or just $f$)
-from Section~\ref{sec:human_perception_of_light} to this discussion
-will clean up a lot of ambiguity.---MKH
-****
+% For the analyst interested in examining what proportion
+% of a spectral power distribution is \emph{useful} for any given purpose
+% an appropriate weighting function must be selected (including the photopic luminosity function).
+% The useful light ($\dot{L}_{useful}$) emitted by a lamp is then given by
+% ****
+% What is $W$ in the equation below?---MKH
+% ****
+% %
+% \begin{equation}
+%   \dot{L}_{useful} = \int \dot{P}_\lambda W f_\lambda d\lambda \; ,
+% \end{equation}
+% %
+% where $Wf_\lambda$ is equal to a given weighting function, with values between 0 and 1.
+% 
+% Depending on the option taken and the weighting function selected the valuable energy efficiency of a lamp to the useful stage is given by
+% %
+% \begin{equation}
+%  \eta_{X,v} = \frac{\int \dot{P}_\lambda Wf_\lambda d\lambda}{\dot{W}_1} = \frac{\dot{L}_{useful}}{\dot{W}_1} \; .
+% \end{equation}
 
-Firstly, and representing Option 1, the calculation of radiant power of light emitted by a lamp
-($\dot{L}_3$ in Figure~\ref{fig:lamp}) is given by
-%
-\begin{equation}
-  \dot{L} = \int \dot{P}_\lambda d\lambda \; ,
-\end{equation}
-%
-where $\dot{P}_\lambda$ is the spectral power distribution of a lamp
-(in units of W/nm).
 
-If Option 2 is adopted, the upper and lower bounds of the integral are set by the upper and lower limits of the visible spectrum (\humaneyesensitivity{}).
-**** I would rather show integration over all wavelengths for all of these $\dot{L}$ calculations.
-But each row is a different weighting function.
-The top row (unweighted) uses $f = 1$.
-The second row (Visible) uses a weighting function that is 1 in visible wavelenghts and 0 elsewhere.
-The third row (Photopic lum.) uses a the classic weighting.  (Is there a functional form? If so, we should put it in the paper.)
-The fourth row (Universal) uses a different weighting.  (Also, is there a functional form?)
-In other words, we have only 1 equation like Equation~\ref{eq:power_eqn}:
+%++++++++++++++++++++++++++++++
+\subsection{Lamps}
+\label{sec:lamps}
+%++++++++++++++++++++++++++++++
 
-\begin{equation} \label{eq:power_eqn}
-  \dot{L} = \int f_\lambda \dot{P}_\lambda d\lambda \; ,
-\end{equation}
-
-And $f_\lambda$ takes on different forms for each weighting function, i.e., for each row of our
-tables and for each row of Figure~\ref{fig:wfs_and_lamps}.---MKH
-****
-%
-\begin{equation}
-  \dot{L}_{vis} = \int_{380 \text{ nm}}^{750 \text{ nm}} {\dot{P}}_\lambda d\lambda \; .
-\end{equation}
-%
-If Option 3 is adopted the above equation becomes
-****
-I think this should start out as a version of $f_\lambda$.
-But after we show the equation for $f_\lambda$,
-we also introduce the leading constant (683 lm/W) to show how that gets us to
-luminous efficacy.---MKH
-****
-%
-\begin{equation}
-  Luminous\ flux = 683 \text{ lm/W} \int \dot{P}_\lambda V_\lambda d\lambda \; ,
-\end{equation}
-%
-where $V_\lambda$ is the photopic luminosity function,
-as defined by the Commission Internationale de l' Éclairage (CIE)
-most recently in 2006(?), and
-representing the sensitivity of the human eye to daytime light levels.
-The above equation is the SI derived unit for the quantity of visible light
-(luminous flux or power)---the Lumen.
-The constant of 683 **** units? You're killing me! ---MKH ****
-is applied in accordance with the definition of the lumen and candela,
-which states that a monochromatic lamp emitting light at a
-wavelength of 555~nm (the wavelength at which the human eye is deemed to be most sensitive)
-has a luminous efficacy of 683~lm/W.
-
-The use of the photopic luminosity function been subject
-to much criticism for its long-wave bias,
-as it represents the sensitivity of the long-wave and medium-wave cones
-to daytime light levels, whilst
-neglecting the differing sensitivities of the human eyes other light receptors.
-Namely the short-wave cones,
-rods, and intrinsically photosensitive retinal ganglion cells (ipRGCs),
-which are responsible for vision in low-light settings and
-physiological functions such as the regulation of circadian rhythms respectively.
-
-Given that the industry-standard measure of lighting efficiency
-is the luminous efficacy
-(the quotient of the lumen output and power input of a lamp),
-the use of the photopic luminosity function to measure light output
-under-represents the power of wavelengths other than 555~nm emitted by a lamp, and
-in the case where other uses of light are desired
-the utility of these wavelengths of light are also under-represented.
-
-For the analyst interested in examining what proportion
-of a spectral power distribution is \emph{useful} for any given purpose
-an appropriate weighting function must be selected (including the photopic luminosity function).
-The useful light ($\dot{L}_{useful}$) emitted by a lamp is then given by
-****
-What is $W$ in the equation below?---MKH
-****
-%
-\begin{equation}
-  \dot{L}_{useful} = \int \dot{P}_\lambda W f_\lambda d\lambda \; ,
-\end{equation}
-%
-where $Wf_\lambda$ is equal to a given weighting function, with values between 0 and 1.
-
-Depending on the option taken and the weighting function selected the valuable energy efficiency of a lamp to the useful stage is given by
-%
-\begin{equation}
- \eta_{X,v} = \frac{\int \dot{P}_\lambda Wf_\lambda d\lambda}{\dot{W}_1} = \frac{\dot{L}_{useful}}{\dot{W}_1} \; .
-\end{equation}
-
-To demonstrate how the use of selection of various weighting functions alters the measurement of the efficiency of a lighting device we choose to compare the following lamps and weighting functions
+To demonstrate how the use of selection of various weighting functions 
+alters the measurement of the efficiency of a lighting device 
+we choose to compare the following lamps and weighting functions
 
 ****
 Inset names of lamps here.
@@ -1228,36 +1281,11 @@ Though in this case no constant is applied in accordance with EQUATION?
 **** If so we need better names and to assign further subscripts to eta ---ZM ****
 **** Should we also include the electricity to radiation efficiency? --- EAR"
 
-Zeke: Here is the way to include chunks of R code.
-
-Things to consider:
-%
-\begin{enumerate}
-
-  \item \texttt{library(X)} statements go in the \texttt{setup-R} chunk, early in the document.
-
-  \item Name chunks with capital letters, no spaces, \_ to separate words (by convention).
-
-  \item \texttt{ggplot} figures go in their own chunks, one graph per chunk.
-
-  \item Variables in previous chunks are available to \texttt{R} code in later chunks.
-
-  \item Use \texttt{::} syntax to identify \texttt{package::function} to eliminate ambiguity.
-
-  \item Data and calculations go in their own chunk.
-
-  \item Graphs go in a separate chunk.
-
-  \item R-generated graphs will be automatically stashed in the \texttt{figure/} directory.
-        Don't put anything else in \texttt{figure/}, because \texttt{figure/} is excluded from GitHub.
-
-\end{enumerate}
-%
 
 
 %++++++++++++++++++++++++++++++
-\subsection{The exergetic efficiency of light (Zeke and Emmanuel, 500 words)}
-\label{sec:exergetic_efficiency_of_light}
+\subsection{The exergy-to-energy ratio of light, $\phi_L$ (Zeke and Emmanuel, 500 words)}
+\label{sec:phi_light}
 %++++++++++++++++++++++++++++++
 
 **** Discuss the DB approach to calculating the energy-to-exergy ratio. ****
