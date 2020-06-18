@@ -422,14 +422,14 @@ where $c$ is the speed of light (in m/s).
 **** PB: Add example units in preceding senetence. Is E in J or J/s? ---MKH ****
 EM radiation within the range \humaneyesensitivity{} is considered ``light''~\cite{campbell2017}, because
 the human retina responds only within these wavelengths,
-as shown in Figure~\ref{fig:visible_spectrum}.
+as shown in Figure~\ref{fig:Vis_Graph}.
 
-\begin{figure}
-\centering
-\includegraphics[width=1\linewidth]{figure_other/visible_spectrum.jpg}
-\caption{The visible spectrum of light~\cite{schubert2006}}
-\label{fig:visible_spectrum}
-\end{figure}
+% \begin{figure}
+% \centering
+% \includegraphics[width=1\linewidth]{figure_other/visible_spectrum.jpg}
+% \caption{The visible spectrum of light~\cite{schubert2006}}
+% \label{fig:visible_spectrum}
+% \end{figure}
 
 <<Load_Data, cache=TRUE, cache.extra.1=tools::md5sum('Data/master_lighting_data.xlsx'), cache.extra.2=tools::md5sum('Data/AllData.R')>>=
 # Creates the weighted_responses_df data frame.
@@ -463,7 +463,7 @@ response_data <- weighted_responses_df %>%
 @
 
 
-<<Vis_Graph, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="Alternative visible range figure that matches style of later figures.", cache=TRUE>>=
+<<Vis_Graph, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="The visible spectrum of light~\\cite{schubert2006}.", cache=TRUE>>=
 response_data %>% 
   dplyr::filter(wf_name == "Photopic lum.") %>% 
   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>% 
@@ -488,7 +488,7 @@ response_data %>%
   geom_vline(xintercept = 555, size = 0.2, color = "darkgray") +
 
   xlab(expression(lambda*" [nm]")) +
-  ylab("Normalized response [-]") +
+  ylab("Normalized sensitivity [-]") +
   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) + 
   scale_y_continuous(breaks = c(0, 0.2, 0.4, 0.6, 0.8, 1)) +
   MKHthemes::xy_theme() + 
@@ -682,9 +682,9 @@ all this stuff that someone trying to reproduce the study would need. So perhaps
 
 Energy and exergy are two methods to quantify the physical property that,
 when transferred to an object,
-heats it or performs work on it.
-(For this discussion, we can't call the ``physical property'' energy or exergy, 
-because the concepts need to be separated. 
+changes its temperature or performs work on it.
+(For this discussion, we can't call the ``physical property'' energy, exergy, or work, 
+because these concepts need to remain separated. 
 So, we must use the generic term ``physical property.'')
 We discuss energy and exergy quantifications of the physical property in the sections below, 
 beginning with heat and work, 
@@ -699,7 +699,7 @@ in a parallel manner to the \enaex{} of heat and work.
 %------------------------------
 
 Energy quantifies the physical property by its heat content.
-Thus, heat is pure energy.
+Thus, heat (the ability to influence temperature) is pure energy.
 Thanks to Thompson's cannon experiment~\cite{Thompson:1798aa}, 
 we know that work can be converted, without loss, into heat.
 
@@ -740,12 +740,16 @@ Thus, the \emph{valuable} energy efficiency ($\eta_{E,v}$) is
 \begin{equation} \label{eq:valuable_energy_efficiency}
   \eta_{E,v} = \frac{\dot{E}_3}{\dot{E}_1} = \frac{\dot{W}_3}{\dot{Q}_1} < 1 \; .
 \end{equation}
-%
 
-On the other hand, exergy quantifies the physical property by its work potential.
-Exergy provides the answer to the question, 
+Heat (the ability to influence temperature) is 
+only one outcome of transferring the physical quantity
+from one object to another.
+Heat is certainly valuable to humans, but so is another quantity: 
+work, the ability to exert a force on another object.
+Exergy quantifies the physical property by its work potential
+and provides the answer to the question
 ``what is the maximum work we could obtain from a stream of this physical property?''
-Thus, work is pure exergy. 
+Thus, work is pure exergy.
 
 The Kelvin-Planck statement of the second law of thermodynamics 
 states that heat cannot be converted to work without loss. 
@@ -864,26 +868,27 @@ Thus, the exergy of each stream in Figure~\ref{fig:lamp} is given by
 \begin{equation}
   \dot{X}_1 = \cancelto{1}{\phi_{elect}} \dot{W}_1 = \dot{W}_1, \; 
               \dot{X}_2 = \left( 1 - \frac{T_0}{T_2} \right) \dot{Q}_2, \; \text{and} \; 
-              \dot{X}_3 = \phi_L \dot{L}_3 \; ,
+              \dot{X}_3 = \phi_L \dot{L}_3 \; .
 \end{equation}
 %
-where $\phi_L$ is the exergy-to-energy ratio for light.
+The terms $\dot{L}$ and $\phi_L$ deserve further discussion.
 
 The term $\dot{L}_3$ is the power of electromagnetic~(EM) radiation
 emitted by a lamp
 in units of energy per unit time.
 In general, the EM power of a lamp is a spectral quantity,
 meaning that it varies with wavelength.
-Spectral power~($\dot{P}_\lambda$)
-describes the EM emissive power available between any two wavelengths 
-such that total EM emissive power~($\dot{P}$) is given by
+Spectral power~($\dot{L}_\lambda$)
+is the EM emissive power available between any two wavelengths 
+such that total EM emissive power~($\dot{L}$) is given by
 %
 \begin{equation} \label{eq:emissive_power}
-  \dot{P} = \int \dot{P}_\lambda \mathrm{d}\lambda \; .
+  \dot{L} = \int \dot{L}_\lambda \mathrm{d}\lambda \; .
 \end{equation}
 %
-Visually, $\dot{P}$ is the area under a curve of $\dot{P}_\lambda$ vs.\ $\lambda$.
+Visually, $\dot{L}$ is the area under a curve of $\dot{L}_\lambda$ vs.\ $\lambda$.
 
+The term $\phi_L$ is the exergy-to-energy ratio for light.
 Recent work by Delgado-Bonal~\cite{Delgado-Bonal:2017aa}
 provides a method for calculating $\phi_L$.
 (See Section~\ref{sec:energy_of_light} for details.)
@@ -944,40 +949,11 @@ excites band gap electrons in an amorphous silicon solar cell.
 
 
 %++++++++++++++++++++++++++++++
-\subsection{Theoretical challenges and analyst decisions with application to societal exergy analysis (MKH, 250 words)}
-\label{sec:challenges_and_decisions}
+\subsection{Human perception of light} 
+\label{sec:human_perception_of_light}
 %++++++++++++++++++++++++++++++
 
-There are two challenges facing the societal exergy analyst regarding 
-the exergy of light, including
-%
-\begin{enumerate*}[label={(\alph*)}]
-	
-  \item how to account for waste heat from lamps and
-  
-  \item how to account for the human perception of light.
-
-\end{enumerate*}
-%
-We discuss each challenge in the sections below.
-
-****
-Are there any other challenges we want to address in this paper? ---MKH
-****
-
-**** I'd add "whether to account for the human perception of light". And it feeds well into 2.2.1 on Boundary between useful energy and energy services --- EAR ****
-
-**** And we could add "how to account for exergy content of light" --- EAR ****
-
-
-
-
-%------------------------------
-\subsubsection{Human perception of light} 
-\label{sec:human_perception_of_light}
-%------------------------------
-
-We noted above that both 
+We noted above that both
 %
 \begin{enumerate*}[label={(\alph*)}]
 
@@ -990,112 +966,96 @@ We noted above that both
 are independent of human presence.
 But what about human \emph{perception}?
 
-Human eyes perceive only a portion of the electromagnetic spectrum emitted by lamps 
+Human beings perceive heat by temperature and light by wavelength.
+Human skin can perceive the thermal radiation portion of the broader electromagnetic spectrum,
+approximately 100 nm < $\lambda$ < 10,000 nm, and
+human skin is differentially sensitive to EM spectrum wavelength.  
+Indeed, thermoreceptors in the dermis of skin are important sensors for regulation of body temperature.
+****
+Need a reference here.---MKH
+****
+Furthermore,
+the potential for heat to do work (pure exergy) is a function of the temperature of heat being transferred.
+Because work is the valuable thing when quantifying exergy, 
+we account for the importance of temperature when 
+quantifying the exergy of heat.
+
+Human eyes perceive only a portion of the electromagnetic spectrum emitted by lamps
 (approximately \humaneyesensitivity).
-(Human skin can perceive the thermal radiation portion of the broader electromagnetic spectrum, 
-approximately 100 nm < $\lambda$ < 10,000 nm.)
-Furthermore, the wavelength sensitivity of the human eye 
-is uneven, peaking at 555~nm (green),
-with reductions in sensitivity at both longer and shorter wavelengths.
+If we define the ``work'' (and, therefore, exergy) of light
+to be stimulating visually-sensitive cells in the eye,
+it makes sense to account for human perception when 
+quantifying the exergy of light.
+But how?
 
-Human perception of light exhibits nuances that are not present
-when considering human perception of work and heat, and 
-the nuances are important for societal exergy analysis.
-Specifically,
-when considering work and heat,
-there is no analogue to the sensitivity of the human eye to wavelengths of light.
-Neither heat **** Actually I'm not sure I agree here. Our sensitivity to heat is differentiated by heat temperature, right? --- EAR ****  nor work present to human beings as differentiated by wavelength or other characteristics.
-(Strictly speaking, the absorption spectrum of human skin is differentially sensitive
-to wavelengths of thermal radiation, 
-but this effect is usually small and neglected by societal exergy analysts, 
-because convection is usually the dominant mode 
-of heat transfer experienced by humans in heated spaces.)
-So there is no need to consider human perception 
-when accounting for work and heat in societal exergy analysis. **** See above, I agree that there is no need to consider human perception in SEA, but disagree with the argument --- EAR ****
+Knowing that visual perception of light is a function of wavelength
+leads to modifying Equation~\ref{eq:emissive_power}
+to include a weighting function~($f_\lambda$) such that
+%
+\begin{equation} \label{eq:weighted_emissive_power}
+  \dot{L} = \int f_\lambda \dot{L}_\lambda \mathrm{d}\lambda \; ,
+\end{equation}
+%
+with $0 \le f_\lambda \le 1$.
 
-In contrast, the analyst must decide how to account for human perception of light.
-Three options are apparent.
+Given Equation~\ref{eq:weighted_emissive_power}, 
+accounting for human visual perception amounts to selecting $f_\lambda$.
+At least four options for $f_\lambda$ are apparent.
+The first option is degenerate: 
+the analyst could ignore the nuances of human visual perception,
+implicitly deciding that all EM radiation emitted from a lamp is valuable, 
+whether or not it is within the visible portion of the EM spectrum.
+For the first option, 
+%
+\begin{equation} \label{eq:f1}
+  f_{\lambda,uw} = 1 \; .
+\end{equation}
 
-First, the analyst can account for the human perception of light in the useful-to-services efficiency.
-In this approach, the useful \enaex{} of light is unaffected by human perception, and
-the \enoex{} \emph{service} provided by light is deemed to be
-the possibility that light excites rods and cones in the human eye.
-For the purposes of accounting at the \emph{useful} stage of the energy conversion chain, 
-all \enaex{} in electromagnetic radiation emitted by a lamp is counted,
-regardless of its wavelength.
-When choosing Option 1, $\dot{X}_3$ is unchanged from the analysis in Section~\ref{sec:energy_and_exergy_of_light}, 
-i.e., $\dot{X}_3 = \phi_L \dot{L}_3$.
-
-**** Slightly disagree with "For the purpose... regardless of its wavelength." Accounting to the useful stage does imply do answer the question "what portion of the light output do we consider "valuable"?", which is a value judgment. So "valuable" energy cannot really be defined independently of human judgement/perception. So actually I don't think that the equivalent of Equation \ref{} is obtained by using the whole electromagnetic energy as numerator (just because it is in the same physical form?), rather, I think the equivalent would be using only electromagnetic energy contained by visible wavelength, that is, what is called "Option 2" here. --- EAR ****
-
-
-The second and third options account for human perception of light at the useful stage. 
-In the second option, light is deemed useful only if it \emph{could}
-stimulate rods and cones, 
-regardless of the sensitivity of the human eye 
-to any given wavelength of light in the range \humaneyesensitivity.
-In this option, the analyst simply excludes the \enoex{} content of light 
+Second, the analyst could 
+deem a lamp's EM radiation to be useful if and only if it \emph{could}
+stimulate rods and cones,
+regardless of the spectral sensitivity of the human eye.
+In the second option, the analyst excludes the \enoex{} content of light
 in wavelengths outside the range of perception by the human eye
 when determining the useful \enoex{} of light.
-I.e., the analyst counts only light in the range \humaneyesensitivity{} as useful, 
-assuming that the human eye perceives all wavelengths in that range equally.
-When choosing Option 2, the exergy of light becomes (with reference to Figure~\ref{fig:lamp})
+Specifically,
 %
-\begin{equation}
-  \dot{X}_3 = g \phi_L \dot{L}_3 \; ,
+\begin{equation} \label{eq:f2}
+f_{\lambda,vis} =
+  \begin{cases}
+    0 & \lambda < 380 \text{ nm} \\
+    1 & 380 \text{ nm} \le \lambda \le 750 \text{ nm} \\
+    0 & 750 \text{ nm} < \lambda \\
+  \end{cases} \; .
 \end{equation}
+
+But the human eye is spectrally sensitive to EM radiation, 
+with a sensitivity peak at 555~nm (green)
+and lesser sensitivities at both longer and shorter wavelengths.
+(See Figure~\ref{fig:Vis_Graph}.)
+A third option involves weighting a lamp's emitted EM radiation 
+by the photopic sensitivity of the human eye (dominated by the M and L cones).
+The photopic luminosity (pl) function~($V_f$) describes this sensitivity, 
+as shown in Figure~\ref{fig:Vis_Graph}.
+So, for Option 3,
 %
-where $ g \in (0,1)$ accounts for neglecting the energy beyond the visible portion of the electromagnetic spectrum.
-
-****
-Should we include Option 2?
-Options 2 and 3 could be combined easily. ---MKH
-****
-
-****
-Yes I definitely think we should include Option 2! ---ZM
-****
-
-The third option adds wavelength sensitivity of the human eye to the second option,
-weighting the \enoex{} content of light by its ability to excite rods and cones
-at each wavelength.
-When choosing Option 3, the exergy of light becomes (with reference to Figure~\ref{fig:lamp})
-%
-\begin{equation}
-  \dot{X}_3 = f \phi_L \dot{L}_3 \; ,
+\begin{equation} \label{eq:f3}
+  f_{\lambda,pl} = V_\lambda \; .
 \end{equation}
+
+A fourth option weights emissions by the sensitivity of all five light receptors in the human eye
+(not just the M and L cones as in $V_\lambda$). 
+The universal luminous efficiency function ($U_\lambda$) **** reference ****
+captures this broader sensitivity.
+So, for option 4,
 %
-where $f \in (0,1)$ accounts for the spectral sensitivity of the human eye.
+\begin{equation} \label{eq:f4}
+  f_{\lambda,u} = U_\lambda \; .
+\end{equation}
 
-****
-My idea here is that Zeke can develop specific expressions 
-(involving integrals) 
-for $f$ and $g$ in sections that follow. ---MKH
-****
-
-In summary, the analyst must make at least one and possibly two choices:
-%
-\begin{enumerate*}[label={(\alph*)}]
-	
-  \item whether to account for the spectral sensitivity of the human eye
-        at the services stage (Option 1) or the useful stage (Options 2 and 3) of the ECC and       
-  
-  \item if accounting for human perception at the useful stage, 
-        whether to weight by the spectral sensitivity of the human eye (no for Option 2, yes for Option 3)
-        when determining the useful \enaex{} content of light.
-    
-\end{enumerate*}
-
-Sections~\ref{sec:energy_of_light} and \ref{sec:results} provide more details 
-about the implications of Options 1, 2, and 3.
-
-****
-Where to insert the issue of which model of human eye perception should be used?
-****
-
-****
-I believe the best place for this would be at the end of section 4 in the discussion (see below) ---ZM
-****
+The leftmost column of Figure~\ref{fig:wfs_and_lamps} shows 
+the four options for weighting a lamp's EM radiation output
+when determining the useful exergy of light.
 
 
 %++++++++++++++++++++++++++++++
@@ -1108,39 +1068,39 @@ ZM: Discuss various integrations over wavelength and our conclusions that some f
 Maybe discuss sources of data
 ****
 
-**** 
+****
 Need an intro sentence or two for this section.
-But let's wait to write until we have a better idea of how everything fits together.---MKH 
+But let's wait to write until we have a better idea of how everything fits together.---MKH
 ****
 
-To understand how a lamp's efficiency 
+To understand how a lamp's efficiency
 varies according to which wavelengths of light
 are deemed valuable, data for the spectral power distribution of a lamp are required.
 
 ****
 I don't think you're discussing the SPDs here.
-I think you're discussing the weighting functions. 
+I think you're discussing the weighting functions.
 As I understand it, the SPDs are the gray portions of the graphs in Figure~\ref{fig:wfs_and_lamps},
 while the left column gives the weighting functions.
-Please take another run at this.  
+Please take another run at this.
 Seems like you should talk about the SPDs first.
 Something like:
 
 SPDs are normally given on graphs with spectral radiative flux on the vertical axis
-and wavelength on the horizontal axis. 
+and wavelength on the horizontal axis.
 The area under the area under the curve gives the radiative flux in units of W/m$^2$.
 The area under the curve is calculated by <<start equations here>>.
-Say that each lamp has its own SPD. 
+Say that each lamp has its own SPD.
 Say we'll look at four lamps and, therefore, four SPDs.
 
 Then, refer to the section above (Section~\ref{sec:human_perception_of_light})
-to bring in the idea that 
+to bring in the idea that
 researchers weight the SPD for assumed utility to humans.
-Then discuss weighting functions. 
+Then discuss weighting functions.
 Let's discuss whether we want to move material from Section~\ref{sec:human_perception_of_light}
 down to this point in the paper.
 Or, perhaps some of the integrals from this section should move up to Section~\ref{sec:human_perception_of_light}
-and this section should focus on \emph{efficiency}. 
+and this section should focus on \emph{efficiency}.
 Regardless, tying $f$ and $g$ (or just $f$)
 from Section~\ref{sec:human_perception_of_light} to this discussion
 will clean up a lot of ambiguity.---MKH
@@ -1154,7 +1114,7 @@ Firstly, and representing Option 1, the calculation of radiant power of light em
 \end{equation}
 %
 where $\dot{P}_\lambda$ is the spectral power distribution of a lamp
-(in units of W/nm). 
+(in units of W/nm).
 
 If Option 2 is adopted, the upper and lower bounds of the integral are set by the upper and lower limits of the visible spectrum (\humaneyesensitivity{}).
 **** I would rather show integration over all wavelengths for all of these $\dot{L}$ calculations.
@@ -1169,7 +1129,7 @@ In other words, we have only 1 equation like Equation~\ref{eq:power_eqn}:
   \dot{L} = \int f_\lambda \dot{P}_\lambda d\lambda \; ,
 \end{equation}
 
-And $f_\lambda$ takes on different forms for each weighting function, i.e., for each row of our 
+And $f_\lambda$ takes on different forms for each weighting function, i.e., for each row of our
 tables and for each row of Figure~\ref{fig:wfs_and_lamps}.---MKH
 ****
 %
@@ -1178,10 +1138,10 @@ tables and for each row of Figure~\ref{fig:wfs_and_lamps}.---MKH
 \end{equation}
 %
 If Option 3 is adopted the above equation becomes
-**** 
-I think this should start out as a version of $f_\lambda$.  
-But after we show the equation for $f_\lambda$, 
-we also introduce the leading constant (683 lm/W) to show how that gets us to 
+****
+I think this should start out as a version of $f_\lambda$.
+But after we show the equation for $f_\lambda$,
+we also introduce the leading constant (683 lm/W) to show how that gets us to
 luminous efficacy.---MKH
 ****
 %
@@ -1189,39 +1149,39 @@ luminous efficacy.---MKH
   Luminous\ flux = 683 \text{ lm/W} \int \dot{P}_\lambda V_\lambda d\lambda \; ,
 \end{equation}
 %
-where $V_\lambda$ is the photopic luminosity function, 
-as defined by the Commission Internationale de l' Éclairage (CIE) 
+where $V_\lambda$ is the photopic luminosity function,
+as defined by the Commission Internationale de l' Éclairage (CIE)
 most recently in 2006(?), and
-representing the sensitivity of the human eye to daytime light levels. 
-The above equation is the SI derived unit for the quantity of visible light 
-(luminous flux or power)---the Lumen. 
+representing the sensitivity of the human eye to daytime light levels.
+The above equation is the SI derived unit for the quantity of visible light
+(luminous flux or power)---the Lumen.
 The constant of 683 **** units? You're killing me! ---MKH ****
-is applied in accordance with the definition of the lumen and candela, 
-which states that a monochromatic lamp emitting light at a 
-wavelength of 555~nm (the wavelength at which the human eye is deemed to be most sensitive) 
+is applied in accordance with the definition of the lumen and candela,
+which states that a monochromatic lamp emitting light at a
+wavelength of 555~nm (the wavelength at which the human eye is deemed to be most sensitive)
 has a luminous efficacy of 683~lm/W.
 
-The use of the photopic luminosity function been subject 
-to much criticism for its long-wave bias, 
-as it represents the sensitivity of the long-wave and medium-wave cones 
+The use of the photopic luminosity function been subject
+to much criticism for its long-wave bias,
+as it represents the sensitivity of the long-wave and medium-wave cones
 to daytime light levels, whilst
-neglecting the differing sensitivities of the human eyes other light receptors. 
-Namely the short-wave cones, 
+neglecting the differing sensitivities of the human eyes other light receptors.
+Namely the short-wave cones,
 rods, and intrinsically photosensitive retinal ganglion cells (ipRGCs),
 which are responsible for vision in low-light settings and
 physiological functions such as the regulation of circadian rhythms respectively.
 
 Given that the industry-standard measure of lighting efficiency
-is the luminous efficacy 
+is the luminous efficacy
 (the quotient of the lumen output and power input of a lamp),
-the use of the photopic luminosity function to measure light output 
+the use of the photopic luminosity function to measure light output
 under-represents the power of wavelengths other than 555~nm emitted by a lamp, and
-in the case where other uses of light are desired 
-the utility of these wavelengths of light are also under-represented. 
+in the case where other uses of light are desired
+the utility of these wavelengths of light are also under-represented.
 
-For the analyst interested in examining what proportion 
-of a spectral power distribution is \emph{useful} for any given purpose 
-an appropriate weighting function must be selected (including the photopic luminosity function). 
+For the analyst interested in examining what proportion
+of a spectral power distribution is \emph{useful} for any given purpose
+an appropriate weighting function must be selected (including the photopic luminosity function).
 The useful light ($\dot{L}_{useful}$) emitted by a lamp is then given by
 ****
 What is $W$ in the equation below?---MKH
@@ -1231,7 +1191,7 @@ What is $W$ in the equation below?---MKH
   \dot{L}_{useful} = \int \dot{P}_\lambda W f_\lambda d\lambda \; ,
 \end{equation}
 %
-where $Wf_\lambda$ is equal to a given weighting function, with values between 0 and 1. 
+where $Wf_\lambda$ is equal to a given weighting function, with values between 0 and 1.
 
 Depending on the option taken and the weighting function selected the valuable energy efficiency of a lamp to the useful stage is given by
 %
@@ -1245,15 +1205,15 @@ To demonstrate how the use of selection of various weighting functions alters th
 Inset names of lamps here.
 ****
 
-Furthermore, the valuable light energy efficiency can be calculated in two ways, 
-by taking the quotient of the useful light (as determined by a given weighting function), 
-and both the radiant power and the electricity consumption of the device. 
-We term these the Electricity to Light efficiency and Radiation 
-to Light efficiency respectively. 
-In photometry when using the photopic luminosity function 
+Furthermore, the valuable light energy efficiency can be calculated in two ways,
+by taking the quotient of the useful light (as determined by a given weighting function),
+and both the radiant power and the electricity consumption of the device.
+We term these the Electricity to Light efficiency and Radiation
+to Light efficiency respectively.
+In photometry when using the photopic luminosity function
 to calculate the luminous flux these metrics are simply referred to as
-the 'luminous efficacy of radiation' and 'luminous efficacy' respectively. 
-Though in this case no constant is applied in accordance with EQUATION? 
+the 'luminous efficacy of radiation' and 'luminous efficacy' respectively.
+Though in this case no constant is applied in accordance with EQUATION?
 
 
 \begin{equation}
@@ -1275,19 +1235,19 @@ Things to consider:
 \begin{enumerate}
 
   \item \texttt{library(X)} statements go in the \texttt{setup-R} chunk, early in the document.
-  
-  \item Name chunks with capital letters, no spaces, \_ to separate words (by convention). 
+
+  \item Name chunks with capital letters, no spaces, \_ to separate words (by convention).
 
   \item \texttt{ggplot} figures go in their own chunks, one graph per chunk.
-  
+
   \item Variables in previous chunks are available to \texttt{R} code in later chunks.
-  
+
   \item Use \texttt{::} syntax to identify \texttt{package::function} to eliminate ambiguity.
-  
+
   \item Data and calculations go in their own chunk.
-  
+
   \item Graphs go in a separate chunk.
-  
+
   \item R-generated graphs will be automatically stashed in the \texttt{figure/} directory.
         Don't put anything else in \texttt{figure/}, because \texttt{figure/} is excluded from GitHub.
 
@@ -1313,18 +1273,18 @@ Things to consider:
 \section{Results (Zeke and Emmanuel, 2000 words)}
 \label{sec:results}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- 
-% This section may be divided by subheadings. 
-% It should provide a concise and precise description of 
-% the experimental results, 
+
+% This section may be divided by subheadings.
+% It should provide a concise and precise description of
+% the experimental results,
 % their interpretation as well as the experimental conclusions that can be drawn.
 % \begin{quote}
-% This section may be divided by subheadings. 
-% It should provide a concise and precise description of the experimental results, 
+% This section may be divided by subheadings.
+% It should provide a concise and precise description of the experimental results,
 % their interpretation as well as the experimental conclusions that can be drawn.
 % \end{quote}
 
-**** 
+****
 ZM: Develop examples with two lighting technologies, one old and one LED.
 Do calculations with various permutations and show graphs.
 ****
@@ -1335,19 +1295,19 @@ See Figure~\ref{fig:wfs_and_lamps}, which provides visual representation of seve
     \centering
     \begin{subfigure}[t]{0.25\textwidth}
 <<Weighting_Function_Graph, fig.width=1.5, fig.height=5, cache=TRUE>>=
-response_data %>% 
-  dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>% 
+response_data %>%
+  dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>%
   dplyr::mutate(
     header = "Weight. Func.",
     # Get nice tails at 0.
     normalized_response = tidyr::replace_na(normalized_response, 0)
-  ) %>% 
+  ) %>%
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
-  ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = normalized_response), 
+  ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = normalized_response),
                         geom = "bar",
                         # chroma.type = photobiology::cone_fundamentals10.spct,
-                        # chroma.type = photobiology::ciexyzCC2.spct, 
-                        # chroma.type = photobiology::ciexyzCC2.spct, 
+                        # chroma.type = photobiology::ciexyzCC2.spct,
+                        # chroma.type = photobiology::ciexyzCC2.spct,
                         # chroma.type = photobiology::ciexyzCMF2.spct,
                         # chroma.type = photobiology::ciexyzCMF10.spct,
                         # chroma.type = "CC",
@@ -1358,16 +1318,16 @@ response_data %>%
   geom_line(mapping = aes(y = normalized_response), color = "darkgray") +
   geom_vline(xintercept = 555, size = 0.2, color = "darkgray") +
 
-  facet_grid(rows = vars(wf_name), cols = vars(header)) + 
+  facet_grid(rows = vars(wf_name), cols = vars(header)) +
   xlab(expression(lambda*" [nm]")) +
   ylab("Normalized response [-]") +
-  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) + 
+  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
   scale_y_continuous(breaks = c(0, 0.5, 1)) +
-  MKHthemes::xy_theme() + 
-  theme(strip.text.x = element_text(margin = margin(b = 2.0)), 
+  MKHthemes::xy_theme() +
+  theme(strip.text.x = element_text(margin = margin(b = 2.0)),
         # Eliminate labels on right facet. Pick up from lamp radiative fluxes.
-        strip.text.y = element_blank(), 
-        axis.text.x = element_text(size = rel(0.8), angle = 90), 
+        strip.text.y = element_blank(),
+        axis.text.x = element_text(size = rel(0.8), angle = 90),
         axis.text.y = element_text(size = rel(0.8)))
 @
         \label{fig:weighting_functions}
@@ -1380,23 +1340,23 @@ response_data %>%
   # This code divides the output of only the spikey CFL by a factor of 10.
   # dplyr::mutate(
   #   actual_radiant_flux = dplyr::case_when(
-  #     lamp_name == "CFL" ~ actual_radiant_flux / 10, 
+  #     lamp_name == "CFL" ~ actual_radiant_flux / 10,
   #     TRUE ~ actual_radiant_flux
   #   ),
   #   actual_weighted_radiant_flux = dplyr::case_when(
-  #     lamp_name == "CFL" ~ actual_weighted_radiant_flux / 10, 
+  #     lamp_name == "CFL" ~ actual_weighted_radiant_flux / 10,
   #     TRUE ~ actual_weighted_radiant_flux
   #   )
-  # ) %>% 
+  # ) %>%
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
   # geom_area(mapping = aes(y = radiative_flux, fill = "Radiant flux"), fill = "darkgray") +
   geom_area(mapping = aes(y = actual_radiant_flux, fill = "Radiant flux"), fill = "darkgray") +
-  # ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = weighted_radiant_flux), 
-  ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = actual_weighted_radiant_flux), 
+  # ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = weighted_radiant_flux),
+  ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = actual_weighted_radiant_flux),
                         geom = "bar",
                         # chroma.type = photobiology::cone_fundamentals10.spct,
-                        # chroma.type = photobiology::ciexyzCC2.spct, 
-                        # chroma.type = photobiology::ciexyzCC2.spct, 
+                        # chroma.type = photobiology::ciexyzCC2.spct,
+                        # chroma.type = photobiology::ciexyzCC2.spct,
                         # chroma.type = photobiology::ciexyzCMF2.spct,
                         # chroma.type = photobiology::ciexyzCMF10.spct,
                         # chroma.type = "CC",
@@ -1412,17 +1372,17 @@ response_data %>%
   facet_grid(rows = vars(wf_name), cols = vars(lamp_name)) +
   MKHthemes::xy_theme() +
   theme(axis.text.x = element_text(size = rel(0.8), angle = 90),
-        axis.text.y = element_text(size = rel(0.8)), 
+        axis.text.y = element_text(size = rel(0.8)),
         # Move the facet labels out of the graphs slightly.
-        strip.text.x = element_text(margin = margin(b = 2.0)), 
+        strip.text.x = element_text(margin = margin(b = 2.0)),
         strip.text.y = element_text(margin = margin(l = 2.0)))
 @
         \label{fig:lamp_responses}
     \end{subfigure}
-    \caption{Weighting functions, lamp emission, and weighted responses. 
+    \caption{Weighting functions, lamp emission, and weighted responses.
              Gray regions show lamp emission.
              Colored regions give weighted responses and indicate human perception of color.
-             ``A19'' is a 100~W incandescent A19 globe. 
+             ``A19'' is a 100~W incandescent A19 globe.
              ``Halogen'' is a 29~W halogen R20 globe.
              ``CFL'' is a 15~W EnergyStar twister compact fluorescent.
              ``LED'' is an 11~W Phillips A19 LED.
@@ -1434,7 +1394,7 @@ response_data %>%
              **** Provide references for each of the weighting functions and lamps? ****
              **** Yep! I'll add the reference for the LPSDD database in the .bib ---ZM****
              **** Shall we add luminous intensity annotations to each graph? ****
-             **** Yes, we should add the weighted 'spectral radiative flux' for each graph, 
+             **** Yes, we should add the weighted 'spectral radiative flux' for each graph,
              me and Emmanuel are working on these calcs! ---ZM}
 	\label{fig:wfs_and_lamps}
 \end{figure}
@@ -1446,10 +1406,10 @@ response_data %>%
 \label{sec:discussion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Authors should discuss the results and how they can be interpreted 
-in perspective of previous studies and of the working hypotheses. 
-The findings and their implications should be discussed 
-in the broadest context possible. 
+Authors should discuss the results and how they can be interpreted
+in perspective of previous studies and of the working hypotheses.
+The findings and their implications should be discussed
+in the broadest context possible.
 Future research directions may also be highlighted.
 
 
@@ -1460,27 +1420,27 @@ ZM and PB: Be sure to spike the set from the introduction.
 
 
 ****
-ZM: Discuss how our results for the examples vary from results that would have been obtained with 
+ZM: Discuss how our results for the examples vary from results that would have been obtained with
 previous methods of determining the exergy of lighting.
 ****
 
 %------------------------------
-\subsubsection{Comparison with previous approaches in Societal Exergy Analysis} 
+\subsubsection{Comparison with previous approaches in Societal Exergy Analysis}
 \label{sec:compwithSEA}
 %------------------------------
 %
-The luminous (or second law) efficiency of lighting 
-has previously been calculated in SEA 
+The luminous (or second law) efficiency of lighting
+has previously been calculated in SEA
 by taking the quotient of the minimum energy required to produce a given output,
 and the energy required to produce a given output by the device in question (Section \ref{sec:divergent_approaches}).
 
 This approach has been recommended for outputs such as light, sound and information
-\textit "because the useful output cannot or is not typically measured in energy units" 
+\textit "because the useful output cannot or is not typically measured in energy units"
 \cite{Sousa2017}.
 
-For lighting this constitutes taking the quotient 
-of the theoretical minimum quantity of energy required to emit one lumen, 
-and the actual energy used to emit one lumen of light by the lamp, 
+For lighting this constitutes taking the quotient
+of the theoretical minimum quantity of energy required to emit one lumen,
+and the actual energy used to emit one lumen of light by the lamp,
 values which are derived by taking the inverse of the luminous efficacy values,
 with the equation therefore equivalent to
 the quotient of the devices luminous efficacy
@@ -1491,21 +1451,21 @@ and the maximum luminous efficacy.
 \end{equation}
 %
 \begin{equation}
-  \frac{\; \; \frac{1}{\epsilon_{max}} \; \; }{\frac{1}{\epsilon_{lamp}}} 
+  \frac{\; \; \frac{1}{\epsilon_{max}} \; \; }{\frac{1}{\epsilon_{lamp}}}
        = \frac{1}{\epsilon_{max}} \cdot \frac{\epsilon_{lamp}}{1}
        = \frac{\epsilon_{lamp}}{\epsilon_{max}} \; ,
 \end{equation}
 %
-where $\epsilon_{max}$ is equal to the maximum luminous efficacy, 
+where $\epsilon_{max}$ is equal to the maximum luminous efficacy,
 and $\epsilon_{lamp}$ is equal to the luminous efficacy of the lamp.
-In the case where $\epsilon_{max}$ is equal to 683 lm/W this equation becomes 
+In the case where $\epsilon_{max}$ is equal to 683 lm/W this equation becomes
 %
 \begin{equation}
   \frac{\epsilon_{lamp}}{683 \text{ lm/W}}\; .
 \end{equation}
 %
-As detailed above in \ref{sec:energy_and_exergy_of_light} 
-the luminous efficacy of a lamp is equal to the quotient 
+As detailed above in \ref{sec:energy_and_exergy_of_light}
+the luminous efficacy of a lamp is equal to the quotient
 of the luminous flux and electricity consumption of the device, and given by
 %
 \begin{equation}
@@ -1525,42 +1485,60 @@ The two instances of 683 lm/W cancel, giving
 \end{equation}
 %
 
-This is equivalent to the equation for the valuable energy efficiency of light 
-as given in section \ref{sec:energy_of_light}, 
+This is equivalent to the equation for the valuable energy efficiency of light
+as given in section \ref{sec:energy_of_light},
 
 %
 \begin{equation}
   \eta_{X,v} = \frac{\int \dot{P}_\lambda Wf_\lambda d\lambda}{\dot{W}_1} = \frac{\dot{L}_{useful}}{\dot{W}_1} \; .
 \end{equation}
-%
 
-but only if the photopic luminosity function is selected as the weighting function, 
+
+but only if the photopic luminosity function is selected as the weighting function,
 and 683 lm/W taken as the maximum luminous efficacy value ($\epsilon_{max}$).
 
-Considering the equivalency of the previous SEA approach 
-when using a maximum luminous efficacy figure of 683 lm/W, 
-and the approach detailed in this paper when using the photopic luminosity function, 
-any future studies which select different weighting functions 
-are likely to produce considerably different results. 
+Considering the equivalency of the previous SEA approach
+when using a maximum luminous efficacy figure of 683 lm/W,
+and the approach detailed in this paper when using the photopic luminosity function,
+any future studies which select different weighting functions
+are likely to produce considerably different results.
 For example, the use of 400 lm/W as the maximum luminous efficacy figure
-by Ayres et al (2005) and Guevara et al (2016) 
-results in lighting efficiencies being overestimated by a factor of $\frac {683}{400}$ = 1.71, 
+by Ayres et al (2005) and Guevara et al (2016)
+results in lighting efficiencies being overestimated by a factor of $\frac {683}{400}$ = 1.71,
 \emph{if} it is decided that light has the greatest utility at a wavelength of 555nm,
-and is therefore desired work output. 
-The choice of any weighting function is a subjective decision for the analyst, 
-however to provide consistency for SEA community moving forward 
-we propose to adopt the universal luminosity function in accordance with Rea and Biermann (2018), 
-\emph{if} the assumption is made that lamps are solely used for illumination in society. 
-A more comprehensive approach would be to select a representative range of uses for lamps, 
-which are then assessed based on their respective weighting functions. 
-
+and is therefore desired work output.
+The choice of any weighting function is a subjective decision for the analyst,
+however to provide consistency for SEA community moving forward
+we propose to adopt the universal luminosity function in accordance with Rea and Biermann (2018),
+\emph{if} the assumption is made that lamps are solely used for illumination in society.
+A more comprehensive approach would be to select a representative range of uses for lamps,
+which are then assessed based on their respective weighting functions.
 
 
 
 %++++++++++++++++++++++++++++++
-\subsection{Waste heat from lamps} 
+\subsection{Analysis challenges}
+\label{sec:analysis challenges}
+%++++++++++++++++++++++++++++++
+
+There are two challenges facing the societal exergy analyst regarding
+the exergy of light, namely
+%
+\begin{enumerate*}[label={(\alph*)}]
+
+  \item how to account for waste heat from lamps and
+
+  \item how to account for the human perception of light.
+
+\end{enumerate*}
+%
+We discuss each challenge in the sections below.
+
+
+%------------------------------
+\subsubsection{Waste heat from lamps}
 \label{sec:waste_heat}
-%++++++++++++++++++++++++++++++
+%------------------------------
 
 Every lamp produces waste heat ($\dot{Q}_2$ in Figure~\ref{fig:lamp})
 as it converts electrical energy into light energy.
@@ -1571,29 +1549,29 @@ because it displaces energy for space heating,
 especially in winter climates.
 In summer climates, waste heat from lamps adds to space cooling loads.
 For locations where both summer cooling and winter heating are performed,
-the winter/summer effects of lamps cancel, to first order. 
+the winter/summer effects of lamps cancel, to first order.
 
 Furthermore, some lamps, commonly termed heat lamps or infrared lamps are
 explicitly designed to produce heat for various purposes, including
-space heating, incubator heating, plastic manufacture, food preparation, and warming animals in captivity. 
+space heating, incubator heating, plastic manufacture, food preparation, and warming animals in captivity.
 As the infrared portion of light emitted by these lamps is
 considered useful, they typically display high efficiencies.
 
-**** 
+****
 Where is the line between an electric heater and an incandescent lamp? Is it just the design purpose? ---ZM
 ****
 
 The societal exergy analyst must decide how to treat waste heat from lamps
 when determining the quantity of useful energy delivered to a society.
-To our knowledge, societal exergy analysis has, to date, 
-ignored waste heat from lamps, 
+To our knowledge, societal exergy analysis has, to date,
+ignored waste heat from lamps,
 implicitly assuming that winter and summer effects cancel.
 We contend that the issue deserves further study,
-but that is a topic for another paper. 
+but that is a topic for another paper.
 
 
 %------------------------------
-\subsubsection{Waste light from lamps (MKH)} 
+\subsubsection{Waste light from lamps (MKH)}
 \label{sec:waste_light}
 %------------------------------
 
