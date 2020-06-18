@@ -999,7 +999,7 @@ to include a weighting function~($f_\lambda$) such that
 with $0 \le f_\lambda \le 1$.
 
 Given Equation~\ref{eq:weighted_emissive_power}, 
-accounting for human visual perception amounts to selecting $f_\lambda$.
+accounting for human visual perception amounts to selecting a functional form for $f_\lambda$.
 At least four options for $f_\lambda$ are apparent.
 The first option is degenerate: 
 the analyst could ignore the nuances of human visual perception,
