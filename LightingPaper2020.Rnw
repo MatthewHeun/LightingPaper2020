@@ -328,7 +328,7 @@ Style for this paper:
         Do not use the quotation mark key on the keyboard.
     
 \end{enumerate}
-%
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction (PB, 500 words)}
