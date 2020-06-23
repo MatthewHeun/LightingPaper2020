@@ -905,7 +905,7 @@ rejecting waste heat to an ambient temperature of 300~K:
   \phi_L \approx \eta_C = 1 - \frac{T_0}{T_{sun}} = 1 - \frac{300 \; \text{K}}{5800 \; \text{K}} = 0.948 \; .
 \end{equation}
 %
-*** I would add here that using the Carnot efficiency represents thermal transfer, as opposed to radiative transfer for which the mechanism differs as described by Shan & Zhou (2019), which we then go on to examine in Section~\ref{sec:phi_light}. Or Perhaps we should move all discussion of the exergy-energy factor to this section?---ZM ***
+*** I would add here that using the Carnot efficiency represents thermal transfer, as opposed to radiative transfer for which the mechanism differs as described by Shan \& Zhou (2019), which we then go on to examine in Section~\ref{sec:phi_light}. Or Perhaps we should move all discussion of the exergy-energy factor to this section?---ZM ***
 Other values for $\phi_L$ are needed when the spectra of emitted light is
 different from the spectra of blackbody radiation,
 as discussed in Section~\ref{sec:phi_light}.
@@ -1289,8 +1289,8 @@ Though in this case no constant is applied in accordance with EQUATION?
 \label{sec:phi_light}
 %++++++++++++++++++++++++++++++
 
-Within the thermodynamics of radiation community 
-the exergy-energy coefficient, or ratio ($\phi_{L}$) 
+Within the thermodynamics of radiation community
+the exergy-energy coefficient, or ratio ($\phi_{L}$)
 is termed the 'spectral radiative exergy-energy coefficient',
 and is given by Petela's Equation \cite{petela1964exergy}
 %
@@ -1299,11 +1299,11 @@ and is given by Petela's Equation \cite{petela1964exergy}
 \end{equation}
 %
 
-However, Petela's equation is given in terms of the temperature of two blackbody radiators 
+However, Petela's equation is given in terms of the temperature of two blackbody radiators
 ($T_{0}$ and $T_{1}$).
-To facilitate the calculation of $\phi_{L}$ 
-the wavelength specific exergy-energy ratio ($\phi_{L\lambda}$), 
-must be calculated, 
+To facilitate the calculation of $\phi_{L}$
+the wavelength specific exergy-energy ratio ($\phi_{L\lambda}$),
+must be calculated,
 which allows the analysis of light from a non-blackbody light source (including lamps).
 To do this the spectral power distribution of the light source must be quantized,
 with each wavelength of radiation considered a monochromatic photon
@@ -1317,10 +1317,10 @@ given by the folowing equation
 
 where $T_{\lambda}$ is the photon effective temperature,
 $\lambda$ is the wavelength of the radiation (or photon),
-and $c_{3}$ is the photon effective temperature constant, 
+and $c_{3}$ is the photon effective temperature constant,
 
-Shan and Zhou (2019) formulate Petela's equation 
-in terms of the photon effective temperature as follows \cite{shan2019} 
+Shan and Zhou (2019) formulate Petela's equation
+in terms of the photon effective temperature as follows \cite{shan2019}
 
 \begin{equation}
  \phi_{L\lambda} = 1 - \frac{4}{3}\frac{T_{0}}{T_{\lambda}} + \frac{1}{3} \left(\frac{T_{0}}{T_{\lambda}}\right)^4 \; ,
@@ -1328,15 +1328,15 @@ in terms of the photon effective temperature as follows \cite{shan2019}
 
 As our study focuses on the role of light for illumination
 we take $T_{0}$,
-the temperature of the entity receiving the radiative energy transfer 
+the temperature of the entity receiving the radiative energy transfer
 to be 310 Kelvin (K), the temperature of the human body.
 
-The application $\phi_{L\lambda}$ to the spectral power distribution of a lamp 
-allows for the calculation of a lamps exergy distribution, 
+The application $\phi_{L\lambda}$ to the spectral power distribution of a lamp
+allows for the calculation of a lamps exergy distribution,
 in addition to its energy distribution.
 **** As shown in figure.... ---ZM****
 
-To calculate the total exergy of a lamp or light source 
+To calculate the total exergy of a lamp or light source
 the product of the spectral power distribution,
 the chosen weighting function,
 and the wavelength specific energy-exergy ratio
@@ -1346,19 +1346,19 @@ is integrated with respect to wavelength
   \dot{L_{X}} = \int \phi_{L\lambda} f_\lambda \dot{L}_\lambda \mathrm{d}\lambda \; .
 \end{equation}
 %
-The quotient of the $\dot{L}_{X}$ and $\dot{L}}$ then gives us the overall exergy-energy ratio, which is specific to each unique spectral power distribution.
-%
+The quotient of the $\dot{L}_{X}$ and $\dot{L}$ then gives us the overall exergy-energy ratio, which is specific to each unique spectral power distribution.
+
 \begin{equation} \label{eq:weighted_emissive_power}
   \phi_{L} = \frac{\dot{L}_{X}}{\dot{L}} = \frac {\int \phi_{L\lambda} f_\lambda \dot{L}_\lambda \mathrm{d}\lambda}{\int f_\lambda \dot{L}_\lambda \mathrm{d}\lambda} \; .
 \end{equation}
-%
 
-Shan and Zhou (2019) advance this thinking, 
-developing a methodology which includes 
+
+Shan and Zhou (2019) advance this thinking,
+developing a methodology which includes
 exergy intensity reductions due to
-absorption and scattering and spatial scattering, 
-in addition to Petela's exergy-energy coefficient. 
-For the purposes of this analysis 
+absorption and scattering and spatial scattering,
+in addition to Petela's exergy-energy coefficient.
+For the purposes of this analysis
 we choose not to examine these additional factors.
 
 
