@@ -514,7 +514,7 @@ which occurs after the useful stage.
 \label{sec:divergent_approaches}
 %++++++++++++++++++++++++++++++
 
-**** Section~\ref{sec:divergent_approaches} feels a bit like Section~\ref{sec:challenges_and_decisions}.
+**** Section~\ref{sec:divergent_approaches} feels a bit like Section~\ref{sec:analysis challenges}.
 We need to synchrnoize the two sections.
 Furthermore, any issues raised here should be addressed clearly below. 
 Sorting out this issue is mine.
@@ -1290,18 +1290,18 @@ Though in this case no constant is applied in accordance with EQUATION?
 %++++++++++++++++++++++++++++++
 
 Within the thermodynamics of radiation community
-the exergy-energy coefficient, or ratio ($\phi_{L}$)
+the exergy-energy coefficient, or ratio ($\phi_L$)
 is termed the 'spectral radiative exergy-energy coefficient',
 and is given by Petela's Equation \cite{petela1964exergy}
 %
 \begin{equation}
- \phi_{L} = 1 - \frac{4}{3}\frac{T_{0}}{T_{1}} + \frac{1}{3} \left(\frac{T_{0}}{T_{1}}\right)^4 \; .
+ \phi_L = 1 - \frac{4}{3}\frac{T_{0}}{T_{1}} + \frac{1}{3} \left(\frac{T_{0}}{T_{1}}\right)^4 \; .
 \end{equation}
 %
 
 However, Petela's equation is given in terms of the temperature of two blackbody radiators
 ($T_{0}$ and $T_{1}$).
-To facilitate the calculation of $\phi_{L}$
+To facilitate the calculation of $\phi_L$
 the wavelength specific exergy-energy ratio ($\phi_{L\lambda}$),
 must be calculated,
 which allows the analysis of light from a non-blackbody light source (including lamps).
@@ -1342,13 +1342,13 @@ the chosen weighting function,
 and the wavelength specific energy-exergy ratio
 is integrated with respect to wavelength
 %
-\begin{equation} \label{eq:weighted_emissive_power}
+\begin{equation}
   \dot{L_{X}} = \int \phi_{L\lambda} f_\lambda \dot{L}_\lambda \mathrm{d}\lambda \; .
 \end{equation}
 %
 The quotient of the $\dot{L}_{X}$ and $\dot{L}$ then gives us the overall exergy-energy ratio, which is specific to each unique spectral power distribution.
 
-\begin{equation} \label{eq:weighted_emissive_power}
+\begin{equation}
   \phi_{L} = \frac{\dot{L}_{X}}{\dot{L}} = \frac {\int \phi_{L\lambda} f_\lambda \dot{L}_\lambda \mathrm{d}\lambda}{\int f_\lambda \dot{L}_\lambda \mathrm{d}\lambda} \; .
 \end{equation}
 
@@ -1521,7 +1521,7 @@ previous methods of determining the exergy of lighting.
 ****
 
 %------------------------------
-\subsubsection{Comparison with previous approaches in Societal Exergy Analysis}
+\subsection{Comparison with previous approaches in Societal Exergy Analysis}
 \label{sec:compwithSEA}
 %------------------------------
 %
@@ -1581,7 +1581,7 @@ The two instances of 683 lm/W cancel, giving
 \end{equation}
 %
 This is equivalent to the equation for the valuable energy efficiency of light
-as given in section \ref{sec:energy_of_light},
+as given in section \ref{sec:energy_and_exergy_of_light},
 %
 \begin{equation}
   \eta_{X,v} = \frac{\int \dot{P}_\lambda Wf_\lambda d\lambda}{\dot{W}_1} = \frac{\dot{L}_{useful}}{\dot{W}_1} \; .
