@@ -1295,16 +1295,17 @@ is termed the 'spectral radiative exergy-energy coefficient',
 and is given by Petela's Equation \cite{petela1964exergy}
 %
 \begin{equation}
- \phi_{L\lambda} = 1 - \frac{4}{3}\frac{T_{0}}{T_{1}} + \frac{1}{3} \left(\frac{T_{0}}{T_{1}}\right)^4 \; .
+ \phi_{L} = 1 - \frac{4}{3}\frac{T_{0}}{T_{1}} + \frac{1}{3} \left(\frac{T_{0}}{T_{1}}\right)^4 \; .
 \end{equation}
 %
 
 However, Petela's equation is given in terms of the temperature of two blackbody radiators 
 ($T_{0}$ and $T_{1}$).
-To allow the calculation of $\phi_{L\lambda}$, 
-which is the wavelength specific exergy-energy ratio,
-from a non-blackbody light source (including lamps)
-the spectral power distribution of the light source must be quantized,
+To facilitate the calculation of $\phi_{L}$ 
+the wavelength specific exergy-energy ratio ($\phi_{L\lambda}$), 
+must be calculated, 
+which allows the analysis of light from a non-blackbody light source (including lamps).
+To do this the spectral power distribution of the light source must be quantized,
 with each wavelength of radiation considered a monochromatic photon
 with an 'effective temperature' \cite{chen2008},
 given by the folowing equation
