@@ -1327,8 +1327,8 @@ in terms of the photon effective temperature as follows \cite{shan2019}
 \end{equation}
 
 As our study focuses on the role of light for illumination
-for the purposes of this analysis we take $T_{0}$,
-the temperature of entity receiving the radiative energy transfer 
+we take $T_{0}$,
+the temperature of the entity receiving the radiative energy transfer 
 to be 310 Kelvin (K), the temperature of the human body.
 
 The application $\phi_{L\lambda}$ to the spectral power distribution of a lamp 
@@ -1343,13 +1343,13 @@ and the wavelength specific energy-exergy ratio
 is integrated with respect to wavelength
 %
 \begin{equation} \label{eq:weighted_emissive_power}
-  \dot{L_{Ex}} = \int \phi_{L\lambda} f_\lambda \dot{L}_\lambda \mathrm{d}\lambda \; .
+  \dot{L_{X}} = \int \phi_{L\lambda} f_\lambda \dot{L}_\lambda \mathrm{d}\lambda \; .
 \end{equation}
 %
-The quotient of the $\dot{L}_{Ex}$ and $\dot{L}}$ then gives us the overall exergy-energy ratio, which is specific to each unique spectral power distribution.
+The quotient of the $\dot{L}_{X}$ and $\dot{L}}$ then gives us the overall exergy-energy ratio, which is specific to each unique spectral power distribution.
 %
 \begin{equation} \label{eq:weighted_emissive_power}
-  \phi_{L} = \frac{\dot{L}_{Ex}}{\dot{L}} = \frac {\int \phi_{L\lambda} f_\lambda \dot{L}_\lambda \mathrm{d}\lambda}{\int f_\lambda \dot{L}_\lambda \mathrm{d}\lambda} \; .
+  \phi_{L} = \frac{\dot{L}_{X}}{\dot{L}} = \frac {\int \phi_{L\lambda} f_\lambda \dot{L}_\lambda \mathrm{d}\lambda}{\int f_\lambda \dot{L}_\lambda \mathrm{d}\lambda} \; .
 \end{equation}
 %
 
