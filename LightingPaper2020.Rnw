@@ -905,6 +905,7 @@ rejecting waste heat to an ambient temperature of 300~K:
   \phi_L \approx \eta_C = 1 - \frac{T_0}{T_{sun}} = 1 - \frac{300 \; \text{K}}{5800 \; \text{K}} = 0.948 \; .
 \end{equation}
 %
+*** I would add here that using the Carnot efficiency represents thermal transfer, as opposed to radiative transfer for which the mechanism differs as described by Shan & Zhou (2019), which we then go on to examine in Section~\ref{sec:phi_light}. Or Perhaps we should move all discussion of the exergy-energy factor to this section?---ZM ***
 Other values for $\phi_L$ are needed when the spectra of emitted light is
 different from the spectra of blackbody radiation,
 as discussed in Section~\ref{sec:phi_light}.
@@ -1288,10 +1289,56 @@ Though in this case no constant is applied in accordance with EQUATION?
 \label{sec:phi_light}
 %++++++++++++++++++++++++++++++
 
-**** Discuss the DB approach to calculating the energy-to-exergy ratio. ****
+Within the thermodynamics of radiation community 
+the exergy-energy coefficient, or ratio ($\phi_{L}$) 
+is termed the 'spectral radiative exergy-energy coefficient',
+and is given by Petela's Equation \cite{petela1964exergy}
+%
+\begin{equation}
+ \phi_{L} = 1 - \frac{4}{3}\frac{T_{0}}{T_{1}} + \frac{1}{3} \left(\frac{T_{0}}{T_{1}}\right)^4 \; .
+\end{equation}
+%
 
+However, Petela's equation is given in terms of the temperature of two blackbody radiators 
+($T_{0}$ and $T_{1}$).
+To allow the calculation of $\phi_{L}$ from a non-blackbody light source (including lamps)
+the spectral power distribution of the light source must be quantized,
+with each wavelength of radiation considered a monochromatic photon
+with an 'effective temperature' \cite{chen2008},
+given by the folowing equation
 
+\begin{equation}
+  \lambda T_{\lambda} = c_{3} = 5.33016 \cdot 10^{-3} m \cdot K \; ,
+  T_{\lambda} = \frac{5.33016 \cdot 10^{-3} m \cdot K}{\lambda} \; ,
+\end{equation}
 
+where $T_{\lambda}$ is the photon effective temperature,
+$\lambda$ is the wavelength of the radiation (or photon),
+and $c_{3}$ is the photon effective temperature constant, 
+
+Shan and Zhou (2019) formulate Petela's equation 
+in terms of the photon effective temperature as follows \cite{shan2019} 
+
+\begin{equation}
+ \phi_{L} = 1 - \frac{4}{3}\frac{T_{0}}{T_{\lambda}} + \frac{1}{3} \left(\frac{T_{0}}{T_{\lambda}}\right)^4 \; ,
+\end{equation}
+
+As our study focuses on the role of light for illumination
+for the purposes of this analysis we take $T_{0}$,
+the temperature of entity receiving the radiative energy transfer 
+to be 310 Kelvin (K), the temperature of the human body.
+
+The application $\phi_{L}$ to the spectral power distribution of a lamp allows for the calculation of a lamps exergy distribution, 
+in addition to its energy distribution.
+**** As shown in figure.... ---ZM****
+
+Shan and Zhou (2019) advance this thinking, 
+developing a methodology which includes 
+exergy intensity reductions due to
+absorption and scattering and spatial scattering, 
+in addition to Petela's exergy-energy coefficient. 
+For the purposes of this analysis 
+we choose not to examine these additional factors.
 
 
 
@@ -1512,15 +1559,12 @@ The two instances of 683 lm/W cancel, giving
   \frac {\int \dot{P}_\lambda V_\lambda d\lambda}{\dot{W}_1}\; .
 \end{equation}
 %
-
 This is equivalent to the equation for the valuable energy efficiency of light
 as given in section \ref{sec:energy_of_light},
-
 %
 \begin{equation}
   \eta_{X,v} = \frac{\int \dot{P}_\lambda Wf_\lambda d\lambda}{\dot{W}_1} = \frac{\dot{L}_{useful}}{\dot{W}_1} \; .
 \end{equation}
-
 
 but only if the photopic luminosity function is selected as the weighting function,
 and 683 lm/W taken as the maximum luminous efficacy value ($\epsilon_{max}$).
