@@ -7,7 +7,7 @@
 
 
 # Main code
-weighted_flux <- function(weighting_function, lamp) {
+weighted_power <- function(weighting_function, lamp) {
   # Get name of lamp
   wf_name <- weighting_function[["wf_name"]] %>%
     unique()
@@ -25,10 +25,10 @@ weighted_flux <- function(weighting_function, lamp) {
     ) %>%
     magrittr::set_colnames(colnames(weighting_function))
   
-  # Multiply lamp's received radiative flux by interpolated weighting function at each wavelength
+  # Multiply lamp's received radiative power by interpolated weighting function at each wavelength
   dplyr::full_join(lamp, interpolated_wf, by = "Wavelength [nm]") %>%
     dplyr::mutate(
-      received_weighted_radiant_flux = received_radiative_flux * normalized_response
+      received_weighted_radiant_power = received_radiative_power * normalized_response
     )
 }
 
@@ -60,7 +60,7 @@ wf_data <- lapply(wf_tabs, FUN = function(tab_name){
 lamp_data <- lapply(lamp_tabs, FUN = function(tab_name){
   DF <- readxl::read_excel(master_lighting_data_path, sheet = tab_name)
   cnames <- colnames(DF)
-  cnames[[2]] <- "received_radiative_flux"
+  cnames[[2]] <- "received_radiative_power"
   DF <- DF %>%
     magrittr::set_colnames(cnames)
   DF %>%
@@ -74,7 +74,7 @@ weighted_responses_list <- list()
 for (l in lamp_data) {
   # Apply all weighting functions
   for (wf in wf_data) {
-    res <- weighted_flux(weighting_function = wf, lamp = l)
+    res <- weighted_power(weighting_function = wf, lamp = l)
     weighted_responses_list <- rlist::list.append(weighted_responses_list, res)
   }
 }
@@ -83,47 +83,53 @@ for (l in lamp_data) {
 received_weighted_responses_df <- dplyr::bind_rows(weighted_responses_list) %>%
   dplyr::mutate(
    normalized_response = tidyr::replace_na(normalized_response, 0),
-   received_weighted_radiant_flux = received_radiative_flux * normalized_response
+   received_weighted_radiant_power = received_radiative_power * normalized_response
   )
  
-#Checking whether there are still NAs in weighted radiant flux
-#received_weighted_responses_df %>% dplyr::filter(is.na(received_weighted_radiant_flux)) %>% print()
+# Checking whether there are still NAs in weighted radiant power
+# received_weighted_responses_df %>% dplyr::filter(is.na(received_weighted_radiant_power)) %>% print()
 
 
 # This data frame represents the integrals calculated from the received data, 
 # which we know is wrong. 
 # But we use this calculation as the starting point for fixing the responses.
-# Extract wrong luminous fluxes from relative intensities
+# Extract wrong luminous power from relative intensities
 
 # This picks up the standard photopic luminosity function
-received_luminous_flux <- received_weighted_responses_df %>%
+received_luminous_power <- received_weighted_responses_df %>%
   dplyr::filter(wf_name == "wf_p2", !is.na(normalized_response)) %>%
   dplyr::group_by(lamp_name) %>%
   dplyr::summarise(
-   #sum = sum(weighted_radiant_flux*683), 
-    wrong_luminous_flux = MESS::auc(x = `Wavelength [nm]`, y = received_weighted_radiant_flux) * 683, .groups = "drop"
+   #sum = sum(weighted_radiant_power*683), 
+    wrong_luminous_power = MESS::auc(x = `Wavelength [nm]`, y = received_weighted_radiant_power) * 683, .groups = "drop"
   )
 
 # Read in lamp information
 lamp_info <- readxl::read_excel(master_lighting_data_path, sheet = "data_lamp") %>%
   dplyr::mutate(
-    luminous_flux = `Luminous Efficacy [lm/W]` * `Electricity Consumption [W]`
+    luminous_power = `Luminous Efficacy [lm/W]` * `Electricity Consumption [W]`
   )
 
 # Combines the lamp information from manufacturer (lamp_info)
-# with luminous efficacies calculated from SPD (received_luminous_flux)
-comp_flux_df <- dplyr::full_join(lamp_info, received_luminous_flux, by = "lamp_name") %>%
+# with luminous efficacies calculated from SPD (received_luminous_power)
+comp_power_df <- dplyr::full_join(lamp_info, received_luminous_power, by = "lamp_name") %>%
 
 # Calculates the scaling factor 
   dplyr::mutate(
-    scaling_factor = luminous_flux / wrong_luminous_flux
+    scaling_factor = luminous_power / wrong_luminous_power
 )
 
 
 # Calculating photon temperature and phi values per wavelength
+
+# Sets the photon effective temperature constant
 pet_const = 5.33016e-3
+
+# Sets T_0, the temperature of the body receiving the radiative energy transfer, 
+# in this case the temperature of the human body
 T_0 = 310
 
+# Creates a data frame, including calculation of phi_L_lambda, the wavelength specific exergy-energy ratio
 energy_to_exergy_df <- tibble::tibble(
   `Wavelength [nm]` = seq(from = 200, to = 1000, by = 0.5),
   `Wavelength [m]` = `Wavelength [nm]` * 1e-9,
@@ -133,29 +139,25 @@ energy_to_exergy_df <- tibble::tibble(
 
 
 
-# Join comp_flux_df to received_weighted_responses DF,
-# Add a column for the actual radiant flux and
-# add a column for the actual weighted radiant flux
+# Join comp_power_df to received_weighted_responses DF,
+# Add a column for the actual radiant power,
+# the actual weighted radiant power
+# the actual exergy, and
+# the actual weighted exergy
 weighted_responses_df <- dplyr::full_join(
   received_weighted_responses_df, 
-  comp_flux_df %>% dplyr::select(lamp_name, scaling_factor), by = "lamp_name"
+  comp_power_df %>% dplyr::select(lamp_name, scaling_factor), by = "lamp_name"
 ) %>%
   dplyr::mutate(
-    actual_radiant_flux = received_radiative_flux * scaling_factor,
-    actual_weighted_radiant_flux = actual_radiant_flux * normalized_response
+    actual_radiant_power = received_radiative_power * scaling_factor,
+    actual_weighted_radiant_power = actual_radiant_power * normalized_response
   ) %>%
   dplyr::left_join(energy_to_exergy_df %>% dplyr::select(c(`Wavelength [nm]`, phi_L_lambda)),
                    by = "Wavelength [nm]") %>%
   dplyr::mutate(
-    actual_weighted_exergy = actual_weighted_radiant_flux * phi_L_lambda,
-    actual_exergy = actual_radiant_flux * phi_L_lambda
+    actual_weighted_exergy = actual_weighted_radiant_power * phi_L_lambda,
+    actual_exergy = actual_radiant_power * phi_L_lambda
   )
-
-# (1) Create a dataframe with all energy-to-energy ratio by wavelength
-# - Photon effective temperature each lambda
-# - Calculate the energy-to-exergy ratio per wavelength
-# (2) Join it with weighted_responses_df
-# (3) Multiply
 
 
 

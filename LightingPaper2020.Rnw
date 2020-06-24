@@ -524,7 +524,7 @@ From this point, however, we stumble into sources of confusion surrounding
 the energy conversion efficiency ($\eta$) of lamps.
 A conventional way to quantify conversion efficiency
 is luminous efficacy (in lumens/watt, or lm/W),
-which is luminous flux (light output, in lm)
+which is luminous power (light output, in lm)
 per electrical energy input (in W).
 The first source of confusion is that some practitioners
 equate luminous efficacy with luminous (or light) efficiency.
@@ -1134,9 +1134,9 @@ when determining the useful \enoex{} of light.
 % Seems like you should talk about the SPDs first.
 % Something like:
 % 
-% SPDs are normally given on graphs with spectral radiative flux on the vertical axis
+% SPDs are normally given on graphs with spectral radiative power on the vertical axis
 % and wavelength on the horizontal axis.
-% The area under the area under the curve gives the radiative flux in units of W/m$^2$.
+% The area under the area under the curve gives the radiative power in units of W/m$^2$.
 % The area under the curve is calculated by <<start equations here>>.
 % Say that each lamp has its own SPD.
 % Say we'll look at four lamps and, therefore, four SPDs.
@@ -1194,7 +1194,7 @@ when determining the useful \enoex{} of light.
 % ****
 % %
 % \begin{equation}
-%   Luminous\ flux = 683 \text{ lm/W} \int \dot{P}_\lambda V_\lambda d\lambda \; ,
+%   Luminous\ power = 683 \text{ lm/W} \int \dot{P}_\lambda V_\lambda d\lambda \; ,
 % \end{equation}
 % %
 % where $V_\lambda$ is the photopic luminosity function,
@@ -1202,7 +1202,7 @@ when determining the useful \enoex{} of light.
 % most recently in 2006(?), and
 % representing the sensitivity of the human eye to daytime light levels.
 % The above equation is the SI derived unit for the quantity of visible light
-% (luminous flux or power)---the Lumen.
+% (luminous power or power)---the Lumen.
 % The constant of 683 **** units? You're killing me! ---MKH ****
 % is applied in accordance with the definition of the lumen and candela,
 % which states that a monochromatic lamp emitting light at a
@@ -1267,7 +1267,7 @@ and both the radiant power and the electricity consumption of the device.
 We term these the Electricity to Light efficiency and Radiation
 to Light efficiency respectively.
 In photometry when using the photopic luminosity function
-to calculate the luminous flux these metrics are simply referred to as
+to calculate the luminous power these metrics are simply referred to as
 the 'luminous efficacy of radiation' and 'luminous efficacy' respectively.
 Though in this case no constant is applied in accordance with EQUATION?
 
@@ -1451,7 +1451,7 @@ response_data %>%
   scale_y_continuous(breaks = c(0, 0.5, 1)) +
   MKHthemes::xy_theme() +
   theme(strip.text.x = element_text(margin = margin(b = 2.0)),
-        # Eliminate labels on right facet. Pick up from lamp radiative fluxes.
+        # Eliminate labels on right facet. Pick up from lamp radiative powers.
         strip.text.y = element_blank(),
         axis.text.x = element_text(size = rel(0.8), angle = 90),
         axis.text.y = element_text(size = rel(0.8)))
@@ -1465,20 +1465,20 @@ response_data %>%
 response_data %>%
   # This code divides the output of only the spikey CFL by a factor of 10.
   # dplyr::mutate(
-  #   actual_radiant_flux = dplyr::case_when(
-  #     lamp_name == "CFL" ~ actual_radiant_flux / 10,
-  #     TRUE ~ actual_radiant_flux
+  #   actual_radiant_power = dplyr::case_when(
+  #     lamp_name == "CFL" ~ actual_radiant_power / 10,
+  #     TRUE ~ actual_radiant_power
   #   ),
-  #   actual_weighted_radiant_flux = dplyr::case_when(
-  #     lamp_name == "CFL" ~ actual_weighted_radiant_flux / 10,
-  #     TRUE ~ actual_weighted_radiant_flux
+  #   actual_weighted_radiant_power = dplyr::case_when(
+  #     lamp_name == "CFL" ~ actual_weighted_radiant_power / 10,
+  #     TRUE ~ actual_weighted_radiant_power
   #   )
   # ) %>%
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
-  # geom_area(mapping = aes(y = radiative_flux, fill = "Radiant flux"), fill = "darkgray") +
-  geom_area(mapping = aes(y = actual_radiant_flux, fill = "Radiant flux"), fill = "darkgray") +
-  # ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = weighted_radiant_flux),
-  ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = actual_weighted_radiant_flux),
+  # geom_area(mapping = aes(y = radiative_power, fill = "Radiant power"), fill = "darkgray") +
+  geom_area(mapping = aes(y = actual_radiant_power, fill = "Radiant power"), fill = "darkgray") +
+  # ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = weighted_radiant_power),
+  ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = actual_weighted_radiant_power),
                         geom = "bar",
                         # chroma.type = photobiology::cone_fundamentals10.spct,
                         # chroma.type = photobiology::ciexyzCC2.spct,
@@ -1492,7 +1492,7 @@ response_data %>%
   scale_color_identity() +
 
   xlab(expression(lambda*" [nm]")) +
-  ylab(expression("Spectral radiative flux, "*phi*" [W/m"^2*"-nm]")) +
+  ylab(expression("Spectral radiative power, "*phi*" [W/m"^2*"-nm]")) +
   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
   labs(fill = element_blank(), colour = element_blank()) +
   facet_grid(rows = vars(wf_name), cols = vars(lamp_name)) +
@@ -1520,7 +1520,7 @@ response_data %>%
              **** Provide references for each of the weighting functions and lamps? ****
              **** Yep! I'll add the reference for the LPSDD database in the .bib ---ZM****
              **** Shall we add luminous intensity annotations to each graph? ****
-             **** Yes, we should add the weighted 'spectral radiative flux' for each graph,
+             **** Yes, we should add the weighted 'spectral radiative power' for each graph,
              me and Emmanuel are working on these calcs! ---ZM}
 	\label{fig:wfs_and_lamps}
 \end{figure}
@@ -1592,7 +1592,7 @@ In the case where $\epsilon_{max}$ is equal to 683 lm/W this equation becomes
 %
 As detailed above in \ref{sec:energy_and_exergy_of_light}
 the luminous efficacy of a lamp is equal to the quotient
-of the luminous flux and electricity consumption of the device, and given by
+of the luminous power and electricity consumption of the device, and given by
 %
 \begin{equation}
  Luminous\ efficacy = \epsilon_{lamp} = \frac {683 \text{ lm/W} \int \dot{P}_\lambda V_\lambda d\lambda}{\dot{W}_1} \; ,
