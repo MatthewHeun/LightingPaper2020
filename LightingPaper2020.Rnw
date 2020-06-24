@@ -1026,9 +1026,12 @@ yields
 which provides the basis for calculating a lamp's output of visible light in lumens (lm):
 %
 \begin{equation} \label{eq:lumen}
-  \dot{P}_{pl} = 683 \text{ lm/W} \dot{L}_{pl} = 683 \text{ lm/W} \int V_f \Phi_\lambda \mathrm{d}\lambda \; .
+  \dot{P}_{pl} = 683 \text{ lm/W} \; \dot{L}_{pl} = 683 \text{ lm/W} \int V_f \Phi_\lambda \mathrm{d}\lambda \; .
 \end{equation}
 %
+****
+ZM: Question: can we also say that $\dot{P} = 683 \text{ lm/W} \dot{L}$ for any weighting function?---MKH
+****
 The scaling constant 683~lm/W is the EM radiation emission of a light source emitting at 555 nm, 
 the peak wavelength sensitivity of the human eye. (See Figure~\ref{fig:Vis_Graph}.) 
 (Note that because lumens are a re-scaling of watts, 
@@ -1063,7 +1066,7 @@ when determining the useful \enoex{} of light.
 
 
 %++++++++++++++++++++++++++++++
-\subsection{The exergy-to-energy ratio of light, $\phi_L$ (Zeke and Emmanuel, 500 words)}
+\subsection{The exergy-to-energy ratio of EM radiation, $\phi_{\EM}$ (Zeke and Emmanuel, 500 words)}
 \label{sec:phi_light}
 %++++++++++++++++++++++++++++++
 
@@ -1166,19 +1169,20 @@ with respect to wavelength.
   \dot{X}_L = \int \phi_{L,\lambda} f_\lambda \Phi_\lambda \mathrm{d}\lambda
 \end{equation}
 
-The quotient of $\dot{L}_{X}$ and $\dot{L}$ gives the overall exergy-energy ratio, 
+The quotient of $\dot{L}_{X}$ and $\dot{L}$ gives the overall exergy-energy ratio~($\phi_{\EM}$), 
 which is specific to each combination of
 lamp ($\Phi_\lambda$) and
 weighting function ($f_\lambda$).
 
 \begin{equation}
-  \phi_{L} = \frac{\dot{X}_L}{\dot{L}} 
+  \phi_{\EM} = \frac{\dot{X}_L}{\dot{L}} 
            = \frac {\int \phi_{L\lambda} f_\lambda \Phi_\lambda \mathrm{d}\lambda}
                        {\int f_\lambda \Phi_\lambda \mathrm{d}\lambda}
 \end{equation}
 
 
-Table~\ref{tab:EX_summary} summarizes the preceding discussion.
+Table~\ref{tab:EX_summary} summarizes the key equations in 
+Sections~\ref{sec:framework}--\ref{sec:phi_light}.
 
 \input{pieces/EX_summary.tex}
 
