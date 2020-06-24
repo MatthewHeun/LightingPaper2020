@@ -1295,7 +1295,7 @@ Recent advances in the thermodynamics of radiation community
 enable converting the energy of light into the exergy of light.
 Within that community,
 the exergy-to-energy ratio of light
-($\phi_L$, called the ``spectral radiative exergy-energy coefficient'' in that community)
+($\phi_L$, called the ``radiative exergy-energy coefficient'' in that community)
 is given by Petela's Equation~\cite{petela1964exergy}:
 %
 \begin{equation} \label{eq:petelas_equation}
