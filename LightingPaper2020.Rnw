@@ -1378,7 +1378,7 @@ tibble::tibble(lambda = seq(250, 900, by = 0.5)*10^(-9)) %>%
   ) %>% 
   ggplot2::ggplot(mapping = aes(x = lambda*10^(9), y = phi_L_lambda)) + 
   geom_line() + 
-  ggspectra::stat_wl_strip(ymin = 0.8, ymax = 0.82, chroma.type = "CMF", size = 0) +
+  ggspectra::stat_wl_strip(ymin = 0.8, ymax = 0.81, chroma.type = "CMF", size = 0) +
   scale_fill_identity() +
   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
   scale_y_continuous(limits = c(0.8, 1.0), breaks = c(0.8, 0.9, 1)) +
