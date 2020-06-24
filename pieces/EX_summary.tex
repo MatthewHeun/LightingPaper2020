@@ -1,0 +1,48 @@
+% The next command tells RStudio to do "Compile PDF" on book.Rnw,
+% instead of this chapter, thereby eliminating the need to switch back to book.Rnw 
+% before making the book.
+%!TEX root = ../LightingPaper2020.Rnw
+
+% \begin{landscape}
+
+\begin{table}
+\centering % Centered table
+\caption{Summary of equations for energy and exergy of work, electricity, heat, EM radiation, and light.
+         $T_0$ is the environment temperature, $T_1$ is the temperature of heat, 
+         and $T_\lambda$ is the photon effective temperature
+         (Equation~\ref{eq:T_lambda}).}
+\begin{tabular}{r l l l}
+  \toprule
+  Quantity & Energy & Exergy-to-energy ratio & Exergy \\
+  \midrule
+  Work        
+      & $\dot{E}_W = \dot{W}$
+      & $\phi_W = 1$
+      & $\dot{X}_W = \phi_W \dot{E}_W = (1) \dot{W} = \dot{W}$ \\
+  %
+  Electricity 
+      & $\dot{E}_e = \dot{W}_e$
+      & $\phi_e = 1$
+      & $\dot{X}_e = \phi_e \dot{E}_e = (1) \dot{W}_e = \dot{W}_e$ \\
+  %
+  Heat 
+      & $\dot{E}_Q = \dot{Q}$   
+      & $\phi_Q = 1 - \frac{T_0}{T_1}$  
+      & $ \dot{X}_Q = \phi_Q \dot{E}_Q = \left( 1 - \frac{T_0}{T_1} \right) \dot{Q}  $ \\
+  %
+  EM radiation
+      & $\dot{E}_{\EM} = \Phi = \int \Phi_\lambda \mathrm{d}\lambda$ 
+      & $\phi_{\EM{},\lambda} = \petella{310 \text{ K}}{T_\lambda}$ 
+      & $\dot{X}_{\EM} = \int \phi_{\EM,\lambda} \Phi_\lambda \mathrm{d}\lambda$ \\
+  % 
+  Light
+      & $\dot{E}_L = \dot{L} = \int f_\lambda \Phi_\lambda \mathrm{d}\lambda$
+      & $\phi_{L,\lambda} = \phi_{\EM{},\lambda} = \petella{310 \text{ K}}{T_\lambda}$ 
+      & $\dot{X}_L = \int f_\lambda \phi_{L,\lambda} \Phi_\lambda \mathrm{d}\lambda$ \\
+  \bottomrule
+\end{tabular}
+\label{tab:EX_summary}
+\end{table}
+
+% \end{landscape}
+
