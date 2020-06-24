@@ -21,18 +21,16 @@ Table~\ref{tab:subscripts} shows subscripts and their meanings.
 \toprule
 Symbol & Meaning [example units] \\
 \midrule
-$E$ & Energy [MJ] \\
+$\dot{E}$ & energy [W] \\
 EM & electro-magnetic \\
-$f$ & Multiplicative factor accounting for spectral sensitivity of the human eye [--] \\
-$g$ & Multiplicative factor accounting for spectral range of the human eye [--] \\
-$L$ & EM energy [MJ] \\
-$Q$ & Heat [MJ] \\
-$T$ & Temperature [K] \\
-$W$ & Work [MJ] \\
-$X$ & Exergy [MJ] \\
-$P$ & The EM power distribution of a lamp [W/nm] \\
-$Wf$ & A weighting function which details the normalised response of a mechanism to light [--] \\
-$V$ & The photopic luminosity function \\
+$f$ & weighting function [--] \\
+$\dot{L}$ & weighted luminous power [W] \\
+$\dot{P}$ & weighted luminous power [lm] \\
+$\dot{Q}$ & heat rate [W] \\
+$T$ & temperature [K] \\
+$\dot{W}$ & work [W] \\
+$\dot{X}$ & exergy [W] \\
+$V$ & photopic luminosity function [--] \\
 \bottomrule
 \end{tabular}
 \label{tab:symbols}
@@ -53,6 +51,7 @@ $V$ & The photopic luminosity function \\
   $\epsilon$ & luminous efficacy [lm/W] \\
   $\eta$ & efficiency [--] \\
   $\lambda$ & wavelength of electromagnetic radiation [nm] \\
+  $\Phi$ & unweighted luminous power [W] \\
   $\phi$ & exergy-to-energy ratio [--] \\
   \bottomrule
 \end{tabular}
@@ -64,18 +63,18 @@ $V$ & The photopic luminosity function \\
 % Decorations
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   
-\begin{table}
-\centering % Centered table
-\caption{Decorations.}
-\begin{tabular}{r l}
-\toprule
-Decoration & Meaning [example units] \\
-\midrule
-$\dot{X}$ & rate of $X$ [units of X/s] \\
-\bottomrule
-\end{tabular}
-\label{tab:decorations}
-\end{table}
+% \begin{table}
+% \centering % Centered table
+% \caption{Decorations.}
+% \begin{tabular}{r l}
+% \toprule
+% Decoration & Meaning [example units] \\
+% \midrule
+% $\dot{X}$ & rate of $X$ [units of X/s] \\
+% \bottomrule
+% \end{tabular}
+% \label{tab:decorations}
+% \end{table}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -97,12 +96,15 @@ $\lambda$ & spectral (a function of wavelength) \\
 $lamp$ & the lighting device (lamp) under assessment \\
 $L$ & light \\
 $max$ & maximum luminous efficacy \\
+$pl$ & photopic luminosity \\
 $s$ & energy services stage of the energy conversion chain \\
 $sys$ & system operating temperature \\
 $u$ & useful stage of the energy conversion chain \\
+$univ$ & universal weighting function \\
 $useful$ & the portion of a spectral power distribution considered useful \\
+$uw$ & unweighted \\
 $v$ & valuable \\
-$vis$ & visible spectrum \\
+$vis$ & visible spectrum or visible weighting function \\
 $X$ & exergy \\
 \bottomrule
 \end{tabular}

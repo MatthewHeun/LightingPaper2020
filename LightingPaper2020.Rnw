@@ -833,7 +833,7 @@ We now turn to the production of light instead of work at 3.
 \machinefigure{Lamp}
               {$\dot{W}_1 \; \text{(electricity)}$}
               {$\dot{Q}_2 \; \text{(heat)}, \; T_2$}
-              {$\dot{L}_3 \; \text{(light)}$}
+              {$\Phi_3 \; \text{(light)}$}
 \caption{A lamp that produces heat and light.}
 \label{fig:lamp}
 \end{figure}
@@ -845,20 +845,20 @@ Both electricity and light can be converted to heat without loss, so they are pu
 Thus,
 %
 \begin{equation}
-  \dot{E}_1 = \dot{W}_1, \; \dot{E}_2 = \dot{Q}_2, \; \text{and} \; \dot{E}_3 = \dot{L}_3 \; .
+  \dot{E}_1 = \dot{W}_1, \; \dot{E}_2 = \dot{Q}_2, \; \text{and} \; \dot{E}_3 = \Phi_3 \; .
 \end{equation}
 %
 Energy efficiency for Figure~\ref{fig:lamp} is 
 %
 \begin{equation}  
-  \eta_E = \frac{\dot{E}_2 + \dot{E}_3}{\dot{E}_1} = \frac{\dot{Q}_2 + \dot{L}_3}{\dot{W}_1} = 1 \; ,
+  \eta_E = \frac{\dot{E}_2 + \dot{E}_3}{\dot{E}_1} = \frac{\dot{Q}_2 + \Phi_3}{\dot{W}_1} = 1 \; ,
 \end{equation}
 %
 and valuable energy efficiency for Figure~\ref{fig:lamp} 
 (assuming that light is the valuable output from the lamp) is
 %
 \begin{equation}
-  \eta_{E,v} = \frac{\dot{E}_3}{\dot{E}_1} = \frac{\dot{L}_3}{\dot{W}_1} < 1 \; .
+  \eta_{E,v} = \frac{\dot{E}_3}{\dot{E}_1} = \frac{\Phi_3}{\dot{W}_1} < 1 \; .
 \end{equation}
 
 Because electricity can be converted to work without loss in a frictionless motor,
@@ -868,25 +868,25 @@ Thus, the exergy of each stream in Figure~\ref{fig:lamp} is given by
 \begin{equation}
   \dot{X}_1 = \cancelto{1}{\phi_{elect}} \dot{W}_1 = \dot{W}_1, \; 
               \dot{X}_2 = \left( 1 - \frac{T_0}{T_2} \right) \dot{Q}_2, \; \text{and} \; 
-              \dot{X}_3 = \phi_L \dot{L}_3 \; .
+              \dot{X}_3 = \phi_L \Phi_3 \; .
 \end{equation}
 %
-The terms $\dot{L}$ and $\phi_L$ deserve further discussion.
+The terms $\Phi_3$ and $\phi_L$ deserve further discussion.
 
-The term $\dot{L}_3$ is the power of electromagnetic~(EM) radiation
+The term $\Phi_3$ is the unweighted luminous power of broad-spectrum electromagnetic~(EM) radiation
 emitted by a lamp
 in units of energy per unit time.
 In general, the EM power of a lamp is a spectral quantity,
 meaning that it varies with wavelength.
-Spectral power~($\dot{L}_\lambda$)
-is the EM emissive power available between any two wavelengths 
-such that total EM emissive power~($\dot{L}$) is given by
+Spectral luminous power~($\Phi_\lambda$)
+is the un-weighted EM emissive power available between any two wavelengths 
+such that luminous power~($\Phi$) is given by
 %
 \begin{equation} \label{eq:emissive_power}
-  \dot{L} = \int \dot{L}_\lambda \mathrm{d}\lambda \; .
+  \Phi = \int \Phi_\lambda \mathrm{d}\lambda \; .
 \end{equation}
 %
-Visually, $\dot{L}$ is the area under a curve of $\dot{L}_\lambda$ vs.\ $\lambda$.
+Visually, $\Phi$ is the area under a curve of $\Phi_\lambda$ vs.\ $\lambda$.
 
 The term $\phi_L$ is the exergy-to-energy ratio for light.
 Recent work by Delgado-Bonal~\cite{Delgado-Bonal:2017aa}
@@ -914,14 +914,14 @@ The exergy efficiency of lighting for Figure~\ref{fig:lamp} is given by
 %
 \begin{equation}
   \eta_X = \frac{\dot{X}_2 + \dot{X}_3}{\dot{X}_1} 
-          = \frac{\left( 1 - \frac{T_0}{T_2} \right) \dot{Q}_2 + \phi_L \dot{L}_3 }{\dot{W}_1} < 1 \; .
+          = \frac{\left( 1 - \frac{T_0}{T_2} \right) \dot{Q}_2 + \phi_L \Phi_3 }{\dot{W}_1} < 1 \; .
 \end{equation}
 %
 The valuable exergetic efficiency of lighting for Figure~\ref{fig:lamp} is given by
 %
 \begin{equation}
   \eta_{X,v} = \frac{\dot{X}_3}{\dot{X}_1} 
-              = \frac{\phi_L \dot{L}_3 }{\dot{W}_1} < \eta_X \; .
+              = \frac{\phi_L \Phi_3 }{\dot{W}_1} < \eta_X < 1 \; .
 \end{equation}
 
 Note that both $\eta_X$ and $\eta_{X,v}$ are independent of human presence;
@@ -994,7 +994,7 @@ leads to modifying Equation~\ref{eq:emissive_power}
 to include a weighting function~($f_\lambda$) such that
 %
 \begin{equation} \label{eq:weighted_emissive_power}
-  \dot{L} = \int f_\lambda \dot{L}_\lambda \mathrm{d}\lambda \; ,
+  \dot{L} = \int f_\lambda \Phi_\lambda \mathrm{d}\lambda \; ,
 \end{equation}
 %
 with $0 \le f_\lambda \le 1$.
@@ -1061,10 +1061,12 @@ Substituting Equation~\ref{eq:f3} into Equation~\ref{eq:weighted_emissive_power}
 provides the basis for calculating a lamp's output of visible light in lumens (lm)
 %
 \begin{equation} \label{eq:lumen}
-  P_{pl} = 683 \text{ lm/W} \int V_\lambda \dot{L} \mathrm{d}\lambda \; ,
+  \dot{P}_{pl} = 683 \text{ lm/W} \int V_\lambda \Phi_\lambda \mathrm{d}\lambda \; ,
 \end{equation}
 %
 where 683~lm/W is the EM radiation emission of a light source emitting at 555 nm. 
+(Note that because lumens are a re-scaling of watts, 
+lumens are also a unit of luminous power.)
 
 The photopic luminosity function~($V_\lambda$) is the industry standard for determining lumen output
 of lamps, but it has been criticized for under-representing
