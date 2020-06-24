@@ -1291,61 +1291,77 @@ Though in this case no constant is applied in accordance with EQUATION?
 \label{sec:phi_light}
 %++++++++++++++++++++++++++++++
 
-Within the thermodynamics of radiation community
-the exergy-energy coefficient, or ratio ($\phi_L$)
-is termed the 'spectral radiative exergy-energy coefficient',
-and is given by Petela's Equation \cite{petela1964exergy}
+Recent advances in the thermodynamics of radiation community
+enable converting the energy of light to the exergy of light.
+Within that community,
+the exergy-to-energy ratio~($\phi_L$)
+is termed the ``spectral radiative exergy-energy coefficient,''
+as given by Petela's Equation~\cite{petela1964exergy}
 %
 \begin{equation}
  \phi_L = 1 - \frac{4}{3}\frac{T_{0}}{T_{1}} + \frac{1}{3} \left(\frac{T_{0}}{T_{1}}\right)^4 \; .
 \end{equation}
+
+However, Petela's equation assumes two blackbody radiators 
+at temperatures $T_1$ and $T_0$.
+To facilitate the calculation of $\phi_L$ for a non-blackbody lamp,
+the specular exergy-to-energy ratio ($\phi_{L\lambda}$),
+must be calculated.
+An effective temperature of a monochromatic photon~\cite{chen2008} ($T_\lambda$) 
+provides the link between Petela's equation 
+and the specular exergy-to-energy ratio.
+The product of wavelength and photon effective temperture is a constant ($c_3$) such that
 %
-
-However, Petela's equation is given in terms of the temperature of two blackbody radiators
-($T_{0}$ and $T_{1}$).
-To facilitate the calculation of $\phi_L$
-the wavelength specific exergy-energy ratio ($\phi_{L\lambda}$),
-must be calculated,
-which allows the analysis of light from a non-blackbody light source (including lamps).
-To do this the spectral power distribution of the light source must be quantized,
-with each wavelength of radiation considered a monochromatic photon
-with an 'effective temperature' \cite{chen2008},
-given by the folowing equation
-
 \begin{equation}
-  \lambda T_{\lambda} = c_{3} = 5.33016 \cdot 10^{-3} m \cdot K \; ,
-  T_{\lambda} = \frac{5.33016 \cdot 10^{-3} m \cdot K}{\lambda} \; ,
+  \lambda T_{\lambda} = c_{3} = 5.33016 \times 10^{-3} \text{ m-K} \; ,
+\end{equation}
+%
+or
+%
+\begin{equation} \label{eq:T_lambda}
+  T_\lambda = \frac{5.33016 \times 10^{-3} \text{ m-K}}{\lambda} \; .
 \end{equation}
 
-where $T_{\lambda}$ is the photon effective temperature,
-$\lambda$ is the wavelength of the radiation (or photon),
-and $c_{3}$ is the photon effective temperature constant,
-
-Shan and Zhou (2019) formulate Petela's equation
-in terms of the photon effective temperature as follows \cite{shan2019}
-
+Shan and Zhou~\cite{shan2019} formulate Petela's equation
+in terms of the photon effective temperature as
+%
 \begin{equation}
- \phi_{L\lambda} = 1 - \frac{4}{3}\frac{T_{0}}{T_{\lambda}} + \frac{1}{3} \left(\frac{T_{0}}{T_{\lambda}}\right)^4 \; ,
+ \phi_{L,\lambda} = 1 - \frac{4}{3}\frac{T_{0}}{T_{\lambda}} + \frac{1}{3} \left(\frac{T_{0}}{T_{\lambda}}\right)^4 \; ,
 \end{equation}
+%
+into which Equation~\ref{eq:T_lambda} can be substituted to find
+the specular exergy-to-energy ratio for light.
+Because the focus of this study is the role of light for illumination,
+we take the temperature of the entity receiving illumination~($T_{0}$)
+to be 310~K, the temperature of the human body.
+Figure~\ref{fig:phi_L_lambda_vs_lambda} shows a graph of the specular exergy-to-energy ratio
+as a function of wavelength.
 
-As our study focuses on the role of light for illumination
-we take $T_{0}$,
-the temperature of the entity receiving the radiative energy transfer
-to be 310 Kelvin (K), the temperature of the human body.
+<<phi_L_lambda_vs_lambda, fig.align="center", fig.width=5, fig.height=3, fig.cap="The specular exergy-to-energy ratio of light ($\\phi_{L,\\lambda}$) as a function of wavelength~($\\lambda$).">>=
+tibble::tibble(lambda = seq(250, 900, by = 0.5)*10^(-9)) %>% 
+  dplyr::mutate(
+    T_0 = 310,
+    T_lambda = 5.33016e-3 / lambda, 
+    phi_L_lambda = 1 - (4/3)*(T_0/T_lambda) + (1/3)*(T_0/T_lambda)^4 
+  ) %>% 
+  ggplot2::ggplot(mapping = aes(x = lambda*10^(9), y = phi_L_lambda)) + 
+  geom_line() + 
+  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
+  scale_y_continuous(limits = c(0.8, 1.0), breaks = c(0.8, 0.9, 1)) +
+  xlab(expression(lambda*" [nm]")) +
+  ylab(expression(phi[L*","*lambda]*" [-]")) +
+  MKHthemes::xy_theme()
+@
 
-The application $\phi_{L\lambda}$ to the spectral power distribution of a lamp
-allows for the calculation of a lamps exergy distribution,
-in addition to its energy distribution.
-**** As shown in figure.... ---ZM****
 
 To calculate the total exergy of a lamp or light source
 the product of the spectral power distribution,
 the chosen weighting function,
-and the wavelength specific energy-exergy ratio
+and the specular energy-to-energy ratio
 is integrated with respect to wavelength
 %
 \begin{equation}
-  \dot{L_{X}} = \int \phi_{L\lambda} f_\lambda \dot{L}_\lambda \mathrm{d}\lambda \; .
+  \dot{L}_X = \int \phi_{L\lambda} f_\lambda \Phi_\lambda \mathrm{d}\lambda \; .
 \end{equation}
 %
 The quotient of the $\dot{L}_{X}$ and $\dot{L}$ then gives us the overall exergy-energy ratio, which is specific to each unique spectral power distribution.
