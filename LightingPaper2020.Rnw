@@ -422,13 +422,6 @@ EM radiation within the range \humaneyesensitivity{} is considered ``light''~\ci
 the human retina responds only within these wavelengths,
 as shown in Figure~\ref{fig:Vis_Graph}.
 
-% \begin{figure}
-% \centering
-% \includegraphics[width=1\linewidth]{figure_other/visible_spectrum.jpg}
-% \caption{The visible spectrum of light~\cite{schubert2006}}
-% \label{fig:visible_spectrum}
-% \end{figure}
-
 <<Load_Data, cache=TRUE, cache.extra.1=tools::md5sum('Data/master_lighting_data.xlsx'), cache.extra.2=tools::md5sum('Data/AllData.R')>>=
 # Creates the weighted_responses_df data frame.
 source(file = file.path("Data", "AllData.R"))
@@ -681,9 +674,9 @@ all this stuff that someone trying to reproduce the study would need. So perhaps
 Energy and exergy are two methods to quantify the physical property that,
 when transferred to an object,
 changes its temperature or performs work on it.
-(For this discussion, we can't call the ``physical property'' energy, exergy, or work, 
+(For this discussion, we can't call the ``physical property'' energy, exergy, work, or heat,
 because these concepts need to remain separated. 
-So, we must use the generic term ``physical property.'')
+So, we use the generic term ``physical property.'')
 We discuss energy and exergy quantifications of the physical property in the sections below, 
 beginning with heat and work, 
 the concepts for which \enaex{} originated.
@@ -781,7 +774,8 @@ For the heat engine in Figure~\ref{fig:heat_engine},
 \end{equation}
 %
 Exergy efficiency ($\eta_X$) is less than 1, because the second law of thermodynamics 
-states that exergy is always destroyed ($\dot{X}_1 > \dot{X}_2 + \dot{X}_3$).
+states that exergy is always destroyed ($\dot{X}_1 > \dot{X}_2 + \dot{X}_3$, or 
+$\dot{X}_D = \dot{X}_1 - (\dot{X}_2 + \dot{X}_3)$).
 
 Assuming, again, that work is valuable gives
 %
@@ -830,15 +824,15 @@ We now turn to the production of light instead of work at 3.
 \centering
 \machinefigure{Lamp}
               {$\dot{W}_1 \; \text{(electricity)}$}
-              {$\dot{Q}_2 \; \text{(heat)}, \; T_2$}
-              {$\Phi_3 \; \text{(light)}$}
-\caption{A lamp that produces heat and light.}
+              {$\dot{Q}_2$ (heat)}
+              {$\Phi_3$ (EM radiation)}
+\caption{A lamp that produces heat and light. **** Need a modified version of this figure that shows light.}
 \label{fig:lamp}
 \end{figure}
 
 Figure~\ref{fig:lamp} replaces the heat engine with a lamp 
-that produces light instead of work at 3.
-Waste heat is still produced at 2, and electricity powers the lamp at 1.
+that produces EM radiation (some of which is light) instead of work at 3.
+Waste heat (conduction and convection only) is still produced at 2, and electricity powers the lamp at 1.
 Both electricity and light can be converted to heat without loss, so they are pure energy.
 Thus,
 %
@@ -866,10 +860,11 @@ Thus, the exergy of each stream in Figure~\ref{fig:lamp} is given by
 \begin{equation}
   \dot{X}_1 = \cancelto{1}{\phi_{elect}} \dot{W}_1 = \dot{W}_1, \; 
               \dot{X}_2 = \left( 1 - \frac{T_0}{T_2} \right) \dot{Q}_2, \; \text{and} \; 
-              \dot{X}_3 = \phi_L \Phi_3 \; .
+              \dot{X}_3 = \phi_{\EM} \Phi_3 \; .
 \end{equation}
-%
-The terms $\Phi_3$ and $\phi_L$ deserve further discussion.
+
+The term $\phi_{\EM}$ is the exergy-to-energy ratio for EM radiation. 
+(See Section~\ref{sec:phi_light} for details.)
 
 The term $\Phi_3$ is the unweighted luminous power of broad-spectrum electromagnetic~(EM) radiation
 emitted by a lamp
@@ -877,36 +872,14 @@ in units of energy per unit time.
 In general, the EM power of a lamp is a spectral quantity,
 meaning that it varies with wavelength.
 Spectral luminous power~($\Phi_\lambda$)
-is the un-weighted EM emissive power available between any two wavelengths 
+is the un-weighted EM emissive power available at any wavelength
 such that luminous power~($\Phi$) is given by
 %
 \begin{equation} \label{eq:emissive_power}
   \Phi = \int \Phi_\lambda \mathrm{d}\lambda \; .
 \end{equation}
 %
-Visually, $\Phi$ is the area under a curve of $\Phi_\lambda$ vs.\ $\lambda$.
-
-The term $\phi_L$ is the exergy-to-energy ratio for light.
-Recent work by Delgado-Bonal~\cite{Delgado-Bonal:2017aa}
-provides a method for calculating $\phi_L$.
-(See Section~\ref{sec:phi_light} for details.)
-Delgado-Bonal's estimate 
-is $\phi_L = 0.931$
-for blackbody solar spectrum electromagnetic radiation
-\cite[Figure~3]{Delgado-Bonal:2017aa}.
-A similar estimate comes from the maximum efficiency 
-of converting blackbody electromagnetic radiation (at 5800~K, the temperature of the sun) 
-to electricity (pure work and, therefore, pure exergy), 
-rejecting waste heat to an ambient temperature of 300~K:
-%
-\begin{equation}
-  \phi_L \approx \eta_C = 1 - \frac{T_0}{T_{sun}} = 1 - \frac{300 \; \text{K}}{5800 \; \text{K}} = 0.948 \; .
-\end{equation}
-%
-*** I would add here that using the Carnot efficiency represents thermal transfer, as opposed to radiative transfer for which the mechanism differs as described by Shan \& Zhou (2019), which we then go on to examine in Section~\ref{sec:phi_light}. Or Perhaps we should move all discussion of the exergy-energy factor to this section?---ZM ***
-Other values for $\phi_L$ are needed when the spectra of emitted light is
-different from the spectra of blackbody radiation,
-as discussed in Section~\ref{sec:phi_light}.
+Visually, $\Phi$ is the area under the $\Phi_\lambda$ vs.\ $\lambda$ curve.
 
 The exergy efficiency of lighting for Figure~\ref{fig:lamp} is given by
 %
@@ -929,26 +902,9 @@ an unoccupied room or a crowded bar,
 whether the illumination stimulates the rods and cones of a human eye or
 excites band gap electrons in an amorphous silicon solar cell.
 
-% Strictly speaking, the \enaex{} efficiencies of a lamp
-% are evaluated between the final and useful stages of the energy conversion chain
-% (where light \enaex{} exist),
-% prior to the \emph{energy service} stage
-% (where illumination exists).
-% Both 
-% %
-% \begin{enumerate*}[label={(\alph*)}]
-% 	
-%   \item the \enaex{} of light and
-%   
-%   \item the \enaex{} efficiency of lamps 
-%     
-% \end{enumerate*}
-% %
-% are independent of the energy service provided by the lamp.
-
 
 %++++++++++++++++++++++++++++++
-\subsection{Human perception of light} 
+\subsection{Human perception of EM radiation} 
 \label{sec:human_perception_of_light}
 %++++++++++++++++++++++++++++++
 
@@ -979,7 +935,7 @@ Because work is the valuable thing when quantifying exergy,
 we account for the importance of temperature when 
 quantifying the exergy of heat.
 
-Human eyes perceive only a portion of the electromagnetic spectrum emitted by lamps
+Human eyes perceive only a portion of the EM radiation emitted by lamps
 (approximately \humaneyesensitivity).
 If we define the ``work'' (and, therefore, exergy) of light
 to be stimulating visually-sensitive cells in the eye,
@@ -996,10 +952,11 @@ to include a weighting function~($f_\lambda$) such that
 \end{equation}
 %
 with $0 \le f_\lambda \le 1$.
-
-Given Equation~\ref{eq:weighted_emissive_power}, 
-accounting for human visual perception amounts 
-to selecting a functional form for the weighting function $f_\lambda$.
+In Equation~\ref{eq:weighted_emissive_power}, 
+the weighting function~($f_\lambda$) converts 
+from EM radiation~($\Phi$)
+to light~($\dot{L}$), 
+the valuable part of EM radiation for illumination.
 
 
 %++++++++++++++++++++++++++++++
@@ -1013,7 +970,7 @@ The first option is degenerate:
 the analyst could decide to ignore the nuances of human visual perception altogether,
 implicitly assuming that all EM radiation emitted from a lamp is valuable, 
 whether or not it is within the visible portion of the EM spectrum.
-For the first option, 
+For the first option, the degenerate weighting function ($f_{\lambda,uw}$) is
 %
 \begin{equation} \label{eq:f1}
   f_{\lambda,uw} = 1 \; .
@@ -1042,53 +999,56 @@ with a sensitivity peak at 555~nm (green)
 and lesser sensitivities at both longer and shorter wavelengths.
 A third option involves weighting a lamp's emitted EM radiation 
 by the photopic sensitivity of the human eye.
-The photopic luminosity (pl) function~($V_f$) describes this sensitivity, 
+The photopic luminosity~(pl) function~($V_f$) describes this sensitivity, 
 as shown in Figure~\ref{fig:Vis_Graph}.
-$V_\lambda$ is the photopic luminosity function, 
-first defined by the Commission Internationale de l' Éclairage (CIE)
-most recently in 2006(?), and 
+****
+ZM: Is $V_f$ the right symbol? 
+I'd prefer to use $V_\lambda$ to indicate a speactral quantity.---MKH
+****
+The photopic luminosity function was
+is defined by the Commission Internationale de l' Éclairage (CIE)
+(most recently in 2006(?)), and 
 it represents the sensitivity of M and L cones
 at daytime light levels. **** Need reference here.---MKH ****
 So, for Option 3,
 %
 \begin{equation} \label{eq:f3}
-  f_{\lambda,pl} = V_\lambda \; .
+  f_{\lambda,pl} = V_f \; .
 \end{equation}
 
 Substituting Equation~\ref{eq:f3} into Equation~\ref{eq:weighted_emissive_power}
-provides the basis for calculating a lamp's output of visible light in lumens (lm)
+yields
 %
-\begin{equation} \label{eq:lumen}
-  \dot{P}_{pl} = 683 \text{ lm/W} \int V_\lambda \Phi_\lambda \mathrm{d}\lambda \; ,
+\begin{equation}
+  \dot{L}_{pl} = \int V_f \Phi_\lambda \mathrm{d}\lambda \; ,
 \end{equation}
 %
-where 683~lm/W is the EM radiation emission of a light source emitting at 555 nm. 
+which provides the basis for calculating a lamp's output of visible light in lumens (lm):
+%
+\begin{equation} \label{eq:lumen}
+  \dot{P}_{pl} = 683 \text{ lm/W} \dot{L}_{pl} = 683 \text{ lm/W} \int V_f \Phi_\lambda \mathrm{d}\lambda \; .
+\end{equation}
+%
+The scaling constant 683~lm/W is the EM radiation emission of a light source emitting at 555 nm, 
+the peak wavelength sensitivity of the human eye. (See Figure~\ref{fig:Vis_Graph}.) 
 (Note that because lumens are a re-scaling of watts, 
 lumens are also a unit of luminous power.)
 
-The photopic luminosity function~($V_\lambda$) is the industry standard for determining lumen output
+The photopic luminosity function~($V_f$) is the industry standard for determining lumen output
 of lamps, but it has been criticized for under-representing
-the power of wavelengths less than 555~nm, 
-a long-wave bias.
-The photopic luminosity function
+the power of wavelengths less than 555~nm. 
+In fact, the photopic luminosity function
 neglects the differential sensitivity of the human eye's other light receptors,
 namely the short-wave cones,
 rods, and intrinsically photosensitive retinal ganglion cells (ipRGCs),
 which are responsible for vision in low-light settings and
 physiological functions such as the regulation of circadian rhythms.
+Thus, the photopic luminosity function~($V_f$) 
+has a long-wave bias.
 
-Given that the industry-standard measure of lighting efficiency
-is the luminous efficacy
-(the quotient between a lamp's lumen output and the power input),
-the use of the photopic luminosity function 
-under-represents the power at short wavelengths in lighting efficiency estimates.
-This state of affairs biases lighting manufacturers to reduce short wavelength
-output of lamps, even when short wavelength EM radiation would be beneficial
-for biological regulation. 
-
-A fourth option weights a lamps EM radiation output 
+A fourth option weights a lamp's EM radiation output 
 by the sensitivity of all five light receptors in the human eye
-(not just the M and L cones as in $V_\lambda$). 
+(not just the M and L cones as in $V_f$). 
 The universal luminous efficiency function ($U_\lambda$) **** reference ****
 captures the actual, broader sensitivity of the human eye.
 So, for option 4,
@@ -1097,14 +1057,9 @@ So, for option 4,
   f_{\lambda,univ} = U_\lambda \; .
 \end{equation}
 
-The leftmost column of Figure~\ref{fig:wfs_and_lamps} shows 
+The leftmost column of Figure~\ref{fig:wfs_and_lamps} illustrates 
 the four options for weighting a lamp's EM radiation output
 when determining the useful \enoex{} of light.
-
-
-
-
-
 
 
 %++++++++++++++++++++++++++++++
@@ -1113,14 +1068,14 @@ when determining the useful \enoex{} of light.
 %++++++++++++++++++++++++++++++
 
 Recent advances in the thermodynamics of radiation community
-enable converting the energy of light into the exergy of light.
+enable converting the energy of EM radiation into the exergy of EM radiation.
 Within that community,
-the exergy-to-energy ratio of light
-($\phi_L$, called the ``radiative exergy-energy coefficient'' in that community)
+the exergy-to-energy ratio of EM radiation
+($\phi_{\EM}$, called the ``radiative exergy-energy coefficient'' in that community)
 is given by Petela's Equation~\cite{petela1964exergy}:
 %
 \begin{equation} \label{eq:petelas_equation}
- \phi_L = 1 - \frac{4}{3}\frac{T_{0}}{T_{1}} + \frac{1}{3} \left(\frac{T_{0}}{T_{1}}\right)^4 \; .
+ \phi_{\EM} = 1 - \frac{4}{3}\frac{T_{0}}{T_{1}} + \frac{1}{3} \left(\frac{T_{0}}{T_{1}}\right)^4 \; .
 \end{equation}
 
 However, Petela's equation assumes a blackbody emitter and
@@ -1166,22 +1121,10 @@ or
 We make the assumption that the mechanism
 by which light is converted into electrical nerve signals
 in the human eye
-is radiative heat transfer
-from the light source~(1) to the eye~(0).
-**** 
-This doesn't seem like a controversial assumption. 
-(Maybe the ``heat'' part?)
-Can we rather say 
-``The mechanism
-by which light is converted into an electrical nerve signal 
-by the human eyes light receptors
-is radiative EM energy transfer.''---MKH
-****
-****
-I've just double checked Shan and Zhou (2019) and they use the terms
-" radiative energy...... thermal energy",
-So i'm happy for this to be changed ---ZM
-****
+is radiative EM energy transfer
+from a light source~(1) to an eye~(0).
+We further assume that the human eye is a blackbody absorber 
+(i.e., it absorbs EM radiation independent of wavelength).
 Thus, we use Shan and Zhou's~\cite{shan2019} specular formulation of Petela's equation,
 which replaces the temperature of the emitter ($T_1$) by photon effective temperature~($T_\lambda$):
 %
@@ -1193,15 +1136,6 @@ Further, Equation~\ref{eq:T_lambda} can be substituted into Equation~\ref{eq:phi
 and $T_0$ can be taken as 310~K, the temperature of the human body.
 The result is Figure~\ref{fig:phi_L_lambda_vs_lambda} which shows the specular exergy-to-energy ratio
 as a function of wavelength.
-****
-This approach assumes that the human eye is a blackbody absorber.
-Is that true?
-I guess it would be true to first approximation, because a blackbody can be approximated by a 
-cavity with a small hole in it, which is essentially the geometry of an eye.---MKH
-****
-****
-Good point! I think that treating the eye as a blackbody is the most practical assumption for the reference environment for the purposes of this paper.---ZM 
-****
 
 <<phi_L_lambda_vs_lambda, fig.align="center", fig.width=5, fig.height=3, fig.cap="The specular exergy-to-energy ratio of light ($\\phi_{L,\\lambda}$) as a function of wavelength~($\\lambda$).">>=
 tibble::tibble(lambda = seq(250, 900, by = 0.5)*10^(-9)) %>% 
@@ -1229,7 +1163,7 @@ the specular exergy-to-energy ratio~($\phi_\lambda$)
 with respect to wavelength.
 %
 \begin{equation}
-  \dot{L}_X = \int \phi_{L\lambda} f_\lambda \Phi_\lambda \mathrm{d}\lambda
+  \dot{X}_L = \int \phi_{L,\lambda} f_\lambda \Phi_\lambda \mathrm{d}\lambda
 \end{equation}
 
 The quotient of $\dot{L}_{X}$ and $\dot{L}$ gives the overall exergy-energy ratio, 
@@ -1238,7 +1172,7 @@ lamp ($\Phi_\lambda$) and
 weighting function ($f_\lambda$).
 
 \begin{equation}
-  \phi_{L} = \frac{\dot{L}_{X}}{\dot{L}} 
+  \phi_{L} = \frac{\dot{X}_L}{\dot{L}} 
            = \frac {\int \phi_{L\lambda} f_\lambda \Phi_\lambda \mathrm{d}\lambda}
                        {\int f_\lambda \Phi_\lambda \mathrm{d}\lambda}
 \end{equation}
@@ -1250,16 +1184,20 @@ Table~\ref{tab:EX_summary} summarizes the preceding discussion.
 
 
 %++++++++++++++++++++++++++++++
-\subsection{Lamps}
-\label{sec:lamps}
+\subsection{Lamps and lamp efficiency}
+\label{sec:lamps_and_lamp_efficiency}
 %++++++++++++++++++++++++++++++
+
+****
+Matt needs to edit this section yet. 
+****
 
 To demonstrate how the use of selection of various weighting functions 
 alters the measurement of the efficiency of a lighting device 
 we choose to compare the following lamps and weighting functions
 
 ****
-Inset names of lamps here.
+Insert names of lamps here.
 ****
 
 Furthermore, the valuable light energy efficiency can be calculated in two ways,
@@ -1443,11 +1381,32 @@ ZM: Discuss how our results for the examples vary from results that would have b
 previous methods of determining the exergy of lighting.
 ****
 
-%------------------------------
+%++++++++++++++++++++++++++++++
+\subsection{Weighting functions and blue light}
+\label{sec:blue_light}
+%++++++++++++++++++++++++++++++
+
+****
+Zeke: I moved this paragraph here
+to provide more space for this discussion.
+Can you expand on it, referencing the results?---MKH
+****
+
+Given that the industry-standard measure of lighting efficiency
+is the luminous efficacy
+(the quotient between a lamp's lumen output and the power input),
+the use of the photopic luminosity function 
+under-represents the power at short wavelengths in lighting efficiency estimates.
+This state of affairs biases lighting manufacturers to reduce short wavelength
+output of lamps, even when short wavelength EM radiation would be beneficial
+for biological regulation. 
+
+
+%++++++++++++++++++++++++++++++
 \subsection{Comparison with previous approaches in Societal Exergy Analysis}
 \label{sec:compwithSEA}
-%------------------------------
-%
+%++++++++++++++++++++++++++++++
+
 The luminous (or second law) efficiency of lighting
 has previously been calculated in SEA
 by taking the quotient of the minimum energy required to produce a given output,
@@ -1853,6 +1812,57 @@ Depending on the option taken and the weighting function selected the valuable e
 \begin{equation}
  \eta_{X,v} = \frac{\int \dot{P}_\lambda Wf_\lambda d\lambda}{\dot{W}_1} = \frac{\dot{L}_{useful}}{\dot{W}_1} \; .
 \end{equation}
+
+
+%++++++++++++++++++++++++++++++
+\subsection{Stuff about DB}
+%++++++++++++++++++++++++++++++
+
+The term $\phi_L$ is the exergy-to-energy ratio for light.
+Recent work by Delgado-Bonal~\cite{Delgado-Bonal:2017aa}
+provides a method for calculating $\phi_L$.
+(See Section~\ref{sec:phi_light} for details.)
+Delgado-Bonal's estimate 
+is $\phi_L = 0.931$
+for blackbody solar spectrum electromagnetic radiation
+\cite[Figure~3]{Delgado-Bonal:2017aa}.
+A similar estimate comes from the maximum efficiency 
+of converting blackbody electromagnetic radiation (at 5800~K, the temperature of the sun) 
+to electricity (pure work and, therefore, pure exergy), 
+rejecting waste heat to an ambient temperature of 300~K:
+%
+\begin{equation}
+  \phi_L \approx \eta_C = 1 - \frac{T_0}{T_{sun}} = 1 - \frac{300 \; \text{K}}{5800 \; \text{K}} = 0.948 \; .
+\end{equation}
+%
+*** I would add here that using the Carnot efficiency represents thermal transfer, as opposed to radiative transfer for which the mechanism differs as described by Shan \& Zhou (2019), which we then go on to examine in Section~\ref{sec:phi_light}. Or Perhaps we should move all discussion of the exergy-energy factor to this section?---ZM ***
+Other values for $\phi_L$ are needed when the spectra of emitted light is
+different from the spectra of blackbody radiation,
+as discussed in Section~\ref{sec:phi_light}.
+
+
+
+%++++++++++++++++++++++++++++++
+\subsection{Stuff about efficiencies}
+%++++++++++++++++++++++++++++++
+
+Strictly speaking, the \enaex{} efficiencies of a lamp
+are evaluated between the final and useful stages of the energy conversion chain
+(where light \enaex{} exist),
+prior to the \emph{energy service} stage
+(where illumination exists).
+Both
+%
+\begin{enumerate*}[label={(\alph*)}]
+
+  \item the \enaex{} of light and
+
+  \item the \enaex{} efficiency of lamps
+
+\end{enumerate*}
+%
+are independent of the energy service provided by the lamp.
+
 
 ********************************* End Bone Pile *********************************
 
