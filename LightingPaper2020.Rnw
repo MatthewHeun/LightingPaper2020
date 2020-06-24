@@ -1324,6 +1324,11 @@ of the stream of photons.
 ****
 Is this a good way to address the critique?---MKH
 ****
+****
+I'll double check the derivation of the photon effective temperature in Chen (2008) 
+to see whether it corresponds with the phrase "statistical average effective temperature
+and then get back to you! ---ZM
+****
 )
 The product of wavelength and photon effective temperature is a constant~($c_3$ in Chen et al.~\cite{chen2008}) such that
 %
@@ -1351,6 +1356,11 @@ by which light is converted into an electrical nerve signal
 by the human eyes light receptors
 is radiative EM energy transfer.''---MKH
 ****
+****
+I've just double checked Shan and Zhou (2019) and they use the terms
+" radiative energy...... thermal energy",
+So i'm happy for this to be changed ---ZM
+****
 Thus, we use Shan and Zhou's~\cite{shan2019} specular formulation of Petela's equation,
 which replaces the temperature of the emitter ($T_1$) by photon effective temperature~($T_\lambda$):
 %
@@ -1367,6 +1377,9 @@ This approach assumes that the human eye is a blackbody absorber.
 Is that true?
 I guess it would be true to first approximation, because a blackbody can be approximated by a 
 cavity with a small hole in it, which is essentially the geometry of an eye.---MKH
+****
+****
+Good point! I think that treating the eye as a blackbody is the most practical assumption for the reference environment for the purposes of this paper.---ZM 
 ****
 
 <<phi_L_lambda_vs_lambda, fig.align="center", fig.width=5, fig.height=3, fig.cap="The specular exergy-to-energy ratio of light ($\\phi_{L,\\lambda}$) as a function of wavelength~($\\lambda$).">>=
@@ -1419,6 +1432,9 @@ For the purposes of this analysis
 we choose not to examine these additional factors.
 ****
 I suggest we delete this paragraph.---MKH
+****
+****
+Also happy for this paragraph to be deleted! ---ZM
 ****
 
 
