@@ -119,6 +119,20 @@ comp_flux_df <- dplyr::full_join(lamp_info, received_luminous_flux, by = "lamp_n
     scaling_factor = luminous_flux / wrong_luminous_flux
 )
 
+
+# Calculating photon temperature and phi values per wavelength
+pet_const = 5.33016e-3
+T_0 = 310
+
+energy_to_exergy_df <- tibble::tibble(
+  `Wavelength [nm]` = seq(from = 200, to = 1000, by = 0.5),
+  `Wavelength [m]` = `Wavelength [nm]` * 1e-9,
+  T_lambda = pet_const / `Wavelength [m]`,
+  phi_L_lambda = 1 - (4/3)*(T_0/T_lambda) + (1/3)*(T_0/T_lambda)^4
+)
+
+
+
 # Join comp_flux_df to received_weighted_responses DF,
 # Add a column for the actual radiant flux and
 # add a column for the actual weighted radiant flux
@@ -129,5 +143,23 @@ weighted_responses_df <- dplyr::full_join(
   dplyr::mutate(
     actual_radiant_flux = received_radiative_flux * scaling_factor,
     actual_weighted_radiant_flux = actual_radiant_flux * normalized_response
+  ) %>%
+  dplyr::left_join(energy_to_exergy_df %>% dplyr::select(c(`Wavelength [nm]`, phi_L_lambda)),
+                   by = "Wavelength [nm]") %>%
+  dplyr::mutate(
+    actual_weighted_exergy = actual_weighted_radiant_flux * phi_L_lambda,
+    actual_exergy = actual_radiant_flux * phi_L_lambda
   )
+
+# (1) Create a dataframe with all energy-to-energy ratio by wavelength
+# - Photon effective temperature each lambda
+# - Calculate the energy-to-exergy ratio per wavelength
+# (2) Join it with weighted_responses_df
+# (3) Multiply
+
+
+
+
+
+
 
