@@ -1353,6 +1353,7 @@ tibble::tibble(lambda = seq(250, 900, by = 0.5)*10^(-9)) %>%
   MKHthemes::xy_theme()
 @
 
+**** Matt stopped here. ****
 
 To calculate the total exergy of a lamp or light source
 the product of the spectral power distribution,
