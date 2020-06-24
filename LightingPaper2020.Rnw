@@ -1317,9 +1317,9 @@ who argued that
 ``to endue a single photon with macro-scale thermodynamic parameters
 such as exergy and entropy is inappropriate.'' 
 We acknowledge this critique, 
-but we also note that we are ascribing an effective temperature to a stream of photons
+but we also note that $T_\lambda$ is ascribed to a stream of photons
 traveling from a lamp to an eye.
-Thus, $T_\lambda$ can be considered the statistical average effective temperature 
+Thus, for our purposes, $T_\lambda$ can be considered the statistical average effective temperature 
 of the stream of photons.
 ****
 Is this a good way to address the critique?---MKH
@@ -1359,7 +1359,7 @@ which replaces the temperature of the emitter ($T_1$) by photon effective temper
 \end{equation}
 %
 Further, Equation~\ref{eq:T_lambda} can be substituted into Equation~\ref{eq:phi_L_lambda_shan_zhou},
-and $T_0 = 310 \text{ K}$, the temperature of the human body.
+and $T_0$ can be taken as 310~K, the temperature of the human body.
 The result is Figure~\ref{fig:phi_L_lambda_vs_lambda} which shows the specular exergy-to-energy ratio
 as a function of wavelength.
 ****
