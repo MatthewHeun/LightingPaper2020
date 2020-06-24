@@ -1308,16 +1308,16 @@ at temperatures $T_1$ and $T_0$, respectively.
 To facilitate the calculation of $\phi_L$ for a non-blackbody lamp,
 the specular exergy-to-energy ratio ($\phi_{L,\lambda}$),
 must be calculated.
-An effective temperature of a monochromatic photon~\cite{chen2008} ($T_\lambda$) 
+An effective temperature of light photons~\cite{chen2008} ($T_\lambda$) 
 provides the link between Petela's equation (Equation~\ref{eq:petelas_equation})
 and the specular exergy-to-energy ratio~($\phi_L$).
 (We note that the use of the photon effective temperature approach has been criticized by 
-Liu~\cite[p.~****]{liu2009},
+Liu~\cite[p.~1810]{liu2009},
 who argued that 
 ``to endue a single photon with macro-scale thermodynamic parameters
-such as exergy and entropy is inappropriate.'' 
+such as exergy and entropy'' is inappropriate.
 We acknowledge this critique, 
-but we also note that $T_\lambda$ is ascribed to a stream of photons
+but we also note that here $T_\lambda$ is ascribed to a stream of photons
 traveling from a lamp to an eye.
 Thus, for our purposes, $T_\lambda$ can be considered the statistical average effective temperature 
 of the stream of photons.
