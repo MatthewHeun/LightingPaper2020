@@ -1294,23 +1294,38 @@ Though in this case no constant is applied in accordance with EQUATION?
 Recent advances in the thermodynamics of radiation community
 enable converting the energy of light into the exergy of light.
 Within that community,
-The exergy-to-energy ratio~($\phi_L$) of light
-(called the ``spectral radiative exergy-energy coefficient'' in that community)
+the exergy-to-energy ratio of light
+($\phi_L$, called the ``spectral radiative exergy-energy coefficient'' in that community)
 is given by Petela's Equation~\cite{petela1964exergy}:
 %
-\begin{equation}
+\begin{equation} \label{eq:petelas_equation}
  \phi_L = 1 - \frac{4}{3}\frac{T_{0}}{T_{1}} + \frac{1}{3} \left(\frac{T_{0}}{T_{1}}\right)^4 \; .
 \end{equation}
 
-However, Petela's equation assumes two blackbody radiators 
-at temperatures $T_1$ and $T_0$.
+However, Petela's equation assumes a blackbody emitter and
+a blackbody receiver 
+at temperatures $T_1$ and $T_0$, respectively.
 To facilitate the calculation of $\phi_L$ for a non-blackbody lamp,
 the specular exergy-to-energy ratio ($\phi_{L,\lambda}$),
 must be calculated.
 An effective temperature of a monochromatic photon~\cite{chen2008} ($T_\lambda$) 
-provides the link between Petela's equation 
-and the specular exergy-to-energy ratio.
-The product of wavelength and photon effective temperture is a constant ($c_3$) such that
+provides the link between Petela's equation (Equation~\ref{eq:petelas_equation})
+and the specular exergy-to-energy ratio~($\phi_L$).
+(We note that the use of the photon effective temperature approach has been criticized by 
+Liu~\cite[p.~****]{liu2009},
+who argued that 
+``to endue a single photon with macro-scale thermodynamic parameters
+such as exergy and entropy is inappropriate.'' 
+We acknowledge this critique, 
+but we also note that we are ascribing an effective temperature to a stream of photons
+traveling from a lamp to an eye.
+Thus, $T_\lambda$ can be considered the statistical average effective temperature 
+of the stream of photons.
+****
+Is this a good way to address the critique?---MKH
+****
+)
+The product of wavelength and photon effective temperature is a constant~($c_3$ in Chen et al.~\cite{chen2008}) such that
 %
 \begin{equation}
   \lambda T_{\lambda} = c_{3} = 5.33016 \times 10^{-3} \text{ m-K} \; ,
@@ -1322,25 +1337,37 @@ or
   T_\lambda = \frac{5.33016 \times 10^{-3} \text{ m-K}}{\lambda} \; .
 \end{equation}
 
-Shan and Zhou~\cite{shan2019} formulate Petela's equation
-in terms of the photon effective temperature as
+We make the assumption that the mechanism
+by which light is converted into electrical nerve signals
+in the human eye
+is radiative heat transfer
+from the light source~(1) to the eye~(0).
+**** 
+This doesn't seem like a controversial assumption. 
+(Maybe the ``heat'' part?)
+Can we rather say 
+``The mechanism
+by which light is converted into an electrical nerve signal 
+by the human eyes light receptors
+is radiative EM energy transfer.''---MKH
+****
+Thus, we use Shan and Zhou's~\cite{shan2019} specular formulation of Petela's equation,
+which replaces the temperature of the emitter ($T_1$) by photon effective temperature~($T_\lambda$):
 %
-\begin{equation}
- \phi_{L,\lambda} = 1 - \frac{4}{3}\frac{T_{0}}{T_{\lambda}} + \frac{1}{3} \left(\frac{T_{0}}{T_{\lambda}}\right)^4 \; ,
+\begin{equation} \label{eq:phi_L_lambda_shan_zhou}
+ \phi_{L,\lambda} = 1 - \frac{4}{3}\frac{T_{0}}{T_{\lambda}} + \frac{1}{3} \left(\frac{T_{0}}{T_{\lambda}}\right)^4 \; .
 \end{equation}
 %
-into which Equation~\ref{eq:T_lambda} can be substituted to find
-the specular exergy-to-energy ratio for light. 
-
-We make the assumption that the mechanism
-with which light is converted into an electrical nerve signal 
-by the human eyes light receptors
-is radiative heat transfer.
-Subsequently, we take the temperature of the entity receiving illumination~($T_{0}$)
-to be 310~K, the temperature of the human body.
-
-Figure~\ref{fig:phi_L_lambda_vs_lambda} shows a graph of the specular exergy-to-energy ratio
+Further, Equation~\ref{eq:T_lambda} can be substituted into Equation~\ref{eq:phi_L_lambda_shan_zhou},
+and $T_0 = 310 \text{ K}$, the temperature of the human body.
+The result is Figure~\ref{fig:phi_L_lambda_vs_lambda} which shows the specular exergy-to-energy ratio
 as a function of wavelength.
+****
+This approach assumes that the human eye is a blackbody absorber.
+Is that true?
+I guess it would be true to first approximation, because a blackbody can be approximated by a 
+cavity with a small hole in it, which is essentially the geometry of an eye.---MKH
+****
 
 <<phi_L_lambda_vs_lambda, fig.align="center", fig.width=5, fig.height=3, fig.cap="The specular exergy-to-energy ratio of light ($\\phi_{L,\\lambda}$) as a function of wavelength~($\\lambda$).">>=
 tibble::tibble(lambda = seq(250, 900, by = 0.5)*10^(-9)) %>% 
@@ -1360,30 +1387,28 @@ tibble::tibble(lambda = seq(250, 900, by = 0.5)*10^(-9)) %>%
   MKHthemes::xy_theme()
 @
 
-**** Matt stopped here. ****
-
-To calculate the total exergy of a lamp or light source
-the product of the spectral power distribution,
-the chosen weighting function,
-and the specular energy-to-energy ratio
-is integrated with respect to wavelength
+The exergy of a non-blackbody lamp
+is found by integrating the product of
+the specular power distribution~($\Phi_\lambda$),
+the specular weighting function~($f_\lambda$), and
+the specular exergy-to-energy ratio~($\phi_\lambda$)
+with respect to wavelength.
 %
 \begin{equation}
-  \dot{L}_X = \int \phi_{L\lambda} f_\lambda \Phi_\lambda \mathrm{d}\lambda \; .
+  \dot{L}_X = \int \phi_{L\lambda} f_\lambda \Phi_\lambda \mathrm{d}\lambda
 \end{equation}
-%
-The quotient of the $\dot{L}_{X}$ and $\dot{L}$ then gives us the overall exergy-energy ratio, which is specific to each unique spectral power distribution.
+
+The quotient of $\dot{L}_{X}$ and $\dot{L}$ gives the overall exergy-energy ratio, 
+which is specific to each combination of
+lamp ($\Phi_\lambda$) and
+weighting function ($f_\lambda$).
 
 \begin{equation}
-  \phi_{L} = \frac{\dot{L}_{X}}{\dot{L}} = \frac {\int \phi_{L\lambda} f_\lambda \dot{L}_\lambda \mathrm{d}\lambda}{\int f_\lambda \dot{L}_\lambda \mathrm{d}\lambda} \; .
+  \phi_{L} = \frac{\dot{L}_{X}}{\dot{L}} 
+           = \frac {\int \phi_{L\lambda} f_\lambda \Phi_\lambda \mathrm{d}\lambda}
+                       {\int f_\lambda \Phi_\lambda \mathrm{d}\lambda}
 \end{equation}
 
-However, the use of the 'effective temperature of a photon' approach has been subject to criticism, 
-with Liu (2009) arguing that 
-\textit {"to endue a single photon with macroscale thermodynamic parameters such as exergy and entropy is inappropriate"}. 
-We acknowledge this critique, 
-however in the absence of a generalised equation for the exergy distribution of a non-blackbody radiator,
-we consider this approach a valid approximation **** Is this the correct way to phrase this passage? ---ZM ****
 
 Shan and Zhou (2019) advance this thinking,
 developing a methodology which includes
@@ -1392,6 +1417,9 @@ absorption and scattering and spatial scattering,
 in addition to Petela's exergy-energy coefficient.
 For the purposes of this analysis
 we choose not to examine these additional factors.
+****
+I suggest we delete this paragraph.---MKH
+****
 
 
 
