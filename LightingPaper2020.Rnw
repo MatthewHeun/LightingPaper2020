@@ -1002,6 +1002,9 @@ as shown in Figure~\ref{fig:Vis_Graph}.
 ZM: Is $V_f$ the right symbol? 
 I'd prefer to use $V_\lambda$ to indicate a speactral quantity.---MKH
 ****
+****
+I'm happy with $V_\lambda$, the most important thing is that the letter is V! ---ZM 
+****
 The photopic luminosity function was
 is defined by the Commission Internationale de l' Éclairage (CIE)
 (most recently in 2006(?)), and 
@@ -1026,9 +1029,38 @@ which provides the basis for calculating a lamp's output of visible light in lum
   \dot{P}_{pl} = 683 \text{ lm/W} \; \dot{L}_{pl} = 683 \text{ lm/W} \int V_f \Phi_\lambda \mathrm{d}\lambda \; .
 \end{equation}
 %
+\begin{equation} \label{eq:lumen}
+  \epsilon_{max} = 683 \text{ lm/W} .
+\end{equation}
+%
+\begin{equation} \label{eq:lumen}
+  \dot{I}_{V} = 683 \text{ lm/W} \int V_f \Phi_\lambda \mathrm{d}\lambda \; .
+\end{equation}
+%
 ****
 ZM: Question: can we also say that $\dot{P} = (683 \text{ lm/W}) \; \dot{L}$ for any weighting function?---MKH
 ****
+****
+No the constant of 683 \text{ lm/W} is used only with the photopic luminosity function 
+to calculate the Lumen (a subjective measure of brightness). ---ZM
+****
+This is also related to Table 2 - Symbols and abbreviations in the appendix.
+So $\dot{P}$ is defined as the 'light (weighted luminous power) [lm]'
+but above it is simply equal to 683~\text{ lm/W}, which is not the case.
+I recommend that we give the constant the symbol $\epsilon_{max}$ 
+as it is defined as the maximum luminous efficacy.
+Additionally, after you apply the constant to $\dot{L}_{f}$ 
+it ceases to be $\dot{L}_{f}$ 
+and becomes a measure of lumens which needs a different symbol. 
+Which i recommend is  $\dot{I}_{V}$
+in accordance with the rest of the field.
+$\dot{L}$ is defined in the appendix as 'light (weighted luminous power) [W]',
+as so i think we need to change this in the appendix to 'Light (weighted radiant/spectral power) [W]'.
+I have added equations 25 and 26 with this nomenclature, 
+let me know what you think and if you agree I can also change the appendix!
+---ZM
+****
+
 The scaling constant 683~lm/W is the EM radiation emission of a light source emitting at 555 nm, 
 the peak wavelength sensitivity of the human eye. (See Figure~\ref{fig:Vis_Graph}.) 
 (Note that because lumens are a re-scaling of watts, 
@@ -1049,7 +1081,7 @@ has a long-wave bias.
 A fourth option weights a lamp's EM radiation output 
 by the sensitivity of all five light receptors in the human eye
 (not just the M and L cones as in $V_f$). 
-The universal luminous efficiency function ($U_\lambda$) **** reference ****
+The universal luminous efficiency function ($U_\lambda$) \cite{Rea2018}
 captures the actual, broader sensitivity of the human eye.
 So, for option 4,
 %
