@@ -4,7 +4,7 @@
 # containing weighting functions, lamps, and weighted emission spectra.
 # Weighting function tabs are prefixed with "wf_".
 # Lamp tabs are prefixed with "lamp_".
-
+library(magrittr)
 
 # Main code
 weighted_power <- function(weighting_function, lamp) {

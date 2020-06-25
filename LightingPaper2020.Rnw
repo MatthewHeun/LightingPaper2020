@@ -1006,10 +1006,9 @@ I'd prefer to use $V_\lambda$ to indicate a speactral quantity.---MKH
 I'm happy with $V_\lambda$, the most important thing is that the letter is V! ---ZM 
 ****
 The photopic luminosity function was
-is defined by the Commission Internationale de l' Éclairage (CIE)
-(most recently in 2006(?)), and 
+is defined by the Commission Internationale de l' Éclairage (CIE), and 
 it represents the sensitivity of M and L cones
-at daytime light levels. **** Need reference here.---MKH ****
+at daytime light levels \cite{CVRL2008}.
 So, for Option 3,
 %
 \begin{equation} \label{eq:f3}
@@ -1029,11 +1028,11 @@ which provides the basis for calculating a lamp's output of visible light in lum
   \dot{P}_{pl} = 683 \text{ lm/W} \; \dot{L}_{pl} = 683 \text{ lm/W} \int V_f \Phi_\lambda \mathrm{d}\lambda \; .
 \end{equation}
 %
-\begin{equation} \label{eq:lumen}
+\begin{equation} 
   \epsilon_{max} = 683 \text{ lm/W} .
 \end{equation}
 %
-\begin{equation} \label{eq:lumen}
+\begin{equation} 
   \dot{I}_{V} = 683 \text{ lm/W} \int V_f \Phi_\lambda \mathrm{d}\lambda \; .
 \end{equation}
 %
@@ -1232,9 +1231,6 @@ To demonstrate how the use of selection of various weighting functions
 alters the measurement of the efficiency of a lighting device 
 we choose to compare the following lamps and weighting functions
 
-****
-Insert names of lamps here.
-****
 
 Furthermore, the valuable light energy efficiency can be calculated in two ways,
 by taking the quotient of the useful light (as determined by a given weighting function),
@@ -1255,12 +1251,12 @@ Though in this case no constant is applied in accordance with EQUATION?
  Radiation\ to\ Light\ efficiency = \frac{\dot{L}_{useful}}{\dot{L}_1} \; .
 \end{equation}
 
-**** Do we want to report the Radiation to Light efficiency? ---ZM ****
-**** If so we need better names and to assign further subscripts to eta ---ZM ****
-**** Should we also include the electricity to radiation efficiency? --- EAR"
+**** We need better names for these equations
+and to assign further subscripts to eta ---ZM ****
 
+\input{pieces/lamps.tex}
 
-
+\input{pieces/wfs.tex}
 
 
 

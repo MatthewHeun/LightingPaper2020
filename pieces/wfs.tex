@@ -1,0 +1,36 @@
+% The next command tells RStudio to do "Compile PDF" on book.Rnw,
+% instead of this chapter, thereby eliminating the need to switch back to book.Rnw 
+% before making the book.
+%!TEX root = ../LightingPaper2020.Rnw
+
+% \begin{landscape}
+
+\begin{table}
+\centering % Centered table
+\caption{Weighting Functions}
+\begin{tabular}{r l l}
+  \toprule
+  Weighting Function & Effect & Source \\
+  \midrule
+  No Weighting  
+      & No effect
+      & NA \\
+  %
+  Visible Spectrum
+      & Restricts the range to $380 \le \lambda \le 750$
+      & - \\
+  %
+  Photopic Luminsosity Function
+      & Adjusts for the sensitivity of the medium and long cones
+      & \cite{CVRL2008} \\
+  %
+  Universal Luminosity Function
+      & Adjusts for the sensitivity of all of the eyes light receptors
+      & \cite{rea2018}\\
+  %
+  \bottomrule
+\end{tabular}
+\label{tab:wfs}
+\end{table}
+
+% \end{landscape}
