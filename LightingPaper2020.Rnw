@@ -464,7 +464,7 @@ response_data %>%
   ) %>% 
   ggplot2::ggplot(mapping = aes(x = `Wavelength [nm]`)) +
   ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = normalized_response), 
-                        # geom = "bar",
+                        geom = "bar",
                         # chroma.type = photobiology::cone_fundamentals10.spct,
                         # chroma.type = photobiology::ciexyzCC2.spct, 
                         # chroma.type = photobiology::ciexyzCC2.spct, 
@@ -477,7 +477,6 @@ response_data %>%
   scale_color_identity() +
   geom_line(mapping = aes(y = normalized_response), color = "darkgray") +
   geom_vline(xintercept = 555, size = 0.2, color = "darkgray") +
-
   xlab(expression(lambda*" [nm]")) +
   ylab("Normalized sensitivity [-]") +
   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) + 
@@ -1030,7 +1029,7 @@ which provides the basis for calculating a lamp's output of visible light in lum
 \end{equation}
 %
 ****
-ZM: Question: can we also say that $\dot{P} = 683 \text{ lm/W} \dot{L}$ for any weighting function?---MKH
+ZM: Question: can we also say that $\dot{P} = (683 \text{ lm/W}) \; \dot{L}$ for any weighting function?---MKH
 ****
 The scaling constant 683~lm/W is the EM radiation emission of a light source emitting at 555 nm, 
 the peak wavelength sensitivity of the human eye. (See Figure~\ref{fig:Vis_Graph}.) 
@@ -1072,8 +1071,7 @@ when determining the useful \enoex{} of light.
 
 Recent advances in the thermodynamics of radiation community
 enable converting the energy of EM radiation into the exergy of EM radiation.
-Within that community,
-the exergy-to-energy ratio of EM radiation
+The exergy-to-energy ratio of EM radiation
 ($\phi_{\EM}$, called the ``radiative exergy-energy coefficient'' in that community)
 is given by Petela's Equation~\cite{petela1964exergy}:
 %
@@ -1082,7 +1080,7 @@ is given by Petela's Equation~\cite{petela1964exergy}:
 \end{equation}
 
 However, Petela's equation assumes a blackbody emitter and
-a blackbody receiver 
+a blackbody absorber 
 at temperatures $T_1$ and $T_0$, respectively.
 To facilitate the calculation of $\phi_L$ for a non-blackbody lamp,
 the specular exergy-to-energy ratio ($\phi_{L,\lambda}$),
@@ -1105,8 +1103,8 @@ Is this a good way to address the critique?---MKH
 ****
 ****
 I'll double check the derivation of the photon effective temperature in Chen (2008) 
-to see whether it corresponds with the phrase "statistical average effective temperature
-and then get back to you! ---ZM
+to see whether it corresponds with the phrase ``statistical average effective temperature''
+and then get back to you!---ZM
 ****
 )
 The product of wavelength and photon effective temperature is a constant~($c_3$ in Chen et al.~\cite{chen2008}) such that
@@ -1126,8 +1124,11 @@ by which light is converted into electrical nerve signals
 in the human eye
 is radiative EM energy transfer
 from a light source~(1) to an eye~(0).
-We further assume that the human eye is a blackbody absorber 
-(i.e., it absorbs EM radiation independent of wavelength).
+We further assume that the human iris is a blackbody absorber, 
+being a small aperture on a larger cavity.
+(Rossing and Chiaverina~\cite[p.~172]{Rossing2020} state
+``another good example of [a blackbody absorber] is the human eye;
+the pupil looks black because most light entering it is trapped and absorbed.'')
 Thus, we use Shan and Zhou's~\cite{shan2019} specular formulation of Petela's equation,
 which replaces the temperature of the emitter ($T_1$) by photon effective temperature~($T_\lambda$):
 %
@@ -1140,7 +1141,7 @@ and $T_0$ can be taken as 310~K, the temperature of the human body.
 The result is Figure~\ref{fig:phi_L_lambda_vs_lambda} which shows the specular exergy-to-energy ratio
 as a function of wavelength.
 
-<<phi_L_lambda_vs_lambda, fig.align="center", fig.width=5, fig.height=3, fig.cap="The specular exergy-to-energy ratio of light ($\\phi_{L,\\lambda}$) as a function of wavelength~($\\lambda$).">>=
+<<phi_L_lambda_vs_lambda, fig.align="center", fig.width=5, fig.height=3, fig.cap="The specular exergy-to-energy ratio of light ($\\phi_{L,\\lambda}$) as a function of wavelength~($\\lambda$). The color bar illustrates colors of human perception at each wavelength.">>=
 tibble::tibble(lambda = seq(250, 900, by = 0.5)*10^(-9)) %>% 
   dplyr::mutate(
     T_0 = 310,
@@ -1149,18 +1150,19 @@ tibble::tibble(lambda = seq(250, 900, by = 0.5)*10^(-9)) %>%
   ) %>% 
   ggplot2::ggplot(mapping = aes(x = lambda*10^(9), y = phi_L_lambda)) + 
   geom_line() + 
-  ggspectra::stat_wl_strip(ymin = 0.8, ymax = 0.81, chroma.type = "CMF", size = 0) +
+  ggspectra::stat_wl_strip(ymin = 0.9, ymax = 0.91, chroma.type = "CMF", size = 0) +
   scale_fill_identity() +
+  geom_vline(xintercept = 555, size = 0.2, color = "darkgray") +
   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
-  scale_y_continuous(limits = c(0.8, 1.0), breaks = c(0.8, 0.9, 1)) +
+  scale_y_continuous(limits = c(0.9, 1.0), breaks = c(0.9, 0.95, 1)) +
   xlab(expression(lambda*" [nm]")) +
   ylab(expression(phi[L*","*lambda]*" [-]")) +
   MKHthemes::xy_theme()
 @
 
-The exergy of a non-blackbody lamp
+The exergy of a non-blackbody lamp~($\dot{X}_L$)
 is found by integrating the product of
-the specular power distribution~($\Phi_\lambda$),
+the specular luminous power~($\Phi_\lambda$),
 the specular weighting function~($f_\lambda$), and
 the specular exergy-to-energy ratio~($\phi_\lambda$)
 with respect to wavelength.
@@ -1193,7 +1195,7 @@ Sections~\ref{sec:framework}--\ref{sec:phi_light}.
 %++++++++++++++++++++++++++++++
 
 ****
-Matt needs to edit this section yet. 
+Matt needs to edit this section after it is completed. 
 ****
 
 To demonstrate how the use of selection of various weighting functions 
@@ -1431,6 +1433,11 @@ and the maximum luminous efficacy.
 \begin{equation}
   \frac{1}{\epsilon_{max}} / \frac{1}{\epsilon_{lamp}} \equiv \frac{1}{\epsilon_{max}} \cdot \frac{\epsilon_{lamp}}{1} \equiv \frac{\epsilon_{lamp}}{\epsilon_{max}}\; ,
 \end{equation}
+%
+****
+Following is a better version of the previous equation. 
+I recommend we delete the previous equation.---MKH
+****
 %
 \begin{equation}
   \frac{\; \; \frac{1}{\epsilon_{max}} \; \; }{\frac{1}{\epsilon_{lamp}}}

@@ -23,14 +23,14 @@ Symbol & Meaning [example units] \\
 \midrule
 $\dot{E}$ & energy [W] \\
 EM & electro-magnetic \\
-$f$ & weighting function [--] \\
+$f_\lambda$ & weighting function [--] \\
 $\dot{L}$ & weighted luminous power [W] \\
 $\dot{P}$ & weighted luminous power [lm] \\
 $\dot{Q}$ & heat rate [W] \\
 $T$ & temperature [K] \\
 $\dot{W}$ & work [W] \\
 $\dot{X}$ & exergy [W] \\
-$V$ & photopic luminosity function [--] \\
+$V_f$ & photopic luminosity function [--] \\
 \bottomrule
 \end{tabular}
 \label{tab:symbols}
@@ -52,7 +52,10 @@ $V$ & photopic luminosity function [--] \\
   $\eta$ & efficiency [--] \\
   $\lambda$ & wavelength of electromagnetic radiation [nm] \\
   $\Phi$ & unweighted luminous power [W] \\
+  $\Phi_\lambda$ & spectral unweighted luminous power [W/nm] \\
   $\phi$ & exergy-to-energy ratio [--] \\
+  $\phi_{\EM,\lambda}$ & spectral exergy-to-energy ratio for EM radiation [--] \\
+  $\phi_{L,\lambda}$ & spectral exergy-to-energy ratio for light [--] \\
   \bottomrule
 \end{tabular}
 \label{tab:greek}
@@ -88,7 +91,8 @@ $V$ & photopic luminosity function [--] \\
 \toprule
 Subscript & Meaning \\
 \midrule
-$0$ & ambient temperature \\
+$0$ & ambient temperature or absorber temperature \\
+$1$ & emitter temperature \\
 $C$ & Carnot efficiency \\
 $D$ & exergy destroyed \\
 $elect$ & electricity \\
