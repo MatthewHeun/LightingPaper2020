@@ -936,10 +936,8 @@ quantifying the exergy of heat.
 
 Human eyes perceive only a portion of the EM radiation emitted by lamps
 (approximately \humaneyesensitivity).
-If we define the ``work'' (and, therefore, exergy) of light
-to be stimulating visually-sensitive cells in the eye,
-it makes sense to account for human perception when 
-quantifying the exergy of light.
+To quantify light energy (and exergy), we must move from broad-spectrum emitted EM energy~($\Phi$)
+to light~($\dot{L}$). 
 But how?
 
 Knowing that visual perception of light is a function of wavelength
@@ -1873,6 +1871,19 @@ Both
 \end{enumerate*}
 %
 are independent of the energy service provided by the lamp.
+
+
+
+%++++++++++++++++++++++++++++++
+\subsection{Stuff about light}
+%++++++++++++++++++++++++++++++
+
+If we define the ``work'' (and, therefore, exergy) of light
+to be stimulating visually-sensitive cells in the eye,
+it makes sense to account for human perception when 
+quantifying the exergy of light.
+
+
 
 
 ********************************* End Bone Pile *********************************
