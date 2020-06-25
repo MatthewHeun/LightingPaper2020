@@ -1200,7 +1200,7 @@ with respect to wavelength.
   \dot{X}_L = \int \phi_{\EM,\lambda} \, f_\lambda \, \Phi_\lambda \mathrm{d}\lambda
 \end{equation}
 
-The quotient of $\dot{L}_{X}$ and $\dot{L}$ gives the overall exergy-energy ratio~($\phi_{\EM}$), 
+The quotient of $\dot{X}_{L}$ and $\dot{L}$ gives the overall exergy-energy ratio~($\phi_{\EM}$), 
 which is specific to each combination of
 lamp ($\Phi_\lambda$) and
 weighting function ($f_\lambda$).
