@@ -19,12 +19,12 @@ opts_chunk$set(
 
 <<setup-R, include=FALSE>>=
 library(dplyr)
+library(forcats)
 library(ggplot2)
 library(magrittr)
 library(MKHthemes)
 library(tibble)
 library(tidyr)
-library(forcats)
 @
 
 
