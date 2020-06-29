@@ -1060,6 +1060,8 @@ let me know what you think and if you agree I can also change the appendix!
 ---ZM
 ****
 
+**** I like $I_V$. Alternatively I was thinking that we could differentiate EM radiant power $\Phi_e$ from luminous flux $\Phi_v$ with a subscript (e or v), but considering that we also have numbers as subscripts, I think changing letter as you suggest is best --- EAR ****
+
 The scaling constant 683~lm/W is the EM radiation emission of a light source emitting at 555 nm, 
 the peak wavelength sensitivity of the human eye. (See Figure~\ref{fig:Vis_Graph}.) 
 (Note that because lumens are a re-scaling of watts, 
@@ -1200,6 +1202,8 @@ with respect to wavelength.
   \dot{X}_L = \int \phi_{\EM,\lambda} \, f_\lambda \, \Phi_\lambda \mathrm{d}\lambda
 \end{equation}
 
+**** Need to add lambda as subscript of $X_L$ --- EAR ****
+
 The quotient of $\dot{X}_{L}$ and $\dot{L}$ gives the overall exergy-energy ratio~($\phi_{\EM}$), 
 which is specific to each combination of
 lamp ($\Phi_\lambda$) and
@@ -1210,6 +1214,8 @@ weighting function ($f_\lambda$).
            = \frac {\int \phi_{\EM,\lambda} f_\lambda \Phi_\lambda \mathrm{d}\lambda}
                        {\int f_\lambda \Phi_\lambda \mathrm{d}\lambda}
 \end{equation}
+
+**** Need to add lambda as subscript of $\phi_{\EM}$ --- EAR ****
 
 
 Table~\ref{tab:EX_summary} summarizes the key equations in 
