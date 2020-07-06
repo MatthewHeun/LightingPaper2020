@@ -1371,7 +1371,7 @@ response_data %>%
   scale_color_identity() +
 
   xlab(expression(lambda*" [nm]")) +
-  ylab(expression("Spectral radiative power, "*phi*" [W/m"^2*"-nm]")) +
+  ylab(expression("Spectral radiative exergy, "*phi*" [W/m"^2*"-nm]")) +
   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
   labs(fill = element_blank(), colour = element_blank()) +
   facet_grid(rows = vars(wf_name), cols = vars(lamp_name)) +
