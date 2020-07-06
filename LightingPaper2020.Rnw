@@ -1288,6 +1288,14 @@ ZM: Develop examples with two lighting technologies, one old and one LED.
 Do calculations with various permutations and show graphs.
 ****
 
+
+This is the exergy graph figure:
+
+
+
+
+
+
 See Figure~\ref{fig:wfs_and_lamps}, which provides visual representation of several weighting functions and lamps.
 
 \begin{figure}
@@ -1348,8 +1356,8 @@ response_data %>%
   #   )
   # ) %>%
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
-  geom_area(mapping = aes(y = actual_radiant_power, fill = "Radiant power"), fill = "darkgray") +
-  ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = actual_weighted_radiant_power),
+  geom_area(mapping = aes(y = actual_exergy, fill = "Exergy"), fill = "darkgray") +
+  ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = actual_weighted_exergy),
                         geom = "bar",
                         # chroma.type = photobiology::cone_fundamentals10.spct,
                         # chroma.type = photobiology::ciexyzCC2.spct,
