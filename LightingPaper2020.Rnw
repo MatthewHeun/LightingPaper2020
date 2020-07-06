@@ -1406,6 +1406,61 @@ response_data %>%
 
 
 
+
+
+\begin{figure}
+    \centering
+<<Exergy_and_energy_graph, fig.width=4.5, fig.height=5, cache=TRUE>>=
+response_data %>%
+  # This code divides the output of only the spikey CFL by a factor of 10.
+  # dplyr::mutate(
+  #   actual_radiant_power = dplyr::case_when(
+  #     lamp_name == "CFL" ~ actual_radiant_power / 10,
+  #     TRUE ~ actual_radiant_power
+  #   ),
+  #   actual_weighted_radiant_power = dplyr::case_when(
+  #     lamp_name == "CFL" ~ actual_weighted_radiant_power / 10,
+  #     TRUE ~ actual_weighted_radiant_power
+  #   )
+  # ) %>%
+  ggplot(mapping = aes(x = `Wavelength [nm]`)) +
+  geom_area(mapping = aes(y = actual_exergy, fill = "Exergy"), fill = "darkgray") +
+  facet_wrap(facets = vars(lamp_name))
+  # ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = actual_weighted_exergy),
+  #                       geom = "bar",
+  #                       # chroma.type = photobiology::cone_fundamentals10.spct,
+  #                       # chroma.type = photobiology::ciexyzCC2.spct,
+  #                       # chroma.type = photobiology::ciexyzCC2.spct,
+  #                       # chroma.type = photobiology::ciexyzCMF2.spct,
+  #                       # chroma.type = photobiology::ciexyzCMF10.spct,
+  #                       # chroma.type = "CC",
+  #                       chroma.type = "CMF",
+  #                       size = 0) +   # Eliminates borders
+  # scale_fill_identity() +
+  # scale_color_identity() +
+  # 
+  # xlab(expression(lambda*" [nm]")) +
+  # ylab(expression("Spectral radiative exergy, "*phi*" [W/m"^2*"-nm]")) +
+  # scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
+  # labs(fill = element_blank(), colour = element_blank()) +
+  # facet_grid(rows = vars(wf_name), cols = vars(lamp_name)) +
+  # MKHthemes::xy_theme() +
+  # theme(axis.text.x = element_text(size = rel(0.8), angle = 90),
+  #       axis.text.y = element_text(size = rel(0.8)),
+  #       # Move the facet labels out of the graphs slightly.
+  #       strip.text.x = element_text(margin = margin(b = 2.0)),
+  #       strip.text.y = element_text(margin = margin(l = 2.0)))
+@
+    \caption{caption to write}
+	\label{fig:wfs_and_lamps}
+\end{figure}
+
+
+
+
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion (ZM, PB, 1000 words)}
 \label{sec:discussion}
