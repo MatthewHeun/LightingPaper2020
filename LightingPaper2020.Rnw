@@ -1425,6 +1425,7 @@ response_data %>%
   # ) %>%
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
   geom_area(mapping = aes(y = actual_exergy, fill = "Exergy"), fill = "darkgray") +
+  geom_line(mapping = aes(y = actual_radiant_power)) +
   facet_wrap(facets = vars(lamp_name))
   # ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = actual_weighted_exergy),
   #                       geom = "bar",
