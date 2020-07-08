@@ -1114,11 +1114,11 @@ However, Petela's equation assumes a blackbody emitter and
 a blackbody absorber 
 at temperatures $T_1$ and $T_0$, respectively.
 To determine $\phi_{\EM}$ for a non-blackbody lamp,
-the specular exergy-to-energy ratio ($\phi_{\EM,\lambda}$),
+the spectral exergy-to-energy ratio ($\phi_{\EM,\lambda}$),
 must be calculated.
 An effective temperature of light photons~\cite{chen2008} ($T_\lambda$) 
 provides the link between Petela's equation (Equation~\ref{eq:petelas_equation})
-and the specular exergy-to-energy ratio~($\phi_{\EM,\lambda}$).
+and the spectral exergy-to-energy ratio~($\phi_{\EM,\lambda}$).
 (We note that the use of the photon effective temperature approach has been criticized by 
 Liu~\cite[p.~1810]{liu2009},
 who argued that 
@@ -1160,7 +1160,7 @@ being a small aperture on a larger cavity.
 (Rossing and Chiaverina~\cite[p.~172]{Rossing2020} state
 ``another good example of [a blackbody absorber] is the human eye;
 the pupil looks black because most light entering it is trapped and absorbed.'')
-Thus, we use Shan and Zhou's~\cite{shan2019} specular formulation of Petela's equation,
+Thus, we use Shan and Zhou's~\cite{shan2019} spectral formulation of Petela's equation,
 which replaces the temperature of the emitter ($T_1$) by photon effective temperature~($T_\lambda$):
 %
 \begin{equation} \label{eq:phi_L_lambda_shan_zhou}
@@ -1169,10 +1169,10 @@ which replaces the temperature of the emitter ($T_1$) by photon effective temper
 %
 Further, Equation~\ref{eq:T_lambda} can be substituted into Equation~\ref{eq:phi_L_lambda_shan_zhou},
 and $T_0$ can be taken as 310~K, the temperature of the human body.
-The result is Figure~\ref{fig:phi_L_lambda_vs_lambda} which shows the specular exergy-to-energy ratio
+The result is Figure~\ref{fig:phi_L_lambda_vs_lambda} which shows the spectral exergy-to-energy ratio
 as a function of wavelength.
 
-<<phi_L_lambda_vs_lambda, fig.align="center", fig.width=5, fig.height=3, fig.cap="The specular exergy-to-energy ratio of light ($\\phi_{L,\\lambda}$) as a function of wavelength~($\\lambda$). The color bar illustrates colors of human perception at each wavelength.">>=
+<<phi_L_lambda_vs_lambda, fig.align="center", fig.width=5, fig.height=3, fig.cap="The spectral exergy-to-energy ratio of light ($\\phi_{L,\\lambda}$) as a function of wavelength~($\\lambda$). The color bar illustrates colors of human perception at each wavelength.">>=
 tibble::tibble(lambda = seq(250, 900, by = 0.5)*10^(-9)) %>% 
   dplyr::mutate(
     T_0 = 310,
@@ -1193,9 +1193,9 @@ tibble::tibble(lambda = seq(250, 900, by = 0.5)*10^(-9)) %>%
 
 The exergy of a non-blackbody lamp~($\dot{X}_L$)
 is found by integrating the product of
-the specular luminous power~($\Phi_\lambda$),
-the specular weighting function~($f_\lambda$), and
-the specular exergy-to-energy ratio~($\phi_\lambda$)
+the spectral luminous power~($\Phi_\lambda$),
+the spectral weighting function~($f_\lambda$), and
+the spectral exergy-to-energy ratio~($\phi_\lambda$)
 with respect to wavelength.
 %
 \begin{equation}
