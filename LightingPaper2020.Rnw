@@ -1518,21 +1518,8 @@ response_data %>%
 
 \begin{figure}
     \centering
-<<Exergy_and_energy_graph, fig.width=4.5, fig.height=5, cache=TRUE>>=
+<<Exergy_and_energy_graph, fig.width=4.5, fig.height=3, cache=TRUE>>=
 response_data %>%
-  # This code divides the output of only the spikey CFL by a factor of 10.
-  # dplyr::mutate(
-  #   actual_radiant_power = dplyr::case_when(
-  #     lamp_name == "CFL" ~ actual_radiant_power / 10,
-  #     TRUE ~ actual_radiant_power
-  #   ),
-  #   actual_weighted_radiant_power = dplyr::case_when(
-  #     lamp_name == "CFL" ~ actual_weighted_radiant_power / 10,
-  #     TRUE ~ actual_weighted_radiant_power
-  #   )
-  # ) %>%
-
-
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
   # geom_line(mapping = aes(y = actual_exergy, col = "Exergy"), colour = "red") +
   geom_line(mapping = aes(y = actual_radiant_power, col = "Energy"), colour = "black", size = 0.1) +
@@ -1560,15 +1547,49 @@ response_data %>%
         # Move the facet labels out of the graphs slightly.
         strip.text.x = element_text(margin = margin(b = 2.0)),
         strip.text.y = element_text(margin = margin(l = 2.0))) +
-  
-  facet_wrap(~lamp_name)
+  facet_grid(~lamp_name)
 @
     \caption{Spectral radiative energy and exergy of four example lamps. 
              Rainbow filled area represents exergy. Black line gives energy. 
              No weighting functions are applied.}
-	\label{fig:wfs_and_lamps}
+	\label{fig:energy_and_exergy}
 \end{figure}
 
+
+
+
+\begin{figure}
+    \centering
+<<Exergy_and_energy_graph_v2, fig.width=4.5, fig.height=3, cache=TRUE>>=
+response_data %>%
+  ggplot(mapping = aes(x = `Wavelength [nm]`)) +
+  # geom_line(mapping = aes(y = actual_exergy, col = "Exergy"), colour = "red", size = 0.1) +
+  # geom_line(mapping = aes(y = actual_radiant_power, col = "Energy"), colour = "blue", size = 0.1) +
+  geom_line(mapping = aes(y = actual_exergy), linetype = 3, colour = "red", size = 0.3) +
+  geom_line(mapping = aes(y = actual_radiant_power),  size = 0.1) +
+
+  ggspectra::stat_wl_strip(ymin = -0.002, ymax = -0.001, chroma.type = "CMF", size = 0) +
+  scale_fill_identity() +
+  
+  xlab(expression(lambda*" [nm]")) +
+  ylab(expression("Spectral radiative energy and exergy, "*phi*" [W/nm]")) +
+  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
+  scale_y_continuous(limits = c(-0.002, 0.065)) +
+  labs(fill = element_blank(), colour = element_blank()) +
+  MKHthemes::xy_theme() +
+  theme(axis.text.x = element_text(size = rel(0.8), angle = 90),
+        axis.text.y = element_text(size = rel(0.8)),
+        # Move the facet labels out of the graphs slightly.
+        strip.text.x = element_text(margin = margin(b = 2.0))) +
+  facet_grid(~lamp_name)
+@
+    \caption{**** This is a second option.---MKH **** 
+             Spectral radiative energy and exergy of four example lamps. 
+             Black solid line gives energy. 
+             Red dotted line gives exergy.
+             No weighting functions are applied.}
+	\label{fig:energy_and_exergy_v2}
+\end{figure}
 
 
 
