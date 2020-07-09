@@ -1534,19 +1534,21 @@ response_data %>%
 
 
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
-    geom_line(mapping = aes(y = actual_exergy, col = "Exergy"), colour = "red") +
-    geom_line(mapping = aes(y = actual_radiant_power, col = "Energy"), colour = "blue") +
+  # geom_line(mapping = aes(y = actual_exergy, col = "Exergy"), colour = "red") +
+  geom_line(mapping = aes(y = actual_radiant_power, col = "Energy"), colour = "black", size = 0.1) +
 
-    # ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = actual_exergy),
-    #                   geom = "bar",
-    #                   # chroma.type = photobiology::cone_fundamentals10.spct,
-    #                   # chroma.type = photobiology::ciexyzCC2.spct,
-    #                   # chroma.type = photobiology::ciexyzCC2.spct,
-    #                   # chroma.type = photobiology::ciexyzCMF2.spct,
-    #                   # chroma.type = photobiology::ciexyzCMF10.spct,
-    #                   # chroma.type = "CC",
-    #                   chroma.type = "CMF",
-    #                   size = 0) +   # Eliminates borders
+  ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = actual_exergy),
+                        geom = "bar",
+                        # chroma.type = photobiology::cone_fundamentals10.spct,
+                        # chroma.type = photobiology::ciexyzCC2.spct,
+                        # chroma.type = photobiology::ciexyzCC2.spct,
+                        # chroma.type = photobiology::ciexyzCMF2.spct,
+                        # chroma.type = photobiology::ciexyzCMF10.spct,
+                        # chroma.type = "CC",
+                        chroma.type = "CMF",
+                        size = 0) +   # Eliminates borders
+  scale_fill_identity() +
+  scale_color_identity() +
   
   xlab(expression(lambda*" [nm]")) +
   ylab(expression("Spectral radiative energy and exergy, "*phi*" [W/nm]")) +
@@ -1561,7 +1563,9 @@ response_data %>%
   
   facet_wrap(~lamp_name)
 @
-    \caption{Blue: energy; write, exergy. Without weighting function.}
+    \caption{Spectral radiative energy and exergy of four example lamps. 
+             Rainbow filled area represents exergy. Black line gives energy. 
+             No weighting functions are applied.}
 	\label{fig:wfs_and_lamps}
 \end{figure}
 
