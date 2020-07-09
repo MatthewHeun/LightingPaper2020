@@ -1538,7 +1538,7 @@ response_data %>%
   scale_color_identity() +
   
   xlab(expression(lambda*" [nm]")) +
-  ylab(expression("Spectral radiative energy and exergy, "*phi*" [W/nm]")) +
+  ylab(expression("Spectral radiative energy and exergy, "*Phi*" [W/nm]")) +
   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
   labs(fill = element_blank(), colour = element_blank()) +
   MKHthemes::xy_theme() +
@@ -1570,7 +1570,7 @@ response_data %>%
   scale_fill_identity() +
   
   xlab(expression(lambda*" [nm]")) +
-  ylab(expression("Spectral radiative energy and exergy, "*phi*" [W/nm]")) +
+  ylab(expression("Spectral radiative energy and exergy, "*Phi*" [W/nm]")) +
   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
   scale_y_continuous(limits = c(-0.002, 0.065)) +
   labs(fill = element_blank(), colour = element_blank()) +
