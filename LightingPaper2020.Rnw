@@ -1235,8 +1235,6 @@ with respect to wavelength.
 
 **** Need to add lambda as subscript of $X_L$ --- EAR ****
 
-**** Test Reference \cite{karlsson1982exergy} ---ZM ****
-
 The quotient of $\dot{X}_{L}$ and $\dot{L}$ gives the overall exergy-energy ratio~($\phi_{\EM}$), 
 which is specific to each combination of
 lamp ($\Phi_\lambda$) and
