@@ -1612,7 +1612,7 @@ response_data %>%
 @
 
 
-
+**** Even though the lamps will not be arranged in the same format as Figure 9, I think we need to have them in a 2x2 format. This will increase the size of each graph and make the distinction between exergy and energy clearer---ZM ****
 
 
 
