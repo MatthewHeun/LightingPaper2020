@@ -703,17 +703,6 @@ All streams can be counted as energy, such that
   \dot{E}_1 = \dot{Q}_1, \; \dot{E}_2 = \dot{Q}_2, \; \text{and} \; \dot{E}_3 = \dot{W}_3 \; .
 \end{equation}
 
-\begin{figure}
-\centering
-\machinefigure{Heat engine}
-              {$T_1 , \; \dot{Q}_1 \; \text{(heat)}$}
-              {$\dot{Q}_2 \; \text{(heat)}, \; T_2$}
-              {$\dot{W}_3 \; \text{(work)}$}
-\caption{A heat engine that produces heat and work.}
-\label{fig:heat_engine}
-\end{figure}
-
-**** Adding efficiencies --- EAR ****
 
 \begin{figure}
 \centering
@@ -835,17 +824,6 @@ We now turn to the production of light instead of work at 3.
 \label{sec:energy_and_exergy_of_light}
 %------------------------------
 
-\begin{figure}
-\centering
-\machinefigure{Lamp}
-              {$\dot{W}_1 \; \text{(electricity)}$}
-              {$\dot{Q}_2$ (heat)}
-              {$\Phi_3$ (EM radiation)}
-\caption{A lamp that produces heat and light. **** Need a modified version of this figure that shows light.}
-\label{fig:lamp}
-\end{figure}
-
-**** Adding weighting function and efficiencies --- EAR ****
 
 \begin{figure}
 \centering
@@ -1320,113 +1298,7 @@ Do calculations with various permutations and show graphs.
 
 See Figure~\ref{fig:wfs_and_lamps}, which provides visual representation of several weighting functions and lamps.
 
-**** This is the exergy graph --- EAR ****
 
-\begin{figure}
-    \centering
-    \begin{subfigure}[t]{0.25\textwidth}
-<<Weighting_Function_Graph_Exergy, fig.width=1.5, fig.height=5, cache=TRUE>>=
-response_data %>%
-  dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>%
-  dplyr::mutate(
-    header = "Weight. Func.",
-    # Get nice tails at 0.
-    normalized_response = tidyr::replace_na(normalized_response, 0)
-  ) %>%
-  ggplot(mapping = aes(x = `Wavelength [nm]`)) +
-  ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = normalized_response),
-                        geom = "bar",
-                        # chroma.type = photobiology::cone_fundamentals10.spct,
-                        # chroma.type = photobiology::ciexyzCC2.spct,
-                        # chroma.type = photobiology::ciexyzCC2.spct,
-                        # chroma.type = photobiology::ciexyzCMF2.spct,
-                        # chroma.type = photobiology::ciexyzCMF10.spct,
-                        # chroma.type = "CC",
-                        chroma.type = "CMF",
-                        size = 0) +   # Eliminates borders
-  scale_fill_identity() +
-  scale_color_identity() +
-  geom_line(mapping = aes(y = normalized_response), color = "darkgray") +
-  geom_vline(xintercept = 555, size = 0.2, color = "darkgray") +
-
-  facet_grid(rows = vars(wf_name), cols = vars(header)) +
-  xlab(expression(lambda*" [nm]")) +
-  ylab("Normalized response [-]") +
-  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
-  scale_y_continuous(breaks = c(0, 0.5, 1)) +
-  MKHthemes::xy_theme() +
-  theme(strip.text.x = element_text(margin = margin(b = 2.0)),
-        # Eliminate labels on right facet. Pick up from lamp radiative powers.
-        strip.text.y = element_blank(),
-        axis.text.x = element_text(size = rel(0.8), angle = 90),
-        axis.text.y = element_text(size = rel(0.8)))
-@
-        \label{fig:weighting_functions}
-    \end{subfigure}
-    % add desired spacing between images (e.g., ~, \quad, \qquad, \hfill, etc.)
-    % or a blank line to force the subfigure onto a new line.
-    \begin{subfigure}[t]{0.74\textwidth}
-<<Responses_Graph_Exergy, fig.width=4.5, fig.height=5, cache=TRUE>>=
-response_data %>%
-  # This code divides the output of only the spikey CFL by a factor of 10.
-  # dplyr::mutate(
-  #   actual_radiant_power = dplyr::case_when(
-  #     lamp_name == "CFL" ~ actual_radiant_power / 10,
-  #     TRUE ~ actual_radiant_power
-  #   ),
-  #   actual_weighted_radiant_power = dplyr::case_when(
-  #     lamp_name == "CFL" ~ actual_weighted_radiant_power / 10,
-  #     TRUE ~ actual_weighted_radiant_power
-  #   )
-  # ) %>%
-  ggplot(mapping = aes(x = `Wavelength [nm]`)) +
-  geom_area(mapping = aes(y = actual_exergy, fill = "Exergy"), fill = "darkgray") +
-  ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = actual_weighted_exergy),
-                        geom = "bar",
-                        # chroma.type = photobiology::cone_fundamentals10.spct,
-                        # chroma.type = photobiology::ciexyzCC2.spct,
-                        # chroma.type = photobiology::ciexyzCC2.spct,
-                        # chroma.type = photobiology::ciexyzCMF2.spct,
-                        # chroma.type = photobiology::ciexyzCMF10.spct,
-                        # chroma.type = "CC",
-                        chroma.type = "CMF",
-                        size = 0) +   # Eliminates borders
-  scale_fill_identity() +
-  scale_color_identity() +
-
-  xlab(expression(lambda*" [nm]")) +
-  ylab(expression("Spectral radiative exergy, "*phi*" [W/nm]")) +
-  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
-  labs(fill = element_blank(), colour = element_blank()) +
-  facet_grid(rows = vars(wf_name), cols = vars(lamp_name)) +
-  MKHthemes::xy_theme() +
-  theme(axis.text.x = element_text(size = rel(0.8), angle = 90),
-        axis.text.y = element_text(size = rel(0.8)),
-        # Move the facet labels out of the graphs slightly.
-        strip.text.x = element_text(margin = margin(b = 2.0)),
-        strip.text.y = element_text(margin = margin(l = 2.0)))
-@
-        \label{fig:lamp_responses}
-    \end{subfigure}
-    \caption{Weighting functions, lamp emission, and weighted responses.
-             Gray regions show lamp emission.
-             Colored regions give weighted responses and indicate human perception of color.
-             ``A19'' is a 100~W incandescent A19 globe.
-             ``Halogen'' is a 29~W halogen R20 globe.
-             ``CFL'' is a 15~W EnergyStar twister compact fluorescent.
-             ``LED'' is an 11~W Phillips A19 LED.
-             ``Unweighted'' spans the entire wavelength range of the graph, 250 nm < $\lambda$ < 900 nm.
-             ``Visible'' restricts to visible wavelengths, \humaneyesensitivity{}.
-             ``Photopic lum.{}'' is the standard photopic luminosity weighting function.
-             ``Universal'' is the universal weighting function.
-             **** What symbol do we want for vertical axis?  It is not precisely radiative flux if it is per-nm. ****
-             **** Provide references for each of the weighting functions and lamps? ****
-             **** Yep! I'll add the reference for the LPSDD database in the .bib ---ZM****
-             **** Shall we add luminous intensity annotations to each graph? ****
-             **** Yes, we should add the weighted 'spectral radiative power' for each graph,
-             me and Emmanuel are working on these calcs! ---ZM}
-	\label{fig:wfs_and_lamps}
-\end{figure}
 
 
 
@@ -2129,6 +2001,154 @@ it makes sense to account for human perception when
 quantifying the exergy of light.
 
 
+
+%++++++++++++++++++++++++++++++
+\subsection{Exergy version of hero figure}
+%++++++++++++++++++++++++++++++
+
+
+**** This is the exergy graph --- EAR ****
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.25\textwidth}
+<<Weighting_Function_Graph_Exergy, fig.width=1.5, fig.height=5, cache=TRUE>>=
+response_data %>%
+  dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>%
+  dplyr::mutate(
+    header = "Weight. Func.",
+    # Get nice tails at 0.
+    normalized_response = tidyr::replace_na(normalized_response, 0)
+  ) %>%
+  ggplot(mapping = aes(x = `Wavelength [nm]`)) +
+  ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = normalized_response),
+                        geom = "bar",
+                        # chroma.type = photobiology::cone_fundamentals10.spct,
+                        # chroma.type = photobiology::ciexyzCC2.spct,
+                        # chroma.type = photobiology::ciexyzCC2.spct,
+                        # chroma.type = photobiology::ciexyzCMF2.spct,
+                        # chroma.type = photobiology::ciexyzCMF10.spct,
+                        # chroma.type = "CC",
+                        chroma.type = "CMF",
+                        size = 0) +   # Eliminates borders
+  scale_fill_identity() +
+  scale_color_identity() +
+  geom_line(mapping = aes(y = normalized_response), color = "darkgray") +
+  geom_vline(xintercept = 555, size = 0.2, color = "darkgray") +
+
+  facet_grid(rows = vars(wf_name), cols = vars(header)) +
+  xlab(expression(lambda*" [nm]")) +
+  ylab("Normalized response [-]") +
+  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
+  scale_y_continuous(breaks = c(0, 0.5, 1)) +
+  MKHthemes::xy_theme() +
+  theme(strip.text.x = element_text(margin = margin(b = 2.0)),
+        # Eliminate labels on right facet. Pick up from lamp radiative powers.
+        strip.text.y = element_blank(),
+        axis.text.x = element_text(size = rel(0.8), angle = 90),
+        axis.text.y = element_text(size = rel(0.8)))
+@
+        \label{fig:weighting_functions_exergy}
+    \end{subfigure}
+    % add desired spacing between images (e.g., ~, \quad, \qquad, \hfill, etc.)
+    % or a blank line to force the subfigure onto a new line.
+    \begin{subfigure}[t]{0.74\textwidth}
+<<Responses_Graph_Exergy, fig.width=4.5, fig.height=5, cache=TRUE>>=
+response_data %>%
+  # This code divides the output of only the spikey CFL by a factor of 10.
+  # dplyr::mutate(
+  #   actual_radiant_power = dplyr::case_when(
+  #     lamp_name == "CFL" ~ actual_radiant_power / 10,
+  #     TRUE ~ actual_radiant_power
+  #   ),
+  #   actual_weighted_radiant_power = dplyr::case_when(
+  #     lamp_name == "CFL" ~ actual_weighted_radiant_power / 10,
+  #     TRUE ~ actual_weighted_radiant_power
+  #   )
+  # ) %>%
+  ggplot(mapping = aes(x = `Wavelength [nm]`)) +
+  geom_area(mapping = aes(y = actual_exergy, fill = "Exergy"), fill = "darkgray") +
+  ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = actual_weighted_exergy),
+                        geom = "bar",
+                        # chroma.type = photobiology::cone_fundamentals10.spct,
+                        # chroma.type = photobiology::ciexyzCC2.spct,
+                        # chroma.type = photobiology::ciexyzCC2.spct,
+                        # chroma.type = photobiology::ciexyzCMF2.spct,
+                        # chroma.type = photobiology::ciexyzCMF10.spct,
+                        # chroma.type = "CC",
+                        chroma.type = "CMF",
+                        size = 0) +   # Eliminates borders
+  scale_fill_identity() +
+  scale_color_identity() +
+
+  xlab(expression(lambda*" [nm]")) +
+  ylab(expression("Spectral radiative exergy, "*phi*" [W/nm]")) +
+  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
+  labs(fill = element_blank(), colour = element_blank()) +
+  facet_grid(rows = vars(wf_name), cols = vars(lamp_name)) +
+  MKHthemes::xy_theme() +
+  theme(axis.text.x = element_text(size = rel(0.8), angle = 90),
+        axis.text.y = element_text(size = rel(0.8)),
+        # Move the facet labels out of the graphs slightly.
+        strip.text.x = element_text(margin = margin(b = 2.0)),
+        strip.text.y = element_text(margin = margin(l = 2.0)))
+@
+        \label{fig:lamp_responses_exergy}
+    \end{subfigure}
+    \caption{Weighting functions, lamp emission, and weighted responses.
+             Gray regions show lamp emission.
+             Colored regions give weighted responses and indicate human perception of color.
+             ``A19'' is a 100~W incandescent A19 globe.
+             ``Halogen'' is a 29~W halogen R20 globe.
+             ``CFL'' is a 15~W EnergyStar twister compact fluorescent.
+             ``LED'' is an 11~W Phillips A19 LED.
+             ``Unweighted'' spans the entire wavelength range of the graph, 250 nm < $\lambda$ < 900 nm.
+             ``Visible'' restricts to visible wavelengths, \humaneyesensitivity{}.
+             ``Photopic lum.{}'' is the standard photopic luminosity weighting function.
+             ``Universal'' is the universal weighting function.
+             **** What symbol do we want for vertical axis?  It is not precisely radiative flux if it is per-nm. ****
+             **** Provide references for each of the weighting functions and lamps? ****
+             **** Yep! I'll add the reference for the LPSDD database in the .bib ---ZM****
+             **** Shall we add luminous intensity annotations to each graph? ****
+             **** Yes, we should add the weighted 'spectral radiative power' for each graph,
+             me and Emmanuel are working on these calcs! ---ZM}
+	\label{fig:wfs_and_lamps_exergy}
+\end{figure}
+
+
+
+%++++++++++++++++++++++++++++++
+\subsection{Heat engine figure without efficiencies}
+%++++++++++++++++++++++++++++++
+
+\begin{figure}
+\centering
+\machinefigure{Heat engine}
+              {$T_1 , \; \dot{Q}_1 \; \text{(heat)}$}
+              {$\dot{Q}_2 \; \text{(heat)}, \; T_2$}
+              {$\dot{W}_3 \; \text{(work)}$}
+\caption{A heat engine that produces heat and work.}
+\label{fig:heat_engine_old}
+\end{figure}
+
+**** Adding efficiencies --- EAR ****
+
+
+
+
+%++++++++++++++++++++++++++++++
+\subsection{Simpler lamp figure}
+%++++++++++++++++++++++++++++++
+
+\begin{figure}
+\centering
+\machinefigure{Lamp}
+              {$\dot{W}_1 \; \text{(electricity)}$}
+              {$\dot{Q}_2$ (heat)}
+              {$\Phi_3$ (EM radiation)}
+\caption{A lamp that produces heat and light. **** Need a modified version of this figure that shows light.}
+\label{fig:lamp_prev}
+\end{figure}
 
 
 ********************************* End Bone Pile *********************************
