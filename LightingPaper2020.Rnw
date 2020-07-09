@@ -1172,7 +1172,7 @@ and $T_0$ can be taken as 310~K, the temperature of the human body.
 The result is Figure~\ref{fig:phi_L_lambda_vs_lambda} which shows the spectral exergy-to-energy ratio
 as a function of wavelength.
 
-<<phi_L_lambda_vs_lambda, fig.align="center", fig.width=5, fig.height=3, fig.cap="The spectral exergy-to-energy ratio of light ($\\phi_{L,\\lambda}$) as a function of wavelength~($\\lambda$). The color bar illustrates colors of human perception at each wavelength.">>=
+<<phi_L_lambda_vs_lambda, fig.align="center", fig.width=5, fig.height=3, fig.cap="The spectral exergy-to-energy ratio of light ($\\phi_{L,\\lambda}$) as a function of wavelength~($\\lambda$). The bar illustrates human color perception.">>=
 tibble::tibble(lambda = seq(250, 900, by = 0.5)*10^(-9)) %>% 
   dplyr::mutate(
     T_0 = 310,
@@ -1558,9 +1558,7 @@ response_data %>%
 
 
 
-\begin{figure}
-    \centering
-<<Exergy_and_energy_graph_v2, fig.width=4.5, fig.height=3, cache=TRUE>>=
+<<Exergy_and_energy_graph_v2, fig.width=4.5, fig.height=3, fig.align="center", cache=TRUE, fig.cap="**** This is a second option.---MKH **** Spectral radiative energy and exergy of four example lamps. Black solid line gives spectral energy. Red dotted line gives spectral exergy. The bar illustrates human color perception. No weighting functions are applied.">>=
 response_data %>%
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
   # geom_line(mapping = aes(y = actual_exergy, col = "Exergy"), colour = "red", size = 0.1) +
@@ -1583,13 +1581,6 @@ response_data %>%
         strip.text.x = element_text(margin = margin(b = 2.0))) +
   facet_grid(~lamp_name)
 @
-    \caption{**** This is a second option.---MKH **** 
-             Spectral radiative energy and exergy of four example lamps. 
-             Black solid line gives energy. 
-             Red dotted line gives exergy.
-             No weighting functions are applied.}
-	\label{fig:energy_and_exergy_v2}
-\end{figure}
 
 
 
