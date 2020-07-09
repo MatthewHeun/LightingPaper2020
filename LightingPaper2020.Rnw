@@ -1685,15 +1685,6 @@ the quotient of the devices luminous efficacy
 and the maximum luminous efficacy.
 %
 \begin{equation}
-  \frac{1}{\epsilon_{max}} / \frac{1}{\epsilon_{lamp}} \equiv \frac{1}{\epsilon_{max}} \cdot \frac{\epsilon_{lamp}}{1} \equiv \frac{\epsilon_{lamp}}{\epsilon_{max}}\; ,
-\end{equation}
-%
-****
-Following is a better version of the previous equation. 
-I recommend we delete the previous equation.---MKH
-****
-%
-\begin{equation}
   \frac{\; \; \frac{1}{\epsilon_{max}} \; \; }{\frac{1}{\epsilon_{lamp}}}
        = \frac{1}{\epsilon_{max}} \cdot \frac{\epsilon_{lamp}}{1}
        = \frac{\epsilon_{lamp}}{\epsilon_{max}} \; ,
