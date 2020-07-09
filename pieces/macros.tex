@@ -33,6 +33,49 @@
 
 
 
+
+\newcommand{\largemachinefigure}[5]{%
+\begin{tikzpicture}
+  % Set up the nodes of the main path
+  % Machine node
+  \node(machine)[draw, rounded corners, fill=yellow!25!white, 
+                 minimum width = 3 cm, minimum height = 2 cm] at (0cm, 0cm) {\strut #1};
+  % Number nodes
+  \node[left=2cm of machine] (1)[circle, fill=red!25!white] {\strut 1};
+  \node[above right = -0.7cm and 2cm of machine] (2)[circle, fill=red!25!white] {\strut 2};
+  \node[below right = -0.7cm and 2cm of machine] (3)[circle, fill=red!25!white] {\strut 3};
+  
+  \node[draw, rounded corners, fill=yellow!25!white, 
+                 text width = 3 cm, minimum height = 2 cm,
+                 align = center,
+                 right = 1.75cm of 3] (wf) {\strut Weighting function $f_{\lambda}$ $\eta_{E, f_{\lambda}}$};
+  
+  %\node(weighting_function)[draw, rounded corners, fill=yellow!25!white, 
+  %               minimum width = 4 cm, minimum height = 2 cm
+  %               below right = -0.7cm and 6cm of machine] {\strut 4};
+                 
+  \node[right = 2 cm of wf] (4)[circle, fill=red!25!white] {\strut 4};
+  
+  % Arrows
+  \draw[arrows=-triangle 45] (1) -- node [above] {#2} (machine);
+  \draw[arrows=-triangle 45] (2 -| machine.east) -- node [above] {#3} (2.west);
+  \draw[arrows=-triangle 45] (3 -| machine.east) -- node [below] {#4} (3.west);
+  \draw[arrows=-triangle 45] (wf -| 3.east) -- node [below] {} (wf.west);
+  \draw[arrows=-triangle 45] (4 -| wf.east) -- node [below] {#5} (4.west);
+  
+\end{tikzpicture}
+}
+
+
+
+
+
+
+
+
+
+
+
 % Human eye wavelength sensitivity range
 \newcommand{\humaneyesensitivity}{380 nm < $\lambda$ < 750 nm}
 

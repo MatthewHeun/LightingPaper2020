@@ -713,6 +713,22 @@ All streams can be counted as energy, such that
 \label{fig:heat_engine}
 \end{figure}
 
+**** Adding efficiencies --- EAR ****
+
+\begin{figure}
+\centering
+\machinefigure{Heat engine \{$\eta_E$\} }
+              {$T_1 , \; \dot{Q}_1 \; \text{(heat)}$}
+              {$\dot{Q}_2 \; \text{(heat)}, \; T_2$}
+              {$\dot{W}_3 \; \text{(work)}$}
+\caption{A heat engine that produces heat and work.}
+\label{fig:heat_engine}
+\end{figure}
+
+
+
+
+
 Energy efficiency is defined as $\eta_E \equiv \frac{\text{energy out}}{\text{energy in}}$.
 For the example of Figure~\ref{fig:heat_engine}, 
 %
@@ -828,6 +844,21 @@ We now turn to the production of light instead of work at 3.
 \caption{A lamp that produces heat and light. **** Need a modified version of this figure that shows light.}
 \label{fig:lamp}
 \end{figure}
+
+**** Adding weighting function and efficiencies --- EAR ****
+
+\begin{figure}
+\centering
+\largemachinefigure{Lamp $\eta_{E,L}$}
+              {$\dot{W}_1 \; \text{(elec)}$}
+              {$\dot{Q}_2$ (heat)}
+              {$\Phi_3$ (rad)}
+              {$\dot{L}_4$ (light)}
+\caption{A lamp that produces heat and light. **** Need a modified version of this figure that shows light.}
+\label{fig:lamp}
+\end{figure}
+
+
 
 Figure~\ref{fig:lamp} replaces the heat engine with a lamp 
 that produces EM radiation (some of which is light) instead of work at 3.
