@@ -35,7 +35,7 @@ library(tidyr)
 # The variable chroma_type is used in all graphs. 
 # So changing the value of chroma_type here will change all graphs at once,
 # although you may need to be careful about cacheing.
-# The argument cache.extra.=tools::md5sum(chroma_type) is supposed to trigger a rebuild of graphs 
+# The argument cache.extra=openssl::md5(chroma_type) is supposed to trigger a rebuild of graphs 
 # when the value of chroma_type changes here.
 
 # chroma_type <- photobiology::cone_fundamentals10.spct
@@ -43,8 +43,8 @@ library(tidyr)
 # chroma_type <- photobiology::ciexyzCC2.spct 
 # chroma_type <- photobiology::ciexyzCMF2.spct
 # chroma_type <- photobiology::ciexyzCMF10.spct
-chroma_type <- "CC"  # Wide, but has no yellow (only R, G, B)
-# chroma_type <- "CMF"  # Narrow, but gives yellows
+# chroma_type <- "CC"  # Wide, but has no yellow (only R, G, B)
+chroma_type <- "CMF"  # Narrow, but gives yellows
 @
 
 
@@ -466,15 +466,15 @@ response_data <- weighted_responses_df %>%
                                    u = "Universal"),
     lamp_name = factor(lamp_name, levels = lamp_list),
     lamp_name = dplyr::recode_factor(lamp_name, 
-                                     inc_globe_a19 = "A19",
+                                     inc_globe_a19_40w = "A19",
                                      hal_globe_r20 = "Halogen", 
-                                     cfl_es_tw_15 = "CFL",
+                                     cfl_es_tw_9 = "CFL",
                                      led_phil_a19 = "LED")
   ) 
 @
 
 
-<<Vis_Graph, cache.extra.=tools::md5sum(chroma_type), fig.align="center", fig.width = 5, fig.height = 3, fig.cap="The visible spectrum of light~\\cite{schubert2006}.", cache=TRUE>>=
+<<Vis_Graph, cache.extra=openssl::md5(chroma_type), fig.align="center", fig.width = 5, fig.height = 3, fig.cap="The visible spectrum of light~\\cite{schubert2006}.", cache=TRUE>>=
 response_data %>% 
   dplyr::filter(wf_name == "Photopic lum.") %>% 
   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>% 
@@ -1195,7 +1195,7 @@ and $T_0$ can be taken as 310~K, the temperature of the human body.
 The result is Figure~\ref{fig:phi_L_lambda_vs_lambda} which shows the spectral exergy-to-energy ratio
 as a function of wavelength.
 
-<<phi_L_lambda_vs_lambda, cache.extra.=tools::md5sum(chroma_type), fig.align="center", fig.width=5, fig.height=3, fig.cap="The spectral exergy-to-energy ratio of light ($\\phi_{L,\\lambda}$) as a function of wavelength~($\\lambda$). The bar illustrates human color perception.">>=
+<<phi_L_lambda_vs_lambda, cache.extra=openssl::md5(chroma_type), fig.align="center", fig.width=5, fig.height=3, fig.cap="The spectral exergy-to-energy ratio of light ($\\phi_{L,\\lambda}$) as a function of wavelength~($\\lambda$). The bar illustrates human color perception.">>=
 tibble::tibble(lambda = seq(250, 900, by = 0.5)*10^(-9)) %>% 
   dplyr::mutate(
     T_0 = 310,
@@ -1322,7 +1322,7 @@ See Figure~\ref{fig:wfs_and_lamps}, which provides visual representation of seve
 \begin{figure}
     \centering
     \begin{subfigure}[t]{0.25\textwidth}
-<<Weighting_Function_Graph_Energy, cache.extra.=tools::md5sum(chroma_type), fig.width=1.5, fig.height=5, cache=TRUE>>=
+<<Weighting_Function_Graph_Energy, cache.extra=openssl::md5(chroma_type), fig.width=1.5, fig.height=5, cache=TRUE>>=
 response_data %>%
   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>%
   dplyr::mutate(
@@ -1357,7 +1357,7 @@ response_data %>%
     % add desired spacing between images (e.g., ~, \quad, \qquad, \hfill, etc.)
     % or a blank line to force the subfigure onto a new line.
     \begin{subfigure}[t]{0.74\textwidth}
-<<Responses_Graph_Energy, cache.extra.=tools::md5sum(chroma_type), fig.width=4.5, fig.height=5, cache=TRUE>>=
+<<Responses_Graph_Energy, cache.extra=openssl::md5(chroma_type), fig.width=4.5, fig.height=5, cache=TRUE>>=
 response_data %>%
   # This code divides the output of only the spikey CFL by a factor of 10.
   # dplyr::mutate(
@@ -1421,7 +1421,7 @@ response_data %>%
 
 \begin{figure}
     \centering
-<<Exergy_and_energy_graph, cache.extra.=tools::md5sum(chroma_type), fig.width=4.5, fig.height=3, cache=TRUE>>=
+<<Exergy_and_energy_graph, cache.extra=openssl::md5(chroma_type), fig.width=4.5, fig.height=3, cache=TRUE>>=
 response_data %>%
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
   # geom_line(mapping = aes(y = actual_exergy, col = "Exergy"), colour = "red") +

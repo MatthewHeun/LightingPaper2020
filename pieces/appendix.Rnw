@@ -44,7 +44,7 @@ See Figure~\ref{fig:wfs_and_lamps_exergy}.
 \begin{figure}
     \centering
     \begin{subfigure}[t]{0.25\textwidth}
-<<Weighting_Function_Graph_Exergy, cache.extra.=tools::md5sum(chroma_type), fig.width=1.5, fig.height=5, cache=TRUE>>=
+<<Weighting_Function_Graph_Exergy, cache.extra=openssl::md5(chroma_type), fig.width=1.5, fig.height=5, cache=TRUE>>=
 response_data %>%
   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>%
   dplyr::mutate(
@@ -79,7 +79,7 @@ response_data %>%
     % add desired spacing between images (e.g., ~, \quad, \qquad, \hfill, etc.)
     % or a blank line to force the subfigure onto a new line.
     \begin{subfigure}[t]{0.74\textwidth}
-<<Responses_Graph_Exergy, cache.extra.=tools::md5sum(chroma_type), fig.width=4.5, fig.height=5, cache=TRUE>>=
+<<Responses_Graph_Exergy, cache.extra=openssl::md5(chroma_type), fig.width=4.5, fig.height=5, cache=TRUE>>=
 response_data %>%
   # This code divides the output of only the spikey CFL by a factor of 10.
   # dplyr::mutate(
