@@ -22,10 +22,29 @@ opts_chunk$set(
 library(dplyr)
 library(forcats)
 library(ggplot2)
+library(ggspectra)
 library(magrittr)
 library(MKHthemes)
 library(tibble)
 library(tidyr)
+@
+
+
+<<setup-graphs, include=FALSE>>=
+# Here are some options for the colors to use in the ggspectra graphs.
+# The variable chroma_type is used in all graphs. 
+# So changing the value of chroma_type here will change all graphs at once,
+# although you may need to be careful about cacheing.
+# The argument cache.extra.=tools::md5sum(chroma_type) is supposed to trigger a rebuild of graphs 
+# when the value of chroma_type changes here.
+
+# chroma_type <- photobiology::cone_fundamentals10.spct
+# chroma_type <- photobiology::ciexyzCC2.spct
+# chroma_type <- photobiology::ciexyzCC2.spct 
+# chroma_type <- photobiology::ciexyzCMF2.spct
+# chroma_type <- photobiology::ciexyzCMF10.spct
+chroma_type <- "CC"  # Wide, but has no yellow (only R, G, B)
+# chroma_type <- "CMF"  # Narrow, but gives yellows
 @
 
 
@@ -455,7 +474,7 @@ response_data <- weighted_responses_df %>%
 @
 
 
-<<Vis_Graph, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="The visible spectrum of light~\\cite{schubert2006}.", cache=TRUE>>=
+<<Vis_Graph, cache.extra.=tools::md5sum(chroma_type), fig.align="center", fig.width = 5, fig.height = 3, fig.cap="The visible spectrum of light~\\cite{schubert2006}.", cache=TRUE>>=
 response_data %>% 
   dplyr::filter(wf_name == "Photopic lum.") %>% 
   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>% 
@@ -466,13 +485,7 @@ response_data %>%
   ggplot2::ggplot(mapping = aes(x = `Wavelength [nm]`)) +
   ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = normalized_response), 
                         geom = "bar",
-                        # chroma.type = photobiology::cone_fundamentals10.spct,
-                        # chroma.type = photobiology::ciexyzCC2.spct, 
-                        # chroma.type = photobiology::ciexyzCC2.spct, 
-                        # chroma.type = photobiology::ciexyzCMF2.spct,
-                        # chroma.type = photobiology::ciexyzCMF10.spct,
-                        # chroma.type = "CC",
-                        chroma.type = "CMF",
+                        chroma.type = chroma_type,
                         size = 0) +   # Eliminates borders
   scale_fill_identity() +
   scale_color_identity() +
@@ -1182,7 +1195,7 @@ and $T_0$ can be taken as 310~K, the temperature of the human body.
 The result is Figure~\ref{fig:phi_L_lambda_vs_lambda} which shows the spectral exergy-to-energy ratio
 as a function of wavelength.
 
-<<phi_L_lambda_vs_lambda, fig.align="center", fig.width=5, fig.height=3, fig.cap="The spectral exergy-to-energy ratio of light ($\\phi_{L,\\lambda}$) as a function of wavelength~($\\lambda$). The bar illustrates human color perception.">>=
+<<phi_L_lambda_vs_lambda, cache.extra.=tools::md5sum(chroma_type), fig.align="center", fig.width=5, fig.height=3, fig.cap="The spectral exergy-to-energy ratio of light ($\\phi_{L,\\lambda}$) as a function of wavelength~($\\lambda$). The bar illustrates human color perception.">>=
 tibble::tibble(lambda = seq(250, 900, by = 0.5)*10^(-9)) %>% 
   dplyr::mutate(
     T_0 = 310,
@@ -1191,7 +1204,7 @@ tibble::tibble(lambda = seq(250, 900, by = 0.5)*10^(-9)) %>%
   ) %>% 
   ggplot2::ggplot(mapping = aes(x = lambda*10^(9), y = phi_L_lambda)) + 
   geom_line() + 
-  ggspectra::stat_wl_strip(ymin = 0.9, ymax = 0.91, chroma.type = "CMF", size = 0) +
+  ggspectra::stat_wl_strip(ymin = 0.9, ymax = 0.91, chroma.type = chroma_type, size = 0) +
   scale_fill_identity() +
   geom_vline(xintercept = 555, size = 0.2, color = "darkgray") +
   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
@@ -1309,7 +1322,7 @@ See Figure~\ref{fig:wfs_and_lamps}, which provides visual representation of seve
 \begin{figure}
     \centering
     \begin{subfigure}[t]{0.25\textwidth}
-<<Weighting_Function_Graph_Energy, fig.width=1.5, fig.height=5, cache=TRUE>>=
+<<Weighting_Function_Graph_Energy, cache.extra.=tools::md5sum(chroma_type), fig.width=1.5, fig.height=5, cache=TRUE>>=
 response_data %>%
   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>%
   dplyr::mutate(
@@ -1320,13 +1333,7 @@ response_data %>%
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
   ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = normalized_response),
                         geom = "bar",
-                        # chroma.type = photobiology::cone_fundamentals10.spct,
-                        # chroma.type = photobiology::ciexyzCC2.spct,
-                        # chroma.type = photobiology::ciexyzCC2.spct,
-                        # chroma.type = photobiology::ciexyzCMF2.spct,
-                        # chroma.type = photobiology::ciexyzCMF10.spct,
-                        # chroma.type = "CC",
-                        chroma.type = "CMF",
+                        chroma.type = chroma_type,
                         size = 0) +   # Eliminates borders
   scale_fill_identity() +
   scale_color_identity() +
@@ -1350,7 +1357,7 @@ response_data %>%
     % add desired spacing between images (e.g., ~, \quad, \qquad, \hfill, etc.)
     % or a blank line to force the subfigure onto a new line.
     \begin{subfigure}[t]{0.74\textwidth}
-<<Responses_Graph_Energy, fig.width=4.5, fig.height=5, cache=TRUE>>=
+<<Responses_Graph_Energy, cache.extra.=tools::md5sum(chroma_type), fig.width=4.5, fig.height=5, cache=TRUE>>=
 response_data %>%
   # This code divides the output of only the spikey CFL by a factor of 10.
   # dplyr::mutate(
@@ -1367,13 +1374,7 @@ response_data %>%
   geom_area(mapping = aes(y = actual_radiant_power, fill = "Energy"), fill = "darkgray") +
   ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = actual_weighted_radiant_power),
                         geom = "bar",
-                        # chroma.type = photobiology::cone_fundamentals10.spct,
-                        # chroma.type = photobiology::ciexyzCC2.spct,
-                        # chroma.type = photobiology::ciexyzCC2.spct,
-                        # chroma.type = photobiology::ciexyzCMF2.spct,
-                        # chroma.type = photobiology::ciexyzCMF10.spct,
-                        # chroma.type = "CC",
-                        chroma.type = "CMF",
+                        chroma.type = chroma_type,
                         size = 0) +   # Eliminates borders
   scale_fill_identity() +
   scale_color_identity() +
@@ -1420,7 +1421,7 @@ response_data %>%
 
 \begin{figure}
     \centering
-<<Exergy_and_energy_graph, fig.width=4.5, fig.height=3, cache=TRUE>>=
+<<Exergy_and_energy_graph, cache.extra.=tools::md5sum(chroma_type), fig.width=4.5, fig.height=3, cache=TRUE>>=
 response_data %>%
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
   # geom_line(mapping = aes(y = actual_exergy, col = "Exergy"), colour = "red") +
@@ -1428,13 +1429,7 @@ response_data %>%
 
   ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = actual_exergy),
                         geom = "bar",
-                        # chroma.type = photobiology::cone_fundamentals10.spct,
-                        # chroma.type = photobiology::ciexyzCC2.spct,
-                        # chroma.type = photobiology::ciexyzCC2.spct,
-                        # chroma.type = photobiology::ciexyzCMF2.spct,
-                        # chroma.type = photobiology::ciexyzCMF10.spct,
-                        # chroma.type = "CC",
-                        chroma.type = "CMF",
+                        chroma.type = chroma_type,
                         size = 0) +   # Eliminates borders
   scale_fill_identity() +
   scale_color_identity() +

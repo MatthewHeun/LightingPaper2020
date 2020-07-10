@@ -44,7 +44,7 @@ See Figure~\ref{fig:wfs_and_lamps_exergy}.
 \begin{figure}
     \centering
     \begin{subfigure}[t]{0.25\textwidth}
-<<Weighting_Function_Graph_Exergy, fig.width=1.5, fig.height=5, cache=TRUE>>=
+<<Weighting_Function_Graph_Exergy, cache.extra.=tools::md5sum(chroma_type), fig.width=1.5, fig.height=5, cache=TRUE>>=
 response_data %>%
   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>%
   dplyr::mutate(
@@ -55,13 +55,7 @@ response_data %>%
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
   ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = normalized_response),
                         geom = "bar",
-                        # chroma.type = photobiology::cone_fundamentals10.spct,
-                        # chroma.type = photobiology::ciexyzCC2.spct,
-                        # chroma.type = photobiology::ciexyzCC2.spct,
-                        # chroma.type = photobiology::ciexyzCMF2.spct,
-                        # chroma.type = photobiology::ciexyzCMF10.spct,
-                        # chroma.type = "CC",
-                        chroma.type = "CMF",
+                        chroma.type = chroma_type,
                         size = 0) +   # Eliminates borders
   scale_fill_identity() +
   scale_color_identity() +
@@ -85,7 +79,7 @@ response_data %>%
     % add desired spacing between images (e.g., ~, \quad, \qquad, \hfill, etc.)
     % or a blank line to force the subfigure onto a new line.
     \begin{subfigure}[t]{0.74\textwidth}
-<<Responses_Graph_Exergy, fig.width=4.5, fig.height=5, cache=TRUE>>=
+<<Responses_Graph_Exergy, cache.extra.=tools::md5sum(chroma_type), fig.width=4.5, fig.height=5, cache=TRUE>>=
 response_data %>%
   # This code divides the output of only the spikey CFL by a factor of 10.
   # dplyr::mutate(
@@ -102,13 +96,7 @@ response_data %>%
   geom_area(mapping = aes(y = actual_exergy, fill = "Exergy"), fill = "darkgray") +
   ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = actual_weighted_exergy),
                         geom = "bar",
-                        # chroma.type = photobiology::cone_fundamentals10.spct,
-                        # chroma.type = photobiology::ciexyzCC2.spct,
-                        # chroma.type = photobiology::ciexyzCC2.spct,
-                        # chroma.type = photobiology::ciexyzCMF2.spct,
-                        # chroma.type = photobiology::ciexyzCMF10.spct,
-                        # chroma.type = "CC",
-                        chroma.type = "CMF",
+                        chroma.type = chroma_type,
                         size = 0) +   # Eliminates borders
   scale_fill_identity() +
   scale_color_identity() +
