@@ -1398,7 +1398,7 @@ response_data %>%
              Colored regions give weighted responses and indicate human perception of color.
              ``A19'' is a 100~W incandescent A19 globe.
              ``Halogen'' is a 29~W halogen R20 globe.
-             ``CFL'' is a 15~W EnergyStar twister compact fluorescent.
+             ``CFL'' is a 3~W globe twister compact fluorescent (scaled by 1/3 from a 9~W globe twister CFL).
              ``LED'' is an 11~W Phillips A19 LED.
              ``Unweighted'' spans the entire wavelength range of the graph, 250 nm < $\lambda$ < 900 nm.
              ``Visible'' restricts to visible wavelengths, \humaneyesensitivity{}.
