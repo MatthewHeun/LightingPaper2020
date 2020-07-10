@@ -442,12 +442,12 @@ EM radiation within the range \humaneyesensitivity{} is considered ``light''~\ci
 the human retina responds only within these wavelengths,
 as shown in Figure~\ref{fig:Vis_Graph}.
 
-<<Load_Data, cache=TRUE, cache.extra.1=tools::md5sum('Data/master_lighting_data.xlsx'), cache.extra.2=tools::md5sum('Data/AllData.R')>>=
+<<Load_Data, cache=FALSE, cache.extra.1=tools::md5sum('Data/master_lighting_data.xlsx'), cache.extra.2=tools::md5sum('Data/AllData.R')>>=
 # Creates the weighted_responses_df data frame.
 source(file = file.path("Data", "AllData.R"))
 # Trim down to the weighting functions and lamps we want
 wf_list <- c("nw", "v", "p2", "u")
-lamp_list <- c("inc_globe_a19_40w", "hal_globe_r20", "cfl_es_tw_9", "led_phil_a19")
+lamp_list <- c("inc_globe_a19_40w", "hal_globe_r20", "cfl_es_tw_3", "led_phil_a19")
 response_data <- weighted_responses_df %>% 
   dplyr::mutate(
     lamp_name = sub(pattern = "lamp_", replacement = "", x = lamp_name),
@@ -468,9 +468,9 @@ response_data <- weighted_responses_df %>%
     lamp_name = dplyr::recode_factor(lamp_name, 
                                      inc_globe_a19_40w = "A19",
                                      hal_globe_r20 = "Halogen", 
-                                     cfl_es_tw_9 = "CFL",
+                                     cfl_es_tw_3 = "CFL",
                                      led_phil_a19 = "LED")
-  ) 
+  )
 @
 
 
@@ -1469,7 +1469,7 @@ response_data %>%
   xlab(expression(lambda*" [nm]")) +
   ylab(expression("Spectral radiative energy and exergy, "*Phi*" [W/nm]")) +
   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
-  scale_y_continuous(limits = c(-0.002, 0.065)) +
+  scale_y_continuous(limits = c(-0.002, 0.022)) +
   labs(fill = element_blank(), colour = element_blank()) +
   MKHthemes::xy_theme() +
   theme(axis.text.x = element_text(size = rel(0.8), angle = 90),

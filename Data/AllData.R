@@ -67,7 +67,8 @@ lamp_data <- lapply(lamp_tabs, FUN = function(tab_name){
     dplyr::mutate(
       lamp_name = tab_name
     )
-})
+}) %>% 
+  magrittr::set_names(lamp_tabs)
 
 weighted_responses_list <- list()
 
