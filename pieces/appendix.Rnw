@@ -1,0 +1,206 @@
+% The next command tells RStudio to do "Compile PDF" on book.Rnw,
+% instead of this chapter, thereby eliminating the need to switch back to book.Rnw 
+% before making the book.
+%!TEX root = ../LightingPaper2020.Rnw
+
+% The appendix is an optional section that can contain 
+% details and data supplemental to the main text. 
+% For example, explanations of experimental details 
+% that would disrupt the flow of the main text, but 
+% nonetheless remain crucial to understanding and reproducing the research shown; 
+% figures of replicates for experiments 
+% of which representative data is shown in the main text 
+% can be added here if brief, or as Supplementary data. 
+% Mathematical proofs of results not central to the paper can be added as an appendix.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Application to non-light EM radiation}
+\label{sec:non_light}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+**** Zeke add a section here on non-light EM radiation. ****
+
+
+
+
+
+%++++++++++++++++++++++++++++++
+\subsection{appendix subsection 1}
+%++++++++++++++++++++++++++++++
+  
+
+%++++++++++++++++++++++++++++++
+\subsection{Exergy version of Figure~\ref{fig:wfs_and_lamps}}
+\label{sec:wfs_and_lamps_exergy}
+%++++++++++++++++++++++++++++++
+
+Figure~\ref{fig:wfs_and_lamps} shows many combinations of weighting functions and lamp radiative emission spectra
+expressed in terms of energy.
+This appendix shows the same figure in terms of exergy, 
+applying Equation~\ref{eq:X_dot_L}.
+See Figure~\ref{fig:wfs_and_lamps_exergy}.
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.25\textwidth}
+<<Weighting_Function_Graph_Exergy, fig.width=1.5, fig.height=5, cache=TRUE>>=
+response_data %>%
+  dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>%
+  dplyr::mutate(
+    header = "Weight. Func.",
+    # Get nice tails at 0.
+    normalized_response = tidyr::replace_na(normalized_response, 0)
+  ) %>%
+  ggplot(mapping = aes(x = `Wavelength [nm]`)) +
+  ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = normalized_response),
+                        geom = "bar",
+                        # chroma.type = photobiology::cone_fundamentals10.spct,
+                        # chroma.type = photobiology::ciexyzCC2.spct,
+                        # chroma.type = photobiology::ciexyzCC2.spct,
+                        # chroma.type = photobiology::ciexyzCMF2.spct,
+                        # chroma.type = photobiology::ciexyzCMF10.spct,
+                        # chroma.type = "CC",
+                        chroma.type = "CMF",
+                        size = 0) +   # Eliminates borders
+  scale_fill_identity() +
+  scale_color_identity() +
+  geom_line(mapping = aes(y = normalized_response), color = "darkgray") +
+  geom_vline(xintercept = 555, size = 0.2, color = "darkgray") +
+
+  facet_grid(rows = vars(wf_name), cols = vars(header)) +
+  xlab(expression(lambda*" [nm]")) +
+  ylab("Normalized response [-]") +
+  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
+  scale_y_continuous(breaks = c(0, 0.5, 1)) +
+  MKHthemes::xy_theme() +
+  theme(strip.text.x = element_text(margin = margin(b = 2.0)),
+        # Eliminate labels on right facet. Pick up from lamp radiative powers.
+        strip.text.y = element_blank(),
+        axis.text.x = element_text(size = rel(0.8), angle = 90),
+        axis.text.y = element_text(size = rel(0.8)))
+@
+        \label{fig:weighting_functions_exergy}
+    \end{subfigure}
+    % add desired spacing between images (e.g., ~, \quad, \qquad, \hfill, etc.)
+    % or a blank line to force the subfigure onto a new line.
+    \begin{subfigure}[t]{0.74\textwidth}
+<<Responses_Graph_Exergy, fig.width=4.5, fig.height=5, cache=TRUE>>=
+response_data %>%
+  # This code divides the output of only the spikey CFL by a factor of 10.
+  # dplyr::mutate(
+  #   actual_radiant_power = dplyr::case_when(
+  #     lamp_name == "CFL" ~ actual_radiant_power / 10,
+  #     TRUE ~ actual_radiant_power
+  #   ),
+  #   actual_weighted_radiant_power = dplyr::case_when(
+  #     lamp_name == "CFL" ~ actual_weighted_radiant_power / 10,
+  #     TRUE ~ actual_weighted_radiant_power
+  #   )
+  # ) %>%
+  ggplot(mapping = aes(x = `Wavelength [nm]`)) +
+  geom_area(mapping = aes(y = actual_exergy, fill = "Exergy"), fill = "darkgray") +
+  ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = actual_weighted_exergy),
+                        geom = "bar",
+                        # chroma.type = photobiology::cone_fundamentals10.spct,
+                        # chroma.type = photobiology::ciexyzCC2.spct,
+                        # chroma.type = photobiology::ciexyzCC2.spct,
+                        # chroma.type = photobiology::ciexyzCMF2.spct,
+                        # chroma.type = photobiology::ciexyzCMF10.spct,
+                        # chroma.type = "CC",
+                        chroma.type = "CMF",
+                        size = 0) +   # Eliminates borders
+  scale_fill_identity() +
+  scale_color_identity() +
+
+  xlab(expression(lambda*" [nm]")) +
+  ylab(expression("Spectral radiative exergy, "*phi*" [W/nm]")) +
+  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
+  labs(fill = element_blank(), colour = element_blank()) +
+  facet_grid(rows = vars(wf_name), cols = vars(lamp_name)) +
+  MKHthemes::xy_theme() +
+  theme(axis.text.x = element_text(size = rel(0.8), angle = 90),
+        axis.text.y = element_text(size = rel(0.8)),
+        # Move the facet labels out of the graphs slightly.
+        strip.text.x = element_text(margin = margin(b = 2.0)),
+        strip.text.y = element_text(margin = margin(l = 2.0)))
+@
+        \label{fig:lamp_responses_exergy}
+    \end{subfigure}
+    \caption{Weighting functions, lamp emission, and weighted responses.
+             Gray regions show lamp emission.
+             Colored regions give weighted responses and indicate human perception of color.
+             ``A19'' is a 100~W incandescent A19 globe.
+             ``Halogen'' is a 29~W halogen R20 globe.
+             ``CFL'' is a 15~W EnergyStar twister compact fluorescent.
+             ``LED'' is an 11~W Phillips A19 LED.
+             ``Unweighted'' spans the entire wavelength range of the graph, 250 nm < $\lambda$ < 900 nm.
+             ``Visible'' restricts to visible wavelengths, \humaneyesensitivity{}.
+             ``Photopic lum.{}'' is the standard photopic luminosity weighting function.
+             ``Universal'' is the universal weighting function.
+             **** What symbol do we want for vertical axis?  It is not precisely radiative flux if it is per-nm. ****
+             **** Provide references for each of the weighting functions and lamps? ****
+             **** Yep! I'll add the reference for the LPSDD database in the .bib ---ZM****
+             **** Shall we add luminous intensity annotations to each graph? ****
+             **** Yes, we should add the weighted 'spectral radiative power' for each graph,
+             me and Emmanuel are working on these calcs! ---ZM}
+	\label{fig:wfs_and_lamps_exergy}
+\end{figure}
+
+
+%++++++++++++++++++++++++++++++
+\subsection{appdendix subsection 2}
+\label{sec:appendix_subsection_2}
+%++++++++++++++++++++++++++++++
+  
+\subsection{Nomenclature for meeting 22/06/2020}
+  
+Radiant power; $\dot{Q}_{em}$ or $\dot{Q}_e$:
+
+\begin{equation}
+  \dot{Q}_{em} = \int \dot{Q}_{em, \lambda} \mathrm{d}\lambda \; .
+\end{equation}
+
+Other option; $\Phi_{e}$:
+
+\begin{equation}
+  \Phi_{e} = \int \Phi_{e, \lambda} \mathrm{d}\lambda \; .
+\end{equation}
+
+For the "wrong" radiant power and spectral radiant power as measured by the spectrometer we could use a ': $Q_{em}'$ or $\Phi_{e}'$; and $Q_{em, \lambda}'$ or $\Phi_{e, \lambda}'$.
+
+
+Weighted radiant power $L_{f_\lambda}$, weighted by a weighting function $f_\lambda$:
+
+\begin{equation}
+  \dot{L}_{f_{\lambda}} = \int \dot{Q}_{em, \lambda} f_{\lambda} \mathrm{d}\lambda \; .
+\end{equation}
+
+\begin{equation}
+  \dot{L}_{V_{\lambda}} = \int \dot{Q}_{em, \lambda} V_{\lambda} \mathrm{d}\lambda \; .
+\end{equation}
+
+\begin{equation}
+  \dot{L}_{f_{univ, \lambda}} = \int \dot{Q}_{em, \lambda} f_{univ, \lambda} \mathrm{d}\lambda \; .
+\end{equation}
+
+
+Luminous "flux" (or luminous "power") (in lm/Watt):
+
+\begin{equation}
+  \Phi_{v} = 683 lm/W \int \dot{Q}_{em, \lambda} V_{\lambda} \mathrm{d}\lambda \; .
+\end{equation}
+
+
+Regarding efficiencies (electricity to light, electricity to radiant power, and radiant power to light):
+
+\begin{figure}
+\centering
+\includegraphics[width=1\linewidth]{figure_other/elec_to_light.pdf}
+\caption{Efficiencies in the electricity-to-light conversion}
+\end{figure}
+
+
+% All appendix sections must be cited in the main text. 
+% In the appendixes, Figures, Tables, etc. should be labeled starting with `A', 
+% e.g., Figure A1, Figure A2, etc. 
