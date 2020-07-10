@@ -1313,15 +1313,7 @@ ZM: Develop examples with two lighting technologies, one old and one LED.
 Do calculations with various permutations and show graphs.
 ****
 
-
 See Figure~\ref{fig:wfs_and_lamps}, which provides visual representation of several weighting functions and lamps.
-
-
-
-
-
-**** This is the energy graph --- EAR ****
-
 
 \begin{figure}
     \centering
@@ -1405,10 +1397,6 @@ response_data %>%
              me and Emmanuel are working on these calcs! ---ZM}
 	\label{fig:wfs_and_lamps}
 \end{figure}
-
-
-
-
 
 
 
