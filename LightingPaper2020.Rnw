@@ -2016,8 +2016,6 @@ quantifying the exergy of light.
 \label{fig:heat_engine_old}
 \end{figure}
 
-**** Adding efficiencies --- EAR ****
-
 
 
 
