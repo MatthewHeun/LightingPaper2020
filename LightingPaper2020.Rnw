@@ -1393,7 +1393,7 @@ response_data %>%
              The black dotted line shows the spectral exergy-to-energy ratio~($\phi_{L,\lambda}$).
              The gray region shows spectral energy. 
              The solid black line shows spectral exergy, 
-             the product of the top of the gray rection $\phi_{L,\lambda}$ in the right graphs and the dotted black line in the left graph.
+             the product of the top of the gray region $\phi_{L,\lambda}$ in the right graphs and the dotted black line in the left graph.
              Bars along the bottom illustrate human color perception.}
 	\label{fig:effect_of_exergy}
 \end{figure}
