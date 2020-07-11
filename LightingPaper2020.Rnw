@@ -929,10 +929,10 @@ whether the illumination stimulates the rods and cones of a human eye or
 excites band gap electrons in an amorphous silicon solar cell.
 
 
-%++++++++++++++++++++++++++++++
-\subsection{Human perception of EM radiation} 
+%------------------------------
+\subsubsection{Human perception of EM radiation} 
 \label{sec:human_perception_of_light}
-%++++++++++++++++++++++++++++++
+%------------------------------
 
 We noted above that both
 %
@@ -983,10 +983,10 @@ to light~($\dot{L}$),
 the valuable part of EM radiation for illumination.
 
 
-%++++++++++++++++++++++++++++++
-\subsection{Weighting functions}
+%------------------------------
+\subsubsection{Weighting functions}
 \label{sec:weighting_functions}
-%++++++++++++++++++++++++++++++
+%------------------------------
 
 For the purposes of this paper, 
 at least four options for the weighting function ($f_\lambda$) are apparent.
@@ -1122,10 +1122,10 @@ the four options for weighting a lamp's EM radiation output
 when determining the useful \enoex{} of light.
 
 
-%++++++++++++++++++++++++++++++
-\subsection{The exergy-to-energy ratio of EM radiation, $\phi_{\EM}$ (Zeke and Emmanuel, 500 words)}
+%------------------------------
+\subsubsection{The exergy-to-energy ratio of EM radiation, $\phi_{\EM}$ (Zeke and Emmanuel, 500 words)}
 \label{sec:phi_light}
-%++++++++++++++++++++++++++++++
+%------------------------------
 
 Recent advances in the thermodynamics of radiation community
 enable converting the energy of EM radiation into the exergy of EM radiation.
@@ -1252,9 +1252,14 @@ Sections~\ref{sec:framework}--\ref{sec:phi_light}.
 
 
 %++++++++++++++++++++++++++++++
-\subsection{Lamps and lamp efficiency}
-\label{sec:lamps_and_lamp_efficiency}
+\subsection{Methods and data}
+\label{sec:methods_and_data}
 %++++++++++++++++++++++++++++++
+
+%------------------------------
+\subsubsection{Lamps and lamp efficiency}
+\label{sec:lamps_and_lamp_efficiency}
+%------------------------------
 
 ****
 Matt needs to edit this section after it is completed. 
