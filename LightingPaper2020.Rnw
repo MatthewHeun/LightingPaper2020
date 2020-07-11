@@ -1383,10 +1383,9 @@ response_data %>%
     \caption{Left: The spectral exergy-to-energy ratio of light ($\phi_{L,\lambda}$) as a function of wavelength~($\lambda$). 
              Right: Spectral EM radiation ($\Phi_{L,\lambda}$) of four example lamps.
              (See Table~\ref{tab:lamps}.) 
-             The black dotted line shows the spectral exergy-to-energy ratio~($\phi_{L,\lambda}$).
              The gray region shows spectral energy. 
-             The solid black line shows spectral exergy, 
-             the product of the top of the gray region $\phi_{L,\lambda}$ in the right graphs and the dotted black line in the left graph.
+             The solid dark green line atop the gray region shows spectral exergy, 
+             the product of the top of the gray region $\phi_{L,\lambda}$ in the right graphs and the line in the left graph.
              Bars along the bottom illustrate human color perception.}
 	\label{fig:effect_of_exergy}
 \end{figure}
@@ -1397,7 +1396,7 @@ response_data %>%
 \label{sec:effect_weighting_functions}
 %++++++++++++++++++++++++++++++
 
-Figure~\ref{fig:wfs_and_lamps} provides visual representation of the spectral energy of light
+Figure~\ref{fig:wfs_and_lamps} provides visual representation of the spectral energy and exergy of light
 for several weighting functions and lamps.
 The leftmost column of Figure~\ref{fig:wfs_and_lamps} illustrates 
 the four weighting functions discussed in Section~\ref{sec:weighting_functions} and
@@ -1405,10 +1404,14 @@ Table~\ref{tab:wfs}.
 The top row of Figure~\ref{fig:wfs_and_lamps} shows unweighted EM emission from the four lamps 
 discussed in Section~\ref{sec:lamps_and_lamp_efficiency} and
 Table~\ref{tab:lamps}.
+The top row in Figure~\ref{fig:wfs_and_lamps} is identical to the rightmost four graphs in Figure~\ref{fig:effect_of_exergy}, 
+where the gray region shows energy and the dark green line shows exergy.
 The areas of the gray regions ($\Phi$) are given by Equation~\ref{eq:emissive_power}.
-Each rainbow colored region shows light content of the EM radiation and
+Each rainbow colored region shows the light content of EM radiation and
 is the spectral product of its row's weighting function and its column's lamp emission spectrum.
 The areas of the rainbow colored regions ($\dot{L}$) are given by Equation~\ref{eq:weighted_emissive_power}.
+The areas beneath the dark green lines ($\dot{X}_L$) in all graphs are given by 
+Equation~\ref{eq:X_dot_L}.
 
 \begin{figure}
     \centering
@@ -1501,6 +1504,7 @@ response_data %>%
              Black lines on the left show weighting functions ($f_\lambda$).
              Gray regions at the top show unweighted lamp EM energy emission ($\Phi_{L,\lambda}$).
              Rainbow colored regions give spectral weighted EM lamp energy emission and indicate human perception of color.
+             Dark green lines show exergy.
              ``A19'' is a 100-W incandescent A19 globe.
              ``Halogen'' is a 29-W halogen R20 globe.
              ``CFL'' is a 3-W globe twister compact fluorescent (scaled by $\frac{1}{3}$ from a 9-W globe twister CFL).
