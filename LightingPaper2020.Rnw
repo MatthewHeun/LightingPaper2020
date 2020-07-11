@@ -1321,10 +1321,11 @@ Applying Equation~\ref{eq:phi_L_lambda_shan_zhou}
 to the four lamps identified in Section~\ref{sec:lamps_and_lamp_efficiency}
 gives the right-most four graphs in Figure~\ref{fig:effect_of_exergy},
 spectral EM radiation ($\Phi_{L,\lambda}$) as a function of wavelength ($\lambda$).
-Note that exergy (dotted red line) is very close to energy (black line), because
-the exergy-to-energy ratio ($\phi_{L,\lambda}$) is always close to~1.
+Note that exergy (solid black line) is very close to energy (top of the gray region), because
+the exergy-to-energy ratio ($\phi_{L,\lambda}$, dotted black line) is always close to~1.
 The divergence between energy and exergy is greatest at larger wavelengths
-and into the infrared region.
+(into the infrared region)
+when emission is largest.
 Because energy and exergy are so close at wavelengths of interest for light,
 henceforth we present energy results only.
 
@@ -1360,14 +1361,16 @@ tibble::tibble(lambda = seq(250, 900, by = 0.5)*10^(-9)) %>%
     % or a blank line to force the subfigure onto a new line.
     \begin{subfigure}[t]{0.74\textwidth}
 <<Energy_and_exergy_graph, cache=use_cache, cache.extra=openssl::md5(chroma_type), fig.width=4.5, fig.height=2.5>>=
-response_data %>%
+response_data %>% 
+  dplyr::filter(wf_name == "Unweighted") %>% 
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
-  # geom_line(mapping = aes(y = actual_exergy, col = "Exergy"), colour = "red", size = 0.1) +
-  # geom_line(mapping = aes(y = actual_radiant_power, col = "Energy"), colour = "blue", size = 0.1) +
-  geom_line(mapping = aes(y = actual_exergy), linetype = 3, colour = "red", size = 0.3) +
-  geom_line(mapping = aes(y = actual_radiant_power),  size = 0.1) +
+  # geom_line(mapping = aes(y = actual_exergy), colour = "red", size = 0.1) +
+  # geom_line(mapping = aes(y = actual_radiant_power), colour = "blue", size = 0.1) +
+  geom_area(mapping = aes(y = actual_radiant_power), fill = "darkgray") +
+  geom_line(mapping = aes(y = actual_exergy), linetype = 1, colour = "black", size = 0.1) +
+  # geom_line(mapping = aes(y = actual_radiant_power),  size = 0.1) +
 
-  ggspectra::stat_wl_strip(ymin = -0.002, ymax = -0.001, chroma.type = "CMF", size = 0) +
+  ggspectra::stat_wl_strip(ymin = -0.002, ymax = -0.001, chroma.type = chroma_type, size = 0) +
   scale_fill_identity() +
   
   xlab(expression(lambda*" [nm]")) +
@@ -1387,9 +1390,10 @@ response_data %>%
     \caption{Left: The spectral exergy-to-energy ratio of light ($\phi_{L,\lambda}$) as a function of wavelength~($\lambda$). 
              Right: Spectral EM radiation ($\Phi_{L,\lambda}$) of four example lamps.
              (See Table~\ref{tab:lamps}.) 
-             The black solid line shows spectral energy. 
-             The red dotted line shows spectral exergy, 
-             the product of the black solid lines $\phi_{L,\lambda}$ in the right graphs and the black dotted line in the left graph.
+             The black dotted line shows the spectral exergy-to-energy ratio~($\phi_{L,\lambda}$).
+             The gray region shows spectral energy. 
+             The solid black line shows spectral exergy, 
+             the product of the top of the gray rection $\phi_{L,\lambda}$ in the right graphs and the dotted black line in the left graph.
              Bars along the bottom illustrate human color perception.}
 	\label{fig:effect_of_exergy}
 \end{figure}
@@ -1419,7 +1423,7 @@ The areas of the rainbow colored regions ($\dot{L}$) are given by Equation~\ref{
 response_data %>%
   dplyr::filter(wf_name == "Unweighted") %>%
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
-  geom_area(mapping = aes(y = actual_radiant_power, fill = "Energy"), fill = "darkgray") +
+  geom_area(mapping = aes(y = actual_radiant_power), fill = "darkgray") +
   facet_grid(rows = vars(wf_name), cols = vars(lamp_name)) +
   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
   xlab(element_blank()) +
@@ -1471,7 +1475,7 @@ response_data %>%
 <<Responses_Graph_Energy, cache=use_cache, cache.extra=openssl::md5(chroma_type), fig.width=4.5, fig.height=5, fig.align="right">>=
 response_data %>%
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
-  # geom_area(mapping = aes(y = actual_radiant_power, fill = "Energy"), fill = "darkgray") +
+  # geom_area(mapping = aes(y = actual_radiant_power), fill = "darkgray") +
   ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = actual_weighted_radiant_power),
                         geom = "bar",
                         chroma.type = chroma_type,
@@ -2072,8 +2076,8 @@ quantifying the exergy of light.
 <<Energy_and_exergy_graph_old, cache=use_cache, cache.extra=openssl::md5(chroma_type), fig.width=4.5, fig.height=3, fig.cap="Spectral radiative energy and exergy of four example lamps. Rainbow filled area represents exergy. Black line gives energy. No weighting functions are applied.">>=
 response_data %>%
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
-  # geom_line(mapping = aes(y = actual_exergy, col = "Exergy"), colour = "red") +
-  geom_line(mapping = aes(y = actual_radiant_power, col = "Energy"), colour = "black", size = 0.1) +
+  # geom_line(mapping = aes(y = actual_exergy), colour = "red") +
+  geom_line(mapping = aes(y = actual_radiant_power), colour = "black", size = 0.1) +
 
   ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = actual_exergy),
                         geom = "bar",
@@ -2128,8 +2132,8 @@ tibble::tibble(lambda = seq(250, 900, by = 0.5)*10^(-9)) %>%
 <<Energy_and_exergy_graph_rejected, cache=use_cache, cache.extra=openssl::md5(chroma_type), fig.width=5, fig.height=2.5, fig.align="center", fig.cap="Spectral EM radiation ($\\Phi_{L,\\lambda} $) of four example lamps. (See Table~\\ref{tab:lamps}.) Black solid line gives spectral energy. Red dotted line gives spectral exergy. The bar illustrates human color perception. No weighting functions are applied.">>=
 response_data %>%
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
-  # geom_line(mapping = aes(y = actual_exergy, col = "Exergy"), colour = "red", size = 0.1) +
-  # geom_line(mapping = aes(y = actual_radiant_power, col = "Energy"), colour = "blue", size = 0.1) +
+  # geom_line(mapping = aes(y = actual_exergy), colour = "red", size = 0.1) +
+  # geom_line(mapping = aes(y = actual_radiant_power), colour = "blue", size = 0.1) +
   geom_line(mapping = aes(y = actual_exergy), linetype = 3, colour = "red", size = 0.3) +
   geom_line(mapping = aes(y = actual_radiant_power),  size = 0.1) +
 
@@ -2159,7 +2163,7 @@ response_data %>%
 response_data %>%
   dplyr::filter(wf_name == "Unweighted") %>%
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
-  geom_area(mapping = aes(y = actual_radiant_power, fill = "Energy"), fill = "darkgray") +
+  geom_area(mapping = aes(y = actual_radiant_power), fill = "darkgray") +
   facet_grid(cols = vars(lamp_name)) +
   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
   xlab(element_blank()) +
