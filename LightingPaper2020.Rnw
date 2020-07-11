@@ -1190,14 +1190,23 @@ the pupil looks black because most light entering it is trapped and absorbed.'')
 Thus, we use Shan and Zhou's~\cite{shan2019} spectral formulation of Petela's equation,
 which replaces the temperature of the emitter ($T_1$) by photon effective temperature~($T_\lambda$):
 %
-\begin{equation} \label{eq:phi_L_lambda_shan_zhou}
- \phi_{\EM,\lambda} = 1 - \frac{4}{3}\frac{T_{0}}{T_{\lambda}} + \frac{1}{3} \left(\frac{T_{0}}{T_{\lambda}}\right)^4 \; .
+\begin{equation} \label{eq:phi_EM_lambda_shan_zhou}
+ \phi_{\EM,\lambda} = 1 - \frac{4}{3} \left( \frac{T_{0}}{T_{\lambda}} \right)
+                        + \frac{1}{3} \left(\frac{T_{0}}{T_{\lambda}}\right)^4 \; .
 \end{equation}
 %
-Further, Equation~\ref{eq:T_lambda} can be substituted into Equation~\ref{eq:phi_L_lambda_shan_zhou},
+Further, Equation~\ref{eq:T_lambda} can be substituted into Equation~\ref{eq:phi_EM_lambda_shan_zhou}
+(in the form $T_\lambda = c_3 / \lambda$),
 and $T_0$ can be taken as 310~K, the temperature of the human body.
-The result is Figure~\ref{fig:phi_L_lambda_vs_lambda} which shows the spectral exergy-to-energy ratio
-as a function of wavelength.
+The result is an equation for $\phi_L$, the specular exergy-to-energy ratio of light:
+%
+\begin{equation} \label{eq:phi_L_lambda_shan_zhou}
+ \phi_{L,\lambda} = 1 - \frac{4}{3} \left( \frac{310 \text{ K}}{c_3} \right) \lambda 
+                      + \frac{1}{3} \left( \frac{310 \text{ K}}{c_3} \right)^4 \lambda^4 \; .
+\end{equation}
+%
+Equation~\ref{eq:phi_L_lambda_shan_zhou} is plotted in Figure~\ref{fig:phi_L_lambda_vs_lambda},
+which shows the spectral exergy-to-energy ratio for light ($\phi_{L,\lambda}$) as a function of wavelength.
 
 <<phi_L_lambda_vs_lambda, cache=use_cache, cache.extra=openssl::md5(chroma_type), fig.align="center", fig.width=5, fig.height=3, fig.cap="The spectral exergy-to-energy ratio of light ($\\phi_{L,\\lambda}$) as a function of wavelength~($\\lambda$). The bar illustrates human color perception.">>=
 tibble::tibble(lambda = seq(250, 900, by = 0.5)*10^(-9)) %>% 
@@ -1265,6 +1274,16 @@ Sections~\ref{sec:framework}--\ref{sec:phi_light}.
 Matt needs to edit this section after it is completed. 
 ****
 
+****
+Should lamp efficiency be pushed up into the theory section?---MKH
+****
+
+****
+We need to add content about methods here. 
+I particular, we need to say that we'll take the weighting functions and lamps to calculate responses and efficiencies
+to illustrate the theory.---MKH
+****
+
 To demonstrate how the use of selection of various weighting functions 
 alters the measurement of the efficiency of a lighting device 
 we choose to compare the following lamps and weighting functions
@@ -1318,10 +1337,89 @@ ZM: Develop examples with two lighting technologies, one old and one LED.
 Do calculations with various permutations and show graphs.
 ****
 
-See Figure~\ref{fig:wfs_and_lamps}, which provides visual representation of several weighting functions and lamps.
+
+%++++++++++++++++++++++++++++++
+\subsection{The effect of the exergy-to-energy ratio, $\phi_{L,\lambda}$}
+\label{sec:effect_of_phi_L}
+%++++++++++++++++++++++++++++++
+
+Applying Equation~\ref{eq:phi_L_lambda_shan_zhou} 
+to the four lamps identified in Section~\ref{sec:lamps_and_lamp_efficiency}
+gives Figure~\ref{fig:Energy_and_exergy_graph},
+which shows spectral EM radiation ($\Phi_{L,\lambda}$) as a function of wavelength ($\lambda$).
+Note that exergy (dotted red line) is very close to energy (black line), because
+the exergy-to-energy ratio ($\phi_{L,\lambda}$) is always close to 1.
+(See Figure~\ref{fig:phi_L_lambda_vs_lambda}.)
+The divergence between energy and exergy is greatest at larger wavelengths
+and into the infrared region.
+Because energy and exergy are so close at wavelengths of interest for light,
+we present energy results only, henceforth.
+
+<<Energy_and_exergy_graph, cache=use_cache, cache.extra=openssl::md5(chroma_type), fig.width=5, fig.height=2.5, fig.align="center", fig.cap="Spectral EM radiation ($\\Phi_{L,\\lambda} $) of four example lamps. (See Table~\\ref{tab:lamps}.) Black solid line gives spectral energy. Red dotted line gives spectral exergy. The bar illustrates human color perception. No weighting functions are applied.">>=
+response_data %>%
+  ggplot(mapping = aes(x = `Wavelength [nm]`)) +
+  # geom_line(mapping = aes(y = actual_exergy, col = "Exergy"), colour = "red", size = 0.1) +
+  # geom_line(mapping = aes(y = actual_radiant_power, col = "Energy"), colour = "blue", size = 0.1) +
+  geom_line(mapping = aes(y = actual_exergy), linetype = 3, colour = "red", size = 0.3) +
+  geom_line(mapping = aes(y = actual_radiant_power),  size = 0.1) +
+
+  ggspectra::stat_wl_strip(ymin = -0.002, ymax = -0.001, chroma.type = "CMF", size = 0) +
+  scale_fill_identity() +
+  
+  xlab(expression(lambda*" [nm]")) +
+  ylab(expression(Phi[L*","*lambda]*" [W/nm]")) +
+  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
+  scale_y_continuous(limits = c(-0.002, 0.022)) +
+  labs(fill = element_blank(), colour = element_blank()) +
+  MKHthemes::xy_theme() +
+  theme(axis.text.x = element_text(size = rel(0.8), angle = 90),
+        axis.text.y = element_text(size = rel(0.8)),
+        # Move the facet labels out of the graphs slightly.
+        strip.text.x = element_text(margin = margin(b = 2.0))) +
+  facet_grid(~lamp_name)
+@
+
+
+Figure~\ref{fig:wfs_and_lamps} provides visual representation of several weighting functions and lamps.
+The ``Weight.\ Func.'' column shows all four weighting functions.
+Gray regions indicate the energy of EM emissions for each lamp.
+Colored regions show light.
+
+
+<<Unweighted_Emissions_outside, fig.width=4.5, fig.height=1.7, fig.align="right">>=
+response_data %>%
+  dplyr::filter(wf_name == "Unweighted") %>%
+  ggplot(mapping = aes(x = `Wavelength [nm]`)) +
+  geom_area(mapping = aes(y = actual_radiant_power, fill = "Energy"), fill = "darkgray") +
+  facet_grid(cols = vars(lamp_name)) +
+  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
+  xlab(element_blank()) +
+  ylab(expression(Phi["L,"*lambda]*" [W/nm]")) +
+  MKHthemes::xy_theme() +
+  theme(axis.text.x = element_text(size = rel(0.8), angle = 90),
+        axis.text.y = element_text(size = rel(0.8)))
+@
+
 
 \begin{figure}
     \centering
+<<Unweighted_Emissions, fig.width=4.5, fig.height=1.6, fig.align="right">>=
+response_data %>%
+  dplyr::filter(wf_name == "Unweighted") %>%
+  ggplot(mapping = aes(x = `Wavelength [nm]`)) +
+  geom_area(mapping = aes(y = actual_radiant_power, fill = "Energy"), fill = "darkgray") +
+  facet_grid(rows = vars(wf_name), cols = vars(lamp_name)) +
+  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
+  xlab(element_blank()) +
+  ylab(expression(Phi["L,"*lambda]*" [W/nm]")) +
+  MKHthemes::xy_theme() +
+  theme(axis.text.x = element_text(size = rel(0.8), angle = 90),
+        axis.text.y = element_text(size = rel(0.8)), 
+        # Move the facet labels out of the graphs slightly.
+        strip.text.x = element_text(margin = margin(b = 2.0)),
+        strip.text.y = element_text(margin = margin(l = 2.0)))
+
+@
     \begin{subfigure}[t]{0.25\textwidth}
 <<Weighting_Function_Graph_Energy, cache=use_cache, cache.extra=openssl::md5(chroma_type), fig.width=1.5, fig.height=5>>=
 response_data %>%
@@ -1370,7 +1468,8 @@ response_data %>%
   scale_color_identity() +
 
   xlab(expression(lambda*" [nm]")) +
-  ylab(expression("Spectral radiative energy, "*Phi*" [W/nm]")) +
+  # ylab(expression("Spectral radiative energy, "*Phi*" [W/nm]")) +
+  ylab(expression(Phi[L*","*lambda]*" [W/nm]")) +
   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
   labs(fill = element_blank(), colour = element_blank()) +
   facet_grid(rows = vars(wf_name), cols = vars(lamp_name)) +
@@ -1405,68 +1504,8 @@ response_data %>%
 
 
 
-\begin{figure}
-    \centering
-<<Exergy_and_energy_graph, cache=use_cache, cache.extra=openssl::md5(chroma_type), fig.width=4.5, fig.height=3>>=
-response_data %>%
-  ggplot(mapping = aes(x = `Wavelength [nm]`)) +
-  # geom_line(mapping = aes(y = actual_exergy, col = "Exergy"), colour = "red") +
-  geom_line(mapping = aes(y = actual_radiant_power, col = "Energy"), colour = "black", size = 0.1) +
-
-  ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = actual_exergy),
-                        geom = "bar",
-                        chroma.type = chroma_type,
-                        size = 0) +   # Eliminates borders
-  scale_fill_identity() +
-  scale_color_identity() +
-  
-  xlab(expression(lambda*" [nm]")) +
-  ylab(expression("Spectral radiative energy and exergy, "*Phi*" [W/nm]")) +
-  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
-  labs(fill = element_blank(), colour = element_blank()) +
-  MKHthemes::xy_theme() +
-  theme(axis.text.x = element_text(size = rel(0.8), angle = 90),
-        axis.text.y = element_text(size = rel(0.8)),
-        # Move the facet labels out of the graphs slightly.
-        strip.text.x = element_text(margin = margin(b = 2.0)),
-        strip.text.y = element_text(margin = margin(l = 2.0))) +
-  facet_grid(~lamp_name)
-@
-    \caption{Spectral radiative energy and exergy of four example lamps. 
-             Rainbow filled area represents exergy. Black line gives energy. 
-             No weighting functions are applied.}
-	\label{fig:energy_and_exergy}
-\end{figure}
 
 
-
-
-<<Exergy_and_energy_graph_v2, cache=use_cache, cache.extra=openssl::md5(chroma_type), fig.width=4.5, fig.height=3, fig.align="center", fig.cap="**** This is a second option.---MKH **** Spectral radiative energy and exergy of four example lamps. Black solid line gives spectral energy. Red dotted line gives spectral exergy. The bar illustrates human color perception. No weighting functions are applied.">>=
-response_data %>%
-  ggplot(mapping = aes(x = `Wavelength [nm]`)) +
-  # geom_line(mapping = aes(y = actual_exergy, col = "Exergy"), colour = "red", size = 0.1) +
-  # geom_line(mapping = aes(y = actual_radiant_power, col = "Energy"), colour = "blue", size = 0.1) +
-  geom_line(mapping = aes(y = actual_exergy), linetype = 3, colour = "red", size = 0.3) +
-  geom_line(mapping = aes(y = actual_radiant_power),  size = 0.1) +
-
-  ggspectra::stat_wl_strip(ymin = -0.002, ymax = -0.001, chroma.type = "CMF", size = 0) +
-  scale_fill_identity() +
-  
-  xlab(expression(lambda*" [nm]")) +
-  ylab(expression("Spectral radiative energy and exergy, "*Phi*" [W/nm]")) +
-  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
-  scale_y_continuous(limits = c(-0.002, 0.022)) +
-  labs(fill = element_blank(), colour = element_blank()) +
-  MKHthemes::xy_theme() +
-  theme(axis.text.x = element_text(size = rel(0.8), angle = 90),
-        axis.text.y = element_text(size = rel(0.8)),
-        # Move the facet labels out of the graphs slightly.
-        strip.text.x = element_text(margin = margin(b = 2.0))) +
-  facet_grid(~lamp_name)
-@
-
-
-**** Even though the lamps will not be arranged in the same format as Figure 9, I think we need to have them in a 2x2 format. This will increase the size of each graph and make the distinction between exergy and energy clearer---ZM ****
 
 
 
@@ -2018,6 +2057,39 @@ quantifying the exergy of light.
 \caption{A lamp that produces heat and light. **** Need a modified version of this figure that shows light.}
 \label{fig:lamp_prev}
 \end{figure}
+
+
+%++++++++++++++++++++++++++++++
+\subsection{Old energy and exergy graph}
+%++++++++++++++++++++++++++++++
+
+<<Energy_and_exergy_graph_old, cache=use_cache, cache.extra=openssl::md5(chroma_type), fig.width=4.5, fig.height=3, fig.cap="Spectral radiative energy and exergy of four example lamps. Rainbow filled area represents exergy. Black line gives energy. No weighting functions are applied.">>=
+response_data %>%
+  ggplot(mapping = aes(x = `Wavelength [nm]`)) +
+  # geom_line(mapping = aes(y = actual_exergy, col = "Exergy"), colour = "red") +
+  geom_line(mapping = aes(y = actual_radiant_power, col = "Energy"), colour = "black", size = 0.1) +
+
+  ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = actual_exergy),
+                        geom = "bar",
+                        chroma.type = chroma_type,
+                        size = 0) +   # Eliminates borders
+  scale_fill_identity() +
+  scale_color_identity() +
+  
+  xlab(expression(lambda*" [nm]")) +
+  ylab(expression("Spectral radiative energy and exergy, "*Phi*" [W/nm]")) +
+  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
+  labs(fill = element_blank(), colour = element_blank()) +
+  MKHthemes::xy_theme() +
+  theme(axis.text.x = element_text(size = rel(0.8), angle = 90),
+        axis.text.y = element_text(size = rel(0.8)),
+        # Move the facet labels out of the graphs slightly.
+        strip.text.x = element_text(margin = margin(b = 2.0)),
+        strip.text.y = element_text(margin = margin(l = 2.0))) +
+  facet_grid(~lamp_name)
+@
+
+
 
 
 ********************************* End Bone Pile *********************************
