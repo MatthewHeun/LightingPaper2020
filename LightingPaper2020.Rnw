@@ -33,7 +33,7 @@ library(tidyr)
 <<setup-graphs, include=FALSE>>=
 # This variable switches the cache on/off for all R code chunks that are configured for cacheing.
 # Set to FALSE if some plots are not updating as expected, then set back to TRUE.
-use_cache <- TRUE
+use_cache <- FALSE
 
 # Here are some options for the colors to use in the ggspectra graphs.
 # The variable chroma_type is used in all graphs,
@@ -42,13 +42,12 @@ use_cache <- TRUE
 # The argument cache.extra=openssl::md5(chroma_type) is supposed to trigger a rebuild of graphs 
 # when the value of chroma_type changes.
 
-# chroma_type <- photobiology::cone_fundamentals10.spct
-# chroma_type <- photobiology::ciexyzCC2.spct
-# chroma_type <- photobiology::ciexyzCC2.spct 
-# chroma_type <- photobiology::ciexyzCMF2.spct
-# chroma_type <- photobiology::ciexyzCMF10.spct
-# chroma_type <- "CC"  # Wide, but has no yellow (only R, G, B)
-chroma_type <- "CMF"  # Narrow, but gives yellows
+# chroma_type <- photobiology::cone_fundamentals10.spct    # Color shifted: yellow/red at 555 nm
+# chroma_type <- photobiology::ciexyzCC2.spct              # Only RGB
+# chroma_type <- photobiology::ciexyzCMF2.spct             # Very similar to "CMF" (maybe same?)
+# chroma_type <- photobiology::ciexyzCMF10.spct            # Very similar to "CMF" (maybe same?)
+# chroma_type <- "CC"                                      # Wide, but has no yellow (only R, G, B)
+chroma_type <- "CMF"                                     # Narrow, but gives yellows
 @
 
 
@@ -478,7 +477,7 @@ response_data <- weighted_responses_df %>%
 @
 
 
-<<Vis_Graph, cache=use_cache, cache.extra=openssl::md5(chroma_type), fig.align="center", fig.width = 5, fig.height = 3, fig.cap="The visible spectrum of light~\\cite{schubert2006}.">>=
+<<Vis_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="The visible spectrum of light~\\cite{schubert2006}.">>=
 response_data %>% 
   dplyr::filter(wf_name == "Photopic lum.") %>% 
   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>% 
@@ -731,10 +730,6 @@ All streams can be counted as energy, such that
 \caption{A heat engine that produces heat and work.}
 \label{fig:heat_engine}
 \end{figure}
-
-
-
-
 
 Energy efficiency is defined as $\eta_E \equiv \frac{\text{energy out}}{\text{energy in}}$.
 For the example of Figure~\ref{fig:heat_engine}, 
@@ -1332,7 +1327,7 @@ henceforth we present energy results only.
 \begin{figure}
     \centering
     \begin{subfigure}[t]{0.25\textwidth}
-<<phi_L_lambda_vs_lambda, cache=use_cache, cache.extra=openssl::md5(chroma_type), fig.width=1.5, fig.height=2.5>>=
+<<phi_L_lambda_vs_lambda, cache=use_cache, fig.width=1.5, fig.height=2.5>>=
 tibble::tibble(lambda = seq(250, 900, by = 0.5)*10^(-9)) %>% 
   dplyr::mutate(
     T_0 = 310,
@@ -1360,7 +1355,7 @@ tibble::tibble(lambda = seq(250, 900, by = 0.5)*10^(-9)) %>%
     % add desired spacing between images (e.g., ~, \quad, \qquad, \hfill, etc.)
     % or a blank line to force the subfigure onto a new line.
     \begin{subfigure}[t]{0.74\textwidth}
-<<Energy_and_exergy_graph, cache=use_cache, cache.extra=openssl::md5(chroma_type), fig.width=4.5, fig.height=2.5>>=
+<<Energy_and_exergy_graph, cache=use_cache, fig.width=4.5, fig.height=2.5>>=
 response_data %>% 
   dplyr::filter(wf_name == "Unweighted") %>% 
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
@@ -1436,7 +1431,7 @@ response_data %>%
         strip.text.y = element_text(margin = margin(l = 2.0)))
 @
     \begin{subfigure}[t]{0.25\textwidth}
-<<Weighting_Function_Graph_Energy, cache=use_cache, cache.extra=openssl::md5(chroma_type), fig.width=1.5, fig.height=5>>=
+<<Weighting_Function_Graph_Energy, cache=use_cache, fig.width=1.5, fig.height=5>>=
 response_data %>%
   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>%
   dplyr::mutate(
@@ -1472,7 +1467,7 @@ response_data %>%
     % add desired spacing between images (e.g., ~, \quad, \qquad, \hfill, etc.)
     % or a blank line to force the subfigure onto a new line.
     \begin{subfigure}[t]{0.74\textwidth}
-<<Responses_Graph_Energy, cache=use_cache, cache.extra=openssl::md5(chroma_type), fig.width=4.5, fig.height=5, fig.align="right">>=
+<<Responses_Graph_Energy, cache=use_cache, fig.width=4.5, fig.height=5, fig.align="right">>=
 response_data %>%
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
   # geom_area(mapping = aes(y = actual_radiant_power), fill = "darkgray") +
@@ -2073,7 +2068,7 @@ quantifying the exergy of light.
 \subsection{Old energy and exergy graph}
 %++++++++++++++++++++++++++++++
 
-<<Energy_and_exergy_graph_old, cache=use_cache, cache.extra=openssl::md5(chroma_type), fig.width=4.5, fig.height=3, fig.cap="Spectral radiative energy and exergy of four example lamps. Rainbow filled area represents exergy. Black line gives energy. No weighting functions are applied.">>=
+<<Energy_and_exergy_graph_old, cache=use_cache, fig.width=4.5, fig.height=3, fig.cap="Spectral radiative energy and exergy of four example lamps. Rainbow filled area represents exergy. Black line gives energy. No weighting functions are applied.">>=
 response_data %>%
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
   # geom_line(mapping = aes(y = actual_exergy), colour = "red") +
@@ -2104,7 +2099,7 @@ response_data %>%
 \subsection{phi vs. lambda}
 %++++++++++++++++++++++++++++++
 
-<<phi_L_lambda_vs_lambda_rejected, cache=use_cache, cache.extra=openssl::md5(chroma_type), fig.align="center", fig.width=5, fig.height=3, fig.cap="The spectral exergy-to-energy ratio of light ($\\phi_{L,\\lambda}$) as a function of wavelength~($\\lambda$). The bar illustrates human color perception.">>=
+<<phi_L_lambda_vs_lambda_rejected, cache=use_cache, fig.align="center", fig.width=5, fig.height=3, fig.cap="The spectral exergy-to-energy ratio of light ($\\phi_{L,\\lambda}$) as a function of wavelength~($\\lambda$). The bar illustrates human color perception.">>=
 tibble::tibble(lambda = seq(250, 900, by = 0.5)*10^(-9)) %>% 
   dplyr::mutate(
     T_0 = 310,
@@ -2129,7 +2124,7 @@ tibble::tibble(lambda = seq(250, 900, by = 0.5)*10^(-9)) %>%
 \subsection{Single exergy/exergy graph}
 %++++++++++++++++++++++++++++++
 
-<<Energy_and_exergy_graph_rejected, cache=use_cache, cache.extra=openssl::md5(chroma_type), fig.width=5, fig.height=2.5, fig.align="center", fig.cap="Spectral EM radiation ($\\Phi_{L,\\lambda} $) of four example lamps. (See Table~\\ref{tab:lamps}.) Black solid line gives spectral energy. Red dotted line gives spectral exergy. The bar illustrates human color perception. No weighting functions are applied.">>=
+<<Energy_and_exergy_graph_rejected, cache=use_cache, fig.width=5, fig.height=2.5, fig.align="center", fig.cap="Spectral EM radiation ($\\Phi_{L,\\lambda} $) of four example lamps. (See Table~\\ref{tab:lamps}.) Black solid line gives spectral energy. Red dotted line gives spectral exergy. The bar illustrates human color perception. No weighting functions are applied.">>=
 response_data %>%
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
   # geom_line(mapping = aes(y = actual_exergy), colour = "red", size = 0.1) +
@@ -2137,7 +2132,7 @@ response_data %>%
   geom_line(mapping = aes(y = actual_exergy), linetype = 3, colour = "red", size = 0.3) +
   geom_line(mapping = aes(y = actual_radiant_power),  size = 0.1) +
 
-  ggspectra::stat_wl_strip(ymin = -0.002, ymax = -0.001, chroma.type = "CMF", size = 0) +
+  ggspectra::stat_wl_strip(ymin = -0.002, ymax = -0.001, chroma.type = chroma_type, size = 0) +
   scale_fill_identity() +
   
   xlab(expression(lambda*" [nm]")) +
@@ -2159,7 +2154,7 @@ response_data %>%
 \subsection{Bare unweighted emissions}
 %++++++++++++++++++++++++++++++
 
-<<Unweighted_Emissions_outside, fig.width=4.5, fig.height=1.7, fig.align="right">>=
+<<Unweighted_Emissions_outside, cache=use_cache, fig.width=4.5, fig.height=1.7, fig.align="right">>=
 response_data %>%
   dplyr::filter(wf_name == "Unweighted") %>%
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
