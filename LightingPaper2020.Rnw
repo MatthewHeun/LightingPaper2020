@@ -972,10 +972,11 @@ leads to modifying Equation~\ref{eq:emissive_power}
 to include a weighting function~($f_\lambda$) such that
 %
 \begin{equation} \label{eq:weighted_emissive_power}
-  \dot{L} = \int f_\lambda \Phi_\lambda \mathrm{d}\lambda \; ,
+  \dot{L} = \int \Phi_{L,\lambda} \mathrm{d}\lambda = \int f_\lambda \Phi_\lambda \mathrm{d}\lambda \; ,
 \end{equation}
 %
-with $0 \le f_\lambda \le 1$.
+with $0 \le f_\lambda \le 1$
+and $\Phi_{L,\lambda} = f_\lambda \Phi_\lambda$.
 In Equation~\ref{eq:weighted_emissive_power}, 
 the weighting function~($f_\lambda$) converts 
 from EM radiation~($\Phi$)
@@ -989,12 +990,12 @@ the valuable part of EM radiation for illumination.
 %------------------------------
 
 For the purposes of this paper, 
-at least four options for the weighting function ($f_\lambda$) are apparent.
+four options for the weighting function ($f_\lambda$) are considered.
 The first option is degenerate: 
 the analyst could decide to ignore the nuances of human visual perception altogether,
 implicitly assuming that all EM radiation emitted from a lamp is valuable, 
 whether or not it is within the visible portion of the EM spectrum.
-For the first option, the degenerate weighting function ($f_{\lambda,uw}$) is
+For the first option, the degenerate (unweighted, uw) weighting function ($f_{\lambda,uw}$) is
 %
 \begin{equation} \label{eq:f1}
   f_{\lambda,uw} = 1 \; .
@@ -1007,7 +1008,7 @@ regardless of the spectral sensitivity of those cells.
 In the second option, the analyst excludes the \enoex{} content of light
 in wavelengths outside the range of perception by the human eye
 when determining the useful \enoex{} of light.
-Specifically,
+For the second option (visible, vis),
 %
 \begin{equation} \label{eq:f2}
 f_{\lambda,vis} =
@@ -1025,21 +1026,14 @@ A third option involves weighting a lamp's emitted EM radiation
 by the photopic sensitivity of the human eye.
 The photopic luminosity~(pl) function~($V_f$) describes this sensitivity, 
 as shown in Figure~\ref{fig:Vis_Graph}.
-****
-ZM: Is $V_f$ the right symbol? 
-I'd prefer to use $V_\lambda$ to indicate a speactral quantity.---MKH
-****
-****
-I'm happy with $V_\lambda$, the most important thing is that the letter is V! ---ZM 
-****
 The photopic luminosity function was
-is defined by the Commission Internationale de l' Éclairage (CIE), and 
-it represents the sensitivity of M and L cones
+defined by the Commission Internationale de l' Éclairage (CIE) and 
+represents the sensitivity of M and L cones
 at daytime light levels \cite{CVRL2008}.
-So, for Option 3,
+So for Option 3,
 %
 \begin{equation} \label{eq:f3}
-  f_{\lambda,pl} = V_f \; .
+  f_{\lambda,pl} = V_\lambda \; .
 \end{equation}
 
 Substituting Equation~\ref{eq:f3} into Equation~\ref{eq:weighted_emissive_power}
@@ -1106,9 +1100,9 @@ physiological functions such as the regulation of circadian rhythms.
 Thus, the photopic luminosity function~($V_f$) 
 has a long-wave bias.
 
-A fourth option weights a lamp's EM radiation output 
+A fourth option (universal, univ) weights a lamp's EM radiation output 
 by the sensitivity of all five light receptors in the human eye
-(not just the M and L cones as in $V_f$). 
+(not just the M and L cones as in $V_\lambda$). 
 The universal luminous efficiency function ($U_\lambda$) \cite{Rea2018}
 captures the actual, broader sensitivity of the human eye.
 So, for option 4,
@@ -1116,10 +1110,6 @@ So, for option 4,
 \begin{equation} \label{eq:f4}
   f_{\lambda,univ} = U_\lambda \; .
 \end{equation}
-
-The leftmost column of Figure~\ref{fig:wfs_and_lamps} illustrates 
-the four options for weighting a lamp's EM radiation output
-when determining the useful \enoex{} of light.
 
 
 %------------------------------
@@ -1204,28 +1194,6 @@ The result is an equation for $\phi_L$, the specular exergy-to-energy ratio of l
  \phi_{L,\lambda} = 1 - \frac{4}{3} \left( \frac{310 \text{ K}}{c_3} \right) \lambda 
                       + \frac{1}{3} \left( \frac{310 \text{ K}}{c_3} \right)^4 \lambda^4 \; .
 \end{equation}
-%
-Equation~\ref{eq:phi_L_lambda_shan_zhou} is plotted in Figure~\ref{fig:phi_L_lambda_vs_lambda},
-which shows the spectral exergy-to-energy ratio for light ($\phi_{L,\lambda}$) as a function of wavelength.
-
-<<phi_L_lambda_vs_lambda, cache=use_cache, cache.extra=openssl::md5(chroma_type), fig.align="center", fig.width=5, fig.height=3, fig.cap="The spectral exergy-to-energy ratio of light ($\\phi_{L,\\lambda}$) as a function of wavelength~($\\lambda$). The bar illustrates human color perception.">>=
-tibble::tibble(lambda = seq(250, 900, by = 0.5)*10^(-9)) %>% 
-  dplyr::mutate(
-    T_0 = 310,
-    T_lambda = 5.33016e-3 / lambda, 
-    phi_L_lambda = 1 - (4/3)*(T_0/T_lambda) + (1/3)*(T_0/T_lambda)^4 
-  ) %>% 
-  ggplot2::ggplot(mapping = aes(x = lambda*10^(9), y = phi_L_lambda)) + 
-  geom_line() + 
-  ggspectra::stat_wl_strip(ymin = 0.9, ymax = 0.91, chroma.type = chroma_type, size = 0) +
-  scale_fill_identity() +
-  geom_vline(xintercept = 555, size = 0.2, color = "darkgray") +
-  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
-  scale_y_continuous(limits = c(0.9, 1.0), breaks = c(0.9, 0.95, 1)) +
-  xlab(expression(lambda*" [nm]")) +
-  ylab(expression(phi[L*","*lambda]*" [-]")) +
-  MKHthemes::xy_theme()
-@
 
 The exergy of a non-blackbody lamp~($\dot{X}_L$)
 is found by integrating the product of
@@ -1339,23 +1307,59 @@ Do calculations with various permutations and show graphs.
 
 
 %++++++++++++++++++++++++++++++
-\subsection{The effect of the exergy-to-energy ratio, $\phi_{L,\lambda}$}
+\subsection{The effect of the exergy-to-energy ratio ($\phi_{L,\lambda}$)}
 \label{sec:effect_of_phi_L}
 %++++++++++++++++++++++++++++++
 
+To illustrate the effect of the exergy-to-exergy ratio for light~($\phi_{L,\lambda}$), 
+the left-most graph in Figure~\ref{fig:effect_of_exergy} shows 
+Equation~\ref{eq:phi_L_lambda_shan_zhou}.
+Note that exergy-to-exergy ratio for light~($\phi_{L,\lambda}$) is
+nearly~1 for all wavelengths of interest for illumination.
+
 Applying Equation~\ref{eq:phi_L_lambda_shan_zhou} 
 to the four lamps identified in Section~\ref{sec:lamps_and_lamp_efficiency}
-gives Figure~\ref{fig:Energy_and_exergy_graph},
-which shows spectral EM radiation ($\Phi_{L,\lambda}$) as a function of wavelength ($\lambda$).
+gives the right-most four graphs in Figure~\ref{fig:effect_of_exergy},
+spectral EM radiation ($\Phi_{L,\lambda}$) as a function of wavelength ($\lambda$).
 Note that exergy (dotted red line) is very close to energy (black line), because
-the exergy-to-energy ratio ($\phi_{L,\lambda}$) is always close to 1.
-(See Figure~\ref{fig:phi_L_lambda_vs_lambda}.)
+the exergy-to-energy ratio ($\phi_{L,\lambda}$) is always close to~1.
 The divergence between energy and exergy is greatest at larger wavelengths
 and into the infrared region.
 Because energy and exergy are so close at wavelengths of interest for light,
-we present energy results only, henceforth.
+henceforth we present energy results only.
 
-<<Energy_and_exergy_graph, cache=use_cache, cache.extra=openssl::md5(chroma_type), fig.width=5, fig.height=2.5, fig.align="center", fig.cap="Spectral EM radiation ($\\Phi_{L,\\lambda} $) of four example lamps. (See Table~\\ref{tab:lamps}.) Black solid line gives spectral energy. Red dotted line gives spectral exergy. The bar illustrates human color perception. No weighting functions are applied.">>=
+\begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.25\textwidth}
+<<phi_L_lambda_vs_lambda, cache=use_cache, cache.extra=openssl::md5(chroma_type), fig.width=1.5, fig.height=2.5>>=
+tibble::tibble(lambda = seq(250, 900, by = 0.5)*10^(-9)) %>% 
+  dplyr::mutate(
+    T_0 = 310,
+    T_lambda = 5.33016e-3 / lambda, 
+    phi_L_lambda = 1 - (4/3)*(T_0/T_lambda) + (1/3)*(T_0/T_lambda)^4, 
+    facet = " "
+  ) %>% 
+  ggplot2::ggplot(mapping = aes(x = lambda*10^(9), y = phi_L_lambda)) + 
+  geom_vline(xintercept = 555, size = 0.2, color = "darkgray") +
+  geom_line(linetype = 3, size = 0.3) + 
+  ggspectra::stat_wl_strip(ymin = 0.9, ymax = 0.9042, chroma.type = chroma_type, size = 0) +
+  scale_fill_identity() +
+  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
+  scale_y_continuous(limits = c(0.9, 1.0), breaks = c(0.9, 0.95, 1)) +
+  xlab(expression(lambda*" [nm]")) +
+  ylab(expression(phi[L*","*lambda]*" [-]")) +
+  facet_grid(~facet) +
+  MKHthemes::xy_theme() +
+  theme(axis.text.x = element_text(size = rel(0.8), angle = 90),
+        axis.text.y = element_text(size = rel(0.8)), 
+        strip.text.x = element_text(margin = margin(b = 2.0)))
+@
+      \label{fig:phi_light_graph}
+    \end{subfigure}
+    % add desired spacing between images (e.g., ~, \quad, \qquad, \hfill, etc.)
+    % or a blank line to force the subfigure onto a new line.
+    \begin{subfigure}[t]{0.74\textwidth}
+<<Energy_and_exergy_graph, cache=use_cache, cache.extra=openssl::md5(chroma_type), fig.width=4.5, fig.height=2.5>>=
 response_data %>%
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
   # geom_line(mapping = aes(y = actual_exergy, col = "Exergy"), colour = "red", size = 0.1) +
@@ -1378,28 +1382,36 @@ response_data %>%
         strip.text.x = element_text(margin = margin(b = 2.0))) +
   facet_grid(~lamp_name)
 @
+      \label{fig:lamp_exergy}
+    \end{subfigure}
+    \caption{Left: The spectral exergy-to-energy ratio of light ($\phi_{L,\lambda}$) as a function of wavelength~($\lambda$). 
+             Right: Spectral EM radiation ($\Phi_{L,\lambda}$) of four example lamps.
+             (See Table~\ref{tab:lamps}.) 
+             The black solid line shows spectral energy. 
+             The red dotted line shows spectral exergy, 
+             the product of the black solid lines $\phi_{L,\lambda}$ in the right graphs and the black dotted line in the left graph.
+             Bars along the bottom illustrate human color perception.}
+	\label{fig:effect_of_exergy}
+\end{figure}
 
 
-Figure~\ref{fig:wfs_and_lamps} provides visual representation of several weighting functions and lamps.
-The ``Weight.\ Func.'' column shows all four weighting functions.
-Gray regions indicate the energy of EM emissions for each lamp.
-Colored regions show light.
+%++++++++++++++++++++++++++++++
+\subsection{The effect of weigthing functions ($f_\lambda$)}
+\label{sec:effect_weighting_functions}
+%++++++++++++++++++++++++++++++
 
-
-<<Unweighted_Emissions_outside, fig.width=4.5, fig.height=1.7, fig.align="right">>=
-response_data %>%
-  dplyr::filter(wf_name == "Unweighted") %>%
-  ggplot(mapping = aes(x = `Wavelength [nm]`)) +
-  geom_area(mapping = aes(y = actual_radiant_power, fill = "Energy"), fill = "darkgray") +
-  facet_grid(cols = vars(lamp_name)) +
-  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
-  xlab(element_blank()) +
-  ylab(expression(Phi["L,"*lambda]*" [W/nm]")) +
-  MKHthemes::xy_theme() +
-  theme(axis.text.x = element_text(size = rel(0.8), angle = 90),
-        axis.text.y = element_text(size = rel(0.8)))
-@
-
+Figure~\ref{fig:wfs_and_lamps} provides visual representation of the spectral energy of light
+for several weighting functions and lamps.
+The leftmost column of Figure~\ref{fig:wfs_and_lamps} illustrates 
+the four weighting functions discussed in Section~\ref{sec:weighting_functions} and
+Table~\ref{tab:wfs}.
+The top row of Figure~\ref{fig:wfs_and_lamps} shows unweighted EM emission from the four lamps 
+discussed in Section~\ref{sec:lamps_and_lamp_efficiency} and
+Table~\ref{tab:lamps}.
+The areas of the gray regions ($\Phi$) are given by Equation~\ref{eq:emissive_power}.
+Each rainbow colored region shows light content of the EM radiation and
+is the spectral product of its row's weighting function and its column's lamp emission spectrum.
+The areas of the rainbow colored regions ($\dot{L}$) are given by Equation~\ref{eq:weighted_emissive_power}.
 
 \begin{figure}
     \centering
@@ -1411,14 +1423,13 @@ response_data %>%
   facet_grid(rows = vars(wf_name), cols = vars(lamp_name)) +
   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
   xlab(element_blank()) +
-  ylab(expression(Phi["L,"*lambda]*" [W/nm]")) +
+  ylab(expression(Phi[lambda]*" [W/nm]")) +
   MKHthemes::xy_theme() +
   theme(axis.text.x = element_text(size = rel(0.8), angle = 90),
         axis.text.y = element_text(size = rel(0.8)), 
         # Move the facet labels out of the graphs slightly.
         strip.text.x = element_text(margin = margin(b = 2.0)),
         strip.text.y = element_text(margin = margin(l = 2.0)))
-
 @
     \begin{subfigure}[t]{0.25\textwidth}
 <<Weighting_Function_Graph_Energy, cache=use_cache, cache.extra=openssl::md5(chroma_type), fig.width=1.5, fig.height=5>>=
@@ -1430,18 +1441,19 @@ response_data %>%
     normalized_response = tidyr::replace_na(normalized_response, 0)
   ) %>%
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
-  ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = normalized_response),
-                        geom = "bar",
-                        chroma.type = chroma_type,
-                        size = 0) +   # Eliminates borders
-  scale_fill_identity() +
-  scale_color_identity() +
-  geom_line(mapping = aes(y = normalized_response), color = "darkgray") +
+  # ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = normalized_response),
+  #                       geom = "bar",
+  #                       chroma.type = chroma_type,
+  #                       size = 0) +   # Eliminates borders
+  # scale_fill_identity() +
+  # scale_color_identity() +
+  # geom_line(mapping = aes(y = normalized_response), color = "darkgray") +
   geom_vline(xintercept = 555, size = 0.2, color = "darkgray") +
+  geom_line(mapping = aes(y = normalized_response)) +
 
   facet_grid(rows = vars(wf_name), cols = vars(header)) +
   xlab(expression(lambda*" [nm]")) +
-  ylab("Normalized response [-]") +
+  ylab(expression(f[lambda]*" [W/nm]")) +
   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
   scale_y_continuous(breaks = c(0, 0.5, 1)) +
   MKHthemes::xy_theme() +
@@ -1456,10 +1468,10 @@ response_data %>%
     % add desired spacing between images (e.g., ~, \quad, \qquad, \hfill, etc.)
     % or a blank line to force the subfigure onto a new line.
     \begin{subfigure}[t]{0.74\textwidth}
-<<Responses_Graph_Energy, cache=use_cache, cache.extra=openssl::md5(chroma_type), fig.width=4.5, fig.height=5>>=
+<<Responses_Graph_Energy, cache=use_cache, cache.extra=openssl::md5(chroma_type), fig.width=4.5, fig.height=5, fig.align="right">>=
 response_data %>%
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
-  geom_area(mapping = aes(y = actual_radiant_power, fill = "Energy"), fill = "darkgray") +
+  # geom_area(mapping = aes(y = actual_radiant_power, fill = "Energy"), fill = "darkgray") +
   ggspectra::stat_color(mapping = aes(x = `Wavelength [nm]`, y = actual_weighted_radiant_power),
                         geom = "bar",
                         chroma.type = chroma_type,
@@ -1482,31 +1494,25 @@ response_data %>%
 @
         \label{fig:lamp_responses}
     \end{subfigure}
-    \caption{Weighting functions, lamp emission, and weighted responses.
-             Gray regions show lamp emission.
-             Colored regions give weighted responses and indicate human perception of color.
-             ``A19'' is a 100~W incandescent A19 globe.
-             ``Halogen'' is a 29~W halogen R20 globe.
-             ``CFL'' is a 3~W globe twister compact fluorescent (scaled by 1/3 from a 9~W globe twister CFL).
-             ``LED'' is an 11~W Phillips A19 LED.
+    \caption{Weighting functions ($f_\lambda$),
+             spectral lamp EM energy emission~($\Phi_\lambda$), 
+             and spectral weighted EM lamp energy emission~($\Phi_{L,\lambda}$).
+             Black lines on the left show weighting functions ($f_\lambda$).
+             Gray regions at the top show unweighted lamp EM energy emission ($\Phi_{L,\lambda}$).
+             Rainbow colored regions give spectral weighted EM lamp energy emission and indicate human perception of color.
+             ``A19'' is a 100-W incandescent A19 globe.
+             ``Halogen'' is a 29-W halogen R20 globe.
+             ``CFL'' is a 3-W globe twister compact fluorescent (scaled by $\frac{1}{3}$ from a 9-W globe twister CFL).
+             ``LED'' is an 11-W Phillips A19 LED.
              ``Unweighted'' spans the entire wavelength range of the graph, 250 nm < $\lambda$ < 900 nm.
              ``Visible'' restricts to visible wavelengths, \humaneyesensitivity{}.
              ``Photopic lum.{}'' is the standard photopic luminosity weighting function.
              ``Universal'' is the universal weighting function.
-             **** What symbol do we want for vertical axis?  It is not precisely radiative flux if it is per-nm. ****
-             **** Provide references for each of the weighting functions and lamps? ****
-             **** Yep! I'll add the reference for the LPSDD database in the .bib ---ZM****
              **** Shall we add luminous intensity annotations to each graph? ****
              **** Yes, we should add the weighted 'spectral radiative power' for each graph,
              me and Emmanuel are working on these calcs! ---ZM}
 	\label{fig:wfs_and_lamps}
 \end{figure}
-
-
-
-
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2087,6 +2093,80 @@ response_data %>%
         strip.text.x = element_text(margin = margin(b = 2.0)),
         strip.text.y = element_text(margin = margin(l = 2.0))) +
   facet_grid(~lamp_name)
+@
+
+
+%++++++++++++++++++++++++++++++
+\subsection{phi vs. lambda}
+%++++++++++++++++++++++++++++++
+
+<<phi_L_lambda_vs_lambda_rejected, cache=use_cache, cache.extra=openssl::md5(chroma_type), fig.align="center", fig.width=5, fig.height=3, fig.cap="The spectral exergy-to-energy ratio of light ($\\phi_{L,\\lambda}$) as a function of wavelength~($\\lambda$). The bar illustrates human color perception.">>=
+tibble::tibble(lambda = seq(250, 900, by = 0.5)*10^(-9)) %>% 
+  dplyr::mutate(
+    T_0 = 310,
+    T_lambda = 5.33016e-3 / lambda, 
+    phi_L_lambda = 1 - (4/3)*(T_0/T_lambda) + (1/3)*(T_0/T_lambda)^4 
+  ) %>% 
+  ggplot2::ggplot(mapping = aes(x = lambda*10^(9), y = phi_L_lambda)) + 
+  geom_line() + 
+  ggspectra::stat_wl_strip(ymin = 0.9, ymax = 0.91, chroma.type = chroma_type, size = 0) +
+  scale_fill_identity() +
+  geom_vline(xintercept = 555, size = 0.2, color = "darkgray") +
+  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
+  scale_y_continuous(limits = c(0.9, 1.0), breaks = c(0.9, 0.95, 1)) +
+  xlab(expression(lambda*" [nm]")) +
+  ylab(expression(phi[L*","*lambda]*" [-]")) +
+  MKHthemes::xy_theme()
+@
+
+
+
+%++++++++++++++++++++++++++++++
+\subsection{Single exergy/exergy graph}
+%++++++++++++++++++++++++++++++
+
+<<Energy_and_exergy_graph_rejected, cache=use_cache, cache.extra=openssl::md5(chroma_type), fig.width=5, fig.height=2.5, fig.align="center", fig.cap="Spectral EM radiation ($\\Phi_{L,\\lambda} $) of four example lamps. (See Table~\\ref{tab:lamps}.) Black solid line gives spectral energy. Red dotted line gives spectral exergy. The bar illustrates human color perception. No weighting functions are applied.">>=
+response_data %>%
+  ggplot(mapping = aes(x = `Wavelength [nm]`)) +
+  # geom_line(mapping = aes(y = actual_exergy, col = "Exergy"), colour = "red", size = 0.1) +
+  # geom_line(mapping = aes(y = actual_radiant_power, col = "Energy"), colour = "blue", size = 0.1) +
+  geom_line(mapping = aes(y = actual_exergy), linetype = 3, colour = "red", size = 0.3) +
+  geom_line(mapping = aes(y = actual_radiant_power),  size = 0.1) +
+
+  ggspectra::stat_wl_strip(ymin = -0.002, ymax = -0.001, chroma.type = "CMF", size = 0) +
+  scale_fill_identity() +
+  
+  xlab(expression(lambda*" [nm]")) +
+  ylab(expression(Phi[L*","*lambda]*" [W/nm]")) +
+  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
+  scale_y_continuous(limits = c(-0.002, 0.022)) +
+  labs(fill = element_blank(), colour = element_blank()) +
+  MKHthemes::xy_theme() +
+  theme(axis.text.x = element_text(size = rel(0.8), angle = 90),
+        axis.text.y = element_text(size = rel(0.8)),
+        # Move the facet labels out of the graphs slightly.
+        strip.text.x = element_text(margin = margin(b = 2.0))) +
+  facet_grid(~lamp_name)
+@
+
+
+
+%++++++++++++++++++++++++++++++
+\subsection{Bare unweighted emissions}
+%++++++++++++++++++++++++++++++
+
+<<Unweighted_Emissions_outside, fig.width=4.5, fig.height=1.7, fig.align="right">>=
+response_data %>%
+  dplyr::filter(wf_name == "Unweighted") %>%
+  ggplot(mapping = aes(x = `Wavelength [nm]`)) +
+  geom_area(mapping = aes(y = actual_radiant_power, fill = "Energy"), fill = "darkgray") +
+  facet_grid(cols = vars(lamp_name)) +
+  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
+  xlab(element_blank()) +
+  ylab(expression(Phi["L,"*lambda]*" [W/nm]")) +
+  MKHthemes::xy_theme() +
+  theme(axis.text.x = element_text(size = rel(0.8), angle = 90),
+        axis.text.y = element_text(size = rel(0.8)))
 @
 
 
