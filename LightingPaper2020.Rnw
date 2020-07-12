@@ -1367,7 +1367,7 @@ response_data %>%
 
 
 %++++++++++++++++++++++++++++++
-\subsection{The effect of weigthing functions ($f_\lambda$)}
+\subsection{The effect of weighting functions ($f_\lambda$)}
 \label{sec:effect_weighting_functions}
 %++++++++++++++++++++++++++++++
 
@@ -1377,7 +1377,7 @@ The leftmost column of Figure~\ref{fig:wfs_and_lamps} illustrates
 the four weighting functions discussed in Section~\ref{sec:weighting_functions} and
 Table~\ref{tab:wfs}.
 The top row of Figure~\ref{fig:wfs_and_lamps} shows unweighted EM emission from the four lamps 
-discussed in Section~\ref{sec:lamps_and_lamp_efficiency} and
+discussed in Section~\ref{sec:lamps} and
 Table~\ref{tab:lamps}.
 The top row in Figure~\ref{fig:wfs_and_lamps} is identical to the rightmost four graphs in Figure~\ref{fig:effect_of_exergy}, 
 where the gray region shows energy and the dark green line shows exergy.
