@@ -914,7 +914,7 @@ excites band gap electrons in an amorphous silicon solar cell.
 
 %------------------------------
 \subsubsection{Human perception of EM radiation} 
-\label{sec:human_perception_of_light}
+\label{sec:human_perception_of_EM_radiation}
 %------------------------------
 
 We noted above that both
@@ -1098,7 +1098,7 @@ and the valuable exergetic efficiency of light becomes
 %
 \begin{equation} \label{eq:eta_X_v_light}
   \eta_{X,v} = \frac{\dot{X}_4}{\dot{X}_1} 
-              = \frac{\int \phi_{EM,\lambda} f_\lambda \Phi_{\lambda,3} \mathrm{d}\lambda}{\dot{W}_1} \; .
+              = \frac{\int \phi_{L,\lambda} f_\lambda \Phi_{\lambda,3} \mathrm{d}\lambda}{\dot{W}_1} \; .
 \end{equation}
 
 
@@ -1123,38 +1123,26 @@ all this stuff that someone trying to reproduce the study would need. So perhaps
 
 
 %------------------------------
-\subsubsection{Lamps}
-\label{sec:lamps}
-%------------------------------
-
-****
-Matt needs to edit this section after it is completed. 
-****
-
-****
-We need to add content about methods here. 
-I particular, we need to say that we'll take the weighting functions and lamps to calculate responses and efficiencies
-to illustrate the theory.---MKH
-****
-
-To demonstrate how the use of selection of various weighting functions 
-alters the measurement of the efficiency of a lighting device 
-we choose to compare the following lamps.
-(See Table~\ref{tab:lamps}.)
-
-\input{pieces/lamps.tex}
-
-
-%------------------------------
 \subsubsection{Weighting functions}
 \label{sec:weighting_functions}
 %------------------------------
 
-For the purposes of this paper, 
-four options for the spectral weighting function ($f_\lambda$) are relevant.
-(See Table~\ref{tab:wfs}.)
+****
+ZM: Add more here about
+%
+\begin{enumerate}
 
-\input{pieces/wfs.tex}
+  \item Where we got the data (weighting functions)
+
+\end{enumerate}
+%
+all this stuff that someone trying to reproduce the study would need.
+****
+
+Spectral weighting functions ($f_\lambda$) convert luminous power to light.
+(See Section~\ref{sec:human_perception_of_EM_radiation}.)
+We selected four spectral weighting functions relevant to illumination
+to enable example calculations in Section~\ref{sec:results}.
 
 The first option is degenerate: 
 the analyst could decide to ignore the nuances of human visual perception altogether,
@@ -1223,12 +1211,13 @@ lumens are also a unit of luminous power.)
 When the photopic luminosity function~($V_\lambda$) is used 
 to calculate luminous power, 
 the valuable energy efficiency of a lamp can be written in terms of luminous efficacy~($K$)
-by modifying Equation~\ref{eq:eta_E_v_light} to be (in the context of Figure~\ref{fig:lamp})
+by modifying Equation~\ref{eq:eta_E_v_light} to be
 %
 \begin{equation}
-  K = \frac{\epsilon_{max} \int V_\lambda \Phi_{\lambda,3} \mathrm{d}\lambda}{\dot{W}_1} \; ,
+  K = \frac{\epsilon_{max} \int V_\lambda \Phi_{\lambda,3} \mathrm{d}\lambda}{\dot{W}_1}
 \end{equation}
 %
+in the context of Figure~\ref{fig:lamp}, 
 where $K$ is in lm/watt.
 
 ****
@@ -1263,6 +1252,52 @@ So, for option 4,
   f_{\lambda,univ} = U_\lambda \; .
 \end{equation}
 
+Table~\ref{tab:wfs} summarizes the weighting fuctions discussed above.
+
+\input{pieces/wfs.tex}
+
+
+%------------------------------
+\subsubsection{Lamps}
+\label{sec:lamps}
+%------------------------------
+
+****
+Matt needs to edit this section after it is completed. 
+****
+
+****
+We need to add content about methods here. 
+I particular, we need to say that we'll take the weighting functions and lamps to calculate responses and efficiencies
+to illustrate the theory.---MKH
+****
+
+To demonstrate how the use of selection of various weighting functions 
+alters the measurement of the efficiency of a lighting device 
+we choose to compare the following lamps.
+
+
+**** ZM: Add more here about 
+%
+\begin{enumerate}
+
+  \item Where we got the data (SPDs of lamps)
+
+  \item How we chose lamps and SPDs for our case study
+  
+  \item How we adjusted SPDs and scaled them up to fit the efficacy and lamp data provided by the manufacturer
+
+\end{enumerate}
+%
+all this stuff that someone trying to reproduce the study would need.
+Look at Section~\ref{sec:weighting_functions} for an example.
+****
+
+
+Table~\ref{tab:lamps} summarizes the lamps discussed above.
+
+\input{pieces/lamps.tex}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results (Zeke and Emmanuel, 2000 words)}
@@ -1284,21 +1319,27 @@ So, for option 4,
 \label{sec:effect_of_phi_L}
 %++++++++++++++++++++++++++++++
 
-To illustrate the effect of the exergy-to-exergy ratio for light~($\phi_{L,\lambda}$), 
+To illustrate the effect of the exergy-to-exergy ratio for EM radiation~($\phi_{L,\lambda}$), 
 the left-most graph in Figure~\ref{fig:effect_of_exergy} shows 
 Equation~\ref{eq:phi_L_lambda_shan_zhou}.
 Note that exergy-to-exergy ratio for light~($\phi_{L,\lambda}$) is
 nearly~1 for all wavelengths of interest for illumination.
 
 Applying Equation~\ref{eq:phi_L_lambda_shan_zhou} 
-to the four lamps identified in Section~\ref{sec:lamps_and_lamp_efficiency}
+to the four lamps identified in Section~\ref{sec:lamps}
 gives the right-most four graphs in Figure~\ref{fig:effect_of_exergy},
 spectral EM radiation ($\Phi_{L,\lambda}$) as a function of wavelength ($\lambda$).
 Note that exergy (solid dark green line) is very close to energy (top of the gray region), because
 the exergy-to-energy ratio ($\phi_{L,\lambda}$) is always close to~1.
-The difference between energy and exergy is greatest at larger wavelengths
-(into the infrared region)
-when emission is largest.
+The difference between energy and exergy is greatest in the upper right of the graphs when both
+%
+\begin{enumerate*}[label={(\alph*)}]
+	
+  \item emission is greater and
+  
+  \item wavelength is longer.
+    
+\end{enumerate*}
 
 \begin{figure}
     \centering
@@ -1358,12 +1399,14 @@ response_data %>%
 @
       \label{fig:lamp_exergy}
     \end{subfigure}
-    \caption{Left: The spectral exergy-to-energy ratio of light ($\phi_{L,\lambda}$) as a function of wavelength~($\lambda$). 
-             Right: Spectral EM radiation ($\Phi_{L,\lambda}$) of four example lamps.
+    \caption{Left: The spectral exergy-to-energy ratio of light ($\phi_{L,\lambda}$) as a function of wavelength~($\lambda$)
+             from Equation~\ref{eq:phi_L_lambda_shan_zhou}. 
+             Right: The top of the gray region shows spectral luminous power ($\Phi_{L,\lambda}$) of the four example lamps.
              (See Table~\ref{tab:lamps}.) 
-             The gray region shows spectral energy. 
-             The solid dark green line atop the gray region shows spectral exergy, 
-             the product of the top of the gray region $\phi_{L,\lambda}$ in the right graphs and the line in the left graph.
+             The solid dark green lines near the top of the gray regions shows spectral exergy, 
+             the product of the line in the left graph and
+             the top of the gray region in the right graphs
+             ($\phi_{L,\lambda} \Phi_\lambda$).
              Bars along the bottom illustrate human color perception.}
 	\label{fig:effect_of_exergy}
 \end{figure}
@@ -1375,13 +1418,12 @@ response_data %>%
 %++++++++++++++++++++++++++++++
 
 Figure~\ref{fig:wfs_and_lamps} provides visual representation of the spectral energy and exergy of light
-for several weighting functions and lamps.
+for the four lamps and four weighting functions of 
+Sections~\ref{sec:lamps} and~\ref{sec:weighting_functions}
+and Tables~\ref{tab:lamps} and~\ref{tab:wfs}, respectively.
 The leftmost column of Figure~\ref{fig:wfs_and_lamps} illustrates 
-the four weighting functions discussed in Section~\ref{sec:weighting_functions} and
-Table~\ref{tab:wfs}.
-The top row of Figure~\ref{fig:wfs_and_lamps} shows unweighted EM emission from the four lamps 
-discussed in Section~\ref{sec:lamps} and
-Table~\ref{tab:lamps}.
+the four weighting functions.
+The top row of Figure~\ref{fig:wfs_and_lamps} shows luminous power of the four lamps. 
 The top row in Figure~\ref{fig:wfs_and_lamps} is identical to the rightmost four graphs in Figure~\ref{fig:effect_of_exergy}, 
 where the gray region shows energy and the dark green line shows exergy.
 The areas of the gray regions ($\Phi$) are given by Equation~\ref{eq:emissive_power}.
@@ -1477,11 +1519,11 @@ response_data %>%
         \label{fig:lamp_responses}
     \end{subfigure}
     \caption{Weighting functions ($f_\lambda$),
-             spectral lamp EM energy emission~($\Phi_\lambda$), 
-             and spectral weighted EM lamp energy emission~($\Phi_{L,\lambda}$).
+             spectral luminous power~($\Phi_\lambda$), 
+             and light~($\Phi_{L,\lambda}$).
              Black lines on the left show weighting functions ($f_\lambda$).
-             Gray regions at the top show unweighted lamp EM energy emission ($\Phi_{L,\lambda}$).
-             Rainbow colored regions give spectral weighted EM lamp energy emission and indicate human perception of color.
+             Gray regions at the top show spectral luminous power ($\Phi_{L,\lambda}$).
+             Rainbow colored regions give light and indicate human perception of color.
              Dark green lines show exergy.
              See Table~\ref{tab:lamps} for information about lamps.
              % ``A19'' is a 100-W incandescent A19 globe.
