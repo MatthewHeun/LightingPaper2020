@@ -766,7 +766,7 @@ The exergy of each stream in Figure~\ref{fig:heat_engine} is then
 %
 In this context, the Carnot efficiency~($\eta_C$) becomes the exergy-to-energy ratio
 for heat streams ($\phi_Q = \eta_C$).
-The exergy-to-energy ratio for work is $\phi_W = 1$, 
+The exergy-to-energy ratio for work is $\phi_3 = \phi_W = 1$, 
 because work is pure exergy.
 
 Exergy efficiency is defined as $\eta_X \equiv \frac{\text{exergy out}}{\text{exergy in}}$.
@@ -867,10 +867,10 @@ Thus, the exergy of the first three streams in Figure~\ref{fig:lamp} is given by
 \begin{equation}
   \dot{X}_1 = \cancelto{1}{\phi_{elect}} \dot{W}_1 = \dot{W}_1, \; 
               \dot{X}_2 = \left( 1 - \frac{T_0}{T_2} \right) \dot{Q}_2, \; \text{and} \; 
-              \dot{X}_3 = \phi_{\EM} \Phi_3 \; .
+              \dot{X}_3 = \phi_{\EM} \Phi_3 \; ,
 \end{equation}
-
-The term $\phi_{\EM}$ is the exergy-to-energy ratio for EM radiation. 
+%
+where the term $\phi_{\EM}$ is the exergy-to-energy ratio for broad-spectrum EM radiation. 
 (See Section~\ref{sec:phi_light} for details.)
 
 The term $\Phi_3$ is the luminous power of broad-spectrum EM radiation
@@ -895,6 +895,8 @@ The exergetic efficiency of EM radiation emitted by the lamp in Figure~\ref{fig:
 \end{equation}
 %
 where $\phi_{EM}$ is the exergy-to-energy ratio of EM radiation.
+In general, $\phi_{EM}$ is also a spectral quantity.
+(See Section~\ref{sec:}.)
 The valuable exergetic efficiency of the EM radiation emitted by the lamp in Figure~\ref{fig:lamp} is given by
 %
 \begin{equation} \label{eq:eta_X_v}
@@ -1040,11 +1042,12 @@ which replaces the temperature of the emitter ($T_1$) by photon effective temper
 Further, Equation~\ref{eq:T_lambda} can be substituted into Equation~\ref{eq:phi_EM_lambda_shan_zhou}
 (in the form $T_\lambda = c_3 / \lambda$),
 and $T_0$ can be taken as 310~K, the temperature of the human body.
-The result is an equation for $\phi_{EM,\lambda}$, the specular exergy-to-energy ratio of EM radiation:
+The result is an equation for $\phi_{L,\lambda}$, the specular exergy-to-energy ratio of light:
 %
 \begin{equation} \label{eq:phi_L_lambda_shan_zhou}
- \phi_{EM,\lambda} = 1 - \frac{4}{3} \left( \frac{310 \text{ K}}{c_3} \right) \lambda 
-                      + \frac{1}{3} \left( \frac{310 \text{ K}}{c_3} \right)^4 \lambda^4 \; .
+ \phi_{L,\lambda} = 1 
+                    - \frac{4}{3} \left( \frac{310 \text{ K}}{c_3} \right) \lambda 
+                    + \frac{1}{3} \left( \frac{310 \text{ K}}{c_3} \right)^4 \lambda^4 \; .
 \end{equation}
 
 The exergy of light emitted by a non-blackbody lamp~($\dot{X}_L$)
@@ -1055,7 +1058,7 @@ the spectral exergy-to-energy ratio~($\phi_\lambda$)
 with respect to wavelength.
 %
 \begin{equation} \label{eq:X_dot_L}
-  \dot{X}_L = \int \phi_{\EM,\lambda} \, f_\lambda \, \Phi_\lambda \mathrm{d}\lambda
+  \dot{X}_L = \int \phi_{L,\lambda} \, f_\lambda \, \Phi_\lambda \mathrm{d}\lambda
 \end{equation}
 
 The quotient of $\dot{X}_{L}$ and $\dot{L}$ gives the overall exergy-energy ratio~($\phi_{\EM}$), 
@@ -1064,8 +1067,8 @@ lamp ($\Phi_\lambda$) and
 weighting function ($f_\lambda$).
 
 \begin{equation}
-  \phi_{\EM} = \frac{\dot{X}_L}{\dot{L}} 
-           = \frac {\int \phi_{\EM,\lambda} f_\lambda \Phi_\lambda \mathrm{d}\lambda}
+  \phi_{L} = \frac{\dot{X}_L}{\dot{L}} 
+           = \frac {\int \phi_{L,\lambda} f_\lambda \Phi_\lambda \mathrm{d}\lambda}
                        {\int f_\lambda \Phi_\lambda \mathrm{d}\lambda}
 \end{equation}
 
