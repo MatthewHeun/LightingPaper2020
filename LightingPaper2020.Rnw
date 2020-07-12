@@ -1646,6 +1646,7 @@ analysts must correct the assumption that $\phi_{L,\lambda} = 1$.
 Recent progress in photometry allows this correction, 
 following the methods of Section~\ref{sec:phi_light}.
 We note, however, that $\phi_{L,\lambda}$ is close to~1 for all wavelengths of interest to illumination.
+(See Figure~\ref{fig:effect_of_exergy}.)
 Happily, the previous approach was not far wrong.
 
 Second, the analyst must consider which specular weighting function~($f_\lambda$) to use, 
