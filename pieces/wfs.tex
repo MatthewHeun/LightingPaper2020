@@ -8,25 +8,17 @@
 \begin{table}
 \centering % Centered table
 \caption{Weighting functions.}
-\begin{tabular}{r l l}
+\begin{tabular}{r l}
   \toprule
-  Weighting Function & Effect & Source \\
+  Weighting function & Effect \\
   \midrule
-  No Weighting  
-      & No effect
-      & NA \\
+  Unweighted ($f_{\lambda,uw} = 1$)  & None \\
   %
-  Visible Spectrum
-      & Restricts the range to $380 \le \lambda \le 750$
-      & - \\
+  Visible ($f_{\lambda,vis}$) & Restricts to \humaneyesensitivity{} \\
   %
-  Photopic Luminsosity Function
-      & Adjusts for the sensitivity of the medium and long cones
-      & \cite{CVRL2008} \\
+  Photopic luminsosity ($f_{\lambda,pl} = V_\lambda$) \cite{CVRL2008} & Adjusts for sensitivity of medium and long cones \\
   %
-  Universal Luminosity Function
-      & Adjusts for the sensitivity of all of the eyes light receptors
-      & \cite{Rea2018}\\
+  Universal luminosity ($f_{\lambda,univ} = U_\lambda$) \cite{Rea2018} & Adjusts for sensitivity of all light receptors \\
   %
   \bottomrule
 \end{tabular}
