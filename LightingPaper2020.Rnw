@@ -1201,9 +1201,8 @@ which provides the basis for calculating a lamp's output of visible light in the
   \dot{I}_V = \epsilon_{max} \dot{L}_{pl} \; ,
 \end{equation}
 %
-where $\epsilon_{max} \equiv 683 \text{ lm/W}$.
-The scaling constant $\epsilon_{max}$ is the EM power of a light source emitting at $\lambda = 555 \text{ nm}$, 
-the peak wavelength sensitivity of the human eye.
+where $\epsilon_{max}$ is typically, but not always, taken to be 683~lm/W, 
+the EM power of a light source emitting at $\lambda = 555 \text{ nm}$.
 (See Figure~\ref{fig:Vis_Graph}.) 
 (Note that because lumens are a re-scaling of watts, 
 lumens are also a unit of luminous power.)
@@ -1213,7 +1212,7 @@ to calculate luminous power,
 the valuable energy efficiency of a lamp can be written in terms of luminous efficacy~($K$)
 by modifying Equation~\ref{eq:eta_E_v_light} to be
 %
-\begin{equation}
+\begin{equation} \label{eq:lum_effic_def}
   K = \frac{\epsilon_{max} \int V_\lambda \Phi_{\lambda,3} \mathrm{d}\lambda}{\dot{W}_1}
 \end{equation}
 %
@@ -1419,8 +1418,8 @@ response_data %>%
 
 Figure~\ref{fig:wfs_and_lamps} provides visual representation of the spectral energy and exergy of light
 for the four lamps and four weighting functions of 
-Sections~\ref{sec:lamps} and~\ref{sec:weighting_functions}
-and Tables~\ref{tab:lamps} and~\ref{tab:wfs}, respectively.
+Sections~\ref{sec:weighting_functions} and~\ref{sec:lamps}
+and Tables~\ref{tab:wfs} and~\ref{tab:lamps}, respectively.
 The leftmost column of Figure~\ref{fig:wfs_and_lamps} illustrates 
 the four weighting functions.
 The top row of Figure~\ref{fig:wfs_and_lamps} shows luminous power of the four lamps. 
@@ -1523,7 +1522,7 @@ response_data %>%
              and light~($\Phi_{L,\lambda}$).
              Black lines on the left show weighting functions ($f_\lambda$).
              Gray regions at the top show spectral luminous power ($\Phi_{L,\lambda}$).
-             Rainbow colored regions give light and indicate human perception of color.
+             Rainbow colored regions show light and indicate human perception of color.
              Dark green lines show exergy.
              See Table~\ref{tab:lamps} for information about lamps.
              % ``A19'' is a 100-W incandescent A19 globe.
@@ -1565,6 +1564,105 @@ ZM: Discuss how our results for the examples vary from results that would have b
 previous methods of determining the exergy of lighting.
 ****
 
+
+
+%++++++++++++++++++++++++++++++
+\subsection{Comparison with previous approaches in Societal Exergy Analysis}
+\label{sec:compwithSEA}
+%++++++++++++++++++++++++++++++
+
+The calculation of the exergy of light presented in Section~\ref{sec:phi_light}
+differs from the previous approach used in the societal exergy analysis community.
+In this section we describe the previous approach and compare to the new approach presented above.
+
+
+%------------------------------
+\subsubsection{Previous approach} 
+\label{sec:previous_approach}
+%------------------------------
+
+In societal exergy analysis, exergy calculations are sometimes hampered when 
+``the useful output cannot or is not typically measured in energy units''
+\cite[p.~****]{Sousa2017}. 
+****
+ZM: Need page number for this quote.---MKH
+****
+In these circumstances, researchers in societal exergy analysis calculate
+exergetic efficiency by the quotient of
+the minimum energy required to produce a given output and
+the actual energy required to produce the same given output.
+(See Section~\ref{sec:divergent_approaches}.)
+This approach has been recommended for illumination, sound, and information~\cite[p.~****]{Sousa2017}.
+
+For the specific case of illumination,
+the previous approach involved the quotient of
+the theoretical minimum quantity of energy required to emit one lumen and
+the actual energy used to emit one lumen of light by a given lamp,
+values which are obtained by taking the inverse of luminous efficacy.
+For a lamp, the quotient is between the lamp's luminous efficacy~($K$)
+and the maximum luminous efficacy~($\epsilon_{max}$).
+%
+\begin{equation} \label{eq:K_over_e_max}
+  \eta_{X,v} = \frac{\; \; \frac{1}{\epsilon_{max}} \; \; }{\frac{1}{K}}
+       = \frac{K}{\epsilon_{max}} \; .
+\end{equation}
+
+As detailed above in Section~\ref{sec:energy_and_exergy_of_light}
+the luminous efficacy of a lamp is equal to the quotient
+of the luminous power and electricity consumption of the device.
+(See Equation~\ref{eq:lum_effic_def}.)
+Substituting Equation~\ref{eq:lum_effic_def} into Equation~\ref{eq:K_over_e_max} gives
+(with reference to Figure~\ref{fig:lamp})
+exergetic efficiency for the previous method
+%
+\begin{equation}
+  \eta_{X,v} = \frac{\frac {\epsilon_{max} \int V_\lambda \Phi_{\lambda,3} d\lambda}{\dot{W}_1}}{\epsilon_{max}} \; ,
+\end{equation}
+%
+which simplifies to 
+%
+\begin{equation} \label{eq:prev_eta_X_v_light}
+  \eta_{X,v} = \frac{\int V_\lambda \Phi_{\lambda,3} d\lambda}{\dot{W}_1}\; .
+\end{equation}
+
+Comparing Equation~\ref{eq:prev_eta_X_v_light} to Equation~\ref{eq:eta_X_v_light}
+reveals that the previous approach to calculating exergetic efficiency of lighting
+is correct under the following assumptions:
+%
+\begin{enumerate*}[label={(\alph*)}]
+	
+  \item $\phi_{L,\lambda} = 1$,
+
+  \item the spectral weighting function is take to be the  photopic luminosity function ($f_\lambda = V_\lambda$), and
+  
+  \item the maximum luminous efficiency ($\epsilon_{max}$) is assumed to be 683~lm/W.
+
+\end{enumerate*}
+
+This comparison between the previous method and the method of Section~\ref{sec:light_efficiency}
+leaves three open issues.
+First, to obtain the correct exergetic efficiency of lighting, 
+analysts must correct the assumption that $\phi_{L,\lambda} = 1$.
+Recent progress in photometry allows this correction, 
+following the methods of Section~\ref{sec:phi_light}.
+We note, however, that $\phi_{L,\lambda}$ is close to~1 for all wavelengths of interest to illumination.
+Happily, the previous approach was not far wrong.
+
+Second, the analyst must consider which specular weighting function~($f_\lambda$) to use, 
+and it is not certain that the photopic luminosity function~($V_\lambda$) is the best option.
+Section~\ref{sec:blue_light} delves further into this issue.
+
+Third, the analyst must consider the value for maximum luminous efficacy, 
+for the choice of $\epsilon_{max}$ makes a difference to the results.
+For example, Ayres et al (2005) and Guevara et al (2016)
+use $\epsilon_{max} = 400 \text{ lm/W}$,
+resulting in overestimating exergetic lighting efficiency 
+by a factor of $\frac{683 \text{ lm/W}}{400 \text{ lm/W}}$ = 1.71,
+simply by assuming that light has the greatest utility at $\lambda = 555 \text{ nm}$.
+****
+Use \LaTeX{} referencing.---MKH
+****
+
 %++++++++++++++++++++++++++++++
 \subsection{Weighting functions and blue light}
 \label{sec:blue_light}
@@ -1576,6 +1674,18 @@ to provide more space for this discussion.
 Can you expand on it, referencing the results?---MKH
 ****
 
+Previously, societal exergy analysis adopted the photopic luminosity function~($V_\lambda$)
+when calculating the exergetic efficiency of lighting.
+(See Section~\ref{sec:previous_approach}.)
+
+The choice of any weighting function is a subjective decision for the analyst,
+however to provide consistency for SEA community moving forward
+we propose to adopt the universal luminosity function in accordance with Rea and Biermann (2018),
+\emph{if} the assumption is made that lamps are solely used for illumination in society.
+A more comprehensive approach would be to select a representative range of uses for lamps,
+which are then assessed based on their respective weighting functions.
+
+
 Given that the industry-standard measure of lighting efficiency
 is the luminous efficacy
 (the quotient between a lamp's lumen output and the power input),
@@ -1585,89 +1695,6 @@ This state of affairs biases lighting manufacturers to reduce short wavelength
 output of lamps, even when short wavelength EM radiation would be beneficial
 for biological regulation. 
 
-
-%++++++++++++++++++++++++++++++
-\subsection{Comparison with previous approaches in Societal Exergy Analysis}
-\label{sec:compwithSEA}
-%++++++++++++++++++++++++++++++
-
-The luminous (or second law) efficiency of lighting
-has previously been calculated in SEA
-by taking the quotient of the minimum energy required to produce a given output,
-and the energy required to produce a given output by the device in question (Section \ref{sec:divergent_approaches}).
-
-This approach has been recommended for outputs such as light, sound and information
-\textit "because the useful output cannot or is not typically measured in energy units"
-\cite{Sousa2017}.
-
-For lighting this constitutes taking the quotient
-of the theoretical minimum quantity of energy required to emit one lumen,
-and the actual energy used to emit one lumen of light by the lamp,
-values which are derived by taking the inverse of the luminous efficacy values,
-with the equation therefore equivalent to
-the quotient of the devices luminous efficacy
-and the maximum luminous efficacy.
-%
-\begin{equation}
-  \frac{\; \; \frac{1}{\epsilon_{max}} \; \; }{\frac{1}{\epsilon_{lamp}}}
-       = \frac{1}{\epsilon_{max}} \cdot \frac{\epsilon_{lamp}}{1}
-       = \frac{\epsilon_{lamp}}{\epsilon_{max}} \; ,
-\end{equation}
-%
-where $\epsilon_{max}$ is equal to the maximum luminous efficacy,
-and $\epsilon_{lamp}$ is equal to the luminous efficacy of the lamp.
-In the case where $\epsilon_{max}$ is equal to 683 lm/W this equation becomes
-%
-\begin{equation}
-  \frac{\epsilon_{lamp}}{683 \text{ lm/W}}\; .
-\end{equation}
-%
-As detailed above in \ref{sec:energy_and_exergy_of_light}
-the luminous efficacy of a lamp is equal to the quotient
-of the luminous power and electricity consumption of the device, and given by
-%
-\begin{equation}
- Luminous\ efficacy = \epsilon_{lamp} = \frac {683 \text{ lm/W} \int \dot{P}_\lambda V_\lambda d\lambda}{\dot{W}_1} \; ,
-\end{equation}
-%
-Equation? then becomes,
-%
-\begin{equation}
-  \frac{\frac {683 \text{ lm/W} \int \dot{P}_\lambda V_\lambda d\lambda}{\dot{W}_1}}{683 \text{ lm/W}} \; .
-\end{equation}
-%
-The two instances of 683 lm/W cancel, giving
-%
-\begin{equation}
-  \frac {\int \dot{P}_\lambda V_\lambda d\lambda}{\dot{W}_1}\; .
-\end{equation}
-%
-This is equivalent to the equation for the valuable energy efficiency of light
-as given in section \ref{sec:energy_and_exergy_of_light},
-%
-\begin{equation}
-  \eta_{X,v} = \frac{\int \dot{P}_\lambda Wf_\lambda d\lambda}{\dot{W}_1} = \frac{\dot{L}_{useful}}{\dot{W}_1} \; .
-\end{equation}
-
-but only if the photopic luminosity function is selected as the weighting function,
-and 683 lm/W taken as the maximum luminous efficacy value ($\epsilon_{max}$).
-
-Considering the equivalency of the previous SEA approach
-when using a maximum luminous efficacy figure of 683 lm/W,
-and the approach detailed in this paper when using the photopic luminosity function,
-any future studies which select different weighting functions
-are likely to produce considerably different results.
-For example, the use of 400 lm/W as the maximum luminous efficacy figure
-by Ayres et al (2005) and Guevara et al (2016)
-results in lighting efficiencies being overestimated by a factor of $\frac {683}{400}$ = 1.71,
-\emph{if} it is decided that light has the greatest utility at a wavelength of 555nm,
-and is therefore desired work output.
-The choice of any weighting function is a subjective decision for the analyst,
-however to provide consistency for SEA community moving forward
-we propose to adopt the universal luminosity function in accordance with Rea and Biermann (2018),
-\emph{if} the assumption is made that lamps are solely used for illumination in society.
-A more comprehensive approach would be to select a representative range of uses for lamps,
-which are then assessed based on their respective weighting functions.
 
 
 
