@@ -316,7 +316,7 @@ Style for this paper:
         yet almost always clear to the writer.
         Why? The antecedent is almost always ambiguous.
 
-  \item Spell out ``Figure~X,'' ``Equation~Y,'' and ``Figure~Z.''  Capitalize all.
+  \item Spell out ``Figure~X,'' ``Equation~Y,'' and ``Table~Z.''  Capitalize all.
   
   \item Use SI units for everything.
   
@@ -1083,7 +1083,7 @@ Sections~\ref{sec:framework}--\ref{sec:phi_light}.
 %------------------------------
 
 If the valuable product of a lamp is considered to be its light~($\dot{L}$)
-as opposed to its broadband EM radiation,
+as opposed to its broadband EM radiation~($\Phi$),
 Equations~\ref{eq:eta_E_v} and~\ref{eq:eta_X_v} require modification.
 In the context of Figure~\ref{fig:lamp}, the valuable energy efficiency of light becomes
 %
@@ -1141,7 +1141,7 @@ all this stuff that someone trying to reproduce the study would need.
 Spectral weighting functions ($f_\lambda$) convert luminous power to light.
 (See Section~\ref{sec:human_perception_of_EM_radiation}.)
 We selected four spectral weighting functions relevant to illumination
-to enable example calculations in Section~\ref{sec:results}.
+to enable example calculations later (Section~\ref{sec:results}).
 
 The first option is degenerate: 
 the analyst could decide to ignore the nuances of human visual perception altogether,
@@ -1238,8 +1238,8 @@ physiological functions such as the regulation of circadian rhythms.
 Thus, the photopic luminosity function~($V_\lambda$) 
 is said to have a long-wave bias.
 
-A fourth option (universal, univ) weights a lamp's EM radiation output 
-by the sensitivity of all five light receptors in the human eye
+A fourth option (universal, univ) weights a lamp's spectral luminous power~($\Phi_\lambda$)
+by the spectral sensitivity of all five light receptors in the human eye
 (not just the M and L cones as does $V_\lambda$). 
 The universal luminous efficiency function ($U_\lambda$) \cite{Rea2018}
 captures the actual, broader sensitivity of the human eye.
@@ -1325,7 +1325,7 @@ nearly~1 for all wavelengths of interest for illumination.
 Applying Equation~\ref{eq:phi_L_lambda_shan_zhou} 
 to the four lamps identified in Section~\ref{sec:lamps}
 gives the right-most four graphs in Figure~\ref{fig:effect_of_exergy},
-spectral EM radiation ($\Phi_{L,\lambda}$) as a function of wavelength ($\lambda$).
+luminous power~($\Phi_{L,\lambda}$) as a function of wavelength ($\lambda$).
 Note that exergy (solid dark green line) is very close to energy (top of the gray region), because
 the exergy-to-energy ratio ($\phi_{L,\lambda}$) is always close to~1.
 The difference between energy and exergy is greatest in the upper right of the graphs when both
@@ -1632,7 +1632,7 @@ Comparing Equation~\ref{eq:prev_eta_X_v_light} to Equation~\ref{eq:eta_X_v_light
 reveals that the approximate approach to calculating exergetic efficiency of lighting
 is correct only under the following assumptions:
 %
-\begin{enumerate*}[label={(\alph*)}]
+\begin{enumerate}[label={(\alph*)}]
 	
   \item $\phi_{L,\lambda} = 1$,
 
@@ -1640,7 +1640,7 @@ is correct only under the following assumptions:
   
   \item the spectral weighting function is taken to be the  photopic luminosity function ($f_\lambda = V_\lambda$).
 
-\end{enumerate*}
+\end{enumerate}
 
 
 %------------------------------
@@ -1652,7 +1652,7 @@ The above comparison between the previous approximate method and
 the precise method of Section~\ref{sec:light_efficiency}
 raises three implications for societal exergy analysis.
 First, to obtain the correct exergetic efficiency of lighting, 
-analysts must reject the assumption of the previous method that $\phi_{L,\lambda} = 1$.
+analysts must reject the assumption of the previous approximate method that $\phi_{L,\lambda} = 1$.
 Recent progress in photometry enables this rejection, 
 following the methods of Section~\ref{sec:phi_light}.
 Specifically, the spectral exergy-to-energy ratio of light ($\phi_{L,\lambda}$)
@@ -1662,10 +1662,7 @@ Happily, the previous approximate method was not far wrong.
 
 Second, in the previous approximate method, 
 the analyst was required to select a value for maximum luminous efficacy ($\epsilon_{max}$), 
-the denominator of Equation~\ref{eq:prev_eta_X_v_light}, 
-namely 683~lm/W.
-(One benefit of the new precise approach of Section~\ref{sec:light_efficiency} 
-is that the analyst no longer must assume a value for $\epsilon_{max}$.)
+the denominator of Equation~\ref{eq:prev_eta_X_v_light}.
 The choice of $\epsilon_{max}$ can make a significant difference to the results.
 For example, \citet{Ayres2005} and \citet{Guevara2016}
 assume $\epsilon_{max} = 400 \text{ lm/W}$,
@@ -1675,11 +1672,24 @@ by a factor of $\frac{683 \text{ lm/W}}{400 \text{ lm/W}} = 1.71$.
 Third, in the previous method, 
 the analyst was required to use the photopic luminosity function~($V_\lambda$)
 for the specular weighting function~($f_\lambda$).
-(Another benefit of the new precise approach of Section~\ref{sec:light_efficiency} 
-is that a choice of spectral weighting function is no longer forced upon the analyst.)
 Indeed, it is not certain that the photopic luminosity function
 is the best choice, 
 as discussed in Section~\ref{sec:blue_light} below.
+
+In summary, the new, precise approach provides the following benefits:
+%
+\begin{enumerate}[label={(\alph*)}]
+	
+  \item it uses the correct spectral exergy-to-energy ratio~($\phi_{L,\lambda}$), no longer assuming its value to be~1;
+
+  \item it is free of (possibly erroneous) assumptions for the maximum luminous efficacy ($\epsilon_{max}$); and 
+  
+  \item it allows choices for the spectral weighting function~($f_\lambda$), 
+        no longer requiring $f_\lambda = V_\lambda$, 
+        thereby enabling analyses suited precisely to each application of EM radiation
+        (illumination, human physiology, photosynthesis for horticulture, etc.).
+
+\end{enumerate}
 
 
 %++++++++++++++++++++++++++++++
