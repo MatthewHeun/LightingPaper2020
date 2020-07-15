@@ -751,6 +751,7 @@ states that heat cannot be converted to work without loss.
 To find the maximum possible work that can be created from heat 
 (and, therefore, the exergy of heat), 
 we consider the Carnot heat engine which operates at the maximum possible valuable energy efficiency~($\eta_C$), 
+**** Do we want to define $T_0$ and $T_{sys}$ in the main text? --- EAR ****
 %
 \begin{equation} \label{eq:eta_C}
   \eta_C = 1 - \frac{T_0}{T_{sys}} \; .
@@ -954,6 +955,7 @@ to include a spectral weighting function~($f_\lambda$) such that
 %
 with $0 \le f_\lambda \le 1$
 and $\Phi_{L,\lambda} = f_\lambda \Phi_\lambda$.
+**** Knowing that we are using $\Phi$ for radiant power, $\Phi_{\lambda}$ for spectral radiant power, and $\dot{L}$ for light, I'd be in favour of using $\dot{l}_{\lambda}$ for spectral light, instead of $\Phi_{\L, \lambda}$. Probably not as fancy as $\Phi_{L,\lambda}$, but probably clearer. Also there is currently a notation issue as we have both $\Phi_{\L, \lambda}$ and $\phi_{\L, \lambda}$ --- EAR ****
 In Equation~\ref{eq:weighted_emissive_power}, 
 the spectral weighting function~($f_\lambda$) converts 
 from EM radiation~($\Phi$)
