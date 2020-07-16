@@ -751,12 +751,13 @@ states that heat cannot be converted to work without loss.
 To find the maximum possible work that can be created from heat 
 (and, therefore, the exergy of heat), 
 we consider the Carnot heat engine which operates at the maximum possible valuable energy efficiency~($\eta_C$), 
-**** Do we want to define $T_0$ and $T_{sys}$ in the main text? --- EAR ****
 %
 \begin{equation} \label{eq:eta_C}
-  \eta_C = 1 - \frac{T_0}{T_{sys}} \; .
+  \eta_C = 1 - \frac{T_0}{T_{sys}} \; ,
 \end{equation}
 %
+where $T_0$ is the ambient temperature and $T_{sys}$ is a heat temperature 
+($T_1$ or $T_2$ in Figure~\ref{fig:heat_engine}).
 The exergy of each stream in Figure~\ref{fig:heat_engine} is then
 %
 \begin{align}
@@ -897,7 +898,7 @@ The exergetic efficiency of EM radiation emitted by the lamp in Figure~\ref{fig:
 %
 where $\phi_{EM}$ is the exergy-to-energy ratio of EM radiation.
 In general, $\phi_{EM}$ is also a spectral quantity.
-(See Section~\ref{sec:}.)
+(See Section~\ref{sec:phi_light}.)
 The valuable exergetic efficiency of the EM radiation emitted by the lamp in Figure~\ref{fig:lamp} is given by
 %
 \begin{equation} \label{eq:eta_X_v}
