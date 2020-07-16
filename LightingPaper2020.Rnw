@@ -1607,12 +1607,11 @@ and the maximum luminous efficacy~($\epsilon_{max}$).
        = \frac{K}{\epsilon_{max}} \; .
 \end{equation}
 
-As discussed in Section~\ref{sec:energy_and_exergy_of_light},
+Equation~\ref{eq:lum_effic_def} shows that 
 the luminous efficacy of a lamp is equal to the quotient
-of the luminous power ($\dot{I}_V$), expressed in lumens, and
+of the luminous power ($\dot{I}_V$, Equation~\ref{eq:lumen}), expressed in lumens, and
 the electricity consumption rate of the device
-($\dot{W}_1$ in Figure~\ref{fig:lamp}.)
-(See Equation~\ref{eq:lum_effic_def}.)
+($\dot{W}_1$ in Figure~\ref{fig:lamp}).
 Substituting Equation~\ref{eq:lum_effic_def} into Equation~\ref{eq:K_over_e_max} gives
 (with reference to Figure~\ref{fig:lamp})
 exergetic efficiency for the previous approximate method:
@@ -1631,8 +1630,9 @@ the actual energy required to produce a lumen.
 Thus, we can assess the previous approximate method relative to recent advances, 
 using exergetic efficiency as the point of comparison.
 
-Comparing Equation~\ref{eq:prev_eta_X_v_light} to Equation~\ref{eq:eta_X_v_light}
-reveals that the approximate approach to calculating exergetic efficiency of lighting
+Comparing Equation~\ref{eq:prev_eta_X_v_light} (the previous approximate approach)
+to Equation~\ref{eq:eta_X_v_light} (the new exact analysis)
+reveals that the previous approximate approach to calculating exergetic efficiency of lighting
 is correct only under the following assumptions:
 %
 \begin{enumerate}[label={(\alph*)}]
@@ -1693,6 +1693,21 @@ In summary, the new, precise approach provides the following benefits:
         (illumination, human physiology, photosynthesis for horticulture, etc.).
 
 \end{enumerate}
+
+
+****
+Discuss how to apply our method in a SEA context.
+Is our method applicable with data usually available to an analyst?---EAR
+****
+
+****
+By how much would SEA results change if we adopt this new methodology?
+I.e. how wrong were former studies and how critical is it to improve the methodology?---EAR
+****
+
+
+
+
 
 
 %++++++++++++++++++++++++++++++
