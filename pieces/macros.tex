@@ -24,6 +24,7 @@
   \node[left=3cm of machine] (1)[circle, fill=red!25!white] {\strut 1};
   \node[above right = -0.7cm and 3cm of machine] (2)[circle, fill=red!25!white] {\strut 2};
   \node[below right = -0.7cm and 3cm of machine] (3)[circle, fill=red!25!white] {\strut 3};
+  \node[below = 0.1cm of machine] {$\eta_E$};
   % Arrows
   \draw[arrows=-triangle 45] (1) -- node [above] {#2} (machine);
   \draw[arrows=-triangle 45] (2 -| machine.east) -- node [above] {#3} (2.west);
@@ -48,7 +49,10 @@
   \node[draw, rounded corners, fill=yellow!25!white, 
                  text width = 3 cm, minimum height = 2 cm,
                  align = center,
-                 right = 1.75cm of 3] (wf) {\strut Weighting function $f_{\lambda}$ $\eta_{E, f_{\lambda}}$};
+                 right = 1.75cm of 3] (wf) {\strut Weighting function $f_{\lambda}$};
+  
+  \node[below = 0.1cm of machine] {$\eta_{E \{ lamp \} }$};
+  \node[below = 0.1cm of wf] {$\eta_{E \{ f_\lambda \} }$ };
   
   %\node(weighting_function)[draw, rounded corners, fill=yellow!25!white, 
   %               minimum width = 4 cm, minimum height = 2 cm
@@ -62,6 +66,7 @@
   \draw[arrows=-triangle 45] (3 -| machine.east) -- node [below] {#4} (3.west);
   \draw[arrows=-triangle 45] (wf -| 3.east) -- node [below] {} (wf.west);
   \draw[arrows=-triangle 45] (4 -| wf.east) -- node [below] {#5} (4.west);
+  \draw[decoration={brace, mirror,raise=5pt},decorate] (-1.5, -2.1) -- node[below=8pt] {$\eta_{E \{ lamp, f_\lambda \} }$} (9.5,-2.1);
   
 \end{tikzpicture}
 }

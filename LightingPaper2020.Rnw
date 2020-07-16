@@ -141,6 +141,7 @@ chroma_type <- "CMF"                                     # Narrow, but gives yel
 \usepackage[makeroom]{cancel}               % To show terms go to zero
 \usepackage{pdflscape}                      % For landscape environment \begin{landscape} ... \end{landscape}
 \usepackage{subcaption}                     % For Figure 12 (a), Figure 12 (b), etc.
+\usetikzlibrary{decorations.pathreplacing,angles,quotes}
 
 
 %=================================================================
@@ -710,11 +711,11 @@ All streams can be counted as energy ($\dot{E}$), such that
 
 \begin{figure}
 \centering
-\machinefigure{Heat engine \{$\eta_E$\} }
+\machinefigure{Heat engine}
               {$T_1 , \; \dot{Q}_1 \; \text{(heat)}$}
               {$\dot{Q}_2 \; \text{(heat)}, \; T_2$}
               {$\dot{W}_3 \; \text{(work)}$}
-\caption{A heat engine that produces heat and work.}
+\caption{A heat engine that produces heat and work with an energy efficiency $\eta_E$. Note that the same rationale is valid when considering exergy efficiency.}
 \label{fig:heat_engine}
 \end{figure}
 
@@ -833,12 +834,12 @@ waste heat (conduction and convection only) is produced at 2.
 
 \begin{figure}
 \centering
-\largemachinefigure{Lamp $\eta_{E,L}$}
+\largemachinefigure{Lamp}
                    {$\dot{W}_1 \; \text{(elec)}$}
                    {$\dot{Q}_2$ (heat)}
-                   {$\Phi_3$ (EM rad)}
+                   {$\Phi_3$ (EM)}
                    {$\dot{L}_4$ (light)}
-\caption{A lamp that produces heat and light.}
+\caption{A lamp that produces heat and light with an energy efficiency $\eta_{E \{lamp\}}$, and a weighting function $f_\lambda$ that converts electromagnetic radiation (EM) into light with an energy efficiency $\eta_{E \{f_\lambda\}}$. Note that $\eta_{E \{f_\lambda\}}$ is function of the spectral distribution of the radiant power $\Phi_3$. The efficiency with which the system lamp and weighting function converts electricity energy into light energy is noted $\eta_{E \{lamp, f_\lambda\}}$. Note that the same rationale is valid when considering exergy efficiency.}
 \label{fig:lamp}
 \end{figure}
 
