@@ -1168,9 +1168,9 @@ For the second option (visible, vis),
 \begin{equation} \label{eq:f2}
 f_{\lambda,vis} =
   \begin{cases}
-    0 & \lambda < 380 \text{ nm} \\
-    1 & 380 \text{ nm} \le \lambda \le 750 \text{ nm} \\
-    0 & 750 \text{ nm} < \lambda \\
+    0 \; , & \text{for } \lambda < 380 \text{ nm} \\
+    1 \; , & \text{for } 380 \text{ nm} \le \lambda \le 750 \text{ nm} \\
+    0 \; , & \text{for } 750 \text{ nm} < \lambda \\
   \end{cases} \; .
 \end{equation}
 
