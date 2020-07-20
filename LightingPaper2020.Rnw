@@ -1714,10 +1714,21 @@ Is our method applicable with data usually available to an analyst?---EAR
 ****
 
 ****
+EAR: Our method is not readily applicable to the SEA analyst as it requires SPD data on each lamp,
+or at least lighting technology used in that country, and over time.
+However, we can state that if the analyst deems that light is most useful at 555nm, and chooses to apply the photopic luminosity function the equation $\eta = \frac{K}{K_{max}}$ is equivalent to our approach if $K_{max} = 683 lm/W$
+We could offer an average $\phi$ value to replace $\phi_{\lambda}$ in order to move from energy to exergy, and even a factor to move from $I$ to $\Phi$. This might be something to discuss at our next meeting ---ZM
+****
+
+
+****
 By how much would SEA results change if we adopt this new methodology?
 I.e. how wrong were former studies and how critical is it to improve the methodology?---EAR
 ****
 
+****
+How wrong previous studies were depends on what we feel the correc approach to be. I think we should decide this as a group, and then we can quantify the difference! ---ZM
+****
 
 
 
