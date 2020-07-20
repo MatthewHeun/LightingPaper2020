@@ -1602,11 +1602,11 @@ for a given lamp.
 The minimum and actual energy rates are obtained 
 by taking the inverses of luminous efficacy.
 For a lamp, the quotient is between the lamp's luminous efficacy~($K$)
-and the maximum luminous efficacy~($\epsilon_{max}$).
+and the maximum luminous efficacy~($K_{max}$).
 %
 \begin{equation} \label{eq:K_over_e_max}
-  \eta_{X,v} = \frac{\; \; \frac{1}{\epsilon_{max}} \; \; }{\frac{1}{K}}
-       = \frac{K}{\epsilon_{max}} \; .
+  \eta_{X,v} = \frac{\; \; \frac{1}{K_{max}} \; \; }{\frac{1}{K}}
+       = \frac{K}{K_{max}} \; .
 \end{equation}
 
 Equation~\ref{eq:lum_effic_def} shows that 
@@ -1619,7 +1619,7 @@ Substituting Equation~\ref{eq:lum_effic_def} into Equation~\ref{eq:K_over_e_max}
 exergetic efficiency for the previous approximate method:
 %
 \begin{equation} \label{eq:prev_eta_X_v_light}
-  \eta_{X,v} = \frac{\; \; \frac{(683 \text{ lm/W}) \int V_\lambda \Phi_{\lambda,3} \mathrm{d}\lambda}{\dot{W}_1} \; \;}{\epsilon_{max}} \; .
+  \eta_{X,v} = \frac{\; \; \frac{(683 \text{ lm/W}) \int V_\lambda \Phi_{\lambda,3} \mathrm{d}\lambda}{\dot{W}_1} \; \;}{K_{max}} \; .
 \end{equation}
 
 With recent advances in photometry (Section~\ref{sec:phi_light}),
@@ -1641,7 +1641,7 @@ is correct only under the following assumptions:
 	
   \item $\phi_{L,\lambda} = 1$,
 
-  \item the maximum luminous efficiency ($\epsilon_{max}$) is assumed to be 683~lm/W, and 
+  \item the maximum luminous efficiency ($K_{max}$) is assumed to be 683~lm/W, and 
   
   \item the spectral weighting function is taken to be the  photopic luminosity function ($f_\lambda = V_\lambda$).
 
@@ -1666,11 +1666,11 @@ We note, however, that $\phi_{L,\lambda}$ is close to~1 for all wavelengths of i
 Happily, the previous approximate method was not far wrong.
 
 Second, in the previous approximate method, 
-the analyst was required to select a value for maximum luminous efficacy ($\epsilon_{max}$), 
+the analyst was required to select a value for maximum luminous efficacy ($K_{max}$), 
 the denominator of Equation~\ref{eq:prev_eta_X_v_light}.
-The choice of $\epsilon_{max}$ can make a significant difference to the results.
+The choice of $K_{max}$ can make a significant difference to the results.
 For example, \citet{Ayres2005} and \citet{Guevara2016}
-assume $\epsilon_{max} = 400 \text{ lm/W}$,
+assume $K_{max} = 400 \text{ lm/W}$,
 thereby incorrectly overestimating exergetic lighting efficiency~($\eta_{X,v}$)
 by a factor of $\frac{683 \text{ lm/W}}{400 \text{ lm/W}} = 1.71$.
 
@@ -1687,7 +1687,7 @@ In summary, the new, precise approach provides the following benefits:
 	
   \item it uses the correct spectral exergy-to-energy ratio~($\phi_{L,\lambda}$), no longer assuming its value to be~1;
 
-  \item it is free of (possibly erroneous) assumptions for the maximum luminous efficacy ($\epsilon_{max}$); and 
+  \item it is free of (possibly erroneous) assumptions for the maximum luminous efficacy ($K_{max}$); and 
   
   \item it allows choices for the spectral weighting function~($f_\lambda$), 
         no longer requiring $f_\lambda = V_\lambda$, 
