@@ -894,7 +894,7 @@ In general, the radiant power of a lamp is a spectral quantity,
 meaning that it varies with wavelength.
 Spectral radiant power~($\Phi_\lambda$)
 is the EM emissive power available at any wavelength
-and is related to radiant power~($\Phi$) by
+and is related to radiant power~($\Phi$) by \cite{benenson2006handbook}
 %
 \begin{equation} \label{eq:emissive_power}
   \Phi = \int \Phi_\lambda \mathrm{d}\lambda \; .
