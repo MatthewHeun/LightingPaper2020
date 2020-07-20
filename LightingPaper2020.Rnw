@@ -553,6 +553,7 @@ for energy efficiency, but they are not equivalent.
 Can we be more specific?  Luminous efficacy is a final-energy-to-service 
 efficiency, not an energy efficiency? 
 Or something similar? ---MKH ****
+**** I propose the following " ...but they are not equivalent, as the lumen is not a measure of the total visible light emitted by a lamp, as further discussed in section 2.1.3. ---ZM ****
 
 Others (***REF***) more correctly define efficiency of light provision on a thermodynamic basis, as follows:
 %
@@ -562,6 +563,10 @@ Others (***REF***) more correctly define efficiency of light provision on a ther
 
 **** It will not be clear to the reader why Equation~\ref{eq:eta_eqn} is more correct
 than luminous efficacy. We need to spell it out. ---MKH ****
+
+**** I'm not sure whether this equation is inherently more correct. I think we should change this to "Others calculate the efficiency of a lamp, namely the final to useful exergy efficiency, by taking the quotient of a lamps luminous efficacy and the maximum luminous efficacy as follows. This approach is discussed further in section 2.2.1 ---ZM ****
+
+
 However, Equation~\ref{eq:eta_eqn} takes us straight into two further sources of confusion:
 the numerator and the denominator.
 The confusion of the numerator, 
@@ -639,6 +644,8 @@ In Section~\ref{sec:results}, we show  results for example weighting functions a
 presenting a discussion in Section~\ref{sec:discussion}. 
 Section~\ref{sec:conclusions} concludes.
 Our key finding is that the maximum efficacy limit of lamps should be taken as 400~lm/W.
+
+**** I don't think that this is our key finding ---ZM ****
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -876,13 +883,13 @@ Thus, the exergy of the first three streams in Figure~\ref{fig:lamp} is given by
 where the term $\phi_{\EM}$ is the exergy-to-energy ratio for broad-spectrum EM radiation. 
 (See Section~\ref{sec:phi_light} for details.)
 
-The term $\Phi_3$ is the luminous power of broad-spectrum EM radiation
+The term $\Phi_3$ is the radiant power of broad-spectrum EM radiation
 emitted by the lamp in units of energy per unit time.
-In general, the luminous power of a lamp is a spectral quantity,
+In general, the radiant power of a lamp is a spectral quantity,
 meaning that it varies with wavelength.
-Spectral luminous power~($\Phi_\lambda$)
+Spectral radiant power~($\Phi_\lambda$)
 is the EM emissive power available at any wavelength
-and is related to luminous power~($\Phi$) by
+and is related to radiant power~($\Phi$) by
 %
 \begin{equation} \label{eq:emissive_power}
   \Phi = \int \Phi_\lambda \mathrm{d}\lambda \; .
@@ -1056,7 +1063,7 @@ The result is an equation for $\phi_{L,\lambda}$, the specular exergy-to-energy 
 
 The exergy of light emitted by a non-blackbody lamp~($\dot{X}_L$)
 is found by integrating the product of
-the spectral luminous power~($\Phi_\lambda$),
+the spectral radiant power~($\Phi_\lambda$),
 a spectral weighting function~($f_\lambda$), and
 the spectral exergy-to-energy ratio~($\phi_\lambda$)
 with respect to wavelength.
@@ -1142,7 +1149,7 @@ ZM: Add more here about
 all this stuff that someone trying to reproduce the study would need.
 ****
 
-Spectral weighting functions ($f_\lambda$) convert luminous power to light.
+Spectral weighting functions ($f_\lambda$) convert radiant power to light.
 (See Section~\ref{sec:human_perception_of_EM_radiation}.)
 We selected four spectral weighting functions relevant to illumination
 to enable example calculations later (Section~\ref{sec:results}).
@@ -1207,7 +1214,7 @@ which provides the basis for calculating a lamp's output of visible light in the
 where 683~lm/W is the EM power of a perfect light source emitting at $\lambda = 555 \text{ nm}$.
 (See Figure~\ref{fig:Vis_Graph}.) 
 (Note that because lumens are a re-scaling of watts, 
-lumens are also a unit of luminous power.)
+lumens are also a unit of radiant power.)
 
 When the photopic luminosity function~($V_\lambda$) is used 
 to calculate luminous power, 
@@ -1222,13 +1229,7 @@ in the context of Figure~\ref{fig:lamp},
 where $K$ is in lm/watt.
 
 ****
-ZM: What symbol should we use for luminous efficacy?
-Wikipedia has $K$.---MKH
-****
-
-****
-ZM: Please review the equation above.---MKH
-****
+I am happy with $K$ and the above equation looks good to me! ---ZM ****
 
 The photopic luminosity function~($V_\lambda$) is the industry standard for determining lumen output
 of lamps, but it has been criticized for under-representing
@@ -1242,10 +1243,10 @@ physiological functions such as the regulation of circadian rhythms.
 Thus, the photopic luminosity function~($V_\lambda$) 
 is said to have a long-wave bias.
 
-A fourth option (universal, univ) weights a lamp's spectral luminous power~($\Phi_\lambda$)
+A fourth option (universal, univ) weights a lamp's spectral radiant power~($\Phi_\lambda$)
 by the spectral sensitivity of all five light receptors in the human eye
 (not just the M and L cones as does $V_\lambda$). 
-The universal luminous efficiency function ($U_\lambda$) \cite{Rea2018}
+The universal luminosity efficiency function ($U_\lambda$) \cite{Rea2018}
 captures the actual, broader sensitivity of the human eye.
 So, for option 4,
 %
@@ -1329,7 +1330,7 @@ nearly~1 for all wavelengths of interest for illumination.
 Applying Equation~\ref{eq:phi_L_lambda_shan_zhou} 
 to the four lamps identified in Section~\ref{sec:lamps}
 gives the right-most four graphs in Figure~\ref{fig:effect_of_exergy},
-luminous power~($\Phi_{L,\lambda}$) as a function of wavelength ($\lambda$).
+radiant power~($\Phi_{L,\lambda}$) as a function of wavelength ($\lambda$) (spectral power distribution).
 Note that exergy (solid dark green line) is very close to energy (top of the gray region), because
 the exergy-to-energy ratio ($\phi_{L,\lambda}$) is always close to~1.
 The difference between energy and exergy is greatest in the upper right of the graphs when both
@@ -1402,7 +1403,7 @@ response_data %>%
     \end{subfigure}
     \caption{Left: The spectral exergy-to-energy ratio of light ($\phi_{L,\lambda}$) as a function of wavelength~($\lambda$)
              from Equation~\ref{eq:phi_L_lambda_shan_zhou}. 
-             Right: The top of the gray region shows spectral luminous power ($\Phi_{L,\lambda}$) of the four example lamps.
+             Right: The top of the gray region shows spectral radiant power ($\Phi_{L,\lambda}$) of the four example lamps.
              (See Table~\ref{tab:lamps}.) 
              The solid dark green lines near the top of the gray regions shows spectral exergy, 
              the product of the line in the left graph and
@@ -1424,7 +1425,7 @@ Sections~\ref{sec:weighting_functions} and~\ref{sec:lamps}
 and Tables~\ref{tab:wfs} and~\ref{tab:lamps}, respectively.
 The leftmost column of Figure~\ref{fig:wfs_and_lamps} illustrates 
 the four weighting functions.
-The top row of Figure~\ref{fig:wfs_and_lamps} shows luminous power of the four lamps. 
+The top row of Figure~\ref{fig:wfs_and_lamps} shows radiant power of the four lamps. 
 The top row in Figure~\ref{fig:wfs_and_lamps} is identical to the rightmost four graphs in Figure~\ref{fig:effect_of_exergy}, 
 where the gray region shows energy and the dark green line shows exergy.
 The areas of the gray regions ($\Phi$) are given by Equation~\ref{eq:emissive_power}.
@@ -1520,10 +1521,10 @@ response_data %>%
         \label{fig:lamp_responses}
     \end{subfigure}
     \caption{Weighting functions ($f_\lambda$),
-             spectral luminous power~($\Phi_\lambda$), 
+             spectral radiant power~($\Phi_\lambda$), 
              and light~($\Phi_{L,\lambda}$).
              Black lines on the left show weighting functions ($f_\lambda$).
-             Gray regions at the top show spectral luminous power ($\Phi_{L,\lambda}$).
+             Gray regions at the top show spectral radiant power ($\Phi_{L,\lambda}$).
              Rainbow colored regions show light and indicate human perception of color.
              Dark green lines show exergy.
              See Table~\ref{tab:lamps} for information about lamps.
@@ -1537,7 +1538,7 @@ response_data %>%
              % ``Photopic lum.{}'' is the standard photopic luminosity weighting function.
              % ``Universal'' is the universal weighting function.
              **** Shall we add luminous intensity annotations to each graph? ****
-             **** Yes, we should add the weighted 'spectral radiative power' for each graph,
+             **** Yes, we should add the weighted 'spectral radiant power' for each graph,
              me and Emmanuel are working on these calcs! ---ZM}
 	\label{fig:wfs_and_lamps}
 \end{figure}
