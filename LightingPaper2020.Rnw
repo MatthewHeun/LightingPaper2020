@@ -1665,7 +1665,7 @@ of Equation~\ref{eq:phi_L_lambda_shan_zhou} and Figure~\ref{fig:effect_of_exergy
 We note, however, that $\phi_{L,\lambda}$ is close to~1 for all wavelengths of interest to illumination.
 Happily, the previous approximate method was not far wrong.
 
-Second, in the previous approximate method, 
+Second, with the previous approximate method, 
 the analyst was required to select a value for maximum luminous efficacy ($K_{max}$), 
 the denominator of Equation~\ref{eq:prev_eta_X_v_light}.
 The choice of $K_{max}$ can make a significant difference to the results.
@@ -1677,11 +1677,11 @@ by a factor of $\frac{683 \text{ lm/W}}{400 \text{ lm/W}} = 1.71$.
 Third, in the previous method, 
 the analyst was required to use the photopic luminosity function~($V_\lambda$)
 for the specular weighting function~($f_\lambda$).
-Indeed, it is not certain that the photopic luminosity function
+However, it is not certain that the photopic luminosity function
 is the best choice, 
 as discussed in Section~\ref{sec:blue_light} below.
 
-In summary, the new, precise approach provides the following benefits:
+In summary, the new precise approach provides the following benefits:
 %
 \begin{enumerate}[label={(\alph*)}]
 	
