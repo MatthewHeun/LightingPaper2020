@@ -839,7 +839,7 @@ We now turn to the production of light instead of work.
 %------------------------------
 
 Figure~\ref{fig:lamp} replaces the heat engine with a lamp 
-that produces EM radiation~($\Phi_3$) instead of work~($\dot{W}_3$).
+that produces EM radiation~($\Phi_{e,3}$) instead of work~($\dot{W}_3$).
 Like Figure~\ref{fig:heat_engine},
 electricity powers the lamp at 1, and 
 waste heat (conduction and convection only) is produced at 2.
@@ -849,9 +849,9 @@ waste heat (conduction and convection only) is produced at 2.
 \largemachinefigure{Lamp}
                    {$\dot{W}_1 \; \text{(elec)}$}
                    {$\dot{Q}_2$ (heat)}
-                   {$\Phi_3$ (EM)}
+                   {$\Phi_{e,3}$ (EM)}
                    {$\dot{L}_4$ (light)}
-\caption{A lamp that produces heat and light with an energy efficiency $\eta_{E \{lamp\}}$, and a weighting function $f_\lambda$ that converts electromagnetic radiation (EM) into light with an energy efficiency $\eta_{E \{f_\lambda\}}$. Note that $\eta_{E \{f_\lambda\}}$ is function of the spectral distribution of the radiant power $\Phi_3$. The efficiency with which the system lamp and weighting function converts electricity energy into light energy is noted $\eta_{E \{lamp, f_\lambda\}}$. Note that the same rationale is valid when considering exergy efficiency.}
+\caption{A lamp that produces heat and light with an energy efficiency $\eta_{E \{lamp\}}$, and a weighting function $f_\lambda$ that converts electromagnetic radiation (EM) into light with an energy efficiency $\eta_{E \{f_\lambda\}}$. Note that $\eta_{E \{f_\lambda\}}$ is function of the spectral distribution of the radiant power $\Phi_{e,3}$. The efficiency with which the system lamp and weighting function converts electricity energy into light energy is noted $\eta_{E \{lamp, f_\lambda\}}$. Note that the same rationale is valid when considering exergy efficiency.}
 \label{fig:lamp}
 \end{figure}
 
@@ -859,20 +859,20 @@ Both electricity and EM radiation can be converted to heat without loss, so they
 Thus,
 %
 \begin{equation}
-  \dot{E}_1 = \dot{W}_1, \; \dot{E}_2 = \dot{Q}_2, \; \text{and} \; \dot{E}_3 = \Phi_3 \; .
+  \dot{E}_1 = \dot{W}_1, \; \dot{E}_2 = \dot{Q}_2, \; \text{and} \; \dot{E}_3 = \Phi_{e,3} \; .
 \end{equation}
 %
 The energy efficiency~($\eta_E$) for the lamp in Figure~\ref{fig:lamp} is 
 %
 \begin{equation}  
-  \eta_E = \frac{\dot{E}_2 + \dot{E}_3}{\dot{E}_1} = \frac{\dot{Q}_2 + \Phi_3}{\dot{W}_1} = 1 \; ,
+  \eta_E = \frac{\dot{E}_2 + \dot{E}_3}{\dot{E}_1} = \frac{\dot{Q}_2 + \Phi_{e,3}}{\dot{W}_1} = 1 \; ,
 \end{equation}
 %
 and the valuable energy efficiency~($\eta_{E,v}$) for the lamp in Figure~\ref{fig:lamp} 
 (assuming that the EM radiation is the valuable output from the lamp) is
 %
 \begin{equation} \label{eq:eta_E_v}
-  \eta_{E,v} = \frac{\dot{E}_3}{\dot{E}_1} = \frac{\Phi_3}{\dot{W}_1} < 1 \; .
+  \eta_{E,v} = \frac{\dot{E}_3}{\dot{E}_1} = \frac{\Phi_{e,3}}{\dot{W}_1} < 1 \; .
 \end{equation}
 
 Because electricity can be converted to work without loss in a frictionless motor,
@@ -882,31 +882,31 @@ Thus, the exergy of the first three streams in Figure~\ref{fig:lamp} is given by
 \begin{equation}
   \dot{X}_1 = \cancelto{1}{\phi_{elect}} \dot{W}_1 = \dot{W}_1, \; 
               \dot{X}_2 = \left( 1 - \frac{T_0}{T_2} \right) \dot{Q}_2, \; \text{and} \; 
-              \dot{X}_3 = \phi_{\EM} \Phi_3 \; ,
+              \dot{X}_3 = \phi_{\EM} \Phi_{e,3} \; ,
 \end{equation}
 %
-where the term $\phi_{\EM}$ is the exergy-to-energy ratio for broad-spectrum EM radiation. 
+where the term $\phi_{e}$ is the exergy-to-energy ratio for broad-spectrum EM radiation. 
 (See Section~\ref{sec:phi_light} for details.)
 
-The term $\Phi_3$ is the radiant power of broad-spectrum EM radiation
+The term $\Phi_{e,3}$ is the radiant power of broad-spectrum EM radiation
 emitted by the lamp in units of energy per unit time.
 In general, the radiant power of a lamp is a spectral quantity,
 meaning that it varies with wavelength.
-Spectral radiant power~($\Phi_\lambda$)
+Spectral radiant power~($\Phi_{e\lambda}$)
 is the EM emissive power available at any wavelength
-and is related to radiant power~($\Phi$) by \cite{benenson2006handbook}
+and is related to radiant power~($\Phi_{e}$) by \cite{benenson2006handbook}
 %
 \begin{equation} \label{eq:emissive_power}
   \Phi_{e} = \int \Phi_{e\lambda} \mathrm{d}\lambda \; .
 \end{equation}
 %
-Visually, $\Phi$ is the area under the $\Phi_\lambda$ vs.\ $\lambda$ curve.
+Visually, $\Phi_{e}$ is the area under the $\Phi_\lambda$ vs.\ $\lambda$ curve.
 
 The exergetic efficiency of EM radiation emitted by the lamp in Figure~\ref{fig:lamp} is given by
 %
 \begin{equation}
   \eta_X = \frac{\dot{X}_2 + \dot{X}_3}{\dot{X}_1} 
-          = \frac{\left( 1 - \frac{T_0}{T_2} \right) \dot{Q}_2 + \phi_{EM} \Phi_3 }{\dot{W}_1} < 1 \; ,
+          = \frac{\left( 1 - \frac{T_0}{T_2} \right) \dot{Q}_2 + \phi_{EM} \Phi_{e,3} }{\dot{W}_1} < 1 \; ,
 \end{equation}
 %
 where $\phi_{EM}$ is the exergy-to-energy ratio of EM radiation.
@@ -916,7 +916,7 @@ The valuable exergetic efficiency of the EM radiation emitted by the lamp in Fig
 %
 \begin{equation} \label{eq:eta_X_v}
   \eta_{X,v} = \frac{\dot{X}_3}{\dot{X}_1} 
-              = \frac{\phi_{EM} \Phi_3 }{\dot{W}_1} < \eta_X < 1 \; .
+              = \frac{\phi_{EM} \Phi_{e,3} }{\dot{W}_1} < \eta_X < 1 \; .
 \end{equation}
 
 Note that both $\eta_X$ and $\eta_{X,v}$ are independent of human presence;
@@ -969,16 +969,16 @@ to include a spectral weighting function~($f_\lambda$) such that
 %
 with $0 \le f_\lambda \le 1$
 and $\Phi_{L,\lambda} = f_\lambda \Phi_\lambda$.
-**** Knowing that we are using $\Phi$ for radiant power, $\Phi_{\lambda}$ for spectral radiant power, and $\dot{L}$ for light, I'd be in favour of using $\dot{l}_{\lambda}$ for spectral light, instead of $\Phi_{\L, \lambda}$. Probably not as fancy as $\Phi_{L,\lambda}$, but probably clearer. Also there is currently a notation issue as we have both $\Phi_{\L, \lambda}$ and $\phi_{\L, \lambda}$ --- EAR ****
+**** Knowing that we are using $\Phi_{e}$ for radiant power, $\Phi_{e\lambda}$ for spectral radiant power, and $\dot{L}$ for light, I'd be in favour of using $\dot{l}_{\lambda}$ for spectral light, instead of $\Phi_{\L, \lambda}$. Probably not as fancy as $\Phi_{L,\lambda}$, but probably clearer. Also there is currently a notation issue as we have both $\Phi_{\L, \lambda}$ and $\phi_{\L, \lambda}$ --- EAR ****
 In Equation~\ref{eq:weighted_emissive_power}, 
 the spectral weighting function~($f_\lambda$) converts 
-from EM radiation~($\Phi$)
+from EM radiation~($\Ph_{e}$)
 to light~($\dot{L}$), 
 the valuable part of EM radiation for illumination.
 In the context of Figure~\ref{fig:lamp}, 
 %
 \begin{equation} \label{eq:L_dot_4}
-  \dot{L}_4 = \int f_\lambda \Phi_{\lambda,3} \mathrm{d}\lambda \; .
+  \dot{L}_4 = \int f_\lambda \Phi_{e\lambda,3} \mathrm{d}\lambda \; .
 \end{equation}
 
 
@@ -1068,23 +1068,23 @@ The result is an equation for $\phi_{L,\lambda}$, the specular exergy-to-energy 
 
 The exergy of light emitted by a non-blackbody lamp~($\dot{X}_L$)
 is found by integrating the product of
-the spectral radiant power~($\Phi_\lambda$),
+the spectral radiant power~($\Phi_{e\lambda}$),
 a spectral weighting function~($f_\lambda$), and
 the spectral exergy-to-energy ratio~($\phi_\lambda$)
 with respect to wavelength.
 %
 \begin{equation} \label{eq:X_dot_L}
-  \dot{X}_L = \int \phi_{L,\lambda} \, f_\lambda \, \Phi_\lambda \mathrm{d}\lambda
+  \dot{X}_L = \int \phi_{L,\lambda} \, f_\lambda \, \Phi_{e\lambda} \mathrm{d}\lambda
 \end{equation}
 
 The quotient of $\dot{X}_{L}$ and $\dot{L}$ gives the overall exergy-energy ratio of light~($\phi_{L}$), 
 which is specific to each combination of
-lamp and weighting function ($f_\lambda \Phi_\lambda$).
+lamp and weighting function ($f_\lambda \Phi_{e\lambda}$).
 
 \begin{equation}
   \phi_{L} = \frac{\dot{X}_L}{\dot{L}} 
-           = \frac {\int \phi_{L,\lambda} f_\lambda \Phi_\lambda \mathrm{d}\lambda}
-                       {\int f_\lambda \Phi_\lambda \mathrm{d}\lambda}
+           = \frac {\int \phi_{L,\lambda} f_\lambda \Phi_{e\lambda} \mathrm{d}\lambda}
+                       {\int f_\lambda \Phi_{e\lambda} \mathrm{d}\lambda}
 \end{equation}
 
 Table~\ref{tab:EX_summary} summarizes the key equations in 
@@ -1099,21 +1099,21 @@ Sections~\ref{sec:framework}--\ref{sec:phi_light}.
 %------------------------------
 
 If the valuable product of a lamp is considered to be its light~($\dot{L}$)
-as opposed to its broadband EM radiation~($\Phi$),
+as opposed to its broadband EM radiation~($\Phi_{e}$),
 Equations~\ref{eq:eta_E_v} and~\ref{eq:eta_X_v} require modification.
 In the context of Figure~\ref{fig:lamp}, the valuable energy efficiency of light becomes
 %
 \begin{equation} \label{eq:eta_E_v_light}
   \eta_{E,v} = \frac{\dot{E}_4}{\dot{E}_1} 
              = \frac{\dot{L}_4}{\dot{W}_1} 
-             = \frac{\int f_\lambda \Phi_{\lambda,3} \mathrm{d}\lambda}{\dot{W}_1} \; ,
+             = \frac{\int f_\lambda \Phi_{e\lambda,3} \mathrm{d}\lambda}{\dot{W}_1} \; ,
 \end{equation}
 %
 and the valuable exergetic efficiency of light becomes
 %
 \begin{equation} \label{eq:eta_X_v_light}
   \eta_{X,v} = \frac{\dot{X}_4}{\dot{X}_1} 
-              = \frac{\int \phi_{L,\lambda} f_\lambda \Phi_{\lambda,3} \mathrm{d}\lambda}{\dot{W}_1} \; .
+              = \frac{\int \phi_{L,\lambda} f_\lambda \Phi_{e\lambda,3} \mathrm{d}\lambda}{\dot{W}_1} \; .
 \end{equation}
 
 
@@ -1207,7 +1207,7 @@ Substituting Equation~\ref{eq:f3} into Equation~\ref{eq:weighted_emissive_power}
 yields
 %
 \begin{equation}
-  \dot{L}_{pl} = \int V_\lambda \Phi_\lambda \mathrm{d}\lambda \; ,
+  \dot{L}_{pl} = \int V_\lambda \Phi_{e\lambda} \mathrm{d}\lambda \; ,
 \end{equation}
 %
 which provides the basis for calculating a lamp's output of visible light in the unit of lumens~(lm, $\dot{I}_V$):
@@ -1248,7 +1248,7 @@ physiological functions such as the regulation of circadian rhythms.
 Thus, the photopic luminosity function~($V_\lambda$) 
 is said to have a long-wave bias.
 
-A fourth option (universal, univ) weights a lamp's spectral radiant power~($\Phi_\lambda$)
+A fourth option (universal, univ) weights a lamp's spectral radiant power~($\Phi_{e\lambda}$)
 by the spectral sensitivity of all five light receptors in the human eye
 (not just the M and L cones as does $V_\lambda$). 
 The universal luminosity efficiency function ($U_\lambda$) \cite{Rea2018}
@@ -1341,7 +1341,7 @@ nearly~1 for all wavelengths of interest for illumination.
 Applying Equation~\ref{eq:phi_L_lambda_shan_zhou} 
 to the four lamps identified in Section~\ref{sec:lamps}
 gives the right-most four graphs in Figure~\ref{fig:effect_of_exergy},
-radiant power~($\Phi_{e,\lambda}$) as a function of wavelength ($\lambda$) (spectral power distribution).
+radiant power~($\Phi_{e\lambda}$) as a function of wavelength ($\lambda$) (spectral power distribution).
 Note that exergy (solid dark green line) is very close to energy (top of the gray region), because
 the exergy-to-energy ratio ($\phi_{L,\lambda}$) is always close to~1.
 The difference between energy and exergy is greatest in the upper right of the graphs when both
@@ -1414,7 +1414,7 @@ response_data %>%
     \end{subfigure}
     \caption{Left: The spectral exergy-to-energy ratio of light ($\phi_{L,\lambda}$) as a function of wavelength~($\lambda$)
              from Equation~\ref{eq:phi_L_lambda_shan_zhou}. 
-             Right: The top of the gray region shows spectral radiant power ($\Phi_{e,\lambda}$) of the four example lamps.
+             Right: The top of the gray region shows spectral radiant power ($\Phi_{e\lambda}$) of the four example lamps.
              (See Table~\ref{tab:lamps}.) 
              The solid dark green lines near the top of the gray regions shows spectral exergy, 
              the product of the line in the left graph and
@@ -1439,7 +1439,7 @@ the four weighting functions.
 The top row of Figure~\ref{fig:wfs_and_lamps} shows radiant power of the four lamps. 
 The top row in Figure~\ref{fig:wfs_and_lamps} is identical to the rightmost four graphs in Figure~\ref{fig:effect_of_exergy}, 
 where the gray region shows energy and the dark green line shows exergy.
-The areas of the gray regions ($\Phi$) are given by Equation~\ref{eq:emissive_power}.
+The areas of the gray regions ($\Phi_{e}$) are given by Equation~\ref{eq:emissive_power}.
 Each rainbow colored region shows the light content of EM radiation and
 is the spectral product of its row's weighting function and its column's lamp emission spectrum.
 The areas of the rainbow colored regions ($\dot{L}$) are given by Equation~\ref{eq:weighted_emissive_power}.
@@ -1717,7 +1717,7 @@ Is our method applicable with data usually available to an analyst?---EAR
 EAR: Our method is not readily applicable to the SEA analyst as it requires SPD data on each lamp,
 or at least lighting technology used in that country, and over time.
 However, we can state that if the analyst deems that light is most useful at 555nm, and chooses to apply the photopic luminosity function the equation $\eta = \frac{K}{K_{max}}$ is equivalent to our approach if $K_{max} = 683 lm/W$
-We could offer an average $\phi$ value to replace $\phi_{\lambda}$ in order to move from energy to exergy, and even a factor to move from $I$ to $\Phi$. This might be something to discuss at our next meeting ---ZM
+We could offer an average $\phi$ value to replace $\phi_{\lambda}$ in order to move from energy to exergy, and even a factor to move from $\Phi_{V}$ to $\Phi_{e}$. This might be something to discuss at our next meeting ---ZM
 ****
 
 
@@ -2168,7 +2168,7 @@ quantifying the exergy of light.
 \machinefigure{Lamp}
               {$\dot{W}_1 \; \text{(electricity)}$}
               {$\dot{Q}_2$ (heat)}
-              {$\Phi_3$ (EM radiation)}
+              {$\Phi_{e,3}$ (EM radiation)}
 \caption{A lamp that produces heat and light. **** Need a modified version of this figure that shows light.}
 \label{fig:lamp_prev}
 \end{figure}
@@ -2192,7 +2192,7 @@ response_data %>%
   scale_color_identity() +
   
   xlab(expression(lambda*" [nm]")) +
-  ylab(expression("Spectral radiative energy and exergy, "*Phi*" [W/nm]")) +
+  ylab(expression("Spectral radiative energy and exergy, "*Phi_{e}*" [W/nm]")) +
   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
   labs(fill = element_blank(), colour = element_blank()) +
   MKHthemes::xy_theme() +
