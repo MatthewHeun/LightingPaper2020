@@ -1288,7 +1288,7 @@ we choose to compare the following lamps.
 Look at Section~\ref{sec:weighting_functions} for an example.
 ****
 
-Data for the spectral power distributions of the lamps used in this study was obtained from the Light Spectral Power Distribution Database (LSPDD) \cite{Roby} \cite{miguel2017} \cite{aubé2013}. 
+Data for the spectral power distributions of the lamps used in this study was obtained from the Light Spectral Power Distribution Database (LSPDD) \cite{Roby} \cite{miguel2017} \cite{aube2013}. 
 
 The data from the LSPDD was given in terms of \emph{relative intensity} as opposed to \emph{absolute intensity}. Whilst both measures have units of $Wnm^{-1}m^{-2}$, and the relative intensity correctly describes the relative proportions of the spectral power for each wavelength across a spectra, as each lamp was not measured using an integration sphere (which measures the total light emitted by a lamp in all directions) the total spectral radiant power is out of proportion.
 To adjust for this we created a scaling factor by calculating the quotient of the radiant power as calculated from the manufacture supplied lamp data for luminous efficacy and electricity consumption, and the radiant power as calculated from the relative intensity data
