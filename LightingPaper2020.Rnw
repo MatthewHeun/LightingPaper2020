@@ -1213,7 +1213,7 @@ yields
 which provides the basis for calculating a lamp's output of visible light in the unit of lumens~(lm, $\dot{I}_V$):
 %
 \begin{equation} \label{eq:lumen}
-  \dot{I}_V = (683 \text{ lm/W}) \; \dot{L}_{pl} \; ,
+  \dot{\Phi}_V = (683 \text{ lm/W}) \; \dot{L}_{pl} \; ,
 \end{equation}
 %
 where 683~lm/W is the EM power of a perfect light source emitting at $\lambda = 555 \text{ nm}$.
@@ -1294,7 +1294,7 @@ The data from the LSPDD was given in terms of \emph{relative intensity} as oppos
 To adjust for this we created a scaling factor by calculating the quotient of the radiant power as calculated from the manufacture supplied lamp data for luminous efficacy and electricity consumption, and the radiant power as calculated from the relative intensity data
 
 \begin{equation} 
-  F = \frac{K\cdot\dot{W}_1}{\Phi_{\lambda}}   \; .
+  F = \frac{K\cdot\dot{W}_1}{\Phi_{e\lambda}}   \; .
 \end{equation}
 
 **** $F$ is simply a placeholder symbol for the scaling factor, i'll think of a better one ---ZM ****
@@ -1332,7 +1332,7 @@ Table~\ref{tab:lamps} summarizes the lamps discussed above.
 \label{sec:effect_of_phi_L}
 %++++++++++++++++++++++++++++++
 
-To illustrate the effect of the exergy-to-exergy ratio for EM radiation~($\phi_{L,\lambda}$), 
+To illustrate the effect of the exergy-to-energy ratio for EM radiation~($\phi_{L,\lambda}$), 
 the left-most graph in Figure~\ref{fig:effect_of_exergy} shows 
 Equation~\ref{eq:phi_L_lambda_shan_zhou}.
 Note that exergy-to-exergy ratio for light~($\phi_{L,\lambda}$) is
@@ -1341,7 +1341,7 @@ nearly~1 for all wavelengths of interest for illumination.
 Applying Equation~\ref{eq:phi_L_lambda_shan_zhou} 
 to the four lamps identified in Section~\ref{sec:lamps}
 gives the right-most four graphs in Figure~\ref{fig:effect_of_exergy},
-radiant power~($\Phi_{L,\lambda}$) as a function of wavelength ($\lambda$) (spectral power distribution).
+radiant power~($\Phi_{e,\lambda}$) as a function of wavelength ($\lambda$) (spectral power distribution).
 Note that exergy (solid dark green line) is very close to energy (top of the gray region), because
 the exergy-to-energy ratio ($\phi_{L,\lambda}$) is always close to~1.
 The difference between energy and exergy is greatest in the upper right of the graphs when both
@@ -1414,12 +1414,12 @@ response_data %>%
     \end{subfigure}
     \caption{Left: The spectral exergy-to-energy ratio of light ($\phi_{L,\lambda}$) as a function of wavelength~($\lambda$)
              from Equation~\ref{eq:phi_L_lambda_shan_zhou}. 
-             Right: The top of the gray region shows spectral radiant power ($\Phi_{L,\lambda}$) of the four example lamps.
+             Right: The top of the gray region shows spectral radiant power ($\Phi_{e,\lambda}$) of the four example lamps.
              (See Table~\ref{tab:lamps}.) 
              The solid dark green lines near the top of the gray regions shows spectral exergy, 
              the product of the line in the left graph and
              the top of the gray region in the right graphs
-             ($\phi_{L,\lambda} \Phi_\lambda$).
+             ($\phi_{L,\lambda} \Phi_{e\lambda}$).
              Bars along the bottom illustrate human color perception.}
 	\label{fig:effect_of_exergy}
 \end{figure}
@@ -1532,10 +1532,10 @@ response_data %>%
         \label{fig:lamp_responses}
     \end{subfigure}
     \caption{Weighting functions ($f_\lambda$),
-             spectral radiant power~($\Phi_\lambda$), 
+             spectral radiant power~($\Phi_{e\lambda}$), 
              and light~($\Phi_{L,\lambda}$).
              Black lines on the left show weighting functions ($f_\lambda$).
-             Gray regions at the top show spectral radiant power ($\Phi_{L,\lambda}$).
+             Gray regions at the top show spectral radiant power ($\Phi_{e\lambda}$).
              Rainbow colored regions show light and indicate human perception of color.
              Dark green lines show exergy.
              See Table~\ref{tab:lamps} for information about lamps.
@@ -1630,7 +1630,7 @@ Substituting Equation~\ref{eq:lum_effic_def} into Equation~\ref{eq:K_over_e_max}
 exergetic efficiency for the previous approximate method:
 %
 \begin{equation} \label{eq:prev_eta_X_v_light}
-  \eta_{X,v} = \frac{\; \; \frac{(683 \text{ lm/W}) \int V_\lambda \Phi_{\lambda,3} \mathrm{d}\lambda}{\dot{W}_1} \; \;}{K_{max}} \; .
+  \eta_{X,v} = \frac{\; \; \frac{(683 \text{ lm/W}) \int V_\lambda \Phi_{e\lambda,3} \mathrm{d}\lambda}{\dot{W}_1} \; \;}{K_{max}} \; .
 \end{equation}
 
 With recent advances in photometry (Section~\ref{sec:phi_light}),
