@@ -614,6 +614,18 @@ I think Figure~\ref{fig:Vis_Graph} shows differential eye sensitivity. ---MKH **
 \label{fig:history_efficacy}
 \end{figure}
 
+<<Load_LEData, cache=use_cache, cache.extra.1=tools::md5sum('Data/Lighting_Efficacy_data.xlsx'), cache.extra.2=tools::md5sum('Data/lighting_efficacy.R')>>=
+# Creates the le_df data frame.
+source(file = file.path("Data", "lighting_efficacy.R"))
+@
+
+<<LuminousEfficacy_Graph, cache=use_cache, fig.align="center", fig.width = 6, fig.height = 6, fig.cap="The luminous efficacy of selected lamp technologies over time">>=
+ggplot2::ggplot(le_df, mapping = aes(x = Year)) +
+  geom_point(mapping = aes(y = `Luminous Efficacy [lm/W]`, colour = Technology)) +
+  MKHthemes::xy_theme() +
+  theme(legend.position = "bottom", legend.text = element_text(size = 8))
+@
+
 A final source of confusion is the differences between 
 first law (energy) and second law (exergy) efficiencies.
 Few authors make the distinction, and
