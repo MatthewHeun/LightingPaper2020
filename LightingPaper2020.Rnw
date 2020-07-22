@@ -530,7 +530,7 @@ which occurs after the useful stage.
 \label{sec:divergent_approaches}
 %++++++++++++++++++++++++++++++
 
-**** Section~\ref{sec:divergent_approaches} feels a bit like Section~\ref{sec:analysis challenges}.
+**** Section~\ref{sec:divergent_approaches} feels a bit like Section~\ref{sec:further_challenges}.
 We need to synchrnoize the two sections.
 Furthermore, any issues raised here should be addressed clearly below. 
 Sorting out this issue is mine.
@@ -984,7 +984,7 @@ and $\Phi_{L,\lambda} = f_\lambda \Phi_\lambda$.
 **** Knowing that we are using $\Phi_{e}$ for radiant power, $\Phi_{e\lambda}$ for spectral radiant power, and $\dot{L}$ for light, I'd be in favour of using $\dot{l}_{\lambda}$ for spectral light, instead of $\Phi_{\L, \lambda}$. Probably not as fancy as $\Phi_{L,\lambda}$, but probably clearer. Also there is currently a notation issue as we have both $\Phi_{\L, \lambda}$ and $\phi_{\L, \lambda}$ --- EAR ****
 In Equation~\ref{eq:weighted_emissive_power}, 
 the spectral weighting function~($f_\lambda$) converts 
-from EM radiation~($\Ph_{e}$)
+from EM radiation~($\Phi_{e}$)
 to light~($\dot{L}$), 
 the valuable part of EM radiation for illumination.
 In the context of Figure~\ref{fig:lamp}, 
