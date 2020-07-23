@@ -1907,10 +1907,7 @@ any errors may affect your future funding.}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\acknowledgments{In this section you can acknowledge any support given
-which is not covered by the author contribution or funding sections. 
-This may include administrative and technical support or
-donations in kind (e.g., materials used for experiments).}
+\acknowledgments{We would like to thank James D. Hooker for the use of data from the Museum of Electric Lamp Technology ~\cite{hooker_2020}, Alfonso Delgado-Bonal for his advice regarding the state of the discourse surrounding the exergy to energy factor of light, Pedro J. Aphalo for his open-source software suite ‘r4phototbiology’~\cite{Aphalo2015}, Martin Aubé and Johanne Roby for the use of their Light Spectral Power Distribution Database (LSPDD)~cite{aube2013}..... }
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
