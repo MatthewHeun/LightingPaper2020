@@ -619,7 +619,7 @@ I think Figure~\ref{fig:Vis_Graph} shows differential eye sensitivity. ---MKH **
 source(file = file.path("Data", "lighting_efficacy.R"))
 @
 
-<<LuminousEfficacy_Graph, cache=use_cache, fig.align="center", fig.width = 6, fig.height = 6, fig.cap="The luminous efficacy of selected lamp technologies over time. Data was obtained from three main sources: the Museum of Electric Lamp Technology (LampTech) ~\\cite{hooker_2020}, the ENERGYSTAR database of certified light bulbs~\\cite{energystar_2020}, and the Lighting market characterization reports commissioned by the US Department of Energy (DOE)~\\cite{DOE2002}~\\cite{DOE2012}~\\cite{DOE2017}. For all data sources please see the supplementary information">>=
+<<LuminousEfficacy_Graph, cache=use_cache, fig.align="center", fig.width = 6, fig.height = 6, fig.cap="The luminous efficacy of selected lamp technologies over time. Data was obtained from three main sources: the Museum of Electric Lamp Technology (LampTech)~\\cite{hooker_2020}, the ENERGYSTAR database of certified light bulbs~\\cite{energystar_2020}, and the Lighting market characterization reports commissioned by the US Department of Energy (DOE)~\\cite{DOE2002}~\\cite{DOE2012}~\\cite{DOE2017}. For all data sources please see the supplementary information">>=
 ggplot2::ggplot(le_df, mapping = aes(x = Year)) +
   geom_point(mapping = aes(y = `Luminous Efficacy [lm/W]`, colour = Technology)) +
   MKHthemes::xy_theme() +
