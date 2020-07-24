@@ -459,7 +459,7 @@ as shown in Figure~\ref{fig:Vis_Graph}.
 source(file = file.path("Data", "AllData.R"))
 # Trim down to the weighting functions and lamps we want
 wf_list <- c("nw", "v", "p2", "u")
-lamp_list <- c("inc_globe_a19_40w", "hal_globe_r20", "cfl_es_tw_3", "led_phil_a19")
+lamp_list <- c("hal_globe_r20", "cfl_es_tw_3", "hps_phil", "led_phil_a19") #"inc_globe_a19_40w"
 response_data <- weighted_responses_df %>% 
   dplyr::mutate(
     lamp_name = sub(pattern = "lamp_", replacement = "", x = lamp_name),
@@ -478,7 +478,8 @@ response_data <- weighted_responses_df %>%
                                    u = "Universal"),
     lamp_name = factor(lamp_name, levels = lamp_list),
     lamp_name = dplyr::recode_factor(lamp_name, 
-                                     inc_globe_a19_40w = "A19",
+                                     #inc_globe_a19_40w = "A19",
+                                     hps_phil = "High pressure sodium"
                                      hal_globe_r20 = "Halogen", 
                                      cfl_es_tw_3 = "CFL",
                                      led_phil_a19 = "LED")
@@ -1907,7 +1908,7 @@ any errors may affect your future funding.}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\acknowledgments{We would like to thank James D. Hooker for the use of data from the Museum of Electric Lamp Technology ~\cite{hooker_2020}, Alfonso Delgado-Bonal for his advice on the state of the discourse surrounding the exergy to energy factor of light, Pedro J. Aphalo for his open-source software suite ‘r4phototbiology’~\cite{Aphalo2015}, Martin Aubé and Johanne Roby for the use of their Light Spectral Power Distribution Database (LSPDD)~\cite{aube2013}, Micheal Royer for his advice regarding data from the US DOE and use of spectral power distribution data,.......  }
+\acknowledgments{We would like to thank James D. Hooker for the use of data from the Museum of Electric Lamp Technology ~\cite{hooker_2020}, Alfonso Delgado-Bonal for his advice on the state of the discourse surrounding the exergy to energy factor of light, Pedro J. Aphalo for his open-source software suite ‘r4phototbiology’~\cite{Aphalo2015}, Martin Aubé and Johanne Roby for the use of their Light Spectral Power Distribution Database (LSPDD)~\cite{aube2013}, Micheal Royer for his advice regarding photometric data,.......  }
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
