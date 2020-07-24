@@ -479,7 +479,7 @@ response_data <- weighted_responses_df %>%
     lamp_name = factor(lamp_name, levels = lamp_list),
     lamp_name = dplyr::recode_factor(lamp_name, 
                                      #inc_globe_a19_40w = "A19",
-                                     hps_phil = "High pressure sodium"
+                                     hps_phil = "High pressure sodium",
                                      hal_globe_r20 = "Halogen", 
                                      cfl_es_tw_3 = "CFL",
                                      led_phil_a19 = "LED")
