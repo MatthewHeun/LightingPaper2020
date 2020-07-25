@@ -46,7 +46,24 @@ dplyr::mutate(
   wrp_div_ec = integrated_wrp / `Electricity Consumption [W]`
 ) %>%
 
+# Calculates the product of wrp_div_ec and 100, yielding the % final to useful efficiency
+dplyr::mutate(
+  wrp_div_ec_100 = wrp_div_ec*100
+) %>%
+    
 # Calculates the quotient of the weighted radiant power and radiant power
 dplyr::mutate(
-    wrp_div_rp = integrated_wrp / integrated_rp
+  wrp_div_rp = integrated_wrp / integrated_rp
+) %>%
+
+# Calculates the product of wrp_div_rp and 100
+dplyr::mutate(
+  wrp_div_rp_100 = wrp_div_rp*100
+) %>%
+
+# Calculates the aggregate exergy to energy factor
+dplyr::mutate(
+  phi_agg = integrated_wrp_X / integrated_wrp
 )
+
+
