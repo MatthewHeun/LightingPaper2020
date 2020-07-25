@@ -1,0 +1,46 @@
+% The next command tells RStudio to do "Compile PDF" on book.Rnw,
+% instead of this chapter, thereby eliminating the need to switch back to book.Rnw 
+% before making the book.
+%!TEX root = ../LightingPaper2020.Rnw
+
+% \begin{landscape}
+
+\begin{table}
+\centering % Centered table
+\caption{Results}
+\begin{tabular}{r l c c}
+  \toprule
+  Lamp name 
+      & Electricity consumption [W]
+      & Radiant energy [W]
+      & Radiant exergy [W]
+      & Radiant energy to Radiant exergy [-]
+      & Visible energy to Visible exergy [-]
+      & P-Weighted energy to
+      & Electricity consumption \\
+      
+  \midrule
+  HPS   
+      & 
+      & 8.1
+      & 40 \\
+  %
+  Halogen
+      & Globe R20
+      & 10.7
+      & 29 \\
+  %
+  CFL
+      & Globe twister
+      & 61.1
+      & 3 \\
+  LED
+      & Phillips A19
+      & 75.5
+      & 11 \\
+  \bottomrule
+\end{tabular}
+\label{tab:lamps}
+\end{table}
+
+% \end{landscape}
