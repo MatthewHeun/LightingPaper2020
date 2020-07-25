@@ -36,7 +36,7 @@ library(tidyr)
 <<setup-graphs, include=FALSE>>=
 # This variable switches the cache on/off for all R code chunks that are configured for cacheing.
 # Set to FALSE if some plots are not updating as expected, then set back to TRUE.
-use_cache <- FALSE
+use_cache <- TRUE
 
 # Here are some options for the colors to use in the ggspectra graphs.
 # The variable chroma_type is used in all graphs,
@@ -1569,6 +1569,12 @@ response_data %>%
 \end{figure}
 
 
+\input{pieces/results_etas.tex}
+
+\input{pieces/results_phi.tex}
+
+% \input{pieces/results_phi_agg.tex}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion (ZM, PB, 1000 words)}
 \label{sec:discussion}
@@ -1663,6 +1669,8 @@ reveals that the previous approximate approach to calculating exergetic efficien
 is correct only under the following assumptions:
 %
 \begin{enumerate}[label={(\alph*)}]
+
+  \item The selected luminous efficacy values are correct for the chosen purpose, i.e. for societal exergy analysis an economy-wide luminous efficacy value must accurately reflect the relative proportions of each lamp technology in society, or a particular sector.
 	
   \item $\phi_{L,\lambda} = 1$,
 
@@ -1759,16 +1767,9 @@ to provide more space for this discussion.
 Can you expand on it, referencing the results?---MKH
 ****
 
-Previously, societal exergy analysis adopted the photopic luminosity function~($V_\lambda$)
+Previously, societal exergy analysis implicitly adopted the photopic luminosity function~($V_\lambda$)
 when calculating the exergetic efficiency of lighting.
 (See Section~\ref{sec:previous_approach}.)
-
-The choice of any weighting function is a subjective decision for the analyst,
-however to provide consistency for SEA community moving forward
-we propose to adopt the universal luminosity function in accordance with \citet{Rea2018},
-\emph{if} the assumption is made that lamps are solely used for illumination in society.
-A more comprehensive approach would be to select a representative range of uses for lamps,
-which are then assessed based on their respective weighting functions.
 
 Given that the industry-standard measure of lighting efficiency
 is the luminous efficacy~($K$),
@@ -1776,7 +1777,30 @@ the use of the photopic luminosity function~($V_\lambda$)
 under-represents the power at short wavelengths in lighting efficiency estimates.
 This state of affairs biases lighting manufacturers to reduce short wavelength
 output of lamps, even when short wavelength EM radiation would be beneficial
-for biological regulation. 
+for physiological reasons such as the suppression of melanopisn for circadian regulation \cite{Pattison2018LEDphotons}.
+
+To account for this many lamps are designed to have 'blue spike', 
+emitting radiant energy in the region of 480nm, 
+the peak of the melanopsin suppression action spectrum \cite{lucas2014}, 
+as can be seen from the SPD for the example LED lamp in Figure \ref{fig:lamp_responses}. 
+
+To more accurately quantify the utility of different wavelengths of light,
+the 'Universal luminosity function' has been proposed as a replacement for the photopic luminosity function,
+accounting for the sensitivity of all five of the eyes light receptors 
+as discussed above in \ref{sec:human_perception_of_EM_radiation}.
+
+
+The choice of any weighting function is a subjective decision for the analyst,
+however to provide consistency for SEA community moving forward
+we propose to adopt the universal luminosity function in accordance with \cite{Rea2018},
+\emph{if} the assumption is made that lamps are solely used for illumination in society.
+**** We have still not finalised this decision. What do you all think? 
+If we propose this, we need to also lay out practical steps for analysts
+given that the available data is nearly always published in lm/W ---ZM ****
+
+
+However, a more comprehensive approach would be to select a representative range of lamps for different purposes,
+which are then assessed based on their respective weighting functions.
 
 
 %++++++++++++++++++++++++++++++
@@ -1814,15 +1838,13 @@ In summer climates, waste heat from lamps adds to space cooling loads.
 For locations where both summer cooling and winter heating are performed,
 the winter/summer effects of lamps cancel, to first order.
 
-Furthermore, some lamps, commonly termed heat lamps or infrared lamps are
-explicitly designed to produce heat for various purposes, including
+Furthermore, some lamps, commonly termed heat lamps, infrared lamps or infrared heaters are
+explicitly designed to produce radiant heat (light in the form of near and far infrared radiation) for various purposes, including
 space heating, incubator heating, plastic manufacture, food preparation, and warming animals in captivity.
-As the infrared portion of light emitted by these lamps is
-considered useful, they typically display high efficiencies.
+As the infrared portion of light emitted as radiant heat is
+considered useful common ceramic infrared heaters having final to useful energy efficiencies(?) of 56.7~\% \cite{brown2016}.
 
-****
-Where is the line between an electric heater and an incandescent lamp? Is it just the design purpose? ---ZM
-****
+**** Should infrared radiation have its own section? ---ZM ****
 
 The societal exergy analyst must decide how to treat waste heat from lamps
 when determining the quantity of useful energy delivered to a society.
