@@ -1576,7 +1576,7 @@ response_data %>%
 % \input{pieces/results_phi_agg.tex}
 
 <<Load_SEA_Data, cache=use_cache, cache.extra.1=tools::md5sum('Data/SEA_lighting_efficiency.xlsx'), cache.extra.2=tools::md5sum('Data/sea_lighting_efficiency.R')>>=
-# Creates the le_df data frame.
+# Creates the sea_lighting_efficiency data frame.
 source(file = file.path("Data", "sea_lighting_efficiency.R"))
 @
 
