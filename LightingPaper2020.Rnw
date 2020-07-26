@@ -1581,8 +1581,8 @@ source(file = file.path("Data", "sea_lighting_efficiency.R"))
 @
 
 <<Lighting_Efficiency_Graph, cache=use_cache, fig.align="center", fig.width = 6, fig.height = 6, fig.cap="Lighting efficiency values from previous societal exergy analysis studies." >>=
-ggplot2::ggplot(sea_lighting_efficiencies, mapping = aes(x = Year)) +
-  geom_line(mapping = aes(y = `Luminous Efficiency [%]`, colour = Country)) +
+ggplot2::ggplot(sea_le_df, mapping = aes(x = Year)) +
+  geom_line(mapping = aes(y = `Lighting Efficiency [%]`, colour = Country)) +
   MKHthemes::xy_theme() +
   theme(legend.position = "bottom", legend.text = element_text(size = 8), axis.title.x=element_blank()) + 
   scale_x_continuous(breaks = c(1960, 1970, 1980, 1990, 2000, 2010, 2020)) #+ 
