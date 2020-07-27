@@ -1865,6 +1865,18 @@ Discuss the problem of waste light.
 ****
 
 
+%++++++++++++++++++++++++++++++
+\subsection{Aggregation for country-level societal exergy analysis}
+\label{sec:aggregation}
+%++++++++++++++++++++++++++++++
+
+Discuss here that societal exergy analyses are usually conducted on a country-by-country basis.
+Discuss how an analysts might define, for each year, 
+a fleet of lamps and the usage for each lamp.
+Each lamp in the fleet should be analyzed using the methods of this paper.
+Then, fleet average efficiency can be calculated by usage fractions.
+Doing this work is beyond the scope of this paper.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusions (MKH, 500 words)}
