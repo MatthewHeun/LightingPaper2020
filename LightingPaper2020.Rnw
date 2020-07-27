@@ -2042,16 +2042,16 @@ The area under the curve is calculated by <<start equations here>>.
 Say that each lamp has its own SPD.
 Say we'll look at four lamps and, therefore, four SPDs.
 
-Then, refer to the section above (Section~\ref{sec:human_perception_of_light})
+Then, refer to the section above (Section~\ref{sec:human_perception_of_EM_radiation})
 to bring in the idea that
 researchers weight the SPD for assumed utility to humans.
 Then discuss weighting functions.
-Let's discuss whether we want to move material from Section~\ref{sec:human_perception_of_light}
+Let's discuss whether we want to move material from Section~\ref{sec:human_perception_of_EM_radiation}
 down to this point in the paper.
-Or, perhaps some of the integrals from this section should move up to Section~\ref{sec:human_perception_of_light}
+Or, perhaps some of the integrals from this section should move up to Section~\ref{sec:human_perception_of_EM_radiation}
 and this section should focus on \emph{efficiency}.
 Regardless, tying $f$ and $g$ (or just $f$)
-from Section~\ref{sec:human_perception_of_light} to this discussion
+from Section~\ref{sec:human_perception_of_EM_radiation} to this discussion
 will clean up a lot of ambiguity.---MKH
 ****
 
