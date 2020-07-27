@@ -1870,6 +1870,17 @@ Discuss the problem of waste light.
 \label{sec:aggregation}
 %++++++++++++++++++++++++++++++
 
+To move from the final to useful energy/exergy efficiency of a single lamp, to either an economy-wide or sectoral aggregate lighting efficiency, two types of data are required over time for the given period of study:
+
+\begin{enumerate}[label={(\alph*)}]
+
+  \item Final to useful efficiency data for each lamp technology
+  \item Electricity consumption by lamp type
+
+\end{enumerate}
+
+As lighting efficiency values are commonly reported in terms of luminous efficacy it is more likely 
+
 Discuss here that societal exergy analyses are usually conducted on a country-by-country basis.
 Discuss how an analysts might define, for each year, 
 a fleet of lamps and the usage for each lamp.
