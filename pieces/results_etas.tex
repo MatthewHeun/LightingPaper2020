@@ -1,3 +1,8 @@
+% The next command tells RStudio to do "Compile PDF" on book.Rnw,
+% instead of this chapter, thereby eliminating the need to switch back to book.Rnw 
+% before making the book.
+%!TEX root = ../LightingPaper2020.Rnw
+
 % This table displays final to useful energy efficiencies for each of the selected lamps, and each of the chosen weighting functions.
 
 \begin{table}
@@ -8,10 +13,10 @@
 \multicolumn{5}{c}{Final to Useful Energy Efficiency [\%]} \\
 \cline{2-5}
   Lamp 
-      & Unweighted $(\eta_{E,v,uw}$)
-      & Vis. Spectrum $(\eta_{E,v,vis}$)
-      & Photopic lum. $(\eta_{E,v,pl}$)
-      & Universal lum. $(\eta_{E,v,univ}$)  \\
+      & Unweighted ($\eta_{E,v,uw}$)
+      & Vis. Spectrum ($\eta_{E,v,vis}$)
+      & Photopic lum. ($\eta_{E,v,pl}$)
+      & Universal lum. ($\eta_{E,v,univ}$)  \\
 \hline
   HPS & 24.4 & 19.6 & 12.4 & 14.8     \\
   Hal & 9.3 & 5.1 & 1.6 & 2.1    \\
