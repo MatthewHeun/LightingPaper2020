@@ -1074,7 +1074,7 @@ being a small aperture on a larger cavity.
 (In this assumption, we follow \citet[p.~172]{Rossing2020} who state
 ``another good example of [a blackbody absorber] is the human eye;
 the pupil looks black because most light entering it is trapped and absorbed.'')
-Thus, we use Shan and Zhou's~\cite{shan2019} spectral formulation of Petela's equation,
+Thus, we use Shan and Zhou's~\cite{Shan2019} spectral formulation of Petela's equation,
 which replaces the temperature of the emitter ($T_1$) by photon effective temperature~($T_\lambda$):
 %
 \begin{equation} \label{eq:phi_EM_lambda_shan_zhou}
