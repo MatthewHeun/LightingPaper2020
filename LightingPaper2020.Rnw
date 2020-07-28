@@ -466,7 +466,7 @@ as shown in Figure~\ref{fig:Vis_Graph}.
 source(file = file.path("Data", "AllData.R"))
 # Trim down to the weighting functions and lamps we want
 wf_list <- c("nw", "v", "p2", "u")
-lamp_list <- c("inc_globe_a19_40w", "hps_phil_rs", "cfl_es_tw_9", "led_phil_a19")
+lamp_list <- c("inc_globe_a19_40w", "hps_phil_rs", "cfl_es_tw_3", "led_phil_a19")
 response_data <- weighted_responses_df %>% 
   dplyr::mutate(
     lamp_name = sub(pattern = "lamp_", replacement = "", x = lamp_name),
