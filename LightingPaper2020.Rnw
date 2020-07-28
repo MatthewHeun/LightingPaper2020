@@ -1938,10 +1938,10 @@ along with associated luminous efficacy values,
 and for the following lamp technologies:
 
 
-The aggregate lighting efficiency is then given by
+The aggregate lighting efficiency for a particular year is then given by
 
 \begin{equation} \label{eq:agg_eta}
-  \eta_{agg} = \sum \phi_{lamp} \cdot \eta_{lamp} \cdot \theta_{lamp}
+  \eta_{agg} = \sum \limits_{Lamp \in Lamps} \phi_{lamp} \cdot \eta_{lamp} \cdot \theta_{lamp}
 \end{equation}
 
 Where $\theta_{lamp}$ denotes the proportion of electricity consumption for lighting
