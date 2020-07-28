@@ -1370,6 +1370,7 @@ the left-most graph in Figure~\ref{fig:effect_of_exergy} shows
 Equation~\ref{eq:phi_L_lambda_shan_zhou}.
 Note that exergy-to-exergy ratio for light~($\phi_{L,\lambda}$) is
 nearly~1 for all wavelengths of interest for illumination.
+(All graphs were constructed and calculations were performed using \texttt{R}~\cite{R-software}.)
 
 Applying Equation~\ref{eq:phi_L_lambda_shan_zhou} 
 to the four lamps identified in Section~\ref{sec:lamps}
@@ -1981,7 +1982,7 @@ Do we want to include something about waste heat from lamps?
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\supplementary{The following are available online at \linksupplementary{s1}, Figure S1: title, Table S1: title, Video S1: title.}
+\supplementary{**** The following are available online at \linksupplementary{s1}, Figure S1: title, Table S1: title, Video S1: title. ****}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
