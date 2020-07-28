@@ -613,13 +613,6 @@ as shown in Figure~\ref{fig:history_efficacy}.
 demonstrates the issue of differential eye sensitivity.
 I think Figure~\ref{fig:Vis_Graph} shows differential eye sensitivity. ---MKH ****
 
-\begin{figure}
-\centering
-\includegraphics[width=1\linewidth]{figure_other/history_efficacy.jpg}
-\caption{A history of lighting technology luminous efficacy (1800--2050),
-          taken from~\citet{Pattison2018LEDphotons}.}
-\label{fig:history_efficacy}
-\end{figure}
 
 <<Load_LEData, cache=use_cache, cache.extra.1=tools::md5sum('Data/Lighting_Efficacy_data.xlsx'), cache.extra.2=tools::md5sum('Data/lighting_efficacy.R')>>=
 # Creates the le_df data frame.
@@ -2010,6 +2003,15 @@ in the decision to publish the results.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{************************* Bone Pile ***********************************}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}
+\centering
+\includegraphics[width=1\linewidth]{figure_other/history_efficacy.jpg}
+\caption{A history of lighting technology luminous efficacy (1800--2050),
+          taken from~\citet{Pattison2018LEDphotons}.}
+\label{fig:history_efficacy}
+\end{figure}
+
 
 <<Load_SEA_Data, cache=use_cache, cache.extra.1=tools::md5sum('Data/SEA_lighting_efficiency.xlsx'), cache.extra.2=tools::md5sum('Data/sea_lighting_efficiency.R')>>=
 # Creates the sea_lighting_efficiency data frame.
