@@ -403,10 +403,6 @@ Style for this paper:
 \label{sec:broad_context}
 %++++++++++++++++++++++++++++++
 
-\cite{haitz1999case}
-
-\cite{graydon2007haitz}
-
 Artificial light provides an indispensable energy service (illumination), 
 enabling activities at times when natural light levels are insufficient.
 Artificial illumination is so valuable that around 20~\% of global grid-connected electricity 
@@ -416,7 +412,7 @@ which now comprise 40~\% of residential lamp sales~\cite{IEA2019},
 applications have spread beyond illumination to many other fields
 including human physiology and photosynthesis for horticulture~\cite{Pattison2018LEDefficacy}.
 The use and analysis of the energy and exergy efficiency of lighting is applied to a range of fields,
-including energy economics (***REF***),
+including energy economics~\cite{Nordhaus1996},
 societal exergy analysis~\cite{Ayres2005},
 energy history~\cite{Fouquet:2006},
 and forecasting energy efficiency improvements~\cite{IEA2019}.
@@ -1244,10 +1240,10 @@ yields
   \dot{L}_{pl} = \int V_\lambda \Phi_{e\lambda} \mathrm{d}\lambda \; ,
 \end{equation}
 %
-which provides the basis for calculating a lamp's output of visible light in the unit of lumens~(lm, $\dot{I}_V$):
+which provides the basis for calculating a lamp's output of visible light in the unit of lumens~(lm, $\dot{Phi}_pl$):
 %
 \begin{equation} \label{eq:lumen}
-  \dot{\Phi}_V = (683 \text{ lm/W}) \; \dot{L}_{pl} \; ,
+  \Phi_pl = (683 \text{ lm/W}) \; \dot{L}_{pl} \; ,
 \end{equation}
 %
 where 683~lm/W is the EM power of a perfect light source emitting at $\lambda = 555 \text{ nm}$.
@@ -1266,9 +1262,6 @@ by modifying Equation~\ref{eq:eta_E_v_light} to be
 %
 in the context of Figure~\ref{fig:lamp}, 
 where $K$ is in lm/watt.
-
-****
-I am happy with $K$ and the above equation looks good to me! ---ZM ****
 
 The photopic luminosity function~($V_\lambda$) is the industry standard for determining lumen output
 of lamps, but it has been criticized for under-representing
@@ -1328,7 +1321,7 @@ The data from the LSPDD was given in terms of \emph{relative intensity} ($\Phi_{
 To adjust for this we created a scaling factor by calculating the quotient of the radiant power as calculated from the manufacture supplied lamp data for luminous efficacy and electricity consumption, and the radiant power as calculated from the relative intensity data
 
 \begin{equation} 
-  F = \frac{K\cdot\dot{W}_1}{\Phi_{rel,e}}   \; .
+  \mu = \frac{K\cdot\dot{W}_1}{\Phi_{rel,e}}   \; .
 \end{equation}
 
 
@@ -1336,7 +1329,7 @@ We then applied this scaling factor to to the spectral power distribution data f
 yielding spectral power distribution data for each lamp in terms of absolute intensity ($\Phi_{e\lambda}$),
 
 \begin{equation} 
-  \Phi_{e\lambda}  = F \cdot \Phi_{rel,e\lambda}   \; .
+  \Phi_{e\lambda}  = \mu \cdot \Phi_{rel,e,\lambda}   \; .
 \end{equation}
 
 
@@ -1671,7 +1664,7 @@ and the maximum luminous efficacy~($K_{max}$).
 
 Equation~\ref{eq:lum_effic_def} shows that 
 the luminous efficacy of a lamp is equal to the quotient
-of the luminous power ($\dot{I}_V$, Equation~\ref{eq:lumen}), expressed in lumens, and
+of the luminous power ($\dot{Phi}_pl$, Equation~\ref{eq:lumen}), expressed in lumens, and
 the electricity consumption rate of the device
 ($\dot{W}_1$ in Figure~\ref{fig:lamp}).
 Substituting Equation~\ref{eq:lum_effic_def} into Equation~\ref{eq:K_over_e_max} gives
@@ -1706,8 +1699,6 @@ reveals that the previous approximate approach to calculating exergetic efficien
 is correct only under the following assumptions:
 %
 \begin{enumerate}[label={(\alph*)}]
-
-  \item The selected luminous efficacy values are correct for the chosen purpose, i.e. for societal exergy analysis an economy-wide luminous efficacy value must accurately reflect the relative proportions of each lamp technology in society, or a particular sector.
 	
   \item $\phi_{L,\lambda} = 1$,
 
@@ -1904,8 +1895,8 @@ Discuss the problem of waste light.
 
 
 %++++++++++++++++++++++++++++++
-\subsection{Aggregation for country-level societal exergy analysis}
-\label{sec:aggregation}
+\subsection{Application for country-level societal exergy analysis}
+\label{sec:Application}
 %++++++++++++++++++++++++++++++
 
 To move from the final to useful energy/exergy efficiency of a single lamp, 
@@ -1949,11 +1940,11 @@ and for the following lamp technologies:
 The aggregate lighting efficiency for a particular year is then given by
 
 \begin{equation} \label{eq:agg_eta}
-  \eta_{agg} = \sum \limits_{Lamp \in Lamps} \phi_{lamp} \cdot \eta_{lamp} \cdot \theta_{lamp}
+  \eta_{agg} = \sum \limits_{i \in Lamps} \phi_{lamp} \cdot \eta_{lamp} \cdot \theta_{lamp}
 \end{equation}
 
 Where $\theta_{lamp}$ denotes the proportion of electricity consumption for lighting
-for a given lamp technology.
+by a particular lamp technology for a given year.
 
 
 
