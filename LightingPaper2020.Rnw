@@ -1066,7 +1066,8 @@ by which light is converted into electrical nerve signals
 in the human eye
 is radiative EM energy transfer
 from a light source~(1) to an eye~(0).
-We further assume that the human iris is a blackbody absorber (absorbing all wavelengths of radiation perfectly \cite{benenson2006handbook}), 
+We further assume that the human iris is a blackbody absorber 
+(absorbing all wavelengths of radiation perfectly \cite{benenson2006handbook}), 
 being a small aperture on a larger cavity.
 (In this assumption, we follow \citet[p.~172]{Rossing2020} who state
 ``another good example of [a blackbody absorber] is the human eye;
@@ -1090,13 +1091,13 @@ The result is an equation for $\phi_{L,\lambda}$, the specular exergy-to-energy 
                     + \frac{1}{3} \left( \frac{310 \text{ K}}{c_3} \right)^4 \lambda^4 \; .
 \end{equation}
 
-Between radiative emission by the lamp and absoption by the iris, 
-we assume no losses in transmission, 
-i.e., that no scattering of the radiation occurs through air, 
-an assumption that holds for short distances (<~10~m) typically 
-observed in lighting applications.
+We assume no losses in radiative transmission
+Between emission by the lamp and absorption by the iris.
+I.e., no radiation scattering occurs through air, 
+an assumption that holds for short distances typically 
+observed in lighting applications (<~10~m).
 (See \citet{Shan2019} for a method to estimate transmission losses
-if they are significant for a given application.)
+over longer distances.)
 
 The exergy of light emitted by a non-blackbody lamp~($\dot{X}_L$)
 is found by integrating the product of
@@ -1393,7 +1394,7 @@ The difference between energy and exergy is greatest in the upper right of the g
 \begin{figure}
     \centering
     \begin{subfigure}[t]{0.25\textwidth}
-<<phi_L_lambda_vs_lambda, cache=use_cache, fig.width=1.5, fig.height=2.5>>=
+<<phi_L_lambda_vs_lambda_delete, cache=use_cache, fig.width=1.5, fig.height=2.5>>=
 tibble::tibble(lambda = seq(250, 900, by = 0.5)*10^(-9)) %>% 
   dplyr::mutate(
     T_0 = 310,
@@ -1421,7 +1422,7 @@ tibble::tibble(lambda = seq(250, 900, by = 0.5)*10^(-9)) %>%
     % add desired spacing between images (e.g., ~, \quad, \qquad, \hfill, etc.)
     % or a blank line to force the subfigure onto a new line.
     \begin{subfigure}[t]{0.74\textwidth}
-<<Energy_and_exergy_graph, cache=use_cache, fig.width=4.5, fig.height=2.5>>=
+<<Energy_and_exergy_graph_delete, cache=use_cache, fig.width=4.5, fig.height=2.5>>=
 response_data %>% 
   dplyr::filter(wf_name == "Unweighted") %>% 
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
@@ -1484,25 +1485,81 @@ Equation~\ref{eq:X_dot_L}.
 
 \begin{figure}
     \centering
-<<Unweighted_Emissions, cache=use_cache, fig.width=4.5, fig.height=1.6, fig.align="right">>=
-response_data %>%
-  dplyr::filter(wf_name == "Unweighted") %>%
-  ggplot(mapping = aes(x = `Wavelength [nm]`)) +
-  geom_area(mapping = aes(y = actual_radiant_power), fill = "darkgray") +
-  geom_line(mapping = aes(y = actual_weighted_exergy), linetype = 1, colour = "darkgreen", size = 0.1) +
-
-  facet_grid(rows = vars(wf_name), cols = vars(lamp_name)) +
+% <<Unweighted_Emissions, cache=use_cache, fig.width=4.5, fig.height=1.6, fig.align="right">>=
+% response_data %>%
+%   dplyr::filter(wf_name == "Unweighted") %>%
+%   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
+%   geom_area(mapping = aes(y = actual_radiant_power), fill = "darkgray") +
+%   geom_line(mapping = aes(y = actual_weighted_exergy), linetype = 1, colour = "darkgreen", size = 0.1) +
+% 
+%   facet_grid(rows = vars(wf_name), cols = vars(lamp_name)) +
+%   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
+%   scale_y_continuous(limits = c(-0.002, 0.022)) +
+%   xlab(element_blank()) +
+%   ylab(expression(Phi[lambda]*" [W/nm]")) +
+%   MKHthemes::xy_theme() +
+%   theme(axis.text.x = element_text(size = rel(0.8), angle = 90),
+%         axis.text.y = element_text(size = rel(0.8)), 
+%         # Move the facet labels out of the graphs slightly.
+%         strip.text.x = element_text(margin = margin(b = 2.0)),
+%         strip.text.y = element_text(margin = margin(l = 2.0)))
+% @
+    \begin{subfigure}[t]{0.25\textwidth}
+<<phi_L_lambda_vs_lambda, cache=use_cache, fig.width=1.5, fig.height=1.8>>=
+tibble::tibble(lambda = seq(250, 900, by = 0.5)*10^(-9)) %>% 
+  dplyr::mutate(
+    T_0 = 310,
+    T_lambda = 5.33016e-3 / lambda, 
+    phi_L_lambda = 1 - (4/3)*(T_0/T_lambda) + (1/3)*(T_0/T_lambda)^4, 
+    facet = " "
+  ) %>% 
+  ggplot2::ggplot(mapping = aes(x = lambda*10^(9), y = phi_L_lambda)) + 
+  geom_vline(xintercept = 555, size = 0.2, color = "darkgray") +
+  geom_line(linetype = 1, size = 0.3, color = "darkgreen") + 
+  # ggspectra::stat_wl_strip(ymin = 0.9, ymax = 0.9042, chroma.type = chroma_type, size = 0) +
+  # scale_fill_identity() +
   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
-  scale_y_continuous(limits = c(-0.002, 0.022)) +
-  xlab(element_blank()) +
-  ylab(expression(Phi[lambda]*" [W/nm]")) +
+  scale_y_continuous(limits = c(0.9, 1.0), breaks = c(0.9, 0.95, 1)) +
+  xlab(expression(lambda*" [nm]")) +
+  ylab(expression(phi[L*","*lambda]*" [-]")) +
+  facet_grid(~facet) +
   MKHthemes::xy_theme() +
   theme(axis.text.x = element_text(size = rel(0.8), angle = 90),
         axis.text.y = element_text(size = rel(0.8)), 
-        # Move the facet labels out of the graphs slightly.
-        strip.text.x = element_text(margin = margin(b = 2.0)),
-        strip.text.y = element_text(margin = margin(l = 2.0)))
+        strip.text.x = element_text(margin = margin(b = 2.0)))
 @
+      \label{fig:phi_light_graph}
+    \end{subfigure}
+    % add desired spacing between images (e.g., ~, \quad, \qquad, \hfill, etc.)
+    % or a blank line to force the subfigure onto a new line.
+    \begin{subfigure}[t]{0.74\textwidth}
+<<Energy_and_exergy_graph, cache=use_cache, fig.width=4.5, fig.height=1.8>>=
+response_data %>% 
+  dplyr::filter(wf_name == "Unweighted") %>% 
+  ggplot(mapping = aes(x = `Wavelength [nm]`)) +
+  # geom_line(mapping = aes(y = actual_exergy), colour = "red", size = 0.1) +
+  # geom_line(mapping = aes(y = actual_radiant_power), colour = "blue", size = 0.1) +
+  # geom_line(mapping = aes(y = actual_radiant_power),  size = 0.1) +
+  geom_area(mapping = aes(y = actual_radiant_power), fill = "darkgray") +
+  geom_line(mapping = aes(y = actual_exergy), linetype = 1, colour = "darkgreen", size = 0.1) +
+
+  # ggspectra::stat_wl_strip(ymin = -0.002, ymax = -0.001, chroma.type = chroma_type, size = 0) +
+  # scale_fill_identity() +
+  
+  xlab(expression(lambda*" [nm]")) +
+  ylab(expression(Phi[L*","*lambda]*" [W/nm]")) +
+  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
+  scale_y_continuous(limits = c(-0.002, 0.022)) +
+  labs(fill = element_blank(), colour = element_blank()) +
+  MKHthemes::xy_theme() +
+  theme(axis.text.x = element_text(size = rel(0.8), angle = 90),
+        axis.text.y = element_text(size = rel(0.8)),
+        # Move the facet labels out of the graphs slightly.
+        strip.text.x = element_text(margin = margin(b = 2.0))) +
+  facet_grid(~lamp_name)
+@
+      \label{fig:lamp_exergy}
+    \end{subfigure}
     \begin{subfigure}[t]{0.25\textwidth}
 <<Weighting_Function_Graph_Energy, cache=use_cache, fig.width=1.5, fig.height=5>>=
 response_data %>%
