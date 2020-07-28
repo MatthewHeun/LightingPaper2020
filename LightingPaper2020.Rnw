@@ -1246,7 +1246,7 @@ yields
 which provides the basis for calculating a lamp's output of visible light in the unit of lumens~(lm, $\dot{I}_V$):
 %
 \begin{equation} \label{eq:lumen}
-  \dot{\Phi}_V = (683 \text{ lm/W}) \; \dot{L}_{pl} \; ,
+  \Phi_V = (683 \text{ lm/W}) \; \dot{L}_{pl} \; ,
 \end{equation}
 %
 where 683~lm/W is the EM power of a perfect light source emitting at $\lambda = 555 \text{ nm}$.
@@ -1265,9 +1265,6 @@ by modifying Equation~\ref{eq:eta_E_v_light} to be
 %
 in the context of Figure~\ref{fig:lamp}, 
 where $K$ is in lm/watt.
-
-****
-I am happy with $K$ and the above equation looks good to me! ---ZM ****
 
 The photopic luminosity function~($V_\lambda$) is the industry standard for determining lumen output
 of lamps, but it has been criticized for under-representing
