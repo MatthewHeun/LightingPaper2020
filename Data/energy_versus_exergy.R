@@ -5,9 +5,7 @@ library(ggplot2)
 library(dplyr)
 
 
-# lamp_list <- c("lamp_inc_globe_a19_40w", "lamp_hal_globe_r20", "lamp_cfl_es_tw_9", "lamp_led_phil_a19")
-
-lamp_list <- c("lamp_hps_phil_rs", "lamp_hal_globe_r20", "lamp_cfl_es_tw_9", "lamp_led_phil_a19")
+lamp_list <- c("lamp_inc_globe_a19_40w", "lamp_hps_phil_rs", "lamp_cfl_es_tw_9", "lamp_led_phil_a19")
 
 x11()
   
