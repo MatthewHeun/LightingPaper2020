@@ -1893,8 +1893,8 @@ Discuss the problem of waste light.
 
 
 %++++++++++++++++++++++++++++++
-\subsection{Aggregation for country-level societal exergy analysis}
-\label{sec:aggregation}
+\subsection{Application for country-level societal exergy analysis}
+\label{sec:Application}
 %++++++++++++++++++++++++++++++
 
 To move from the final to useful energy/exergy efficiency of a single lamp, 
