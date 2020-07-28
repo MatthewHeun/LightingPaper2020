@@ -1635,7 +1635,8 @@ previous methods of determining the exergy of lighting.
 
 The calculation of the exergy of light presented in Section~\ref{sec:phi_light}
 differs from the previous approach used in the societal exergy analysis community.
-This section describes the previous approach and compares against to the new precise approach presented above.
+This section describes the previous approximate approach 
+and compares to the new exact approach presented above.
 
 
 %------------------------------
@@ -1723,7 +1724,7 @@ is correct only under the following assumptions:
 %------------------------------
 
 The above comparison between the previous approximate method and
-the precise method of Section~\ref{sec:light_efficiency}
+the new exact method of Section~\ref{sec:light_efficiency}
 raises three implications for societal exergy analysis.
 First, to obtain the correct exergetic efficiency of lighting, 
 analysts must reject the assumption of the previous approximate method that $\phi_{L,\lambda} = 1$.
@@ -1750,7 +1751,7 @@ However, it is not certain that the photopic luminosity function
 is the best choice, 
 as discussed in Section~\ref{sec:blue_light} below.
 
-In summary, the new precise approach provides the following benefits:
+In summary, the new exact approach provides the following benefits:
 %
 \begin{enumerate}[label={(\alph*)}]
 	
