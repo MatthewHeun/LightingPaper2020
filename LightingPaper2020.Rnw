@@ -1478,6 +1478,7 @@ response_data %>%
 
   facet_grid(rows = vars(wf_name), cols = vars(lamp_name)) +
   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
+  scale_y_continuous(limits = c(-0.002, 0.022)) +
   xlab(element_blank()) +
   ylab(expression(Phi[lambda]*" [W/nm]")) +
   MKHthemes::xy_theme() +
@@ -1541,6 +1542,7 @@ response_data %>%
   # ylab(expression("Spectral radiative energy, "*Phi*" [W/nm]")) +
   ylab(expression(Phi[L*","*lambda]*" [W/nm]")) +
   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
+  scale_y_continuous(limits = c(-0.002, 0.022)) +
   labs(fill = element_blank(), colour = element_blank()) +
   facet_grid(rows = vars(wf_name), cols = vars(lamp_name)) +
   MKHthemes::xy_theme() +
