@@ -1243,10 +1243,10 @@ yields
   \dot{L}_{pl} = \int V_\lambda \Phi_{e\lambda} \mathrm{d}\lambda \; ,
 \end{equation}
 %
-which provides the basis for calculating a lamp's output of visible light in the unit of lumens~(lm, $\dot{I}_V$):
+which provides the basis for calculating a lamp's output of visible light in the unit of lumens~(lm, $\dot{Phi}_pl$):
 %
 \begin{equation} \label{eq:lumen}
-  \Phi_V = (683 \text{ lm/W}) \; \dot{L}_{pl} \; ,
+  \Phi_pl = (683 \text{ lm/W}) \; \dot{L}_{pl} \; ,
 \end{equation}
 %
 where 683~lm/W is the EM power of a perfect light source emitting at $\lambda = 555 \text{ nm}$.
@@ -1666,7 +1666,7 @@ and the maximum luminous efficacy~($K_{max}$).
 
 Equation~\ref{eq:lum_effic_def} shows that 
 the luminous efficacy of a lamp is equal to the quotient
-of the luminous power ($\dot{I}_V$, Equation~\ref{eq:lumen}), expressed in lumens, and
+of the luminous power ($\dot{Phi}_pl$, Equation~\ref{eq:lumen}), expressed in lumens, and
 the electricity consumption rate of the device
 ($\dot{W}_1$ in Figure~\ref{fig:lamp}).
 Substituting Equation~\ref{eq:lum_effic_def} into Equation~\ref{eq:K_over_e_max} gives
@@ -1944,11 +1944,11 @@ and for the following lamp technologies:
 The aggregate lighting efficiency for a particular year is then given by
 
 \begin{equation} \label{eq:agg_eta}
-  \eta_{agg} = \sum \limits_{Lamp \in Lamps} \phi_{lamp} \cdot \eta_{lamp} \cdot \theta_{lamp}
+  \eta_{agg} = \sum \limits_{i \in Lamps} \phi_{lamp} \cdot \eta_{lamp} \cdot \theta_{lamp}
 \end{equation}
 
 Where $\theta_{lamp}$ denotes the proportion of electricity consumption for lighting
-for a given lamp technology.
+by a particular lamp technology for a given year.
 
 
 
