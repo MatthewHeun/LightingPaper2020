@@ -39,7 +39,7 @@ library(tidyr)
 <<setup-graphs, include=FALSE>>=
 # This variable switches the cache on/off for all R code chunks that are configured for cacheing.
 # Set to FALSE if some plots are not updating as expected, then set back to TRUE.
-use_cache <- FALSE
+use_cache <- TRUE
 
 # Here are some options for the colors to use in the ggspectra graphs.
 # The variable chroma_type is used in all graphs,
@@ -990,7 +990,9 @@ to include a spectral weighting function~($f_\lambda$) such that
 %
 with $0 \le f_\lambda \le 1$
 and $\Phi_{L,\lambda} = f_\lambda \Phi_\lambda$.
+
 **** Knowing that we are using $\Phi_{e}$ for radiant power, $\Phi_{e\lambda}$ for spectral radiant power, and $\dot{L}$ for light, I'd be in favour of using $\dot{l}_{\lambda}$ for spectral light, instead of $\Phi_{\L, \lambda}$. Probably not as fancy as $\Phi_{L,\lambda}$, but probably clearer. Also there is currently a notation issue as we have both $\Phi_{\L, \lambda}$ and $\phi_{\L, \lambda}$ --- EAR ****
+
 In Equation~\ref{eq:weighted_emissive_power}, 
 the spectral weighting function~($f_\lambda$) converts 
 from EM radiation~($\Phi_{e}$)
@@ -1027,7 +1029,17 @@ must be calculated.
 An effective temperature of light photons~\cite{chen2008} ($T_\lambda$) 
 provides the link between Petela's equation (Equation~\ref{eq:petelas_equation})
 and the spectral exergy-to-energy ratio~($\phi_{\EM,\lambda}$).
-(We note that the use of the photon effective temperature approach has been criticized by 
+
+Petela's equation has recently been verified through the development of an infinite-staged
+Carnot engine model \cite{zhou2017exergy}, wherein 
+"a radiation photon with a
+frequency $v$ and an equivalent temperature of $T_{v}$ enters into an ideal absorption model, which emits a
+radiation photon with the frequency $v'$ and energy $hv'$. Moreover, an infinitely small thermal energy
+$hdv$ is generated at the same time and enters the Carnot heat engine with the equivalent temperature
+$T_{v}$ and outputs work. After infinite times of such processes, the frequency drops to $v_{0}$ and the
+corresponding equivalent temperature becomes $T_{v0}$"
+
+We note that the use of the photon effective temperature approach has been criticized by 
 \citet[p.~1810]{liu2009},
 who argued that 
 ``to endue a single photon with macro-scale thermodynamic parameters
@@ -1037,14 +1049,11 @@ but we also note that here $T_\lambda$ is ascribed to a stream of photons
 traveling from a lamp to an eye.
 Thus, for our purposes, $T_\lambda$ can be considered the statistical average effective temperature 
 of the stream of photons.
+
 ****
 Is this a good way to address the critique?---MKH
 ****
-****
-I'll double check the derivation of the photon effective temperature in Chen (2008) 
-to see whether it corresponds with the phrase ``statistical average effective temperature''
-and then get back to you!---ZM
-****
+
 )
 The product of wavelength and photon effective temperature is a constant~($c_3$ in \citet{chen2008}) such that
 %
@@ -1063,7 +1072,7 @@ by which light is converted into electrical nerve signals
 in the human eye
 is radiative EM energy transfer
 from a light source~(1) to an eye~(0).
-We further assume that the human iris is a blackbody absorber, 
+We further assume that the human iris is a blackbody absorber (absorbing all wavelengths of radiation perfectly \cite{benenson2006handbook}), 
 being a small aperture on a larger cavity.
 (In this assumption, we follow \citet[p.~172]{Rossing2020} who state
 ``another good example of [a blackbody absorber] is the human eye;
@@ -1086,6 +1095,10 @@ The result is an equation for $\phi_{L,\lambda}$, the specular exergy-to-energy 
                     - \frac{4}{3} \left( \frac{310 \text{ K}}{c_3} \right) \lambda 
                     + \frac{1}{3} \left( \frac{310 \text{ K}}{c_3} \right)^4 \lambda^4 \; .
 \end{equation}
+
+Between the emission of the radiation and absoption by the iris 
+we assume no losses in transmission, 
+i.e. that no scattering of the radiation occurs through the medium of transmission (the atmosphere).
 
 The exergy of light emitted by a non-blackbody lamp~($\dot{X}_L$)
 is found by integrating the product of
@@ -1311,19 +1324,25 @@ Look at Section~\ref{sec:weighting_functions} for an example.
 
 Data for the spectral power distributions of the lamps used in this study was obtained from the Light Spectral Power Distribution Database (LSPDD) \cite{Roby} \cite{miguel2017} \cite{aube2013}. 
 
-The data from the LSPDD was given in terms of \emph{relative intensity} as opposed to \emph{absolute intensity}. Whilst both measures have units of $Wnm^{-1}m^{-2}$, and the relative intensity correctly describes the relative proportions of the spectral power for each wavelength across a spectra, as each lamp was not measured using an integration sphere (which measures the total light emitted by a lamp in all directions) the total spectral radiant power is out of proportion.
+The data from the LSPDD was given in terms of \emph{relative intensity} ($\Phi_{rel,e\lambda}$) as opposed to \emph{absolute intensity}. Whilst both measures have units of $Wnm^{-1}m^{-2}$, and the relative intensity correctly describes the relative proportions of the spectral power for each wavelength across a spectrum, as each lamp was not measured using an integration sphere (which measures the total light emitted by a lamp in all directions) the total radiant power emitted by each lamp is out of proportion.
 To adjust for this we created a scaling factor by calculating the quotient of the radiant power as calculated from the manufacture supplied lamp data for luminous efficacy and electricity consumption, and the radiant power as calculated from the relative intensity data
 
 \begin{equation} 
-  F = \frac{K\cdot\dot{W}_1}{\Phi_{e\lambda}}   \; .
+  F = \frac{K\cdot\dot{W}_1}{\Phi_{rel,e}}   \; .
 \end{equation}
 
-**** $F$ is simply a placeholder symbol for the scaling factor, i'll think of a better one ---ZM ****
 
-We then applied this scaling factor to to the spectral power distribution data for each lamp.
+We then applied this scaling factor to to the spectral power distribution data for each lamp, 
+yielding spectral power distribution data for each lamp in terms of absolute intensity ($\Phi_{e\lambda}$),
+
+\begin{equation} 
+  \Phi_{e\lambda}  = F \cdot \Phi_{rel,e\lambda}   \; .
+\end{equation}
+
+
 
 We selected a representative lamp for four common technology types 
-(incandescent, halogen, compact fluorescent (CFL) and light emitting diode (LED)), 
+(incandescent (INC), high pressure sodium (HPS), compact fluorescent (CFL) and light emitting diode (LED)), 
 each with a unique shape of spectral power distribution,
 allowing for clear comparisons between lamps 
 for the effects of different weighting functions and the exergy-to-energy ratio.
