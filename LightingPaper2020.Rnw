@@ -1697,8 +1697,6 @@ reveals that the previous approximate approach to calculating exergetic efficien
 is correct only under the following assumptions:
 %
 \begin{enumerate}[label={(\alph*)}]
-
-  \item The selected luminous efficacy values are correct for the chosen purpose, i.e. for societal exergy analysis an economy-wide luminous efficacy value must accurately reflect the relative proportions of each lamp technology in society, or a particular sector.
 	
   \item $\phi_{L,\lambda} = 1$,
 
