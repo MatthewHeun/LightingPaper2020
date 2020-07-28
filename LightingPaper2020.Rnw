@@ -1900,16 +1900,55 @@ Discuss the problem of waste light.
 \label{sec:aggregation}
 %++++++++++++++++++++++++++++++
 
-To move from the final to useful energy/exergy efficiency of a single lamp, to either an economy-wide or sectoral aggregate lighting efficiency, two types of data are required over time for the given period of study:
+To move from the final to useful energy/exergy efficiency of a single lamp, 
+to either an economy-wide or sectoral aggregate lighting efficiency, 
+several types of data are required for the given period of study:
 
 \begin{enumerate}[label={(\alph*)}]
 
   \item Final to useful efficiency data for each lamp technology
-  \item Electricity consumption by lamp type
+  \item Energy to exergy ratios for each of the corresponding lamp technologies
+  \item Electricity consumption by lamp technology
 
 \end{enumerate}
 
-As lighting efficiency values are commonly reported in terms of luminous efficacy it is more likely 
+Items $a$ and $b$ are rarely reported for lamps, nor is the associated SPD data.
+Instead the most common measure of lighting efficiency reported for lamps is the luminous efficacy.
+Therefore, to develop an aggregate measure of lighting efficiency, 
+luminous efficacy data must be converted into final to useful efficiency values.
+As demonstrated in Section~\ref{previous_approach} if the \emph{valuable} light
+is deemed to be the radiant power weighted by the photopic luminosity function,
+the final to useful efficiencies are equivalent to the luminous efficiency, 
+namely $\frac{K}{683 lm/W}$.
+In the absence of SPD data an exergy to energy ratio for each technology type must be selected,
+as the shape of lamp SPD's display relatively little variation within technology group
+compared to between the group, 
+the aggregate exergy to energy ratios for those lamps also display little variation.
+**** Shall i calculate phi for several types of the same type? ---ZM ****
+
+**** Do we provide factors to move from $\Phi_{pl,e}$ to $\Phi_{?, e}$ ---ZM ****
+
+Once efficiency series have been calculated, 
+and exergy to energy ratios obtained,
+data for the proportion of each lighting technology in use for each year of the study is needed,
+i.e. the fleet of lamps, ideally in the form of electricity consumption by lighting technology.
+For example, tHe US DOE's Lighting Market Characterization reports provide such data for the USA,
+and for the years 2001~\cite{DOE2002}, 2010~\cite{DOE2012}, and 2015~\cite{DOE2017}, 
+along with associated luminous efficacy values, 
+and for the following lamp technologies:
+
+
+The aggregate lighting efficiency is then given by
+
+\begin{equation} \label{eq:agg_eta}
+  \eta_{agg} = \sum \phi_{lamp} \cdot \eta_{lamp} \cdot \theta_{lamp}
+\end{equation}
+
+Where $\theta_{lamp}$ denotes the proportion of electricity consumption for lighting
+for a given lamp technology.
+
+
+
 
 Discuss here that societal exergy analyses are usually conducted on a country-by-country basis.
 Discuss how an analysts might define, for each year, 
@@ -1982,7 +2021,7 @@ any errors may affect your future funding.}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\acknowledgments{We would like to thank James D. Hooker for the use of data from the Museum of Electric Lamp Technology ~\cite{hooker_2020}, Alfonso Delgado-Bonal for his advice on the state of the discourse surrounding the exergy to energy factor of light, Pedro J. Aphalo for his open-source software suite ‘r4phototbiology’~\cite{Aphalo2015}, Martin Aubé and Johanne Roby for the use of their Light Spectral Power Distribution Database (LSPDD)~\cite{aube2013}, Micheal Royer for his advice regarding photometric data,.......  }
+\acknowledgments{We would like to thank James D. Hooker for the use of data from the Museum of Electric Lamp Technology ~\cite{hooker_2020}, Alfonso Delgado-Bonal for his advice on the state of the discourse regarding the exergy to energy factor of light, Pedro J. Aphalo for his open-source software suite ‘r4phototbiology’~\cite{Aphalo2015}, Martin Aubé and Johanne Roby for the use of their Light Spectral Power Distribution Database (LSPDD)~\cite{aube2013}, Micheal Royer for his advice regarding photometric data,.......  }
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
