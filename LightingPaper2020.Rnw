@@ -1702,7 +1702,7 @@ is correct only under the following assumptions:
 	
   \item $\phi_{L,\lambda} = 1$,
 
-  \item the maximum luminous efficiency ($K_{max}$) is assumed to be 683~lm/W, and 
+  \item the maximum luminous efficacy ($K_{max}$) is assumed to be 683~lm/W, and 
   
   \item the spectral weighting function is taken to be the  photopic luminosity function ($f_\lambda = V_\lambda$).
 
