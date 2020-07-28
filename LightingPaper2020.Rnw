@@ -403,10 +403,6 @@ Style for this paper:
 \label{sec:broad_context}
 %++++++++++++++++++++++++++++++
 
-\cite{haitz1999case}
-
-\cite{graydon2007haitz}
-
 Artificial light provides an indispensable energy service (illumination), 
 enabling activities at times when natural light levels are insufficient.
 Artificial illumination is so valuable that around 20~\% of global grid-connected electricity 
@@ -416,7 +412,7 @@ which now comprise 40~\% of residential lamp sales~\cite{IEA2019},
 applications have spread beyond illumination to many other fields
 including human physiology and photosynthesis for horticulture~\cite{Pattison2018LEDefficacy}.
 The use and analysis of the energy and exergy efficiency of lighting is applied to a range of fields,
-including energy economics (***REF***),
+including energy economics~\cite{Nordhaus1996},
 societal exergy analysis~\cite{Ayres2005},
 energy history~\cite{Fouquet:2006},
 and forecasting energy efficiency improvements~\cite{IEA2019}.
