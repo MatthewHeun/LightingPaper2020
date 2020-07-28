@@ -1680,7 +1680,13 @@ exergetic efficiency for the previous approximate method:
   \eta_{X,v} = \frac{\; \; \frac{(683 \text{ lm/W}) \int V_\lambda \Phi_{e\lambda,3} \mathrm{d}\lambda}{\dot{W}_1} \; \;}{K_{max}} \; .
 \end{equation}
 
-As can be seen from \ref{tab:lamps} the final to useful efficiency when using the photopic luminosity function is equivalent to the luminous efficiency when the maximum luminous efficacy value is taken to be 683 lm/W.
+****
+Why was this paragraph added?
+Seems like same idea is present 2 paragraphs down.---MKH 
+****
+As can be seen from Table~\ref{tab:lamps} the final to useful efficiency 
+when using the photopic luminosity function
+is equivalent to the luminous efficiency when the maximum luminous efficacy value is taken to be 683 lm/W.
 
 With recent advances in photometry (Section~\ref{sec:phi_light}),
 it is now possible to determine the energy and exergy of light precisely, 
