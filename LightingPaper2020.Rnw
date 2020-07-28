@@ -1324,7 +1324,7 @@ The data from the LSPDD was given in terms of \emph{relative intensity} ($\Phi_{
 To adjust for this we created a scaling factor by calculating the quotient of the radiant power as calculated from the manufacture supplied lamp data for luminous efficacy and electricity consumption, and the radiant power as calculated from the relative intensity data
 
 \begin{equation} 
-  F = \frac{K\cdot\dot{W}_1}{\Phi_{rel,e}}   \; .
+  \mu = \frac{K\cdot\dot{W}_1}{\Phi_{rel,e}}   \; .
 \end{equation}
 
 
@@ -1332,7 +1332,7 @@ We then applied this scaling factor to to the spectral power distribution data f
 yielding spectral power distribution data for each lamp in terms of absolute intensity ($\Phi_{e\lambda}$),
 
 \begin{equation} 
-  \Phi_{e\lambda}  = F \cdot \Phi_{rel,e\lambda}   \; .
+  \Phi_{e\lambda}  = \mu \cdot \Phi_{rel,e,\lambda}   \; .
 \end{equation}
 
 
