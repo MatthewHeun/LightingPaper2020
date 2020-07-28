@@ -430,9 +430,10 @@ understanding precisely
 its potential contribution---via increasing efficiency---to reducing energy use
 to meet carbon dioxide emission targets is crucially important.
 The aim of this paper is therefore to bring clarity to the analyst 
-on the definitions of the energy and exergy conversion efficiency of artificial light for illumination.
+on the definitions of the energy and exergy conversion efficiency 
+of artificial light for illumination.
 We exclude non-illumination purposes, such as horticulture and heating, 
-**** and our focus is societal exergy analysis. ****
+and our focus is societal exergy analysis.
 
 
 %++++++++++++++++++++++++++++++
