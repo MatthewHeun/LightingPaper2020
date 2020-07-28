@@ -1634,7 +1634,7 @@ and compares to the new exact approach presented above.
 
 
 %------------------------------
-\subsubsection{Previous approximate approach} 
+\subsubsection{Approximate method} 
 \label{sec:previous_approach}
 %------------------------------
 
@@ -1646,10 +1646,11 @@ exergetic efficiency by the quotient of
 the minimum energy required to produce a given output and
 the actual energy required to produce the same given output.
 (See Section~\ref{sec:divergent_approaches}.)
-This approach has been recommended for lighting, sound, and information~\cite[p.~17]{Sousa2017}.
+The approximate approach has been recommended
+for lighting, sound, and information~\cite[p.~17]{Sousa2017}.
 
 For the specific case of lighting,
-the previous approximate approach involved the quotient of
+the approximate approach involved the quotient of
 the theoretical minimum rate of energy required to emit one lumen and
 the actual rate of energy used to emit one lumen 
 for a given lamp.
@@ -1676,27 +1677,19 @@ exergetic efficiency for the previous approximate method:
   \eta_{X,v} = \frac{\; \; \frac{(683 \text{ lm/W}) \int V_\lambda \Phi_{e\lambda,3} \mathrm{d}\lambda}{\dot{W}_1} \; \;}{K_{max}} \; .
 \end{equation}
 
-****
-Why was this paragraph added?
-Seems like same idea is present 2 paragraphs down.---MKH 
-****
-As can be seen from Table~\ref{tab:lamps} the final to useful efficiency 
-when using the photopic luminosity function
-is equivalent to the luminous efficiency when the maximum luminous efficacy value is taken to be 683 lm/W.
-
 With recent advances in photometry (Section~\ref{sec:phi_light}),
-it is now possible to determine the energy and exergy of light precisely, 
+it is now possible to determine the energy and exergy of light exactly, 
 thereby relieving societal exergy analysts
 of the need to approximate exergetic efficiency
 by the quotient of
 the minimum energy required to produce a lumen and
 the actual energy required to produce a lumen.
-Thus, we can assess the previous approximate method relative to recent advances, 
+Thus, we can assess the approximate method relative to recent advances, 
 using exergetic efficiency as the point of comparison.
 
-Comparing Equation~\ref{eq:prev_eta_X_v_light} (the previous approximate approach)
-to Equation~\ref{eq:eta_X_v_light} (the new exact analysis)
-reveals that the previous approximate approach to calculating exergetic efficiency of lighting
+Comparing Equation~\ref{eq:prev_eta_X_v_light} (the approximate approach)
+to Equation~\ref{eq:eta_X_v_light} (the exact analysis)
+reveals that the approximate approach to calculating exergetic efficiency of lighting
 is correct only under the following assumptions:
 %
 \begin{enumerate}[label={(\alph*)}]
@@ -1708,6 +1701,18 @@ is correct only under the following assumptions:
   \item the spectral weighting function is taken to be the  photopic luminosity function ($f_\lambda = V_\lambda$).
 
 \end{enumerate}
+
+**** Tie better to rows and colums. ****
+The assumptions are, in fact, in force for the Xth column of Table~\ref{tab:results_etas}.
+
+As can be seen by comparing the luminous efficiency column of Table~\ref{tab:lamps} 
+****
+Maybe change to row when Zeke transposes the table.---MKH
+****
+and the photopic luminosity row of Table~\ref{tab:results_etas},
+final-to-useful efficiency calculated via the photopic luminosity function~($\eta_{E,v,pl}$, **** equation ****)
+is equivalent to the luminous efficiency~($symbol$, **** equation ****) when maximum luminous efficacy~($K_{max}$)
+is taken to be 683~lm/W.
 
 
 %------------------------------
@@ -1736,14 +1741,14 @@ assume $K_{max} = 400 \text{ lm/W}$,
 thereby incorrectly overestimating exergetic lighting efficiency~($\eta_{X,v}$)
 by a factor of $\frac{683 \text{ lm/W}}{400 \text{ lm/W}} = 1.71$.
 
-Third, in the previous method, 
+Third, in the approximate method, 
 the analyst was required to use the photopic luminosity function~($V_\lambda$)
 for the specular weighting function~($f_\lambda$).
 However, it is not certain that the photopic luminosity function
 is the best choice, 
 as discussed in Section~\ref{sec:blue_light} below.
 
-In summary, the new exact approach provides the following benefits:
+In summary, the exact method provides the following benefits:
 %
 \begin{enumerate}[label={(\alph*)}]
 	
@@ -1778,11 +1783,9 @@ I.e. how wrong were former studies and how critical is it to improve the methodo
 ****
 
 ****
-How wrong previous studies were depends on what we feel the correc approach to be. I think we should decide this as a group, and then we can quantify the difference! ---ZM
+How wrong previous studies were depends on what we feel the correct approach to be. 
+I think we should decide this as a group, and then we can quantify the difference! ---ZM
 ****
-
-
-
 
 
 %++++++++++++++++++++++++++++++
@@ -1818,7 +1821,6 @@ To more accurately quantify the utility of different wavelengths of light,
 the 'Universal luminosity function' has been proposed as a replacement for the photopic luminosity function,
 accounting for the sensitivity of all five of the eyes light receptors 
 as discussed above in \ref{sec:human_perception_of_EM_radiation}.
-
 
 The choice of any weighting function is a subjective decision for the analyst,
 however to provide consistency for SEA community moving forward
