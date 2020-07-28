@@ -1090,11 +1090,13 @@ The result is an equation for $\phi_{L,\lambda}$, the specular exergy-to-energy 
                     + \frac{1}{3} \left( \frac{310 \text{ K}}{c_3} \right)^4 \lambda^4 \; .
 \end{equation}
 
-Between the emission of the radiation and absoption by the iris 
+Between radiative emission by the lamp and absoption by the iris, 
 we assume no losses in transmission, 
-i.e. that no scattering of the radiation occurs through the medium of transmission (the atmosphere).
-Shan and Zhou \cite{Shan2019} describe the methodology to achieve this,
-though we deemed this beyond the scope of our study.
+i.e., that no scattering of the radiation occurs through air, 
+an assumption that holds for short distances (<~10~m) typically 
+observed in lighting applications.
+(See \citet{Shan2019} for a method to estimate transmission losses
+if they are significant for a given application.)
 
 The exergy of light emitted by a non-blackbody lamp~($\dot{X}_L$)
 is found by integrating the product of
@@ -2062,7 +2064,6 @@ in the decision to publish the results.}
 \label{fig:history_efficacy}
 \end{figure}
 
-
 <<Load_SEA_Data, cache=use_cache, cache.extra.1=tools::md5sum('Data/SEA_lighting_efficiency.xlsx'), cache.extra.2=tools::md5sum('Data/sea_lighting_efficiency.R')>>=
 # Creates the sea_lighting_efficiency data frame.
 source(file = file.path("Data", "sea_lighting_efficiency.R"))
@@ -2076,8 +2077,6 @@ ggplot2::ggplot(sea_le_df, mapping = aes(x = Year)) +
   scale_x_continuous(breaks = c(1960, 1970, 1980, 1990, 2000, 2010, 2020)) #+ 
   # scale_y_continuous(breaks = c(0, 25, 50, 75, 100, 125, 150))
 @
-
-
 
 Shan and Zhou (2019) advance this thinking,
 developing a methodology which includes
