@@ -628,7 +628,7 @@ ggplot2::ggplot(le_df, mapping = aes(x = Year)) +
         #geom_label( 
           #data = le_df %>% filter(Type == "LSPDD"), 
           #aes(label=Device)
-  )
+          #)
 @
 
 A final source of confusion is the differences between 
