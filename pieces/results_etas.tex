@@ -7,22 +7,27 @@
 
 \begin{table}
 \centering % Centered table
-\caption{Final to useful energy efficiencies for each of the selected lamps, and each of the chosen weighting functions. Note that for the Incandescent bulb (INC) the unweighted final to useful efficiency is an underestimate as the SPD data was limited to 899nm, whilst incandescent lamps emit radiation far into the infrared region of the electromagnetic spectrum.}
+\caption{Final to useful energy efficiencies for each lamp and weighting function~($f_\lambda$). 
+Note that for the Incandescent bulb (INC),
+the unweighted final to useful efficiency is an underestimate, because
+the SPD data was limited to $\lambda < 899 \text{ nm}$, 
+although incandescent lamps emit radiation far into the infrared region of the electromagnetic spectrum.}
 \begin{tabular}{l c c c c}
-\hline
+\toprule
 \multicolumn{5}{c}{Final to Useful Energy Efficiency [\%]} \\
-\cline{2-5}
+% \cline{2-5}
+\midrule
   Lamp 
       & Unweighted ($\eta_{E,v,uw}$)
       & Vis. Spectrum ($\eta_{E,v,vis}$)
       & Photopic lum. ($\eta_{E,v,pl}$)
       & Universal lum. ($\eta_{E,v,univ}$)  \\
-\hline
+\midrule
   INC & 9.5 & 4.4 & 1.2 & 1.5 \\
   HPS & 24.4 & 19.6 & 12.4 & 14.8 \\
   CFL & 19.1 & 17.5 & 8.9 & 14.2 \\
   LED & 10.5 & 22.1 & 11.1 & 14.2 \\
-\hline
+\bottomrule
 \end{tabular}
 \label{tab:results_etas}
 \end{table}

@@ -428,8 +428,8 @@ to meet carbon dioxide emission targets is crucially important.
 The aim of this paper is therefore to bring clarity to the analyst 
 on the definitions of the energy and exergy conversion efficiency 
 of artificial light for illumination.
-We exclude non-illumination purposes, such as horticulture and heating, 
-and our focus is societal exergy analysis.
+Our application is societal exergy analysis, and 
+we exclude non-illumination purposes, such as horticulture and heating.
 
 
 %++++++++++++++++++++++++++++++
@@ -616,13 +616,14 @@ I think Figure~\ref{fig:Vis_Graph} shows differential eye sensitivity. ---MKH **
 source(file = file.path("Data", "lighting_efficacy.R"))
 @
 
-<<LuminousEfficacy_Graph, cache=use_cache, fig.align="center", fig.width = 6, fig.height = 6, fig.cap="The luminous efficacy (lm/W) of selected lamp technologies between 1880 and 2020. Note that the apparent decrease in efficacy over time for Halogen lamps does not represent a reversal of technological progress, but a decrease in the average power of Halogen lamps due to changes in use, with lower power lamps typically display lower luminous efficacy values. Data was obtained from three main sources: the Museum of Electric Lamp Technology (LampTech)~\\cite{hooker_2020}, the ENERGYSTAR database of certified light bulbs~\\cite{energystar_2020}, and the Lighting market characterization reports commissioned by the US Department of Energy (DOE)~\\cite{DOE2002}~\\cite{DOE2012}~\\cite{DOE2017}. For all data sources please see the supplementary information **** Here I have included High pressure sodium lamps of 200W+ only. As with Halogen lamps the shift to lower wattage bulbs over time would show up on this graph as a decrease in luminous efficacy. We have two options 1) ignore this and include all lamps regardless of wattage, stipulating or demonstrating the 'peak efficacy', or 2) split Halogen into high and/or low wattage lamps too. Let me know what you think the best option is! ---ZM ****" >>=
+<<LuminousEfficacy_Graph, cache=use_cache, fig.align="center", fig.width = 6, fig.height = 4, fig.cap = "The luminous efficacy (lm/W) of selected lamp technologies between 1880 and 2020. Note that the apparent decrease in efficacy over time for Halogen lamps does not represent a reversal of technological progress, but a decrease in the average power of Halogen lamps due to changes in use, with lower power lamps typically display lower luminous efficacy values. Data was obtained from three main sources: the Museum of Electric Lamp Technology (LampTech)~\\cite{hooker_2020}, the ENERGYSTAR database of certified light bulbs~\\cite{energystar_2020}, and the Lighting market characterization reports commissioned by the US Department of Energy (DOE)~\\cite{DOE2002}~\\cite{DOE2012}~\\cite{DOE2017}. For all data sources please see the supplementary information **** Here I have included High pressure sodium lamps of 200W+ only. As with Halogen lamps the shift to lower wattage bulbs over time would show up on this graph as a decrease in luminous efficacy. We have two options 1) ignore this and include all lamps regardless of wattage, stipulating or demonstrating the 'peak efficacy', or 2) split Halogen into high and/or low wattage lamps too. Let me know what you think the best option is! ---ZM ****" >>=
 ggplot2::ggplot(le_df, mapping = aes(x = Year)) +
   geom_point(mapping = aes(y = `Luminous Efficacy [lm/W]`, colour = Technology)) +
   MKHthemes::xy_theme() +
-  theme(legend.position = "bottom", legend.text = element_text(size = 8), axis.title.x=element_blank()) + 
-  scale_x_continuous(breaks = c(1880, 1900, 1920, 1940, 1960, 1980, 2000, 2020)) + 
-  scale_y_continuous(breaks = c(0, 25, 50, 75, 100, 125, 150))
+  theme(legend.position = "bottom",
+        legend.text = element_text(size = 8),
+        axis.title.x=element_blank()) + 
+  scale_x_continuous(breaks = seq(from = 1880, to = 2020, by = 20))
 @
 
 A final source of confusion is the differences between 
@@ -647,7 +648,8 @@ Can you try to restate the previous sentence,
 possibly by simplifying it?
 Or delete entirely? ---MKH ****
 
-**** We should end here with the question for this paper. ---MKH ****
+**** Should we end here with the question for this paper? ---MKH ****
+
 
 %++++++++++++++++++++++++++++++
 \subsection{Paper structure}
@@ -656,12 +658,10 @@ Or delete entirely? ---MKH ****
 
 The article proceeds as follows.
 In Section~\ref{sec:methods}, we set out the energy and exergy fundamentals of light.
-In Section~\ref{sec:results}, we show  results for example weighting functions and lamps before
+In Section~\ref{sec:results}, we show results for example weighting functions and lamps before
 presenting a discussion in Section~\ref{sec:discussion}. 
 Section~\ref{sec:conclusions} concludes.
-Our key finding is that the maximum efficacy limit of lamps should be taken as 400~lm/W.
-
-**** I don't think that this is our key finding ---ZM ****
+Our key finding is ******.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -860,9 +860,13 @@ waste heat (conduction and convection only) is produced at 2.
 \largemachinefigure{Lamp}
                    {$\dot{W}_1 \; \text{(elec)}$}
                    {$\dot{Q}_2$ (heat)}
-                   {$\Phi_{e,3}$ (EM)}
+                   {$\Phi_{EM,3}$ (EM)}
                    {$\dot{L}_4$ (light)}
-\caption{A lamp that produces heat and light with an energy efficiency $\eta_{E \{lamp\}}$, and a weighting function $f_\lambda$ that converts electromagnetic radiation (EM) into light with an energy efficiency $\eta_{E \{f_\lambda\}}$. Note that $\eta_{E \{f_\lambda\}}$ is function of the spectral distribution of the radiant power $\Phi_{e,3}$. The efficiency with which the system lamp and weighting function converts electricity energy into light energy is noted $\eta_{E \{lamp, f_\lambda\}}$. Note that the same rationale is valid when considering exergy efficiency.}
+\caption{****
+EA: Please adjust this figure to match the nomenclature that I proposed on 2020-07-18.---MKH
+****
+A lamp that produces heat and light with 
+an energy efficiency $\eta_{E,v}$, and a weighting function $f_\lambda$ that converts electromagnetic radiation (EM) into light with an energy efficiency $\eta_{E \{f_\lambda\}}$. Note that $\eta_{E \{f_\lambda\}}$ is function of the spectral distribution of the radiant power $\Phi_{e,3}$. The efficiency with which the system lamp and weighting function converts electricity energy into light energy is noted $\eta_{E \{lamp, f_\lambda\}}$. Note that the same rationale is valid when considering exergy efficiency.}
 \label{fig:lamp}
 \end{figure}
 
@@ -903,21 +907,21 @@ The term $\Phi_{e,3}$ is the radiant power of broad-spectrum EM radiation
 emitted by the lamp in units of energy per unit time.
 In general, the radiant power of a lamp is a spectral quantity,
 meaning that it varies with wavelength.
-Spectral radiant power~($\Phi_{e\lambda}$)
+Spectral radiant power~($\Phi_{EM,\lambda}$)
 is the EM emissive power available at any wavelength
-and is related to radiant power~($\Phi_{e}$) by \cite{benenson2006handbook}
+and is related to radiant power~($\Phi_{EM}$) in \citet{benenson2006handbook} by
 %
 \begin{equation} \label{eq:emissive_power}
-  \Phi_{e} = \int \Phi_{e\lambda} \mathrm{d}\lambda \; .
+  \Phi_{EM} = \int \Phi_{EM,\lambda} \mathrm{d}\lambda \; .
 \end{equation}
 %
-Visually, $\Phi_{e}$ is the area under the $\Phi_\lambda$ vs.\ $\lambda$ curve.
+Visually, $\Phi_{EM}$ is the area under the $\Phi_{EM,\lambda}$ vs.\ $\lambda$ curve.
 
 The exergetic efficiency of EM radiation emitted by the lamp in Figure~\ref{fig:lamp} is given by
 %
 \begin{equation}
   \eta_X = \frac{\dot{X}_2 + \dot{X}_3}{\dot{X}_1} 
-          = \frac{\left( 1 - \frac{T_0}{T_2} \right) \dot{Q}_2 + \phi_{EM} \Phi_{e,3} }{\dot{W}_1} < 1 \; ,
+          = \frac{\left( 1 - \frac{T_0}{T_2} \right) \dot{Q}_2 + \phi_{EM} \Phi_{EM,3} }{\dot{W}_1} < 1 \; ,
 \end{equation}
 %
 where $\phi_{EM}$ is the exergy-to-energy ratio of EM radiation.
@@ -927,7 +931,7 @@ The valuable exergetic efficiency of the EM radiation emitted by the lamp in Fig
 %
 \begin{equation} \label{eq:eta_X_v}
   \eta_{X,v} = \frac{\dot{X}_3}{\dot{X}_1} 
-              = \frac{\phi_{EM} \Phi_{e,3} }{\dot{W}_1} < \eta_X < 1 \; .
+              = \frac{\phi_{EM} \Phi_{EM,3} }{\dot{W}_1} < \eta_X < 1 \; .
 \end{equation}
 
 Note that both $\eta_X$ and $\eta_{X,v}$ are independent of human presence;
@@ -975,15 +979,11 @@ leads to modifying Equation~\ref{eq:emissive_power}
 to include a spectral weighting function~($f_\lambda$) such that
 %
 \begin{equation} \label{eq:weighted_emissive_power}
-  \dot{L} = \int \Phi_{L,\lambda} \mathrm{d}\lambda = \int f_\lambda \Phi_{e\lambda} \mathrm{d}\lambda \; ,
+  \dot{L} = \int \Phi_{L,\lambda} \mathrm{d}\lambda = \int f_\lambda \Phi_{EM,\lambda} \mathrm{d}\lambda \; ,
 \end{equation}
 %
 with $0 \le f_\lambda \le 1$
 and $\Phi_{L,\lambda} = f_\lambda \Phi_\lambda$.
-
-**** Knowing that we are using $\Phi_{e}$ for radiant power, $\Phi_{e\lambda}$ for spectral radiant power, and $\dot{L}$ for light, I'd be in favour of using $\dot{l}_{\lambda}$ for spectral light, instead of $\Phi_{\L, \lambda}$. Probably not as fancy as $\Phi_{L,\lambda}$, but probably clearer. Also there is currently a notation issue as we have both $\Phi_{\L, \lambda}$ and $\phi_{\L, \lambda}$ --- EAR ****
-
-**** I see your point but i disagree, I think we should maintain the use of $\Phi$ with the appropriate subscripts of all radiation emitted by a lamp! ---ZM ****
 
 In Equation~\ref{eq:weighted_emissive_power}, 
 the spectral weighting function~($f_\lambda$) converts 
@@ -993,7 +993,7 @@ the valuable part of EM radiation for illumination.
 In the context of Figure~\ref{fig:lamp}, 
 %
 \begin{equation} \label{eq:L_dot_4}
-  \dot{L}_4 = \int f_\lambda \Phi_{e\lambda,3} \mathrm{d}\lambda \; .
+  \dot{L}_4 = \int f_\lambda \Phi_{EM,\lambda,3} \mathrm{d}\lambda \; .
 \end{equation}
 
 
@@ -1024,14 +1024,18 @@ and the spectral exergy-to-energy ratio~($\phi_{\EM,\lambda}$).
 
 Petela's equation has recently been verified through the development of an infinite-staged
 Carnot engine model \cite{zhou2017exergy}, wherein 
-"a radiation photon with a
+``a radiation photon with a
 frequency $v$ and an equivalent temperature of $T_{v}$ enters into an ideal absorption model, which emits a
 radiation photon with the frequency $v'$ and energy $hv'$. Moreover, an infinitely small thermal energy
 $hdv$ is generated at the same time and enters the Carnot heat engine with the equivalent temperature
 $T_{v}$ and outputs work. After infinite times of such processes, the frequency drops to $v_{0}$ and the
-corresponding equivalent temperature becomes $T_{v0}$" \cite{Shan2019}.
+corresponding equivalent temperature becomes $T_{v0}$'' \cite{Shan2019}.
 
-**** Should this remain a quote, or should i describe the model in my own words? --- ZM ****
+**** 
+Should this remain a quote, or should I describe the model in my own words? --- ZM 
+****
+Own words.---MKH
+****
 
 We note that the use of the photon effective temperature approach has been criticized by 
 \citet[p.~1810]{liu2009},
@@ -1155,37 +1159,10 @@ and the valuable exergetic efficiency of light becomes
 \label{sec:examples_and_data}
 %++++++++++++++++++++++++++++++
 
-EA suggests a paragraph discussing:
-%
-\begin{enumerate}
-
-  \item Where we got the data (both SPDs of lamps and weighting functions)
-
-  \item How we chose lamps and SPDs and weighting functions for our case study
-  
-  \item How we adjusted SPDs and scaled them up to fit the efficacy and lamp data provided by the manufacturer
-
-\end{enumerate}
-%
-all this stuff that someone trying to reproduce the study would need. So perhaps that could be a 2.5 "methodology and data"?
-
-
 %------------------------------
 \subsubsection{Weighting functions}
 \label{sec:weighting_functions}
 %------------------------------
-
-****
-ZM: Add more here about
-%
-\begin{enumerate}
-
-  \item Where we got the data (weighting functions)
-
-\end{enumerate}
-%
-all this stuff that someone trying to reproduce the study would need.
-****
 
 Spectral weighting functions ($f_\lambda$) convert radiant power to light.
 (See Section~\ref{sec:human_perception_of_EM_radiation}.)
@@ -1240,13 +1217,14 @@ Substituting Equation~\ref{eq:f3} into Equation~\ref{eq:weighted_emissive_power}
 yields
 %
 \begin{equation}
-  \dot{L}_{pl} = \int V_\lambda \Phi_{e\lambda} \mathrm{d}\lambda \; ,
+  \dot{L}_{pl} = \int V_\lambda \Phi_{EM,\lambda} \mathrm{d}\lambda \; ,
 \end{equation}
 %
-which provides the basis for calculating a lamp's output of visible light in the unit of lumens~(lm, $\dot{Phi}_pl$):
+which provides the basis for calculating a lamp's output 
+of visible light in the unit of lumens~(lm, $\Phi_{pl}$):
 %
 \begin{equation} \label{eq:lumen}
-  \Phi_pl = (683 \text{ lm/W}) \; \dot{L}_{pl} \; ,
+  \Phi_{pl} = (683 \text{ lm/W}) \; \dot{L}_{pl} \; ,
 \end{equation}
 %
 where 683~lm/W is the EM power of a perfect light source emitting at $\lambda = 555 \text{ nm}$.
@@ -1299,51 +1277,55 @@ Table~\ref{tab:wfs} summarizes the weighting functions discussed above.
 \label{sec:lamps}
 %------------------------------
 
+To demonstrate how the use of selection of spectral weighting function~($f_\lambda$)
+alters the efficiency of a lamp, 
+we need both weighting functions (Section~\ref{sec:weighting_functions}) and
+example lamps.
+Table~\ref{tab:lamps} summarizes details about lamps discussed throughout this paper.
+
+We obtained spectral power distributions of the lamps in Table~\ref{tab:lamps} from the 
+Light Spectral Power Distribution Database (LSPDD)~\cite{Roby, miguel2017, aube2013}. 
+**** 
+Zeke:
+I simplified the remainder of this paragraph quite a bit. 
+In particular, I don't think we need to say \emph{why} the radiant power doesn't match.
+Rather, we can note that it doesn't and show how we fixed it.
+Does it read OK now?---MKH
 ****
-Matt needs to edit this section after it is completed. 
-****
-
-****
-We need to add content about methods here. 
-I particular, we need to say that we'll take the weighting functions and lamps to calculate responses and efficiencies
-to illustrate the theory.---MKH
-****
-
-To demonstrate how the use of selection of various weighting functions 
-alters the measurement of the efficiency of a lighting device 
-we choose to compare the following lamps.
-
-
-**** ZM: Add more here about all this stuff that someone trying to reproduce the study would need.
-Look at Section~\ref{sec:weighting_functions} for an example.
-****
-
-Data for the spectral power distributions of the lamps used in this study was obtained from the Light Spectral Power Distribution Database (LSPDD) \cite{Roby} \cite{miguel2017} \cite{aube2013}. 
-
-The data from the LSPDD was given in terms of \emph{relative intensity} ($\Phi_{rel,e\lambda}$) as opposed to \emph{absolute intensity}. Whilst both measures have units of $Wnm^{-1}m^{-2}$, and the relative intensity correctly describes the relative proportions of the spectral power for each wavelength across a spectrum, as each lamp was not measured using an integration sphere (which measures the total light emitted by a lamp in all directions) the total radiant power emitted by each lamp is out of proportion.
-To adjust for this we created a scaling factor by calculating the quotient of the radiant power as calculated from the manufacture supplied lamp data for luminous efficacy and electricity consumption, and the radiant power as calculated from the relative intensity data
-
+The data in the LSPDD are given 
+in terms of \emph{relative intensity} ($\Phi_{rel,e\lambda}$) 
+as opposed to \emph{absolute intensity}.
+Because lamps in the LSPDD are not measured using an integration sphere,
+the integral of the spectral power distribution may not match the radiant power of the lamp
+supplied by the manufacturer.
+To ensure that the integral of each lamp's spectral power distribution 
+matches its reported radiant power, 
+we applied the standard procedure of scaling the spectral power distribution 
+by the ratio ($\mu$) of
+the radiant power given by the manufacturer~($K \dot{W}_1$) and  
+the integral of the spectral radiant power taken from the relative intensity data~($\Phi_{rel,EM}$).
+%
 \begin{equation} 
-  \mu = \frac{K\cdot\dot{W}_1}{\Phi_{rel,e}}   \; .
+  \mu = \frac{K \dot{W}_1}{\Phi_{rel,EM}}   \; .
 \end{equation}
 
-
-We then applied this scaling factor to to the spectral power distribution data for each lamp, 
-yielding spectral power distribution data for each lamp in terms of absolute intensity ($\Phi_{e\lambda}$),
-
+We then applied the scaling factor~($\mu$) to to the spectral power distribution data for each lamp, 
+yielding a scaled spectral power distribution data for each lamp 
+that matches the manufacturer's reported radiant power ($\Phi_{EM,\lambda}$),
+%
 \begin{equation} 
-  \Phi_{e\lambda}  = \mu \cdot \Phi_{rel,e,\lambda}   \; .
+  \Phi_{EM,\lambda}  = \mu \Phi_{rel,EM,\lambda}   \; .
 \end{equation}
 
-
-
-We selected a representative lamp for four common technology types 
-(incandescent (INC), high pressure sodium (HPS), compact fluorescent (CFL) and light emitting diode (LED)), 
-each with a unique shape of spectral power distribution,
-allowing for clear comparisons between lamps 
-for the effects of different weighting functions and the exergy-to-energy ratio.
-
-Table~\ref{tab:lamps} summarizes the lamps discussed above.
+We selected one representative lamp for four common lamp technologies
+(incandescent, INC;
+high pressure sodium, HPS;
+compact fluorescent, CFL; and
+light emitting diode, LED), 
+each with a unique spectral power distribution,
+allowing for clear comparisons 
+of the effects of spectral weighting functions~($f_\lambda$) and
+the spectral exergy-to-energy ratio~($\phi_\lambda$).
 
 \input{pieces/lamps.tex}
 
