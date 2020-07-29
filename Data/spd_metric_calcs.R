@@ -15,7 +15,8 @@ integration_radiant_power <- weighted_responses_df %>%
   dplyr::summarise(
     integrated_rp = MESS::auc(x = `Wavelength [nm]`, y = actual_radiant_power),
     integrated_rp_X = MESS::auc(x = `Wavelength [nm]`, y = actual_exergy),
-    rp_X_div_rp = integrated_rp_X / integrated_rp
+    rp_X_div_rp = integrated_rp_X / integrated_rp, 
+    .groups = "drop"
   )
 
 
@@ -31,7 +32,8 @@ integration_weighted_radiant_power <- weighted_responses_df %>%
     integrated_wrp_X = MESS::auc(x = `Wavelength [nm]`, y = actual_weighted_exergy),
     wrp_X_div_wrp = integrated_wrp_X / integrated_wrp,
     wrp_div_rp = integrated_wrp / integrated_rp,
-    rp_X_div_rp = integrated_rp_X / integrated_rp
+    rp_X_div_rp = integrated_rp_X / integrated_rp, 
+    .groups = "drop"
   )
 
 
