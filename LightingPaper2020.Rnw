@@ -463,8 +463,8 @@ as shown in Figure~\ref{fig:Vis_Graph}.
 # Creates the weighted_responses_df data frame.
 source(file = file.path("Data", "AllData.R"))
 # Trim down to the weighting functions and lamps we want
-wf_list <- c("nw", "v", "p2", "u")
-lamp_list <- c("inc_globe_a19_40w", "hps_phil_rs", "cfl_es_tw_3", "led_phil_a19")
+wf_list <- c(Uweighted = "nw", Visible = "v", `Photopic luminosity` = "p2", Universal = "u")
+lamp_list <- c(INC = "inc_globe_a19_40w", HPS = "hps_phil_rs", CFL = "cfl_es_tw_3", LED = "led_phil_a19")
 response_data <- weighted_responses_df %>% 
   dplyr::mutate(
     lamp_name = sub(pattern = "lamp_", replacement = "", x = lamp_name),
