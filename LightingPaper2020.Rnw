@@ -1369,7 +1369,7 @@ Table~\ref{tab:lamps} summarizes the lamps discussed above.
 %++++++++++++++++++++++++++++++
 
 To illustrate the effect of the exergy-to-energy ratio for EM radiation~($\phi_{L,\lambda}$), 
-the left-most graph in Figure~\ref{fig:effect_of_exergy} shows 
+the top-left graph in Figure~\ref{fig:wfs_and_lamps} shows 
 Equation~\ref{eq:phi_L_lambda_shan_zhou}.
 Note that exergy-to-exergy ratio for light~($\phi_{L,\lambda}$) is
 nearly~1 for all wavelengths of interest for illumination.
@@ -1377,8 +1377,14 @@ nearly~1 for all wavelengths of interest for illumination.
 
 Applying Equation~\ref{eq:phi_L_lambda_shan_zhou} 
 to the four lamps identified in Section~\ref{sec:lamps}
-gives the right-most four graphs in Figure~\ref{fig:effect_of_exergy},
-radiant power~($\Phi_{e\lambda}$) as a function of wavelength ($\lambda$) (spectral power distribution).
+gives the four graphs in the top-right of Figure~\ref{fig:wfs_and_lamps},
+radiant power~($\Phi_{EM,\lambda}$) as a function of wavelength ($\lambda$) (spectral power distribution).
+The gray regions show spectral power distributions for each lamp, and 
+the dark green line indicates exergy.
+The areas of the gray regions ($\Phi_{e}$) are given by Equation~\ref{eq:emissive_power}.
+The areas beneath the dark green lines ($\dot{X}_L$) in all graphs are given by 
+Equation~\ref{eq:X_dot_L}.
+
 Note that exergy (solid dark green line) is very close to energy (top of the gray region), because
 the exergy-to-energy ratio ($\phi_{L,\lambda}$) is always close to~1.
 The difference between energy and exergy is greatest in the upper right of the graphs when both
@@ -1391,75 +1397,75 @@ The difference between energy and exergy is greatest in the upper right of the g
     
 \end{enumerate*}
 
-\begin{figure}
-    \centering
-    \begin{subfigure}[t]{0.25\textwidth}
-<<phi_L_lambda_vs_lambda_delete, cache=use_cache, fig.width=1.5, fig.height=2.5>>=
-tibble::tibble(lambda = seq(250, 900, by = 0.5)*10^(-9)) %>% 
-  dplyr::mutate(
-    T_0 = 310,
-    T_lambda = 5.33016e-3 / lambda, 
-    phi_L_lambda = 1 - (4/3)*(T_0/T_lambda) + (1/3)*(T_0/T_lambda)^4, 
-    facet = " "
-  ) %>% 
-  ggplot2::ggplot(mapping = aes(x = lambda*10^(9), y = phi_L_lambda)) + 
-  geom_vline(xintercept = 555, size = 0.2, color = "darkgray") +
-  geom_line(linetype = 1, size = 0.3, color = "darkgreen") + 
-  ggspectra::stat_wl_strip(ymin = 0.9, ymax = 0.9042, chroma.type = chroma_type, size = 0) +
-  scale_fill_identity() +
-  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
-  scale_y_continuous(limits = c(0.9, 1.0), breaks = c(0.9, 0.95, 1)) +
-  xlab(expression(lambda*" [nm]")) +
-  ylab(expression(phi[L*","*lambda]*" [-]")) +
-  facet_grid(~facet) +
-  MKHthemes::xy_theme() +
-  theme(axis.text.x = element_text(size = rel(0.8), angle = 90),
-        axis.text.y = element_text(size = rel(0.8)), 
-        strip.text.x = element_text(margin = margin(b = 2.0)))
-@
-      \label{fig:phi_light_graph}
-    \end{subfigure}
-    % add desired spacing between images (e.g., ~, \quad, \qquad, \hfill, etc.)
-    % or a blank line to force the subfigure onto a new line.
-    \begin{subfigure}[t]{0.74\textwidth}
-<<Energy_and_exergy_graph_delete, cache=use_cache, fig.width=4.5, fig.height=2.5>>=
-response_data %>% 
-  dplyr::filter(wf_name == "Unweighted") %>% 
-  ggplot(mapping = aes(x = `Wavelength [nm]`)) +
-  # geom_line(mapping = aes(y = actual_exergy), colour = "red", size = 0.1) +
-  # geom_line(mapping = aes(y = actual_radiant_power), colour = "blue", size = 0.1) +
-  # geom_line(mapping = aes(y = actual_radiant_power),  size = 0.1) +
-  geom_area(mapping = aes(y = actual_radiant_power), fill = "darkgray") +
-  geom_line(mapping = aes(y = actual_exergy), linetype = 1, colour = "darkgreen", size = 0.1) +
-
-  ggspectra::stat_wl_strip(ymin = -0.002, ymax = -0.001, chroma.type = chroma_type, size = 0) +
-  scale_fill_identity() +
-  
-  xlab(expression(lambda*" [nm]")) +
-  ylab(expression(Phi[L*","*lambda]*" [W/nm]")) +
-  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
-  scale_y_continuous(limits = c(-0.002, 0.022)) +
-  labs(fill = element_blank(), colour = element_blank()) +
-  MKHthemes::xy_theme() +
-  theme(axis.text.x = element_text(size = rel(0.8), angle = 90),
-        axis.text.y = element_text(size = rel(0.8)),
-        # Move the facet labels out of the graphs slightly.
-        strip.text.x = element_text(margin = margin(b = 2.0))) +
-  facet_grid(~lamp_name)
-@
-      \label{fig:lamp_exergy}
-    \end{subfigure}
-    \caption{Left: The spectral exergy-to-energy ratio of light ($\phi_{L,\lambda}$) as a function of wavelength~($\lambda$)
-             from Equation~\ref{eq:phi_L_lambda_shan_zhou}. 
-             Right: The top of the gray region shows spectral radiant power ($\Phi_{e\lambda}$) of the four example lamps.
-             (See Table~\ref{tab:lamps}.) 
-             The solid dark green lines near the top of the gray regions shows spectral exergy, 
-             the product of the line in the left graph and
-             the top of the gray region in the right graphs
-             ($\phi_{L,\lambda} \Phi_{e\lambda}$).
-             Bars along the bottom illustrate human color perception.}
-	\label{fig:effect_of_exergy}
-\end{figure}
+% \begin{figure}
+%     \centering
+%     \begin{subfigure}[t]{0.25\textwidth}
+% <<phi_L_lambda_vs_lambda_delete, cache=use_cache, fig.width=1.5, fig.height=2.5>>=
+% tibble::tibble(lambda = seq(250, 900, by = 0.5)*10^(-9)) %>% 
+%   dplyr::mutate(
+%     T_0 = 310,
+%     T_lambda = 5.33016e-3 / lambda, 
+%     phi_L_lambda = 1 - (4/3)*(T_0/T_lambda) + (1/3)*(T_0/T_lambda)^4, 
+%     facet = " "
+%   ) %>% 
+%   ggplot2::ggplot(mapping = aes(x = lambda*10^(9), y = phi_L_lambda)) + 
+%   geom_vline(xintercept = 555, size = 0.2, color = "darkgray") +
+%   geom_line(linetype = 1, size = 0.3, color = "darkgreen") + 
+%   ggspectra::stat_wl_strip(ymin = 0.9, ymax = 0.9042, chroma.type = chroma_type, size = 0) +
+%   scale_fill_identity() +
+%   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
+%   scale_y_continuous(limits = c(0.9, 1.0), breaks = c(0.9, 0.95, 1)) +
+%   xlab(expression(lambda*" [nm]")) +
+%   ylab(expression(phi[L*","*lambda]*" [-]")) +
+%   facet_grid(~facet) +
+%   MKHthemes::xy_theme() +
+%   theme(axis.text.x = element_text(size = rel(0.8), angle = 90),
+%         axis.text.y = element_text(size = rel(0.8)), 
+%         strip.text.x = element_text(margin = margin(b = 2.0)))
+% @
+%       \label{fig:phi_light_graph}
+%     \end{subfigure}
+%     % add desired spacing between images (e.g., ~, \quad, \qquad, \hfill, etc.)
+%     % or a blank line to force the subfigure onto a new line.
+%     \begin{subfigure}[t]{0.74\textwidth}
+% <<Energy_and_exergy_graph_delete, cache=use_cache, fig.width=4.5, fig.height=2.5>>=
+% response_data %>% 
+%   dplyr::filter(wf_name == "Unweighted") %>% 
+%   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
+%   # geom_line(mapping = aes(y = actual_exergy), colour = "red", size = 0.1) +
+%   # geom_line(mapping = aes(y = actual_radiant_power), colour = "blue", size = 0.1) +
+%   # geom_line(mapping = aes(y = actual_radiant_power),  size = 0.1) +
+%   geom_area(mapping = aes(y = actual_radiant_power), fill = "darkgray") +
+%   geom_line(mapping = aes(y = actual_exergy), linetype = 1, colour = "darkgreen", size = 0.1) +
+% 
+%   ggspectra::stat_wl_strip(ymin = -0.002, ymax = -0.001, chroma.type = chroma_type, size = 0) +
+%   scale_fill_identity() +
+%   
+%   xlab(expression(lambda*" [nm]")) +
+%   ylab(expression(Phi[L*","*lambda]*" [W/nm]")) +
+%   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
+%   scale_y_continuous(limits = c(-0.002, 0.022)) +
+%   labs(fill = element_blank(), colour = element_blank()) +
+%   MKHthemes::xy_theme() +
+%   theme(axis.text.x = element_text(size = rel(0.8), angle = 90),
+%         axis.text.y = element_text(size = rel(0.8)),
+%         # Move the facet labels out of the graphs slightly.
+%         strip.text.x = element_text(margin = margin(b = 2.0))) +
+%   facet_grid(~lamp_name)
+% @
+%       \label{fig:lamp_exergy}
+%     \end{subfigure}
+%     \caption{Left: The spectral exergy-to-energy ratio of light ($\phi_{L,\lambda}$) as a function of wavelength~($\lambda$)
+%              from Equation~\ref{eq:phi_L_lambda_shan_zhou}. 
+%              Right: The top of the gray region shows spectral radiant power ($\Phi_{e\lambda}$) of the four example lamps.
+%              (See Table~\ref{tab:lamps}.) 
+%              The solid dark green lines near the top of the gray regions shows spectral exergy, 
+%              the product of the line in the left graph and
+%              the top of the gray region in the right graphs
+%              ($\phi_{L,\lambda} \Phi_{e\lambda}$).
+%              Bars along the bottom illustrate human color perception.}
+% 	\label{fig:effect_of_exergy}
+% \end{figure}
 
 
 %++++++++++++++++++++++++++++++
@@ -1471,14 +1477,10 @@ Figure~\ref{fig:wfs_and_lamps} provides visual representation of the spectral en
 for the four lamps and four weighting functions of 
 Sections~\ref{sec:weighting_functions} and~\ref{sec:lamps}
 and Tables~\ref{tab:wfs} and~\ref{tab:lamps}, respectively.
-The leftmost column of Figure~\ref{fig:wfs_and_lamps} illustrates 
-the four weighting functions.
-The top row of Figure~\ref{fig:wfs_and_lamps} shows radiant power of the four lamps. 
-The top row in Figure~\ref{fig:wfs_and_lamps} is identical to the rightmost four graphs in Figure~\ref{fig:effect_of_exergy}, 
-where the gray region shows energy and the dark green line shows exergy.
-The areas of the gray regions ($\Phi_{e}$) are given by Equation~\ref{eq:emissive_power}.
-Each rainbow colored region shows the light content of EM radiation and
-is the spectral product of its row's weighting function and its column's lamp emission spectrum.
+The left column of Figure~\ref{fig:wfs_and_lamps} contains graphs of
+the four weighting functions~($f_\lambda$).
+Each rainbow colored region shows the light content of EM radiation (spectral luminous power) and
+is the spectral product of its row's weighting function and its column's lamp spectral power distribution.
 The areas of the rainbow colored regions ($\dot{L}$) are given by Equation~\ref{eq:weighted_emissive_power}.
 The areas beneath the dark green lines ($\dot{X}_L$) in all graphs are given by 
 Equation~\ref{eq:X_dot_L}.
