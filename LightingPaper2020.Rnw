@@ -39,7 +39,7 @@ library(tidyr)
 <<setup-graphs, include=FALSE>>=
 # This variable switches the cache on/off for all R code chunks that are configured for cacheing.
 # Set to FALSE if some plots are not updating as expected, then set back to TRUE.
-use_cache <- FALSE
+use_cache <- TRUE
 
 # Here are some options for the colors to use in the ggspectra graphs.
 # The variable chroma_type is used in all graphs,
@@ -620,10 +620,15 @@ source(file = file.path("Data", "lighting_efficacy.R"))
 ggplot2::ggplot(le_df, mapping = aes(x = Year)) +
   geom_point(mapping = aes(y = `Luminous Efficacy [lm/W]`, colour = Technology)) +
   MKHthemes::xy_theme() +
-  theme(legend.position = "bottom",
+  theme(legend.position = "bottom", legend.box="vertical",
         legend.text = element_text(size = 8),
         axis.title.x=element_blank()) + 
-  scale_x_continuous(breaks = seq(from = 1880, to = 2020, by = 20))
+        guides(col = guide_legend(nrow = 2)) +
+        scale_x_continuous(breaks = seq(from = 1880, to = 2020, by = 20)) #+
+        #geom_label( 
+          #data = le_df %>% filter(Type == "LSPDD"), 
+          #aes(label=Device)
+  )
 @
 
 A final source of confusion is the differences between 
