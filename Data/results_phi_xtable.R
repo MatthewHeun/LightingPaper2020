@@ -12,6 +12,22 @@ results_phi <- spd_metrics %>%
   dplyr::select(lamp_name, wf_name, phi_agg) %>%
   dplyr::filter(lamp_name %in% lamp_list_for_results & wf_name %in% wf_list_for_results)
 
-# Uses xtable function to generate table
+# Re-arranges results_etas into the correct orientation
 
-#results_phi_table <- xtable::xtable(results_phi)
+results_phi_fin <- as.data.frame.matrix(xtabs(phi_agg~wf_name+lamp_name, results_phi))
+
+# Re-arranges the columns into the correct order
+
+results_phi_fin <- results_phi_fin[, c(3,2,1,4)]
+
+# Re-arranges the rows into the correct order
+
+results_phi_fin <- results_phi_fin[c(1,4,2,3),]
+
+# Replace lamp_list lamp_name with lamp code (INC, HPS, CFL, LED)
+
+colnames(results_phi_fin) <- c("INC", "HPS", "CFL", "LED")
+
+# Replace wf_list wf_name with actual wf name ()
+
+rownames(results_phi_fin) <- c("Unweighted ()", "Vis. spectrum ()", "Photopic lum. ()", "Universal lum. ()")
