@@ -1538,8 +1538,9 @@ print(xtable::xtable(results_etas_fin, digits=2,
       size="footnotesize", #Change size; useful for bigger tables
       include.rownames=TRUE, 
       include.colnames=TRUE, 
-      caption.placement="top", 
-      hline.after=NULL 
+      caption.placement="top",
+      type = "latex",
+      hline.after=c(0,nrow(results_etas_fin))
       #add.to.row = list(pos = list(-1, 
                           #         nrow(df)),
                        # command = c(paste("\\toprule \n",
