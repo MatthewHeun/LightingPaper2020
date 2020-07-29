@@ -14,4 +14,4 @@ results_phi <- spd_metrics %>%
 
 # Uses xtable function to generate table
 
-results_phi-table <- xtable::xtable(results_phi)
+results_phi_table <- xtable::xtable(results_phi)
