@@ -1528,6 +1528,8 @@ response_data %>%
 
 ****
 Matt: Figure out how to use booktabs with xtable.---MKH 
+Turns out that the booktabs option is in print.xtable. 
+Do \texttt{?print.xtable} for details.
 ****
 
 
