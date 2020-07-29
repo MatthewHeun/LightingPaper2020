@@ -14,4 +14,4 @@ results_etas <- spd_metrics %>%
 
 # Uses xtable function to generate table
 
-results_etas <- xtable::xtable(results_etas)
+results_etas_table <- xtable::xtable(results_etas)
