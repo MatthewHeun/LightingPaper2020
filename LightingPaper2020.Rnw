@@ -479,7 +479,7 @@ response_data <- weighted_responses_df %>%
                                    nw = "Unweighted",
                                    v = "Visible",
                                    p2 = "Photopic lum.",
-                                   u = "Universal"),
+                                   u = "Universal lum."),
     lamp_name = factor(lamp_name, levels = lamp_list),
     lamp_name = dplyr::recode_factor(lamp_name, 
                                      inc_globe_a19_40w = "INC",
