@@ -1583,12 +1583,12 @@ The approximate approach has been recommended
 for lighting, sound, and information~\cite[p.~17]{Sousa2017}.
 
 For the specific case of lighting,
-the approximate approach involved the quotient of
+the approximate method involves the quotient of
 the theoretical minimum rate of energy required to emit one lumen and
 the actual rate of energy used to emit one lumen 
 for a given lamp.
 The minimum and actual energy rates are obtained 
-by taking the inverses of luminous efficacy.
+by taking the inverses of luminous efficacy~($K$).
 For a lamp, the quotient is between the lamp's luminous efficacy~($K$)
 and the maximum luminous efficacy~($K_{max}$).
 %
@@ -1598,13 +1598,13 @@ and the maximum luminous efficacy~($K_{max}$).
 \end{equation}
 
 Equation~\ref{eq:lum_effic_def} shows that 
-the luminous efficacy of a lamp is equal to the quotient
-of the luminous power ($\dot{Phi}_pl$, Equation~\ref{eq:lumen}), expressed in lumens, and
+the luminous efficacy of a lamp~($K$) is equal to the quotient
+of the luminous power ($\Phi_{pl}$, Equation~\ref{eq:lumen}), expressed in lumens, and
 the electricity consumption rate of the device
 ($\dot{W}_1$ in Figure~\ref{fig:lamp}).
 Substituting Equation~\ref{eq:lum_effic_def} into Equation~\ref{eq:K_over_e_max} gives
 (with reference to Figure~\ref{fig:lamp})
-exergetic efficiency for the previous approximate method:
+exergetic efficiency for the approximate method:
 %
 \begin{equation} \label{eq:prev_eta_X_v_light}
   \eta_{X,v} = \frac{\; \; \frac{(683 \text{ lm/W}) \int V_\lambda \Phi_{e\lambda,3} \mathrm{d}\lambda}{\dot{W}_1} \; \;}{K_{max}} \; .
@@ -1620,10 +1620,10 @@ the actual energy required to produce a lumen.
 Thus, we can assess the approximate method relative to recent advances, 
 using exergetic efficiency as the point of comparison.
 
-Comparing Equation~\ref{eq:prev_eta_X_v_light} (the approximate approach)
-to Equation~\ref{eq:eta_X_v_light} (the exact analysis)
-reveals that the approximate approach to calculating exergetic efficiency of lighting
-is correct only under the following assumptions:
+Comparing Equation~\ref{eq:prev_eta_X_v_light} (the approximate method)
+to Equation~\ref{eq:eta_X_v_light} (the exact method)
+reveals that the approximate method for calculating the exergetic efficiency of lighting
+is correct only under the following conditions:
 %
 \begin{enumerate}[label={(\alph*)}]
 	
@@ -1631,7 +1631,7 @@ is correct only under the following assumptions:
 
   \item the maximum luminous efficacy ($K_{max}$) is assumed to be 683~lm/W, and 
   
-  \item the spectral weighting function is taken to be the  photopic luminosity function ($f_\lambda = V_\lambda$).
+  \item the spectral weighting function is taken to be the photopic luminosity function ($f_\lambda = V_\lambda$).
 
 \end{enumerate}
 
