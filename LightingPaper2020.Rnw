@@ -1028,19 +1028,15 @@ provides the link between Petela's equation (Equation~\ref{eq:petelas_equation})
 and the spectral exergy-to-energy ratio~($\phi_{\EM,\lambda}$).
 
 Petela's equation has recently been verified through the development of an infinite-staged
-Carnot engine model \cite{zhou2017exergy}, wherein 
-``a radiation photon with a
-frequency $v$ and an equivalent temperature of $T_{v}$ enters into an ideal absorption model, which emits a
-radiation photon with the frequency $v'$ and energy $hv'$. Moreover, an infinitely small thermal energy
-$hdv$ is generated at the same time and enters the Carnot heat engine with the equivalent temperature
-$T_{v}$ and outputs work. After infinite times of such processes, the frequency drops to $v_{0}$ and the
-corresponding equivalent temperature becomes $T_{v0}$'' \cite{Shan2019}.
-
-**** 
-Should this remain a quote, or should I describe the model in my own words? --- ZM 
-****
-Own words.---MKH
-****
+Carnot engine model \cite{zhou2017exergy}, which describes the transfer of radiative energy.
+In this model a photon possessing a characteristic frequency 
+and photon effective temperature enters a medium which acts as an ideal absorber. 
+The photon transfers an infinitesimal quantity of thermal radiation to the absorber, 
+this thermal radiation then enters a Carnot heat engine and performs work. 
+The absorber then emits another photon at a lower energy and frequency 
+(and therefore lower photon effective temperature). 
+This process is repeated until the frequency of the photon equals zero, 
+and $T_0$ (the reference temperature) is equal to the photon effective temperature ($T_\lambda$)~\cite{Shan2019}.
 
 We note that the use of the photon effective temperature approach has been criticized by 
 \citet[p.~1810]{liu2009},
@@ -1881,10 +1877,10 @@ and for the following lamp technologies:
 The aggregate lighting efficiency for a particular year is then given by
 
 \begin{equation} \label{eq:agg_eta}
-  \eta_{agg} = \sum \limits_{i \in Lamps} \phi_{lamp} \cdot \eta_{lamp} \cdot \theta_{lamp}
+  \eta_{agg} = \sum \limits_{i \in Lamps} \theta_{i} \cdot \phi_{i,pl} \cdot \eta_{E,pl,i} 
 \end{equation}
 
-Where $\theta_{lamp}$ denotes the proportion of electricity consumption for lighting
+Where $\theta_{i}$ denotes the proportion of electricity consumption for lighting
 by a particular lamp technology for a given year.
 
 
