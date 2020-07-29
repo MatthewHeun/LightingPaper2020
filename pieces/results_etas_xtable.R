@@ -12,6 +12,24 @@ results_etas <- spd_metrics %>%
   dplyr::select(lamp_name, wf_name, wrp_div_ec_100) %>%
   dplyr::filter(lamp_name %in% lamp_list_for_results & wf_name %in% wf_list_for_results)
 
-# Uses xtable function to generate table
+# Re-arranges results_etas into the correct orientation
 
-results_etas_table <- xtable::xtable(results_etas)
+results_etas_fin <- as.data.frame.matrix(xtabs(wrp_div_ec_100~wf_name+lamp_name, results_etas))
+
+# Re-arranges the columns into the correct order
+
+results_etas_fin <- results_etas_fin[, c(3,2,1,4)]
+
+# Re-arranges the rows into the correct order
+
+results_etas_fin <- results_etas_fin[c(1,4,2,3),]
+
+# Replace lamp_list lamp_name with lamp code (INC, HPS, CFL, LED)
+
+colnames(results_etas_fin) <- c("INC", "HPS", "CFL", "LED")
+
+# Replace wf_list wf_name with actual wf name ()
+
+rownames(results_etas_fin) <- c("Unweighted ()", "Vis. spectrum ()", "Photopic lum. ()", "Universal lum. ()")
+
+
