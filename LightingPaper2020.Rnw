@@ -896,6 +896,7 @@ and the valuable energy efficiency~($\eta_{E,v}$) for the lamp in Figure~\ref{fi
   \eta_{E,v} = \frac{\dot{E}_3}{\dot{E}_1} = \frac{\Phi_{EM,3}}{\dot{W}_1} < 1 \; .
 \end{equation}
 
+This is also termed the \emph{wall plug efficiency}.
 Because electricity can be converted to work without loss in a frictionless motor,
 electricity is considered pure exergy, i.e., $\phi_{elect} = 1$.
 Thus, the exergy of the first three streams in Figure~\ref{fig:lamp} is given by 
@@ -1556,11 +1557,13 @@ Do \texttt{?print.xtable} for details.
 source("Data/results_etas_xtable.R")
 
 print(xtable::xtable(results_etas_fin, digits=2, 
-                     caption = "Final to useful energy efficiencies~($\\eta_{i
-                     ,f_{\\lambda}}$) [\\%] for each lamp (i) 
-                     and weighting function~($f_\\lambda$). 
+                     caption = "Final to useful energy efficiencies
+                     ($\\eta_{E}$) [\\%] for each lamp (i) 
+                     and weighting function~($f_\\lambda$) - 
+                     ($\\eta_{E,i,f_{\\lambda}}$). 
                      Note that for the Incandescent bulb (INC), 
-                     the unweighted final to useful efficiency is an underestimate, 
+                     the unweighted final to useful efficiency is an 
+                     underestimate, 
                      because the SPD data was limited to $\\lambda < 899nm$, 
                      whilst incandescent lamps emit radiation far into 
                      the infrared region of the electromagnetic spectrum.", 
@@ -2000,7 +2003,7 @@ linear fluorescent, high intensity discharge, LED and other.
 The aggregate lighting efficiency for a particular year is then given by
 
 \begin{equation} \label{eq:agg_eta}
-  \eta_{agg} = \sum \limits_{i \in Lamps} \theta_{i,pl} \cdot \phi_{i,pl} \cdot \eta_{E,pl,i} 
+  \eta_{agg} = \sum \limits_{i \in Lamps} \theta_{i,pl} \cdot \phi_{i,pl} \cdot \eta_{E,i,pl} 
 \end{equation}
 
 Where $\theta_{i}$ denotes the proportion of electricity consumption for lighting
