@@ -22,5 +22,14 @@ results_lamp_info <- results_lamp_info[c(1,4,2,3),]
 # Removes lamp info column after ordering
 results_lamp_info <- results_lamp_info[,-1]
 
+# Identifies transposed column names 
+info_colnames <- results_lamp_info$`Lamp Type`
+
+# Re-arranges into the correct orientation
+results_lamp_info_fin <- as.data.frame(t(results_lamp_info[,-1]))
+colnames(results_lamp_info_fin) <- info_colnames
+
+
+
 
 
