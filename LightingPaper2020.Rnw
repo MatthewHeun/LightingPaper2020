@@ -1331,6 +1331,31 @@ the spectral exergy-to-energy ratio~($\phi_\lambda$).
 
 \input{pieces/lamps.tex}
 
+<<results_lamp_info, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/results_lamp_info.R')>>=
+source("Data/results_lamp_info.R")
+
+print(xtable::xtable(results_lamp_info, digits=0, 
+                     caption = "Information regarding the lamps used in this study, 
+                     including: year the SPD data was obtained, 
+                     the luminous efficacy, luminous efficiency, 
+                     and electricity consumption~\\cite{aube2013}. **** This is the xtable version ---ZM ****", 
+                     label= "results_lamp_info"), 
+      size="footnotesize", #Change size; useful for bigger tables
+      include.rownames=FALSE, 
+      include.colnames=TRUE, 
+      caption.placement="top",
+      type = "latex",
+      booktabs = TRUE
+      #hline.after=c(0,nrow(results_phi_fin))
+      #add.to.row = list(pos = list(-1, 
+                          #         nrow(df)),
+                       # command = c(paste("\\toprule \n",
+                              #            "Model & $\\alpha$ & $\\beta$ & t-value & $R^2$ \\\\\n", 
+                             #             "\\midrule \n"),
+                             #       "\\bottomrule \n")
+                        #)
+      )
+@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results (Zeke and Emmanuel, 2000 words)}
@@ -1532,6 +1557,7 @@ Turns out that the booktabs option is in print.xtable.
 Do \texttt{?print.xtable} for details.
 ****
 
+**** I've just read up on booktabs, looks like an extremely useful package! At the moment i've just called "booktabs = TRUE" giving us better line spacing, are there any other changes to the table you would like to make? ---ZM ****
 
 
 <<results_etas_table, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/results_etas_xtable.R')>>=
@@ -1552,7 +1578,8 @@ print(xtable::xtable(results_etas_fin, digits=2,
       include.colnames=TRUE, 
       caption.placement="top",
       type = "latex",
-      hline.after=c(0,nrow(results_etas_fin))
+      booktabs = TRUE
+      #hline.after=c(0,nrow(results_etas_fin))
       #add.to.row = list(pos = list(-1, 
                           #         nrow(df)),
                        # command = c(paste("\\toprule \n",
@@ -1576,7 +1603,8 @@ print(xtable::xtable(results_phi_fin, digits=2,
       include.colnames=TRUE, 
       caption.placement="top",
       type = "latex",
-      hline.after=c(0,nrow(results_phi_fin))
+      booktabs = TRUE
+      #hline.after=c(0,nrow(results_phi_fin))
       #add.to.row = list(pos = list(-1, 
                           #         nrow(df)),
                        # command = c(paste("\\toprule \n",
