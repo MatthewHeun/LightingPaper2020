@@ -1907,7 +1907,15 @@ In the framework presented in this study
 \label{sec:waste_light}
 %------------------------------
 
-In the framework of this study light is considered wasted if it either outside of the range of wavelengths in a weighting function, or within a wavelength of light which has been 'discounted'.
+In the exact method of this study,
+light is considered wasted if it either outside of the range of wavelengths
+in a spectral weighting function~($f_\lambda$), or
+within a wavelength of light which has been ``discounted.''
+****
+Do we use the term ``discounted'' elsewhere?  
+If not, should we?
+Or should we change ``discounted'' to a different word?---MKH
+****
 This mechanism is discussed in Section~\ref{sec:effect_weighting_functions}.
 
 However, our framework assumes that all light emitted by a lamp is utilised. 
@@ -1924,7 +1932,7 @@ Two further losses occur before the light is available for work \cite{CullenPhD}
 
 \end{enumerate}
 %
-Furthermore, there are three additional passive losses of light, as detailed by Cullen (2010)~\cite{CullenPhD}.
+Furthermore, there are three additional passive losses of light, as detailed by \citet{CullenPhD}.
 %
 \begin{enumerate}[label={(\alph*)}]
 
@@ -1939,7 +1947,7 @@ Furthermore, there are three additional passive losses of light, as detailed by 
 %
 
 Accounting for all of these potential efficiency savings in a commercial office lighting scenario
-Cullen (2010)~\cite{CullenPhD} estimates the upper limit for energy savings to be 95$\%$.
+\citet{CullenPhD} estimates the upper limit for energy savings to be 95~\%.
 
 **** I need to look at a broader range of literature than Cullen (2010) ---ZM ****
 
