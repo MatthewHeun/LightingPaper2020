@@ -40,7 +40,7 @@ library(xtable)
 <<setup-graphs, include=FALSE>>=
 # This variable switches the cache on/off for all R code chunks that are configured for cacheing.
 # Set to FALSE if some plots are not updating as expected, then set back to TRUE.
-use_cache <- FALSE
+use_cache <- TRUE
 
 # Here are some options for the colors to use in the ggspectra graphs.
 # The variable chroma_type is used in all graphs,
@@ -1533,15 +1533,19 @@ Do \texttt{?print.xtable} for details.
 ****
 
 
-\input{pieces/results_etas.tex}
-
-% \input{pieces/results_phi.tex}
 
 <<results_etas_table, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/results_etas_xtable.R')>>=
 source("Data/results_etas_xtable.R")
 
 print(xtable::xtable(results_etas_fin, digits=2, 
-                     caption = "Final to useful energy efficiencies of selected lamps", 
+                     caption = "Final to useful energy efficiencies~($\\eta_{i
+                     ,f_{\\lambda}}$) for each lamp (i) 
+                     and weighting function~($f_\\lambda$). 
+                     Note that for the Incandescent bulb (INC), 
+                     the unweighted final to useful efficiency is an underestimate, 
+                     because the SPD data was limited to $\\lambda < 899nm$, 
+                     whilst incandescent lamps emit radiation far into 
+                     the infrared region of the electromagnetic spectrum.", 
                      label= "results_etas"), 
       size="footnotesize", #Change size; useful for bigger tables
       include.rownames=TRUE, 
@@ -1559,7 +1563,31 @@ print(xtable::xtable(results_etas_fin, digits=2,
       )
 @
 
+<<results_phi_table, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/results_phi_xtable.R')>>=
+source("Data/results_phi_xtable.R")
 
+print(xtable::xtable(results_phi_fin, digits=2, 
+                     caption = "Exergy to energy ratios (~($\\phi_{i
+                     ,f_{\\lambda}}$) for each of the selected lamps, 
+                     and each of the chosen weighting functions.", 
+                     label= "results_etas"), 
+      size="footnotesize", #Change size; useful for bigger tables
+      include.rownames=TRUE, 
+      include.colnames=TRUE, 
+      caption.placement="top",
+      type = "latex",
+      hline.after=c(0,nrow(results_phi_fin))
+      #add.to.row = list(pos = list(-1, 
+                          #         nrow(df)),
+                       # command = c(paste("\\toprule \n",
+                              #            "Model & $\\alpha$ & $\\beta$ & t-value & $R^2$ \\\\\n", 
+                             #             "\\midrule \n"),
+                             #       "\\bottomrule \n")
+                        #)
+      )
+@
+
+**** It looks like greek letters aren't built into R for use in scripts, we can call them in R markdown as I have done for the captions. I'm looking at how to change the row names in R markdown so we can get the greek letters we need ---ZM ****
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion (ZM, PB, 1000 words)}

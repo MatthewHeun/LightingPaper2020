@@ -30,6 +30,6 @@ colnames(results_etas_fin) <- c("INC", "HPS", "CFL", "LED")
 
 # Replace wf_list wf_name with actual wf name ()
 
-rownames(results_etas_fin) <- c("Unweighted ()", "Vis. spectrum ()", "Photopic lum. ()", "Universal lum. ()")
+rownames(results_etas_fin) <- c("Unweighted ($\\phi_{uw}$)", "Vis. spectrum ($\\phi_{vis}$)", "Photopic lum. ($\\phi_{pl}$)", "Universal lum. ($\\phi_{univ}$)")
 
 
