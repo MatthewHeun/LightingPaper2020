@@ -463,37 +463,35 @@ as shown in Figure~\ref{fig:Vis_Graph}.
 # Creates the weighted_responses_df data frame.
 source(file = file.path("Data", "AllData.R"))
 # Trim down to the weighting functions and lamps we want
-wf_list <- c(Uweighted = "nw", Visible = "v", `Photopic luminosity` = "p2", Universal = "u")
-lamp_list <- c(INC = "inc_globe_a19_40w", HPS = "hps_phil_rs", CFL = "cfl_es_tw_3", LED = "led_phil_a19")
+wf_list <- c(Unweighted = "wf_nw", Visible = "wf_v",
+             Photopic = "wf_p2", Universal = "wf_u")
+lamp_list <- c(INC = "lamp_inc_globe_a19_40w", HPS = "lamp_hps_phil_rs", 
+               CFL = "lamp_cfl_es_tw_3", LED = "lamp_led_phil_a19")
+
+# Create versions of wf_list and lamp_list suitable for use in the recode function
+# by swapping names and values.
+wf_list_for_recode <- names(wf_list) %>%
+  magrittr::set_names(wf_list)
+lamp_list_for_recode <- names(lamp_list) %>%
+  magrittr::set_names(lamp_list)
+
 response_data <- weighted_responses_df %>% 
-  dplyr::mutate(
-    lamp_name = sub(pattern = "lamp_", replacement = "", x = lamp_name),
-    wf_name = sub(pattern = "wf_", replacement = "", x = wf_name)
-  ) %>% 
   dplyr::filter(
     wf_name %in% wf_list, 
     lamp_name %in% lamp_list, 
   ) %>% 
   dplyr::mutate(
     wf_name = factor(wf_name, levels = wf_list), 
-    wf_name = dplyr::recode_factor(wf_name,
-                                   nw = "Unweighted",
-                                   v = "Visible",
-                                   p2 = "Photopic lum.",
-                                   u = "Universal lum."),
+    wf_name = dplyr::recode_factor(wf_name, !!!wf_list_for_recode),
     lamp_name = factor(lamp_name, levels = lamp_list),
-    lamp_name = dplyr::recode_factor(lamp_name, 
-                                     inc_globe_a19_40w = "INC",
-                                     hps_phil_rs = "HPS", 
-                                     cfl_es_tw_3 = "CFL",
-                                     led_phil_a19 = "LED")
+    lamp_name = dplyr::recode_factor(lamp_name, !!!lamp_list_for_recode)
   )
 @
 
 
 <<Vis_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="The visible spectrum of light~\\cite{schubert2006}.">>=
 response_data %>% 
-  dplyr::filter(wf_name == "Photopic lum.") %>% 
+  dplyr::filter(wf_name == "Photopic") %>% 
   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>% 
   dplyr::mutate(
     # Get nice tails at 0.
@@ -642,7 +640,6 @@ ggplot2::ggplot(le_df, mapping = aes(x = Year)) +
        axis.title.x=element_blank()) + 
        guides(col = guide_legend(nrow = 2)) +
        scale_x_continuous(breaks = seq(from = 1880, to = 2020, by = 20))
-      
 @
 
 A final source of confusion is the differences between 
@@ -1444,7 +1441,7 @@ tibble::tibble(lambda = seq(250, 900, by = 0.5)*10^(-9)) %>%
   ggplot2::ggplot(mapping = aes(x = lambda*10^(9), y = phi_L_lambda)) + 
   geom_vline(xintercept = 555, size = 0.2, color = "darkgray") +
   geom_line(linetype = 1, color = "darkgreen") + 
-  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
+  scale_x_continuous(limits = c(250, 900.01), breaks = c(250, 380, 555, 750, 900)) +
   scale_y_continuous(limits = c(0.8, 1.0), breaks = c(0.8, 0.9, 1)) +
   # xlab(expression(lambda*" [nm]")) +
   xlab(element_blank()) +
