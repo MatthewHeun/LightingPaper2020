@@ -615,31 +615,37 @@ I think Figure~\ref{fig:Vis_Graph} shows differential eye sensitivity. ---MKH **
 source(file = file.path("Data", "lighting_efficacy.R"))
 @
 
-<<LuminousEfficacy_Graph, cache=use_cache, fig.align="center", fig.width = 6, fig.height = 6, fig.cap = "The luminous efficacy (lm/W) of selected lamp technologies between 1880 and 2020. Note that the apparent decrease in efficacy over time for Halogen lamps does not represent a reversal of technological progress, but a decrease in the average power of Halogen lamps due to changes in use, with lower power lamps typically display lower luminous efficacy values. Data was obtained from three main sources: the Museum of Electric Lamp Technology (LampTech)~\\cite{hooker_2020}, the ENERGYSTAR database of certified light bulbs~\\cite{energystar_2020}, and the Lighting market characterization reports commissioned by the US Department of Energy (DOE)~\\cite{DOE2002}~\\cite{DOE2012}~\\cite{DOE2017}. For all data sources please see the supplementary information **** Here I have included High pressure sodium lamps of 200W+ only. As with Halogen lamps the shift to lower wattage bulbs over time would show up on this graph as a decrease in luminous efficacy. We have two options 1) ignore this and include all lamps regardless of wattage, stipulating or demonstrating the 'peak efficacy', or 2) split Halogen into high and/or low wattage lamps too. Let me know what you think the best option is! ---ZM ****" >>=
-
-
+<<LuminousEfficacy_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 4, fig.cap = "The luminous efficacy of selected lamp technologies between 1880 and 2020. Note that the apparent decrease in efficacy over time for Halogen lamps does not represent a reversal of technological progress, but a decrease in the average power of Halogen lamps due to changes in use, with lower power lamps typically display lower luminous efficacy values. Data was obtained from three main sources: the Museum of Electric Lamp Technology (LampTech)~\\cite{hooker_2020}, the ENERGYSTAR database of certified light bulbs~\\cite{energystar_2020}, and the Lighting market characterization reports commissioned by the US Department of Energy (DOE)~\\cite{DOE2002}~\\cite{DOE2012}~\\cite{DOE2017}. For all data sources please see the supplementary information **** Here I have included High pressure sodium lamps of 200W+ only. As with Halogen lamps the shift to lower wattage bulbs over time would show up on this graph as a decrease in luminous efficacy. We have two options 1) ignore this and include all lamps regardless of wattage, stipulating or demonstrating the 'peak efficacy', or 2) split Halogen into high and/or low wattage lamps too. Let me know what you think the best option is! ---ZM ****" >>=
 le_df$Selected <- ifelse(le_df$Type == "LSPDD", "Selected lamps", "Other")
 
-textdf <- le_df[le_df$Type == "LSPDD", ]
+le_df_filtered <- le_df %>% 
+  dplyr::filter(!is.na(Selected))
 
-ggplot2::ggplot(le_df, mapping = aes(x = Year)) +
+
+textdf <- le_df_filtered[le_df_filtered$Type == "LSPDD", ]
+
+ggplot2::ggplot(le_df_filtered, mapping = aes(x = Year)) +
   geom_point(mapping = aes(y = `Luminous Efficacy [lm/W]`, 
                            colour = Technology, 
                            shape = Selected)) +
-  ggrepel::geom_text_repel(data = textdf, aes(x = Year, 
-                           y = `Luminous Efficacy [lm/W]`, 
-                           label = Device),
+  ggrepel::geom_text_repel(data = textdf, 
+                           aes(x = Year, y = `Luminous Efficacy [lm/W]`, label = Device), 
                            arrow = arrow(length = unit(0.01, "npc")),
                            box.padding = unit(0.2, "lines"),
                            point.padding = unit(0.3, "lines"),
                            nudge_x = -75,
-                           nudge_y = 0   ) + 
+                           nudge_y = 0, 
+                           colour = "gray50") + 
+  
   MKHthemes::xy_theme() +
   theme(legend.position = "bottom", legend.box="vertical",
-       legend.text = element_text(size = 8),
-       axis.title.x=element_blank()) + 
-       guides(col = guide_legend(nrow = 2)) +
-       scale_x_continuous(breaks = seq(from = 1880, to = 2020, by = 20))
+        legend.text = element_text(size = 8),
+        axis.title.x=element_blank(), 
+        legend.title=element_blank()) + 
+  guides(col = guide_legend(nrow = 2)) +
+  scale_colour_manual(values = c("darkgreen", "lightblue", "darkred", "darkorange")) +
+  scale_x_continuous(breaks = seq(from = 1880, to = 2020, by = 20)) + 
+  guides(shape = FALSE)
 @
 
 A final source of confusion is the differences between 
@@ -1568,18 +1574,17 @@ source("Data/results_etas_xtable.R")
 
 print(xtable::xtable(results_etas_fin, digits=2, 
                      caption = "Final to useful energy efficiencies
-                     ($\\eta_{E}$) [\\%] for each lamp (i) 
-                     and weighting function~($f_\\lambda$) - 
-                     ($\\eta_{E,i,f_{\\lambda}}$),
-                     given by equation~\\ref{eq:eta_E_v_light}.
-                     Note that for the Incandescent bulb (INC), 
+                     ($\\eta_{E,f_{\\lambda}}$, in \\%) for each lamp
+                     and weighting function~($f_\\lambda$)
+                     given by Equation~\\ref{eq:eta_E_v_light}.
+                     Note that for the incandescent bulb (INC), 
                      the unweighted final to useful efficiency is an 
                      underestimate, 
-                     because the SPD data was limited to $\\lambda < 899nm$, 
-                     whilst incandescent lamps emit radiation far into 
-                     the infrared region of the electromagnetic spectrum.", 
+                     because the SPD data were limited to $\\lambda < \\text{899 nm}$, 
+                     despite INC emission far into 
+                     the infrared region of the EM spectrum.", 
                      label= "results_etas"), 
-      size="footnotesize", #Change size; useful for bigger tables
+      size="footnotesize", # Change size; useful for bigger tables
       include.rownames=TRUE, 
       include.colnames=TRUE, 
       caption.placement="top",
@@ -1593,11 +1598,10 @@ print(xtable::xtable(results_etas_fin, digits=2,
 source("Data/results_phi_xtable.R")
 
 print(xtable::xtable(results_phi_fin, digits=3, 
-                     caption = "Exergy to energy ratios~($\\phi$) [-] 
-                     for each of the selected lamps ($i$), 
-                     and each of the chosen weighting functions ($f_{\\lambda}$) 
-                     - ($\\phi_{i,f_{\\lambda}}$), 
-                     given by equation~\\ref{eq:phi_L}.", 
+                     caption = "Exergy to energy ratios~($\\phi_{f_{\\lambda}}$) 
+                     for each lamp, 
+                     and each weighting function ($f_{\\lambda}$), 
+                     given by Equation~\\ref{eq:phi_L}.", 
                      label= "results_etas"), 
       size="footnotesize", #Change size; useful for bigger tables
       include.rownames=TRUE, 
