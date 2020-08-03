@@ -1346,7 +1346,7 @@ of the effects of spectral weighting functions~($f_\lambda$) and
 the spectral exergy-to-energy ratio~($\phi_\lambda$).
 
 
-<<results_lamp_info, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/results_lamp_info.R')>>=
+<<lamps, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/results_lamp_info.R')>>=
 source("Data/results_lamp_info.R")
 
 print(xtable::xtable(results_lamp_info_fin, digits=0, 
@@ -1355,8 +1355,8 @@ print(xtable::xtable(results_lamp_info_fin, digits=0,
                      the luminous efficacy, luminous efficiency, 
                      and electricity consumption~\\cite{aube2013}. 
                      **** This is the xtable version ---ZM ****", 
-                     label= "results_lamp_info"), 
-      size="footnotesize", #Change size; useful for bigger tables
+                     label = "tab:lamps"), 
+      size="footnotesize", # Change size; useful for bigger tables
       include.rownames=TRUE, 
       include.colnames=TRUE, 
       caption.placement="top",
