@@ -1,5 +1,5 @@
 # This script formats the lamp info data into a table for rnw file.
-
+source("Data/AllData.R")
 # Creates a list of lamps for reporting of results based on the original data loaded in the .rnw file.
 # These lamps differ to the lamp data used for the analysis, 
 # some of which are rescaled, and so have different codes and lamp info data.
