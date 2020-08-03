@@ -40,7 +40,7 @@ library(xtable)
 <<setup-graphs, include=FALSE>>=
 # This variable switches the cache on/off for all R code chunks that are configured for cacheing.
 # Set to FALSE if some plots are not updating as expected, then set back to TRUE.
-use_cache <- FALSE
+use_cache <- TRUE
 
 # Here are some options for the colors to use in the ggspectra graphs.
 # The variable chroma_type is used in all graphs,
@@ -604,8 +604,8 @@ Do you mean, ``such differences remain contentious?'' ---MKH ***
 With the introduction of high-efficiency LED lamps, which
 are tunable to maximize output at different visible wavelengths,
 the issue of differential sensitivity of the human eye has urgency,
-as shown in Figure~\ref{fig:history_efficacy}.
-**** I don't think that Figure~\ref{fig:history_efficacy}
+as shown in Figure~\ref{fig:LuminousEfficacy_Graph}.
+**** I don't think that Figure~\ref{fig:LuminousEfficacy_Graph}
 demonstrates the issue of differential eye sensitivity.
 I think Figure~\ref{fig:Vis_Graph} shows differential eye sensitivity. ---MKH ****
 
@@ -1582,7 +1582,7 @@ print(xtable::xtable(results_etas_fin, digits=2,
                      because the SPD data were limited to $\\lambda < \\text{899 nm}$, 
                      despite INC emission far into 
                      the infrared region of the EM spectrum.", 
-                     label= "results_etas"), 
+                     label= "tab:results_etas"), 
       size="footnotesize", # Change size; useful for bigger tables
       include.rownames=TRUE, 
       include.colnames=TRUE, 
@@ -1601,7 +1601,7 @@ print(xtable::xtable(results_phi_fin, digits=3,
                      for each lamp, 
                      and each weighting function ($f_{\\lambda}$), 
                      given by Equation~\\ref{eq:phi_L}.", 
-                     label= "results_etas"), 
+                     label= "tab:results_phis"), 
       size="footnotesize", #Change size; useful for bigger tables
       include.rownames=TRUE, 
       include.colnames=TRUE, 
@@ -1700,7 +1700,7 @@ of the need to approximate exergetic efficiency
 by the quotient of
 the minimum energy required to produce a lumen and
 the actual energy required to produce a lumen.
-Thus, we can assess the approximate method relative to recent advances, 
+Thus, we can evaluate the approximate method in light of recent advances, 
 using exergetic efficiency as the point of comparison.
 
 Comparing Equation~\ref{eq:prev_eta_X_v_light} (the approximate method)
@@ -1719,12 +1719,9 @@ is correct only under the following conditions:
 \end{enumerate}
 
 **** Tie better to rows and colums. ****
-The assumptions are, in fact, in force for the Xth column of Table~\ref{tab:results_etas}.
+These assumptions are, in fact, in force for the Xth column of Table~\ref{tab:results_etas}.
 
-As can be seen by comparing the luminous efficiency column of Table~\ref{tab:lamps} 
-****
-Maybe change to row when Zeke transposes the table.---MKH
-****
+As can be seen by comparing the luminous efficiency row of Table~\ref{tab:lamps} 
 and the photopic luminosity row of Table~\ref{tab:results_etas},
 final-to-useful efficiency calculated via the photopic luminosity function~($\eta_{E,v,pl}$, **** equation ****)
 is equivalent to the luminous efficiency~($symbol$, **** equation ****) when maximum luminous efficacy~($K_{max}$)
