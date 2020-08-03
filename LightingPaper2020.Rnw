@@ -628,7 +628,9 @@ ggplot2::ggplot(le_df_filtered, mapping = aes(x = Year)) +
                            colour = Technology, 
                            shape = Selected)) +
   ggrepel::geom_text_repel(data = textdf, 
-                           aes(x = Year, y = `Luminous Efficacy [lm/W]`, label = Device), 
+                           mapping = aes(x = Year, y = `Luminous Efficacy [lm/W]`, label = Device), 
+                           size = 3, # Size of text label
+                           segment.size = 0.2, # Width of line
                            arrow = arrow(length = unit(0.01, "npc")),
                            box.padding = unit(0.2, "lines"),
                            point.padding = unit(0.3, "lines"),
