@@ -534,7 +534,7 @@ which occurs after the useful stage.
 %++++++++++++++++++++++++++++++
 
 **** Section~\ref{sec:divergent_approaches} feels a bit like Section~\ref{sec:further_challenges}.
-We need to synchrnoize the two sections.
+We need to synchronize the two sections.
 Furthermore, any issues raised here should be addressed clearly below. 
 Sorting out this issue is mine.
 For now, PB should do the edits that I suggest.---MKH ****
@@ -1447,7 +1447,7 @@ tibble::tibble(lambda = seq(250, 900, by = 0.5)*10^(-9)) %>%
   geom_vline(xintercept = 555, size = 0.2, color = "darkgray") +
   geom_line(linetype = 1, color = "darkgreen") + 
   scale_x_continuous(limits = c(250, 900.01), breaks = c(250, 380, 555, 750, 900)) +
-  scale_y_continuous(limits = c(0.8, 1.0), breaks = c(0.8, 0.9, 1)) +
+  scale_y_continuous(limits = c(0.9, 1.0), breaks = c(0.9, 0.95, 1)) +
   # xlab(expression(lambda*" [nm]")) +
   xlab(element_blank()) +
   ylab(expression(phi[L*","*lambda]*" [-]")) +
@@ -1474,7 +1474,7 @@ response_data %>%
   xlab(element_blank()) +
   ylab(expression(Phi["EM,"*lambda]*" [W/nm]")) +
   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
-  scale_y_continuous(limits = c(-0.002, 0.024)) +
+  scale_y_continuous(limits = c(-0.002, 0.024), breaks = c(0, 0.005, 0.010, 0.015, 0.020)) +
   labs(fill = element_blank(), colour = element_blank()) +
   facet_grid(facet~lamp_name) +
 
@@ -1491,7 +1491,7 @@ response_data %>%
 response_data %>%
   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>%
   dplyr::mutate(
-    header = "Weight. Func.",
+    header = "Wght. Func.",
     # Get nice tails at 0.
     normalized_response = tidyr::replace_na(normalized_response, 0)
   ) %>%
