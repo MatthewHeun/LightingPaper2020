@@ -610,12 +610,12 @@ demonstrates the issue of differential eye sensitivity.
 I think Figure~\ref{fig:Vis_Graph} shows differential eye sensitivity. ---MKH ****
 
 
-<<Load_LEData, cache=use_cache, cache.extra.1=tools::md5sum('Data/Lighting_Efficacy_data.xlsx'), cache.extra.2=tools::md5sum('Data/lighting_efficacy.R')>>=
+<<Load_LEData, cache=use_cache, cache.extra.1=tools::md5sum('Data/Lighting_Efficacy_Data.xlsx'), cache.extra.2=tools::md5sum('Data/lighting_efficacy.R')>>=
 # Creates the le_df data frame.
 source(file = file.path("Data", "lighting_efficacy.R"))
 @
 
-<<LuminousEfficacy_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 4, fig.cap = "**** Zeke: Can you change the point labels to the 3-letter abbreviations we're using in the paper? So, Phillips Helios should change to HPS. Then, please change the color labels to remove the 3-letter abbreviations. So, Compact Fluorescent (CFL) should change to Compact fluorescent.  Finally, can you capitalize only the first words? High Pressure Sodium should change to High pressure sodium.---MKH **** The luminous efficacy of selected lamp technologies from 1880 to 2020. Note that the apparent decrease in efficacy over time for Halogen lamps does not represent a reversal of technological progress, but a decrease in the average power of Halogen lamps due to changes in use, with lower power lamps typically display lower luminous efficacy values. **** Zeke: Does the previous comment still apply?---MKH **** Data were obtained from three sources: the Museum of Electric Lamp Technology (LampTech)~\\cite{hooker_2020}, the ENERGYSTAR database of certified light bulbs~\\cite{energystar_2020}, and the lighting market characterization reports commissioned by the US Department of Energy (DOE)~\\cite{DOE2002, DOE2012, DOE2017}. For all data sources please see the supplementary information." >>=
+<<LuminousEfficacy_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 4, fig.cap = "The luminous efficacy of selected lamp technologies from 1880 to 2020. For HPS lamps data was limited to lamps of less than 100W as a lamps luminous efficacy tends to increase in line with its electricity consumption, therefore skewing the results for a particular year, depending on the wattage of the lamp reported. Data were obtained from three sources: the Museum of Electric Lamp Technology (LampTech)~\\cite{hooker_2020}, the ENERGYSTAR database of certified light bulbs~\\cite{energystar_2020}, and the lighting market characterization reports commissioned by the US Department of Energy (DOE)~\\cite{DOE2002, DOE2012, DOE2017}. For all data sources please see the supplementary information." >>=
 le_df$Selected <- ifelse(le_df$Type == "LSPDD", "Selected lamps", "Other")
 
 le_df_filtered <- le_df %>% 
