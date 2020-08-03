@@ -2064,7 +2064,7 @@ Do we want to include something about waste heat from lamps?
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\supplementary{The datasets associated with this paper are available online (https://doi.org/10.5518/865}) \cite{heun2020}
+\supplementary{The datasets associated with this paper are available online (https://doi.org/10.5518/865) \cite{heun2020}
 
 **** The following are available online at \linksupplementary{s1}, Figure S1: title, Table S1: title, Video S1: title. ****}
 
