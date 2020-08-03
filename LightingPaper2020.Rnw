@@ -1349,8 +1349,7 @@ print(xtable::xtable(results_lamp_info_fin, digits=0,
                      caption = "Information regarding the lamps used in this study, 
                      including: year the SPD data was obtained, 
                      the luminous efficacy, luminous efficiency, 
-                     and electricity consumption~\\cite{aube2013}. 
-                     **** This is the xtable version ---ZM ****", 
+                     and electricity consumption~\\cite{aube2013}.", 
                      label = "tab:lamps"), 
       size="footnotesize", # Change size; useful for bigger tables
       include.rownames=TRUE, 
@@ -1728,7 +1727,7 @@ analysts must reject the assumption of the previous approximate method that $\ph
 Recent progress in photometry enables this rejection, 
 following the methods of Section~\ref{sec:phi_light}.
 Specifically, the spectral exergy-to-energy ratio of light ($\phi_{L,\lambda}$)
-of Equation~\ref{eq:phi_L_lambda_shan_zhou} and Figure~\ref{fig:effect_of_exergy} should be used.
+of Equation~\ref{eq:phi_L_lambda_shan_zhou} and Figure~\ref{fig:wfs_and_lamps} should be used.
 We note, however, that $\phi_{L,\lambda}$ is close to~1 for all wavelengths of interest to illumination.
 Happily, the previous approximate method was not far wrong.
 
@@ -1809,7 +1808,7 @@ the regulation of circadian rhythms \cite{Pattison2018LEDphotons}.
 To account for this many lamps are designed to have 'blue spike', 
 emitting radiant energy in the region of 480nm, 
 the peak of the melanopsin suppression action spectrum \cite{lucas2014}, 
-as can be seen from the SPD for the example LED lamp in Figure \ref{fig:lamp_responses}. 
+as can be seen from the SPD for the example LED lamp in Figure \ref{fig:wfs_and_lamps}. 
 
 To more accurately quantify the utility of different wavelengths of light,
 the 'Universal luminosity function' has been proposed 
@@ -1973,7 +1972,7 @@ Items $a$ and $b$ are rarely reported for lamps, nor is the associated SPD data.
 Instead the most common measure of lighting efficiency reported for lamps is the luminous efficacy.
 Therefore, to develop an aggregate measure of lighting efficiency, 
 luminous efficacy data must be converted into final to useful efficiency values.
-As demonstrated in Section~\ref{previous_approach} if the \emph{valuable} light
+As demonstrated in Section~\ref{sec:previous_approach} if the \emph{valuable} light
 is deemed to be the radiant power weighted by the photopic luminosity function 
 (luminous power, $\Phi_{pl}$),
 the final to useful efficiencies are equivalent to the luminous efficiency, 
