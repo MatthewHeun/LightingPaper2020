@@ -61,7 +61,7 @@ use_cache <- FALSE
 
 # CIE Color matching functions
 # chroma_type <- photobiology::ciexyzCMF2.spct             # Very similar to "CMF" (maybe same?)
-# chroma_type <- photobiology::ciexyzCMF10.spct            # Very similar to "CMF" (maybe same?)
+chroma_type <- photobiology::ciexyzCMF10.spct            # Very similar to "CMF" (maybe same?)
 
 # chroma_type <- "CC"                                      # Wide, but has no yellow (only R, G, B)
 # chroma_type <- "CMF"                                     # Narrow, but gives yellows
