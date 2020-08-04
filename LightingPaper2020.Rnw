@@ -805,7 +805,7 @@ Thus, the \emph{valuable} energy efficiency ($\eta_{E,v}$) is
 \end{equation}
 
 Heat (the ability to influence temperature) is 
-only one outcome of transferring the physical quantity
+only one possible outcome of transferring the physical quantity
 from one object to another.
 Heat is certainly valuable to humans, but so is another quantity: 
 work, the ability to exert a force on another object.
@@ -885,7 +885,9 @@ In other words, both
 %
 are independent of human presence and the energy service provided by the heat engine.
 
-We now turn to the production of light instead of work.
+We now turn 
+from the production of work by a heat engine
+to the production of light by a lamp.
 
 
 %------------------------------
@@ -894,9 +896,10 @@ We now turn to the production of light instead of work.
 %------------------------------
 
 Figure~\ref{fig:lamp} replaces the heat engine with a lamp 
-that produces EM radiation~($\Phi_{EM,3}$) instead of work~($\dot{W}_3$).
-Like Figure~\ref{fig:heat_engine},
-electricity powers the lamp at 1, and 
+that produces broad-spectrum EM radiation~($\dot{E}_{EM,3}$)
+instead of work~($\dot{W}_3$).
+Electricity powers the lamp at 1, and,
+like Figure~\ref{fig:heat_engine},
 waste heat (conduction and convection only) is produced at 2.
 
 \begin{figure}
@@ -937,55 +940,64 @@ Both electricity and EM radiation can be converted to heat without loss, so they
 Thus,
 %
 \begin{equation}
-  \dot{E}_1 = \dot{W}_1, \; \dot{E}_2 = \dot{Q}_2, \; \text{and} \; \dot{E}_3 = \Phi_{EM,3} \; .
+  \dot{E}_1 = \dot{W}_{elect,1}, \; \dot{E}_2 = \dot{Q}_2, \; \text{and} \; \dot{E}_3 = \dot{E}_{EM,3} \; ,
 \end{equation}
 %
-The energy efficiency~($\eta_E$) for the lamp in Figure~\ref{fig:lamp} is 
+where $\dot{E}_{EM,3}$ is the radiant power of broad-spectrum EM radiation
+emitted by the lamp in units of energy per unit time.
+(When exergy is not involved, the lighting literature often denotes
+radiant power by $\Phi$, not $\dot{E}$.
+Here, we differentiate between 
+the energy of broad spectrum EM power~($\dot{E}$) and
+the exergy of broad spectrum EM power~($\dot{X}$),
+reserving $\Phi$ for lumen output of a lamp in Section~\ref{sec:weighting_functions}.)
+
+The lamp's energy efficiency of producing broad-spectrum EM radiation~($\eta_{E,EM}$) is 
 %
 \begin{equation}  
-  \eta_E = \frac{\dot{E}_2 + \dot{E}_3}{\dot{E}_1} = \frac{\dot{Q}_2 + \Phi_{EM,3}}{\dot{W}_1} = 1 \; ,
+  \eta_{E,EM} = \frac{\dot{E}_2 + \dot{E}_3}{\dot{E}_1} = \frac{\dot{Q}_2 + \dot{E}_{EM,3}}{\dot{W}_{elect,1}} = 1 \; .
 \end{equation}
 %
-and the valuable energy efficiency~($\eta_{E,v}$) for the lamp in Figure~\ref{fig:lamp} 
-(assuming that the EM radiation is the valuable output from the lamp) is
+The valuable energy efficiency~($\eta_{E,EM,v}$,
+also called the wall plug efficiency)
+of the lamp in Figure~\ref{fig:lamp} is
 %
 \begin{equation} \label{eq:eta_E_v}
-  \eta_{E,v} = \frac{\dot{E}_3}{\dot{E}_1} = \frac{\Phi_{EM,3}}{\dot{W}_1} < 1 \; .
+  \eta_{E,EM,v} = \frac{\dot{E}_3}{\dot{E}_1} = \frac{\dot{E}_{EM,3}}{\dot{W}_{elect,1}} < 1 \; ,
 \end{equation}
+%
+assuming that broad-spectrum EM radiation at 3 is the valuable output from the lamp.
 
-This is also termed the \emph{wall plug efficiency}.
 Because electricity can be converted to work without loss in a frictionless motor,
 electricity is considered pure exergy, i.e., $\phi_{elect} = 1$.
 Thus, the exergy of the first three streams in Figure~\ref{fig:lamp} is given by 
 %
 \begin{equation}
-  \dot{X}_1 = \cancelto{1}{\phi_{elect}} \dot{W}_1 = \dot{W}_1, \; 
+  \dot{X}_1 = \cancelto{1}{\phi_{elect}} \dot{W}_{elect,1} = \dot{W}_{elect,1}, \; 
               \dot{X}_2 = \left( 1 - \frac{T_0}{T_2} \right) \dot{Q}_2, \; \text{and} \; 
-              \dot{X}_3 = \phi_{\EM} \Phi_{EM,3} \; ,
+              \dot{X}_3 = \phi_{\EM} \dot{E}_{EM,3} \; ,
 \end{equation}
 %
 where the term $\phi_{EM}$ is the exergy-to-energy ratio for broad-spectrum EM radiation. 
 (See Section~\ref{sec:phi_light} for details.)
 
-The term $\Phi_{EM,3}$ is the radiant power of broad-spectrum EM radiation
-emitted by the lamp in units of energy per unit time.
 In general, the radiant power of a lamp is a spectral quantity,
 meaning that it varies with wavelength.
-Spectral radiant power~($\Phi_{EM,\lambda}$)
+Spectral radiant power~($\dot{E}_{EM,\lambda}$)
 is the EM emissive power available at any wavelength
-and is related to radiant power~($\Phi_{EM}$) in \citet{benenson2006handbook} by
+and is related~\citep{benenson2006handbook} to radiant power~($\dot{E}_{EM}$) by
 %
 \begin{equation} \label{eq:emissive_power}
-  \Phi_{EM} = \int \Phi_{EM,\lambda} \mathrm{d}\lambda \; .
+  \dot{E}_{EM} = \int \dot{E}_{EM,\lambda} \mathrm{d}\lambda \; .
 \end{equation}
 %
-Visually, $\Phi_{EM}$ is the area under the $\Phi_{EM,\lambda}$ vs.\ $\lambda$ curve.
+Visually, $\dot{E}_{EM}$ is the area under the $\dot{E}_{EM,\lambda}$ vs.\ $\lambda$ curve.
 
 The exergetic efficiency of EM radiation emitted by the lamp in Figure~\ref{fig:lamp} is given by
 %
 \begin{equation}
-  \eta_X = \frac{\dot{X}_2 + \dot{X}_3}{\dot{X}_1} 
-          = \frac{\left( 1 - \frac{T_0}{T_2} \right) \dot{Q}_2 + \phi_{EM} \Phi_{EM,3} }{\dot{W}_1} < 1 \; ,
+  \eta_{X,EM} = \frac{\dot{X}_2 + \dot{X}_3}{\dot{X}_1} 
+          = \frac{\left( 1 - \frac{T_0}{T_2} \right) \dot{Q}_2 + \phi_{EM} \dot{E}_{EM,3} }{\dot{W}_{elect,1}} < 1 \; ,
 \end{equation}
 %
 where $\phi_{EM}$ is the exergy-to-energy ratio of EM radiation.
@@ -995,7 +1007,7 @@ The valuable exergetic efficiency of the EM radiation emitted by the lamp in Fig
 %
 \begin{equation} \label{eq:eta_X_v}
   \eta_{X,v} = \frac{\dot{X}_3}{\dot{X}_1} 
-              = \frac{\phi_{EM} \Phi_{EM,3} }{\dot{W}_1} < \eta_X < 1 \; .
+              = \frac{\phi_{EM} \Phi_{EM,3} }{\dot{W}_{elect,1}} < \eta_X < 1 \; .
 \end{equation}
 
 Note that both $\eta_X$ and $\eta_{X,v}$ are independent of human presence;
@@ -1007,7 +1019,7 @@ excites band gap electrons in an amorphous silicon solar cell.
 
 
 %------------------------------
-\subsubsection{Human perception of EM radiation} 
+\subsubsection{Human perception of EM radiation and light} 
 \label{sec:human_perception_of_EM_radiation}
 %------------------------------
 
@@ -1015,7 +1027,7 @@ We noted above that both
 %
 \begin{enumerate*}[label={(\alph*)}]
 
-  \item \enaex{} of light and
+  \item \enaex{} of broad-spectrum EM radiation and
 
   \item \enaex{} efficiency of lamps
 
@@ -1043,11 +1055,11 @@ leads to modifying Equation~\ref{eq:emissive_power}
 to include a spectral weighting function~($f_\lambda$) such that
 %
 \begin{equation} \label{eq:weighted_emissive_power}
-  \dot{L} = \int \Phi_{L,\lambda} \mathrm{d}\lambda = \int f_\lambda \Phi_{EM,\lambda} \mathrm{d}\lambda \; ,
+  \dot{E}_L = \int \dot{E}_{L,\lambda} \mathrm{d}\lambda = \int f_\lambda \dot{E}_{EM,\lambda} \mathrm{d}\lambda \; ,
 \end{equation}
 %
 with $0 \le f_\lambda \le 1$
-and $\Phi_{L,\lambda} = f_\lambda \Phi_\lambda$.
+and $\dot{E}_{L,\lambda} = f_\lambda \dot{E}_\lambda$.
 
 In Equation~\ref{eq:weighted_emissive_power}, 
 the spectral weighting function~($f_\lambda$) converts 
