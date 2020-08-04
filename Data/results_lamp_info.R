@@ -22,6 +22,9 @@ results_lamp_info <- results_lamp_info[c(1,4,2,3),]
 # Removes lamp info column after ordering
 results_lamp_info <- results_lamp_info[,-1]
 
+# Sets luminous efficiency column to 2dp
+results_lamp_info[,"Luminous efficiency [%]"] = round(results_lamp_info[,"Luminous efficiency [%]"],2)
+
 # Identifies transposed column names 
 info_colnames <- results_lamp_info$`Lamp type`
 

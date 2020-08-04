@@ -1358,14 +1358,6 @@ print(xtable::xtable(results_lamp_info_fin, digits=0,
       )
 @
 
-**** 
-Zeke: Can you adjust the luminous efficiency row in Table~\ref{tab:lamps} to have only 2 decimal points?
-Also, can you capitalize only the first word? 
-For example, ``Luminous Efficacy'' becomes ``Luminous efficacy''.
-Same for Phillips helios streetlight (unless helios is a trade name, then Phillips Helios streetlight.---MKH
-****
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results (Zeke and Emmanuel, 2000 words)}
