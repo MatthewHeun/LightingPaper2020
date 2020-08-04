@@ -1214,7 +1214,7 @@ f_{\lambda,vis} =
 \end{equation}
 
 But the human eye is spectrally sensitive to EM radiation, 
-with a sensitivity peak at 555~nm (green)
+with peak sensitivity at 555~nm (green)
 and lesser sensitivities at both longer and shorter wavelengths.
 A third option involves weighting a lamp's emitted EM radiation 
 by the photopic sensitivity of the human eye.
@@ -1343,10 +1343,11 @@ the spectral exergy-to-energy ratio~($\phi_\lambda$).
 source("Data/results_lamp_info.R")
 
 print(xtable::xtable(results_lamp_info_fin, digits=0, 
-                     caption = "Information regarding the lamps used in this study, 
-                     including: year the SPD data was obtained, 
-                     the luminous efficacy, luminous efficiency, 
-                     and electricity consumption~\\cite{aube2013}.", 
+                     caption = "Metadata for lamps, including 
+                     year the spectral power distribution data was obtained, 
+                     the luminous efficacy, 
+                     electricity consumption, and
+                     luminous efficiency~\\cite{aube2013}.", 
                      label = "tab:lamps"), 
       size="footnotesize", # Change size; useful for bigger tables
       include.rownames=TRUE, 
@@ -1356,6 +1357,15 @@ print(xtable::xtable(results_lamp_info_fin, digits=0,
       booktabs = TRUE
       )
 @
+
+**** 
+Zeke: Can you adjust the luminous efficiency row in Table~\ref{tab:lamps} to have only 2 decimal points?
+Also, can you capitalize only the first word? 
+For example, ``Luminous Efficacy'' becomes ``Luminous efficacy''.
+Same for Phillips helios streetlight (unless helios is a trade name, then Phillips Helios streetlight.---MKH
+****
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results (Zeke and Emmanuel, 2000 words)}
@@ -1391,11 +1401,11 @@ radiant power~($\Phi_{EM,\lambda}$) as a function of wavelength ($\lambda$) (spe
 The gray regions show spectral power distributions for each lamp, and 
 the dark green line indicates exergy.
 The areas of the gray regions ($\Phi_{EM}$) are given by Equation~\ref{eq:emissive_power}.
-The areas beneath the dark green lines ($\dot{X}_L$) in all graphs are given by 
-Equation~\ref{eq:X_dot_L}.
+The areas beneath the dark green lines in all graphs are the exergy of light~($\dot{X}_L$), 
+given by Equation~\ref{eq:X_dot_L}.
 
 Note that exergy (solid dark green line) is very close to energy (top of the gray region), because
-the exergy-to-energy ratio ($\phi_{L,\lambda}$) is always close to~1.
+the exergy-to-energy ratio ($\phi_{L,\lambda}$) is always close to~1 for EM wavelengths relevant to light.
 The difference between energy and exergy is greatest in the upper right of the graphs when both
 %
 \begin{enumerate*}[label={(\alph*)}]
@@ -1543,7 +1553,7 @@ response_data %>%
              Top: Gray regions indicate spectral radiant power ($\Phi_{EM,\lambda}$)
                   for lamps in Table~\ref{tab:lamps}.
                   Dark green lines show spectral exergy.
-             Left: Spectral weighting functions ($f_\lambda$) as shown in Table~\ref{tab:wfs}.
+             Left: Spectral weighting functions ($f_\lambda$), as shown in Table~\ref{tab:wfs}.
              Lower right: Rainbow-colored regions show spectral luminous power~($\Phi_{L,\lambda}$)
                           and indicate human perception of color.
                           Dark green lines show spectral exergy of light.}
@@ -1595,9 +1605,17 @@ print(xtable::xtable(results_phi_fin, digits=3,
       )
 @
 
+****
+Zeke: How difficult would it be to include one more table, the exergy efficiency of the four lamps?
+My suggested table would be identical to Table~\ref{tab:results_etas}, 
+except exergy.
+Rows would be $\eta_{X,uw}$, $\eta_{X,vis}$, $\eta_{X,pl}$, and $\eta_{X,univ}$.
+This new table should come after Table~\ref{tab:results_phis}.---MKH
+****
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Discussion (ZM, PB, 1000 words)}
+\section{Discussion (ZM, MKH 1000 words)}
 \label{sec:discussion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1629,7 +1647,7 @@ previous methods of determining the exergy of lighting.
 The calculation of the exergy of light presented in Section~\ref{sec:phi_light}
 differs from the previous approach used in the societal exergy analysis community.
 This section describes the previous approximate approach 
-and compares to the new exact approach presented above.
+and compares to the new exact approach presented in Section~\ref{sec:framework}.
 
 
 %------------------------------
