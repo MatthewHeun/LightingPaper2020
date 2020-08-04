@@ -1245,12 +1245,12 @@ and the valuable exergetic efficiency of light becomes
 
 Spectral weighting functions ($f_\lambda$) convert radiant power to light.
 (See Section~\ref{sec:human_perception_of_EM_radiation}.)
-We selected four spectral weighting functions relevant to illumination
-to enable example calculations later (Section~\ref{sec:results}).
+We use four spectral weighting functions relevant to illumination
+to enable example calculations (Section~\ref{sec:results}).
 
 The first option is degenerate: 
 the analyst could decide to ignore the nuances of human visual perception altogether,
-implicitly assuming that all EM radiation emitted from a lamp is valuable, 
+implicitly assuming that all EM radiation emitted from a lamp is light, 
 whether or not it is within the visible portion of the EM spectrum.
 For the first option, the degenerate (unweighted, uw) weighting function ($f_{\lambda,uw}$) is
 %
@@ -1277,14 +1277,14 @@ f_{\lambda,vis} =
 
 But the human eye is spectrally sensitive to EM radiation, 
 with peak sensitivity at 555~nm (green)
-and lesser sensitivities at both longer and shorter wavelengths.
+and lesser sensitivities at both longer (redder) and shorter (bluer) wavelengths.
 A third option involves weighting a lamp's emitted EM radiation 
 by the photopic sensitivity of the human eye.
 The photopic luminosity~(pl) function~($V_\lambda$) describes this sensitivity, 
 as shown in Figure~\ref{fig:Vis_Graph}.
-The photopic luminosity function was
-defined by the Commission Internationale de l' Éclairage (CIE) and 
-represents the sensitivity of M and L cones
+The photopic luminosity function 
+was defined by the Commission Internationale de l' Éclairage (CIE) in 1931
+and represents the sensitivity of M and L cones
 at daytime light levels \cite{CVRL2008}.
 So for Option 3,
 %
@@ -1296,17 +1296,18 @@ Substituting Equation~\ref{eq:f3} into Equation~\ref{eq:weighted_emissive_power}
 yields
 %
 \begin{equation}
-  \dot{L}_{pl} = \int V_\lambda \Phi_{EM,\lambda} \mathrm{d}\lambda \; ,
+  \dot{E}_{L,pl} = \int V_\lambda \dot{E}_{EM,\lambda} \mathrm{d}\lambda \; ,
 \end{equation}
 %
 which provides the basis for calculating a lamp's output 
-of visible light in the unit of lumens~(lm, $\Phi_{pl}$):
+of visible light~($\Phi_{pl}$) in the unit of lumens~(lm):
 %
 \begin{equation} \label{eq:lumen}
-  \Phi_{pl} = (683 \text{ lm/W}) \; \dot{L}_{pl} \; ,
+  \Phi_{pl} = (683 \text{ lm/W}) \; \dot{E}_{L,pl} \; ,
 \end{equation}
 %
-where 683~lm/W is the EM power of a perfect light source emitting at $\lambda = 555 \text{ nm}$.
+where 683~lm/W is the luminous efficiency of a perfect light source
+emitting exclusively at $\lambda = 555 \text{ nm}$.
 (See Figure~\ref{fig:Vis_Graph}.) 
 (Note that because lumens are a re-scaling of watts, 
 lumens are also a unit of radiant power.)
@@ -1317,7 +1318,7 @@ the valuable energy efficiency of a lamp can be written in terms of luminous eff
 by modifying Equation~\ref{eq:eta_E_v_light} to be
 %
 \begin{equation} \label{eq:lum_effic_def}
-  K = \frac{(683 \text{ lm/W}) \int V_\lambda \Phi_{EM,\lambda,3} \mathrm{d}\lambda}{\dot{W}_1}
+  K = (683 \text{ lm/W}) \frac{\int V_\lambda \Phi_{EM,\lambda,3} \, \mathrm{d}\lambda}{\dot{W}_{elect,1}}
 \end{equation}
 %
 in the context of Figure~\ref{fig:lamp}, 
@@ -1332,15 +1333,16 @@ namely the short-wave cones,
 rods, and intrinsically photosensitive retinal ganglion cells (ipRGCs),
 which are responsible for vision in low-light settings and
 physiological functions such as the regulation of circadian rhythms.
-Thus, the photopic luminosity function~($V_\lambda$) 
-is said to have a long-wave bias.
+Thus, the photopic luminosity function~($V_\lambda$),
+and therefore also luminous efficacy~($K$),
+are said to have a long-wave bias.
 
-A fourth option (universal, univ) weights a lamp's spectral radiant power~($\Phi_{EM,\lambda}$)
+A fourth option (universal, univ) weights a lamp's spectral radiant power~($\dot{E}_{EM,\lambda}$)
 by the spectral sensitivity of all five light receptors in the human eye
 (not just the M and L cones as does $V_\lambda$). 
 The universal luminosity efficiency function ($U_\lambda$) \cite{Rea2018}
 captures the actual, broader sensitivity of the human eye.
-So, for option 4,
+So for option 4,
 %
 \begin{equation} \label{eq:f4}
   f_{\lambda,univ} = U_\lambda \; .
@@ -1356,8 +1358,12 @@ Table~\ref{tab:wfs} summarizes the weighting functions discussed above.
 \label{sec:lamps}
 %------------------------------
 
-To demonstrate how the use of selection of spectral weighting function~($f_\lambda$)
-alters the efficiency of a lamp, 
+**** 
+Zeke: possibly add a bit to this section to discuss the process of normalizing the hero graph.---MKH
+****
+
+To demonstrate how the spectral weighting function~($f_\lambda$)
+affects the energy and exergy efficiency of lamps, 
 we need both weighting functions (Section~\ref{sec:weighting_functions}) and
 example lamps.
 Table~\ref{tab:lamps} summarizes details about lamps discussed throughout this paper.
@@ -1366,8 +1372,8 @@ We obtained spectral power distributions of the lamps in Table~\ref{tab:lamps} f
 Light Spectral Power Distribution Database (LSPDD)~\cite{Roby, miguel2017, aube2013}. 
 
 The data in the LSPDD are given 
-in terms of \emph{relative intensity} ($\Phi_{rel,e\lambda}$) 
-as opposed to \emph{absolute intensity}.
+in terms of \emph{relative intensity} ($\dot{E}_{EM,\lambda,rel}$) 
+as opposed to \emph{absolute intensity} ($\dot{E}_{EM,\lambda}$).
 Because lamps in the LSPDD are not measured using an integration sphere,
 the integral of the spectral power distribution may not match the radiant power of the lamp
 supplied by the manufacturer.
@@ -1375,31 +1381,27 @@ To ensure that the integral of each lamp's spectral power distribution
 matches its reported radiant power, 
 we applied the standard procedure of scaling the spectral power distribution 
 by the ratio ($\mu$) of
-the radiant power given by the manufacturer~($K \dot{W}_1$) and  
-the integral of the spectral radiant power taken from the relative intensity data~($\Phi_{rel,EM}$).
+the radiant power given by the manufacturer~($K \dot{W}_{elect,1}$) and  
+the integral of the spectral radiant power taken from the relative intensity data~($\dot{E}_{EM,rel}$).
 %
 \begin{equation} 
-  \mu = \frac{K \dot{W}_1}{\Phi_{rel,EM}}   \; .
+  \mu \equiv \frac{K \dot{W}_{elect,1}}{\dot{E}_{EM,rel}} \; .
 \end{equation}
 
-We then applied the scaling factor~($\mu$) to to the spectral power distribution data for each lamp, 
+We then applied the scaling factor~($\mu$) to the spectral power distribution data for each lamp, 
 yielding a scaled spectral power distribution data for each lamp 
 that matches the manufacturer's reported radiant power ($\Phi_{EM,\lambda}$),
 %
 \begin{equation} 
-  \Phi_{EM,\lambda}  = \mu \Phi_{rel,EM,\lambda}   \; .
+  \dot{E}_{EM,\lambda}  = \mu \dot{E}_{EM,\lambda,rel} \; .
 \end{equation}
 
-We selected one representative lamp for four common lamp technologies
+We selected one representative lamp for each of four common lamp technologies
 (incandescent, INC;
 high pressure sodium, HPS;
 compact fluorescent, CFL; and
 light emitting diode, LED), 
-each with a unique spectral power distribution,
-allowing for clear comparisons 
-of the effects of spectral weighting functions~($f_\lambda$) and
-the spectral exergy-to-energy ratio~($\phi_\lambda$).
-
+each with a unique spectral power distribution.
 
 <<lamps, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/results_lamp_info.R')>>=
 source("Data/results_lamp_info.R")
@@ -1407,7 +1409,7 @@ source("Data/results_lamp_info.R")
 print(xtable::xtable(results_lamp_info_fin, digits=0, 
                      caption = "Metadata for lamps, including 
                      year the spectral power distribution data was obtained, 
-                     the luminous efficacy, 
+                     luminous efficacy, 
                      electricity consumption, and
                      luminous efficiency~\\cite{aube2013}.", 
                      label = "tab:lamps"), 
@@ -1422,7 +1424,7 @@ print(xtable::xtable(results_lamp_info_fin, digits=0,
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Results (Zeke and Emmanuel, 2000 words)}
+\section{Results}
 \label{sec:results}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1435,6 +1437,15 @@ print(xtable::xtable(results_lamp_info_fin, digits=0,
 % It should provide a concise and precise description of the experimental results,
 % their interpretation as well as the experimental conclusions that can be drawn.
 % \end{quote}
+
+Results are provided in Figure~\ref{fig:wfs_and_lamps} for 
+the spectral exergy-to-energy ratio for light~($\phi_{L,\lambda}$), 
+spectral weighting functions~($f_\lambda$),
+the spectral emissive power of lamps~($\dot{E}_{EM,\lambda}$ and $\dot{X}_{EM,\lambda}$), and
+spectral light emitted by lamps~($\dot{E}_{L,\lambda}$ and $\dot{X}_{L,\lambda}$).
+Tables~\ref{tab:results_etas}--\ref{tab:results_etasX}
+give efficiencies~($\eta_{E,L,v}$ and $\eta_{X,L,v}$) and exergy-to-energy ratios~($\phi_{L,\lambda}$).
+
 
 %++++++++++++++++++++++++++++++
 \subsection{The effect of the exergy-to-energy ratio ($\phi_{L,\lambda}$)}
@@ -1528,7 +1539,7 @@ response_data %>%
   geom_area(mapping = aes(y = normalised_awrp), fill = "darkgray") +
   geom_line(mapping = aes(y = normalised_awe), linetype = 1, colour = "darkgreen", size = 0.1) +
   xlab(element_blank()) +
-  ylab(expression(Phi["EM,"*lambda]*" [W/nm]")) +
+  ylab(expression(dot(E)["EM,"*lambda]*", "*dot(X)["EM,"*lambda]*" [-]")) +
   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
   #scale_y_continuous(limits = c(-0.002, 0.024), breaks = c(0, 0.005, 0.010, 0.015, 0.020)) +
   labs(fill = element_blank(), colour = element_blank()) +
@@ -1588,7 +1599,7 @@ response_data %>%
 
   xlab(expression(lambda*" [nm]")) +
   # ylab(expression("Spectral radiative energy, "*Phi*" [W/nm]")) +
-  ylab(expression(Phi[L*","*lambda]* " [W/nm]")) +
+  ylab(expression(dot(E)["L,"*lambda]*", "*dot(X)["L,"*lambda]*" [-]")) +
   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
   #scale_y_continuous(limits = c(-0.002, 0.022)) +
   labs(fill = element_blank(), colour = element_blank()) +
@@ -1604,20 +1615,20 @@ response_data %>%
     \end{subfigure}
     \caption{Upper left: The spectral exergy-to-energy ratio of light~($\phi_{L,\lambda}$) 
                          from Equation~\ref{eq:phi_L_lambda_shan_zhou}. 
-             Top: Gray regions indicate spectral radiant power ($\Phi_{EM,\lambda}$)
+             Top: Gray regions indicate spectral radiant power ($\dot{E}_{EM,\lambda}$)
                   for lamps in Table~\ref{tab:lamps}.
-                  Dark green lines show spectral exergy.
+                  Dark green lines show spectral exergy ($\dot{X}_{EM,\lambda}$).
              Left: Spectral weighting functions ($f_\lambda$), as shown in Table~\ref{tab:wfs}.
-             Lower right: Rainbow-colored regions indicate the human perception of color, 
+             Lower right: Rainbow-colored regions indicate the human perception of color 
                           and the portion of light deemed valuable for human perception.
-                          The spectral luminous power~($\Phi_{E or L,\lambda,pl}$) 
-                          is shown in the third row, 
-                          by application of the Photopic luminsoity function.
-                          Dark green lines show spectral exergy of light. 
-             All data is normalized to 1 to correct for variation in 
-             electricity consumption between lamps, and therefore radiant power, 
-             along with the shape of different lamps spectral power distributions.}
-             
+                          The tops of the rainbow regions give spectral light as energy~($\dot{E}_{L,\lambda}$).
+                          The dark green lines show spectral light as exergy~($\dot{X}_{L,\lambda}$).
+                          The spectral luminous power~($\Phi_{\lambda,pl}$) 
+                          is shown in the "Photopic" row. 
+             Peak spectral values are normalized to 1 for 
+             spectral radiant power~($\dot{E}_{EM,\lambda}$ and $\dot{X}_{EM,\lambda}$)
+             and spectral light~($\dot{E}_{L,\lambda}$ and $\dot{X}_{L,\lambda}$) 
+             for ease of visual comparison.}
 	\label{fig:wfs_and_lamps}
 \end{figure}
 
