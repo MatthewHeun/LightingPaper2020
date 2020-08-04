@@ -1597,13 +1597,25 @@ print(xtable::xtable(results_phi_fin, digits=3,
       )
 @
 
-****
-Zeke: How difficult would it be to include one more table, the exergy efficiency of the four lamps?
-My suggested table would be identical to Table~\ref{tab:results_etas}, 
-except exergy.
-Rows would be $\eta_{X,uw}$, $\eta_{X,vis}$, $\eta_{X,pl}$, and $\eta_{X,univ}$.
-This new table should come after Table~\ref{tab:results_phis}.---MKH
-****
+
+<<results_etasX_table, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/results_etasX_xtable.R')>>=
+source("Data/results_etasX_xtable.R")
+
+print(xtable::xtable(results_etasX_fin, digits=2, 
+                     caption = "Final to useful exergy efficiencies
+                     ($\\eta_{X,f_{\\lambda}}$, in \\%) for each lamp
+                     and weighting function~($f_\\lambda$)
+                     given by Equation~\\ref{eq:eta_X_v_light}.", 
+                     label= "tab:results_etasX"), 
+      size="footnotesize", # Change size; useful for bigger tables
+      include.rownames=TRUE, 
+      include.colnames=TRUE, 
+      caption.placement="top",
+      type = "latex",
+      booktabs = TRUE,
+      sanitize.rownames.function = identity
+      )
+@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

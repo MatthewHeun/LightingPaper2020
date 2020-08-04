@@ -52,6 +52,16 @@ dplyr::mutate(
 dplyr::mutate(
   wrp_div_ec_100 = wrp_div_ec*100
 ) %>%
+  
+# Calculates the quotient of the weighted radiant power (exergy) and electricity consumption - valuable exergy efficiency
+dplyr::mutate(
+  wrpX_div_ec = integrated_wrp_X / `Electricity consumption [W]`
+) %>%
+  
+# Calculates the product of wrpX_div_ec and 100, yielding the % final to useful efficiency
+dplyr::mutate(
+  wrpX_div_ec_100 = wrpX_div_ec*100
+) %>%
     
 # Calculates the quotient of the weighted radiant power and radiant power
 dplyr::mutate(

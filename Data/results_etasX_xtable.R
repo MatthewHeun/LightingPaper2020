@@ -14,15 +14,15 @@ results_etasX <- spd_metrics %>%
 
 # Re-arranges results_etas into the correct orientation
 
-results_etasX_fin <- as.data.frame.matrix(xtabs(wrpX_div_ec_100~wf_name+lamp_name, results_etas))
+results_etasX_fin <- as.data.frame.matrix(xtabs(wrpX_div_ec_100~wf_name+lamp_name, results_etasX))
 
 # Re-arranges the columns into the correct order
 
-results_etasX_fin <- results_etas_fin[, c(3,2,1,4)]
+results_etasX_fin <- results_etasX_fin[, c(3,2,1,4)]
 
 # Re-arranges the rows into the correct order
 
-results_etasX_fin <- results_etas_fin[c(1,4,2,3),]
+results_etasX_fin <- results_etasX_fin[c(1,4,2,3),]
 
 # Replace lamp_list lamp_name with lamp code (INC, HPS, CFL, LED)
 
