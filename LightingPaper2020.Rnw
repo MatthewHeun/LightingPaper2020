@@ -779,10 +779,10 @@ All streams can be counted as energy ($\dot{E}$), such that
   \node[below right = -0.7cm and 3cm of machine] (3)[circle, fill=red!25!white] {\strut 3};
   % Arrows
   \draw[arrows=-triangle 45] (1) -- node [above] {$\dot{Q}_1, T_1$} (machine);
-  \draw[arrows=-triangle 45] (2 -| machine.east) -- node [above] {$\dot{Q}_2 , \; T_2$} (2.west);
+  \draw[arrows=-triangle 45] (2 -| machine.east) -- node [above] {$\dot{Q}_2$, $T_2$} (2.west);
   \draw[arrows=-triangle 45] (3 -| machine.east) -- node [below] {$\dot{W}_3$} (3.west);
 \end{tikzpicture}
-\caption{A heat engine that produces work and heat.}
+\caption{A heat engine that uses heat (1) to produce heat (2) and work (3).}
 \label{fig:heat_engine}
 \end{figure}
 
@@ -901,11 +901,6 @@ waste heat (conduction and convection only) is produced at 2.
 
 \begin{figure}
 \centering
-% \largemachinefigure{Lamp}
-%                    {$\dot{W}_1 \; \text{(elec)}$}
-%                    {$\dot{Q}_2$ (heat)}
-%                    {$\Phi_{EM,3}$ (EM)}
-%                    {$\dot{L}_4$ (light)}
 \begin{tikzpicture}
   % Set up the nodes of the main path
   % Machine node
@@ -920,21 +915,21 @@ waste heat (conduction and convection only) is produced at 2.
             minimum width = 3 cm, minimum height = 2 cm,
             align = center, right = 1 cm of 3] {\strut Weighting\\function ($f_{\lambda}$)};
   
-  \node[right = 1 cm of wf] (5)[circle, fill=red!25!white] {\strut 5};
+  \node[above right = -0.7 cm and 2 cm of wf] (4)[circle, fill=red!25!white] {\strut 4};
+  \node[below right = -0.7 cm and 2 cm of wf] (5)[circle, fill=red!25!white] {\strut 5};
   
   % Arrows
   \draw[arrows=-triangle 45] (1) -- node [above] {$\dot{W}_{elect,1}$} (machine);
-  \draw[arrows=-triangle 45] (2 -| machine.east) -- node [above] {$\dot{Q}_2$ (heat)} (2.west);
+  \draw[arrows=-triangle 45] (2 -| machine.east) -- node [above] {$\dot{Q}_2$, $T_2$ } (2.west);
   \draw[arrows=-triangle 45] (3 -| machine.east) -- node [below] {$\dot{E}_{EM,3}$} (3.west);
   \draw[arrows=-triangle 45] (wf -| 3.east) -- node [below] {} (wf.west);
+  \draw[arrows=-triangle 45] (4 -| wf.east) -- node [above] {$\dot{E}_{N,4}$} (4.west);
   \draw[arrows=-triangle 45] (5 -| wf.east) -- node [below] {$\dot{E}_{L,5}$} (5.west);
 
 \end{tikzpicture}
-\caption{****
-EA: Please adjust this figure to match the nomenclature that I proposed on 2020-07-18.---MKH
-****
-A lamp that produces heat and light with 
-an energy efficiency $\eta_{E,v}$, and a weighting function $f_\lambda$ that converts electromagnetic radiation (EM) into light with an energy efficiency $\eta_{E \{f_\lambda\}}$. Note that $\eta_{E \{f_\lambda\}}$ is function of the spectral distribution of the radiant power $\Phi_{EM,3}$. The efficiency with which the system lamp and weighting function converts electricity energy into light energy is noted $\eta_{E \{lamp, f_\lambda\}}$. Note that the same rationale is valid when considering exergy efficiency.}
+\caption{A lamp that uses electricity~(1) to produce
+         heat~(2), broad-spectrum EM radiation~(3), 
+         non-light EM radiation~(4), and light~(5).}
 \label{fig:lamp}
 \end{figure}
 
