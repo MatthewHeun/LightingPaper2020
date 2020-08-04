@@ -40,7 +40,7 @@ library(xtable)
 <<setup-graphs, include=FALSE>>=
 # This variable switches the cache on/off for all R code chunks that are configured for cacheing.
 # Set to FALSE if some plots are not updating as expected, then set back to TRUE.
-use_cache <- TRUE
+use_cache <- FALSE
 
 # Here are some options for the colors to use in the ggspectra graphs.
 # The variable chroma_type is used in all graphs,
@@ -50,11 +50,22 @@ use_cache <- TRUE
 # when the value of chroma_type changes.
 
 # chroma_type <- photobiology::cone_fundamentals10.spct    # Color shifted: yellow/red at 555 nm
+
+# Linear energy luminous efficiency functions
+# chroma_type <- photobiology::ciev2.spct                  # fails to plot data
+# chroma_type <- photobiology::ciev10.spct                 # fails to plot data
+
+# CIE Chromacity co-ordinates
 # chroma_type <- photobiology::ciexyzCC2.spct              # Only RGB
+# chroma_type <- photobiology::ciexyzCC10.spct             # Only RGB, but red extends to 750nm
+
+# CIE Color matching functions
 # chroma_type <- photobiology::ciexyzCMF2.spct             # Very similar to "CMF" (maybe same?)
 # chroma_type <- photobiology::ciexyzCMF10.spct            # Very similar to "CMF" (maybe same?)
+
 # chroma_type <- "CC"                                      # Wide, but has no yellow (only R, G, B)
-chroma_type <- "CMF"                                     # Narrow, but gives yellows
+# chroma_type <- "CMF"                                     # Narrow, but gives yellows
+
 @
 
 
