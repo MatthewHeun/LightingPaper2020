@@ -40,7 +40,7 @@ library(xtable)
 <<setup-graphs, include=FALSE>>=
 # This variable switches the cache on/off for all R code chunks that are configured for cacheing.
 # Set to FALSE if some plots are not updating as expected, then set back to TRUE.
-use_cache <- FALSE
+use_cache <- TRUE
 
 # Here are some options for the colors to use in the ggspectra graphs.
 # The variable chroma_type is used in all graphs,
@@ -768,11 +768,21 @@ All streams can be counted as energy ($\dot{E}$), such that
 
 \begin{figure}
 \centering
-\machinefigure{Heat engine}
-              {$T_1 , \; \dot{Q}_1 \; \text{(heat)}$}
-              {$\dot{Q}_2 \; \text{(heat)}, \; T_2$}
-              {$\dot{W}_3 \; \text{(work)}$}
-\caption{A heat engine that produces heat and work with an energy efficiency $\eta_E$. Note that the same rationale is valid when considering exergy efficiency.}
+\begin{tikzpicture}
+  % Set up the nodes of the main path
+  % Machine node
+  \node(machine)[draw, rounded corners, fill=yellow!25!white, 
+                 minimum width = 2.5 cm, minimum height = 1.5 cm] at (0cm, 0cm) {\strut Heat engine};
+  % Number nodes
+  \node[left=3cm of machine] (1)[circle, fill=red!25!white] {\strut 1};
+  \node[above right = -0.7cm and 3cm of machine] (2)[circle, fill=red!25!white] {\strut 2};
+  \node[below right = -0.7cm and 3cm of machine] (3)[circle, fill=red!25!white] {\strut 3};
+  % Arrows
+  \draw[arrows=-triangle 45] (1) -- node [above] {$T_1 , \; \dot{Q}_1 \; \text{(heat)}$} (machine);
+  \draw[arrows=-triangle 45] (2 -| machine.east) -- node [above] {$\dot{Q}_2 \; \text{(heat)}, \; T_2$} (2.west);
+  \draw[arrows=-triangle 45] (3 -| machine.east) -- node [below] {$\dot{W}_3 \; \text{(work)}$} (3.west);
+\end{tikzpicture}
+\caption{A heat engine that produces work and heat.}
 \label{fig:heat_engine}
 \end{figure}
 
@@ -891,11 +901,35 @@ waste heat (conduction and convection only) is produced at 2.
 
 \begin{figure}
 \centering
-\largemachinefigure{Lamp}
-                   {$\dot{W}_1 \; \text{(elec)}$}
-                   {$\dot{Q}_2$ (heat)}
-                   {$\Phi_{EM,3}$ (EM)}
-                   {$\dot{L}_4$ (light)}
+% \largemachinefigure{Lamp}
+%                    {$\dot{W}_1 \; \text{(elec)}$}
+%                    {$\dot{Q}_2$ (heat)}
+%                    {$\Phi_{EM,3}$ (EM)}
+%                    {$\dot{L}_4$ (light)}
+\begin{tikzpicture}
+  % Set up the nodes of the main path
+  % Machine node
+  \node(machine)[draw, rounded corners, fill=yellow!25!white, 
+                 minimum width = 2.5 cm, minimum height = 1.5 cm] at (0cm, 0cm) {\strut Lamp};
+  % Number nodes
+  \node[left=2cm of machine] (1)[circle, fill=red!25!white] {\strut 1};
+  \node[above right = -0.7cm and 2cm of machine] (2)[circle, fill=red!25!white] {\strut 2};
+  \node[below right = -0.7cm and 2cm of machine] (3)[circle, fill=red!25!white] {\strut 3};
+  
+  \node(wf)[draw, rounded corners, fill=yellow!25!white, 
+            minimum width = 2.5 cm, minimum height = 1.5 cm,
+            align = center, right = 1 cm of 3] {\strut Weighting\\function ($f_{\lambda}$)};
+  
+  \node[right = 1 cm of wf] (4)[circle, fill=red!25!white] {\strut 4};
+  
+  % Arrows
+  \draw[arrows=-triangle 45] (1) -- node [above] {$\dot{W}_1 \; \text{(elec)}$} (machine);
+  \draw[arrows=-triangle 45] (2 -| machine.east) -- node [above] {$\dot{Q}_2$ (heat)} (2.west);
+  \draw[arrows=-triangle 45] (3 -| machine.east) -- node [below] {$\dot{E}_{EM,3}$} (3.west);
+  \draw[arrows=-triangle 45] (wf -| 3.east) -- node [below] {} (wf.west);
+  \draw[arrows=-triangle 45] (4 -| wf.east) -- node [below] {$\dot{E}_{L,4}$} (4.west);
+
+\end{tikzpicture}
 \caption{****
 EA: Please adjust this figure to match the nomenclature that I proposed on 2020-07-18.---MKH
 ****
