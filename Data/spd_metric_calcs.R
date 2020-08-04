@@ -40,12 +40,12 @@ integration_weighted_radiant_power <- weighted_responses_df %>%
 # Adds the electricity consumption of each lamp to a new data frame entitled "spd_metrics".
 spd_metrics <- dplyr::full_join(
   integration_weighted_radiant_power, 
-  lamp_info %>% dplyr::select(lamp_name, `Electricity Consumption [W]`), by = "lamp_name"
+  lamp_info %>% dplyr::select(lamp_name, `Electricity consumption [W]`), by = "lamp_name"
 ) %>%
     
 # Calculates the quotient of the weighted radiant power and electricity consumption - valuable energy efficiency
 dplyr::mutate(
-  wrp_div_ec = integrated_wrp / `Electricity Consumption [W]`
+  wrp_div_ec = integrated_wrp / `Electricity consumption [W]`
 ) %>%
 
 # Calculates the product of wrp_div_ec and 100, yielding the % final to useful efficiency

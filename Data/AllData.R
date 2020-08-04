@@ -108,7 +108,7 @@ received_luminous_power <- received_weighted_responses_df %>%
 # Read in lamp information
 lamp_info <- readxl::read_excel(master_lighting_data_path, sheet = "data_lamp") %>%
   dplyr::mutate(
-    luminous_power = `Luminous Efficacy [lm/W]` * `Electricity Consumption [W]`
+    luminous_power = `Luminous efficacy [lm/W]` * `Electricity consumption [W]`
   )
 
 # Combines the lamp information from manufacturer (lamp_info)
