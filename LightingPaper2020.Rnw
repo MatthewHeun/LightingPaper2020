@@ -1688,7 +1688,7 @@ For a lamp, the quotient is between the lamp's luminous efficacy~($K$)
 and the maximum luminous efficacy~($K_{max}$).
 %
 \begin{equation} \label{eq:K_over_e_max}
-  \eta_{X,v} = \frac{\; \; \frac{1}{K_{max}} \; \; }{\frac{1}{K}}
+  \eta_{E,v,pl} = \frac{\; \; \frac{1}{K_{max}} \; \; }{\frac{1}{K}}
        = \frac{K}{K_{max}} \; .
 \end{equation}
 
@@ -1702,8 +1702,13 @@ Substituting Equation~\ref{eq:lum_effic_def} into Equation~\ref{eq:K_over_e_max}
 exergetic efficiency for the approximate method:
 %
 \begin{equation} \label{eq:prev_eta_X_v_light}
-  \eta_{X,v} = \frac{\; \; \frac{(683 \text{ lm/W}) \int V_\lambda \Phi_{EM,\lambda,3} \mathrm{d}\lambda}{\dot{W}_1} \; \;}{K_{max}} \; .
+  \eta_{E,v,pl} = \frac{\; \; \frac{(683 \text{ lm/W}) \int V_\lambda \Phi_{EM,\lambda,3} \mathrm{d}\lambda}{\dot{W}_1} \; \;}{K_{max}} \; .
 \end{equation}
+
+**** We need a unique symbol for this equation, the \emph{luminous efficiency}.
+We can say it is equivalent to $\eta_{E,v,pl}$, 
+but this is currently the symbol for the final-useful efficiency 
+for our method as detailed above ---ZM ****
 
 With recent advances in photometry (Section~\ref{sec:phi_light}),
 it is now possible to determine the energy and exergy of light exactly, 
@@ -1730,14 +1735,12 @@ is correct only under the following conditions:
 
 \end{enumerate}
 
-**** Tie better to rows and colums. ****
-These assumptions are, in fact, in force for the Xth column of Table~\ref{tab:results_etas}.
-
 As can be seen by comparing the luminous efficiency row of Table~\ref{tab:lamps} 
 and the photopic luminosity row of Table~\ref{tab:results_etas},
-final-to-useful efficiency calculated via the photopic luminosity function~($\eta_{E,v,pl}$, **** equation ****)
-is equivalent to the luminous efficiency~($symbol$, **** equation ****) when maximum luminous efficacy~($K_{max}$)
-is taken to be 683~lm/W.
+final-to-useful efficiencies calculated using the photopic luminosity function~($\eta_{E,v,pl}$, Equation \ref{eq:eta_E_v_light} (with $f_\lambda = V_\lambda$))
+are equivalent to luminous efficiency values
+~($\eta_{E,v,pl}$, Equation~\ref{eq:prev_eta_X_v_light}) 
+when maximum luminous efficacy~($K_{max}$) is taken to be 683~lm/W.
 
 
 %------------------------------
