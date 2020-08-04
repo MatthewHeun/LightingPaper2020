@@ -615,7 +615,7 @@ I think Figure~\ref{fig:Vis_Graph} shows differential eye sensitivity. ---MKH **
 source(file = file.path("Data", "lighting_efficacy.R"))
 @
 
-<<LuminousEfficacy_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 4, fig.cap = "The luminous efficacy of selected lamp technologies from 1880 to 2020. For HPS lamps data was limited to lamps of less than 100W as a lamps luminous efficacy tends to increase in line with its electricity consumption, therefore skewing the results for a particular year, depending on the wattage of the lamp reported. Data were obtained from three sources: the Museum of Electric Lamp Technology (LampTech)~\\cite{hooker_2020}, the ENERGYSTAR database of certified light bulbs~\\cite{energystar_2020}, and the lighting market characterization reports commissioned by the US Department of Energy (DOE)~\\cite{DOE2002, DOE2012, DOE2017}. For all data sources please see the supplementary information." >>=
+<<LuminousEfficacy_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 4, fig.cap = "**** Zeke: could you make one more small change to this figure? Can you add the 3-letter abbreviation after the words in the legend? Compact fluorescent becomes Compact fluorescent (CFL), etc. Making this slight change will tie the label in the graph to the legend. It will also provide the first indication of the abbreviations that readers will see later.---MKH **** The luminous efficacy of selected lamp technologies from 1880 to 2020. For HPS lamps, data are limited to lamps of less than 100~W as a lamp's luminous efficacy tends to increase in line with its electricity consumption, therefore skewing the results for a particular year, depending on the wattage of the lamp reported. Data were obtained from three sources: the Museum of Electric Lamp Technology (LampTech)~\\cite{hooker_2020}, the ENERGYSTAR database of certified light bulbs~\\cite{energystar_2020}, and the lighting market characterization reports commissioned by the US Department of Energy (DOE)~\\cite{DOE2002, DOE2012, DOE2017}. For all data sources, please see the supplementary information. **** Zeke: Why is the SI important? What additional information will be in the SI? It seems to me that we could delete the last sentence of this caption.---MKH" >>=
 le_df$Selected <- ifelse(le_df$Type == "LSPDD", "Selected lamps", "Other")
 
 le_df_filtered <- le_df %>% 
@@ -1067,12 +1067,9 @@ but we also note that here $T_\lambda$ is ascribed to a stream of photons
 traveling from a lamp to an eye.
 Thus, for our purposes, $T_\lambda$ can be considered the statistical average effective temperature 
 of the stream of photons.
-
 ****
 Is this a good way to address the critique?---MKH
 ****
-
-)
 The product of wavelength and photon effective temperature is a constant~($c_3$ in \citet{chen2008}) such that
 %
 \begin{equation}
@@ -1116,7 +1113,7 @@ The result is an equation for $\phi_{L,\lambda}$, the specular exergy-to-energy 
 \end{equation}
 
 We assume no losses in radiative transmission
-Between emission by the lamp and absorption by the iris.
+between the lamp and the iris.
 I.e., no radiation scattering occurs through air, 
 an assumption that holds for short distances typically 
 observed in lighting applications (<~10~m).
@@ -1808,23 +1805,36 @@ the regulation of circadian rhythms \cite{Pattison2018LEDphotons}.
 To account for this many lamps are designed to have 'blue spike', 
 emitting radiant energy in the region of 480nm, 
 the peak of the melanopsin suppression action spectrum \cite{lucas2014}, 
-as can be seen from the SPD for the example LED lamp in Figure \ref{fig:wfs_and_lamps}. 
+as can be seen from the spectral power distribution~($\Phi_{EM,\lambda}$)
+for the LED lamp in Figure \ref{fig:wfs_and_lamps}. 
 
 To more accurately quantify the utility of different wavelengths of light,
-the 'Universal luminosity function' has been proposed 
-as a replacement for the photopic luminosity function,
-accounting for the sensitivity of all five of the eyes light receptors 
-as discussed above in \ref{sec:human_perception_of_EM_radiation}.
+the universal luminosity function has been proposed 
+as a replacement for the photopic luminosity function, because it 
+accounts for the sensitivity of all five of the eyes light receptors 
+as discussed in Section~\ref{sec:human_perception_of_EM_radiation}.
 
-The choice of any weighting function is a subjective decision for the analyst,
-however to provide consistency for SEA community moving forward
-we propose to adopt the universal luminosity function in accordance with \cite{Rea2018},
-\emph{if} the assumption is made that lamps are solely used for illumination in society.
+The choice of weighting function should be made appropriate for the application of each lamp.
+To provide consistency for societal exergy analysis community moving forward
+we propose that societal exergy analysts 
+adopt the universal luminosity function ($U_\lambda$) in accordance with \cite{Rea2018},
+when lamps are used solely for illumination in society.
+The switch from the photopic luminosity function~($V_\lambda$)
+to the universal luminosity function~($U_\lambda$) is made possible 
+by the exact method described in Section~\ref{sec:framework}. 
+The approximate method requires the use of the photopic luminosity function~($V_\lambda$),
+as discussed in Section~\ref{sec:previous_approach}.
 
 **** We have still not finalised this decision. What do you all think? 
 If we propose this, we need to also lay out practical steps for analysts
 given that the available data is nearly always published in lm/W 
 i.e an additional factor per lamp ---ZM ****
+****
+I'm comfortable with this recommendation.
+I suggest that Zeke write another paragraph here that discusses the difference in exergetic efficiency
+between using $V_\lambda$ and $U_\lambda$.
+Use Table~\ref{tab:results_etas}.---MKH
+****
 
 
 %++++++++++++++++++++++++++++++
