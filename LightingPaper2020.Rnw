@@ -465,8 +465,8 @@ source(file = file.path("Data", "AllData.R"))
 # Trim down to the weighting functions and lamps we want
 wf_list <- c(Unweighted = "wf_nw", Visible = "wf_v",
              Photopic = "wf_p2", Universal = "wf_u")
-lamp_list <- c(INC = "lamp_inc_globe_a19_40w", HPS = "lamp_hps_phil_rs", 
-               CFL = "lamp_cfl_es_tw_3", LED = "lamp_led_phil_a19")
+lamp_list <- c(INC = "lamp_inc_globe_a19_40w", HPS = "lamp_hps_phil", 
+               CFL = "lamp_cfl_es_tw", LED = "lamp_led_phil_a19")
 
 # Create versions of wf_list and lamp_list suitable for use in the recode function
 # by swapping names and values.
@@ -1463,12 +1463,12 @@ response_data %>%
     facet = " "
   ) %>% 
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
-  geom_area(mapping = aes(y = actual_radiant_power), fill = "darkgray") +
-  geom_line(mapping = aes(y = actual_exergy), linetype = 1, colour = "darkgreen", size = 0.1) +
+  geom_area(mapping = aes(y = normalised_awrp), fill = "darkgray") +
+  geom_line(mapping = aes(y = normalised_awe), linetype = 1, colour = "darkgreen", size = 0.1) +
   xlab(element_blank()) +
   ylab(expression(Phi["EM,"*lambda]*" [W/nm]")) +
   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
-  scale_y_continuous(limits = c(-0.002, 0.024), breaks = c(0, 0.005, 0.010, 0.015, 0.020)) +
+  #scale_y_continuous(limits = c(-0.002, 0.024), breaks = c(0, 0.005, 0.010, 0.015, 0.020)) +
   labs(fill = element_blank(), colour = element_blank()) +
   facet_grid(facet~lamp_name) +
 
@@ -1515,18 +1515,18 @@ response_data %>%
 response_data %>%
   ggplot(mapping = aes(x = `Wavelength [nm]`)) +
   # geom_area(mapping = aes(y = actual_radiant_power), fill = "darkgray") +
-  ggspectra::stat_color(mapping = aes(y = actual_weighted_radiant_power),
+  ggspectra::stat_color(mapping = aes(y = normalised_awrp),
                         geom = "bar",
                         chroma.type = chroma_type,
                         size = 0) +   # Eliminates borders
   scale_fill_identity() +
   scale_color_identity() +
 
-  geom_line(mapping = aes(y = actual_weighted_exergy), linetype = 1, colour = "darkgreen", size = 0.1) +
+  geom_line(mapping = aes(y = normalised_awe), linetype = 1, colour = "darkgreen", size = 0.1) +
 
   xlab(expression(lambda*" [nm]")) +
   # ylab(expression("Spectral radiative energy, "*Phi*" [W/nm]")) +
-  ylab(expression(Phi[L*","*lambda]*" [W/nm]")) +
+  ylab(expression(Phi[L*","*lambda]* " [W/nm]")) +
   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
   #scale_y_continuous(limits = c(-0.002, 0.022)) +
   labs(fill = element_blank(), colour = element_blank()) +
@@ -1546,9 +1546,16 @@ response_data %>%
                   for lamps in Table~\ref{tab:lamps}.
                   Dark green lines show spectral exergy.
              Left: Spectral weighting functions ($f_\lambda$), as shown in Table~\ref{tab:wfs}.
-             Lower right: Rainbow-colored regions show spectral luminous power~($\Phi_{L,\lambda}$)
-                          and indicate human perception of color.
-                          Dark green lines show spectral exergy of light.}
+             Lower right: Rainbow-colored regions indicate the human perception of color, 
+                          and the portion of light deemed valuable for human perception.
+                          The spectral luminous power~($\Phi_{E or L,\lambda,pl}$) 
+                          is shown in the third row, 
+                          by application of the Photopic luminsoity function.
+                          Dark green lines show spectral exergy of light. 
+             All data is normalized to 1 to correct for variation in 
+             electricity consumption between lamps, and therefore radiant power, 
+             along with the shape of different lamps spectral power distributions.}
+             
 	\label{fig:wfs_and_lamps}
 \end{figure}
 
@@ -2130,6 +2137,24 @@ in the decision to publish the results.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \input{pieces/nomenclature.tex}
+
+**** I think we need to get rid of the subscript L. 
+             We currently use this to denote light, 
+             but what we deem light is a function of a particular weighting function 
+             which we should always specify in the subscript in all of our metrics. 
+             We should also always specify whether the radiant power is in energy ($E$)
+             or exergy ($X$) terms.
+             
+             As i have done for the etas the radiant power should be denoted as follows:
+             ($\Phi_{E or X, f_{\lambda}}$)
+             
+             and the spectral radiant power should be denoted as follows
+             ($\Phi_{E or X,\lambda, f_{\lambda}}$)
+        
+             If we keep L we should make it clear that this is a special case 
+             for the photopic luminosity function only, 
+             however I don't think we should, 
+             its easy enough for the reader to see the subscript $pl$! ---ZM ****
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

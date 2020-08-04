@@ -67,6 +67,11 @@ lamp_data <- lapply(lamp_tabs, FUN = function(tab_name){
     dplyr::mutate(
       lamp_name = tab_name
     )
+  DF %>%
+    dplyr::mutate(
+      normalised_rrp = received_radiative_power / max(received_radiative_power),
+      lamp_name = tab_name
+    )
 }) %>% 
   magrittr::set_names(lamp_tabs)
 
@@ -158,8 +163,12 @@ weighted_responses_df <- dplyr::full_join(
   dplyr::mutate(
     actual_weighted_exergy = actual_weighted_radiant_power * phi_L_lambda,
     actual_exergy = actual_radiant_power * phi_L_lambda
+  ) %>%
+# Creates normalised data to be plotted
+  dplyr::mutate(
+    normalised_awrp = normalised_rrp * normalized_response,
+    normalised_awe = normalised_awrp * phi_L_lambda
   )
-
 
 
 
