@@ -699,7 +699,7 @@ Our key finding is ******.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Methods (2250 words)}
+\section{Methods}
 \label{sec:methods}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
@@ -728,7 +728,7 @@ Our key finding is ******.
 
 
 %++++++++++++++++++++++++++++++
-\subsection{Exergy theory (MKH, 1000 words)}
+\subsection{Exergy theory}
 \label{sec:framework}
 %++++++++++++++++++++++++++++++
 
@@ -1055,7 +1055,7 @@ leads to modifying Equation~\ref{eq:emissive_power}
 to include a spectral weighting function~($f_\lambda$) such that
 %
 \begin{equation} \label{eq:weighted_emissive_power}
-  \dot{E}_L = \int \dot{E}_{L,\lambda} \mathrm{d}\lambda = \int f_\lambda \dot{E}_{EM,\lambda} \mathrm{d}\lambda \; ,
+  \dot{E}_L = \int \dot{E}_{L,\lambda} \mathrm{d}\lambda = \int f_\lambda \dot{E}_{EM,\lambda} \, \mathrm{d}\lambda \; ,
 \end{equation}
 %
 with $0 \le f_\lambda \le 1$
@@ -1063,18 +1063,27 @@ and $\dot{E}_{L,\lambda} = f_\lambda \dot{E}_\lambda$.
 
 In Equation~\ref{eq:weighted_emissive_power}, 
 the spectral weighting function~($f_\lambda$) converts 
-from EM radiation~($\Phi_{EM}$)
+from broad-spectrum EM radiation~($\dot{E}_{EM}$)
 to light~($\dot{L}$), 
 the valuable part of EM radiation for illumination.
 In the context of Figure~\ref{fig:lamp}, 
 %
-\begin{equation} \label{eq:L_dot_4}
-  \dot{L}_4 = \int f_\lambda \Phi_{EM,\lambda,3} \mathrm{d}\lambda \; .
+\begin{equation} \label{eq:L_dot_5}
+  \dot{E}_{L,5} = \int f_\lambda \dot{E}_{EM,\lambda,3} \, \mathrm{d}\lambda \; .
+\end{equation}
+
+In Figure~\ref{fig:lamp}, any EM radiation at statepoint 3 
+\emph{not} converted to light
+is quantified as non-light EM radiation at statepoint 4~($\dot{E}_{N,4}$).
+Specifically,
+%
+\begin{equation} \label{eq:N_dot_5}
+  \dot{E}_{N,4} = \int (1 - f_\lambda) \dot{E}_{EM,\lambda,3} \, \mathrm{d}\lambda \; .
 \end{equation}
 
 
 %------------------------------
-\subsubsection{The exergy-to-energy ratio of EM radiation, $\phi_{\EM}$ (Zeke and Emmanuel, 500 words)}
+\subsubsection{The exergy-to-energy ratio of EM radiation, $\phi_{\EM}$}
 \label{sec:phi_light}
 %------------------------------
 
@@ -1100,7 +1109,7 @@ and the spectral exergy-to-energy ratio~($\phi_{\EM,\lambda}$).
 
 Petela's equation has recently been verified through the development of an infinite-staged
 Carnot engine model \cite{zhou2017exergy}, which describes the transfer of radiative energy.
-In this model a photon possessing a characteristic frequency 
+In this model, a photon possessing a characteristic frequency 
 and photon effective temperature enters a medium which acts as an ideal absorber. 
 The photon transfers an infinitesimal quantity of thermal radiation to the absorber, 
 this thermal radiation then enters a Carnot heat engine and performs work. 
