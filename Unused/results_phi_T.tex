@@ -1,0 +1,34 @@
+% The next command tells RStudio to do "Compile PDF" on book.Rnw,
+% instead of this chapter, thereby eliminating the need to switch back to book.Rnw 
+% before making the book.
+%!TEX root = ../LightingPaper2020.Rnw
+
+% This table displays the exergy to energy factors for each lamp weighting function combination.
+
+% \begin{table}
+% \centering % Centered table
+% \caption{Exergy to energy ratios for each of the selected lamps, and each of the chosen weighting functions. **** Is it worth including the phi values for each combination of lamps and weighting functions as they are very similar? ---ZM ****
+% I think so. Can you transpose this table?---MKH ****
+% **** Also, can we use the data from a data frame to make this table?
+% It is risky to type in values. If our calculations change, we'll forget to change this table.
+% I can help with this process, if needed.  
+% In particular, there is an xtable function in R that will work nicely.---MKH}
+% \begin{tabular}{l c c c c}
+% \toprule
+% \multicolumn{5}{c}{Lamp} \\
+% % \cline{2-5}
+% \midrule
+%   Exergy to energy ratio [-]
+%   & INC 
+%   & HPS
+%   & CFL 
+%   & LED \\
+% \midrule
+%   Unweighted ($\phi_{EM}$) & 0.942 & 0.951 & 0.956 & 0.954 \\
+%   Vis. Spectrum ($\phi_{L}$) & 0.950 & 0.954 & 0.957 & 0.954 \\
+%   Photopic lum. ($\phi_{pl}$) & 0.955 & 0.955 & 0.956 & 0.955 \\
+%   Universal lum. ($\phi_{univ}$) & 0.956 & 0.955 & 0.959 & 0.956 \\
+% \bottomrule
+% \end{tabular}
+% \label{tab:results_phi}
+% \end{table}
