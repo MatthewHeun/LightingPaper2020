@@ -1107,27 +1107,29 @@ An effective temperature of light photons~\cite{chen2008} ($T_\lambda$)
 provides the link between Petela's equation (Equation~\ref{eq:petelas_equation})
 and the spectral exergy-to-energy ratio~($\phi_{\EM,\lambda}$).
 
-Petela's equation has recently been verified through the development of an infinite-staged
-Carnot engine model \cite{zhou2017exergy}, which describes the transfer of radiative energy.
-In this model, a photon possessing a characteristic frequency 
-and photon effective temperature enters a medium which acts as an ideal absorber. 
-The photon transfers an infinitesimal quantity of thermal radiation to the absorber, 
-this thermal radiation then enters a Carnot heat engine and performs work. 
-The absorber then emits another photon at a lower energy and frequency 
-(and therefore lower photon effective temperature). 
-This process is repeated until the frequency of the photon equals zero, 
-and $T_0$ (the reference temperature) is equal to the photon effective temperature ($T_\lambda$)~\cite{Shan2019}.
+Petela's equation has recently been verified via an infinite-staged
+Carnot heat engine model \cite{zhou2017exergy}
+that is powered by radiative energy transfer.
+In the radiative Carnot model, a photon possessing a characteristic frequency 
+and photon effective temperature enters a medium that acts as an ideal absorber. 
+The photon transfers an infinitesimal quantity of energy to the absorber via thermal radiation.
+The energy enters an infinitesimally small Carnot heat engine and performs work. 
+The absorber then emits another photon at lower energy and frequency,
+and therefore lower photon effective temperature. 
+This process repeats until the frequency of the photon equals zero, 
+and the photon effective temperature ($T_\lambda$)~\cite{Shan2019}
+equals the reference temperature ($T_0$).
 
 We note that the use of the photon effective temperature approach has been criticized by 
-\citet[p.~1810]{liu2009},
+\citeauthor{liu2009},
 who argued that 
 ``to endue a single photon with macro-scale thermodynamic parameters
-such as exergy and entropy'' is inappropriate.
+such as exergy and entropy'' is inappropriate~\citep[p.~1810]{liu2009}.
 We acknowledge this critique, 
 but we also note that here $T_\lambda$ is ascribed to a stream of photons
 traveling from a lamp to an eye.
 Thus, for our purposes, $T_\lambda$ can be considered the statistical average effective temperature 
-of the stream of photons.
+of that stream of photons.
 ****
 Is this a good way to address the critique?---MKH
 ****
@@ -1148,6 +1150,13 @@ by which light is converted into electrical nerve signals
 in the human eye
 is radiative EM energy transfer
 from a light source~(1) to an eye~(0).
+We assume no losses in radiative transmission
+between the lamp and the iris.
+I.e., no radiation scattering occurs through air, 
+an assumption that holds for short distances typically 
+observed in lighting applications (<~10~m).
+(See \citet{Shan2019} for a method to estimate transmission losses
+over longer distances.)
 We further assume that the human iris is a blackbody absorber 
 (absorbing all wavelengths of radiation perfectly \cite{benenson2006handbook}), 
 being a small aperture on a larger cavity.
@@ -1173,33 +1182,26 @@ The result is an equation for $\phi_{L,\lambda}$, the specular exergy-to-energy 
                     + \frac{1}{3} \left( \frac{310 \text{ K}}{c_3} \right)^4 \lambda^4 \; .
 \end{equation}
 
-We assume no losses in radiative transmission
-between the lamp and the iris.
-I.e., no radiation scattering occurs through air, 
-an assumption that holds for short distances typically 
-observed in lighting applications (<~10~m).
-(See \citet{Shan2019} for a method to estimate transmission losses
-over longer distances.)
-
 The exergy of light emitted by a non-blackbody lamp~($\dot{X}_L$)
 is found by integrating the product of
-the spectral radiant power~($\Phi_{EM,\lambda}$),
+the spectral radiant power~($\dot{E}_{EM,\lambda}$),
 a spectral weighting function~($f_\lambda$), and
-the spectral exergy-to-energy ratio~($\phi_\lambda$)
+the spectral exergy-to-energy ratio~($\phi_{L,\lambda}$)
 with respect to wavelength.
 %
 \begin{equation} \label{eq:X_dot_L}
-  \dot{X}_L = \int \phi_{L,\lambda} \, f_\lambda \, \Phi_{EM,\lambda} \mathrm{d}\lambda
+  \dot{X}_L = \int \phi_{L,\lambda} \, f_\lambda \, \dot{E}_{EM,\lambda} \mathrm{d}\lambda
 \end{equation}
 
-The quotient of $\dot{X}_{L}$ and $\dot{L}$ gives the overall exergy-energy ratio of light~($\phi_{L}$), 
+The quotient of $\dot{X}_L$ and $\dot{E}_L$ gives 
+the exergy-energy ratio of light~($\phi_{L}$), 
 which is specific to each combination of
-lamp and weighting function ($f_\lambda \Phi_{EM,\lambda}$).
+weighting function and lamp ($f_\lambda \dot{E}_{EM,\lambda}$).
 
 \begin{equation} \label{eq:phi_L}
-  \phi_{L} = \frac{\dot{X}_L}{\dot{L}} 
-           = \frac {\int \phi_{L,\lambda} f_\lambda \Phi_{EM,\lambda} \mathrm{d}\lambda}
-                       {\int f_\lambda \Phi_{EM,\lambda} \mathrm{d}\lambda}
+  \phi_{L} = \frac{\dot{X}_L}{\dot{E}_L} 
+           = \frac {\int \phi_{L,\lambda} f_\lambda \dot{E}_{EM,\lambda} \mathrm{d}\lambda}
+                       {\int f_\lambda \dot{E}_{EM,\lambda} \mathrm{d}\lambda}
 \end{equation}
 
 Table~\ref{tab:EX_summary} summarizes the key equations in 
@@ -1213,22 +1215,21 @@ Sections~\ref{sec:framework}--\ref{sec:phi_light}.
 \label{sec:light_efficiency}
 %------------------------------
 
-If the valuable product of a lamp is considered to be its light~($\dot{L}$)
-as opposed to its broadband EM radiation~($\Phi_{EM}$),
+If the valuable product of a lamp is considered to be its light~($\dot{E}_L$ or $\dot{X}_L$)
+as opposed to its broadband EM radiation~($\dot{E}_{EM}$ or $\dot{X}_{EM}$),
 Equations~\ref{eq:eta_E_v} and~\ref{eq:eta_X_v} require modification.
 In the context of Figure~\ref{fig:lamp}, the valuable energy efficiency of light becomes
 %
 \begin{equation} \label{eq:eta_E_v_light}
-  \eta_{E,v} = \frac{\dot{E}_4}{\dot{E}_1} 
-             = \frac{\dot{L}_4}{\dot{W}_1} 
-             = \frac{\int f_\lambda \Phi_{EM,\lambda,3} \mathrm{d}\lambda}{\dot{W}_1} \; ,
+  \eta_{E,L,v} = \frac{\dot{E}_5}{\dot{E}_{elect,1}} 
+               = \frac{\int f_\lambda \dot{E}_{EM,\lambda,3} \, \mathrm{d}\lambda}{\dot{W}_{elect,1}} \; ,
 \end{equation}
 %
 and the valuable exergetic efficiency of light becomes
 %
 \begin{equation} \label{eq:eta_X_v_light}
-  \eta_{X,v} = \frac{\dot{X}_4}{\dot{X}_1} 
-              = \frac{\int \phi_{L,\lambda} f_\lambda \Phi_{EM,\lambda,3} \mathrm{d}\lambda}{\dot{W}_1} \; .
+  \eta_{X,L,v} = \frac{\dot{X}_5}{\dot{X}_{elect,1}} 
+               = \frac{\int \phi_{L,\lambda} f_\lambda \dot{E}_{EM,\lambda,3} \, \mathrm{d}\lambda}{\dot{W}_{elect,1}} \; .
 \end{equation}
 
 
