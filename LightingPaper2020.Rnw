@@ -262,10 +262,10 @@ for societal exergy analysts:
 
 % Keywords
 \keyword{
-% (list three to ten pertinent keywords specific to the article, yet reasonably common within the subject discipline.)
-keyword 1; keyword 2; keyword 3
-}
+        exergy; efficiency; light; radiation; thermodynamics; illumination; lumen; luminous; spectrum.
+        }
 
+% (list three to ten pertinent keywords specific to the article, yet reasonably common within the subject discipline.)
 % The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
 %\PACS{J0101}
 %\MSC{}
@@ -2187,14 +2187,11 @@ Please turn to the  \href{http://img.mdpi.org/data/contributor-role-instruction.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\funding{Please add: 
-``This research received no external funding'' or 
-``This research was funded by NAME OF FUNDER grant number XXX.'' and  and 
-``The APC was funded by XXX''.
-Check carefully that the details given are accurate and
-use the standard spelling of funding agency names at
-\url{https://search.crossref.org/funding},
-any errors may affect your future funding.}
+\funding{
+Matthew K. Heun's receieved no funding for time spent on this paper. 
+Paul E. Brockway and Zeke Marshall's time was funded by the Engineering and Physical Sciences Research Council (EPSRC) Fellowship grant RG.EVEA.112727.001.
+Emmanuel Aramendia's time was funded by XXXXXX.
+}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
