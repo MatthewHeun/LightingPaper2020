@@ -2026,7 +2026,14 @@ linear fluorescent, high intensity discharge, LED and other.
 The aggregate lighting efficiency for a particular year is then given by
 
 \begin{equation} \label{eq:agg_eta}
-  \eta_{agg} = \sum \limits_{i \in Lamps} \theta_{i} \cdot \phi_{i,pl} \cdot \eta_{E,i,pl} 
+  \eta_{agg, pl} = \sum \limits_{i \in Lamps} \theta_{i} \cdot \phi_{i,pl} \cdot \eta_{E,i,pl} 
+\end{equation}
+
+**** Or do we express Equation~\ref{eq:agg_eta} in terms of $K$? ---ZM ****
+
+
+\begin{equation} \label{eq:agg_eta_K}
+  \eta_{agg, pl} = \sum \limits_{i \in Lamps} \theta_{i} \cdot \phi_{i,pl} \cdot \frac{K_{i}}{683 lm/W}
 \end{equation}
 
 Where $\theta_{i}$ denotes the proportion of electricity consumption for lighting
@@ -2070,7 +2077,7 @@ and the same lamp using the photopic luminoisty function ($\eta_{i,E,pl}$).
 Including this conversion factor then provides a method for 
 
 \begin{equation} \label{eq:agg_eta_univ}
-  \eta_{agg} = \sum \limits_{i \in Lamps} \theta_{i} \cdot 
+  \eta_{agg, univ} = \sum \limits_{i \in Lamps} \theta_{i} \cdot 
                                           \phi_{i,univ} \cdot 
                                           \upsilon_{i,univ} \cdot 
                                           \eta_{E,i,pl} 
