@@ -2159,7 +2159,18 @@ Furthermore, there are three additional inefficiencies, as detailed by \citet{Cu
 
   \item Light which is emitted with excessive intensity.
    
-  \item Light which is incident upon surfaces which are not the primary purpose of illumination. **** Is this the same as (b) in the list above?---MKH ****
+  \item Light which is incident upon surfaces which are not the primary purpose of illumination, 
+        e.g. the . 
+        
+        **** Is this the same as (b) in the list above?---MKH ****
+        
+        **** This is a subtle point from Cullen (2010), 
+        I believe he means light which illuminates surfaces which require less illumination 
+        than a the main task-area,
+        such as a cabinet vs a computer desk.
+        So it's a combination of both point b's.
+        I need to take a broader look at the literature for this section
+        so I will refine these points! ---ZM ****
   
   \item Light which is under-utilized, e.g., through under-occupancy.
        
