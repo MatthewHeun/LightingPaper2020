@@ -2016,7 +2016,7 @@ and exergy to energy ratios obtained for each lamp type,
 data for the proportion of each lamp type in use for each year of the study is needed,
 i.e. the fleet of lamps, 
 and ideally in the form of the economy-wide electricity consumption by lamp technology.
-For example, tHe US DOE's Lighting Market Characterization reports provide such data for the USA,
+For example, the US DOE's Lighting Market Characterization reports provide such data for the USA,
 and for the years 2001~\cite{DOE2002}, 2010~\cite{DOE2012}, and 2015~\cite{DOE2017}, 
 along with associated luminous efficacy values, 
 and for the following lamp technologies: incandescent, halogen, compact fluorescent,
@@ -2058,8 +2058,8 @@ and insert above in results if group confirms this approach ---ZM ****
 **** How much of this text should be in the methods, and not the discussion? ---ZM ****
 
 Values for $\upsilon_{i,univ}$ are given by taking the quotient of 
-the final to useful efficiency of a lamp using the universal luminosity function ($\eta_{E,univ}$)
-and the same lamp using the photopic luminoisty function ($\eta_{E,pl}$).
+the final to useful efficiency of a lamp using the universal luminosity function ($\eta_{i,E,univ}$)
+and the same lamp using the photopic luminoisty function ($\eta_{i,E,pl}$).
 
 \begin{equation} \label{eq:conversionuniversal}
   \upsilon_{i,univ} = \frac{\eta_{E,univ}}{\eta_{E,pl}}
@@ -2070,8 +2070,8 @@ Including this conversion factor then provides a method for
 
 \begin{equation} \label{eq:agg_eta_univ}
   \eta_{agg} = \sum \limits_{i \in Lamps} \theta_{i} \cdot 
-                                          \upsilon_{i,univ} \cdot 
                                           \phi_{i,univ} \cdot 
+                                          \upsilon_{i,univ} \cdot 
                                           \eta_{E,i,pl} 
 \end{equation}
 
