@@ -238,15 +238,15 @@ $^{2}$ \quad Sustainability Research Institute, School of Earth and Environment,
 % in the main text and should not exaggerate the main conclusions.
 Artificial lighting provides an indispensable energy service (illumination) for modern life. 
 The field of societal exergy analysis considers light (and many other energy products)
-to be an input to economic growth. 
-Lighting contributes a small, but non-negligible fraction of total useful exergy
+to be enablers of economic growth, and 
+lighting contributes a small, but non-negligible fraction of total useful exergy
 input to modern economies.
 In societal exergy analyses, 
 the exergetic efficiency of lamps has been approximated by an energy efficiency, 
 resulting in much confusion to date. 
 In response, 
-we develop a new, exact method for calculating the exergetic efficiency of lamps, based on 
-recent results in the photometry literature.
+we recent results in the photometry literature to
+develop a new, exact method for calculating the exergetic efficiency of lamps.
 The exact method 
 (a)~is free of (possibly erroneous) assumptions for the maximum luminous efficacy, 
 (b)~uses the correct spectral exergy-to-energy ratio, no longer assuming its value to be 1, and
@@ -262,7 +262,7 @@ for societal exergy analysts:
 
 % Keywords
 \keyword{
-        exergy; efficiency; light; radiation; thermodynamics; illumination; lumen; luminous; spectrum
+        exergy; efficiency; light; radiation; thermodynamics; illumination; lumen; luminous efficacy; spectrum
         }
 
 % (list three to ten pertinent keywords specific to the article, yet reasonably common within the subject discipline.)
