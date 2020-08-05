@@ -945,7 +945,7 @@ Thus,
 %
 where $\dot{E}_{EM,3}$ is the radiant power of broad-spectrum EM radiation
 emitted by the lamp in units of energy per unit time.
-(When exergy is not involved, the lighting literature often denotes
+(When exergy is not involved, the photometry literature often denotes
 radiant power by $\Phi$, not $\dot{E}$.
 Here, we differentiate between 
 the energy of broad spectrum EM power~($\dot{E}$) and
@@ -1318,7 +1318,7 @@ the valuable energy efficiency of a lamp can be written in terms of luminous eff
 by modifying Equation~\ref{eq:eta_E_v_light} to be
 %
 \begin{equation} \label{eq:lum_effic_def}
-  K = (683 \text{ lm/W}) \frac{\int V_\lambda \Phi_{EM,\lambda,3} \, \mathrm{d}\lambda}{\dot{W}_{elect,1}}
+  K = \frac{(683 \text{ lm/W}) \int V_\lambda \Phi_{EM,\lambda,3} \, \mathrm{d}\lambda}{\dot{W}_{elect,1}}
 \end{equation}
 %
 in the context of Figure~\ref{fig:lamp}, 
@@ -1389,11 +1389,11 @@ the integral of the spectral radiant power taken from the relative intensity dat
 \end{equation}
 
 We then applied the scaling factor~($\mu$) to the spectral power distribution data for each lamp, 
-yielding a scaled spectral power distribution data for each lamp 
-that matches the manufacturer's reported radiant power ($\Phi_{EM,\lambda}$),
+yielding a scaled spectral power distribution data~($\dot{E}_{EM,\lambda}$) for each lamp 
+that matches the manufacturer's reported radiant power.
 %
 \begin{equation} 
-  \dot{E}_{EM,\lambda}  = \mu \dot{E}_{EM,\lambda,rel} \; .
+  \dot{E}_{EM,\lambda}  = \mu \dot{E}_{EM,\lambda,rel}
 \end{equation}
 
 We selected one representative lamp for each of four common lamp technologies
@@ -1445,59 +1445,18 @@ the spectral emissive power of lamps~($\dot{E}_{EM,\lambda}$ and $\dot{X}_{EM,\l
 spectral light emitted by lamps~($\dot{E}_{L,\lambda}$ and $\dot{X}_{L,\lambda}$).
 Tables~\ref{tab:results_etas}--\ref{tab:results_etasX}
 give efficiencies~($\eta_{E,L,v}$ and $\eta_{X,L,v}$) and exergy-to-energy ratios~($\phi_{L,\lambda}$).
+All graphs were constructed and calculations were performed using \texttt{R}~\cite{R-software}.
 
 
 %++++++++++++++++++++++++++++++
-\subsection{The effect of the exergy-to-energy ratio ($\phi_{L,\lambda}$)}
-\label{sec:effect_of_phi_L}
+\subsection{Exergy-to-energy ratio ($\phi_{L,\lambda}$)}
+\label{sec:results_phi_L}
 %++++++++++++++++++++++++++++++
 
-To illustrate the effect of the exergy-to-energy ratio for EM radiation~($\phi_{L,\lambda}$), 
-the top-left graph in Figure~\ref{fig:wfs_and_lamps} shows 
+The top-left graph in Figure~\ref{fig:wfs_and_lamps} shows 
 Equation~\ref{eq:phi_L_lambda_shan_zhou}.
 Note that exergy-to-exergy ratio for light~($\phi_{L,\lambda}$) is
 nearly~1 for all wavelengths of interest for illumination.
-(All graphs were constructed and calculations were performed using \texttt{R}~\cite{R-software}.)
-
-Applying Equation~\ref{eq:phi_L_lambda_shan_zhou} 
-to the four lamps identified in Section~\ref{sec:lamps}
-gives the four graphs in the top-right of Figure~\ref{fig:wfs_and_lamps},
-radiant power~($\Phi_{EM,\lambda}$) as a function of wavelength ($\lambda$) (spectral power distribution).
-The gray regions show spectral power distributions for each lamp, and 
-the dark green line indicates exergy.
-The areas of the gray regions ($\Phi_{EM}$) are given by Equation~\ref{eq:emissive_power}.
-The areas beneath the dark green lines in all graphs are the exergy of light~($\dot{X}_L$), 
-given by Equation~\ref{eq:X_dot_L}.
-
-Note that exergy (solid dark green line) is very close to energy (top of the gray region), because
-the exergy-to-energy ratio ($\phi_{L,\lambda}$) is always close to~1 for EM wavelengths relevant to light.
-The difference between energy and exergy is greatest in the upper right of the graphs when both
-%
-\begin{enumerate*}[label={(\alph*)}]
-	
-  \item emission is greater and
-  
-  \item wavelength is longer.
-    
-\end{enumerate*}
-
-
-%++++++++++++++++++++++++++++++
-\subsection{The effect of weighting functions ($f_\lambda$)}
-\label{sec:effect_weighting_functions}
-%++++++++++++++++++++++++++++++
-
-Figure~\ref{fig:wfs_and_lamps} provides visual representation of the spectral energy and exergy of light
-for the four lamps and four weighting functions of 
-Sections~\ref{sec:weighting_functions} and~\ref{sec:lamps}
-and Tables~\ref{tab:wfs} and~\ref{tab:lamps}, respectively.
-The left column of Figure~\ref{fig:wfs_and_lamps} contains graphs of
-the four weighting functions~($f_\lambda$).
-Each rainbow colored region shows the light content of EM radiation (spectral luminous power) and
-is the spectral product of its row's weighting function and its column's lamp spectral power distribution.
-The areas of the rainbow colored regions ($\dot{L}$) are given by Equation~\ref{eq:weighted_emissive_power}.
-The areas beneath the dark green lines ($\dot{X}_L$) in all graphs are given by 
-Equation~\ref{eq:X_dot_L}.
 
 \begin{figure}
     \centering
@@ -1624,21 +1583,81 @@ response_data %>%
                           The tops of the rainbow regions give spectral light as energy~($\dot{E}_{L,\lambda}$).
                           The dark green lines show spectral light as exergy~($\dot{X}_{L,\lambda}$).
                           The spectral luminous power~($\Phi_{\lambda,pl}$) 
-                          is shown in the "Photopic" row. 
+                          is shown in the ``Photopic'' row. 
              Peak spectral values are normalized to 1 for 
              spectral radiant power~($\dot{E}_{EM,\lambda}$ and $\dot{X}_{EM,\lambda}$)
-             and spectral light~($\dot{E}_{L,\lambda}$ and $\dot{X}_{L,\lambda}$) 
              for ease of visual comparison.}
 	\label{fig:wfs_and_lamps}
 \end{figure}
 
 
+%++++++++++++++++++++++++++++++
+\subsection{Weighting functions ($f_\lambda$)}
+\label{sec:results_weighting_functions}
+%++++++++++++++++++++++++++++++
+
+The four weighting functions discussed in Section~\ref{sec:weighting_functions} and Table~\ref{tab:wfs}
+are shown only the left side of Figure~\ref{fig:wfs_and_lamps}.
+
+
+%++++++++++++++++++++++++++++++
+\subsection{Radiant power ($\dot{E}_{EM,\lambda}$ and $\dot{X}_{EM,\lambda}$)}
+\label{sec:results_radiant_power}
+%++++++++++++++++++++++++++++++
+
+Applying Equation~\ref{eq:phi_L_lambda_shan_zhou} 
+to the four lamps identified in Section~\ref{sec:lamps}
+gives the four graphs in the top-right of Figure~\ref{fig:wfs_and_lamps},
+radiant power~($\Phi_{EM,\lambda}$) as a function of wavelength ($\lambda$) (spectral power distribution).
+The gray regions show spectral power distributions for each lamp, and 
+the dark green line indicates exergy.
+The areas of the gray regions ($\Phi_{EM}$) are given by Equation~\ref{eq:emissive_power}.
+The areas beneath the dark green lines in all graphs are the exergy of light~($\dot{X}_L$), 
+given by Equation~\ref{eq:X_dot_L}.
+
+Note that exergy (solid dark green line) is very close to energy (top of the gray region), because
+the exergy-to-energy ratio ($\phi_{L,\lambda}$) is always close to~1 for EM wavelengths relevant to light.
+The difference between energy and exergy is greatest in the upper right of the graphs when both
+%
+\begin{enumerate*}[label={(\alph*)}]
+	
+  \item emission is greater and
+  
+  \item wavelength is longer.
+    
+\end{enumerate*}
+
+
+%++++++++++++++++++++++++++++++
+\subsection{Luminous power ($\dot{E}_{L,\lambda}$ and $\dot{X}_{L,\lambda}$)}
+\label{sec:results_luminous_power}
+%++++++++++++++++++++++++++++++
+
+Figure~\ref{fig:wfs_and_lamps} provides visual representation of the spectral energy and exergy of light
+for the four lamps and four weighting functions of 
+Sections~\ref{sec:weighting_functions} and~\ref{sec:lamps}
+and Tables~\ref{tab:wfs} and~\ref{tab:lamps}, respectively.
+Each rainbow colored region shows the light content of EM radiation (spectral luminous power) and
+is the spectral product of its row's weighting function and its column's lamp spectral power distribution.
+The areas of the rainbow colored regions ($\dot{L}$) are given by Equation~\ref{eq:weighted_emissive_power}.
+The areas beneath the dark green lines ($\dot{X}_L$) in all graphs are given by 
+Equation~\ref{eq:X_dot_L}.
+
+
+%++++++++++++++++++++++++++++++
+\subsection{Energy efficiencies ($\eta_{E,L,v}$)}
+\label{sec:results_energy_efficiencies}
+%++++++++++++++++++++++++++++++
+
+Energy efficiencies~($\eta_{E,L,v}$) of the various combinations of weighting functions and lamps
+are shown in Table~\ref{tab:results_etas}.
+
 <<results_etas_table, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/results_etas_xtable.R')>>=
 source("Data/results_etas_xtable.R")
 
 print(xtable::xtable(results_etas_fin, digits=2, 
-                     caption = "Final to useful energy efficiencies
-                     ($\\eta_{E,f_{\\lambda}}$, in \\%) for each lamp
+                     caption = "Energy efficiencies
+                     ($\\eta_{E,L,v}$, in \\%) for each lamp
                      and weighting function~($f_\\lambda$)
                      given by Equation~\\ref{eq:eta_E_v_light}.
                      Note that for the incandescent bulb (INC), 
@@ -1658,13 +1677,22 @@ print(xtable::xtable(results_etas_fin, digits=2,
       )
 @
 
+
+%++++++++++++++++++++++++++++++
+\subsection{Energy-to-exergy ratio ($\phi_{L,\lambda}$)}
+\label{sec:results_phi_L}
+%++++++++++++++++++++++++++++++
+
+Exergy-to-energy ratios~($\phi_{L}$) of the various combinations of weighting functions and lamps
+are shown in Table~\ref{tab:results_phis}.
+
 <<results_phi_table, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/results_phi_xtable.R')>>=
 source("Data/results_phi_xtable.R")
 
 print(xtable::xtable(results_phi_fin, digits=3, 
-                     caption = "Exergy to energy ratios~($\\phi_{f_{\\lambda}}$) 
+                     caption = "Exergy to energy ratios~($\\phi_L$) 
                      for each lamp, 
-                     and each weighting function ($f_{\\lambda}$), 
+                     and each weighting function ($f_{\\lambda}$) 
                      given by Equation~\\ref{eq:phi_L}.", 
                      label= "tab:results_phis"), 
       size="footnotesize", #Change size; useful for bigger tables
@@ -1678,12 +1706,20 @@ print(xtable::xtable(results_phi_fin, digits=3,
 @
 
 
+%++++++++++++++++++++++++++++++
+\subsection{Exergy efficiencies ($\eta_{X,L,v}$)}
+\label{sec:results_exergy_efficiencies}
+%++++++++++++++++++++++++++++++
+
+Exergyu efficiencies~($\eta_{X,L,v}$) of the various combinations of weighting functions and lamps
+are shown in Table~\ref{tab:results_etasX}.
+
 <<results_etasX_table, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/results_etasX_xtable.R')>>=
 source("Data/results_etasX_xtable.R")
 
 print(xtable::xtable(results_etasX_fin, digits=2, 
-                     caption = "Final to useful exergy efficiencies
-                     ($\\eta_{X,f_{\\lambda}}$, in \\%) for each lamp
+                     caption = "Exergy efficiencies
+                     ($\\eta_{X,L,v}$, in \\%) for each lamp
                      and weighting function~($f_\\lambda$)
                      given by Equation~\\ref{eq:eta_X_v_light}.", 
                      label= "tab:results_etasX"), 
@@ -1699,43 +1735,37 @@ print(xtable::xtable(results_etasX_fin, digits=2,
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Discussion (ZM, MKH 1000 words)}
+\section{Discussion}
 \label{sec:discussion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Authors should discuss the results and how they can be interpreted
-in perspective of previous studies and of the working hypotheses.
-The findings and their implications should be discussed
-in the broadest context possible.
-Future research directions may also be highlighted.
-
-
-****
-ZM and PB: Be sure to spike the set from the introduction.
-****
-
-
-
-****
-ZM: Discuss how our results for the examples vary from results that would have been obtained with
-previous methods of determining the exergy of lighting.
-****
-
-
 
 %++++++++++++++++++++++++++++++
-\subsection{Comparison with previous approach to calculating $\eta_{X,v}$ in societal exergy analysis}
+\subsection{Comparison with previous approach 
+            to calculating exergetic efficiency~($\eta_{X,L,v}$) 
+            in societal exergy analysis}
 \label{sec:compwithSEA}
 %++++++++++++++++++++++++++++++
 
-The calculation of the exergy of light presented in Section~\ref{sec:phi_light}
+The method for calculating the exergy of light presented in Section~\ref{sec:phi_light}
 differs from the previous approach used in the societal exergy analysis community.
-This section describes the previous approximate approach 
-and compares to the new exact approach presented in Section~\ref{sec:framework}.
+This section
+%
+\begin{enumerate*}[label={(\alph*)}]
+	
+  \item characterizes the previous approach to calculating the exergy of light
+        as an approximate method and 
+        characterizes the new method for calculating the exergy of light presented in Section~\ref{sec:phi_light}
+        as an exact method and
+  
+  \item evaluates the approximate method relative to the exact method 
+        to obtain three implications for societal exergy analysis.
+    
+\end{enumerate*}
 
 
 %------------------------------
-\subsubsection{Approximate method} 
+\subsubsection{Approximate and exact methods} 
 \label{sec:previous_approach}
 %------------------------------
 
@@ -1747,21 +1777,21 @@ exergetic efficiency by the quotient of
 the minimum energy required to produce a given output and
 the actual energy required to produce the same given output.
 (See Section~\ref{sec:divergent_approaches}.)
-The approximate approach has been recommended
+This approximate method has been recommended
 for lighting, sound, and information~\cite[p.~17]{Sousa2017}.
 
-For the specific case of lighting,
+For lighting,
 the approximate method involves the quotient of
 the theoretical minimum rate of energy required to emit one lumen and
 the actual rate of energy used to emit one lumen 
-for a given lamp.
-The minimum and actual energy rates are obtained 
+for a given lamp, where
+the minimum and actual energy rates are obtained 
 by taking the inverses of luminous efficacy~($K$).
 For a lamp, the quotient is between the lamp's luminous efficacy~($K$)
 and the maximum luminous efficacy~($K_{max}$).
 %
 \begin{equation} \label{eq:K_over_e_max}
-  \eta_{E,v,pl} = \frac{\; \; \frac{1}{K_{max}} \; \; }{\frac{1}{K}}
+  \eta_{X,L,v} \approx \frac{\; \; \frac{1}{K_{max}} \; \; }{\frac{1}{K}}
        = \frac{K}{K_{max}} \; .
 \end{equation}
 
@@ -1769,19 +1799,24 @@ Equation~\ref{eq:lum_effic_def} shows that
 the luminous efficacy of a lamp~($K$) is equal to the quotient
 of the luminous power ($\Phi_{pl}$, Equation~\ref{eq:lumen}), expressed in lumens, and
 the electricity consumption rate of the device
-($\dot{W}_1$ in Figure~\ref{fig:lamp}).
+($\dot{W}_{elect,1}$ in Figure~\ref{fig:lamp}).
 Substituting Equation~\ref{eq:lum_effic_def} into Equation~\ref{eq:K_over_e_max} gives
 (with reference to Figure~\ref{fig:lamp})
 exergetic efficiency for the approximate method:
 %
 \begin{equation} \label{eq:prev_eta_X_v_light}
-  \eta_{E,v,pl} = \frac{\; \; \frac{(683 \text{ lm/W}) \int V_\lambda \Phi_{EM,\lambda,3} \mathrm{d}\lambda}{\dot{W}_1} \; \;}{K_{max}} \; .
+  \eta_{X,L,v} \approx \frac{ \; \; \frac{(683 \text{ lm/W}) \int V_\lambda \dot{E}_{EM,\lambda,3} \, \mathrm{d}\lambda}{\dot{W}_{elect,1}} \; \;}{K_{max}} \; .
 \end{equation}
 
 **** We need a unique symbol for this equation, the \emph{luminous efficiency}.
 We can say it is equivalent to $\eta_{E,v,pl}$, 
 but this is currently the symbol for the final-useful efficiency 
 for our method as detailed above ---ZM ****
+****
+Zeke: 
+I think I addressed this issue by using the $\approx$ symbol.
+Do you agree?---MKH
+****
 
 With recent advances in photometry (Section~\ref{sec:phi_light}),
 it is now possible to determine the energy and exergy of light exactly, 
@@ -1800,7 +1835,7 @@ is correct only under the following conditions:
 %
 \begin{enumerate}[label={(\alph*)}]
 	
-  \item $\phi_{L,\lambda} = 1$,
+  \item $\phi_{L,\lambda} = 1$ for all wavelengths,
 
   \item the maximum luminous efficacy ($K_{max}$) is assumed to be 683~lm/W, and 
   
@@ -1810,7 +1845,7 @@ is correct only under the following conditions:
 
 As can be seen by comparing the luminous efficiency row of Table~\ref{tab:lamps} 
 and the photopic luminosity row of Table~\ref{tab:results_etas},
-final-to-useful efficiencies calculated using the photopic luminosity function~($\eta_{E,v,pl}$, Equation \ref{eq:eta_E_v_light} (with $f_\lambda = V_\lambda$))
+final-to-useful efficiencies calculated using the photopic luminosity function~($\eta_{E,v,pl}$, Equation \ref{eq:eta_E_v_light} (with $f_\lambda = V_\lambda$)
 are equivalent to luminous efficiency values
 ~($\eta_{E,v,pl}$, Equation~\ref{eq:prev_eta_X_v_light}) 
 when maximum luminous efficacy~($K_{max}$) is taken to be 683~lm/W.
@@ -1821,7 +1856,7 @@ when maximum luminous efficacy~($K_{max}$) is taken to be 683~lm/W.
 \label{sec:implications_for_sea}
 %------------------------------
 
-The above comparison between the previous approximate method and
+The above comparison between the previous approximate method (Section~\ref{sec:previous_approach}) and
 the new exact method of Section~\ref{sec:light_efficiency}
 raises three implications for societal exergy analysis.
 First, to obtain the correct exergetic efficiency of lighting, 
@@ -1837,19 +1872,21 @@ Second, with the previous approximate method,
 the analyst was required to select a value for maximum luminous efficacy ($K_{max}$), 
 the denominator of Equation~\ref{eq:prev_eta_X_v_light}.
 The choice of $K_{max}$ can make a significant difference to the results.
-For example, \citet{Ayres2005} and \citet{Guevara2016}
-assume $K_{max} = 400 \text{ lm/W}$,
-thereby incorrectly overestimating exergetic lighting efficiency~($\eta_{X,v}$)
+The correct value for $K_{max}$ is 683~lm/W, 
+because the approximate method relies upon luminous efficacy of lamps.
+Many authors assume $K_{max} = 400 \text{ lm/W}$ 
+(e.g., \citet{Ayres2005} and \citet{Guevara2016}),
+thereby incorrectly overestimating exergetic efficiency of lighting~($\eta_{X,L,v}$)
 by a factor of $\frac{683 \text{ lm/W}}{400 \text{ lm/W}} = 1.71$.
 
 Third, in the approximate method, 
-the analyst was required to use the photopic luminosity function~($V_\lambda$)
+the analyst is required to use the photopic luminosity function~($V_\lambda$)
 for the specular weighting function~($f_\lambda$).
 However, it is not certain that the photopic luminosity function
 is the best choice, 
 as discussed in Section~\ref{sec:blue_light} below.
 
-In summary, the exact method provides the following benefits:
+In summary, the exact method provides the following benefits over the approximate method:
 %
 \begin{enumerate}[label={(\alph*)}]
 	
@@ -1894,51 +1931,65 @@ I think we should decide this as a group, and then we can quantify the differenc
 \label{sec:blue_light}
 %++++++++++++++++++++++++++++++
 
-Previously, societal exergy analysis implicitly adopted the photopic luminosity function~($V_\lambda$)
-when calculating the exergetic efficiency of lighting.
-(See Section~\ref{sec:previous_approach}.)
-
-Given that the industry-standard measure of lighting efficiency
-is the luminous efficacy~($K$),
-the use of the photopic luminosity function~($V_\lambda$)
-under-represents the power at short wavelengths in lighting efficiency estimates.
-This state of affairs biases lighting manufacturers to reduce short wavelength
-output of lamps, even when short wavelength EM radiation would be beneficial
-for physiological reasons such as the suppression of melanopsin 
-the regulation of circadian rhythms \cite{Pattison2018LEDphotons}.
-
-To account for this many lamps are designed to have 'blue spike', 
-emitting radiant energy in the region of 480nm, 
-the peak of the melanopsin suppression action spectrum \cite{lucas2014}, 
-as can be seen from the spectral power distribution~($\Phi_{EM,\lambda}$)
+It is known that short wavelength EM radiation (bluer light)
+provides physiological benefits, such as
+the suppression of melanopsin and 
+the regulation of circadian rhythms~\citep{Pattison2018LEDphotons}.
+To obtain the benefits of blue light, 
+many lamps are designed with a blue spike 
+in the region of 480~nm, 
+the peak of the melanopsin suppression action spectrum \cite{lucas2014}.
+The blue spike can be seen from the spectral power distribution~($\dot{E}_{EM,\lambda}$)
 for the LED lamp in Figure \ref{fig:wfs_and_lamps}. 
 
-To more accurately quantify the utility of different wavelengths of light,
-the universal luminosity function has been proposed 
-as a replacement for the photopic luminosity function, because it 
-accounts for the sensitivity of all five of the eyes light receptors 
+Manufacturers who design lamps with blue spikes
+do not get credit for their efforts, because 
+the industry-standard measure of lighting efficiency,
+luminous efficacy~($K$), 
+uses the photopic luminosity function~($V_\lambda$), 
+which under-represents power at short wavelengths.
+This state of affairs biases lighting manufacturers to reduce short wavelength
+output of lamps, even when short wavelength EM radiation would 
+provide physiological benefits.
+To more accurately represent the utility of all wavelengths of light,
+the universal luminosity function~($U_\lambda$) has been proposed 
+as a replacement for the photopic luminosity function ($V_\lambda$), because it 
+accounts for the sensitivity of all five types of light receptors in the human eye,
 as discussed in Section~\ref{sec:human_perception_of_EM_radiation}.
 
-The choice of weighting function should be made appropriate for the application of each lamp.
-To provide consistency for societal exergy analysis community moving forward
+Previously, 
+societal exergy analysis implicitly adopted the photopic luminosity function~($V_\lambda$)
+when it utilized the approximate method for calculating the exergetic efficiency of lighting.
+(See Section~\ref{sec:previous_approach}.)
+Thus, societal exergy analysis has, in the past, also under-represented 
+the physiological benefits of blue light.
+
+The choice of weighting function ($f_\lambda$) in societal exergy analysis
+should be appropriate for the application of each lamp.
+To provide consistency for societal exergy analysis community moving forward,
 we propose that societal exergy analysts 
 adopt the universal luminosity function ($U_\lambda$) in accordance with \cite{Rea2018},
-when lamps are used solely for illumination in society.
+when the primary purpose of lamps is illumination.
 The switch from the photopic luminosity function~($V_\lambda$)
 to the universal luminosity function~($U_\lambda$) is made possible 
 by the exact method described in Section~\ref{sec:framework}. 
-The approximate method requires the use of the photopic luminosity function~($V_\lambda$),
-as discussed in Section~\ref{sec:previous_approach}.
 
 **** We have still not finalised this decision. What do you all think? 
 If we propose this, we need to also lay out practical steps for analysts
 given that the available data is nearly always published in lm/W 
 i.e an additional factor per lamp ---ZM ****
 ****
-I'm comfortable with this recommendation.
-I suggest that Zeke write another paragraph here that discusses the difference in exergetic efficiency
+Zeke: 
+I'm comfortable with recommending $U_\lambda$.
+I suggest that you write another paragraph here that discusses the difference in exergetic efficiency
 between using $V_\lambda$ and $U_\lambda$.
-Use Table~\ref{tab:results_etas}.---MKH
+Use Table~\ref{tab:results_etas}.
+Think of it this way: if you had only luminous efficacy (and not SPDs),
+how would you perform SEA that is closer to the exact method?
+One recommendation should be to assume $\phi_\lambda = 0.95$,
+I would suppose, based on Table~\ref{tab:results_phis}.
+But what about the effect of moving from $V_\lambda$ to $U_\lambda$?
+Can we get an approximate factor for that?---MKH
 ****
 
 
@@ -1966,17 +2017,8 @@ We discuss each challenge in the sections below.
 \label{sec:waste_heat}
 %------------------------------
 
-Every lamp produces waste heat ($\dot{Q}_2$ in Figure~\ref{fig:lamp})
+Every lamp produces waste heat ($\dot{Q}_2$ and $\dot{E}_{N.4}$ in Figure~\ref{fig:lamp})
 as it converts electrical energy into light energy. 
-The efficiency describing this process is often referred to as the \emph{first law efficiency} or \emph{wall plug efficiency}.
-In this analysis the proportion of heat generated by a lamp is given by 
-$1-\eta_{i,uw}$ or $1-\frac{\Phi_{i,uw}}{\dot{W}_{1}}$.
-
-
-**** Shall we report the proportion of heat, and IR radiation that a lamp generates 
-in an additional results table? ---ZM ****
-
-
 In Section~\ref{sec:energy_and_exergy_of_light}
 waste heat was deemed the un-valuable product of the lamp.
 However, in some circumstances, the waste heat from lamps is, in fact, valuable,
@@ -1986,31 +2028,35 @@ In summer climates, waste heat from lamps adds to space cooling loads.
 For locations where both summer cooling and winter heating are performed,
 the winter/summer effects of lamps cancel, to first order.
 
+Some lamps, commonly termed heat lamps, infrared lamps, or infrared heaters are
+explicitly designed to produce radiative heat 
+(light in the form of near and far infrared radiation) 
+for various purposes, including
+space heating, incubator heating, plastic manufacture, 
+food preparation, and warming animals in captivity.
+When the infrared portion of light emitted as radiative heat is considered useful 
+common ceramic infrared heaters have energy efficiencies of 56.7~\% \citep{brown2016}.
+The remainder of the energy (43.3~\%) is converted into thermal heat via convection, 
+which may or may not be considered useful, because 
+convection acts over a shorter distances than radiation.
+
 The societal exergy analyst must decide how to treat waste heat from lamps
-when determining the quantity of useful energy delivered to a society.
+when determining the quantity of useful exergy delivered to society.
 To our knowledge, societal exergy analysis has, to date,
 ignored waste heat from lamps,
 implicitly assuming that winter and summer effects cancel.
 We contend that the issue deserves further study,
 but that is a topic for another paper.
 
-In addition to the thermal heat generated by a lamp, 
-some lamps, commonly termed heat lamps, infrared lamps or infrared heaters are
-explicitly designed to produce radiative heat 
-(light in the form of near and far infrared radiation) 
-for various purposes, including
-space heating, incubator heating, plastic manufacture, 
-food preparation, and warming animals in captivity.
+****
+Shall we outline the three mechanisms of heat transfer above, 
+namely thermal radiation/radiative heat, convection and conduction? ---ZM 
+****
+See my rewrite above.  
+I don't think it is necessary to review the modes of heat transfer. 
+Do you agree?---MKH
+****
 
-As the infrared portion of light emitted as radiative heat is considered useful 
-common ceramic infrared heaters have final to useful energy efficiencies of 56.7~\% \cite{brown2016} when emitting radiative heat,
-with the remainder of the energy (43.3~\%) converted into thermal heat, 
-which may or may not be considered useful 
-as the mechanism of thermal heat transfer acts over a shorter distance (convection).
-
-**** Shall we outine the three mechanisms of heat transfer above, namely: thermal radiation/radiative heat, convection and conduction? ---ZM ****
-
-In the framework presented in this study
 
 %------------------------------
 \subsubsection{Waste light from lamps (MKH and ZM)}
