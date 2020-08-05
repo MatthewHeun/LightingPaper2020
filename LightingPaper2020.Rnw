@@ -241,9 +241,8 @@ $^{2}$ \quad Sustainability Research Institute, School of Earth and Environment,
 
 % Keywords
 \keyword{
-
-societal exergy analysis; efficiency; light; radiation; exergy; thermodynamics; illumination; lumen; luminous; spectrum; 
-}
+        exergy; efficiency; light; radiation; thermodynamics; illumination; lumen; luminous; spectrum.
+        }
 
 % (list three to ten pertinent keywords specific to the article, yet reasonably common within the subject discipline.)
 % The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
