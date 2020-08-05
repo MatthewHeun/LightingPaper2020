@@ -248,7 +248,7 @@ In response,
 we develop a new, exact method for calculating the exergetic efficiency of lamps, based on 
 recent results in the photometry literature.
 The exact method 
-(a)~is free of (possibly erroneous) assumptions for the maximum luminous efficacy, and 
+(a)~is free of (possibly erroneous) assumptions for the maximum luminous efficacy, 
 (b)~uses the correct spectral exergy-to-energy ratio, no longer assuming its value to be 1, and
 (c)~allows choices for the spectral weighting function.
 The exact method exposes assumptions inherent to the original method and 
