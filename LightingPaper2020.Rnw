@@ -2275,7 +2275,14 @@ Emmanuel Aramendia's time was funded by XXXXXX.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\acknowledgments{We would like to thank James D. Hooker for the use of data from the Museum of Electric Lamp Technology ~\cite{hooker_2020}, Alfonso Delgado-Bonal for his advice on the state of the discourse regarding the exergy to energy factor of light, Pedro J. Aphalo for his open-source software suite ‘r4phototbiology’~\cite{Aphalo2015}, Martin Aubé and Johanne Roby for the use of their Light Spectral Power Distribution Database (LSPDD)~\cite{aube2013}, Micheal Royer for his advice regarding photometric data,.......  }
+\acknowledgments{
+
+We would like to thank James D. Hooker for the use of data from the Museum of Electric Lamp Technology~\cite{hooker_2020, Alfonso Delgado-Bonal for his advice on the state of the discourse regarding the exergy to energy factor of light, 
+Pedro J. Aphalo for his open-source software suite ‘r4phototbiology’~\cite{Aphalo2015}, 
+Martin Aubé and Johanne Roby for the use of their Light Spectral Power Distribution Database (LSPDD)~\cite{aube2013}, 
+Andrew Stockman and other members of the Colour and Vision Research Laboratory for data for the photopic luminosity function~\cite{CVRL2008},
+Mark S. Rea and Andrew Bierman for the use of the universal luminosity function~\cite{Rea2018},
+and Micheal Royer for his advice regarding photometric data.}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
