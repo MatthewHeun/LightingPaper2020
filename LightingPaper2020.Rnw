@@ -245,7 +245,7 @@ In societal exergy analyses,
 the exergetic efficiency of lamps has been approximated by an energy efficiency, 
 resulting in much confusion to date. 
 In response, 
-we recent results in the photometry literature to
+we use recent results from the photometry thermodynamics of radiation literature to
 develop a new, exact method for calculating the exergetic efficiency of lamps.
 The exact method 
 (a)~is free of (possibly erroneous) assumptions for the maximum luminous efficacy, 
