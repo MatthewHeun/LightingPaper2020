@@ -1358,10 +1358,6 @@ Table~\ref{tab:wfs} summarizes the weighting functions discussed above.
 \label{sec:lamps}
 %------------------------------
 
-**** 
-Zeke: possibly add a bit to this section to discuss the process of normalizing the hero graph.---MKH
-****
-
 To demonstrate how the spectral weighting function~($f_\lambda$)
 affects the energy and exergy efficiency of lamps, 
 we need both weighting functions (Section~\ref{sec:weighting_functions}) and
@@ -1390,11 +1386,18 @@ the integral of the spectral radiant power taken from the relative intensity dat
 
 We then applied the scaling factor~($\mu$) to the spectral power distribution data for each lamp, 
 yielding a scaled spectral power distribution data~($\dot{E}_{EM,\lambda}$) for each lamp 
-that matches the manufacturer's reported radiant power.
+that matches the manufacturer's reported radiant power. 
 %
 \begin{equation} 
   \dot{E}_{EM,\lambda}  = \mu \dot{E}_{EM,\lambda,rel}
 \end{equation}
+
+Whilst the scaled spectral power distribution data was used for our analysis,
+to display the spectral power distributions of each lamp the data was normalised,
+so the peak of each spectral power distribution was equal to one.
+This allowed for lamps of different electricity consumption 
+and spectral power distribution profiles, and therefore different peaks,
+to be displayed concurrently.
 
 We selected one representative lamp for each of four common lamp technologies
 (incandescent, INC;
@@ -1808,15 +1811,6 @@ exergetic efficiency for the approximate method:
   \eta_{X,L,v} \approx \frac{ \; \; \frac{(683 \text{ lm/W}) \int V_\lambda \dot{E}_{EM,\lambda,3} \, \mathrm{d}\lambda}{\dot{W}_{elect,1}} \; \;}{K_{max}} \; .
 \end{equation}
 
-**** We need a unique symbol for this equation, the \emph{luminous efficiency}.
-We can say it is equivalent to $\eta_{E,v,pl}$, 
-but this is currently the symbol for the final-useful efficiency 
-for our method as detailed above ---ZM ****
-****
-Zeke: 
-I think I addressed this issue by using the $\approx$ symbol.
-Do you agree?---MKH
-****
 
 With recent advances in photometry (Section~\ref{sec:phi_light}),
 it is now possible to determine the energy and exergy of light exactly, 
@@ -1847,7 +1841,7 @@ As can be seen by comparing the luminous efficiency row of Table~\ref{tab:lamps}
 and the photopic luminosity row of Table~\ref{tab:results_etas},
 final-to-useful efficiencies calculated using the photopic luminosity function~($\eta_{E,v,pl}$, Equation \ref{eq:eta_E_v_light} (with $f_\lambda = V_\lambda$)
 are equivalent to luminous efficiency values
-~($\eta_{E,v,pl}$, Equation~\ref{eq:prev_eta_X_v_light}) 
+~(Equation~\ref{eq:prev_eta_X_v_light}) 
 when maximum luminous efficacy~($K_{max}$) is taken to be 683~lm/W.
 
 
@@ -1901,20 +1895,6 @@ In summary, the exact method provides the following benefits over the approximat
 
 \end{enumerate}
 
-
-****
-Discuss how to apply our method in a SEA context.
-Is our method applicable with data usually available to an analyst?---EAR
-****
-
-****
-EAR: Our method is not readily applicable to the SEA analyst as it requires SPD data on each lamp,
-or at least lighting technology used in that country, and over time.
-However, we can state that if the analyst deems that light is most useful at 555nm, and chooses to apply the photopic luminosity function the equation $\eta = \frac{K}{K_{max}}$ is equivalent to our approach if $K_{max} = 683 lm/W$
-We could offer an average $\phi$ value to replace $\phi_{\lambda}$ in order to move from energy to exergy, and even a factor to move from $\Phi_{pl}$ to $\Phi_{EM}$. This might be something to discuss at our next meeting ---ZM
-****
-
-
 ****
 By how much would SEA results change if we adopt this new methodology?
 I.e. how wrong were former studies and how critical is it to improve the methodology?---EAR
@@ -1931,6 +1911,9 @@ I think we should decide this as a group, and then we can quantify the differenc
 \label{sec:blue_light}
 %++++++++++++++++++++++++++++++
 
+**** Should we change this section to 'Rationale underpinning the selection of our recommended luminosity/weighting function with a subsubsection for blue light? ---ZM ****
+
+
 It is known that short wavelength EM radiation (bluer light)
 provides physiological benefits, such as
 the suppression of melanopsin and 
@@ -1940,7 +1923,7 @@ many lamps are designed with a blue spike
 in the region of 480~nm, 
 the peak of the melanopsin suppression action spectrum \cite{lucas2014}.
 The blue spike can be seen from the spectral power distribution~($\dot{E}_{EM,\lambda}$)
-for the LED lamp in Figure \ref{fig:wfs_and_lamps}. 
+for the LED lamp in Figure~\ref{fig:wfs_and_lamps}. 
 
 Manufacturers who design lamps with blue spikes
 do not get credit for their efforts, because 
@@ -1951,6 +1934,7 @@ which under-represents power at short wavelengths.
 This state of affairs biases lighting manufacturers to reduce short wavelength
 output of lamps, even when short wavelength EM radiation would 
 provide physiological benefits.
+
 To more accurately represent the utility of all wavelengths of light,
 the universal luminosity function~($U_\lambda$) has been proposed 
 as a replacement for the photopic luminosity function ($V_\lambda$), because it 
@@ -1966,32 +1950,130 @@ the physiological benefits of blue light.
 
 The choice of weighting function ($f_\lambda$) in societal exergy analysis
 should be appropriate for the application of each lamp.
-To provide consistency for societal exergy analysis community moving forward,
+
+As demonstrated by Figure~\ref{fig:wfs_and_lamps}, 
+which utilises the CIE 10 degree colour matching function 
+provided in the \emph{ggspectra} R package \cite{Aphalo2015},
+whilst the visible spectrum weighting function
+preserves all light within the visible spectrum (\humaneyesensitivity), 
+the human eyes perception of light and colour diminishing rapidly after $700nm$.
+
+Therefore, to provide consistency for societal exergy analysis community moving forward,
 we propose that societal exergy analysts 
 adopt the universal luminosity function ($U_\lambda$) in accordance with \cite{Rea2018},
 when the primary purpose of lamps is illumination.
+
 The switch from the photopic luminosity function~($V_\lambda$)
 to the universal luminosity function~($U_\lambda$) is made possible 
-by the exact method described in Section~\ref{sec:framework}. 
+by the exact method described in Section~\ref{sec:framework}.
+However in the absence of spectral power distribution data, 
+an approximate method detailed below in Section~\ref{sec:ConversionUniversal}
+must be used.
 
-**** We have still not finalised this decision. What do you all think? 
-If we propose this, we need to also lay out practical steps for analysts
-given that the available data is nearly always published in lm/W 
-i.e an additional factor per lamp ---ZM ****
-****
-Zeke: 
-I'm comfortable with recommending $U_\lambda$.
-I suggest that you write another paragraph here that discusses the difference in exergetic efficiency
-between using $V_\lambda$ and $U_\lambda$.
-Use Table~\ref{tab:results_etas}.
-Think of it this way: if you had only luminous efficacy (and not SPDs),
-how would you perform SEA that is closer to the exact method?
-One recommendation should be to assume $\phi_\lambda = 0.95$,
-I would suppose, based on Table~\ref{tab:results_phis}.
-But what about the effect of moving from $V_\lambda$ to $U_\lambda$?
-Can we get an approximate factor for that?---MKH
-****
 
+%++++++++++++++++++++++++++++++
+\subsection{Application for country-level societal exergy analysis}
+\label{sec:Application}
+%++++++++++++++++++++++++++++++
+
+%++++++++++++++++++++++++++++++
+\subsubsection{Aggregate lighting efficiencies}
+\label{sec:AggEfficiencies}
+%++++++++++++++++++++++++++++++
+
+To move from the final to useful energy/exergy efficiency of a single lamp, 
+to either an economy-wide or sectoral aggregate lighting efficiency, 
+several types of data are required for the given period of study:
+
+\begin{enumerate}[label={(\alph*)}]
+
+  \item efficiency data for each lamp technology~($\eta_{E,L,v}$ and $\eta_{X,L,v}$),
+  \item exergy-to-energy ratios for each of the corresponding lamp technologies~($\phi_L$), and
+  \item economy-wide electricity consumption by lamp technology~($\dot{W}_{elect,1}$).
+
+\end{enumerate}
+
+Items (a) and (b) are rarely reported for lamps, 
+nor is the associated spectral power distribution~(SPD) data.
+Instead, the most common measure of lighting efficiency reported for lamps is the luminous efficacy~($K$).
+Therefore, to develop an aggregate measure of lighting efficiency, 
+luminous efficacy data must be converted into efficiency values.
+As demonstrated in Section~\ref{sec:previous_approach} if the \emph{valuable} light
+is deemed to be the radiant power weighted by the photopic luminosity function 
+(luminous power, $\Phi_{pl}$),
+the final to useful efficiencies are equivalent to the luminous efficiency (Equation~\ref{eq:prev_eta_X_v_light}), namely $\frac{K}{683 lm/W}$.
+In the absence of SPD data a generalised exergy-to-energy ratio ($\phi_{i,pl}$) 
+for each technology type must be selected,
+as the shape of lamp spectral power distributions 
+display relatively little variation within technology groups
+compared to between groups, 
+the aggregate exergy to energy ratios for those lamps also display little variation.
+
+**** Shall i calculate phi for several types of the same type to demonstrate this? ---ZM ****
+
+Once efficiency series have been calculated
+and exergy to energy ratios obtained for each lamp type,
+data for the proportion of each lamp type in use for each year of the study is needed,
+i.e. the fleet of lamps, 
+and ideally in the form of the economy-wide electricity consumption by lamp technology.
+For example, tHe US DOE's Lighting Market Characterization reports provide such data for the USA,
+and for the years 2001~\cite{DOE2002}, 2010~\cite{DOE2012}, and 2015~\cite{DOE2017}, 
+along with associated luminous efficacy values, 
+and for the following lamp technologies: incandescent, halogen, compact fluorescent,
+linear fluorescent, high intensity discharge, LED and other.
+
+The aggregate lighting efficiency for a particular year is then given by
+
+\begin{equation} \label{eq:agg_eta}
+  \eta_{agg} = \sum \limits_{i \in Lamps} \theta_{i} \cdot \phi_{i,pl} \cdot \eta_{E,i,pl} 
+\end{equation}
+
+Where $\theta_{i}$ denotes the proportion of electricity consumption for lighting
+by a particular lamp technology for a given year.
+
+**** Do we provide a demonstration using the DOE data? 
+e.g. "for which we provide the concise following example........" ---ZM ****
+
+%++++++++++++++++++++++++++++++
+\subsubsection{Conversion to the use of the universal luminosity function}
+\label{sec:ConversionUniversal}
+%++++++++++++++++++++++++++++++
+
+Given the likely absence of spectral power distribution data 
+for each lamp technology over time, 
+an approximate method must be also used to adjust the available 
+final to useful energy efficiencies derived from luminous efficacy values, 
+which are based on the photopic luminosity function ($V_\lambda$), 
+to final to useful efficiencies based on the universal luminosity function ($U_\lambda$).
+
+Similarly to our proposed method of using a generalised exergy-to-energy ratio
+for each lamp technology ($\phi_{i,pl}$) (Section~\ref{sec:AggEfficiencies}),
+we propose a generalised conversion factor ($\upsilon_{i,univ}$) 
+to obtain approximate final to useful efficiencies 
+based on the universal luminosity function ($\eta_{E,univ}$)
+
+**** Create xtable with these factors 
+and insert above in results if group confirms this approach ---ZM ****
+
+**** How much of this text should be in the methods, and not the discussion? ---ZM ****
+
+Values for $\upsilon_{i,univ}$ are given by taking the quotient of 
+the final to useful efficiency of a lamp using the universal luminosity function ($\eta_{E,univ}$)
+and the same lamp using the photopic luminoisty function ($\eta_{E,pl}$).
+
+\begin{equation} \label{eq:conversionuniversal}
+  \upsilon_{i,univ} = \frac{\eta_{E,univ}}{\eta_{E,pl}}
+\end{equation}
+
+
+Including this conversion factor then provides a method for 
+
+\begin{equation} \label{eq:agg_eta_univ}
+  \eta_{agg} = \sum \limits_{i \in Lamps} \theta_{i} \cdot 
+                                          \upsilon_{i,univ} \cdot 
+                                          \phi_{i,univ} \cdot 
+                                          \eta_{E,i,pl} 
+\end{equation}
 
 %++++++++++++++++++++++++++++++
 \subsection{Further challenges}
@@ -2106,66 +2188,6 @@ beyond the scope of our study.
 
 
 
-%++++++++++++++++++++++++++++++
-\subsection{Application for country-level societal exergy analysis}
-\label{sec:Application}
-%++++++++++++++++++++++++++++++
-
-To move from the final to useful energy/exergy efficiency of a single lamp, 
-to either an economy-wide or sectoral aggregate lighting efficiency, 
-several types of data are required for the given period of study:
-
-\begin{enumerate}[label={(\alph*)}]
-
-  \item efficiency data for each lamp technology~($\eta_{E,L,v}$ and $\eta_{X,L,v}$),
-  \item exergy-to-energy ratios for each of the corresponding lamp technologies~($\phi_L$), and
-  \item electricity consumption by lamp technology~($\dot{W}_{elect,1}$).
-
-\end{enumerate}
-
-Items (a) and (b) are rarely reported for lamps, nor is the associated spectral power distribution~(SPD) data.
-Instead, the most common measure of lighting efficiency reported for lamps is the luminous efficacy~($K$).
-Therefore, to develop an aggregate measure of lighting efficiency, 
-luminous efficacy data must be converted into efficiency values.
-As demonstrated in Section~\ref{sec:previous_approach} if the \emph{valuable} light
-is deemed to be the radiant power weighted by the photopic luminosity function 
-(luminous power, $\Phi_{pl}$),
-the final to useful efficiencies are equivalent to the luminous efficiency, 
-namely $\frac{K}{683 lm/W}$.
-In the absence of SPD data an exergy to energy ratio for each technology type must be selected,
-as the shape of lamp SPD's display relatively little variation within technology groups
-compared to between groups, 
-the aggregate exergy to energy ratios for those lamps also display little variation.
-
-**** Shall i calculate phi for several types of the same type to demonstrate this? ---ZM ****
-
-**** Do we provide factors to move from $\Phi_{EM,i,pl}$ to $\Phi_{EM,i,?}$ ---ZM ****
-
-Once efficiency series have been calculated
-and exergy to energy ratios obtained for each lamp type,
-data for the proportion of each lamp type in use for each year of the study is needed,
-i.e. the fleet of lamps, 
-and ideally in the form of electricity consumption by lighting technology.
-For example, tHe US DOE's Lighting Market Characterization reports provide such data for the USA,
-and for the years 2001~\cite{DOE2002}, 2010~\cite{DOE2012}, and 2015~\cite{DOE2017}, 
-along with associated luminous efficacy values, 
-and for the following lamp technologies: incandescent, halogen, compact fluorescent,
-linear fluorescent, high intensity discharge, LED and other.
-
-The aggregate lighting efficiency for a particular year is then given by
-
-\begin{equation} \label{eq:agg_eta}
-  \eta_{agg} = \sum \limits_{i \in Lamps} \theta_{i,pl} \cdot \phi_{i,pl} \cdot \eta_{E,i,pl} 
-\end{equation}
-
-Where $\theta_{i}$ denotes the proportion of electricity consumption for lighting
-by a particular lamp technology for a given year.
-
-**** Do we provide a demonstration using the DOE data? 
-e.g. "for which we provide the concise following example........" ---ZM ****
-
-
-Doing this work is beyond the scope of this paper.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
