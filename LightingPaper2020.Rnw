@@ -262,7 +262,7 @@ for societal exergy analysts:
 
 % Keywords
 \keyword{
-        exergy; efficiency; light; radiation; thermodynamics; illumination; lumen; luminous; spectrum.
+        exergy; efficiency; light; radiation; thermodynamics; illumination; lumen; luminous; spectrum
         }
 
 % (list three to ten pertinent keywords specific to the article, yet reasonably common within the subject discipline.)
