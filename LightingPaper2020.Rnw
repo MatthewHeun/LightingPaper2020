@@ -241,10 +241,11 @@ $^{2}$ \quad Sustainability Research Institute, School of Earth and Environment,
 
 % Keywords
 \keyword{
-% (list three to ten pertinent keywords specific to the article, yet reasonably common within the subject discipline.)
-keyword 1; keyword 2; keyword 3
+
+societal exergy analysis; efficiency; light; radiation; exergy; thermodynamics; illumination; lumen; luminous; spectrum; 
 }
 
+% (list three to ten pertinent keywords specific to the article, yet reasonably common within the subject discipline.)
 % The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
 %\PACS{J0101}
 %\MSC{}
