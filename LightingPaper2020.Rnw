@@ -2075,7 +2075,7 @@ However, two further losses occur before the valuable light is available for wor
         where a proportion of light never exits the device, and 
    
   \item light which is incident upon surfaces that do not need to be illuminated,
-        such as ceilings.
+        such as ceilings. **** Is that correct? Would one see the ceiling if it is not illuminated? --- EAR ****
 
 \end{enumerate}
 %
