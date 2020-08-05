@@ -2059,41 +2059,35 @@ Do you agree?---MKH
 
 
 %------------------------------
-\subsubsection{Waste light from lamps (MKH and ZM)}
+\subsubsection{Waste light from lamps}
 \label{sec:waste_light}
 %------------------------------
 
-In the exact method of this study,
-light is considered wasted if it either outside of the range of wavelengths
+In the exact method,
+light is considered un-valuable if it is either outside of the range of wavelengths
 in a spectral weighting function~($f_\lambda$), or
 within a wavelength of light for which the radiant power has been reduced as a result of a weighting function.
-The portion of light not wasted is termed the valuable light ($\Phi_v$).
-
-This mechanism is discussed in Section~\ref{sec:effect_weighting_functions}.
-
-However, our framework assumes that all of the valuable light emitted by a lamp is utilised. 
-Two further losses occur before the valuable light is available for work \cite{CullenPhD}.
+However, two further losses occur before the valuable light is available for work \citep{CullenPhD}:
 %
 \begin{enumerate}[label={(\alph*)}]
 
-  \item Losses within the luminaire (lamp housing) - 
-        where a proportion of light never exits the device.
+  \item losses within the luminaire (lamp housing), 
+        where a proportion of light never exits the device, and 
    
-  \item Light which is incident upon surfaces which do not need to be illuminated
-        such as ceilings. Together with luminaire losses, 
-        this is quantified by the luminaire output ratio.
+  \item light which is incident upon surfaces that do not need to be illuminated,
+        such as ceilings.
 
 \end{enumerate}
 %
-Furthermore, there are three additional passive losses of light, as detailed by \citet{CullenPhD}.
+Furthermore, there are three additional inefficiencies, as detailed by \citet{CullenPhD}.
 %
 \begin{enumerate}[label={(\alph*)}]
 
-  \item Light which is emitted with an excessive intensity.
+  \item Light which is emitted with excessive intensity.
    
-  \item Light which is incident upon surfaces which are not the primary purpose of illumination.
+  \item Light which is incident upon surfaces which are not the primary purpose of illumination. **** Is this the same as (b) in the list above?---MKH ****
   
-  \item Light which is under-utilised, e.g. through under-occupancy.
+  \item Light which is under-utilized, e.g., through under-occupancy.
        
 
 \end{enumerate}
@@ -2123,16 +2117,16 @@ several types of data are required for the given period of study:
 
 \begin{enumerate}[label={(\alph*)}]
 
-  \item Final to useful efficiency data for each lamp technology
-  \item Energy to exergy ratios for each of the corresponding lamp technologies
-  \item Electricity consumption by lamp technology
+  \item efficiency data for each lamp technology~($\eta_{E,L,v}$ and $\eta_{X,L,v}$),
+  \item exergy-to-energy ratios for each of the corresponding lamp technologies~($\phi_L$), and
+  \item electricity consumption by lamp technology~($\dot{W}_{elect,1}$).
 
 \end{enumerate}
 
-Items $a$ and $b$ are rarely reported for lamps, nor is the associated SPD data.
-Instead the most common measure of lighting efficiency reported for lamps is the luminous efficacy.
+Items (a) and (b) are rarely reported for lamps, nor is the associated spectral power distribution~(SPD) data.
+Instead, the most common measure of lighting efficiency reported for lamps is the luminous efficacy~($K$).
 Therefore, to develop an aggregate measure of lighting efficiency, 
-luminous efficacy data must be converted into final to useful efficiency values.
+luminous efficacy data must be converted into efficiency values.
 As demonstrated in Section~\ref{sec:previous_approach} if the \emph{valuable} light
 is deemed to be the radiant power weighted by the photopic luminosity function 
 (luminous power, $\Phi_{pl}$),
