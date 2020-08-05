@@ -2254,24 +2254,6 @@ in the decision to publish the results.}
 
 \input{pieces/nomenclature.tex}
 
-**** I think we need to get rid of the subscript L. 
-             We currently use this to denote light, 
-             but what we deem light is a function of a particular weighting function 
-             which we should always specify in the subscript in all of our metrics. 
-             We should also always specify whether the radiant power is in energy ($E$)
-             or exergy ($X$) terms.
-             
-             As i have done for the etas the radiant power should be denoted as follows:
-             ($\Phi_{E or X, f_{\lambda}}$)
-             
-             and the spectral radiant power should be denoted as follows
-             ($\Phi_{E or X,\lambda, f_{\lambda}}$)
-        
-             If we keep L we should make it clear that this is a special case 
-             for the photopic luminosity function only, 
-             however I don't think we should, 
-             its easy enough for the reader to see the subscript $pl$! ---ZM ****
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% optional
