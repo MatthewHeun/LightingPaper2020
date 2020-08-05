@@ -1714,7 +1714,7 @@ print(xtable::xtable(results_phi_fin, digits=3,
 \label{sec:results_exergy_efficiencies}
 %++++++++++++++++++++++++++++++
 
-Exergyu efficiencies~($\eta_{X,L,v}$) of the various combinations of weighting functions and lamps
+Exergetic efficiencies~($\eta_{X,L,v}$) of the various combinations of weighting functions and lamps
 are shown in Table~\ref{tab:results_etasX}.
 
 <<results_etasX_table, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/results_etasX_xtable.R')>>=
@@ -1829,10 +1829,10 @@ is correct only under the following conditions:
 %
 \begin{enumerate}[label={(\alph*)}]
 	
+  \item the maximum luminous efficacy ($K_{max}$) is assumed to be 683~lm/W, and 
+
   \item $\phi_{L,\lambda} = 1$ for all wavelengths,
 
-  \item the maximum luminous efficacy ($K_{max}$) is assumed to be 683~lm/W, and 
-  
   \item the spectral weighting function is taken to be the photopic luminosity function ($f_\lambda = V_\lambda$).
 
 \end{enumerate}
@@ -1853,16 +1853,8 @@ when maximum luminous efficacy~($K_{max}$) is taken to be 683~lm/W.
 The above comparison between the previous approximate method (Section~\ref{sec:previous_approach}) and
 the new exact method of Section~\ref{sec:light_efficiency}
 raises three implications for societal exergy analysis.
-First, to obtain the correct exergetic efficiency of lighting, 
-analysts must reject the assumption of the previous approximate method that $\phi_{L,\lambda} = 1$.
-Recent progress in photometry enables this rejection, 
-following the methods of Section~\ref{sec:phi_light}.
-Specifically, the spectral exergy-to-energy ratio of light ($\phi_{L,\lambda}$)
-of Equation~\ref{eq:phi_L_lambda_shan_zhou} and Figure~\ref{fig:wfs_and_lamps} should be used.
-We note, however, that $\phi_{L,\lambda}$ is close to~1 for all wavelengths of interest to illumination.
-Happily, the previous approximate method was not far wrong.
 
-Second, with the previous approximate method, 
+First, with the previous approximate method, 
 the analyst was required to select a value for maximum luminous efficacy ($K_{max}$), 
 the denominator of Equation~\ref{eq:prev_eta_X_v_light}.
 The choice of $K_{max}$ can make a significant difference to the results.
@@ -1872,6 +1864,15 @@ Many authors assume $K_{max} = 400 \text{ lm/W}$
 (e.g., \citet{Ayres2005} and \citet{Guevara2016}),
 thereby incorrectly overestimating exergetic efficiency of lighting~($\eta_{X,L,v}$)
 by a factor of $\frac{683 \text{ lm/W}}{400 \text{ lm/W}} = 1.71$.
+
+Second, to obtain the correct exergetic efficiency of lighting, 
+analysts must reject the assumption of the previous approximate method that $\phi_{L,\lambda} = 1$.
+Recent progress in photometry enables this rejection, 
+following the methods of Section~\ref{sec:phi_light}.
+Specifically, the spectral exergy-to-energy ratio of light ($\phi_{L,\lambda}$)
+of Equation~\ref{eq:phi_L_lambda_shan_zhou} and Figure~\ref{fig:wfs_and_lamps} should be used.
+We note, however, that $\phi_{L,\lambda}$ is close to~1 for all wavelengths of interest to illumination.
+Happily, the previous approximate method was not far wrong to assume $\phi_L = 1$.
 
 Third, in the approximate method, 
 the analyst is required to use the photopic luminosity function~($V_\lambda$)
