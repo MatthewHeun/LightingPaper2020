@@ -1452,8 +1452,8 @@ All graphs were constructed and calculations were performed using \texttt{R}~\ci
 
 
 %++++++++++++++++++++++++++++++
-\subsection{Exergy-to-energy ratio ($\phi_{L,\lambda}$)}
-\label{sec:results_phi_L}
+\subsection{Spectral exergy-to-energy ratio ($\phi_{L,\lambda}$)}
+\label{sec:results_phi_L_lambda}
 %++++++++++++++++++++++++++++++
 
 The top-left graph in Figure~\ref{fig:wfs_and_lamps} shows 
@@ -1682,7 +1682,7 @@ print(xtable::xtable(results_etas_fin, digits=2,
 
 
 %++++++++++++++++++++++++++++++
-\subsection{Energy-to-exergy ratio ($\phi_{L,\lambda}$)}
+\subsection{Energy-to-exergy ratio ($\phi_L$)}
 \label{sec:results_phi_L}
 %++++++++++++++++++++++++++++++
 
@@ -2056,7 +2056,7 @@ to final to useful efficiencies based on the universal luminosity function ($U_\
 
 Similarly to our proposed method of using a generalised exergy-to-energy ratio
 for each lamp technology ($\phi_{i,pl}$) (Section~\ref{sec:AggEfficiencies}),
-we propose a generalised conversion factor ($\upsilon_{i,univ}$) 
+we propose a generalized conversion factor ($\upsilon_{i,univ}$) 
 to obtain approximate final to useful efficiencies 
 based on the universal luminosity function ($\eta_{E,univ}$)
 
@@ -2068,6 +2068,12 @@ and insert above in results if group confirms this approach ---ZM ****
 Values for $\upsilon_{i,univ}$ are given by taking the quotient of 
 the final to useful efficiency of a lamp using the universal luminosity function ($\eta_{i,E,univ}$)
 and the same lamp using the photopic luminoisty function ($\eta_{i,E,pl}$).
+
+**** 
+Zeke:  Can we move away from $\upsilon$? It looks too much like ``$v$,''
+which we use as a subscript to mean ``valuable.''
+Maybe $\rho$ or $\gamma$, instead?---MKH
+****
 
 \begin{equation} \label{eq:conversionuniversal}
   \upsilon_{i,univ} = \frac{\eta_{E,univ}}{\eta_{E,pl}}
