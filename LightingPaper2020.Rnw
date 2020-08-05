@@ -2113,6 +2113,7 @@ the winter/summer effects of lamps cancel, to first order.
 Some lamps, commonly termed heat lamps, infrared lamps, or infrared heaters are
 explicitly designed to produce radiative heat 
 (light in the form of near and far infrared radiation) 
+and thermal heat
 for various purposes, including
 space heating, incubator heating, plastic manufacture, 
 food preparation, and warming animals in captivity.
@@ -2129,15 +2130,6 @@ ignored waste heat from lamps,
 implicitly assuming that winter and summer effects cancel.
 We contend that the issue deserves further study,
 but that is a topic for another paper.
-
-****
-Shall we outline the three mechanisms of heat transfer above, 
-namely thermal radiation/radiative heat, convection and conduction? ---ZM 
-****
-See my rewrite above.  
-I don't think it is necessary to review the modes of heat transfer. 
-Do you agree?---MKH
-****
 
 
 %------------------------------
