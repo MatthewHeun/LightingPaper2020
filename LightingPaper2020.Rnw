@@ -236,12 +236,33 @@ $^{2}$ \quad Sustainability Research Institute, School of Earth and Environment,
 % The abstract should be an objective representation of the article, 
 % it must not contain results which are not presented and substantiated 
 % in the main text and should not exaggerate the main conclusions.
-**** Add abstract. ****
+Artificial lighting provides an indispensable energy service (illumination) for modern life. 
+The field of societal exergy analysis considers light (and many other energy products)
+to be an input to economic growth. 
+Lighting contributes a small, but non-negligible fraction of total useful exergy
+input to modern economies.
+In societal exergy analyses, 
+the exergetic efficiency of lamps has been approximated by an energy efficiency, 
+resulting in much confusion to date. 
+In response, 
+we develop a new, exact method for calculating the exergetic efficiency of lamps, based on 
+recent results in the photometry literature.
+The exact method 
+(a)~is free of (possibly erroneous) assumptions for the maximum luminous efficacy, and 
+(b)~uses the correct spectral exergy-to-energy ratio, no longer assuming its value to be 1, and
+(c)~allows choices for the spectral weighting function.
+The exact method exposes assumptions inherent to the original method and 
+leads to a better approximation of lamp exergetic efficiency, when needed.
+To conclude, we provide two recommendations 
+for societal exergy analysts:
+(a)~use the new, exact method and the universal luminosity weighting function 
+    when lamp spectral power distribution data are available and
+(b)~use a reasonable approximation to the exact method when only lamp luminous efficacy data are available.
 }
 
 % Keywords
 \keyword{
-        exergy; efficiency; light; radiation; thermodynamics; illumination; lumen; luminous; spectrum.
+        exergy; efficiency; light; radiation; thermodynamics; illumination; lumen; luminous; spectrum
         }
 
 % (list three to ten pertinent keywords specific to the article, yet reasonably common within the subject discipline.)
@@ -271,108 +292,7 @@ $^{2}$ \quad Sustainability Research Institute, School of Earth and Environment,
 % For any questions, please contact the editorial office of the journal or
 % support@mdpi.com. For LaTeX related questions please contact latex@mdpi.com.
 
-Suggested 6750 words.
 
-Install the wordcount package from \url{https://github.com/benmarwick/wordcountaddin} to count words.
-
-Terminology for this paper:
-%
-\begin{enumerate}
-
-  \item Light is the visible portion of the electromagnetic spectrum.
-  
-  \item ``spectrum'' means a range of wavelengths.
-  
-  \item ``spectra'' are several ranges of wavelengths.
-
-  \item Light is a form of useful energy. Illumination is an energy service.
-  
-  \item Lamps are devices that convert electricity into light.
-  
-  \item To avoid ambiguity, we should not use ``lights'' to mean ``lamps.''
-
-  \item Always be specific about energy and exergy.  
-        Any time you use the words energy or exergy, be sure you mean it.  
-        If you mean either, say ``energy or exergy.''
-
-  \item Never use the word ``useful'' unless you mean the useful stage of the energy conversion chain.
-  
-  \item Let's be very clear about power and energy.  Use overdots ($\dot{X}$) to indicate powers (rates of energy).
-  
-  \item Review the nomenclature tables at the end of the paper.  
-        If you use a new variable name, be sure you can't use a letter that already exists in the nomenclature tables.
-        If you must use a new variable letter, add it to the table the first time you use it.
-        
-  \item Only single letters for main variable names.  
-        Use subscripts to provide additional meaning.  
-        Use decorations to indicate rates.
-        
-  \item The exergy-to-energy ratio ($\phi$) is \emph{not} second law efficiency ($\eta_X$)
-        The energy-to-exergy ratio ($\phi$) applies at every statepoint.  
-        $\eta_E$ and $\eta_X$ apply across energy conversion devices.
-        
-  \item Power is energy per time. watts are power.
-  
-  \item Spectral radiant power and radiant power refer to the electromagnetic radiation emitted 
-        by a lamp as measured directly in Watts. Spectral luminous power and luminous power \emph{only} refer
-        to the electromagnetic radiation emitted by a lamp as measured in lumens (by applying the photopic luminosity function,
-        and multiplying by a factor of 683 lm/W)
-  
-  \item Flux is quantity per unit area per unit time. W/m$^2$ is a flux.
-        
-  \item Do not confuse power and flux.  Do not write ``radiant power/flux,''
-        seemingly indicating that power and flux
-        are synonyms.  Power and flux are not synonyms.
-
-\end{enumerate}
-%
-
-Style for this paper:
-%
-\begin{enumerate}
-
-  \item Do not use ``this,'' ``that'', or ``it'' as the subject of a sentence. (MKH pet peeve!)
-        Sentences that have those words as subjects are 
-        almost never clear to the reader
-        yet almost always clear to the writer.
-        Why? The antecedent is almost always ambiguous.
-
-  \item Spell out ``Figure~X,'' ``Equation~Y,'' and ``Table~Z.''  Capitalize all.
-  
-  \item Use SI units for everything.
-  
-  \item Every number that deserves a unit must have a unit.  Do not write ``683'' without units, for example. 
-  
-  \item Use the Oxford comma:  ``This, that, and the other;'' not ``This, that and the other.''
-  
-  \item Write comments to other authors in the text with ``**** comment --- MKH ****''.
-  
-  \item Let's use a space between numbers and percent signs. Best to use a non-breaking space (see below).
-  
-  \item The word data is plural, not singular.  The word datum is singular.
-
-\end{enumerate}
-%
-
-\LaTeX{} hints:
-%
-\begin{enumerate}
-	
-  \item Use short lines with return characters after every clause.  
-  
-  \item Comment lines after the equation environment to continue a sentence or paragraph.
-  
-  \item Check comments in \texttt{LightingPaper2020.bib} file for hints about bibliography generation.
-  
-  \item Use ``\textasciitilde'' character for non-breaking space. 
-        ``\textasciitilde'' is especially useful between numbers and their units.
-        E.g., 683\textasciitilde{}lm/W.
-        
-  \item Quotation marks: Opening quotes with two back-tics: ``.
-        Closing quotes with two apostrophes: ''.
-        Do not use the quotation mark key on the keyboard.
-    
-\end{enumerate}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
