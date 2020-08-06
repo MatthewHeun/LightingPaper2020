@@ -1377,7 +1377,7 @@ print(xtable::xtable(results_lamp_info_fin, digits=0,
 Results are provided in Figure~\ref{fig:wfs_and_lamps} for 
 the spectral exergy-to-energy ratio for light~($\phi_{L,\lambda}$), 
 spectral weighting functions~($f_\lambda$),
-the spectral emissive power of lamps~($\dot{E}_{EM,\lambda}$ and $\dot{X}_{EM,\lambda}$), and
+the normalized spectral emissive power of lamps~($\dot{E}_{EM,\lambda}$ and $\dot{X}_{EM,\lambda}$), and
 spectral light emitted by lamps~($\dot{E}_{L,\lambda}$ and $\dot{X}_{L,\lambda}$).
 Tables~\ref{tab:results_etas}--\ref{tab:results_etasX}
 give efficiencies~($\eta_{E,L,v}$ and $\eta_{X,L,v}$) and exergy-to-energy ratios~($\phi_{L,\lambda}$).
@@ -1520,9 +1520,8 @@ response_data %>%
                           The dark green lines show spectral light as exergy~($\dot{X}_{L,\lambda}$).
                           The spectral luminous power~($\Phi_{\lambda,pl}$) 
                           is shown in the ``Photopic'' row. 
-             Peak spectral values are normalized to 1 for 
-             spectral radiant power~($\dot{E}_{EM,\lambda}$ and $\dot{X}_{EM,\lambda}$)
-             for ease of visual comparison.}
+             Peak spectral radiant power~($\dot{E}_{EM,\lambda}$) values are normalized to 1 for 
+             for each lamp.}
 	\label{fig:wfs_and_lamps}
 \end{figure}
 
@@ -1533,7 +1532,7 @@ response_data %>%
 %++++++++++++++++++++++++++++++
 
 The four weighting functions discussed in Section~\ref{sec:weighting_functions} and Table~\ref{tab:wfs}
-are shown only the left side of Figure~\ref{fig:wfs_and_lamps}.
+are shown on the left side of Figure~\ref{fig:wfs_and_lamps}.
 
 
 %++++++++++++++++++++++++++++++
@@ -1542,7 +1541,8 @@ are shown only the left side of Figure~\ref{fig:wfs_and_lamps}.
 %++++++++++++++++++++++++++++++
 
 The four graphs in the top-right of Figure~\ref{fig:wfs_and_lamps}
-show spectral radiant power ($\dot{E}_{EM,\lambda}$) as the top of the gray region for each lamp.
+show normalized spectral radiant power ($\dot{E}_{EM,\lambda}$) 
+at the top of the gray region for each lamp.
 Applying Equation~\ref{eq:phi_L_lambda_shan_zhou} 
 to the four lamps identified in Section~\ref{sec:lamps}
 gives spectral radiant power in exergy terms ($\dot{X}_{EM,\lambda}$),
@@ -1743,7 +1743,6 @@ exergetic efficiency for the conventional method:
   \eta_{X,L,v} \approx \frac{ \; \; \frac{(683 \text{ lm/W}) \int V_\lambda \dot{E}_{EM,\lambda,3} \, \mathrm{d}\lambda}{\dot{W}_{elect,1}} \; \;}{K_{max}} \; .
 \end{equation}
 
-
 With recent advances in photometry and the thermodynamics of radiation 
 (Section~\ref{sec:phi_light}),
 it is now possible to determine the energy and exergy of light exactly, 
@@ -1771,12 +1770,27 @@ is correct only under the following conditions:
 
 \end{enumerate}
 
-As can be seen by comparing the luminous efficiency row of Table~\ref{tab:lamps} 
-and the photopic luminosity row of Table~\ref{tab:results_etas},
-final-to-useful efficiencies calculated using the photopic luminosity function~($\eta_{E,v,pl}$, Equation \ref{eq:eta_E_v_light} (with $f_\lambda = V_\lambda$)
-are equivalent to luminous efficiency values
-~(Equation~\ref{eq:prev_eta_X_v_light}) 
+These assumptions are verified 
+by comparing the luminous efficiency row of Table~\ref{tab:lamps} 
+to the photopic luminosity row of Table~\ref{tab:results_etas}.
+Valuable energy efficiencies 
+calculated using the photopic luminosity
+function~($\eta_{E,L,v,pl}$, Equation \ref{eq:eta_E_v_light})
+are equivalent to luminous efficiency values~(Equation~\ref{eq:prev_eta_X_v_light}) 
 when maximum luminous efficacy~($K_{max}$) is taken to be 683~lm/W.
+
+Furthermore, when the maximum luminous efficacy~($K_{max}$) is taken to be 683~lm/W 
+and the weighting function is taken to be the photopic luminosity function 
+(as they should for the conventional method), 
+the conventional method of Equation~\ref{eq:prev_eta_X_v_light} 
+reduces to Equation~\ref{eq:eta_E_v_light},
+which is the valuable energy efficiency of a lamp.
+That is to say, one way to interpret the conventional method
+(Equation~\ref{eq:prev_eta_X_v_light})
+is that it estimates the 
+\emph{exergetic} efficiency of a lamp 
+by the
+\emph{energy} efficiency of the lamp.
 
 
 %------------------------------
@@ -1785,10 +1799,10 @@ when maximum luminous efficacy~($K_{max}$) is taken to be 683~lm/W.
 %------------------------------
 
 The above comparison between the conventional method (Section~\ref{sec:previous_approach}) and
-the new, exact method of Section~\ref{sec:light_efficiency}
+the exact method of Section~\ref{sec:light_efficiency}
 raises three implications for societal exergy analysis.
 
-First, with the previous approximate method, 
+First, with the conventional method, 
 the analyst was required to select a value for maximum luminous efficacy ($K_{max}$), 
 the denominator of Equation~\ref{eq:prev_eta_X_v_light}.
 The choice of $K_{max}$ can make a significant difference to the results.
@@ -1812,8 +1826,9 @@ Third, in the conventional method,
 the analyst is required to use the photopic luminosity function~($V_\lambda$)
 for the specular weighting function~($f_\lambda$).
 However, it is not certain that the photopic luminosity function
-is the best choice, 
-as discussed in Section~\ref{sec:reccuniv} below.
+is the best choice.
+In fact, we later recommend the universal luminosity function.
+(See Section~\ref{sec:reccuniv}.)
 
 In summary, the exact method provides the following benefits over the conventional method:
 %
@@ -1973,7 +1988,7 @@ final to useful energy efficiencies derived from luminous efficacy values,
 which are based on the photopic luminosity function ($V_\lambda$), 
 to final to useful efficiencies based on the universal luminosity function ($U_\lambda$).
 
-Similarly to our proposed method of using a generalised exergy-to-energy ratio
+Similarly to our proposed method of using a generalized exergy-to-energy ratio
 for each lamp technology ($\phi_{i,pl}$) 
 or across all lamp technologies ($\phi_{pl}$)  (Section~\ref{sec:AggEfficiencies}),
 we propose a generalized conversion factor,
@@ -2181,53 +2196,56 @@ Do we want to include something about waste heat from lamps?
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\authorcontributions{Conceptualization, M.K.H., Z.M., E.A. and P.E.B.; 
-methodology, M.K.H., Z.M. and E.A. ; 
-software, M.K.H., Z.M. and E.A.; 
-validation,  M.K.H. and Z.M.; 
-formal analysis, M.K.H., Z.M. and E.A.; 
-investigation, M.K.H. and Z.M.; 
-resources, M.K.H.; 
-data curation, M.K.H. and Z.M.; 
-writing--original draft preparation, M.K.H., Z.M., E.A. and P.E.B.; 
-writing--review and editing, M.K.H., Z.M., E.A. and P.E.B.; 
-visualization, M.K.H., Z.M. and E.A.; 
-supervision, M.K.H. and P.E.B.; 
-project administration, M.K.H. and P.E.B.; 
-funding acquisition, P.E.B.
+\authorcontributions{Conceptualization: M.K.H., Z.M., E.A., and P.E.B.; 
+methodology: M.K.H., Z.M., and E.A.; 
+software: M.K.H., Z.M., and E.A.; 
+validation: M.K.H. and Z.M.; 
+formal analysis: M.K.H., Z.M., and E.A.; 
+investigation: M.K.H. and Z.M.; 
+resources: M.K.H.; 
+data curation: M.K.H. and Z.M.; 
+writing--original draft preparation: M.K.H., Z.M., E.A., and P.E.B.; 
+writing--review and editing: M.K.H., Z.M., E.A., and P.E.B.; 
+visualization: M.K.H., Z.M., and E.A.; 
+supervision: M.K.H. and P.E.B.; 
+project administration: M.K.H. and P.E.B.; 
+funding acquisition: P.E.B.}
 
 All authors have read and agreed to the published version of the manuscript.
 
-Please turn to the  \href{http://img.mdpi.org/data/contributor-role-instruction.pdf}{CRediT taxonomy} for the term explanation. Authorship must be limited to those who have contributed substantially to the work reported.}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\funding{Matthew K. Heun's receieved no funding for time spent on this paper. 
-Paul E. Brockway and Zeke Marshall's time was funded by the Engineering and Physical Sciences Research Council (EPSRC) Fellowship grant RG.EVEA.112727.001.
+\funding{Paul E. Brockway and Zeke Marshall's time was funded by the Engineering and Physical Sciences Research Council (EPSRC) Fellowship grant RG.EVEA.112727.001.
 Emmanuel Aramendia's time was funded by XXXXXX.
+Matthew K. Heun has no funding to declare.
 }
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\acknowledgments{We would like to thank James D. Hooker for the use of data from the Museum of Electric Lamp Technology~\cite{hooker_2020}, 
-Alfonso Delgado-Bonal for his advice on the state of the discourse regarding the exergy to energy factor of light, 
-Pedro J. Aphalo for his open-source software suite ‘r4phototbiology’~\cite{Aphalo2015}, 
-Martin Aubé and Johanne Roby for the use of their Light Spectral Power Distribution Database (LSPDD)~\cite{aube2013}, 
-Andrew Stockman and other members of the Colour and Vision Research Laboratory for data for the photopic luminosity function~\cite{CVRL2008},
-Mark S. Rea and Andrew Bierman for the use of the universal luminosity function~\cite{Rea2018},
-and Micheal Royer for his advice regarding photometric data.
+\acknowledgments{The authors thank
+James D. Hooker for
+  the use of data from the Museum of Electric Lamp Technology~\cite{hooker_2020}, 
+Alfonso Delgado-Bonal for
+  his advice on the state of the discourse regarding the exergy-to-energy ratio of light, 
+Pedro J. Aphalo for
+  his open-source software suite ‘r4phototbiology’~\cite{Aphalo2015}, 
+Martin Aub\`{e} and Johanne Roby for
+  the use of their Light Spectral Power Distribution Database (LSPDD)~\cite{aube2013}, 
+Andrew Stockman and other members of the Colour and Vision Research Laboratory for 
+  data for the photopic luminosity function~\cite{CVRL2008},
+Mark S. Rea and Andrew Bierman for
+  the use of the universal luminosity function~\cite{Rea2018}, and
+Micheal Royer for
+  his advice regarding photometric data.
 }
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\conflictsofinterest{The authors declare no conflict of interest. 
+\conflictsofinterest{The authors declare no conflicts of interest. 
 The funders had no role in the design of the study; 
 in the collection, analyses, or interpretation of data; 
 in the writing of the manuscript; or 
 in the decision to publish the results.} 
-
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
