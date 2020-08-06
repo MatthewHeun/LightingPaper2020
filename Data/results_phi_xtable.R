@@ -30,5 +30,8 @@ colnames(results_phi_fin) <- names(lamp_list)  # c("INC", "HPS", "CFL", "LED")
 
 # Replace wf_list wf_name with actual wf name ()
 
-rownames(results_phi_fin) <- c("Unweighted ($\\phi_{uw}$)", "Vis. spectrum ($\\phi_{vis}$)", "Photopic lum. ($\\phi_{pl}$)", "Universal lum. ($\\phi_{univ}$)")
+rownames(results_phi_fin) <- c("Unweighted ($\\phi_{L,uw}$)", 
+                               "Vis. spectrum ($\\phi_{L,vis}$)", 
+                               "Photopic lum. ($\\phi_{L,pl}$)", 
+                               "Universal lum. ($\\phi_{L,univ}$)")
 

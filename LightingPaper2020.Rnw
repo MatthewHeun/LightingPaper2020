@@ -245,8 +245,8 @@ In societal exergy analyses,
 the exergetic efficiency of lamps has been approximated by an energy efficiency, 
 resulting in much confusion to date. 
 In response, 
-we use recent results from the photometry and thermodynamics of radiation literature to
-develop a new, exact method for calculating the exergetic efficiency of lamps.
+we use recent results from the photometry and thermodynamics of radiation literatures to
+develop a new, exact method for calculating the exergy of light and the exergetic efficiency of lamps.
 The exact method 
 (a)~is free of (possibly erroneous) assumptions for the maximum luminous efficacy, 
 (b)~uses the correct spectral exergy-to-energy ratio, no longer assuming its value to be 1, and
@@ -764,11 +764,11 @@ For the heat engine in Figure~\ref{fig:heat_engine},
 %
 \begin{equation} \label{eq:exergy_efficiency}
   \eta_X = \frac{\dot{X}_2 + \dot{X}_3}{\dot{X}_1} = \frac{\dot{Q}_2 \left( 1 - \frac{T_0}{T_2} \right)  + \dot{W}_3}
-                {\dot{Q}_1 \left( 1 - \frac{T_0}{T_1} \right) } < 1 \; .
+                {\dot{Q}_1 \left( 1 - \frac{T_0}{T_1} \right) } < 1 \; ,
 \end{equation}
 %
-Exergy efficiency ($\eta_X$) is less than 1, because the second law of thermodynamics 
-states that exergy is always destroyed ($\dot{X}_1 > \dot{X}_2 + \dot{X}_3$, or 
+because the second law of thermodynamics 
+states that exergy is always destroyed ($\dot{X}_1 > \dot{X}_2 + \dot{X}_3$ or 
 $\dot{X}_D = \dot{X}_1 - (\dot{X}_2 + \dot{X}_3)$).
 
 Assuming, again, that work is valuable gives
@@ -868,8 +868,8 @@ emitted by the lamp in units of energy per unit time.
 (When exergy is not involved, the photometry literature often denotes
 radiant power by $\Phi$, not $\dot{E}$.
 Here, we differentiate between 
-the energy of broad spectrum EM power~($\dot{E}$) and
-the exergy of broad spectrum EM power~($\dot{X}$),
+the energy rate of broad spectrum EM radiation~($\dot{E}_{EM}$) and
+the exergy rate of broad spectrum EM radiation~($\dot{X}_{EM}$),
 reserving $\Phi$ for lumen output of a lamp in Section~\ref{sec:weighting_functions}.)
 
 The lamp's energy efficiency of producing broad-spectrum EM radiation~($\eta_{E,EM}$) is 
@@ -878,9 +878,9 @@ The lamp's energy efficiency of producing broad-spectrum EM radiation~($\eta_{E,
   \eta_{E,EM} = \frac{\dot{E}_2 + \dot{E}_3}{\dot{E}_1} = \frac{\dot{Q}_2 + \dot{E}_{EM,3}}{\dot{W}_{elect,1}} = 1 \; .
 \end{equation}
 %
-The valuable energy efficiency~($\eta_{E,EM,v}$,
-also called the wall plug efficiency)
-of the lamp in Figure~\ref{fig:lamp} is
+The valuable energy efficiency of the lamp
+in Figure~\ref{fig:lamp}~($\eta_{E,EM,v}$, also called the wall plug efficiency)
+is
 %
 \begin{equation} \label{eq:eta_E_v}
   \eta_{E,EM,v} = \frac{\dot{E}_3}{\dot{E}_1} = \frac{\dot{E}_{EM,3}}{\dot{W}_{elect,1}} < 1 \; ,
@@ -920,18 +920,17 @@ The exergetic efficiency of EM radiation emitted by the lamp in Figure~\ref{fig:
           = \frac{\left( 1 - \frac{T_0}{T_2} \right) \dot{Q}_2 + \phi_{EM} \dot{E}_{EM,3} }{\dot{W}_{elect,1}} < 1 \; ,
 \end{equation}
 %
-where $\phi_{EM}$ is the exergy-to-energy ratio of EM radiation.
 In general, $\phi_{EM}$ is also a spectral quantity.
 (See Section~\ref{sec:phi_light}.)
 The valuable exergetic efficiency of the EM radiation emitted by the lamp in Figure~\ref{fig:lamp} is given by
 %
 \begin{equation} \label{eq:eta_X_v}
-  \eta_{X,v} = \frac{\dot{X}_3}{\dot{X}_1} 
-              = \frac{\phi_{EM} \Phi_{EM,3} }{\dot{W}_{elect,1}} < \eta_X < 1 \; .
+  \eta_{X,EM,v} = \frac{\dot{X}_3}{\dot{X}_1} 
+              = \frac{\phi_{EM} \dot{E}_{EM,3} }{\dot{W}_{elect,1}} < \eta_{X,EM} < 1 \; .
 \end{equation}
 
-Note that both $\eta_X$ and $\eta_{X,v}$ are independent of human presence;
-the efficiencies ($\eta_X$ and $\eta_{X,v}$) would be the same 
+Note that the efficiencies are independent of human presence;
+$\eta_{X,EM}$ and $\eta_{X,EM,v}$ would be the same, 
 whether the lamp is illuminating
 an unoccupied room or a crowded bar, 
 whether the illumination stimulates the rods and cones of a human eye or
@@ -966,8 +965,10 @@ Need a reference here.---MKH
 ****
 Similarly, human eyes perceive only a (narrower) portion of the EM radiation emitted by lamps
 (approximately \humaneyesensitivity).
-To quantify light energy (and exergy), we must move from broad-spectrum emitted EM energy~($\Phi$)
-to light~($\dot{L}$). 
+To quantify light energy (and exergy), 
+we must move from broad-spectrum EM
+energy and exergy~($\dot{E}_{EM}$ and $\dot{X}_{EM}$)
+to light~($\dot{E}_{L}$ and $\dot{X}_{L}$). 
 But how?
 
 Knowing that visual perception of light is a function of wavelength
@@ -975,16 +976,16 @@ leads to modifying Equation~\ref{eq:emissive_power}
 to include a spectral weighting function~($f_\lambda$) such that
 %
 \begin{equation} \label{eq:weighted_emissive_power}
-  \dot{E}_L = \int \dot{E}_{L,\lambda} \mathrm{d}\lambda = \int f_\lambda \dot{E}_{EM,\lambda} \, \mathrm{d}\lambda \; ,
+  \dot{E}_L = \int \dot{E}_{L,\lambda} \mathrm{d}\lambda = \int f_\lambda \dot{E}_{EM,\lambda} \mathrm{d}\lambda \; ,
 \end{equation}
 %
 with $0 \le f_\lambda \le 1$
-and $\dot{E}_{L,\lambda} = f_\lambda \dot{E}_\lambda$.
+and $\dot{E}_{L,\lambda} = f_\lambda \dot{E}_{EM,\lambda}$.
 
 In Equation~\ref{eq:weighted_emissive_power}, 
 the spectral weighting function~($f_\lambda$) converts 
-from broad-spectrum EM radiation~($\dot{E}_{EM}$)
-to light~($\dot{L}$), 
+from broad-spectrum EM radiation~($\dot{E}_{EM}$ and $\dot{X}_{EM}$)
+to light~($\dot{E}_{L}$ and $\dot{X}_{L}$), 
 the valuable part of EM radiation for illumination.
 In the context of Figure~\ref{fig:lamp}, 
 %
@@ -1003,12 +1004,13 @@ Specifically,
 
 
 %------------------------------
-\subsubsection{The exergy-to-energy ratio of EM radiation, $\phi_{\EM}$}
+\subsubsection{The exergy-to-energy ratio of EM radiation ($\phi_{\EM}$)}
 \label{sec:phi_light}
 %------------------------------
 
 Recent advances in the thermodynamics of radiation community
-enable converting the energy of EM radiation into the exergy of EM radiation.
+enable converting the energy of EM radiation~($\dot{E}_{EM}$)
+into the exergy of EM radiation~($\dot{X}_{EM}$).
 The exergy-to-energy ratio of EM radiation
 ($\phi_{\EM}$, called the ``radiative exergy-energy coefficient'' in that community)
 is given by Petela's Equation~\cite{petela1964exergy}:
@@ -1036,15 +1038,15 @@ The photon transfers an infinitesimal quantity of energy to the absorber via the
 The energy enters an infinitesimally small Carnot heat engine and performs work. 
 The absorber then emits another photon at lower energy and frequency,
 and therefore lower photon effective temperature. 
-This process repeats until the frequency of the photon equals zero, 
+This process repeats until the frequency of the photon equals zero
 and the photon effective temperature ($T_\lambda$)~\cite{Shan2019}
 equals the reference temperature ($T_0$).
 
 We note that the use of the photon effective temperature approach has been criticized by 
 \citeauthor{liu2009},
-who argued that 
+who argued that it is inappropriate
 ``to endue a single photon with macro-scale thermodynamic parameters
-such as exergy and entropy'' is inappropriate~\citep[p.~1810]{liu2009}.
+such as exergy and entropy''~\citep[p.~1810]{liu2009}.
 We acknowledge this critique, 
 but we also note that here $T_\lambda$ is ascribed to a stream of photons
 traveling from a lamp to an eye.
@@ -1071,8 +1073,8 @@ in the human eye
 is radiative EM energy transfer
 from a light source~(1) to an eye~(0).
 We assume no losses in radiative transmission
-between the lamp and the iris.
-I.e., no radiation scattering occurs through air, 
+between the lamp and the iris,
+i.e., no radiation scattering occurs through air, 
 an assumption that holds for short distances typically 
 observed in lighting applications (<~10~m).
 (See \citet{Shan2019} for a method to estimate transmission losses
@@ -1125,7 +1127,7 @@ weighting function and lamp ($f_\lambda \dot{E}_{EM,\lambda}$).
 \end{equation}
 
 Table~\ref{tab:EX_summary} summarizes the key equations in 
-Sections~\ref{sec:framework}--\ref{sec:phi_light}.
+Sections~\ref{sec:energy_and_exergy_of_heat_and_work}--\ref{sec:phi_light}.
 
 \input{pieces/EX_summary.tex}
 
@@ -1163,12 +1165,15 @@ and the valuable exergetic efficiency of light becomes
 \label{sec:weighting_functions}
 %------------------------------
 
-Spectral weighting functions ($f_\lambda$) convert radiant power to light.
+Spectral weighting functions ($f_\lambda$) convert 
+radiant power ($\dot{E}_{EM}$ and $\dot{X}_{EM}$)
+to light ($\dot{E}_L$ and $\dot{X}_L$).
 (See Section~\ref{sec:human_perception_of_EM_radiation}.)
 We use four spectral weighting functions relevant to illumination
-to enable example calculations (Section~\ref{sec:results}).
+to enable example calculations.
+(See Section~\ref{sec:results}.)
 
-The first option is degenerate: 
+The first weighting function option is degenerate: 
 the analyst could decide to ignore the nuances of human visual perception altogether,
 implicitly assuming that all EM radiation emitted from a lamp is light, 
 whether or not it is within the visible portion of the EM spectrum.
@@ -1198,7 +1203,7 @@ f_{\lambda,vis} =
 But the human eye is spectrally sensitive to EM radiation, 
 with peak sensitivity at 555~nm (green)
 and lesser sensitivities at both longer (redder) and shorter (bluer) wavelengths.
-A third option involves weighting a lamp's emitted EM radiation 
+A third option weights a lamp's emitted EM radiation 
 by the photopic sensitivity of the human eye.
 The photopic luminosity~(pl) function~($V_\lambda$) describes this sensitivity, 
 as shown in Figure~\ref{fig:Vis_Graph}.
@@ -1223,7 +1228,8 @@ which provides the basis for calculating a lamp's output
 of visible light~($\Phi_{pl}$) in the unit of lumens~(lm):
 %
 \begin{equation} \label{eq:lumen}
-  \Phi_{pl} = (683 \text{ lm/W}) \; \dot{E}_{L,pl} \; ,
+  \Phi_{pl} = (683 \text{ lm/W}) \; \dot{E}_{L,pl} 
+            = (683 \text{ lm/W}) \int V_\lambda \dot{E}_{EM,\lambda} \mathrm{d}\lambda \; ,
 \end{equation}
 %
 where 683~lm/W is the luminous efficiency of a perfect light source
@@ -1235,13 +1241,12 @@ lumens are also a unit of radiant power.)
 When the photopic luminosity function~($V_\lambda$) is used 
 to calculate luminous power, 
 the valuable energy efficiency of a lamp can be written in terms of luminous efficacy~($K$)
-by modifying Equation~\ref{eq:eta_E_v_light} to be
+by modifying Equation~\ref{eq:eta_E_v_light} to be (in the context of Figure~\ref{fig:lamp})
 %
 \begin{equation} \label{eq:lum_effic_def}
-  K = \frac{(683 \text{ lm/W}) \int V_\lambda \Phi_{EM,\lambda,3} \, \mathrm{d}\lambda}{\dot{W}_{elect,1}}
+  K \equiv \frac{(683 \text{ lm/W}) \int V_\lambda \dot{E}_{EM,\lambda,3} \, \mathrm{d}\lambda}{\dot{W}_{elect,1}} \; ,
 \end{equation}
 %
-in the context of Figure~\ref{fig:lamp}, 
 where $K$ is in lm/watt.
 
 The photopic luminosity function~($V_\lambda$) is the industry standard for determining lumen output
@@ -1257,7 +1262,8 @@ Thus, the photopic luminosity function~($V_\lambda$),
 and therefore also luminous efficacy~($K$),
 are said to have a long-wave bias.
 
-A fourth option (universal, univ) weights a lamp's spectral radiant power~($\dot{E}_{EM,\lambda}$)
+A fourth option (universal, univ) weights 
+a lamp's spectral radiant power~($\dot{E}_{EM,\lambda}$ and $\dot{X}_{EM,\lambda}$)
 by the spectral sensitivity of all five light receptors in the human eye
 (not just the M and L cones as does $V_\lambda$). 
 The universal luminosity efficiency function ($U_\lambda$) \cite{Rea2018}
@@ -1282,17 +1288,15 @@ To demonstrate how the spectral weighting function~($f_\lambda$)
 affects the energy and exergy efficiency of lamps, 
 we need both weighting functions (Section~\ref{sec:weighting_functions}) and
 example lamps.
-Table~\ref{tab:lamps} summarizes details about lamps discussed throughout this paper.
 
 We obtained spectral power distributions of the lamps in Table~\ref{tab:lamps} from the 
 Light Spectral Power Distribution Database (LSPDD)~\cite{Roby, miguel2017, aube2013}. 
-
-The data in the LSPDD are given 
+The data in the LSPDD are provided 
 in terms of \emph{relative intensity} ($\dot{E}_{EM,\lambda,rel}$) 
 as opposed to \emph{absolute intensity} ($\dot{E}_{EM,\lambda}$).
 Because lamps in the LSPDD are not measured using an integration sphere,
 the integral of the spectral power distribution may not match the radiant power of the lamp
-supplied by the manufacturer.
+reported by the manufacturer.
 To ensure that the integral of each lamp's spectral power distribution 
 matches its reported radiant power, 
 we applied the standard procedure of scaling the spectral power distribution 
@@ -1305,19 +1309,20 @@ the integral of the spectral radiant power taken from the relative intensity dat
 \end{equation}
 
 We then applied the scaling factor~($\mu$) to the spectral power distribution data for each lamp, 
-yielding a scaled spectral power distribution data~($\dot{E}_{EM,\lambda}$) for each lamp 
+yielding a corrected spectral power distribution data~($\dot{E}_{EM,\lambda}$) for each lamp 
 that matches the manufacturer's reported radiant power. 
 %
 \begin{equation} 
   \dot{E}_{EM,\lambda}  = \mu \dot{E}_{EM,\lambda,rel}
 \end{equation}
 
-Whilst the scaled spectral power distribution data was used for our analysis,
-to display the spectral power distributions of each lamp the data was normalised,
-so the peak of each spectral power distribution was equal to one.
-This allowed for lamps of different electricity consumption 
-and spectral power distribution profiles, and therefore different peaks,
-to be displayed concurrently.
+Although the corrected spectral power distribution data were used for all analyses,
+we later display (Figure~\ref{fig:wfs_and_lamps})
+normalized spectral power distributions for each lamp,
+such that the peak of each spectral power distribution is 1.
+This normalizing process allows easy visual comparison 
+of lamps with varying electricity consumption 
+and spectral power distribution profiles.
 
 We selected one representative lamp for each of four common lamp technologies
 (incandescent, INC;
@@ -1325,6 +1330,7 @@ high pressure sodium, HPS;
 compact fluorescent, CFL; and
 light emitting diode, LED), 
 each with a unique spectral power distribution.
+See Table~\ref{tab:lamps} for details about lamps discussed throughout this paper.
 
 <<lamps, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/results_lamp_info.R')>>=
 source("Data/results_lamp_info.R")
@@ -1528,17 +1534,17 @@ are shown only the left side of Figure~\ref{fig:wfs_and_lamps}.
 \label{sec:results_radiant_power}
 %++++++++++++++++++++++++++++++
 
+The four graphs in the top-right of Figure~\ref{fig:wfs_and_lamps}
+show spectral radiant power ($\dot{E}_{EM,\lambda}$) as the top of the gray region for each lamp.
 Applying Equation~\ref{eq:phi_L_lambda_shan_zhou} 
 to the four lamps identified in Section~\ref{sec:lamps}
-gives the four graphs in the top-right of Figure~\ref{fig:wfs_and_lamps},
-radiant power~($\Phi_{EM,\lambda}$) as a function of wavelength ($\lambda$) (spectral power distribution).
-The gray regions show spectral power distributions for each lamp, and 
-the dark green line indicates exergy.
-The areas of the gray regions ($\Phi_{EM}$) are given by Equation~\ref{eq:emissive_power}.
+gives spectral radiant power in exergy terms ($\dot{X}_{EM,\lambda}$),
+shown by the dark green line.
+The areas of the gray regions ($\dot{E}_{EM}$) are given by Equation~\ref{eq:emissive_power}.
 The areas beneath the dark green lines in all graphs are the exergy of light~($\dot{X}_L$), 
 given by Equation~\ref{eq:X_dot_L}.
 
-Note that exergy (solid dark green line) is very close to energy (top of the gray region), because
+Note that exergy (dark green line) is very close to energy (top of the gray region), because
 the exergy-to-energy ratio ($\phi_{L,\lambda}$) is always close to~1 for EM wavelengths relevant to light.
 The difference between energy and exergy is greatest in the upper right of the graphs when both
 %
@@ -1560,10 +1566,10 @@ Figure~\ref{fig:wfs_and_lamps} provides visual representation of the spectral en
 for the four lamps and four weighting functions of 
 Sections~\ref{sec:weighting_functions} and~\ref{sec:lamps}
 and Tables~\ref{tab:wfs} and~\ref{tab:lamps}, respectively.
-Each rainbow colored region shows the light content of EM radiation (spectral luminous power) and
-is the spectral product of its row's weighting function and its column's lamp spectral power distribution.
-The areas of the rainbow colored regions ($\dot{L}$) are given by Equation~\ref{eq:weighted_emissive_power}.
-The areas beneath the dark green lines ($\dot{X}_L$) in all graphs are given by 
+Each rainbow colored region shows the energy content of light (spectral luminous power) and
+is the spectral product of its row's weighting function and its column's lamp's spectral power distribution.
+The areas of the rainbow colored regions ($\dot{E}_L$) are given by Equation~\ref{eq:L_dot_5}.
+The areas beneath the dark green lines ($\dot{X}_L$) are given by 
 Equation~\ref{eq:X_dot_L}.
 
 
@@ -1584,7 +1590,7 @@ print(xtable::xtable(results_etas_fin, digits=2,
                      and weighting function~($f_\\lambda$)
                      given by Equation~\\ref{eq:eta_E_v_light}.
                      Note that for the incandescent bulb (INC), 
-                     the unweighted final to useful efficiency is an 
+                     the unweighted efficiency is an 
                      underestimate, 
                      because the SPD data were limited to $\\lambda < \\text{899 nm}$, 
                      despite INC emission far into 
