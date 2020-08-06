@@ -236,7 +236,7 @@ $^{2}$ \quad Sustainability Research Institute, School of Earth and Environment,
 % The abstract should be an objective representation of the article, 
 % it must not contain results which are not presented and substantiated 
 % in the main text and should not exaggerate the main conclusions.
-Lighting provides an indispensable energy service (illumination). 
+Lighting provides an indispensable energy service, illumination. 
 The field of societal exergy analysis considers light (and many other energy products)
 to be enablers of economic growth, and 
 lighting contributes a non-negligible proportion of total useful exergy
@@ -263,7 +263,7 @@ for societal exergy analysts:
 (a)~use the universal (instead of photopic) luminosity weighting function,
 (b)~use the exact method when a lamp's spectral power distribution is available, and
 (c)~use the reasonable approximation to the exact method 
-    when luminous efficacy (in lm/W) is known
+    when luminous efficacy is known
     but spectral power distribution is unavailable.
 }
 
