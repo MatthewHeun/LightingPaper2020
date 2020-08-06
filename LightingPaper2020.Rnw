@@ -1916,18 +1916,24 @@ luminous efficacy data must be converted into efficiency values.
 As demonstrated in Section~\ref{sec:previous_approach} if the \emph{valuable} light
 is deemed to be the radiant power weighted by the photopic luminosity function 
 (luminous power, $\Phi_{pl}$),
-the final to useful efficiencies are equivalent to the luminous efficiency (Equation~\ref{eq:prev_eta_X_v_light}), namely $\frac{K}{683 lm/W}$.
-In the absence of SPD data a generalised exergy-to-energy ratio ($\phi_{i,pl}$) 
-for each technology type must be selected,
-as the shape of lamp spectral power distributions 
-display relatively little variation within technology groups
-compared to between groups, 
-the aggregate exergy to energy ratios for those lamps also display little variation.
+the final to useful efficiencies are equivalent to the luminous efficiency (Equation~\ref{eq:prev_eta_X_v_light}), 
+namely the original method $\frac{K}{683 lm/W}$.
 
-**** Shall i calculate phi for several types of the same type to demonstrate this? ---ZM ****
+In the absence of SPD data a generalised exergy-to-energy ratio ($\phi_{i,pl}$) 
+for each lamp technology type, or across all lamp types, must be selected.
+As can be seen from Table~\ref{tab:results_phis} 
+aggregate exergy-to-energy ratio values across lamp technology types
+display little variation, 
+Across all lamps the mean exergy-to-energy ratio is.......
+
+**** At the moment we have a handful of lamps in our data frame,
+should i select 5 or X lamps per technology type (where available),
+to create a larger dataset before i calculate the mean and sd 
+of the aggregate exergy-to-energy ratio, and universal conversion factor?
+This is easy enough!---ZM ****
 
 Once efficiency series have been calculated
-and exergy to energy ratios obtained for each lamp type,
+and exergy to energy ratios obtained,
 data for the proportion of each lamp type in use for each year of the study is needed,
 i.e. the fleet of lamps, 
 and ideally in the form of the economy-wide electricity consumption by lamp technology.
@@ -1936,16 +1942,16 @@ and for the years 2001~\cite{DOE2002}, 2010~\cite{DOE2012}, and 2015~\cite{DOE20
 along with associated luminous efficacy values, 
 and for the following lamp technologies: incandescent, halogen, compact fluorescent,
 linear fluorescent, high intensity discharge, LED and other.
-
 The aggregate lighting efficiency for a particular year is then given by
-
+%
 \begin{equation} \label{eq:agg_eta}
   \eta_{agg, pl} = \sum \limits_{i \in Lamps} \theta_{i} \cdot \phi_{i,pl} \cdot \eta_{E,i,pl} 
 \end{equation}
-
-**** Or do we express Equation~\ref{eq:agg_eta} in terms of $K$? ---ZM ****
-
-
+%
+if the exact method allows calculation of $\eta_{E,i,pl}$, 
+or via the approximate method if only luminous efficacy data is available,
+given by
+%
 \begin{equation} \label{eq:agg_eta_K}
   \eta_{agg, pl} = \sum \limits_{i \in Lamps} \theta_{i} \cdot \phi_{i,pl} \cdot \frac{K_{i}}{683 lm/W}
 \end{equation}
