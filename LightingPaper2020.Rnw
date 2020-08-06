@@ -1977,8 +1977,6 @@ $\eta_{i,E,univ}$ or $\eta_{E,univ}$
 
 **** Create xtable with these factors. Per lamp, or in general? ---ZM ****
 
-**** How much of this text should be in the methods, and not the discussion? ---ZM ****
-
 Values for $\gamma_{i,univ}$ are given by taking the quotient of 
 the final to useful efficiency of a lamp using the universal luminosity function ($\eta_{i,E,univ}$)
 and the same lamp using the photopic luminosity function ($\eta_{i,E,pl}$).
@@ -1986,6 +1984,12 @@ and the same lamp using the photopic luminosity function ($\eta_{i,E,pl}$).
 \begin{equation} \label{eq:conversionuniversal}
   \gamma_{i,univ} = \frac{\eta_{E,univ}}{\eta_{E,pl}}
 \end{equation}
+%
+Performing this calculation across a sample of lamps 
+for each representative lamp technology type yields a generalised conversion factor of XXXX
+across all lamps......, and conversion factors per lamp technology given in Table~X.
+
+**** Create xtable with these factors. Per lamp, or in general? ---ZM ****
 
 Including this conversion factor then provides a method for calculating
 aggregate final-to-useful energy efficiency values 
@@ -2001,6 +2005,8 @@ or across all lamp technology types.
                                           \gamma_{i,univ} \cdot 
                                           \eta_{E,i,pl} 
 \end{equation}
+
+**** How much of this text should be in the methods, and not the discussion? ---ZM ****
 
 %++++++++++++++++++++++++++++++
 \subsubsection{Assessing the efficiency of LED lamp}
