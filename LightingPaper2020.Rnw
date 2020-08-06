@@ -1823,16 +1823,6 @@ In summary, the exact method provides the following benefits over the original m
 
 \end{enumerate}
 
-****
-By how much would SEA results change if we adopt this new methodology?
-I.e. how wrong were former studies and how critical is it to improve the methodology?---EAR
-****
-
-****
-How wrong previous studies were depends on what we feel the correct approach to be. 
-I think we should decide this as a group, and then we can quantify the difference! ---ZM
-****
-
 
 %++++++++++++++++++++++++++++++
 \subsection{Recommendation for the universal weighting function}
@@ -2154,15 +2144,11 @@ Do we want to include something about waste heat from lamps?
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\supplementary{The datasets associated with this paper are available online (https://doi.org/10.5518/865) \cite{heun2020}
-
-**** The following are available online at \linksupplementary{s1}, Figure S1: title, Table S1: title, Video S1: title. ****}
+\supplementary{The following are available online at \url{https://doi.org/10.5518/865} \cite{heun2020}, data for luminous effiacy values in Figure~\ref{fig:LuminousEfficacy_Graph}: data for the weighting functions and spectral power distributions displayed in Figure~\ref{fig:wfs_and_lamps}: ........}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\authorcontributions{
-
-Conceptualization, M.K.H., Z.M., E.A. and P.E.B.; 
+\authorcontributions{Conceptualization, M.K.H., Z.M., E.A. and P.E.B.; 
 methodology, M.K.H., Z.M. and E.A. ; 
 software, M.K.H., Z.M. and E.A.; 
 validation,  M.K.H. and Z.M.; 
@@ -2183,8 +2169,7 @@ Please turn to the  \href{http://img.mdpi.org/data/contributor-role-instruction.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\funding{
-Matthew K. Heun's receieved no funding for time spent on this paper. 
+\funding{Matthew K. Heun's receieved no funding for time spent on this paper. 
 Paul E. Brockway and Zeke Marshall's time was funded by the Engineering and Physical Sciences Research Council (EPSRC) Fellowship grant RG.EVEA.112727.001.
 Emmanuel Aramendia's time was funded by XXXXXX.
 }
