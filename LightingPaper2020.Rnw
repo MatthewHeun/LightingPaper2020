@@ -1992,6 +1992,12 @@ and the same lamp using the photopic luminosity function ($\eta_{i,E,pl}$).
   \gamma_{i,univ} = \frac{\eta_{E,univ}}{\eta_{E,pl}}
 \end{equation}
 %
+
+**** Is it best to give the conversion factor in terms of the quotient of the etas, 
+or the quotient of the weighted radiant power?
+They are technically the same, so this is just a question of preference ---ZM ****
+
+
 Performing this calculation across a sample of lamps 
 for each representative lamp technology type yields a generalised conversion factor of XXXX
 across all lamps......, and conversion factors per lamp technology given in Table~X.
@@ -2013,7 +2019,7 @@ or across all lamp technology types.
                                           \eta_{E,i,pl} 
 \end{equation}
 
-**** How much of this text should be in the methods, and not the discussion? ---ZM ****
+
 
 %++++++++++++++++++++++++++++++
 \subsubsection{Assessing the efficiency of LED lamp}
