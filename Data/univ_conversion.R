@@ -10,17 +10,17 @@ p2_eta_df <- spd_metrics %>%
   dplyr::filter(wf_name == "wf_p2") %>%
   dplyr::select(lamp_name, wrp_div_ec)
 
-conversion_eta_df <- dplyr::full_join(univ_eta_df, p2_eta_df, by = "lamp_name")
-
-colnames(conversion_eta_df) <- c("lamp_name", "eta_u","eta_p2")
-
-conversion_eta_df <- conversion_eta_df %>%
-  dplyr::mutate(conv_eta_univ = eta_u / eta_p2)
-
 lamptype_info <- lamp_info %>%
   dplyr::select(lamp_name, `Lamp type`)
 
-conversion_eta_df <- dplyr::full_join(conversion_eta_df, lamptype_info, by = "lamp_name")
+conversion_eta_df <- dplyr::full_join(lamptype_info, p2_eta_df, by = "lamp_name")
+
+conversion_eta_df <- dplyr::full_join(conversion_eta_df, univ_eta_df, by = "lamp_name")
+
+colnames(conversion_eta_df) <- c("lamp_name", "lamp_type","eta_p2","eta_u")
+
+conversion_eta_df <- conversion_eta_df %>%
+  dplyr::mutate(conv_eta_univ = eta_u / eta_p2)
 
 conversion_eta_df <- conversion_eta_df %>%
   dplyr::filter(!is.na(eta_u)) %>%
@@ -30,7 +30,7 @@ conversion_eta_df <- conversion_eta_df %>%
   )
 
 conversion_eta_df <- conversion_eta_df %>%
-  dplyr::group_by(`Lamp type`) %>%
+  dplyr::group_by(lamp_type) %>%
   dplyr::filter(!is.na(eta_u)) %>%
   dplyr::mutate(
     mean_lamp_conv = mean(conv_eta_univ),
@@ -38,3 +38,4 @@ conversion_eta_df <- conversion_eta_df %>%
   )
 
 # .groups = "drop"
+
