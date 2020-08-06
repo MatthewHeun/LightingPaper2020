@@ -1324,9 +1324,9 @@ that matches the manufacturer's reported radiant power.
 \end{equation}
 
 Although the corrected spectral power distribution data were used for all analyses,
-we later display (Figure~\ref{fig:wfs_and_lamps})
-normalized spectral power distributions for each lamp,
+we later display normalized spectral power distributions for each lamp,
 such that the peak of each spectral power distribution is 1.
+(See Figure~\ref{fig:wfs_and_lamps}.)
 This normalizing process allows easy visual comparison 
 of lamps with varying electricity consumption 
 and spectral power distribution profiles.
@@ -1689,18 +1689,18 @@ This section
 %
 \begin{enumerate*}[label={(\alph*)}]
 	
-  \item outlines the original approach to calculating the exergy of light and 
+  \item outlines the conventional approach to calculating the exergy of light and 
         characterizes the new method for calculating the exergy of light (Section~\ref{sec:phi_light})
         as an exact method and
   
-  \item evaluates the original method relative to the exact method 
+  \item evaluates the conventional method relative to the exact method 
         to obtain three implications for societal exergy analysis.
     
 \end{enumerate*}
 
 
 %------------------------------
-\subsubsection{Original and exact methods} 
+\subsubsection{Conventional and exact methods} 
 \label{sec:previous_approach}
 %------------------------------
 
@@ -1712,11 +1712,11 @@ exergetic efficiency by the quotient of
 the minimum energy required to produce a given output and
 the actual energy required to produce the same given output.
 (See Section~\ref{sec:divergent_approaches}.)
-This original method has been recommended
+This conventional method has been recommended
 for lighting, sound, and information~\cite[p.~17]{Sousa2017}.
 
 For lighting,
-the original method involves the quotient of
+the conventional method involves the quotient of
 the theoretical minimum rate of energy required to emit one lumen and
 the actual rate of energy used to emit one lumen 
 for a given lamp, where
@@ -1737,7 +1737,7 @@ the electricity consumption rate of the device
 ($\dot{W}_{elect,1}$ in Figure~\ref{fig:lamp}).
 Substituting Equation~\ref{eq:lum_effic_def} into Equation~\ref{eq:K_over_e_max} gives
 (with reference to Figure~\ref{fig:lamp})
-exergetic efficiency for the original method:
+exergetic efficiency for the conventional method:
 %
 \begin{equation} \label{eq:prev_eta_X_v_light}
   \eta_{X,L,v} \approx \frac{ \; \; \frac{(683 \text{ lm/W}) \int V_\lambda \dot{E}_{EM,\lambda,3} \, \mathrm{d}\lambda}{\dot{W}_{elect,1}} \; \;}{K_{max}} \; .
@@ -1752,12 +1752,12 @@ of the need to approximate exergetic efficiency
 by the quotient of
 the minimum energy required to produce a lumen and
 the actual energy required to produce a lumen.
-Thus, we can evaluate the original method in light of recent advances, 
+Thus, we can evaluate the conventional method in light of recent advances, 
 using exergetic efficiency~($\eta_{X,L,v}$) as the point of comparison.
 
-Comparing Equation~\ref{eq:prev_eta_X_v_light} (the original method)
+Comparing Equation~\ref{eq:prev_eta_X_v_light} (the conventional method)
 to Equation~\ref{eq:eta_X_v_light} (the exact method)
-reveals that the original method for calculating the exergetic efficiency of lighting
+reveals that the conventional method for calculating the exergetic efficiency of lighting
 is correct only under the following conditions:
 %
 \begin{enumerate}[label={(\alph*)}]
@@ -1784,7 +1784,7 @@ when maximum luminous efficacy~($K_{max}$) is taken to be 683~lm/W.
 \label{sec:implications_for_sea}
 %------------------------------
 
-The above comparison between the original method (Section~\ref{sec:previous_approach}) and
+The above comparison between the conventional method (Section~\ref{sec:previous_approach}) and
 the new, exact method of Section~\ref{sec:light_efficiency}
 raises three implications for societal exergy analysis.
 
@@ -1793,33 +1793,33 @@ the analyst was required to select a value for maximum luminous efficacy ($K_{ma
 the denominator of Equation~\ref{eq:prev_eta_X_v_light}.
 The choice of $K_{max}$ can make a significant difference to the results.
 The correct value for $K_{max}$ is 683~lm/W, 
-because the original method relies upon luminous efficacy of lamps.
+because the conventional method relies upon luminous efficacy of lamps.
 Many authors assume $K_{max} = 400 \text{ lm/W}$ 
 (e.g., \citet{Ayres2005} and \citet{Guevara2016}),
 thereby incorrectly overestimating exergetic efficiency of lighting~($\eta_{X,L,v}$)
 by a factor of $\frac{683 \text{ lm/W}}{400 \text{ lm/W}} = 1.71$.
 
 Second, to obtain the correct exergetic efficiency of lighting, 
-analysts must reject the assumption of the original method that $\phi_{L,\lambda} = 1$.
+analysts must reject the assumption of the conventional method that $\phi_{L,\lambda} = 1$.
 Recent progress in the exergy of radiation literature enables this rejection, 
 following the methods of Section~\ref{sec:phi_light}.
 Specifically, the spectral exergy-to-energy ratio of light ($\phi_{L,\lambda}$)
 of Equation~\ref{eq:phi_L_lambda_shan_zhou} and Figure~\ref{fig:wfs_and_lamps} should be used.
 We note, however, that $\phi_{L,\lambda}$ is close to~1 for all wavelengths of interest to illumination.
-Happily, the original method was not far wrong.
+Happily, the conventional method was not far wrong.
 
-Third, in the original method, 
+Third, in the conventional method, 
 the analyst is required to use the photopic luminosity function~($V_\lambda$)
 for the specular weighting function~($f_\lambda$).
 However, it is not certain that the photopic luminosity function
 is the best choice, 
 as discussed in Section~\ref{sec:reccuniv} below.
 
-In summary, the exact method provides the following benefits over the original method:
+In summary, the exact method provides the following benefits over the conventional method:
 %
 \begin{enumerate}[label={(\alph*)}]
 	
-  \item it is free of (possibly erroneous) assumptions for the maximum luminous efficacy ($K_{max}$),
+  \item it is free of any assumptions for the maximum luminous efficacy ($K_{max}$),
 
   \item it uses the correct spectral exergy-to-energy ratio, no longer assuming $\phi_{L,\lambda} = 1$, and 
   
@@ -1924,7 +1924,7 @@ As demonstrated in Section~\ref{sec:previous_approach} if the \emph{valuable} li
 is deemed to be the radiant power weighted by the photopic luminosity function 
 (luminous power, $\Phi_{pl}$),
 the final to useful efficiencies are equivalent to the luminous efficiency (Equation~\ref{eq:prev_eta_X_v_light}), 
-namely the original method $\frac{K}{683 lm/W}$.
+namely the conventional method $\frac{K}{683 lm/W}$.
 
 In the absence of SPD data a generalised exergy-to-energy ratio ($\phi_{i,pl}$) 
 for each lamp technology type, or across all lamp types, must be selected.
