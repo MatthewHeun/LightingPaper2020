@@ -2160,24 +2160,23 @@ Do we want to include something about waste heat from lamps?
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\authorcontributions{For research articles with several authors, 
-a short paragraph specifying their individual contributions must be provided. 
-The following statements should be used:
+\authorcontributions{
 
-Conceptualization, X.X. and Y.Y.; 
-methodology, X.X.; 
-software, X.X.; 
-validation, X.X., Y.Y. and Z.Z.; 
-formal analysis, X.X.; 
-investigation, X.X.; 
-resources, X.X.; 
-data curation, X.X.; 
-writing--original draft preparation, X.X.; 
-writing--review and editing, X.X.; 
-visualization, X.X.; 
-supervision, X.X.; 
-project administration, X.X.; 
-funding acquisition, Y.Y.
+Conceptualization, M.K.H., Z.M., E.A. and P.E.B.; 
+methodology, M.K.H., Z.M. and E.A. ; 
+software, M.K.H., Z.M. and E.A.; 
+validation,  M.K.H. and Z.M.; 
+formal analysis, M.K.H., Z.M. and E.A.; 
+investigation, M.K.H. and Z.M.; 
+resources, M.K.H.; 
+data curation, M.K.H. and Z.M.; 
+writing--original draft preparation, M.K.H., Z.M., E.A. and P.E.B.; 
+writing--review and editing, M.K.H., Z.M., E.A. and P.E.B.; 
+visualization, M.K.H., Z.M. and E.A.; 
+supervision, M.K.H. and P.E.B.; 
+project administration, M.K.H. and P.E.B.; 
+funding acquisition, P.E.B.
+
 All authors have read and agreed to the published version of the manuscript.
 
 Please turn to the  \href{http://img.mdpi.org/data/contributor-role-instruction.pdf}{CRediT taxonomy} for the term explanation. Authorship must be limited to those who have contributed substantially to the work reported.}
