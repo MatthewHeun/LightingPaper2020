@@ -1926,12 +1926,6 @@ aggregate exergy-to-energy ratio values across lamp technology types
 display little variation, 
 Across all lamps the mean exergy-to-energy ratio is.......
 
-**** At the moment we have a handful of lamps in our data frame,
-should i select 5 or X lamps per technology type (where available),
-to create a larger dataset before i calculate the mean and sd 
-of the aggregate exergy-to-energy ratio, and universal conversion factor?
-This is easy enough!---ZM ****
-
 Once efficiency series have been calculated
 and exergy to energy ratios obtained,
 data for the proportion of each lamp type in use for each year of the study is needed,
@@ -1973,34 +1967,48 @@ which are based on the photopic luminosity function ($V_\lambda$),
 to final to useful efficiencies based on the universal luminosity function ($U_\lambda$).
 
 Similarly to our proposed method of using a generalised exergy-to-energy ratio
-for each lamp technology ($\phi_{i,pl}$) (Section~\ref{sec:AggEfficiencies}),
-we propose a generalized conversion factor ($\gamma_{i,univ}$) 
+for each lamp technology ($\phi_{i,pl}$) 
+or across all lamp technologies ($\phi_{pl}$)  (Section~\ref{sec:AggEfficiencies}),
+we propose a generalized conversion factor,
+$\gamma_{i,univ}$ or $\gamma_{univ}$
 to obtain approximate final to useful efficiencies 
-based on the universal luminosity function ($\eta_{E,univ}$)
+based on the universal luminosity function,
+$\eta_{i,E,univ}$ or $\eta_{E,univ}$
 
-**** Create xtable with these factors 
-and insert above in results if group confirms this approach ---ZM ****
+**** Create xtable with these factors. Per lamp, or in general? ---ZM ****
 
 **** How much of this text should be in the methods, and not the discussion? ---ZM ****
 
 Values for $\gamma_{i,univ}$ are given by taking the quotient of 
 the final to useful efficiency of a lamp using the universal luminosity function ($\eta_{i,E,univ}$)
-and the same lamp using the photopic luminoisty function ($\eta_{i,E,pl}$).
-
-
+and the same lamp using the photopic luminosity function ($\eta_{i,E,pl}$).
+%
 \begin{equation} \label{eq:conversionuniversal}
   \gamma_{i,univ} = \frac{\eta_{E,univ}}{\eta_{E,pl}}
 \end{equation}
 
-
-Including this conversion factor then provides a method for 
-
+Including this conversion factor then provides a method for calculating
+aggregate final-to-useful energy efficiency values 
+based on the universal luminosity function,
+and final-to-useful exergy efficiency values
+if the generalised exergy-to-energy ratio ($\phi_{i,univ}$ or $\phi_{univ}$ ) is applied.
+As detailed above, this calculation can be use per lamp technology type (i),
+or across all lamp technology types.
+%
 \begin{equation} \label{eq:agg_eta_univ}
   \eta_{agg, univ} = \sum \limits_{i \in Lamps} \theta_{i} \cdot 
                                           \phi_{i,univ} \cdot 
                                           \gamma_{i,univ} \cdot 
                                           \eta_{E,i,pl} 
 \end{equation}
+
+%++++++++++++++++++++++++++++++
+\subsubsection{Assessing the efficiency of LED lamp}
+\label{sec:etaLED}
+%++++++++++++++++++++++++++++++
+
+**** Perform calculations on the LED luminous efficacy time series 
+using the approximate method? Confirm with group.. ---ZM ****
 
 %++++++++++++++++++++++++++++++
 \subsection{Further challenges}
