@@ -236,28 +236,35 @@ $^{2}$ \quad Sustainability Research Institute, School of Earth and Environment,
 % The abstract should be an objective representation of the article, 
 % it must not contain results which are not presented and substantiated 
 % in the main text and should not exaggerate the main conclusions.
-Artificial lighting provides an indispensable energy service (illumination) for modern life. **** Agree with Paul, I'd take artificial and modern life out --- EAR ****
+Lighting provides an indispensable energy service (illumination). 
 The field of societal exergy analysis considers light (and many other energy products)
 to be enablers of economic growth, and 
-lighting contributes a small, but non-negligible fraction of total useful exergy
-input to modern economies.
-In societal exergy analyses, 
-the exergetic efficiency of lamps has been approximated by an energy efficiency, **** Can we call it an efficiency? It is not energy out / energy in, but rather some kind of "efficacy" --- EAR ****
+lighting contributes a non-negligible proportion of total useful exergy
+supplied to modern economies.
+In societal exergy analysis, 
+the exergetic efficiency of lamps is central to
+determining the exergy contribution of lighting to an economy.
+Conventionally, societal exergy analysts estimate the exergetic efficiency of lamps 
+by an energy efficiency, 
 resulting in much confusion to date. 
 In response, 
 we use recent results from the photometry and thermodynamics of radiation literatures to
-develop a new, exact method for calculating the exergy of light and the exergetic efficiency of lamps.
+develop an exact method for calculating 
+the exergy of light and the exergetic efficiency of lamps.
 The exact method 
-(a)~is free of (possibly erroneous) assumptions for the maximum luminous efficacy, 
-(b)~uses the correct spectral exergy-to-energy ratio, no longer assuming its value to be 1, and **** No longer implicitly assuming ... ? I think one big issue is that everything was implicit, no clear distinction between energy and exergy --- EAR ****
-(c)~allows choices for the spectral weighting function. **** First time we talk about a weighting function, maybe precise that the wf enables to quantify the useful energy output of a lamp --- EAR ****
-The exact method exposes assumptions inherent to the original method and 
-leads to a better approximation of lamp exergetic efficiency, when needed.
-To conclude, we provide two recommendations 
+(a)~is free of any assumptions for the value of the maximum luminous efficacy, 
+(b)~uses the correct spectral exergy-to-energy ratio, and 
+(c)~allows choices for a spectral weighting function, 
+which converts broad-spectrum electromagnetic radiation to light.
+The exact method exposes assumptions inherent to the conventional method and 
+leads to a reasonable approximation of lamp exergetic efficiency, when needed.
+To conclude, we provide three recommendations 
 for societal exergy analysts:
-(a)~use the new, exact method and the universal luminosity weighting function 
-    when lamp spectral power distribution data are available and
-(b)~use a reasonable approximation to the exact method when only lamp luminous efficacy data are available.
+(a)~use the universal (instead of photopic) luminosity weighting function,
+(b)~use the exact method when a lamp's spectral power distribution is available, and
+(c)~use the reasonable approximation to the exact method 
+    when luminous efficacy (in lm/W) is known
+    but spectral power distribution is unavailable.
 }
 
 % Keywords
