@@ -1682,40 +1682,39 @@ This section
 %
 \begin{enumerate*}[label={(\alph*)}]
 	
-  \item characterizes the previous approach to calculating the exergy of light
-        as an approximate method and 
-        characterizes the new method for calculating the exergy of light presented in Section~\ref{sec:phi_light}
+  \item outlines the original approach to calculating the exergy of light and 
+        characterizes the new method for calculating the exergy of light (Section~\ref{sec:phi_light})
         as an exact method and
   
-  \item evaluates the approximate method relative to the exact method 
+  \item evaluates the original method relative to the exact method 
         to obtain three implications for societal exergy analysis.
     
 \end{enumerate*}
 
 
 %------------------------------
-\subsubsection{Approximate and exact methods} 
+\subsubsection{Original and exact methods} 
 \label{sec:previous_approach}
 %------------------------------
 
 In societal exergy analysis, exergy calculations are sometimes hampered when 
 ``the useful output cannot or is not typically measured in energy units''
 \cite[p.~17]{Sousa2017}. 
-In these circumstances, researchers in societal exergy analysis approximate
+In these circumstances, researchers in societal exergy analysis estimate
 exergetic efficiency by the quotient of
 the minimum energy required to produce a given output and
 the actual energy required to produce the same given output.
 (See Section~\ref{sec:divergent_approaches}.)
-This approximate method has been recommended
+This original method has been recommended
 for lighting, sound, and information~\cite[p.~17]{Sousa2017}.
 
 For lighting,
-the approximate method involves the quotient of
+the original method involves the quotient of
 the theoretical minimum rate of energy required to emit one lumen and
 the actual rate of energy used to emit one lumen 
 for a given lamp, where
 the minimum and actual energy rates are obtained 
-by taking the inverses of luminous efficacy~($K$).
+by inverting luminous efficacy~($K$).
 For a lamp, the quotient is between the lamp's luminous efficacy~($K$)
 and the maximum luminous efficacy~($K_{max}$).
 %
@@ -1731,35 +1730,37 @@ the electricity consumption rate of the device
 ($\dot{W}_{elect,1}$ in Figure~\ref{fig:lamp}).
 Substituting Equation~\ref{eq:lum_effic_def} into Equation~\ref{eq:K_over_e_max} gives
 (with reference to Figure~\ref{fig:lamp})
-exergetic efficiency for the approximate method:
+exergetic efficiency for the original method:
 %
 \begin{equation} \label{eq:prev_eta_X_v_light}
   \eta_{X,L,v} \approx \frac{ \; \; \frac{(683 \text{ lm/W}) \int V_\lambda \dot{E}_{EM,\lambda,3} \, \mathrm{d}\lambda}{\dot{W}_{elect,1}} \; \;}{K_{max}} \; .
 \end{equation}
 
 
-With recent advances in photometry (Section~\ref{sec:phi_light}),
+With recent advances in photometry and the thermodynamics of radiation 
+(Section~\ref{sec:phi_light}),
 it is now possible to determine the energy and exergy of light exactly, 
 thereby relieving societal exergy analysts
 of the need to approximate exergetic efficiency
 by the quotient of
 the minimum energy required to produce a lumen and
 the actual energy required to produce a lumen.
-Thus, we can evaluate the approximate method in light of recent advances, 
-using exergetic efficiency as the point of comparison.
+Thus, we can evaluate the original method in light of recent advances, 
+using exergetic efficiency~($\eta_{X,L,v}$) as the point of comparison.
 
-Comparing Equation~\ref{eq:prev_eta_X_v_light} (the approximate method)
+Comparing Equation~\ref{eq:prev_eta_X_v_light} (the original method)
 to Equation~\ref{eq:eta_X_v_light} (the exact method)
-reveals that the approximate method for calculating the exergetic efficiency of lighting
+reveals that the original method for calculating the exergetic efficiency of lighting
 is correct only under the following conditions:
 %
 \begin{enumerate}[label={(\alph*)}]
 	
-  \item the maximum luminous efficacy ($K_{max}$) is assumed to be 683~lm/W, and 
+  \item the maximum luminous efficacy ($K_{max}$) is assumed to be 683~lm/W, 
 
-  \item $\phi_{L,\lambda} = 1$ for all wavelengths,
+  \item $\phi_{L,\lambda} = 1$ for all wavelengths, and
 
-  \item the spectral weighting function is taken to be the photopic luminosity function ($f_\lambda = V_\lambda$).
+  \item the spectral weighting function~($f_\lambda$) is taken to be
+        the photopic luminosity function ($V_\lambda$).
 
 \end{enumerate}
 
@@ -1776,8 +1777,8 @@ when maximum luminous efficacy~($K_{max}$) is taken to be 683~lm/W.
 \label{sec:implications_for_sea}
 %------------------------------
 
-The above comparison between the previous approximate method (Section~\ref{sec:previous_approach}) and
-the new exact method of Section~\ref{sec:light_efficiency}
+The above comparison between the original method (Section~\ref{sec:previous_approach}) and
+the new, exact method of Section~\ref{sec:light_efficiency}
 raises three implications for societal exergy analysis.
 
 First, with the previous approximate method, 
@@ -1785,35 +1786,35 @@ the analyst was required to select a value for maximum luminous efficacy ($K_{ma
 the denominator of Equation~\ref{eq:prev_eta_X_v_light}.
 The choice of $K_{max}$ can make a significant difference to the results.
 The correct value for $K_{max}$ is 683~lm/W, 
-because the approximate method relies upon luminous efficacy of lamps.
+because the original method relies upon luminous efficacy of lamps.
 Many authors assume $K_{max} = 400 \text{ lm/W}$ 
 (e.g., \citet{Ayres2005} and \citet{Guevara2016}),
 thereby incorrectly overestimating exergetic efficiency of lighting~($\eta_{X,L,v}$)
 by a factor of $\frac{683 \text{ lm/W}}{400 \text{ lm/W}} = 1.71$.
 
 Second, to obtain the correct exergetic efficiency of lighting, 
-analysts must reject the assumption of the previous approximate method that $\phi_{L,\lambda} = 1$.
-Recent progress in photometry enables this rejection, 
+analysts must reject the assumption of the original method that $\phi_{L,\lambda} = 1$.
+Recent progress in the exergy of radiation literature enables this rejection, 
 following the methods of Section~\ref{sec:phi_light}.
 Specifically, the spectral exergy-to-energy ratio of light ($\phi_{L,\lambda}$)
 of Equation~\ref{eq:phi_L_lambda_shan_zhou} and Figure~\ref{fig:wfs_and_lamps} should be used.
 We note, however, that $\phi_{L,\lambda}$ is close to~1 for all wavelengths of interest to illumination.
-Happily, the previous approximate method was not far wrong to assume $\phi_L = 1$.
+Happily, the original method was not far wrong.
 
-Third, in the approximate method, 
+Third, in the original method, 
 the analyst is required to use the photopic luminosity function~($V_\lambda$)
 for the specular weighting function~($f_\lambda$).
 However, it is not certain that the photopic luminosity function
 is the best choice, 
 as discussed in Section~\ref{sec:blue_light} below.
 
-In summary, the exact method provides the following benefits over the approximate method:
+In summary, the exact method provides the following benefits over the original method:
 %
 \begin{enumerate}[label={(\alph*)}]
 	
-  \item it uses the correct spectral exergy-to-energy ratio~($\phi_{L,\lambda}$), no longer assuming its value to be~1;
+  \item it is free of (possibly erroneous) assumptions for the maximum luminous efficacy ($K_{max}$),
 
-  \item it is free of (possibly erroneous) assumptions for the maximum luminous efficacy ($K_{max}$); and 
+  \item it uses the correct spectral exergy-to-energy ratio, no longer assuming $\phi_{L,\lambda} = 1$, and 
   
   \item it allows choices for the spectral weighting function~($f_\lambda$), 
         no longer requiring $f_\lambda = V_\lambda$, 
@@ -1839,7 +1840,9 @@ I think we should decide this as a group, and then we can quantify the differenc
 %++++++++++++++++++++++++++++++
 
 **** Should we change this section to 'Rationale underpinning the selection of our recommended luminosity/weighting function with a subsubsection for blue light? ---ZM ****
-
+****
+How about ``Recommendation for the universal weighting function''?---MKH
+****
 
 It is known that short wavelength EM radiation (bluer light)
 provides physiological benefits, such as
