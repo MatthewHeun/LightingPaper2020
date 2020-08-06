@@ -4,7 +4,8 @@
 %!TEX root = ../LightingPaper2020.Rnw
 
 \noindent 
-Table~\ref{tab:symbols} shows symbols and abbreviations, their meanings, and example units.
+Table~\ref{tab:symbols} shows symbols, their meanings, and example units.
+Table~\ref{tab:abbreviations} shows abbreviations, their meanings, and example units.
 Table~\ref{tab:greek} shows greek letters and their meaning.
 % Table~\ref{tab:decorations} shows symbol decorations and their meanings.
 Table~\ref{tab:subscripts} shows subscripts and their meanings.
@@ -23,7 +24,6 @@ Symbol & Meaning [example units] \\
 \midrule
 $c_3$ & constant for photon effective temperature, $5.33016 \times 10^{-3} \text{ m-K}$ \\
 $\dot{E}$ & energy rate [W] \\
-EM & electro-magnetic \\
 $f_\lambda$ & spectral weighting function [--] \\
 $K$ & luminous efficacy [lm/W] \\
 $K_{max}$ & luminous efficacy of a perfect light source at 555~nm [lm/W] \\
@@ -41,6 +41,25 @@ $V_\lambda$ & photopic luminosity function [--] \\
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Abbreviations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\begin{table}
+\centering % Centered table
+\caption{Abbreviations.}
+\begin{tabular}{r l}
+\toprule
+Abbreviation & Meaning [example units] \\
+\midrule
+EM & electro-magnetic \\
+SPD & spectral power distributino \\
+\bottomrule
+\end{tabular}
+\label{tab:abbreviations}
+\end{table}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Greek
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -52,7 +71,7 @@ $V_\lambda$ & photopic luminosity function [--] \\
   Greek letter & Meaning [example units] \\
   \midrule
   $\eta$ & efficiency [--] \\
-  $\gamma_{i,univ}$ & the photopic-universal scaling factor for the final to useful efficiency of each lamp ($i$) [--] \\
+  $\gammarat$ & the photopic-to-universal scale factor for $\eta_{X,L,v}$ [--] \\
   $\lambda$ & wavelength of electromagnetic radiation [nm] \\
   $\mu$ & scale factor between relative and absolute intensity [--] \\
   $\Phi_{pl}$ & luminous power [lm] \\
@@ -68,24 +87,6 @@ $V_\lambda$ & photopic luminosity function [--] \\
 \end{tabular}
 \label{tab:greek}
 \end{table}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Decorations
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  
-% \begin{table}
-% \centering % Centered table
-% \caption{Decorations.}
-% \begin{tabular}{r l}
-% \toprule
-% Decoration & Meaning [example units] \\
-% \midrule
-% $\dot{X}$ & rate of $X$ [units of X/s] \\
-% \bottomrule
-% \end{tabular}
-% \label{tab:decorations}
-% \end{table}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -107,6 +108,7 @@ $D$ & exergy destroyed \\
 $elect$ & electricity \\
 EM & electro-magnetic \\
 $E$ & energy \\
+$i$ & index for lamp type \\
 $\lambda$ & spectral (a function of wavelength) \\
 $lamp$ & denotes a specific lamp technology \\
 $L$ & light \\
