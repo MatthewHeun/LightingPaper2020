@@ -582,4 +582,24 @@ response_data %>%
 \end{figure}
 
 
+%++++++++++++++++++++++++++++++
+\subsection{Text from Section 4.1.1}
+%++++++++++++++++++++++++++++++
+
+This text was always problematic.
+It is a choppy sentence that doesn't add much value.
+I'm moving it to the bonepile, hoping that it will stay here.
+But if we need to bring it back, we will.
+
+These assumptions are verified 
+by comparing the luminous efficiency row of Table~\ref{tab:lamps} 
+to the photopic luminosity row of Table~\ref{tab:results_etas}.
+Valuable energy efficiencies 
+calculated using the photopic luminosity
+function~($\eta_{E,L,v,pl}$, Equation \ref{eq:eta_E_v_light})
+are equivalent to luminous efficiency values~(Equation~\ref{eq:prev_eta_X_v_light}) 
+when maximum luminous efficacy~($K_{max}$) is taken to be 683~lm/W.
+
+This text 
+
 ********************************* End Bone Pile *********************************
