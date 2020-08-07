@@ -964,12 +964,10 @@ But what about human \emph{perception}?
 
 Human beings perceive heat by temperature and light by wavelength.
 Human skin can perceive the thermal radiation portion of the broader electromagnetic spectrum,
-approximately 100 nm < $\lambda$ < 10,000 nm. 
-Furthermore, human skin is differentially sensitive to EM spectrum wavelength.  
-Indeed, thermoreceptors in the dermis of skin are important sensors for regulation of body temperature.
-****
-Need a reference here.---MKH
-****
+approximately 100 nm < $\lambda$ < 10,000 nm, such that 
+human skin is differentially sensitive to EM spectrum wavelength~\citep{Anderson:1981aa}.  
+Indeed, thermoreceptors in the dermis of skin are important sensors
+for regulation of body temperature~\cite[p.~258]{Jones:2016aa}.
 Similarly, human eyes perceive only a (narrower) portion of the EM radiation emitted by lamps
 (approximately \humaneyesensitivity).
 To quantify light energy (and exergy), 
