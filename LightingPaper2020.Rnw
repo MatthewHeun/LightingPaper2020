@@ -381,23 +381,26 @@ We exclude non-illumination purposes of lighting, such as horticulture and heati
 
 Ahead of a more detailed treatment of the thermodynamics of light in Section~\ref{sec:framework}
 we set out here two fundamental aspects of lighting. 
-The first aspect is a clear definition of what is meant by \emph{light}.
-Light is useful energy in the form of 
-visible electromagnetic (EM) radiation. 
-Electromagnetic energy~($E_{EM}$) is quantified in terms of 
-energy of photons (in Joules),
-via Einstein's equation:
+The first aspect is clear definitions of electromagnetic~(EM) energy and light.
+EM energy~($E_{EM}$) is broad-spectrum EM radiation
+quantified by the energy of photons (in Joules)
+via Einstein's equation,
 %
 \begin{equation}
-  E = h \nu = \frac{hc}{\lambda} \; ,
+  E_{EM} = h \nu = \frac{hc}{\lambda} \; ,
 \end{equation}
 %
-where $c$ is the speed of light (in m/s),~($\lambda$) is wavelength (in m), ($\nu$) is frequency (in 1/s), and $h$ is Planck's constant (in Joules-s).
-%all related by Planck's equation:
-%where lambda is wavelength (in m), n is frequency (in /s), h is Planks constant (in Js), and c is the speed of light (in m/s). 
-EM radiation within the range \humaneyesensitivity{} is considered ``light''~\cite{campbell2017}, because
-the human retina responds only within these wavelengths,
-as shown in Figure~\ref{fig:Vis_Graph}.
+where 
+$h$ is Planck's constant (in Joules-s), 
+$\nu$ is frequency (in 1/s),
+$c$ is the speed of light (in m/s), and
+$\lambda$ is wavelength (in m).
+The human retina responds to a narrow wavelength range of EM radiation
+(\humaneyesensitivity{}).
+Thus, light is EM radiation within that wavelength range~\cite{campbell2017}, 
+weighted by the eye's spectral (i.e., wavelength-specific) sensitivity.
+(See Figure~\ref{fig:Vis_Graph}.)
+
 
 <<Load_Data, cache=use_cache, cache.extra.1=tools::md5sum('Data/master_lighting_data.xlsx'), cache.extra.2=tools::md5sum('Data/AllData.R')>>=
 # Creates the weighted_responses_df data frame.
@@ -424,7 +427,7 @@ response_data <- weighted_responses_df %>%
 @
 
 
-<<Vis_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="The visible spectrum of light~\\cite{schubert2006}.">>=
+<<Vis_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="Normalized sensitivity of the human eye to EM radiation~\\cite{schubert2006}, according to the photopic luminosity function~($V_\\lambda$).">>=
 response_data %>% 
   dplyr::filter(wf_name == "Photopic") %>% 
   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>% 
@@ -451,17 +454,15 @@ response_data %>%
 @
 
 The second aspect is that 
-modern lighting via electrical lamps 
-is provided by energy conversion through three stages
-of the energy conversion chain:
-primary energy (e.g., coal), which is then converted to
-final energy (i.e., electricity, measured in watts), and last to
-useful energy output (i.e., the provision of visible light energy, measured in lumens).
-The efficiency of energy conversion~($\eta$) from electricity (final stage)  
-to light (useful stage) is the focus of this paper.
-We note that both human perception and satisfaction of human needs
-are an energy service (illumination),
-which occurs after the useful stage.
+modern lighting is provided via an energy conversion chain:
+primary energy (e.g., coal) is converted to
+final energy (electricity, measured in watts) and lastly to
+useful energy (i.e., the provision of visible light, measured in lumens).
+The efficiency of energy and exergy conversion~($\eta$) from electricity (final stage)  
+to light (useful stage) by electric lamps is the focus of this paper.
+Note that both energy services (illumination) and satisfaction of human needs
+(comfort, safety, etc.) are downstream of the useful stage 
+and thus beyond the scope of this paper.
 
 
 %++++++++++++++++++++++++++++++
