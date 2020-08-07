@@ -463,8 +463,8 @@ electricity (final stage) is converted to light (useful stage)
 by lamps in society. 
 Thus, the efficiency of energy and exergy conversion~($\eta$) from electricity
 to light by electric lamps is the focus of this paper.
-Note that both energy services (illumination) and satisfaction of human needs
-(comfort, safety, etc.) are downstream of the useful stage 
+Note that both energy services (e.g., illumination) and satisfaction of human needs
+(e.g., comfort, safety, etc.) are downstream of the useful stage 
 and thus beyond the scope of this paper.
 
 
@@ -474,137 +474,29 @@ and thus beyond the scope of this paper.
 %++++++++++++++++++++++++++++++
 
 Valuable energy conversion efficiency ($\eta_v$)
-can be defined in simple terms as
+is defined in simple terms as
 %
 \begin{equation} \label{eq:eta_basic_eqn}
  \eta_v = \frac{\text{valuable output}}{\text{energy input}} \; .
 \end{equation}
 %
 When the numerator and denominator are both quantified in energy terms,
-an energy efficiency is obtained~($\eta_E$).
+an energy efficiency is obtained~($\eta_{E,v}$).
 When the numerator and denominator are quantified by exergy,
-an exergy efficiency is obtained~($\eta_X$).
+an exergy efficiency is obtained~($\eta_{X,v}$).
 
-But light (the valuable output) is rarely measured in energy terms
+But light (the valuable output) is rarely quantified in energy terms
 and almost never in exergy terms.
+Instead, light is quantified in lumens~(lm).
 Indeed, a common interpretation of Equation~\ref{eq:eta_basic_eqn} uses
-light output (in lumens, lm) in the numerator and electricity (in W) in the denominator
+light (in lm) as the valuable output in the numerator and electricity (in W) as the energy input in the denominator
 to obtain luminous efficacy ($K$, in lm/W).
 Examples of practitioners using luminous efficacy include \citet{Nordhaus1996} 
 and \citet[p.~265]{Tsao2010appetitelight}, who state 
 ``[l]uminous efficacy represents the efficiency with which energy is used to produce visible light.''
-Most lamps are rated and advertised by their luminous efficacy.
-
-In societal exergy analysis, 
-exergy calculations are hampered when 
-``the useful output cannot or is not
-typically measured in energy units''~\cite[p.~17]{Sousa2017}. 
-Thus, the widespread use of luminous efficacy~($K$) as a measure of lamp efficiency 
-provides a burden to societal exergy analysts,
-who need the valuable energy and exergy efficiencies 
-of lamps~($\eta_{E,L,v}$ and $\eta_{X,L,v}$), 
-not luminous efficacy~($K$).
-Conventionally, societal exergy analysts estimate
-exergetic efficiency~($\eta_{X,L,v}$) by the ratio of
-the minimum energy required to produce a given output and
-the actual energy required to produce the same given output.
-(See Section~\ref{sec:previous_approach} for additional detail.)
-This conventional method has been recommended
-for sound and information in addition to lighting~\cite[p.~17]{Sousa2017}.
-
-The conventional method is typically implemented with
-%
-\begin{equation} \label{eq:eta_eqn}
-  \eta_{X,L,v} = \frac{\text{actual lamp luminous efficacy}}{\text{theoretical maximum luminous efficacy}} \; .
-\end{equation}
-
-However, Equation~\ref{eq:eta_eqn} exposes 
-a source of confusion, 
-namely what value should be used for theoretical maximum luminous efficacy~($K_{max}$)?
-Within the societal exergy analysis literature and beyond,
-three common values are adopted:
-220~lm/W \cite{Ayres2003, USDepartmentofEnergyDoE2011},
-400~lm/W \cite{Ayres2005, Tsao2010solidstate, Summers1971, Guevara2016}, and
-683~lm/W \cite{Kondo2009, Serrenho2014}, based on the maximum efficacy of 
-a ***** PB: complete this sentence---MKH ****, broad-spectrum white light, and green light at 555~nm, respectively.
-Obviously, the choice of $K_{max}$ has a large effect on lighting efficiency in the conventional method,
-so getting it right is important.
-The question of maximum luminous efficacy 
-is sufficient motivation to dig deeper, 
-but additional issues and sources of confusion 
-remain to be uncovered.
-(See Section~\ref{sec:discussion}.)
-
-
-
-
-
-
-
-
-
-
-
-
-
-One interpretation of Equation~\ref{eq:eta_basic_eqn} is 
-taken as luminous efficacy (in lumens/watt, or lm/W),
-which is luminous power (light output, in lm)
-per electrical energy input (in W).
-Examples of practitioners using this measure include \citet{Nordhaus1996} 
-and \citet[p.~265]{Tsao2010appetitelight} who state 
-``[l]uminous efficacy represents the efficiency with which energy is used to produce visible light.''
-%The first source of confusion is that some practitioners equate luminous efficacy with luminous (or light) efficiency. For example, \citet{Nordhaus1996} provides estimates of historical lighting efficiencies from the earliest time of open wood fires (0.002~lm/W), through to candles (0.1~lm/W), tungsten filament lamps (10~lm/W) and compact fluorescent light bulbs (68~lm/W). \citet[p.~265]{Tsao2010appetitelight} are very clear, but wrong, when they state ``[l]uminous efficacy represents the efficiency with which energy is used to produce visible light.''
-%Luminous efficacy is commonly taken to be a proxy for energy efficiency, but they are not equivalent.
-%**** Why?  Need to explain.Can we be more specific?  
-However, luminous efficacy is a measure of final-energy-to-service efficiency, 
-not a thermodynamic-based energy efficiency. 
-%Or something similar? ---MKH ****
-In addition, the lumen is not a measure of the total visible light emitted by a lamp, as discussed in Section~\ref{sec:energy_and_exergy_of_light}
-%section 2.1.3. ---ZM ****
-
-A second method (we define in this paper as the Conventional Method) used by many practitioners 
-% more correctly define efficiency of light provision on a thermodynamic basis, 
-is to equate lamp energy efficiency as equal to the \emph{luminous efficiency},as follows:
-%
-\begin{equation} \label{eq:eta_eqn}
-  \eta = \frac{\text{actual lamp efficacy [lm/W]}}{\text{theoretical maximum efficacy limit [lm/W]}} \; .
-\end{equation}
-
-%**** It will not be clear to the reader why Equation~\ref{eq:eta_eqn} is more correct than luminous efficacy. We need to spell it out. ---MKH ****
-
-%**** I'm not sure whether this equation is inherently more correct. I think we should change this to "Others calculate the efficiency of a lamp, positing it to be the final to useful exergy efficiency, by taking the quotient of a lamps luminous efficacy and the maximum luminous efficacy as follows. This approach is discussed further in section 2.2.1 ---ZM ****
-
-However, Equation~\ref{eq:eta_eqn} leads us to 
-three key sources of further confusion. 
-First, is the numerator: \emph{ how should the lamp efficacy be quantified?} 
-\citet{Paoli2020} set  out different options: for example
-Should one use quantify lamp output by 
-omni-directional or 
-directional (aimed at the point of illumination) lumens?
-Should one measure electricity at the wall plug or at the lamp itself? 
-These assumption choices and their impacts
-are considered  in more detail in 
-Section~\ref{sec:further_challenges}
-
-A second confusion is the choice of denominator: 
-\emph{what is the lamp theoretical maximum efficacy limit (in lm/W)?}
-Within the literature, three common values are adopted:
-220~lm/W \cite[Table~5.6.9]{Ayres2003, USDepartmentofEnergyDoE2011},
-400~lm/W \cite{Ayres2005, Tsao2010solidstate, Summers1971, Guevara2016}, and
-683~lm/W \cite{Kondo2009, Serrenho2014}, based on the maximum efficacy of 
-a ???, white light, and light at 555nm respectively.
-Even within technical lighting papers,
-there is divergence over the theoretical maximum efficacy limit of lamps,
-due to differing decisions of what ``luminosity function'' to adopt,
-as the eye is differentially sensitive wavelengths within the visible range (\humaneyesensitivity{}).
-Such differences remain contentious
-\cite{Delgado-Bonal:2017aa, Pattison2018LEDphotons, Rea2018, Royer2016}.
-%**** Preceding sentence probably doesn't say what you want it to say.Do you mean, ``such differences remain contentious?'' ---MKH ***
-With the introduction of high-efficiency LED lamps, which
-are tunable to maximize output at different visible wavelengths,
-the issue of differential sensitivity of the human eye has urgency,
-as shown in Figure~\ref{fig:Vis_Graph}.
+Most lamps are rated and advertised by their lumen output and luminous efficacy.
+Figure~\ref{fig:LuminousEfficacy_Graph} shows the evolution of 
+luminous efficacy for four lamp technologies over time.
 
 
 <<Load_LEData, cache=use_cache, cache.extra.1=tools::md5sum('Data/Lighting_Efficacy_Data.xlsx'), cache.extra.2=tools::md5sum('Data/lighting_efficacy.R')>>=
@@ -646,38 +538,90 @@ ggplot2::ggplot(le_df_filtered, mapping = aes(x = Year)) +
   guides(shape = FALSE)
 @
 
-A third source of confusion is that 
-few authors distinguish between first law (energy) 
-and second law (exergy) efficiencies.
-%Most inadvertently adopt a second law efficiency(Equation~\ref{eq:eta_eqn})**** We haven't made the argument that Equation~\ref{eq:eta_eqn} is an exergetic efficiency. ---MKH ****.
-\citet{Schaeffer1992} and 
-\citet{Nakicenovic1996} 
-provide rare exceptions
-when they define both final-to-useful energy efficiency of lamps
-(ranging from incandescent, 5~\%, to fluorescent, 20~\%)
-and energy-to-exergy ratio $\phi$ at the useful energy stage  of~0.90--0.93.
-%**** This is crossing the streams. I DO NOT want to say that the exergy-to-energy ratio is an efficiency  of any kind. The exergy-to-energy ratio is $\phi$.  Full stop. It is not an efficiency.Efficiencies are ONLY measured ACROSS an energy conversion device. Efficiencies are NOT measured at an energy conversion stage (useful). Can you try to restate the previous sentence, possibly by simplifying it?Or delete entirely? ---MKH ****
+\citeauthor{Sousa2017} notes that 
+societal exergy analysis is hampered when 
+``the useful output cannot or is not
+typically measured in energy units''~\cite[p.~17]{Sousa2017}.
+Indeed, societal exergy analysts 
+need the valuable energy and exergy efficiencies 
+of lamps~($\eta_{E,L,v}$ and $\eta_{X,L,v}$), 
+not the luminous efficacy~($K$).
+Thus, the widespread use of luminous efficacy~($K$) as a measure of lamp efficiency 
+provides a burden to societal exergy analysis.
 
-The differing interpretations and confusions highlighted above
-serve therefore to inform our basic research question for the paper: 
-Can we define the energy and exergy of light, and provide example lamps 
-to illustrate their application
-to Societal Exergy Analysis?
+Conventionally, societal exergy analysts estimate
+exergetic efficiency~($\eta_{X,L,v}$) by the ratio of
+the minimum energy required to produce a given output and
+the actual energy required to produce the same given output.
+(See Section~\ref{sec:previous_approach} for additional detail.)
+This conventional method has been recommended
+for sound and information,
+in addition to lighting~\cite{Sousa2017}.
 
-%**** Should we end here with the question for this paper? ---MKH ****
+The conventional method is typically implemented via luminous efficacy with
+%
+\begin{equation} \label{eq:eta_eqn}
+  \eta_{X,L,v} \approx \frac{\text{actual lamp luminous efficacy}}{\text{theoretical maximum luminous efficacy}} \; .
+\end{equation}
+%
+However, Equation~\ref{eq:eta_eqn} exposes 
+a source of confusion, 
+namely what value should be used for theoretical maximum luminous efficacy~($K_{max}$)?
+Within the societal exergy analysis literature and beyond,
+three common values are adopted:
+220~lm/W \cite{Ayres2003, USDepartmentofEnergyDoE2011},
+400~lm/W \cite{Ayres2005, Tsao2010solidstate, Summers1971, Guevara2016}, and
+683~lm/W \cite{Kondo2009, Serrenho2014}, based on the maximum efficacy of 
+a ***** PB: complete this sentence---MKH ****, broad-spectrum white light, and green light at 555~nm, respectively.
+Obviously, the choice of $K_{max}$ has a large effect on lighting efficiency in the conventional method,
+so getting it right is important.
 
+The confusion around maximum luminous efficacy 
+is sufficient motivation to dig deeper to fully understand and define
+the exergy of light and the exergetic efficiency of lamps.
+But there are further issues remaining to be uncovered and additional sources of confusion to be solved.
+(See Section~\ref{sec:discussion}.)
+The issues surrounding the exergy of light 
+serve therefore to inform the basic research question for this paper: 
+How should we define 
+%
+\begin{enumerate*}[label={(\alph*)}]
+	
+  \item the energy and exergy of light and        
+  
+  \item the valuable energy and exergetic efficiency of lamps
+    
+\end{enumerate*}
+%
+to facilitate societal exergy analysis?
 
-%++++++++++++++++++++++++++++++
-\subsection{Paper structure}
-\label{sec:paper_structure}
-%++++++++++++++++++++++++++++++
+The contributions of this paper include:
+%
+\begin{enumerate*}[label={(\alph*)}]
+
+  \item clear and consistent definitions of the energy and exergy of light~(Section~\ref{sec:framework}),
+
+  \item use of recent results from the photometry and thermodynamics of radiation literatures
+        to develop a rigorous framework (the exact method) for
+        understanding the energy and exergy of light
+        and exergetic efficiency of lamps
+        applicable to the field of societal exergy analysis
+        (Section~\ref{sec:previous_approach}),
+
+  \item use of the exact method to re-interpret the conventional method for determining the
+        exergetic efficiency of lamps, exposing hidden assumptions~(Section~\ref{sec:previous_approach}),
+
+  \item development of a reasonable approximation to the exact method when it is needed, and
+
+  \item recommendations for societal exergy analysis going forward.
+
+\end{enumerate*}
 
 The article proceeds as follows.
 In Section~\ref{sec:methods}, we set out the energy and exergy fundamentals of light.
 In Section~\ref{sec:results}, we show results for example weighting functions and lamps before
-presenting a discussion in Section~\ref{sec:discussion}. 
+presenting a discussion in Section~\ref{sec:discussion}.
 Section~\ref{sec:conclusions} concludes.
-%Our key finding is ******.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

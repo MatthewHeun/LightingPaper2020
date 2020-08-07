@@ -622,4 +622,95 @@ are considered  in more detail in
 Section~\ref{sec:further_challenges}
 
 
+
+
+
+More from the original introduction:
+
+
+
+
+
+One interpretation of Equation~\ref{eq:eta_basic_eqn} is 
+taken as luminous efficacy (in lumens/watt, or lm/W),
+which is luminous power (light output, in lm)
+per electrical energy input (in W).
+Examples of practitioners using this measure include \citet{Nordhaus1996} 
+and \citet[p.~265]{Tsao2010appetitelight} who state 
+``[l]uminous efficacy represents the efficiency with which energy is used to produce visible light.''
+%The first source of confusion is that some practitioners equate luminous efficacy with luminous (or light) efficiency. For example, \citet{Nordhaus1996} provides estimates of historical lighting efficiencies from the earliest time of open wood fires (0.002~lm/W), through to candles (0.1~lm/W), tungsten filament lamps (10~lm/W) and compact fluorescent light bulbs (68~lm/W). \citet[p.~265]{Tsao2010appetitelight} are very clear, but wrong, when they state ``[l]uminous efficacy represents the efficiency with which energy is used to produce visible light.''
+%Luminous efficacy is commonly taken to be a proxy for energy efficiency, but they are not equivalent.
+%**** Why?  Need to explain.Can we be more specific?  
+However, luminous efficacy is a measure of final-energy-to-service efficiency, 
+not a thermodynamic-based energy efficiency. 
+%Or something similar? ---MKH ****
+In addition, the lumen is not a measure of the total visible light emitted by a lamp, as discussed in Section~\ref{sec:energy_and_exergy_of_light}
+%section 2.1.3. ---ZM ****
+
+A second method (we define in this paper as the Conventional Method) used by many practitioners 
+% more correctly define efficiency of light provision on a thermodynamic basis, 
+is to equate lamp energy efficiency as equal to the \emph{luminous efficiency},as follows:
+%
+\begin{equation} \label{eq:eta_eqn}
+  \eta = \frac{\text{actual lamp efficacy [lm/W]}}{\text{theoretical maximum efficacy limit [lm/W]}} \; .
+\end{equation}
+
+%**** It will not be clear to the reader why Equation~\ref{eq:eta_eqn} is more correct than luminous efficacy. We need to spell it out. ---MKH ****
+
+%**** I'm not sure whether this equation is inherently more correct. I think we should change this to "Others calculate the efficiency of a lamp, positing it to be the final to useful exergy efficiency, by taking the quotient of a lamps luminous efficacy and the maximum luminous efficacy as follows. This approach is discussed further in section 2.2.1 ---ZM ****
+
+However, Equation~\ref{eq:eta_eqn} leads us to 
+three key sources of further confusion. 
+First, is the numerator: \emph{ how should the lamp efficacy be quantified?} 
+\citet{Paoli2020} set  out different options: for example
+Should one use quantify lamp output by 
+omni-directional or 
+directional (aimed at the point of illumination) lumens?
+Should one measure electricity at the wall plug or at the lamp itself? 
+These assumption choices and their impacts
+are considered  in more detail in 
+Section~\ref{sec:further_challenges}
+
+A second confusion is the choice of denominator: 
+\emph{what is the lamp theoretical maximum efficacy limit (in lm/W)?}
+Within the literature, three common values are adopted:
+220~lm/W \cite[Table~5.6.9]{Ayres2003, USDepartmentofEnergyDoE2011},
+400~lm/W \cite{Ayres2005, Tsao2010solidstate, Summers1971, Guevara2016}, and
+683~lm/W \cite{Kondo2009, Serrenho2014}, based on the maximum efficacy of 
+a ???, white light, and light at 555nm respectively.
+Even within technical lighting papers,
+there is divergence over the theoretical maximum efficacy limit of lamps,
+due to differing decisions of what ``luminosity function'' to adopt,
+as the eye is differentially sensitive wavelengths within the visible range (\humaneyesensitivity{}).
+Such differences remain contentious
+\cite{Delgado-Bonal:2017aa, Pattison2018LEDphotons, Rea2018, Royer2016}.
+%**** Preceding sentence probably doesn't say what you want it to say.Do you mean, ``such differences remain contentious?'' ---MKH ***
+With the introduction of high-efficiency LED lamps, which
+are tunable to maximize output at different visible wavelengths,
+the issue of differential sensitivity of the human eye has urgency,
+as shown in Figure~\ref{fig:Vis_Graph}.
+
+
+
+
+A third source of confusion is that 
+few authors distinguish between first law (energy) 
+and second law (exergy) efficiencies.
+%Most inadvertently adopt a second law efficiency(Equation~\ref{eq:eta_eqn})**** We haven't made the argument that Equation~\ref{eq:eta_eqn} is an exergetic efficiency. ---MKH ****.
+\citet{Schaeffer1992} and 
+\citet{Nakicenovic1996} 
+provide rare exceptions
+when they define both final-to-useful energy efficiency of lamps
+(ranging from incandescent, 5~\%, to fluorescent, 20~\%)
+and energy-to-exergy ratio $\phi$ at the useful energy stage  of~0.90--0.93.
+%**** This is crossing the streams. I DO NOT want to say that the exergy-to-energy ratio is an efficiency  of any kind. The exergy-to-energy ratio is $\phi$.  Full stop. It is not an efficiency.Efficiencies are ONLY measured ACROSS an energy conversion device. Efficiencies are NOT measured at an energy conversion stage (useful). Can you try to restate the previous sentence, possibly by simplifying it?Or delete entirely? ---MKH ****
+
+The differing interpretations and confusions highlighted above
+serve therefore to inform our basic research question for the paper: 
+Can we define the energy and exergy of light, and provide example lamps 
+to illustrate their application
+to Societal Exergy Analysis?
+
+%**** Should we end here with the question for this paper? ---MKH ****
+
 ********************************* End Bone Pile *********************************
