@@ -6,6 +6,15 @@
 # Lamp tabs are prefixed with "lamp_".
 library(magrittr)
 
+# Here we establish the lamp_list and wf_list,
+# AllData is sourced at the beginning of the paper
+# 
+wf_list <- c(Unweighted = "wf_nw", Visible = "wf_v",
+             Photopic = "wf_p2", Universal = "wf_u")
+lamp_list <- c(INC = "lamp_inc_syl_a21", HPS = "lamp_hps_phil", 
+               CFL = "lamp_cfl_es_tw_15", LED = "lamp_led_es_br30")
+
+
 # Main code
 weighted_power <- function(weighting_function, lamp) {
   # Get name of lamp
