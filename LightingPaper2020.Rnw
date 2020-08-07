@@ -1792,8 +1792,17 @@ Substituting Equation~\ref{eq:lum_effic_def} into Equation~\ref{eq:K_over_e_max}
 exergetic efficiency for the conventional method:
 %
 \begin{equation} \label{eq:prev_eta_X_v_light}
-  \eta_{X,L,v} \approx \frac{ \; \; \frac{(683 \text{ lm/W}) \int V_\lambda \dot{E}_{EM,\lambda,3} \, \mathrm{d}\lambda}{\dot{W}_{elect,1}} \; \;}{K_{max}} \; .
+  \eta_{X,L,v} \approx \eta_{E,L,v} = \frac{ \; \; \frac{(683 \text{ lm/W}) \int V_\lambda \dot{E}_{EM,\lambda,3} \, \mathrm{d}\lambda}{\dot{W}_{elect,1}} \; \;}{K_{max}} \; .
 \end{equation}
+
+When $K_{max}$ is equal to 683 lm/W both instances cancel
+%
+\begin{equation} \label{eq:prev_eta_X_v_light_final}
+  \eta_{X,L,v} \approx \eta_{E,L,v} = 
+    \frac{\int V_\lambda \dot{E}_{EM,\lambda,3} \mathrm{d}\lambda}{\dot{W}_{elect,1}}\; .
+\end{equation}
+
+**** I've included this step as i think it demonstrates the equivalency in a more complete way ---ZM ****
 
 With recent advances in photometry and the thermodynamics of radiation 
 (Section~\ref{sec:phi_light}),
@@ -1806,7 +1815,7 @@ the actual energy required to produce a lumen.
 Thus, we can evaluate the conventional method in light of recent advances, 
 using exergetic efficiency~($\eta_{X,L,v}$) as the point of comparison.
 
-Comparing Equation~\ref{eq:prev_eta_X_v_light} (the conventional method)
+Comparing Equation~\ref{eq:K_over_e_max} (the conventional method)
 to Equation~\ref{eq:eta_X_v_light} (the exact method)
 reveals that the conventional method for calculating the exergetic efficiency of lighting
 is correct only under the following conditions:
@@ -1836,10 +1845,10 @@ the conventional method of Equation~\ref{eq:prev_eta_X_v_light}
 reduces to Equation~\ref{eq:eta_E_v_light},
 which is the valuable energy efficiency of a lamp.
 That is to say, one way to interpret the conventional method
-(Equation~\ref{eq:prev_eta_X_v_light})
+(Equation~\ref{eq:K_over_e_max})
 is that it estimates the 
 \emph{exergetic} efficiency of a lamp 
-to be its \emph{energy} efficiency.
+to be its \emph{energy} efficiency (Equation~\ref{eq:prev_eta_X_v_light_final}).
 
 
 %------------------------------
@@ -1857,7 +1866,8 @@ the denominator of Equation~\ref{eq:prev_eta_X_v_light}.
 The choice of $K_{max}$ can make a significant difference to the results.
 The correct value for $K_{max}$ is 683~lm/W, 
 because the conventional method relies upon luminous efficacy of lamps.
-Many authors assume $K_{max} = 400 \text{ lm/W}$ 
+Many authors assume $K_{max} = 400 \text{ lm/W}$, 
+taken to be the maximum luminous efficacy of a lamp producing white light,
 (e.g., \citet{Ayres2005} and \citet{Guevara2016}),
 thereby incorrectly overestimating exergetic efficiency of lighting~($\eta_{X,L,v}$)
 by a factor of $\frac{683 \text{ lm/W}}{400 \text{ lm/W}} = 1.71$.
@@ -1915,7 +1925,7 @@ We note that human perception of light and color diminishes rapidly above 700~nm
 as shown by Figure~\ref{fig:wfs_and_lamps}, 
 which utilizes the CIE 10 degree color matching function 
 provided in the \texttt{ggspectra R} package \cite{Aphalo2015}.
-However, it is known that short wavelength EM radiation (bluer light)
+It is also known that short wavelength EM radiation (bluer light)
 provides physiological benefits, such as
 the suppression of melanopsin and 
 the regulation of circadian rhythms~\citep{Pattison2018LEDphotons}.
@@ -1966,48 +1976,17 @@ so long as SPD data are available.
 In the absence of SPD data, 
 we suggest that an approximate method can be used, as shown in the next section.
 
-****
-Zeke: I have edited this section for clarity, as you can see above.
-Looking at it now, it seems that describing the approximate method
-would fit naturally right here
-The approximate method is simply another recommendation.---MKH
-****
-
 %------------------------------
 \subsubsection{Recommendation for an approximate method} 
 \label{sec:approximate_method}
 %------------------------------
 
-****
-Zeke: I have moved discussion of the approximate method discussion here,
-rebadged from conversion --> approximate method.
-This section's focus should be a single lamp, as in the universal weighting function section above.
-
-The move to aggregations can be accomplished independent of using the exact method or the approximate method.
-Thus, the aggregation section follows the approximate method section.---MKH
-****
-
-% %++++++++++++++++++++++++++++++
-% \subsubsection{Conversion to the use of the universal luminosity function}
-% \label{sec:ConversionUniversal}
-% %++++++++++++++++++++++++++++++
-
-% Given the likely absence of SPD data 
-% for each lamp technology over time, 
-% an approximate method must be also used to adjust the available 
-% final to useful energy efficiencies derived from luminous efficacy values, 
-% which are based on the photopic luminosity function ($V_\lambda$), 
-% to final to useful efficiencies based on the universal luminosity function ($U_\lambda$).
-
-****
-Now that discussion of the approximate method has moved here,
-I would start it differently:
-``When luminous efficacy data are available
+When luminous efficacy data are available
 but SPD data are not, 
 an approximation to the exact method is needed.
 Results from the exact method provide guidance for developing an approximate method.
 
-Section XX shows that the conventional method does not require SPD information 
+Section~\ref{sec:previous_approach} shows that the conventional method does not require SPD information 
 but it provides energy efficiency (instead of exergy efficiency)
 while requiring the use of photopic luminosity function~($\eta_{E,L,v,pl}$), 
 whereas we want to approximate exergy efficiency with the universal luminosity function~($\eta_{X,L,v,univ}$)
@@ -2026,67 +2005,43 @@ We suggest the following two-step process:
     
 \end{enumerate*}
 %
-''
 
-Then discuss each step in turn.
-What do you think?---MKH
-****
-
-
-Similarly to our proposed method of using a generalized exergy-to-energy ratio
-for each lamp technology ($\phi_{i,pl}$) 
-or across all lamp technologies ($\phi_{pl}$)  (Section~\ref{sec:AggEfficiencies}),
-we propose a generalized conversion factor,
-$\gamma_{i,univ}$ or $\gamma_{univ}$
-to obtain approximate final to useful efficiencies 
-based on the universal luminosity function,
-$\eta_{i,E,univ}$ or $\eta_{E,univ}$
-
-**** Create xtable with these factors. Per lamp, or in general? ---ZM ****
-
-Values for $\gamma_{i,univ}$ are given by taking the quotient of 
+**** Average across all lamps and weighting functions,
+all lamps by weighting function, 
+or all weighting functions by lamp ---ZM ****
+        
+Values for $\gammarat{}$ are given by taking the quotient of 
 the final to useful efficiency of a lamp using the universal luminosity function ($\eta_{i,E,univ}$)
 and the same lamp using the photopic luminosity function ($\eta_{i,E,pl}$).
 %
 \begin{equation} \label{eq:conversionuniversal}
-  \gamma_{i,univ} = \frac{\eta_{E,univ}}{\eta_{E,pl}}
+  \gammarat{} = \frac{\eta_{E,univ}}{\eta_{E,pl}}
 \end{equation}
 %
 
-**** Is it best to give the conversion factor in terms of the quotient of the etas, 
-or the quotient of the weighted radiant power?
-They are technically the same, so this is just a question of preference ---ZM ****
+**** At the moment $\gammarat{}$ is across all lamps, is this appropriate?
+i currently denotes per lamp, how do we denote $\gammarat{}$ across all lamps ---ZM ****
 
 
 Performing this calculation across a sample of lamps 
-for each representative lamp technology type yields a generalised conversion factor of XXXX
-across all lamps......, and conversion factors per lamp technology given in Table~X.
-
-**** Create xtable with these factors. Per lamp, or in general? ---ZM ****
-
-Including this conversion factor then provides a method for calculating
-aggregate final-to-useful energy efficiency values 
-based on the universal luminosity function,
-and final-to-useful exergy efficiency values
-if the generalised exergy-to-energy ratio ($\phi_{i,univ}$ or $\phi_{univ}$ ) is applied.
-As detailed above, this calculation can be use per lamp technology type (i),
-or across all lamp technology types.
+for each representative lamp technology type yields a generalised conversion factor of 1.37
+across all lamps.
+As expected this metric represents the fact that 
+a greater proportion of a spectral power distribution is considered 'useful'
+when adopting the universal luminosity function.
+Similarly, taking the mean of the exergy-to energy ratio of all lamps 
+yields a generalised exergy-to-energy ratio of 0.958.
+Conversion factors per lamp technology given in Table~X.
+**** Do we report the values per lamp type too? ---ZM ****
+Through this approximate method the final-to-useful exergy efficiency of a lamp is then given by
 %
-\begin{equation} \label{eq:agg_eta_univ}
-  \eta_{agg, univ} = \sum \limits_{i \in Lamps} \theta_{i} \cdot 
-                                          \phi_{i,univ} \cdot 
-                                          \gamma_{i,univ} \cdot 
-                                          \eta_{E,i,pl} 
+\begin{equation} \label{eq:approximate}
+  \eta_{X,univ} \approx \phi_{L} \cdot \gammarat{} \cdot \frac{K}{K_{max}} 
+  = 1.31 \cdot\frac{K}{K_{max}} 
 \end{equation}
+%
 
 
-
-
-
-%++++++++++++++++++++++++++++++
-\subsection{Application for country-level societal exergy analysis}
-\label{sec:Application}
-%++++++++++++++++++++++++++++++
 
 %++++++++++++++++++++++++++++++
 \subsubsection{Aggregate lighting efficiencies}
@@ -2105,27 +2060,17 @@ several types of data are required for the given period of study:
 
 \end{enumerate}
 
-Items (a) and (b) are rarely reported for lamps, 
-nor is the associated SPD data.
+Items (a) and (b) are required for the exact method, 
+but depend on having each lamps associated SPD data,
+which is rarely reported.
 Instead, the most common measure of lighting efficiency reported for lamps is the luminous efficacy~($K$).
 Therefore, to develop an aggregate measure of lighting efficiency, 
-luminous efficacy data must be converted into efficiency values.
-As demonstrated in Section~\ref{sec:previous_approach} if the \emph{valuable} light
-is deemed to be the radiant power weighted by the photopic luminosity function 
-(luminous power, $\Phi_{pl}$),
-the final to useful efficiencies are equivalent to the luminous efficiency (Equation~\ref{eq:prev_eta_X_v_light}), 
-namely the conventional method $\frac{K}{683 lm/W}$.
+luminous efficacy data must be converted into efficiency values 
+using conversion factors in an approximate method, namely $\phi_{L}$ and $\gammarat{}$,
+described above in Section~\ref{sec:approximate_method}
 
-In the absence of SPD data a generalised exergy-to-energy ratio ($\phi_{i,pl}$) 
-for each lamp technology type, or across all lamp types, must be selected.
-As can be seen from Table~\ref{tab:results_phis} 
-aggregate exergy-to-energy ratio values across lamp technology types
-display little variation, 
-Across all lamps the mean exergy-to-energy ratio is.......
-
-Once efficiency series have been calculated
-and exergy to energy ratios obtained,
-data for the proportion of each lamp type in use for each year of the study is needed,
+Importantly, data for the proportion of each lamp type 
+in use for each year of the study is needed,
 i.e. the fleet of lamps, 
 and ideally in the form of the economy-wide electricity consumption by lamp technology.
 For example, the US DOE's Lighting Market Characterization reports provide such data for the USA,
@@ -2136,7 +2081,10 @@ linear fluorescent, high intensity discharge, LED and other.
 The aggregate lighting efficiency for a particular year is then given by
 %
 \begin{equation} \label{eq:agg_eta}
-  \eta_{agg, pl} = \sum \limits_{i \in Lamps} \theta_{i} \cdot \phi_{i,pl} \cdot \eta_{E,i,pl} 
+  \eta_{agg, u} = \sum \limits_{i \in Lamps} 
+  \theta_{i} \cdot 
+  \phi_{i,u} \cdot 
+  \eta_{E,i,u} 
 \end{equation}
 %
 if the exact method allows calculation of $\eta_{E,i,pl}$, 
@@ -2144,11 +2092,24 @@ or via the approximate method if only luminous efficacy data is available,
 given by
 %
 \begin{equation} \label{eq:agg_eta_K}
-  \eta_{agg, pl} = \sum \limits_{i \in Lamps} \theta_{i} \cdot \phi_{i,pl} \cdot \frac{K_{i}}{683 lm/W}
+  \eta_{agg, pl} = \sum \limits_{i \in Lamps} 
+  \theta_{i} \cdot 
+  \phi_{i} \cdot 
+  \gammarat{} \cdot
+  \frac{K_{i}}{683 lm/W}
 \end{equation}
 
 Where $\theta_{i}$ denotes the proportion of electricity consumption for lighting
 by a particular lamp technology for a given year.
+
+Data for the final-to-useful exergy efficiency 
+of the four representative lamps used in this study
+for each of three methods
+is given in Table~\ref{tab:threemethods}.
+
+**** Matt: I'e taken a pass through all of these sections, 
+let me know what you think.
+We need to ensure consistency with the subscripts in these sections ---ZM ****
 
 <<threemethods, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/conv_exact_approx.R')>>=
 source("Data/conv_exact_approx.R")
@@ -2167,15 +2128,6 @@ print(xtable::xtable(results_cea_table, digits=2,
       )
 @
 
-
-
-%++++++++++++++++++++++++++++++
-\subsubsection{Assessing the efficiency of LED lamp}
-\label{sec:etaLED}
-%++++++++++++++++++++++++++++++
-
-**** Perform calculations on the LED luminous efficacy time series 
-using the approximate method? Confirm with group.. ---ZM ****
 
 %++++++++++++++++++++++++++++++
 \subsection{Further challenges}
