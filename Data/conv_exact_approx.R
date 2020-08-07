@@ -22,7 +22,7 @@ lamp_list_for_info <-  c("lamp_inc_syl_a21",
 results_conventional <- spd_metrics %>%
   dplyr::filter(wf_name == "wf_p2" & lamp_name %in% lamp_list_for_info) %>%
   dplyr::select(lamp_name, `Lamp type`, wrp_div_ec_100) %>%
-  magrittr::set_colnames(c("lamp_name","lamp_type", "eta_p2")) %>%
+  magrittr::set_colnames(c("lamp_name","lamp_type", "eta_p2"))
 
 #results_conventional[, "eta_p2"] <- round(results_conventional[, "eta_p2"],2)
 
@@ -30,17 +30,17 @@ results_conventional <- spd_metrics %>%
 results_exact <- spd_metrics %>%
   dplyr::filter(wf_name == "wf_u" & lamp_name %in% lamp_list_for_info) %>%
   dplyr::select(lamp_name, wrpX_div_ec_100) %>%
-  magrittr::set_colnames(c("lamp_name", "eta_Xu")) %>%
+  magrittr::set_colnames(c("lamp_name", "eta_Xu"))
 
 #results_exact[, "eta_Xu"] <- round(results_exact[, "eta_Xu"],2)
 
 # Creates a DF containing data for the approximate method
 results_approximate <- spd_metrics %>%
-  dplyr::filter(wf_name == "wf_u" & lamp_name %in% lamp_list_for_info) %>%
+  dplyr::filter(wf_name == "wf_p2" & lamp_name %in% lamp_list_for_info) %>%
   dplyr::select(lamp_name, wrp_div_ec_100, phi_all) %>%
-  magrittr::set_colnames(c("lamp_name", "eta_u", "phi_all")) %>%
+  magrittr::set_colnames(c("lamp_name", "eta_p2", "phi_all")) %>%
   dplyr::mutate("gamma_E_u" = overall_stats$mean_conv) %>%
-  dplyr::mutate("eta_X_u_approx" = eta_u * phi_all * gamma_E_u)
+  dplyr::mutate("eta_X_u_approx" = eta_p2 * phi_all * gamma_E_u)
 
 #results_approximate[, "eta_X_u_approx"] <- round(results_approximate[, "eta_X_u_approx"],2)
 
