@@ -246,7 +246,7 @@ the exergetic efficiency of lamps is central to
 determining the exergy contribution of lighting to an economy.
 Conventionally, societal exergy analysts estimate the exergetic efficiency of lamps 
 by an energy efficiency, 
-resulting in much confusion to date. 
+causing confusion and, sometimes, mistakes.
 In response, 
 we use recent results from the photometry and thermodynamics of radiation literatures to
 develop an exact method for calculating 
@@ -254,13 +254,13 @@ the exergy of light and the exergetic efficiency of lamps.
 The exact method 
 (a)~is free of any assumptions for the value of the maximum luminous efficacy, 
 (b)~uses the correct spectral exergy-to-energy ratio, and 
-(c)~allows choices for a spectral weighting function, 
+(c)~allows choices for a spectral luminosity weighting function, 
 which converts broad-spectrum electromagnetic radiation to light.
-The exact method exposes assumptions inherent to the conventional method and 
+The exact method exposes shortcomings inherent to the conventional method and 
 leads to a reasonable approximation of lamp exergetic efficiency, when needed.
 To conclude, we provide three recommendations 
 for societal exergy analysts:
-(a)~use the universal (instead of photopic) luminosity weighting function,
+(a)~use the universal luminosity weighting function,
 (b)~use the exact method when a lamp's spectral power distribution is available, and
 (c)~use the reasonable approximation to the exact method 
     when luminous efficacy is known
@@ -316,41 +316,20 @@ for societal exergy analysts:
 % Finally, briefly mention the main aim of the work and highlight the principal conclusions. 
 % As far as possible, please keep the introduction comprehensible 
 % to scientists outside your particular field of research. 
-% Citing a journal paper or book~\cite{Delgado-Bonal:2017aa}. 
 
-
-% PB: Make the paper broader than SEA.
-% Also discuss other fields: highly-technical lighting papers, Emergy, etc
-% All have different ways of dealing with the \enaex{} of light.
-% PB: Need to discuss societal exergy analysis.
-% PB: Need to discuss the energy conversion chain and P, F, U, S stages.
-% (Needed for Section~\ref{sec:framework} later.)
-% Point out that human perception and satisfaction of human needs is accomplished post-useful stage.
-% PB: Discuss lighting as one aspect of ECC analysis.
-% Probably more important in earlier years.
-% But studies are pushing back to 1800s,
-% so getting this right is important.
-% PB: Discuss Fouquet~\cite{Fouquet:2006}, who looked at energy, but not exergy.
-% Point out that we are discussing light for illumination, not for horticultural and other purposes.
-
-
-
-% \textbf{(Broad context and the problem)}
 
 %++++++++++++++++++++++++++++++
-\subsection{The importance of light and the issue oflight efficiency}
+\subsection{The importance of light and the issue of lighting efficiency}
 \label{sec:lighting_importance}
-%\subsection{Broad context and the problem}
-%\label{sec:broad_context}
 %++++++++++++++++++++++++++++++
 
 Artificial light provides an indispensable energy service (illumination), 
 enabling activities at times when natural light levels are insufficient.
 Artificial illumination is so valuable that around 20~\% of global grid-connected electricity 
 is consumed for the purpose of making light~\cite{waide2006}.
-With the modern breakthrough technology of light emitting diode (LED) lamps,
+With the breakthrough technology of light emitting diode (LED) lamps,
 which now comprise 40~\% of residential lamp sales~\cite{IEA2019},
-applications have spread beyond illumination to many other fields
+applications of artificial lighting have spread beyond illumination to many other fields
 including human physiology and photosynthesis for horticulture~\cite{Pattison2018LEDefficacy}.
 Given the expanding role that artificial lighting plays globally,
 understanding precisely 
@@ -362,16 +341,8 @@ energy history~\cite{Fouquet:2006},
 energy economics~\cite{Nordhaus1996},
 forecasting energy efficiency improvements~\cite{IEA2019}, and 
 societal exergy analysis~\cite{Ayres2005}.
-
 However, there are different definitions and interpretations 
-of light efficiency, which creates considerable confusion. 
-The aim of this paper is to bring clarity on the definitions of 
-the energy and exergy of light and
-the energy and exergy efficiency 
-of artificial lighting systems
-(i.e., electric lamps that convert electricity to light).
-Our application is analysis of lighting within the field of societal exergy analysis.
-We exclude non-illumination purposes of lighting, such as horticulture and heating.
+of lighting efficiency, which creates considerable confusion. 
 
 
 %++++++++++++++++++++++++++++++
@@ -382,9 +353,8 @@ We exclude non-illumination purposes of lighting, such as horticulture and heati
 Ahead of a detailed treatment of the thermodynamics of light in Section~\ref{sec:framework}
 we set out here two fundamental aspects of lighting. 
 The first aspect is clear definitions of electromagnetic~(EM) energy and light.
-EM energy~($E_{EM}$) is broad-spectrum EM radiation
-quantified by the energy of photons (in Joules)
-via Einstein's equation,
+EM energy~($E_{EM}$, in J) is broad-spectrum EM radiation
+quantified by the energy of photons via Einstein's equation,
 %
 \begin{equation}
   E_{EM} = h \nu = \frac{hc}{\lambda} \; ,
@@ -453,19 +423,30 @@ response_data %>%
         axis.text.y = element_text(size = rel(0.8)))
 @
 
-The second aspect is that 
+The second aspect is to note that 
 modern lighting is provided via an energy conversion chain:
 primary energy (e.g., coal) is converted to
-final energy (electricity, measured in watts) and lastly to
-useful energy (i.e., the provision of visible light, measured in lumens).
-An essential metric for lighting in societal exergy analysis is the efficiency with which
-electricity (final stage) is converted to light (useful stage)
-by lamps in society. 
+final energy (electricity, measured in W) and lastly to
+useful energy (visible light, measured in lumens).
+The field of societal exergy analysis evaluates entire energy conversion chains
+at regional, national, or world levels in exergy scales and
+considers light (and many other useful energy products)
+to be enablers of economic growth.
+(Exergy is a quantification of energy by its potential to do work,
+whereas energy quantifies energy by its potential to change temperature.
+See \citet{Nakicenovic1996} for an early example of societal exergy analysis and
+\citet{Heun:2019aa} for a recent example.)
+
+Lighting contributes a non-negligible proportion of total useful exergy
+supplied to modern economies, so
+an essential metric for societal exergy analysis
+is the efficiency with which
+electricity (final stage) is converted to light (useful stage) by lamps.
 Thus, the efficiency of energy and exergy conversion~($\eta$) from electricity
 to light by electric lamps is the focus of this paper.
 Note that both energy services (e.g., illumination) and satisfaction of human needs
 (e.g., comfort, safety, etc.) are downstream of the useful stage 
-and thus beyond the scope of this paper.
+and thus outside of scope.
 
 
 %++++++++++++++++++++++++++++++
@@ -494,9 +475,9 @@ to obtain luminous efficacy ($K$, in lm/W).
 Examples of practitioners using luminous efficacy include \citet{Nordhaus1996} 
 and \citet[p.~265]{Tsao2010appetitelight}, who state 
 ``[l]uminous efficacy represents the efficiency with which energy is used to produce visible light.''
-Most lamps are rated and advertised by their lumen output and luminous efficacy.
-Figure~\ref{fig:LuminousEfficacy_Graph} shows the evolution of 
-luminous efficacy for four lamp technologies over time.
+Most lamps are rated and advertised by their lumen output and luminous efficacy~($K$).
+Figure~\ref{fig:LuminousEfficacy_Graph} shows the evolution over time 
+of luminous efficacy for four lamp technologies.
 
 
 <<Load_LEData, cache=use_cache, cache.extra.1=tools::md5sum('Data/Lighting_Efficacy_Data.xlsx'), cache.extra.2=tools::md5sum('Data/lighting_efficacy.R')>>=
@@ -543,7 +524,7 @@ societal exergy analysis is hampered when
 ``the useful output cannot or is not
 typically measured in energy units''~\cite[p.~17]{Sousa2017}.
 Indeed, societal exergy analysts 
-need the valuable energy and exergy efficiencies 
+need the valuable energy and exergetic efficiencies 
 of lamps~($\eta_{E,L,v}$ and $\eta_{X,L,v}$), 
 not the luminous efficacy~($K$).
 Thus, the widespread use of luminous efficacy~($K$) as a measure of lamp efficiency 
@@ -557,13 +538,15 @@ the actual energy required to produce the same given output.
 This conventional method has been recommended
 for sound and information,
 in addition to lighting~\cite{Sousa2017}.
-
 The conventional method is typically implemented via luminous efficacy with
 %
 \begin{equation} \label{eq:eta_eqn}
-  \eta_{X,L,v} \approx \frac{\text{actual lamp luminous efficacy}}{\text{theoretical maximum luminous efficacy}} \; .
+  \eta_{X,L,v} \approx \frac{K}{K_{max}} \; ,
 \end{equation}
 %
+where $K$ is the actual lamp luminous efficacy and 
+$K_{max}$ is the theoretical maximum luminous efficacy.
+
 However, Equation~\ref{eq:eta_eqn} exposes 
 a source of confusion, 
 namely what value should be used for theoretical maximum luminous efficacy~($K_{max}$)?
@@ -579,11 +562,20 @@ so getting it right is important.
 The confusion around maximum luminous efficacy 
 is sufficient motivation to dig deeper to fully understand and define
 the exergy of light and the exergetic efficiency of lamps.
-But there are further issues remaining to be uncovered and additional sources of confusion to be solved.
+But further issues and confusions await. 
 (See Section~\ref{sec:discussion}.)
-The issues surrounding the exergy of light 
-serve therefore to inform the basic research question for this paper: 
-How should we define 
+Thus, there is a need for clarity and rigor 
+about the thermodynamics of artificial lighting systems
+(i.e., electric lamps that convert electricity to light).
+
+
+%++++++++++++++++++++++++++++++
+\subsection{Aim, contribution, and structure}
+\label{sec:aim_contribution_structure}
+%++++++++++++++++++++++++++++++
+
+The need discussed above informs the \emph{aim} of this paper: 
+to bring clarity to 
 %
 \begin{enumerate*}[label={(\alph*)}]
 	
@@ -593,35 +585,44 @@ How should we define
     
 \end{enumerate*}
 %
-to facilitate societal exergy analysis?
+for societal exergy analysis.
 
-The contributions of this paper include:
+The \emph{contributions} of this paper include:
 %
 \begin{enumerate*}[label={(\alph*)}]
 
   \item clear and consistent definitions of the energy and exergy of light~(Section~\ref{sec:framework}),
 
-  \item use of recent results from the photometry and thermodynamics of radiation literatures
-        to develop a rigorous framework (the exact method) for
-        understanding the energy and exergy of light
-        and exergetic efficiency of lamps
+  \item presentation of a rigorous framework (the exact method)
+        for understanding 
+        the energy and exergy of light and
+        exergetic efficiency of lamps,
         applicable to the field of societal exergy analysis
         (Section~\ref{sec:previous_approach}),
 
-  \item use of the exact method to re-interpret the conventional method for determining the
-        exergetic efficiency of lamps, exposing hidden assumptions~(Section~\ref{sec:previous_approach}),
+  \item application of the exact method to re-interpret the conventional method,
+        exposing hidden assumptions~(Section~\ref{sec:previous_approach}),
 
-  \item development of a reasonable approximation to the exact method when it is needed, and
+  \item development of an approximate method for cases when an approximation to the exact method is needed, and
 
   \item recommendations for societal exergy analysis going forward.
 
 \end{enumerate*}
 
-The article proceeds as follows.
-In Section~\ref{sec:methods}, we set out the energy and exergy fundamentals of light.
+The \emph{structure} of this article is as follows:
+In Section~\ref{sec:methods}, we 
+%
+\begin{enumerate*}[label={(\alph*)}]
+	
+  \item set out the energy and exergy fundamentals of light and
+  
+  \item define luminous weighting functions and spectral power distributions for example lamps.
+    
+\end{enumerate*}
+%
 In Section~\ref{sec:results}, we show results for example weighting functions and lamps before
 presenting a discussion in Section~\ref{sec:discussion}.
-Section~\ref{sec:conclusions} concludes.
+Section~\ref{sec:conclusions} summarizes and concludes.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
