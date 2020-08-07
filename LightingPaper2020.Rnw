@@ -2052,14 +2052,15 @@ For example, the first row should be titled
 ``Conventional method ($\eta_{E,L,V,pl}$, same as row 3 of Table~\ref{tab:results_etas})''
 The second row should be titled 
 ``Exact method ($\eta_{X,L,V,univ}$, same as row 4 of Table~\ref{tab:results_etasX})''.
-I don't think we have a name for the bottom row.---MKH
+I don't think we have a name for the bottom row.
+Note that the second word should not be capitalized.---MKH
 ****
 
 <<threemethods, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/conv_exact_approx.R')>>=
 source("Data/conv_exact_approx.R")
 
 print(xtable::xtable(results_cea_table, digits=2, 
-                     caption = "Valuable exergetic efficiencies 
+                     caption = "Valuable exergetic efficiencies (in \\%)
                      for each of the three methods identified in this paper: 
                      conventional, exact, and approximate.", 
                      label = "tab:threemethods"), 
@@ -2079,8 +2080,8 @@ print(xtable::xtable(results_cea_table, digits=2,
 %++++++++++++++++++++++++++++++
 
 Societal exergy analyses are normally conducted at the sectoral or economy-wide scale, 
-so analysts must apportion per-lamp-technology efficiencies
-by their proportion of lighting electricity consumption for each lighting technology~($\theta_i$).
+so analysts must weight per-lamp-technology efficiencies
+by each technology's usage fraction.
 Several types of data are required for a given period of interest, typically a year:
 
 \begin{enumerate}[label={(\alph*)}]
