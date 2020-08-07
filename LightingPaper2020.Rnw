@@ -2093,7 +2093,22 @@ given by
 Where $\theta_{i}$ denotes the proportion of electricity consumption for lighting
 by a particular lamp technology for a given year.
 
+<<threemethods, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/conv_exact_approx.R')>>=
+source("Data/conv_exact_approx.R")
 
+print(xtable::xtable(results_cea_table, digits=2, 
+                     caption = "Final-to-useful exergy efficiencies 
+                     for each of the three methods identified in this paper: 
+                     conventional, exact, and approximate.", 
+                     label = "tab:threemethods"), 
+      size="footnotesize", # Change size; useful for bigger tables
+      include.rownames=TRUE, 
+      include.colnames=TRUE, 
+      caption.placement="top",
+      type = "latex",
+      booktabs = TRUE
+      )
+@
 
 
 
