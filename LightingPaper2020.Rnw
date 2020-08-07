@@ -260,8 +260,8 @@ The exact method exposes shortcomings inherent to the conventional method and
 leads to a reasonable approximation of lamp exergetic efficiency, when needed.
 To conclude, we provide three recommendations 
 for societal exergy analysts:
-(a)~use the universal luminosity weighting function,
-(b)~use the exact method when a lamp's spectral power distribution is available, and
+(a)~use the exact method when a lamp's spectral power distribution is available, 
+(b)~use the universal luminosity weighting function, and
 (c)~use the reasonable approximation to the exact method 
     when luminous efficacy is known
     but spectral power distribution is unavailable.
