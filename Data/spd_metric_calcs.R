@@ -42,6 +42,15 @@ spd_metrics <- dplyr::full_join(
   integration_weighted_radiant_power, 
   lamp_info %>% dplyr::select(lamp_name, `Electricity consumption [W]`), by = "lamp_name"
 ) %>%
+
+# Adds the Lamp type
+dplyr::full_join(
+  lamp_info %>% dplyr::select(lamp_name, `Lamp type`), by = "lamp_name"
+) %>%
+  
+# Removes lamps with no data
+  
+dplyr::filter(!is.na(integrated_wrp)) %>%
     
 # Calculates the quotient of the weighted radiant power and electricity consumption - valuable energy efficiency
 dplyr::mutate(
@@ -76,6 +85,11 @@ dplyr::mutate(
 # Calculates the aggregate exergy to energy factor
 dplyr::mutate(
   phi_agg = integrated_wrp_X / integrated_wrp
+) %>%
+
+# Creates the aggregate phi values for each weighting function across all lamps and wf's 
+dplyr::mutate(
+  phi_all = mean(phi_agg)
 )
 
 
