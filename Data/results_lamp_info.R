@@ -1,16 +1,9 @@
 # This script formats the lamp info data into a table for rnw file.
 source("Data/AllData.R")
-# Creates a list of lamps for reporting of results based on the original data loaded in the .rnw file.
-# These lamps differ to the lamp data used for the analysis, 
-# some of which are rescaled, and so have different codes and lamp info data.
-lamp_list_for_info <-  c("lamp_inc_syl_a21",
-                            "lamp_hps_phil",
-                            "lamp_cfl_es_tw_15",
-                            "lamp_led_es_br30")
 
 # Filters and selects the lamps in lamp_info. 
 results_lamp_info <- lamp_info %>%
-  dplyr::filter(lamp_name %in% lamp_list_for_info) %>%
+  dplyr::filter(lamp_name %in% lamp_list) %>%
   dplyr::select(lamp_name, `Lamp type`, Description, Year, 
                 `Luminous efficacy [lm/W]`, 
                 `Electricity consumption [W]`, 

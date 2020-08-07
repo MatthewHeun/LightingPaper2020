@@ -9,18 +9,13 @@ source("Data/univ_conversion.R")
 # Here i have used the average phi values across all lamps and wf's
 # this needs to be changed to just wf_p2!!!
 
-lamp_list_for_info <-  c("lamp_inc_syl_a21",
-                         "lamp_hps_phil",
-                         "lamp_cfl_es_tw_15",
-                         "lamp_led_es_br30")
-
 # Here i have selected the individual lamps for the conventional method,
 # alternatively we can take the average across each lamp type
 
 # Creates the intial DF containing the conventional method, 
 # with data taken from spd_metrics as opposed to lamp_info 
 results_conventional <- spd_metrics %>%
-  dplyr::filter(wf_name == "wf_p2" & lamp_name %in% lamp_list_for_info) %>%
+  dplyr::filter(wf_name == "wf_p2" & lamp_name %in% lamp_list) %>%
   dplyr::select(lamp_name, `Lamp type`, wrp_div_ec_100) %>%
   magrittr::set_colnames(c("lamp_name","lamp_type", "eta_p2"))
 
@@ -28,7 +23,7 @@ results_conventional <- spd_metrics %>%
 
 # Creates a DF containing data for the exact method eta_X,u
 results_exact <- spd_metrics %>%
-  dplyr::filter(wf_name == "wf_u" & lamp_name %in% lamp_list_for_info) %>%
+  dplyr::filter(wf_name == "wf_u" & lamp_name %in% lamp_list) %>%
   dplyr::select(lamp_name, wrpX_div_ec_100) %>%
   magrittr::set_colnames(c("lamp_name", "eta_Xu"))
 
@@ -36,7 +31,7 @@ results_exact <- spd_metrics %>%
 
 # Creates a DF containing data for the approximate method
 results_approximate <- spd_metrics %>%
-  dplyr::filter(wf_name == "wf_p2" & lamp_name %in% lamp_list_for_info) %>%
+  dplyr::filter(wf_name == "wf_p2" & lamp_name %in% lamp_list) %>%
   dplyr::select(lamp_name, wrp_div_ec_100, phi_all) %>%
   magrittr::set_colnames(c("lamp_name", "eta_p2", "phi_all")) %>%
   dplyr::mutate("gamma_E_u" = overall_stats$mean_conv) %>%
