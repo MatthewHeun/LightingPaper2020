@@ -1971,7 +1971,27 @@ Through this approximate method the final-to-useful exergy efficiency of a lamp 
   = 1.31 \cdot\frac{K}{K_{max}} 
 \end{equation}
 %
+Data for the final-to-useful exergy efficiency 
+of the four representative lamps used in this study
+for each of three methods
+is given in Table~\ref{tab:threemethods}.
 
+<<threemethods, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/conv_exact_approx.R')>>=
+source("Data/conv_exact_approx.R")
+
+print(xtable::xtable(results_cea_table, digits=2, 
+                     caption = "Final-to-useful exergy efficiencies 
+                     for each of the three methods identified in this paper: 
+                     conventional, exact, and approximate.", 
+                     label = "tab:threemethods"), 
+      size="footnotesize", # Change size; useful for bigger tables
+      include.rownames=TRUE, 
+      include.colnames=TRUE, 
+      caption.placement="top",
+      type = "latex",
+      booktabs = TRUE
+      )
+@
 
 
 %++++++++++++++++++++++++++++++
@@ -2033,32 +2053,9 @@ given by
 Where $\theta_{i}$ denotes the proportion of electricity consumption for lighting
 by a particular lamp technology for a given year.
 
-Data for the final-to-useful exergy efficiency 
-of the four representative lamps used in this study
-for each of three methods
-is given in Table~\ref{tab:threemethods}.
-
 **** Matt: I'e taken a pass through all of these sections, 
 let me know what you think.
 We need to ensure consistency with the subscripts in these sections ---ZM ****
-
-<<threemethods, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/conv_exact_approx.R')>>=
-source("Data/conv_exact_approx.R")
-
-print(xtable::xtable(results_cea_table, digits=2, 
-                     caption = "Final-to-useful exergy efficiencies 
-                     for each of the three methods identified in this paper: 
-                     conventional, exact, and approximate.", 
-                     label = "tab:threemethods"), 
-      size="footnotesize", # Change size; useful for bigger tables
-      include.rownames=TRUE, 
-      include.colnames=TRUE, 
-      caption.placement="top",
-      type = "latex",
-      booktabs = TRUE
-      )
-@
-
 
 %++++++++++++++++++++++++++++++
 \subsection{Further challenges}
