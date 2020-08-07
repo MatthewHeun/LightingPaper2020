@@ -352,28 +352,26 @@ With the modern breakthrough technology of light emitting diode (LED) lamps,
 which now comprise 40~\% of residential lamp sales~\cite{IEA2019},
 applications have spread beyond illumination to many other fields
 including human physiology and photosynthesis for horticulture~\cite{Pattison2018LEDefficacy}.
-The use and analysis of the energy and exergy efficiency of lighting is applied to a range of fields,
-including energy economics~\cite{Nordhaus1996},
-societal exergy analysis~\cite{Ayres2005},
-energy history~\cite{Fouquet:2006},
-and forecasting energy efficiency improvements~\cite{IEA2019}.
-However, there are different definitions and interpretations 
-of light efficiency, which creates considerable confusion. 
-%a key problem arises for the energy analyst: there are differing concepts and definitions of lighting efficiency. These differences matter on two counts.First, with the rise of LED lamps, the proximity to the efficiency limits of lighting appears within reach – but what is the limit?Second,
-%***if we agree with the removal of the text above, then delete ---PEB***
-
 Given the expanding role that artificial lighting plays globally,
 understanding precisely 
 its potential contribution---via increasing efficiency---to reducing energy use
 to meet carbon dioxide emission targets is crucially important.
-The aim of this paper is therefore to bring clarity 
-%to the analyst 
-on the definitions of the energy and exergy conversion efficiency 
-of artificial light 
-(provided by conversion of electricity to light energy via electrical lamps)
-for illumination.
-Our application is societal exergy analysis, and 
-we exclude non-illumination purposes, such as horticulture and heating.
+Thus, the analysis of the energy and exergy efficiency of lighting 
+is important in many fields, including
+energy history~\cite{Fouquet:2006},
+energy economics~\cite{Nordhaus1996},
+forecasting energy efficiency improvements~\cite{IEA2019}, and 
+societal exergy analysis~\cite{Ayres2005}.
+
+However, there are different definitions and interpretations 
+of light efficiency, which creates considerable confusion. 
+The aim of this paper is to bring clarity on the definitions of 
+the energy and exergy of light and
+the energy and exergy efficiency 
+of artificial lighting systems
+(i.e., electric lamps that convert electricity to light).
+Our application is analysis of lighting within the field of societal exergy analysis.
+We exclude non-illumination purposes of lighting, such as horticulture and heating.
 
 
 %++++++++++++++++++++++++++++++
@@ -381,26 +379,28 @@ we exclude non-illumination purposes, such as horticulture and heating.
 \label{sec:light_ECC}
 %++++++++++++++++++++++++++++++
 
-%At the outset, we define two fundamental aspects of lighting,with more detail coming in **** Sections X and Y ***.
 Ahead of a more detailed treatment of the thermodynamics of light in Section~\ref{sec:framework}
-we set out two fundamental aspects of lighting. 
-The first aspect is a clear definition of what we mean by \emph{light}.
-Light is useful energy in the form of 
-visible electromagnetic (EM) radiation. 
-Light energy is quantified in terms of 
-energy~($E$) of photons (in Joules),
-via Einstein's equation:
+we set out here two fundamental aspects of lighting. 
+The first aspect is clear definitions of electromagnetic~(EM) energy and light.
+EM energy~($E_{EM}$) is broad-spectrum EM radiation
+quantified by the energy of photons (in Joules)
+via Einstein's equation,
 %
 \begin{equation}
-  E = h \nu = \frac{hc}{\lambda} \; ,
+  E_{EM} = h \nu = \frac{hc}{\lambda} \; ,
 \end{equation}
 %
-where $c$ is the speed of light (in m/s),~($\lambda$) is wavelength (in m), ($\nu$) is frequency (in s-1), and $h$ is Planck's constant (in Joules-s).
-%all related by Planck's equation:
-%where lambda is wavelength (in m), n is frequency (in /s), h is Planks constant (in Js), and c is the speed of light (in m/s). 
-EM radiation within the range \humaneyesensitivity{} is considered ``light''~\cite{campbell2017}, because
-the human retina responds only within these wavelengths,
-as shown in Figure~\ref{fig:Vis_Graph}.
+where 
+$h$ is Planck's constant (in Joules-s), 
+$\nu$ is frequency (in 1/s),
+$c$ is the speed of light (in m/s), and
+$\lambda$ is wavelength (in m).
+The human retina responds to a narrow wavelength range of EM radiation
+(\humaneyesensitivity{}).
+Thus, light is EM radiation within that wavelength range~\cite{campbell2017}, 
+weighted by the eye's spectral (i.e., wavelength-specific) sensitivity.
+(See Figure~\ref{fig:Vis_Graph}.)
+
 
 <<Load_Data, cache=use_cache, cache.extra.1=tools::md5sum('Data/master_lighting_data.xlsx'), cache.extra.2=tools::md5sum('Data/AllData.R')>>=
 # Creates the weighted_responses_df data frame.
@@ -427,7 +427,7 @@ response_data <- weighted_responses_df %>%
 @
 
 
-<<Vis_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="The visible spectrum of light~\\cite{schubert2006}.">>=
+<<Vis_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="Normalized sensitivity of the human eye to EM radiation~\\cite{schubert2006}, according to the photopic luminosity function~($V_\\lambda$).">>=
 response_data %>% 
   dplyr::filter(wf_name == "Photopic") %>% 
   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>% 
@@ -453,22 +453,16 @@ response_data %>%
         axis.text.y = element_text(size = rel(0.8)))
 @
 
-The second 
-%fundamental 
-aspect 
-%of light 
-is that 
-modern lighting via electrical lamps 
-is provided by energy conversion through three stages
-of the energy conversion chain:
-primary energy (e.g., coal), which is then converted to
-final energy (i.e., electricity, measured in watts), and last to
-useful energy output (i.e., the provision of visible light energy, measured in lumens).
-The efficiency of energy conversion~($\eta$) from electricity (final stage)  
-to light (useful stage) is the focus of this paper.
-We note that both human perception and satisfaction of human needs
-are an energy service (illumination),
-which occurs after the useful stage.
+The second aspect is that 
+modern lighting is provided via an energy conversion chain:
+primary energy (e.g., coal) is converted to
+final energy (electricity, measured in watts) and lastly to
+useful energy (i.e., the provision of visible light, measured in lumens).
+The efficiency of energy and exergy conversion~($\eta$) from electricity (final stage)  
+to light (useful stage) by electric lamps is the focus of this paper.
+Note that both energy services (illumination) and satisfaction of human needs
+(comfort, safety, etc.) are downstream of the useful stage 
+and thus beyond the scope of this paper.
 
 
 %++++++++++++++++++++++++++++++
@@ -479,17 +473,19 @@ which occurs after the useful stage.
 %**** Section~\ref{sec:divergent_approaches} feels a bit like Section~\ref{sec:further_challenges}.We need to synchronize the two sections.Furthermore, any issues raised here should be addressed clearly below. Sorting out this issue is mine.For now, PB should do the edits that I suggest.---MKH ****
 
 %From this point, however, we stumble into sources of confusion surrounding the energy conversion efficiency ($\eta$) of lamps.
-Energy conversion efficiency ($\eta$) can be defined in simple terms as
+Valuable energy conversion efficiency ($\eta_v$)
+can be defined in simple terms as
 %
 \begin{equation} \label{eq:eta_basic_eqn}
- \eta = \frac{\text{useful output}}{\text{energy input}} \; . \end{equation}
+ \eta_v = \frac{\text{valuable output}}{\text{energy input}} \; . 
+\end{equation}
 %
-One intepretation of Equation~\ref{eq:eta_basic_eqn} is 
+One interpretation of Equation~\ref{eq:eta_basic_eqn} is 
 taken as luminous efficacy (in lumens/watt, or lm/W),
 which is luminous power (light output, in lm)
 per electrical energy input (in W).
-Examples of practitioners using this measure include ~\citet{Nordhaus1996} 
-and ~\citet[p.~265]{Tsao2010appetitelight} who state 
+Examples of practitioners using this measure include \citet{Nordhaus1996} 
+and \citet[p.~265]{Tsao2010appetitelight} who state 
 ``[l]uminous efficacy represents the efficiency with which energy is used to produce visible light.''
 %The first source of confusion is that some practitioners equate luminous efficacy with luminous (or light) efficiency. For example, \citet{Nordhaus1996} provides estimates of historical lighting efficiencies from the earliest time of open wood fires (0.002~lm/W), through to candles (0.1~lm/W), tungsten filament lamps (10~lm/W) and compact fluorescent light bulbs (68~lm/W). \citet[p.~265]{Tsao2010appetitelight} are very clear, but wrong, when they state ``[l]uminous efficacy represents the efficiency with which energy is used to produce visible light.''
 %Luminous efficacy is commonly taken to be a proxy for energy efficiency, but they are not equivalent.
