@@ -2246,6 +2246,9 @@ MKH: Include a future work section.
 Do we want to include something about waste heat from lamps?
 ****
 
+Add something here about theoretical upper limits to lighting efficiency.
+How will we approach that limit? 
+Now that we have the theory sorted, can it tell us something
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2253,7 +2256,10 @@ Do we want to include something about waste heat from lamps?
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\supplementary{The following are available online at \url{https://doi.org/10.5518/865} \cite{heun2020}, data for luminous effiacy values in Figure~\ref{fig:LuminousEfficacy_Graph}: data for the weighting functions and SPDs displayed in Figure~\ref{fig:wfs_and_lamps}: ........}
+\supplementary{The following are available online at \url{https://doi.org/10.5518/865} \cite{heun2020}:
+data for luminous efficacy values in Figure~\ref{fig:LuminousEfficacy_Graph}, 
+data for the weighting functions and SPDs displayed in Figure~\ref{fig:wfs_and_lamps}, 
+**** More? ****}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2270,9 +2276,9 @@ writing--review and editing: M.K.H., Z.M., E.A., and P.E.B.;
 visualization: M.K.H., Z.M., and E.A.; 
 supervision: M.K.H. and P.E.B.; 
 project administration: M.K.H. and P.E.B.; 
-funding acquisition: P.E.B.}
+funding acquisition: P.E.B.
 
-All authors have read and agreed to the published version of the manuscript.
+All authors have read and agreed to the published version of the manuscript.}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
