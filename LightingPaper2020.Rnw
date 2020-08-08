@@ -2017,7 +2017,7 @@ The approximate method for determining the valuable exergetic efficiency of a la
 is implemented by the following equation
 %
 \begin{equation} \label{eq:approximate}
-  \eta_{X,L,v} \approx \bar{\phi}_{L} \, \gammaratavg{} \, \frac{K}{K_{max}} \; ,
+  \eta_{X,L,v} \approx \bar{\phi}_{L} \, \gammaratavg{} \, \frac{K}{683 \text{ lm/W}} \; ,
 \end{equation}
 %
 which is a modification of Equation~\ref{eq:K_over_e_max}
@@ -2029,7 +2029,7 @@ When the lamp technology is unknown, overall average values can be used
 for $\bar{\phi}_{L}$ and $\gammaratavg{}$:
 %
 \begin{equation} \label{eq:approximate_unknown_tech}
-  \eta_{X,L,v} \approx (0.958) (1.37) \frac{K}{K_{max}} = 1.31 \frac{K}{K_{max}} \; .
+  \eta_{X,L,v} \approx (0.958) (1.37) \frac{K}{683 \text{ lm/W}} = 1.31 \frac{K}{683 \text{ lm/W}} \; .
 \end{equation}
 %
 If the lamp technology is known, 
