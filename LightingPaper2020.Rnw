@@ -2020,8 +2020,8 @@ is implemented by the following equation
   \eta_{X,L,v} \approx \bar{\phi}_{L} \, \gammaratavg{} \, \frac{K}{K_{max}} \; ,
 \end{equation}
 %
-which is a modification of Equation~\ref{eq:K_over_e_max},
-accounting for the move from energy to exergy (via $\bar{\phi}_L$)
+which is a modification of Equation~\ref{eq:K_over_e_max}
+that accounts for the move from energy to exergy (via $\bar{\phi}_L$)
 and the move from the photopic luminosity function to the universal luminosity function
 (via $\gammaratavg{}$).
 
