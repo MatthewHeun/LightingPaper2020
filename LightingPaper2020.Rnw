@@ -1938,14 +1938,14 @@ uses the photopic luminosity function~($V_\lambda$).
 This state of affairs could encourage lighting manufacturers to reduce short wavelength
 output of lamps, even when short wavelength EM radiation would 
 provide physiological benefits.
-Use of the universal luminosity function will encourage manufactures to include 
+Adopting the universal luminosity function~($U_\lambda$) will encourage manufactures to include 
 blue spikes in lamp designs.
 
 The conventional method for estimating lamp efficiency
 requires the use of the photopic luminosity function and cannot do any different.
 However, a switch away from the photopic luminosity function~($V_\lambda$)
 toward the universal luminosity function~($U_\lambda$) 
-is possible with the exact method described in Section~\ref{sec:framework},
+made possible by the exact method described in Section~\ref{sec:framework},
 so long as SPD data are available.
 In the absence of SPD data, 
 we suggest that an approximate method can be used, as discussed in the next section.
