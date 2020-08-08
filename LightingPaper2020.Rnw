@@ -2135,7 +2135,7 @@ I think you had it wrong.---MKH
 When SPDs are unavailable, the approximate method can be used as follows:
 %
 \begin{equation} \label{eq:agg_eta_K}
-  \eta_{X,L,v,agg} \approx \sum \limits_{i} \theta_{i} \, \bar{\phi}_{L,i} \, \gammaratavg{}_{,i} 
+  \eta_{X,L,v,agg} \approx \sum \limits_{i} \theta_{i} \, \bar{\phi}_{L,i} \, \gammaratavg{}_{,i} \, 
                             \frac{K_{i}}{683 \text{ lm/W}} \; .
 \end{equation}
 
