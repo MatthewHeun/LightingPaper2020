@@ -5,8 +5,9 @@
 <<setup-knitr, cache=FALSE, include=FALSE>>=
 library(knitr)
 
-# To update the references when compiling the pdf run the following code in the 
-# console: knitr::knit2pdf("LightingPaper2020.rnw")
+# To update the references when compiling the pdf,
+# run the following command in the console: 
+# knitr::knit2pdf("LightingPaper2020.Rnw")
 
 # Set default knitr options for chunks.
 opts_chunk$set(
@@ -341,8 +342,6 @@ energy history~\cite{Fouquet:2006},
 energy economics~\cite{Nordhaus1996},
 forecasting energy efficiency improvements~\cite{IEA2019}, and 
 societal exergy analysis~\cite{Ayres2005}.
-However, there are different definitions and interpretations 
-of lighting efficiency, which creates considerable confusion. 
 
 
 %++++++++++++++++++++++++++++++
@@ -472,12 +471,12 @@ Instead, light is quantified in lumens~(lm).
 Indeed, a common interpretation of Equation~\ref{eq:eta_basic_eqn} uses
 light (in lm) as the valuable output in the numerator and electricity (in W) as the energy input in the denominator
 to obtain luminous efficacy ($K$, in lm/W).
-Examples of practitioners using luminous efficacy include \citet{Nordhaus1996} 
-and \citet[p.~265]{Tsao2010appetitelight}, who state 
-``[l]uminous efficacy represents the efficiency with which energy is used to produce visible light.''
-Most lamps are rated and advertised by their lumen output and luminous efficacy~($K$).
+In fact, most lamps are rated and advertised by their lumen output and luminous efficacy~($K$).
 Figure~\ref{fig:LuminousEfficacy_Graph} shows the evolution over time 
 of luminous efficacy for four lamp technologies.
+Examples of practitioners using luminous efficacy as a lamp efficiency metric include \citet{Nordhaus1996} 
+and \citet[p.~265]{Tsao2010appetitelight}, who state 
+``[l]uminous efficacy represents the efficiency with which energy is used to produce visible light.''
 
 
 <<Load_LEData, cache=use_cache, cache.extra.1=tools::md5sum('Data/Lighting_Efficacy_Data.xlsx'), cache.extra.2=tools::md5sum('Data/lighting_efficacy.R')>>=
@@ -565,8 +564,7 @@ the exergy of light and the exergetic efficiency of lamps.
 But further issues and confusions await. 
 (See Section~\ref{sec:discussion}.)
 Thus, there is ample need for clarity and rigor 
-about the thermodynamics of artificial lighting systems
-consisting of lamps that convert electricity to light.
+about the thermodynamics of artificial lighting systems.
 
 
 %++++++++++++++++++++++++++++++
@@ -651,7 +649,6 @@ Section~\ref{sec:conclusions} summarizes and concludes.
 % Interventionary studies involving animals or humans, and other studies
 % require ethical approval must list the authority 
 % that provided approval and the corresponding ethical approval code. 
-
 
 
 %++++++++++++++++++++++++++++++
@@ -1213,7 +1210,7 @@ by the photopic sensitivity of the human eye.
 The photopic luminosity~(pl) function~($V_\lambda$) describes this sensitivity, 
 as shown in Figure~\ref{fig:Vis_Graph}.
 The photopic luminosity function 
-was defined by the Commission Internationale de l' Éclairage (CIE) in 1931
+was defined by the Commission Internationale de l' \'{E}clairage (CIE) in 1931
 and represents the sensitivity of M and L cones
 at daytime light levels \cite{CVRL2008}.
 So for Option 3,
@@ -1387,7 +1384,7 @@ All graphs were constructed and calculations were performed using \texttt{R}~\ci
 \label{sec:results_phi_L_lambda}
 %++++++++++++++++++++++++++++++
 
-The top-left graph in Figure~\ref{fig:wfs_and_lamps} shows 
+The upper-left graph in Figure~\ref{fig:wfs_and_lamps} shows 
 Equation~\ref{eq:phi_L_lambda_shan_zhou}.
 Note that exergy-to-exergy ratio for light~($\phi_{L,\lambda}$) is
 nearly~1 for all wavelengths of interest for illumination.
@@ -1525,7 +1522,7 @@ response_data %>%
 
 
 %++++++++++++++++++++++++++++++
-\subsection{Weighting functions ($f_\lambda$)}
+\subsection{Luminous weighting functions ($f_\lambda$)}
 \label{sec:results_weighting_functions}
 %++++++++++++++++++++++++++++++
 
@@ -2308,9 +2305,9 @@ All authors have read and agreed to the published version of the manuscript.}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\funding{Paul E. Brockway and Zeke Marshall's time was 
+\funding{Zeke Marshall's and Paul E. Brockway time was 
 funded by the UK's Engineering and Physical Sciences Research Council (EPSRC) 
-Fellowship grant RG.EVEA.112727.001.
+fellowship grant RG.EVEA.112727.001.
 Emmanuel Aramendia's time was funded by XXXXXX.
 Matthew K. Heun has no funding to declare.
 }
