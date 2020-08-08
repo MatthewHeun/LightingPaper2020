@@ -175,7 +175,7 @@ chroma_type <- photobiology::ciexyzCMF10.spct            # Very similar to "CMF"
 
 %=================================================================
 % Full title of the paper (Capitalized)
-\Title{The Energy and Exergy of Light With Application to Societal Exergy Analysis} % for illumination
+\Title{The Energy and Exergy of Light With Application to Societal Exergy Analysis}
 
 
 % Author Orchid ID: enter ID or remove command
@@ -1098,7 +1098,7 @@ which replaces the temperature of the emitter ($T_1$) by photon effective temper
 Further, Equation~\ref{eq:T_lambda} can be substituted into Equation~\ref{eq:phi_EM_lambda_shan_zhou}
 (in the form $T_\lambda = c_3 / \lambda$),
 and $T_0$ can be taken as 310~K, the temperature of the human body.
-The result is an equation for $\phi_{L,\lambda}$, the specular exergy-to-energy ratio of light:
+The result is an equation for $\phi_{L,\lambda}$, the spectral exergy-to-energy ratio of light:
 %
 \begin{equation} \label{eq:phi_L_lambda_shan_zhou}
  \phi_{L,\lambda} = 1 
@@ -1818,7 +1818,7 @@ Happily, the conventional method was not far wrong.
 
 Third, in the conventional method, 
 the analyst is required to use the photopic luminosity function~($V_\lambda$)
-for the specular weighting function~($f_\lambda$).
+for the spectral weighting function~($f_\lambda$).
 However, it is not certain that the photopic luminosity function
 is the best choice.
 In fact, we later recommend replacing the photopic luminosity function~($V_\lambda$)
@@ -2208,7 +2208,7 @@ However, two further losses occur before the valuable light is available for wor
         
         **** This loss refers to the fact that objects such as ceilings, the tops of cabinets etc 
         do not need to be illuminated. 
-        Or atleast they do not need to be illuminated with equal intensity! ---ZM ****
+        Or at least they do not need to be illuminated with equal intensity! ---ZM ****
 
 \end{enumerate}
 %
@@ -2249,9 +2249,6 @@ As such we deem further analysis of these passive efficiency losses
 beyond the scope of our study.
 
 
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Summary (MKH, 500 words)}
 \label{sec:conclusions}
@@ -2259,19 +2256,69 @@ beyond the scope of our study.
 
 % This section is not mandatory, but can be added to the manuscript if the discussion is unusually long or complex.
 
-****
-MKH: Recommend using our method for SEA going forward.
-****
+Several recent developments in the photometry and thermodynamics of radiation literatures 
+(Petela's equation;
+the photon effective temperature, $T_\lambda$; and
+the spectral exergy-to-energy ratio, $\phi_{L,\lambda}$) 
+have enabled
+a re-evaluation of the exergy of light and the exergetic efficiency of electric lamps
+applicable to societal exergy analysis.
+We built upon those advances to provide
+clear and rigorous definitions of the energy and exergy of light.
+We developed an exact method for determining the exergetic efficiency of lamps
+involving the 
+spectral exergy-to-energy ratio~($\phi_{L,\lambda}$), 
+a luminous weighting function~($f_\lambda$), and 
+broad-spectrum lamp luminous power~($\dot{E}_{EM}$).
+We showed that the exact method
+%
+\begin{enumerate*}[label={(\alph*)}]
+	
+  \item is free of any assumptions for the maximum luminous efficacy ($K_{max}$),
+  
+  \item uses the correct spectral exergy-to-energy ratio~($\phi{L,\lambda}$), and
+  
+  \item allows choices for the spectral weighting function ($f_\lambda$),
+    
+\end{enumerate*}
+%
+all improvements over the conventional method.
+The exact method requires the availability of a lamp's spectral power distribution.
+For cases when a spectral power distribution is not available, 
+we developed an approximate method,
+involving surprisingly stable values of the exergy-to-energy ratio~($\phi_{L,\lambda}$) and 
+the photopic-to-universal factor~($\gammarat{}$) across lighting technologies.  
+Finally, we provided recommendations for societal exergy analysts, namely to
+%
+\begin{enumerate*}[label={(\alph*)}]
+	
+  \item use the exact method when a lamp's spectral power distribution is available, 
+  
+  \item use the universal luminosity weighting function~($U_\lambda$), and
+  
+  \item use the approximate method when luminous efficacy is known
+        but spectral power distribution is not.
+  
+\end{enumerate*}
+
+Future work could include
+%
+\begin{enumerate*}[label={(\alph*)}]
+	
+	\item investigating additional lighting technologies to assess the stability of 
+	      the exergy-to-energy ratio~($\phi_L$) and the photopic-to-universal factor~($\gammarat{}$),
+	
+  \item applying the framework developed in this paper to understand the evolution
+        of lighting technology relative to upper limits to
+        luminous efficacy~($K$) and lighting efficiency~($\eta_{X,L,v}$),
+  
+  \item **** more here? ****, and 
+  
+  \item **** 3rd idea? ****.
+    
+\end{enumerate*}
 
 
-****
-MKH: Include a future work section.
-Do we want to include something about waste heat from lamps?
-****
-
-Add something here about theoretical upper limits to lighting efficiency.
-How will we approach that limit? 
-Now that we have the theory sorted, can it tell us something
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
