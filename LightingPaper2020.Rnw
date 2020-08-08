@@ -204,7 +204,7 @@ chroma_type <- photobiology::ciexyzCMF10.spct            # Very similar to "CMF"
 % Affiliations / Addresses (Add [1] after \address if there is only one affiliation.)
 \address{%
 $^{1}$ \quad Department of Engineering, 
-             Calvin University, 3201 Burton St.\ SE, Grand Rapids, MI, 49546, USA\\
+             Calvin University, 3201 Burton St.\ SE, Grand Rapids, MI, 49546, USA \\
 $^{2}$ \quad Sustainability Research Institute, School of Earth and Environment, 
              University of Leeds, Leeds LS2 9JT, United Kingdom}
 
@@ -2083,7 +2083,7 @@ Several types of data are required for a given period of interest, typically a y
 
 \begin{enumerate}[label={(\alph*)}]
 
-  \item efficiency data for each lamp technology~($\eta_{X,L,v,i}$),
+  \item valuable exergetic efficiency data for each lamp technology~($\eta_{X,L,v,i}$),
   
   \item corresponding exergy-to-energy ratios for each lamp technology~($\phi_{L,i}$), and
   
@@ -2111,7 +2111,7 @@ linear fluorescent, high intensity discharge, LED, and other.
 When SPDs are available, the aggregate lighting efficiency for a particular year can be found by
 %
 \begin{equation} \label{eq:agg_eta}
-  \eta_{X,L,v,agg} = \sum \limits_{i} \theta_{i} \, \eta_{X,L,v,,i} \; .
+  \eta_{X,L,v,agg} = \sum \limits_{i} \theta_{i} \, \eta_{X,L,v,i} \; .
 \end{equation}
 %
 ****
