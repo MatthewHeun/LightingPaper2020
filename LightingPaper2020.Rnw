@@ -2314,7 +2314,7 @@ Future work could include
   
   \item **** more here? ****, and 
   
-  \item **** 3rd idea? ****.
+  \item **** another idea? ****.
     
 \end{enumerate*}
 
