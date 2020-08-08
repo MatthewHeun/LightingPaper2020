@@ -2071,6 +2071,7 @@ For example, the first row should be titled
 The second row should be titled 
 ``Exact method ($\eta_{X,L,V,univ}$, same as row 4 of Table~\ref{tab:results_etasX})''.
 I don't think we have a name for the bottom row.
+Just call it ``Approximate method'' for now.
 Note that the second word (``method'') should not be capitalized.---MKH
 ****
 
@@ -2281,9 +2282,9 @@ the spectral exergy-to-energy ratio, $\phi_{L,\lambda}$)
 have enabled
 a re-evaluation of the exergy of light and the exergetic efficiency of electric lamps
 applicable to societal exergy analysis.
-We built upon those advances to provide
+We built upon those advances to provide 
 clear and rigorous definitions of the energy and exergy of light.
-We developed an exact method for determining the exergetic efficiency of lamps
+We developed a novel exact method for determining the exergetic efficiency of lamps
 involving the 
 spectral exergy-to-energy ratio~($\phi_{L,\lambda}$), 
 a luminous weighting function~($f_\lambda$), and 
@@ -2294,18 +2295,19 @@ We showed that the exact method
 	
   \item is free of any assumptions for the maximum luminous efficacy ($K_{max}$),
   
-  \item uses the correct spectral exergy-to-energy ratio~($\phi{L,\lambda}$), and
+  \item uses the correct spectral exergy-to-energy ratio~($\phi_{L,\lambda}$), and
   
-  \item allows choices for the spectral weighting function ($f_\lambda$),
+  \item allows choices for the spectral luminous weighting function ($f_\lambda$),
     
 \end{enumerate*}
 %
 all improvements over the conventional method.
 The exact method requires the availability of a lamp's spectral power distribution.
 For cases when a spectral power distribution is not available, 
-we developed an approximate method,
-involving surprisingly stable values of the exergy-to-energy ratio~($\phi_{L,\lambda}$) and 
-the photopic-to-universal factor~($\gammarat{}$) across lighting technologies.  
+we developed a novel approximate method,
+involving surprisingly stable values across lighting technologies 
+of the exergy-to-energy ratio~($\phi_{L,\lambda}$) and 
+the photopic-to-universal factor~($\gammarat{}$).
 Finally, we provided recommendations for societal exergy analysts, namely to
 %
 \begin{enumerate*}[label={(\alph*)}]
@@ -2324,9 +2326,10 @@ Future work could include
 \begin{enumerate*}[label={(\alph*)}]
 	
 	\item investigating additional lighting technologies to assess the stability of 
-	      the exergy-to-energy ratio~($\phi_L$) and the photopic-to-universal factor~($\gammarat{}$),
+	      the exergy-to-energy ratio~($\phi_L$) and the photopic-to-universal factor~($\gammarat{}$)
+	      across lighting technologies,
 	
-  \item applying the framework developed in this paper to understand the evolution
+  \item applying the exact method to understand the evolution
         of lighting technology relative to upper limits to
         luminous efficacy~($K$) and lighting efficiency~($\eta_{X,L,v}$),
   
