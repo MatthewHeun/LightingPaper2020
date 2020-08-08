@@ -2308,7 +2308,9 @@ All authors have read and agreed to the published version of the manuscript.}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\funding{Paul E. Brockway and Zeke Marshall's time was funded by the Engineering and Physical Sciences Research Council (EPSRC) Fellowship grant RG.EVEA.112727.001.
+\funding{Paul E. Brockway and Zeke Marshall's time was 
+funded by the UK's Engineering and Physical Sciences Research Council (EPSRC) 
+Fellowship grant RG.EVEA.112727.001.
 Emmanuel Aramendia's time was funded by XXXXXX.
 Matthew K. Heun has no funding to declare.
 }
@@ -2321,7 +2323,7 @@ James D. Hooker for
 Alfonso Delgado-Bonal for
   his advice on the state of the discourse regarding the exergy-to-energy ratio of light, 
 Pedro J. Aphalo for
-  his open-source software suite ‘r4phototbiology’~\cite{Aphalo2015}, 
+  his open-source software suite \texttt{r4phototbiology}~\cite{Aphalo2015}, 
 Martin Aub\`{e} and Johanne Roby for
   the use of their Light Spectral Power Distribution Database (LSPDD)~\cite{aube2013}, 
 Andrew Stockman and other members of the Colour and Vision Research Laboratory for 
