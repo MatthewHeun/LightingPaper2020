@@ -2100,7 +2100,7 @@ print(xtable::xtable(results_cea_table, digits=2,
 Societal exergy analyses are normally conducted at the sectoral or economy-wide scale, 
 so analysts must weight per-lamp-technology efficiencies
 by each technology's usage fraction.
-Several types of data are required for a given period of interest, typically a year:
+Two types of data are required for a given period of interest, typically a year:
 
 \begin{enumerate}[label={(\alph*)}]
 
@@ -2110,7 +2110,7 @@ Several types of data are required for a given period of interest, typically a y
 
 \end{enumerate}
 
-Item (a) is the result of the exact method 
+Item (a) is the result of applying the exact method to each lamp technology
 but depends on the presence of each lamp's SPD,
 which is rarely reported.
 Instead, the most common measure of lighting efficiency reported for lamps is the luminous efficacy~($K$).
@@ -2120,13 +2120,14 @@ using conversion factors, namely $\bar{\phi}_{L}$ and $\gammaratavg{}$, in the a
 (See Section~\ref{sec:approximate_method}.)
 
 Importantly, data for the usage proportion for each lamp technology~($\theta_i$)
-for each year of the study is needed,
+for each year of the study are needed,
 ideally in the form of the proportion of lighting electricity consumed by each lamp type.
 Such data (and luminous efficacy values)
 are provided by the US DOE's Lighting Market Characterization reports \citep{DOE2002, DOE2012, DOE2017}
-for the following lamp technologies: incandescent, halogen, compact fluorescent,
+for the USA for the following lamp technologies: incandescent, halogen, compact fluorescent,
 linear fluorescent, high intensity discharge, LED, and other.
-When SPDs are available, the aggregate lighting efficiency for a particular year can be found by
+
+When SPDs are available, the aggregate valuable exergetic lighting efficiency for a particular year can be found by
 %
 \begin{equation} \label{eq:agg_eta}
   \eta_{X,L,v,agg} = \sum \limits_{i} \theta_{i} \, \eta_{X,L,v,i} \; .
@@ -2137,7 +2138,6 @@ ZM:
 Please verify that I edited the above equation correctly.
 I think you had it wrong.---MKH
 ****
-
 When SPDs are unavailable, the approximate method can be used as follows:
 %
 \begin{equation} \label{eq:agg_eta_K}
