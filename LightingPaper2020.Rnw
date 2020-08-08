@@ -1233,12 +1233,12 @@ which provides the basis for calculating a lamp's output
 of visible light~($\Phi_{pl}$) in the unit of lumens~(lm):
 %
 \begin{equation} \label{eq:lumen}
-  \Phi_{pl} = (683 \text{ lm/W}) \; \dot{E}_{L,pl} 
+  \Phi_{pl} = (683 \text{ lm/W}) \, \dot{E}_{L,pl} 
             = (683 \text{ lm/W}) \int V_\lambda \dot{E}_{EM,\lambda} \mathrm{d}\lambda \; ,
 \end{equation}
 %
 where 683~lm/W is the luminous efficiency of a perfect light source
-emitting exclusively at $\lambda = 555 \text{ nm}$.
+emitting exclusively green light at $\lambda = 555 \text{ nm}$.
 (See Figure~\ref{fig:Vis_Graph}.) 
 (Note that because lumens are a re-scaling of watts, 
 lumens are also a unit of radiant power.)
@@ -1764,7 +1764,7 @@ Condition~(a) shows that the correct assumption for maximum luminous efficacy is
 Any other assumption is an error.
 Condition~(b) is incorrect;
 the exergy-to-energy ratio for light~($\phi_{L,\lambda}$) is not 1, but the conventional method assumes it is.
-Condition~(c) highlights a unfortunate requirement for the conventional method, 
+Condition~(c) highlights an unfortunate requirement for the conventional method, 
 one that is overly restrictive. 
 
 When $K_{max}$ is equal to 683~lm/W and
