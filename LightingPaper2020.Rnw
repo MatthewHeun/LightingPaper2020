@@ -2009,30 +2009,42 @@ was $\gammaratavg{} = 1.37$,
 with a small standard deviation of $\sigma_{\gammarat{}} = ****$.
 ****
 ZM: 
-Please fill the standard deviations above.---MKH
+Please fill the standard deviation values above.---MKH
 ****
-Average conversion factors~($\gammarat{}$) per lamp technology are given in Table~X.
+Average conversion factors~($\gammaratavg{}$) by lamp technology are given in Table~X.
 
 The approximate method for determining the valuable exergetic efficiency of a lamp
-is implemented by the following equation when the lamp technology is unknown:
+is implemented by the following equation
 %
 \begin{equation} \label{eq:approximate}
-  \eta_{X,L,v} \approx \bar{\phi}_{L} \, \gammaratavg{} \, \frac{K}{K_{max}} 
-  = (0.958) (1.37) \frac{K}{K_{max}} 
-  = 1.31 \frac{K}{K_{max}} \; .
+  \eta_{X,L,v} \approx \bar{\phi}_{L} \, \gammaratavg{} \, \frac{K}{K_{max}} \; ,
 \end{equation}
 %
-If the lamp technology is known, values from Table~X should be used, instead.
+which is a modification of Equation~\ref{eq:K_over_e_max},
+accounting for the move from energy to exergy (via $\bar{\phi}_L$)
+and the move from the photopic luminosity function to the universal luminosity function
+(via $\gammaratavg{}$).
+
+When the lamp technology is unknown, overall average values can be used
+for $\bar{\phi}_{L}$ and $\gammaratavg{}$:
+%
+\begin{equation} \label{eq:approximate_unknown_tech}
+  \eta_{X,L,v} \approx (0.958) (1.37) \frac{K}{K_{max}} = 1.31 \frac{K}{K_{max}} \; .
+\end{equation}
+%
+If the lamp technology is known, 
+$\bar{\phi}_L$ and $\gammaratavg{}$ values from Table~X should be used instead of the overall averages.
 ****
 ZM:
 Please complete Table~X---MKH
 ****
-Results for the valuable exergetic efficiency 
-of the four representative lamps used in this study
-and each of three methods (conventional, exact, and approximate)
-is given in Table~\ref{tab:threemethods}.
+
+Table~\ref{tab:threemethods} summarizes 
+the valuable exergetic efficiency 
+for the four representative lamps (INC, HPS, CFL, LED) and
+the three methods (conventional, exact, and approximate).
 The ``Approximate method'' row was generated using
-the factors in Equation~\ref{eq:approximate}.
+the factors in Equation~\ref{eq:approximate_unknown_tech}.
 
 **** 
 ZM:
@@ -2326,7 +2338,7 @@ Future work could include
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\supplementary{The following are available online at \url{https://doi.org/10.5518/865} \cite{heun2020}:
+\supplementary{The following are available online at \url{https://doi.org/10.5518/865}~\cite{heun2020}:
 data for luminous efficacy values in Figure~\ref{fig:LuminousEfficacy_Graph}, 
 data for the weighting functions and SPDs displayed in Figure~\ref{fig:wfs_and_lamps}, 
 **** More? ****}
