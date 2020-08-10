@@ -7,13 +7,6 @@ conversion_table <- lamps_in_paper_stats_X
 # Identifies column names 
 info_ct_colnames <- conversion_table$lamp_type
 
-# Sets the number of decimal places for each column
-# conversion_table[, "count"] <- round(conversion_table[, "count"],0)
-
-# conversion_table[, "mean_conv"] <- round(conversion_table[, "mean_conv"],2)
-
-# conversion_table[, "sd_conv"] <- round(conversion_table[, "sd_conv"],2)
-
 # Transposes the combined DF
 conversion_table <- as.data.frame(t(conversion_table[,-1]))
 
