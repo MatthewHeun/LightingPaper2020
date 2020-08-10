@@ -16,7 +16,7 @@ source("Data/univ_conversion.R")
 # with data taken from spd_metrics as opposed to lamp_info 
 results_conventional <- spd_metrics %>%
   dplyr::filter(wf_name == "wf_p2" & lamp_name %in% lamp_list) %>%
-  dplyr::select(lamp_name, `Lamp type`, wrp_div_ec_100) %>%
+  dplyr::select(lamp_name, lamp_type, wrp_div_ec_100) %>%
   magrittr::set_colnames(c("lamp_name","lamp_type", "eta_p2"))
 
 #results_conventional[, "eta_p2"] <- round(results_conventional[, "eta_p2"],2)

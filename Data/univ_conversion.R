@@ -43,7 +43,7 @@ lamp_type_stats <- eta_ratios %>%
   )
 
 lamps_in_paper_stats <- eta_ratios %>% 
-  dplyr::filter(lamp_type %in% c("INC", "HPS", "CFL", "LED")) %>% 
+  dplyr::filter(lamp_type %in% c("INC", "HAL", "HPS", "MH", "CFL", "LED")) %>% 
   dplyr::group_by(lamp_type) %>% 
   dplyr::summarise(
     count = dplyr::n(),
