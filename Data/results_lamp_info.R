@@ -6,7 +6,8 @@ results_lamp_info <- lamp_info %>%
   dplyr::filter(lamp_name %in% lamp_list) %>%
   dplyr::select(lamp_name, `Lamp type`, Description, Year, 
                 `Luminous efficacy [lm/W]`, 
-                `Electricity consumption [W]`, 
+                `Electricity consumption [W]`,
+                `Lumen output [lm]`,
                 `Luminous efficiency [%]`)
 
 # Re-arranges the rows into the correct order

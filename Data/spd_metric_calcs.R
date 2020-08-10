@@ -45,11 +45,10 @@ spd_metrics <- dplyr::full_join(
 
 # Adds the Lamp type
 dplyr::full_join(
-  lamp_info %>% dplyr::select(lamp_name, `Lamp type`), by = "lamp_name"
+  lamp_info %>% dplyr::select(lamp_name, lamp_type = `Lamp type`), by = "lamp_name"
 ) %>%
   
 # Removes lamps with no data
-  
 dplyr::filter(!is.na(integrated_wrp)) %>%
     
 # Calculates the quotient of the weighted radiant power and electricity consumption - valuable energy efficiency
