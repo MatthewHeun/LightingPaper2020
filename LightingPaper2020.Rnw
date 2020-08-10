@@ -2008,28 +2008,6 @@ We suggest the following two-step process:
     
 \end{enumerate*}
 
-**** ZM: 
-Delete this paragraph.---MKH
-**** 
-We calculated the exergy-to-energy ratio for each lamp in our database using
-Equation~\ref{eq:phi_L}. 
-(The database consists of **** lamps with SPDs representing **** technologies, 
-**** list the technologies here ****. )
-The average value of $\phi_L$ is $\bar{\phi}_L = 0.958$ with a
-remarkably small standard deviation of $\sigma_{\phi_L} = ****$.
-
-****
-MKH:
-I would be very reticent to call the data we have used `our database' 
-as it is all from the LSPDD. I have rewritten this paragraph below. Let me know if you agree.---ZM
-****
-
-****
-ZM: 
-Thanks for this point. I agree.
-You can delete the outdated paragraph above and these comments.---MKH
-****
-
 We calculated the exergy-to-energy ratio for a sample of lamps from the LSPDD \cite{aube2013}
 using Equation~\ref{eq:phi_L} with $f_\lambda = V_\lambda$. 
 (The sample consists of 24 lamp SPDs representing six technologies: 
@@ -2087,19 +2065,14 @@ Average conversion factors~($\gammaratavg{}$) by lamp technology are given in Ta
 
 source("Data/conversion_table.R")
 
-print(xtable::xtable(conversion_table, digits=2, 
+# Creates a matrix containing the number of decimal places that each cell should be rounded to
+mdat<-matrix(2,nrow=3,ncol=5); mdat[3,]<-0
+
+print(xtable::xtable(conversion_table, digits=mdat, 
                      caption = "The mean and standard deviation across all sample lamps
                      for factors ($\\gammaratavg{}$) for converting data for the final-to-useful
                      energy efficiency of a lamp based on the photopic luminosity function,
-                     to final-to useful energy efficiencies based on the universal luminosity function.
-                     **** ZM: Can you change the sample size row to be integers?
-                     Also, I would put the sample size on the last row. 
-                     Top row: mean.
-                     Second row: stdev.
-                     Third row: sample size.
-                     Finally, should this table contain all *6* technologies instead of the 
-                     technologies of the four example lamps?
-                     I think it should.---MKH ****",
+                     to final-to useful energy efficiencies based on the universal luminosity function.",
                      label = "tab:conversionfactors"), 
       size="footnotesize", # Change size; useful for bigger tables
       include.rownames=TRUE, 
@@ -2210,30 +2183,6 @@ the aggregate valuable exergetic lighting efficiency for a particular year can b
   \eta_{X,L,v,agg} = \sum \limits_{i} \theta_{i} \, \eta_{X,L,v,i} \; .
 \end{equation}
 %
-****
-ZM: 
-Please verify that I edited the above equation correctly.
-I think you had it wrong.---MKH
-****
-
-****
-MKH:
-The above equation is correct, but i believe mine was also.
-The difference being that mine expressed the exergy efficiency
-as a product of the energy efficiency and the exergy-to-energy ratio,
-which i believe we should do, so it is the same format as the equation below---ZM 
-****
-
-****
-ZM:
-Thanks for the clarification.
-I think I want to use ``my'' version, because I'm writing the text above 
-as though the analyst is using the exact method and thus 
-obtains $\eta_{X,L,v,i}$ directly from the exact method.
-The paragraph below talks about what to do when the exact method won't work.
-Does that seem OK to you?---MKH
-****
-
 
 When SPDs are not available, the approximate method can be used as follows:
 %
