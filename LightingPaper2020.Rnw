@@ -2355,12 +2355,12 @@ in the decision to publish the results.}
 source("Data/phi_table.R")
 
 # Creates a matrix with each element containing the number of decimal places that the xtable should use.
-mdat_phi<-matrix(2,nrow=3,ncol=7); mdat_phi[3,]<-0; mdat_phi[2,]<-6
+mdat_phi<-matrix(3,nrow=3,ncol=7); mdat_phi[3,]<-0; mdat_phi[2,]<-6
 
 print(xtable::xtable(phi_table, digits=mdat_phi, 
                      caption = "The mean and standard deviation of each sample lamp type
-                     for exergy-to-energy ratios when using the photopic luminosity function
-                     ($\\bar{\\phi}_{L,pl}$)",
+                     for exergy-to-energy ratios~($\\bar{\\phi}_{L,pl}$) when using
+                     the photopic luminous weighting function~($V_\\lambda$).",
                      label = "tab:mean_phi_p2_by_lamp_type"), 
       size="footnotesize", # Change size; useful for bigger tables
       include.rownames=TRUE, 
@@ -2380,10 +2380,8 @@ source("Data/conversion_table.R")
 mdat_conv<-matrix(2,nrow=3,ncol=7); mdat_conv[3,]<-0
 
 print(xtable::xtable(conversion_table, digits=mdat_conv, 
-                     caption = "The mean and standard deviation of each sample lamp type
-                     for factors ($\\gammaratavg{}$) for converting data for the final-to-useful
-                     energy efficiency of a lamp based on the photopic luminosity function,
-                     to final-to useful energy efficiencies based on the universal luminosity function.",
+                     caption = "The mean and standard deviation withing each lamp type
+                     of the photopic-to-universal factor~($\\gammarat{}$).",
                      label = "tab:conversionfactors"), 
       size="footnotesize", # Change size; useful for bigger tables
       include.rownames=TRUE, 
