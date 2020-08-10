@@ -1610,7 +1610,8 @@ Valuable energy efficiencies~($\eta_{E,L,v}$) of the various combinations of wei
 are shown in Table~\ref{tab:results_etas}.
 Note that when a luminous weighting function is specified,
 the lighting~($L$) and valuable~($v$) subscripts are implied and replaced by a weighting function specifier.
-(E.g., the valuable~($v$) energy~($E$) efficiency~($\eta$) of light~($L$) for the visible luminous weighting function~($vis$),
+(E.g., the valuable~($v$) energy~($E$) efficiency~($\eta$) of light~($L$) 
+using the visible luminous weighting function~($vis$),
 $\eta_{E,L,v,vis}$, is written as $\eta_{E,vis}$.)
 
 <<results_etas_table, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/results_etas_xtable.R')>>=
