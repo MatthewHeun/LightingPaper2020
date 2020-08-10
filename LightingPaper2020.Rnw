@@ -2255,24 +2255,26 @@ Future work could include
 \begin{enumerate*}[label={(\alph*)}]
 	
 	\item investigating additional lighting technologies to assess the stability of 
-	      the exergy-to-energy ratio~($\bar{\phi}_{L,pl}$) and the photopic-to-universal factor~($\gammaratavg{}$)
+	      the average exergy-to-energy ratio~($\bar{\phi}_{L,pl}$) and 
+	      the average photopic-to-universal factor~($\gammaratavg{}$)
 	      across lighting technologies,
 	
   \item applying the exact method to understand the evolution
         of lighting technology relative to upper limits to
-        reductions in lighting energy consumption~(see \citet{CullenPhD})
-        via gains in 
-        lamp luminous efficacy~($K$) and valuable exergetic efficiency~($\eta_{X,L,v}$),
+        reducing lighting energy consumption~\citet{CullenPhD}
+        (via gains in 
+        lamp luminous efficacy~($K$) and valuable exergetic efficiency, $\eta_{X,L,v}$),
   
   \item understanding the effect of lamp ``waste'' heat on lamp efficiency
         (lamp heat is beneficial when it displaces energy for winter space heating but
         detrimental when it adds to summer cooling loads), and 
   
   \item pushing toward the services stage of the energy conversion chain
-        to assess the effects of waste light caused by 
+        to assess the effects of waste light 
+        (caused by 
         excessive intensity, 
-        lighting that falls on surfaces that do not require illumination, and
-        under-utilization of light due to under-occupancy of spaces.
+        lighting that falls on surfaces that do not require illumination, or
+        under-utilization of light due to under-occupancy of spaces).
     
 \end{enumerate*}
 
