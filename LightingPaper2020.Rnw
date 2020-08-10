@@ -1805,14 +1805,15 @@ Equation~\ref{eq:prev_eta_X_v_light} simplifies to
   \eta_{X,L,v} \approx \frac{\int V_\lambda \dot{E}_{EM,\lambda,3} \mathrm{d}\lambda}{\dot{W}_{elect,1}}\; .
 \end{equation}
 %
-Specifically, the conventional method's estimate 
+So, the conventional method's estimate 
 of a lamp's valuable exergetic efficiency
 (Equation~\ref{eq:K_over_e_max}) 
-reduces to Equation~\ref{eq:eta_E_v_light},
+reduces to Equation~\ref{eq:prev_eta_X_v_light_final}, 
+which is the same as Equation~\ref{eq:eta_E_v_light},
 the valuable energy efficiency of a lamp, 
 if $f_\lambda = V_\lambda$.
 That is to say, one interpretation of the conventional method
-is that it estimates the 
+is that it incorrectly estimates the 
 \emph{exergetic} efficiency of a lamp 
 by its \emph{energy} efficiency.
 
