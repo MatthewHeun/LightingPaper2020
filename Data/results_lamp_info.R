@@ -10,9 +10,6 @@ results_lamp_info <- lamp_info %>%
                 `Lumen output [lm]`,
                 `Luminous efficiency [%]`)
 
-# Re-arranges the rows into the correct order
-results_lamp_info <- results_lamp_info[c(1,4,2,3),]
-
 # Removes lamp info column after ordering
 results_lamp_info <- results_lamp_info[,-1]
 
@@ -26,6 +23,11 @@ info_colnames <- results_lamp_info$`Lamp type`
 results_lamp_info_fin <- as.data.frame(t(results_lamp_info[,-1]))
 colnames(results_lamp_info_fin) <- info_colnames
 
+# Re-orders columns
+# results_lamp_info_fin <- results_lamp_info_fin[c(1,2,3,4),]
+# This code creates a table in which the lamp columns are in the same order
+# as are called within the lamp_list in the AllData.R script. 
+# Uncomment the above code to change if required.
 
 
 
