@@ -2350,7 +2350,27 @@ in the decision to publish the results.}
 <<test, child='pieces/appendix.Rnw'>>=
 @
 
+<<mean_phi_p2_by_lamp_type, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/phi_table.R')>>=
 
+source("Data/phi_table.R")
+
+# Creates a matrix with each element containing the number of decimal places that the xtable should use.
+mdat_phi<-matrix(2,nrow=3,ncol=7); mdat_phi[3,]<-0; mdat_phi[2,]<-6
+
+print(xtable::xtable(phi_table, digits=mdat_phi, 
+                     caption = "The mean and standard deviation of each sample lamp type
+                     for exergy-to-energy ratios when using the photopic luminosity function
+                     ($\\bar{\\phi}_{L,pl}$)",
+                     label = "tab:mean_phi_p2_by_lamp_type"), 
+      size="footnotesize", # Change size; useful for bigger tables
+      include.rownames=TRUE, 
+      include.colnames=TRUE, 
+      caption.placement="top",
+      type = "latex",
+      booktabs = TRUE,
+      sanitize.rownames.function = identity
+      )
+@
 
 <<conversionfactors, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/conversion_table.R')>>=
 
@@ -2375,27 +2395,7 @@ print(xtable::xtable(conversion_table, digits=mdat_conv,
       )
 @
 
-<<mean_phi_p2_by_lamp_type, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/phi_table.R')>>=
 
-source("Data/phi_table.R")
-
-# Creates a matrix with each element containing the number of decimal places that the xtable should use.
-mdat_phi<-matrix(2,nrow=3,ncol=7); mdat_phi[3,]<-0; mdat_phi[2,]<-6
-
-print(xtable::xtable(phi_table, digits=mdat_phi, 
-                     caption = "The mean and standard deviation of each sample lamp type
-                     for exergy-to-energy ratios when using the photopic luminosity function
-                     ($\\bar{\\phi}_{L,pl}$)",
-                     label = "tab:mean_phi_p2_by_lamp_type"), 
-      size="footnotesize", # Change size; useful for bigger tables
-      include.rownames=TRUE, 
-      include.colnames=TRUE, 
-      caption.placement="top",
-      type = "latex",
-      booktabs = TRUE,
-      sanitize.rownames.function = identity
-      )
-@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \reftitle{References}
