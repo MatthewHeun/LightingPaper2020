@@ -21,4 +21,4 @@ conversion_table <- conversion_table[,c(3,2,1,4)]
 conversion_table <- magrittr::set_rownames(conversion_table, 
                                             c("Sample size", 
                                               "Mean conversion factor ($\\gammaratavg{}$)", 
-                                              "Standard deviation"))  
+                                              "Standard deviation ($\\sigma_{\\gammarat}$)"))  
