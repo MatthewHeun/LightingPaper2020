@@ -1361,8 +1361,10 @@ print(xtable::xtable(results_lamp_info_fin, digits=0,
                      caption = "Metadata for lamps, including 
                      year the SPD data was obtained, 
                      luminous efficacy, 
-                     electricity consumption rate, and
-                     luminous efficiency~\\cite{aube2013}.", 
+                     electricity consumption rate, lumen output, and
+                     luminous efficiency~\\cite{aube2013}. 
+                     **** Do we want to change the INC 
+                     so it is in a similar range of lumen output? ---ZM ****", 
                      label = "tab:lamps"), 
       size="footnotesize", # Change size; useful for bigger tables
       include.rownames=TRUE, 
@@ -2065,7 +2067,7 @@ Average conversion factors~($\gammaratavg{}$) by lamp technology are given in Ta
 
 source("Data/conversion_table.R")
 
-# Creates a matrix containing the number of decimal places that each cell should be rounded to
+# Creates a matrix with each element containing the number of decimal places that the xtable should use.
 mdat<-matrix(2,nrow=3,ncol=5); mdat[3,]<-0
 
 print(xtable::xtable(conversion_table, digits=mdat, 
