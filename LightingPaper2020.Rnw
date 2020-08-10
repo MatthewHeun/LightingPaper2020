@@ -1986,7 +1986,7 @@ but luminous efficacy data~($K$) are.
 Results from the exact method provide guidance for developing an approximate method.
 
 Section~\ref{sec:previous_approach} shows that the conventional method does not require SPD information, 
-but it provides energy efficiency (instead of exergy efficiency)
+but it provides energy efficiency (instead of exergetic efficiency)
 while requiring the use of photopic luminosity function~($\eta_{E,L,v,pl}$).
 In contrast, we recommend that,
 in the absence of SPD data,
@@ -2008,6 +2008,9 @@ We suggest the following two-step process:
     
 \end{enumerate*}
 
+**** ZM: 
+Delete this paragraph.---MKH
+**** 
 We calculated the exergy-to-energy ratio for each lamp in our database using
 Equation~\ref{eq:phi_L}. 
 (The database consists of **** lamps with SPDs representing **** technologies, 
@@ -2024,14 +2027,14 @@ as it is all from the LSPDD. I have rewritten this paragraph below. Let me know 
 ****
 ZM: 
 Thanks for this point. I agree.
-You can delete the outdated paragarph above and these comments.---MKH
+You can delete the outdated paragraph above and these comments.---MKH
 ****
 
 We calculated the exergy-to-energy ratio for a sample of lamps from the LSPDD \cite{aube2013}
 using Equation~\ref{eq:phi_L} with $f_\lambda = V_\lambda$. 
-(This sample consists of 24 lamp SPDs representing six technologies: 
+(The sample consists of 24 lamp SPDs representing six technologies: 
 INC, Halogen (HAL), HPS, Metal halide (MH), CFL, and LED)
-The average value of $\phi_{L,pl}$ is $\bar{\phi}_{L,pl} = 0.958$ **** ZM: Make sure 0.958 is the correct value.---MKH **** with a
+The average value is $\bar{\phi}_{L,pl} = 0.958$ **** ZM: Make sure 0.958 is the correct value.---MKH **** with a
 remarkably small standard deviation of $\sigma_{\phi_{L,pl}} = ****$.
 
 ****
@@ -2049,7 +2052,7 @@ or photopic luminosity function? --- ZM
 ****
 ZM:
 Good question. 
-I think we want to use the mean $\phi_L$ function for the photopic luminosity function~($V_\lambda$), 
+I think we want to use the mean $\phi_{L,pl}$ function for the photopic luminosity function~($V_\lambda$), 
 because our proposed approximate method is to FIRST move from energy to exergy under the photopic luminosity function~($V_\lambda$)
 THEN move from photopic to universal in exergy space.
 You'll note that I changed from $\phi_L$ to $\phi_{L,pl}$ to be more explicit about 
@@ -2072,9 +2075,9 @@ Similarly, we obtained $\gammarat{}$ for each lamp~($i$) by taking the quotient 
 %
 Because a greater proportion of each SPD is considered to be light
 by the universal luminous weighting function~($U_\lambda$)
-as opposed to the photopic luminosity weighting function~($V_\lambda$), 
+compared to the photopic luminosity weighting function~($V_\lambda$), 
 $\gammarat{}$ is expected to be greater than 1.
-The average value of $\gammarat{}$ across our population of lamps 
+The average value of the photopic-to-universal factor across our population of lamps 
 was $\gammaratavg{} = 1.37$,
 with a small standard deviation of $\sigma_{\gammarat{}} = 0.108$.
 
@@ -2095,7 +2098,8 @@ print(xtable::xtable(conversion_table, digits=2,
                      Second row: stdev.
                      Third row: sample size.
                      Finally, should this table contain all *6* technologies instead of the 
-                     technologies of the four example lamps?---MKH ****",
+                     technologies of the four example lamps?
+                     I think it should.---MKH ****",
                      label = "tab:conversionfactors"), 
       size="footnotesize", # Change size; useful for bigger tables
       include.rownames=TRUE, 
@@ -2111,30 +2115,30 @@ The approximate method for determining the valuable exergetic efficiency of a la
 is implemented by the following equation
 %
 \begin{equation} \label{eq:approximate}
-  \eta_{X,L,v} \approx \bar{\phi}_{L} \, \gammaratavg{} \, \frac{K}{683 \text{ lm/W}} \; ,
+  \eta_{X,L,v} \approx \bar{\phi}_{L,pl} \, \gammaratavg{} \, \frac{K}{683 \text{ lm/W}} \; ,
 \end{equation}
 %
 which is a modification of Equation~\ref{eq:K_over_e_max}
-that accounts for the move from energy to exergy (via $\bar{\phi}_L$)
+that accounts for the move from energy to exergy (via $\bar{\phi}_{L,pl}$)
 and the move from the photopic luminous weighting function to the universal luminous weighting function
 (via $\gammaratavg{}$).
 
 When the lamp technology is unknown, overall average values can be used
-for $\bar{\phi}_{L}$ and $\gammaratavg{}$:
+for $\bar{\phi}_{L,pl}$ and $\gammaratavg{}$:
 %
 \begin{equation} \label{eq:approximate_unknown_tech}
   \eta_{X,L,v} \approx (0.958) (1.37) \frac{K}{683 \text{ lm/W}} = 1.31 \frac{K}{683 \text{ lm/W}} \; .
 \end{equation}
 %
 If the lamp technology is known, 
-$\bar{\phi}_L$ and $\gammaratavg{}$ values from **** Tables~X and~Y **** should be used instead of the overall averages.
+$\bar{\phi}_{L,pl}$ and $\gammaratavg{}$ values from **** Tables~X and~Y **** should be used instead of the overall averages.
 
 Table~\ref{tab:threemethods} summarizes 
 the valuable exergetic efficiency 
 for the four representative lamps (INC, HPS, CFL, LED) and
 the three methods (conventional, exact, and approximate).
 The ``Approximate method'' row was generated using
-the values for $\bar{\phi}_L$ and $\gammaratavg{}$ shown
+the values for $\bar{\phi}_{L,pl}$ and $\gammaratavg{}$ shown
 in Equation~\ref{eq:approximate_unknown_tech}.
 
 
@@ -2172,14 +2176,14 @@ Societal exergy analyses are normally conducted at the sectoral or economy-wide 
 so analysts must weight per-lamp-technology efficiencies
 by each technology's usage fraction.
 Two types of data are required for a given period of interest, typically a year:
-
-\begin{enumerate}[label={(\alph*)}]
+%
+\begin{enumerate*}[label={(\alph*)}]
 
   \item valuable exergetic efficiency data for each lamp technology~($\eta_{X,L,v,i}$) and
 
   \item proportion of lighting electricity consumption by lamp technology~($\theta_i$).
 
-\end{enumerate}
+\end{enumerate*}
 
 Item (a) is the result of applying the exact method to each lamp technology
 but depends on the presence of each lamp's SPD,
@@ -2198,7 +2202,9 @@ are provided by the US DOE's Lighting Market Characterization reports \citep{DOE
 for the USA for the following lamp technologies: incandescent, halogen, compact fluorescent,
 linear fluorescent, high intensity discharge, LED, and other.
 
-When SPDs are available, the aggregate valuable exergetic lighting efficiency for a particular year can be found by
+When SPDs are available, the exact method can be used to determine the 
+valuable exergetic efficiency of each lighting technology~($i$), and
+the aggregate valuable exergetic lighting efficiency for a particular year can be found by
 %
 \begin{equation} \label{eq:agg_eta}
   \eta_{X,L,v,agg} = \sum \limits_{i} \theta_{i} \, \eta_{X,L,v,i} \; .
@@ -2218,10 +2224,21 @@ as a product of the energy efficiency and the exergy-to-energy ratio,
 which i believe we should do, so it is the same format as the equation below---ZM 
 ****
 
-When SPDs are unavailable, the approximate method can be used as follows:
+****
+ZM:
+Thanks for the clarification.
+I think I want to use ``my'' version, because I'm writing the text above 
+as though the analyst is using the exact method and thus 
+obtains $\eta_{X,L,v,i}$ directly from the exact method.
+The paragraph below talks about what to do when the exact method won't work.
+Does that seem OK to you?---MKH
+****
+
+
+When SPDs are not available, the approximate method can be used as follows:
 %
 \begin{equation} \label{eq:agg_eta_K}
-  \eta_{X,L,univ,agg} \approx \sum \limits_{i} \theta_{i} \, \bar{\phi}_{L} \, \gammaratavg{} \, 
+  \eta_{X,L,v,agg} \approx \sum \limits_{i} \theta_{i} \, \bar{\phi}_{L,pl} \, \gammaratavg{} \, 
                             \frac{K_{i}}{683 \text{ lm/W}} \; .
 \end{equation}
 
@@ -2235,6 +2252,17 @@ This reduces the number of subscripts!
 Also as the mean conversion factor and mean exergy-to-energy ratios we have used are averaged across lamps they should not have the subscript i. 
 I have made these changes, let me know if you agree/disagree!----ZM
 ****
+
+****
+ZM: 
+I agree about removing the subscript $i$.
+I haven't made the $v \rightarrow univ$ change, because I think that requires a broader discussion.
+We would need to make that change in very many places, not just here.
+I'm willing to have that discussion.
+But I don't think I should make a change here only.---MKH
+****
+
+
 
 
 %++++++++++++++++++++++++++++++
