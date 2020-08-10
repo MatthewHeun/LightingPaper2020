@@ -490,7 +490,7 @@ and \citet[p.~265]{Tsao2010appetitelight}, who state
 source(file = file.path("Data", "lighting_efficacy.R"))
 @
 
-<<LuminousEfficacy_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 4, fig.cap = "The luminous efficacy of selected lamp technologies from 1880 to 2020. For HPS lamps, data was limited to lamps of less than 100~W as a lamp's luminous efficacy tends to increase in line with its electricity consumption, therefore skewing the results for a particular year, depending on the wattage of the lamp reported. Data were obtained from three sources: the Museum of Electric Lamp Technology (LampTech)~\\cite{hooker_2020}, the ENERGYSTAR database of certified light bulbs~\\cite{energystar_2020}, and the lighting market characterization reports commissioned by the US Department of Energy (DOE)~\\cite{DOE2002, DOE2012, DOE2017}." >>=
+<<LuminousEfficacy_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 4, fig.cap = "The luminous efficacy of selected lamp technologies from 1880 to 2020. For HPS lamps, data was limited to lamps of less than 100~W as a lamp's luminous efficacy tends to increase in line with its electricity consumption, therefore skewing the results for a particular year, depending on the wattage of the lamp reported. Data were obtained from three sources: the Museum of Electric Lamp Technology (LampTech)~\\cite{hooker_2020}, the ENERGYSTAR database of certified lamps~\\cite{energystar_2020}, and the lighting market characterization reports commissioned by the US Department of Energy (DOE)~\\cite{DOE2002, DOE2012, DOE2017}." >>=
 le_df$Selected <- ifelse(le_df$Type == "LSPDD", "Selected lamps", "Other")
 
 le_df_filtered <- le_df %>% 
@@ -1610,8 +1610,8 @@ Valuable energy efficiencies~($\eta_{E,L,v}$) of the various combinations of wei
 are shown in Table~\ref{tab:results_etas}.
 Note that when a luminous weighting function is specified,
 the lighting~($L$) and valuable~($v$) subscripts are implied and replaced by a weighting function specifier.
-(E.g., the valuable energy efficiency of light for the visible luminous weighting function,
-$\eta_{E,L,v,vis}$ is written as $\eta_{E,vis}$.)
+(E.g., the valuable~($v$) energy~($E$) efficiency~($\eta$) of light~($L$) for the visible luminous weighting function~($vis$),
+$\eta_{E,L,v,vis}$, is written as $\eta_{E,vis}$.)
 
 <<results_etas_table, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/results_etas_xtable.R')>>=
 source("Data/results_etas_xtable.R")
@@ -1619,14 +1619,15 @@ source("Data/results_etas_xtable.R")
 print(xtable::xtable(results_etas_fin, digits=2, 
                      caption = "Energy efficiencies
                      ($\\eta_{E,L,v}$, in \\%) for each lamp
-                     and weighting function~($f_\\lambda$)
+                     and each weighting function~($f_\\lambda$),
                      given by Equation~\\ref{eq:eta_E_v_light}.
-                     Note that for the incandescent bulb (INC), 
+                     Note that for the incandescent (INC) and halogen (HAL)
+                     lamps, 
                      the unweighted efficiency is an 
-                     underestimate, 
-                     because the SPD data were limited to $\\lambda < \\text{899 nm}$, 
-                     despite INC emission far into 
-                     the infrared region of the EM spectrum.", 
+                     underestimate;
+                     the SPD data do not go beyond 899~nm, 
+                     despite INC and HAL emission far into 
+                     the infrared portion of the EM spectrum.", 
                      label= "tab:results_etas"), 
       size="footnotesize", # Change size; useful for bigger tables
       include.rownames=TRUE, 
@@ -1640,7 +1641,7 @@ print(xtable::xtable(results_etas_fin, digits=2,
 
 
 %++++++++++++++++++++++++++++++
-\subsection{Energy-to-exergy ratio ($\phi_L$)}
+\subsection{Exergy-to-energy ratio ($\phi_L$)}
 \label{sec:results_phi_L}
 %++++++++++++++++++++++++++++++
 
@@ -1652,8 +1653,8 @@ source("Data/results_phi_xtable.R")
 
 print(xtable::xtable(results_phi_fin, digits=3, 
                      caption = "Exergy to energy ratios~($\\phi_L$) 
-                     for each lamp, 
-                     and each weighting function ($f_{\\lambda}$) 
+                     for each lamp 
+                     and each weighting function ($f_{\\lambda}$),
                      given by Equation~\\ref{eq:phi_L}.", 
                      label= "tab:results_phis"), 
       size="footnotesize", #Change size; useful for bigger tables
@@ -1680,7 +1681,7 @@ source("Data/results_etasX_xtable.R")
 print(xtable::xtable(results_etasX_fin, digits=2, 
                      caption = "Exergy efficiencies
                      ($\\eta_{X,L,v}$, in \\%) for each lamp
-                     and weighting function~($f_\\lambda$)
+                     and weighting function~($f_\\lambda$),
                      given by Equation~\\ref{eq:eta_X_v_light}.", 
                      label= "tab:results_etasX"), 
       size="footnotesize", # Change size; useful for bigger tables
