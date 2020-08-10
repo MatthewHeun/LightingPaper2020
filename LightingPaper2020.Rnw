@@ -1796,9 +1796,9 @@ Condition~(a) shows that the correct assumption for maximum luminous efficacy
 in the conventional method 
 is $K_{max} = 683 \text{ lm/W}$.
 Any other assumption is a mistake.
-Condition~(b) is incorrect;
+The assumption in condition~(b) is incorrect;
 the exergy-to-energy ratio for light~($\phi_{L,\lambda}$) is not 1, but the conventional method assumes it is.
-Condition~(c) highlights an unfortunate requirement for the conventional method, 
+Condition~(c) highlights an unfortunate requirement of the conventional method, 
 one that is lifted by the exact method.
 
 When $K_{max}$ is equal to 683~lm/W and
