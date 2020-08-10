@@ -262,7 +262,7 @@ leads to a reasonable approximation of lamp exergetic efficiency, when needed.
 To conclude, we provide three recommendations 
 for societal exergy analysts:
 (a)~use the exact method when a lamp's spectral power distribution is available, 
-(b)~use the universal luminosity weighting function, and
+(b)~use the universal luminous weighting weighting function, and
 (c)~use the reasonable approximation to the exact method 
     when luminous efficacy is known
     but spectral power distribution is unavailable.
@@ -397,7 +397,7 @@ response_data <- weighted_responses_df %>%
 @
 
 
-<<Vis_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="Normalized sensitivity of the human eye to EM radiation~\\cite{schubert2006}, according to the photopic luminosity function~($V_\\lambda$).">>=
+<<Vis_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="Normalized sensitivity of the human eye to EM radiation~\\cite{schubert2006}, according to the photopic luminous weighting function~($V_\\lambda$).">>=
 response_data %>% 
   dplyr::filter(wf_name == "Photopic") %>% 
   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>% 
@@ -509,7 +509,7 @@ ggplot2::ggplot(le_df_filtered, mapping = aes(x = Year)) +
                            arrow = arrow(length = unit(0.01, "npc")),
                            box.padding = unit(0.2, "lines"),
                            point.padding = unit(0.3, "lines"),
-                           nudge_x = -75,
+                           nudge_x = -69,
                            nudge_y = 0, 
                            colour = "gray50") + 
   
@@ -561,21 +561,22 @@ three common values are adopted:
 400~lm/W \cite{Ayres2005, Tsao2010solidstate, Summers1971, Guevara2016}, and
 683~lm/W \cite{Kondo2009, Serrenho2014}, based on the maximum efficacy of 
 a ***** PB: find the reason for 200~lm/W.---MKH ****, broad-spectrum white light, and green light at 555~nm, respectively.
-Practically, \citeauthor{Paoli2020} calculated that the upper limit for the luminous efficacy of an LED is 284 - 350 lm/W,
-when considering all stages of energy loss.
-As can be seen from Figure~\ref{fig:LuminousEfficacy_Graph} the exponential improvement 
-in LED luminous efficacies suggest this limit is within reach,
-as predicted by Haitz's law \cite{haitz1999case, graydon2007haitz}, 
-which stated \emph{``Every decade, for a given wavelength of light, 
+
+Practically, \citeauthor{Paoli2020} estimated 
+the upper limit for the luminous efficacy of an LED to be 284--350~lm/W,
+when considering all stages of energy loss~\citep{Paoli2020}.
+Figure~\ref{fig:LuminousEfficacy_Graph} shows this limit is within reach
+due to the exponential improvement in luminous efficacies for LED technology.
+The development of LED technology is following Haitz's law, 
+which predicts that ``[e]very decade, for a given wavelength of light, 
 the cost per lumen falls by a factor of 10 
-and the amount of light generated per LED package increases by a factor of 20.''}.
+and the amount of light generated per LED package increases 
+by a factor of 20''~\citep{haitz1999case, graydon2007haitz}.
 
-**** Is this the best place to include Haitz's law. Or should we still include it? 
-It was mentioned in the meeting the other day that the focus of the paper is on single lamps, 
-not efficacy/efficiency trends over time. ---ZM ****
-
-Obviously, the choice of $K_{max}$ has a large effect on lighting efficiency in the conventional method,
-so getting it right is important.
+Clearly, there are many options for $K_{max}$, and
+its value has a large effect on the valuable exergetic efficiency of lighting
+in the conventional method.
+So getting it right is important.
 
 Although the confusion around maximum luminous efficacy~($K_{max}$)
 is sufficient motivation to dig deeper to fully understand and define
@@ -1227,9 +1228,9 @@ with peak sensitivity at 555~nm (green)
 and lesser sensitivities at both longer (redder) and shorter (bluer) wavelengths.
 A third option weights a lamp's emitted EM radiation 
 by the photopic sensitivity of the human eye.
-The photopic luminosity~(pl) function~($V_\lambda$) describes this sensitivity, 
+The photopic luminous~(pl) weighting function~($V_\lambda$) describes this sensitivity, 
 as shown in Figure~\ref{fig:Vis_Graph}.
-The photopic luminosity function 
+The photopic luminous weighting function 
 was defined by the Commission Internationale de l' \'{E}clairage (CIE) in 1931
 and represents the sensitivity of M and L cones
 at daytime light levels \cite{CVRL2008}.
@@ -1260,7 +1261,7 @@ emitting exclusively green light at $\lambda = 555 \text{ nm}$.
 (Note that because lumens are a re-scaling of watts, 
 lumens are also a unit of radiant power.)
 
-When the photopic luminosity function~($V_\lambda$) is used 
+When the photopic luminous weighting function~($V_\lambda$) is used 
 to calculate luminous power, 
 the valuable energy efficiency of a lamp can be written in terms of luminous efficacy~($K$)
 by modifying Equation~\ref{eq:eta_E_v_light} to be (in the context of Figure~\ref{fig:lamp})
@@ -1271,16 +1272,16 @@ by modifying Equation~\ref{eq:eta_E_v_light} to be (in the context of Figure~\re
 %
 where $K$ is in lm/watt.
 
-The photopic luminosity function~($V_\lambda$) is the industry standard for determining lumen output
+The photopic luminous weighting function~($V_\lambda$) is the industry standard for determining lumen output
 of lamps, but it has been criticized for under-representing
 the power of wavelengths different from 555~nm. 
-In fact, the photopic luminosity function
+In fact, the photopic luminous weighting function
 neglects the differential sensitivity of the human eye's other light receptors,
 namely the short-wave cones,
 rods, and intrinsically photosensitive retinal ganglion cells (ipRGCs),
 which are responsible for vision in low-light settings and
 physiological functions such as the regulation of circadian rhythms.
-Thus, the photopic luminosity function~($V_\lambda$),
+Thus, the photopic luminous weighting function~($V_\lambda$),
 and therefore also luminous efficacy~($K$),
 are said to have a long-wave bias.
 
@@ -1364,7 +1365,8 @@ print(xtable::xtable(results_lamp_info_fin, digits=0,
                      electricity consumption rate, lumen output, and
                      luminous efficiency~\\cite{aube2013}. 
                      **** Do we want to change the INC 
-                     so it is in a similar range of lumen output? ---ZM ****", 
+                     so it is in a similar range of lumen output? ---ZM ****
+                     **** Yes.---MKH ****", 
                      label = "tab:lamps"), 
       size="footnotesize", # Change size; useful for bigger tables
       include.rownames=TRUE, 
@@ -1781,7 +1783,7 @@ is correct under the following conditions only:
   \item $\phi_{L,\lambda} = 1$ for all wavelengths, and
 
   \item the spectral luminous weighting function~($f_\lambda$) is taken to be
-        the photopic luminosity function ($V_\lambda$).
+        the photopic luminous weighting function ($V_\lambda$).
 
 \end{enumerate}
 
@@ -1793,7 +1795,7 @@ Condition~(c) highlights an unfortunate requirement for the conventional method,
 one that is overly restrictive. 
 
 When $K_{max}$ is equal to 683~lm/W and
-the weighting function is taken to be the photopic luminosity function~($V_\lambda$),
+the weighting function is taken to be the photopic luminous weighting function~($V_\lambda$),
 as they should for the conventional method,
 Equation~\ref{eq:prev_eta_X_v_light} simplifies to 
 %
@@ -1847,12 +1849,12 @@ We note, however, that $\phi_{L,\lambda}$ is close to~1 for all wavelengths of i
 Happily, the conventional method was not far wrong.
 
 Third, in the conventional method, 
-the analyst is required to use the photopic luminosity function~($V_\lambda$)
+the analyst is required to use the photopic luminous weighting function~($V_\lambda$)
 for the spectral weighting function~($f_\lambda$).
-However, it is not certain that the photopic luminosity function
+However, it is not certain that the photopic luminous weighting function
 is the best choice.
-In fact, we later recommend replacing the photopic luminosity function~($V_\lambda$)
-with the universal luminosity function~($U_\lambda$).
+In fact, we later recommend replacing the photopic luminous weighting function~($V_\lambda$)
+with the universal luminous weighting function~($U_\lambda$).
 (See Section~\ref{sec:reccuniv}.)
 
 
@@ -1868,7 +1870,7 @@ We provide three recommendations for societal exergy analysts:
   \item use the exact method of Section~\ref{sec:methods} when possible, 
         i.e., when SPD data are available for a lamp, 
   
-  \item use the universal luminosity weighting function~($U_\lambda$), and
+  \item use the universal luminous weighting function~($U_\lambda$), and
   
   \item use an approximate method when luminous efficacy~($K$) data are available, but
         SPD data are not.
@@ -1918,32 +1920,32 @@ we note that human perception of light and color diminishes rapidly above 700~nm
 as shown by Figure~\ref{fig:wfs_and_lamps}.
 (Figure~\ref{fig:wfs_and_lamps}  
 utilizes the CIE 10 degree color matching function 
-provided in the \texttt{R} pacakge \texttt{ggspectra}~\cite{Aphalo2015}.)
+provided in the \texttt{R} package \texttt{ggspectra}~\cite{Aphalo2015}.)
 This decline in human eye sensitivity toward the infra-red region
-is captured well by the photopic luminosity function~($V_\lambda$).
+is captured well by the photopic luminous weighting function~($V_\lambda$).
 
 However, it is also known that short wavelength EM radiation (bluer light)
 provides physiological benefits, such as
 the suppression of melanopsin and 
 the regulation of circadian rhythms~\citep{Pattison2018LEDphotons}.
-The photopic luminosity function~($V_\lambda$) does not
+The photopic luminous weighting function~($V_\lambda$) does not
 capture the importance of short wavelength EM radiation, 
 attenuating human perception nearly equally in the blue and red regions
 of the visible spectrum.
 
-Societal exergy analysis implicitly adopts the photopic luminosity function~($V_\lambda$)
+Societal exergy analysis implicitly adopts the photopic luminous weighting function~($V_\lambda$)
 when it applies the conventional method for calculating the exergetic efficiency of lighting.
 (See Section~\ref{sec:previous_approach}.)
 For lamps whose purpose is illumination, 
-we believe that the universal luminosity function ($U_\lambda$)
+we believe that the universal luminous weighting function ($U_\lambda$)
 is more appropriate.
 (See also \citet{Rea2018}.)
 We provide three arguments in support of this proposal.
 
 First, 
-the universal luminosity function~($U_\lambda$)
+the universal luminous weighting function~($U_\lambda$)
 accounts for the sensitivity of all five types of light receptors in the human eye,
-whereas the photopic luminosity function~($V_\lambda$) does not.
+whereas the photopic luminous weighting function~($V_\lambda$) does not.
 
 Second,
 to obtain the benefits of blue light, 
@@ -1952,22 +1954,22 @@ in the region of 480~nm,
 the peak of the melanopsin suppression action spectrum \cite{lucas2014}.
 (For example, see the blue spike in the SPD~($\dot{E}_{EM,\lambda}$)
 for the LED lamp in Figure~\ref{fig:wfs_and_lamps}.)
-The universal luminosity function~($U_\lambda$)
+The universal luminous weighting function~($U_\lambda$)
 correctly includes the energy or exergy of blue spikes
 in the numerator of efficiency calculations,
 thereby correctly elevating the efficiency of lamps that contain a blue spike
-compared to the photopic luminosity function.
+compared to the photopic luminous weighting function.
 
 Third, 
 manufacturers who design lamps with blue spikes
 do not get credit for their efforts, because 
 the industry-standard measure of lighting efficiency,
 luminous efficacy~($K$), 
-uses the photopic luminosity function~($V_\lambda$). 
+uses the photopic luminous weighting function~($V_\lambda$). 
 This state of affairs could encourage lighting manufacturers to reduce short wavelength
 output of lamps, even when short wavelength EM radiation would 
 provide physiological benefits.
-Adopting the universal luminosity function~($U_\lambda$) will encourage manufactures to include 
+Adopting the universal luminous weighting function~($U_\lambda$) will encourage manufactures to include 
 blue spikes in lamp designs.
 
 The conventional method for estimating lamp efficiency
@@ -1993,7 +1995,7 @@ Results from the exact method provide guidance for developing an approximate met
 
 Section~\ref{sec:previous_approach} shows that the conventional method does not require SPD information, 
 but it provides energy efficiency (instead of exergetic efficiency)
-while requiring the use of photopic luminosity function~($\eta_{E,pl}$).
+while requiring the use of photopic luminous weighting function~($\eta_{E,pl}$).
 In contrast, we recommend that,
 in the absence of SPD data,
 societal exergy analysts
@@ -2016,9 +2018,18 @@ We suggest the following two-step process:
 
 We calculated the exergy-to-energy ratio for a sample of lamps from the LSPDD \cite{aube2013}
 using Equation~\ref{eq:phi_L} with $f_\lambda = V_\lambda$. 
-(The sample consists of 24 lamp SPDs representing six technologies: 
+(The sample consists of 24
+****
+ZM: Replace ``24'' with Sexpr---MKH
+****
+lamp SPDs representing six technologies: 
 INC, Halogen (HAL), HPS, Metal halide (MH), CFL, and LED)
-The average value is $\bar{\phi}_{L,pl} = 0.958$ **** ZM: Make sure 0.958 is the correct value.---MKH **** with a
+The average value is $\bar{\phi}_{L,pl} = 0.958$ 
+**** 
+ZM: 
+Replace ``0.958'' with Sexpr.---MKH 
+**** 
+with a
 remarkably small standard deviation of $\sigma_{\phi_{L,pl}} = ****$.
 
 ****
@@ -2029,15 +2040,16 @@ Please fill the standard deviation values above.---MKH
 ****
 MKH:
 Before I do this, at the moment we are using the mean phi value across all lamps and weighting functions,
-do we want to change this to the mean value for the universal luminosity function,
-or photopic luminosity function? --- ZM
+do we want to change this to the mean value for the universal luminous weighting function,
+or photopic luminous weighting function? --- ZM
 ****
 
 ****
 ZM:
 Good question. 
-I think we want to use the mean $\phi_{L,pl}$ function for the photopic luminosity function~($V_\lambda$), 
-because our proposed approximate method is to FIRST move from energy to exergy under the photopic luminosity function~($V_\lambda$)
+I think we want to use the mean $\phi_{L,pl}$ function for the photopic luminous weighting function~($V_\lambda$), 
+because our proposed approximate method is to FIRST move from energy to exergy under the photopic luminous weighting
+function~($V_\lambda$)
 THEN move from photopic to universal in exergy space.
 You'll note that I changed from $\phi_L$ to $\phi_{L,pl}$ to be more explicit about 
 the issue of which luminous weighting function should be used.---MKH
@@ -2059,11 +2071,15 @@ Similarly, we obtained $\gammarat{}$ for each lamp~($i$) by taking the quotient 
 %
 Because a greater proportion of each SPD is considered to be light
 by the universal luminous weighting function~($U_\lambda$)
-compared to the photopic luminosity weighting function~($V_\lambda$), 
+compared to the photopic luminous weighting function~($V_\lambda$), 
 $\gammarat{}$ is expected to be greater than 1.
 The average value of the photopic-to-universal factor across our population of lamps 
 was $\gammaratavg{} = 1.37$,
 with a small standard deviation of $\sigma_{\gammarat{}} = 0.108$.
+****
+ZM:
+Replace ``1.37'' and ``0.108'' with Sexpr.---MKH
+****
 
 Average conversion factors~($\gammaratavg{}$) by lamp technology are given in Table~\ref{tab:conversionfactors} in the appendix.
 
@@ -2086,6 +2102,10 @@ for $\bar{\phi}_{L,pl}$ and $\gammaratavg{}$:
   \eta_{X,univ} \approx (0.958) (1.37) \frac{K}{683 \text{ lm/W}} = 1.31 \frac{K}{683 \text{ lm/W}} \; .
 \end{equation}
 %
+****
+ZM:
+Replace ``0.958'' and ``1.37'' and ``1.31'' with Sexpr.---MKH
+****
 If the lamp technology is known, 
 $\bar{\phi}_{L,pl}$ and $\gammaratavg{}$ values from **** Tables~X and~Y **** should be used instead of the overall averages.
 
@@ -2222,7 +2242,7 @@ Finally, we provided recommendations for societal exergy analysts, namely to
 	
   \item use the exact method when a lamp's spectral power distribution is available, 
   
-  \item use the universal luminosity weighting function~($U_\lambda$), and
+  \item use the universal luminous weighting weighting function~($U_\lambda$), and
   
   \item use the approximate method when luminous efficacy is known
         but spectral power distribution is not.
@@ -2309,9 +2329,9 @@ Pedro J. Aphalo for
 Martin Aub\`{e} and Johanne Roby for
   the use of their Light Spectral Power Distribution Database (LSPDD)~\cite{aube2013}, 
 Andrew Stockman and other members of the Colour and Vision Research Laboratory for 
-  data for the photopic luminosity function~\cite{CVRL2008},
+  data for the photopic luminous weighting function~\cite{CVRL2008},
 Mark S. Rea and Andrew Bierman for
-  the use of the universal luminosity function~\cite{Rea2018}, and
+  the use of the universal luminous weighting function~\cite{Rea2018}, and
 Micheal Royer for
   his advice regarding photometric data.
 }
