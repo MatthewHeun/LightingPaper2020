@@ -14,7 +14,7 @@ conversion_table <- as.data.frame(t(conversion_table[,-1]))
 colnames(conversion_table) <- info_ct_colnames
 
 # Re-orders columns
-conversion_table <- conversion_table[,c(3,2,1,4)]
+conversion_table <- conversion_table[,c(4,2,3,6,1,5)]
 
 # Re-orders rows
 conversion_table <- conversion_table[c("mean_conv","sd_conv","count"), ]
