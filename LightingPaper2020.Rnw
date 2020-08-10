@@ -2191,7 +2191,7 @@ which is rarely reported.
 Instead, the most common measure of lighting efficiency reported for lamps is the luminous efficacy~($K$).
 Therefore, to develop an aggregate measure of lighting efficiency, 
 luminous efficacy data must be converted into valuable exergetic efficiency values 
-using conversion factors, namely $\bar{\phi}_{L}$ and $\gammaratavg{}$, in the approximate method.
+using conversion factors, namely $\bar{\phi}_{L,pl}$ and $\gammaratavg{}$, in the approximate method.
 (See Section~\ref{sec:approximate_method}.)
 
 Importantly, data for the usage proportion for each lamp technology~($\theta_i$)
