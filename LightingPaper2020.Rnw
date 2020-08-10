@@ -255,17 +255,17 @@ the exergy of light and the exergetic efficiency of lamps.
 The exact method 
 (a)~is free of any assumptions for the value of the maximum luminous efficacy, 
 (b)~uses the correct spectral exergy-to-energy ratio, and 
-(c)~allows choices for a spectral luminosity weighting function, 
+(c)~allows choices for the spectral luminous weighting function, 
 which converts broad-spectrum electromagnetic radiation to light.
 The exact method exposes shortcomings inherent to the conventional method and 
 leads to a reasonable approximation of lamp exergetic efficiency, when needed.
 To conclude, we provide three recommendations 
 for societal exergy analysts:
 (a)~use the exact method when a lamp's spectral power distribution is available, 
-(b)~use the universal luminous weighting weighting function, and
+(b)~use the universal luminous weighting function, and
 (c)~use the reasonable approximation to the exact method 
     when luminous efficacy is known
-    but spectral power distribution is unavailable.
+    but the spectral power distribution is unavailable.
 }
 
 % Keywords
@@ -336,13 +336,13 @@ Given the expanding role that artificial lighting plays globally,
 understanding precisely 
 its potential contribution---via increasing efficiency---to reducing energy use
 to meet carbon dioxide emission targets is crucially important.
-Thus, the analysis of the energy and exergy efficiency of lighting 
+Thus, the analysis of the energy and exergetic efficiency of lighting 
 is important in many fields, including
 energy history~\cite{Fouquet:2006},
 energy economics~\cite{Nordhaus1996},
 forecasting energy efficiency improvements~\cite{IEA2019}, and 
 societal exergy analysis~\cite{Ayres2005},
-the focus of this paper.
+the focus of this article.
 
 
 %++++++++++++++++++++++++++++++
@@ -427,7 +427,7 @@ The second aspect is to note that
 modern lighting is provided via an energy conversion chain:
 primary energy (e.g., coal) is converted to
 final energy (electricity, measured in W) and lastly to
-useful energy (visible light, measured in lumens).
+useful energy (visible light, measured in lumens, lm).
 The field of societal exergy analysis evaluates entire energy conversion chains
 at regional, national, or world levels in exergy terms and
 considers light (and many other useful energy products)
@@ -443,7 +443,7 @@ an essential metric for societal exergy analysis
 is the efficiency with which
 electricity (final stage) is converted to light (useful stage) by lamps.
 Thus, the efficiency of energy and exergy conversion~($\eta$) from electricity
-to light by electric lamps is the focus of this paper.
+to light by electric lamps is the focus of this article.
 Note that both energy services (e.g., illumination) and satisfaction of human needs
 (e.g., comfort, safety, etc.) are downstream of the useful stage 
 and thus outside of scope.
@@ -468,7 +468,7 @@ an exergy efficiency is obtained~($\eta_{X,v}$).
 
 But light (the valuable output) is rarely quantified in energy terms
 and almost never in exergy terms.
-Instead, light is quantified in lumens~(lm).
+Instead, light is quantified in lumens.
 Indeed, a common interpretation of Equation~\ref{eq:eta_basic_eqn} uses
 light (in lm) as the valuable output in the numerator and electricity (in W) as the energy input in the denominator
 to obtain luminous efficacy ($K$, in lm/W).
@@ -554,16 +554,18 @@ $K_{max}$ is the theoretical maximum luminous efficacy.
 
 However, Equation~\ref{eq:eta_eqn} exposes 
 a source of confusion, 
-namely what value should be used for the theoretical maximum luminous efficacy~($K_{max}$)?
+namely what value should be used for $K_{max}$?
 Within the societal exergy analysis literature and beyond,
 three common values are adopted:
 220~lm/W \cite{Ayres2003, USDepartmentofEnergyDoE2011},
 400~lm/W \cite{Ayres2005, Tsao2010solidstate, Summers1971, Guevara2016}, and
 683~lm/W \cite{Kondo2009, Serrenho2014}, based on the maximum efficacy of 
-a ***** PB: find the reason for 200~lm/W.---MKH ****, broad-spectrum white light, and green light at 555~nm, respectively.
+a ***** PB: find the reason for 220~lm/W.---MKH ****, 
+broad-spectrum white light, and
+green light at 555~nm, respectively.
 
-Practically, \citeauthor{Paoli2020} estimated 
-the upper limit for the luminous efficacy of an LED to be 284--350~lm/W,
+\citeauthor{Paoli2020} estimated 
+the practical upper limit for the luminous efficacy of an LED lamp to be 284--350~lm/W,
 when considering all stages of energy loss~\citep{Paoli2020}.
 Figure~\ref{fig:LuminousEfficacy_Graph} shows this limit is within reach
 due to the exponential improvement in luminous efficacies for LED technology.
@@ -588,11 +590,11 @@ about the thermodynamics of artificial lighting systems.
 
 
 %++++++++++++++++++++++++++++++
-\subsection{Aim, contribution, and structure}
+\subsection{Aim, contributions, and structure}
 \label{sec:aim_contribution_structure}
 %++++++++++++++++++++++++++++++
 
-The need discussed above informs the \emph{aim} of this paper: 
+The need discussed above leads to the \emph{aim} of this article: 
 to bring clarity to 
 %
 \begin{enumerate*}[label={(\alph*)}]
@@ -605,7 +607,7 @@ to bring clarity to
 %
 for societal exergy analysis.
 
-The novel \emph{contributions} of this paper include:
+The novel \emph{contributions} of this article include:
 %
 \begin{enumerate*}[label={(\alph*)}]
 
@@ -697,7 +699,7 @@ in a parallel manner to the \enaex{} of heat and work.
 Energy quantifies the physical property by its heat content.
 Thus, heat (the ability to influence temperature) is pure energy.
 Thanks to Thompson's cannon experiment~\cite{Thompson:1798aa}, 
-we know that work can be converted, without loss, into heat.
+we know that work can be converted into heat without loss.
 
 Figure~\ref{fig:heat_engine} shows a heat engine that converts 
 heat at $1$ to 
@@ -835,8 +837,8 @@ to the production of light by a lamp.
 
 
 %------------------------------
-\subsubsection{\Enaex{} ($\dot{E}$ and $\dot{X}$) of light} 
-\label{sec:energy_and_exergy_of_light}
+\subsubsection{\Enaex{} of EM radiation ($\dot{E}_{EM}$ and $\dot{X}_{EM}$)} 
+\label{sec:energy_and_exergy_of_EM_rad}
 %------------------------------
 
 Figure~\ref{fig:lamp} replaces the heat engine with a lamp 
@@ -891,12 +893,13 @@ where $\dot{E}_{EM,3}$ is the radiant power of broad-spectrum EM radiation
 emitted by the lamp in units of energy per unit time.
 (When exergy is not involved, the photometry literature often denotes
 radiant power by $\Phi$, not $\dot{E}$.
-Here, we differentiate between 
+Here, we need to differentiate between 
 the energy rate of broad spectrum EM radiation~($\dot{E}_{EM}$) and
 the exergy rate of broad spectrum EM radiation~($\dot{X}_{EM}$),
-reserving $\Phi$ for lumen output of a lamp in Section~\ref{sec:weighting_functions}.)
+so we reserve $\Phi$ for lumen output of a lamp. 
+See Section~\ref{sec:weighting_functions}.)
 
-The lamp's energy efficiency of producing broad-spectrum EM radiation~($\eta_{E,EM}$) is 
+The lamp's energy efficiency~($\eta_{E,EM}$) is 
 %
 \begin{equation}  
   \eta_{E,EM} = \frac{\dot{E}_2 + \dot{E}_3}{\dot{E}_1} = \frac{\dot{Q}_2 + \dot{E}_{EM,3}}{\dot{W}_{elect,1}} = 1 \; .
@@ -922,7 +925,7 @@ Thus, the exergy of the first three streams in Figure~\ref{fig:lamp} is given by
               \dot{X}_3 = \phi_{\EM} \dot{E}_{EM,3} \; ,
 \end{equation}
 %
-where the term $\phi_{EM}$ is the exergy-to-energy ratio for broad-spectrum EM radiation. 
+where $\phi_{EM}$ is the exergy-to-energy ratio for broad-spectrum EM radiation. 
 (See Section~\ref{sec:phi_light} for details.)
 
 In general, the radiant power of a lamp is a spectral quantity,
@@ -962,7 +965,7 @@ excites band gap electrons in an amorphous silicon solar cell.
 
 
 %------------------------------
-\subsubsection{Human perception of EM radiation and light} 
+\subsubsection{\Enaex{} of light ($\dot{E}_{L}$ and $\dot{X}_{L}$)} 
 \label{sec:human_perception_of_EM_radiation}
 %------------------------------
 
@@ -1155,21 +1158,21 @@ Sections~\ref{sec:energy_and_exergy_of_heat_and_work}--\ref{sec:phi_light}.
 
 
 %------------------------------
-\subsubsection{Light efficiency of a lamp} 
+\subsubsection{Lighting efficiency of a lamp} 
 \label{sec:light_efficiency}
 %------------------------------
 
 If the valuable product of a lamp is considered to be its light~($\dot{E}_L$ or $\dot{X}_L$)
 as opposed to its broad-spectrum EM radiation~($\dot{E}_{EM}$ or $\dot{X}_{EM}$),
 Equations~\ref{eq:eta_E_v} and~\ref{eq:eta_X_v} require modification.
-In the context of Figure~\ref{fig:lamp}, the valuable energy efficiency of light becomes
+In the context of Figure~\ref{fig:lamp}, the valuable energy efficiency of a lamp becomes
 %
 \begin{equation} \label{eq:eta_E_v_light}
   \eta_{E,L,v} = \frac{\dot{E}_5}{\dot{E}_{elect,1}} 
                = \frac{\int f_\lambda \dot{E}_{EM,\lambda,3} \, \mathrm{d}\lambda}{\dot{W}_{elect,1}} \; ,
 \end{equation}
 %
-and the valuable exergetic efficiency of light becomes
+and the valuable exergetic efficiency of a lamp becomes
 %
 \begin{equation} \label{eq:eta_X_v_light}
   \eta_{X,L,v} = \frac{\dot{X}_5}{\dot{X}_{elect,1}} 
@@ -1197,7 +1200,7 @@ to enable example calculations.
 
 The first luminous weighting function option is degenerate: 
 the analyst could decide to ignore the nuances of human visual perception altogether,
-implicitly assuming that all EM radiation emitted from a lamp is light, 
+implicitly assuming that all EM radiation emitted from a lamp counts as light, 
 whether or not it is within the visible portion of the EM spectrum.
 For the first option, the degenerate (unweighted, uw) 
 luminous weighting function ($f_{\lambda,uw}$) is
@@ -1257,7 +1260,6 @@ of visible light~($\Phi_{pl}$) in the unit of lumens~(lm):
 %
 where 683~lm/W is the luminous efficiency of a perfect light source
 emitting exclusively green light at $\lambda = 555 \text{ nm}$.
-(See Figure~\ref{fig:Vis_Graph}.) 
 (Note that because lumens are a re-scaling of watts, 
 lumens are also a unit of radiant power.)
 
@@ -1301,16 +1303,16 @@ Table~\ref{tab:wfs} summarizes the luminous weighting functions discussed above.
 
 \input{pieces/wfs.tex}
 
+To demonstrate how the spectral luminous weighting function~($f_\lambda$)
+affects the energy and exergy efficiency of lamps, 
+we need both luminous weighting functions (Section~\ref{sec:weighting_functions}) and
+example lamps, the topic of the next section.
+
 
 %------------------------------
 \subsubsection{Lamps}
 \label{sec:lamps}
 %------------------------------
-
-To demonstrate how the spectral luminous weighting function~($f_\lambda$)
-affects the energy and exergy efficiency of lamps, 
-we need both luminous weighting functions (Section~\ref{sec:weighting_functions}) and
-example lamps.
 
 We obtained spectral power distributions (SPDs) of the lamps in Table~\ref{tab:lamps} from the 
 Light Spectral Power Distribution Database (LSPDD)~\cite{Roby, miguel2017, aube2013}. 
@@ -1332,7 +1334,7 @@ the integral of the spectral radiant power taken from the relative intensity dat
 \end{equation}
 
 We then applied the scaling factor~($\mu$) to the SPD data for each lamp, 
-yielding a corrected SPD data~($\dot{E}_{EM,\lambda}$) for each lamp 
+yielding a corrected SPD~($\dot{E}_{EM,\lambda}$) for each lamp 
 that matches the manufacturer's reported radiant power. 
 %
 \begin{equation} 
@@ -1349,11 +1351,11 @@ and SPD profiles.
 
 We selected one representative lamp for each of four common lamp technologies
 (incandescent, INC;
-high pressure sodium, HPS;
+halogen, HAL;
 compact fluorescent, CFL; and
 light emitting diode, LED), 
 each with a unique SPD.
-See Table~\ref{tab:lamps} for details about lamps discussed throughout this paper.
+See Table~\ref{tab:lamps} for details about lamps discussed throughout this article.
 
 <<lamps, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/results_lamp_info.R')>>=
 source("Data/results_lamp_info.R")
@@ -1609,22 +1611,23 @@ Equation~\ref{eq:X_dot_L}.
 Valuable energy efficiencies~($\eta_{E,L,v}$) of the various combinations of weighting functions and lamps
 are shown in Table~\ref{tab:results_etas}.
 Note that when a luminous weighting function is specified,
-the lighting~($L$) and valuable~($v$) subscripts are implied and replaced by a weighting function specifier.
+the lighting~($L$) and valuable~($v$) subscripts are implied and replaced by the weighting function specifier.
 (E.g., the valuable~($v$) energy~($E$) efficiency~($\eta$) of light~($L$) 
 using the visible luminous weighting function~($vis$),
-$\eta_{E,L,v,vis}$, is written as $\eta_{E,vis}$.)
+$\eta_{E,L,v,vis}$, is written unambiguously as $\eta_{E,vis}$,
+for simplicity.)
 
 <<results_etas_table, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/results_etas_xtable.R')>>=
 source("Data/results_etas_xtable.R")
 
 print(xtable::xtable(results_etas_fin, digits=2, 
-                     caption = "Energy efficiencies
+                     caption = "Valuable energy efficiencies
                      ($\\eta_{E,L,v}$, in \\%) for each lamp
                      and each weighting function~($f_\\lambda$),
                      given by Equation~\\ref{eq:eta_E_v_light}.
                      Note that for the incandescent (INC) and halogen (HAL)
                      lamps, 
-                     the unweighted efficiency is an 
+                     the unweighted energy efficiency~($\\eta_{E,uw}$) is an 
                      underestimate;
                      the SPD data do not go beyond 899~nm, 
                      despite INC and HAL emission far into 
@@ -1653,7 +1656,7 @@ are shown in Table~\ref{tab:results_phis}.
 source("Data/results_phi_xtable.R")
 
 print(xtable::xtable(results_phi_fin, digits=3, 
-                     caption = "Exergy to energy ratios~($\\phi_L$) 
+                     caption = "Exergy-to-energy ratios~($\\phi_L$) 
                      for each lamp 
                      and each weighting function ($f_{\\lambda}$),
                      given by Equation~\\ref{eq:phi_L}.", 
@@ -1680,7 +1683,7 @@ are shown in Table~\ref{tab:results_etasX}.
 source("Data/results_etasX_xtable.R")
 
 print(xtable::xtable(results_etasX_fin, digits=2, 
-                     caption = "Exergy efficiencies
+                     caption = "Valuable exergetic efficiencies
                      ($\\eta_{X,L,v}$, in \\%) for each lamp
                      and weighting function~($f_\\lambda$),
                      given by Equation~\\ref{eq:eta_X_v_light}.", 
@@ -1750,9 +1753,9 @@ a restating of Equation~\ref{eq:eta_eqn}.
 
 Equation~\ref{eq:lum_effic_def} shows that 
 the luminous efficacy of a lamp~($K$) is equal to the quotient
-of the luminous power ($\Phi_{pl}$, Equation~\ref{eq:lumen}), expressed in lumens, and
+of the luminous power ($\Phi_{pl}$, Equation~\ref{eq:lumen}), expressed in lm, and
 the electricity consumption rate of the device
-($\dot{W}_{elect,1}$ in Figure~\ref{fig:lamp}).
+($\dot{W}_{elect,1}$ in Figure~\ref{fig:lamp}), expressed in W.
 Substituting Equation~\ref{eq:lum_effic_def} into Equation~\ref{eq:K_over_e_max} restates
 (with reference to Figure~\ref{fig:lamp})
 valuable exergetic efficiency for the conventional method:
@@ -1792,11 +1795,11 @@ is correct under the following conditions only:
 Condition~(a) shows that the correct assumption for maximum luminous efficacy 
 in the conventional method 
 is $K_{max} = 683 \text{ lm/W}$.
-Any other assumption is an error.
+Any other assumption is a mistake.
 Condition~(b) is incorrect;
 the exergy-to-energy ratio for light~($\phi_{L,\lambda}$) is not 1, but the conventional method assumes it is.
 Condition~(c) highlights an unfortunate requirement for the conventional method, 
-one that is overly restrictive. 
+one that is lifted by the exact method.
 
 When $K_{max}$ is equal to 683~lm/W and
 the weighting function is taken to be the photopic luminous weighting function~($V_\lambda$),
@@ -1843,10 +1846,10 @@ The choice of $K_{max}$ can make a significant difference to the results.
 The correct value for $K_{max}$ is 683~lm/W,
 as discussed in Section~\ref{sec:previous_approach}.
 We showed in Section~\ref{sec:conventional_method} that
-some authors have taken $K_{max}$ to be 
+some authors have incorrectly, we now know, taken $K_{max}$ to be 
 220~lm/W or 400~lm/W,
-thereby incorrectly overestimating exergetic efficiency of lighting~($\eta_{X,L,v}$)
-in the conventional method
+thereby overestimating exergetic efficiency of lighting~($\eta_{X,L,v}$)
+with the conventional method
 by a factor of
 $\frac{\Sexpr{correct_eff} \text{ lm/W}}{\Sexpr{wrong_eff_220} \text{ lm/W}} 
   = \Sexpr{format(round(wrong_rat_220, 1), nsmall = 1)}$
@@ -1886,7 +1889,7 @@ We provide three recommendations for societal exergy analysts:
   \item use the exact method of Section~\ref{sec:methods} when possible, 
         i.e., when SPD data are available for a lamp, 
   
-  \item use the universal luminous weighting function~($U_\lambda$), and
+  \item use the universal luminous weighting function~($U_\lambda$) always, and
   
   \item use an approximate method when luminous efficacy~($K$) data are available, but
         SPD data are not.
@@ -1902,7 +1905,7 @@ We provide three recommendations for societal exergy analysts:
 Our first recommendation is for use of the 
 exact method~(Section~\ref{sec:light_efficiency})
 for determining the valuable exergy efficiency of lamps~($\eta_{X,L,v}$)
-when SPD data are available for lamps.
+when SPD data are available.
 The exact method provides the following benefits over the conventional method:
 %
 \begin{enumerate}[label={(\alph*)}]
@@ -1956,7 +1959,7 @@ For lamps whose purpose is illumination,
 we believe that the universal luminous weighting function ($U_\lambda$)
 is more appropriate.
 (See also \citet{Rea2018}.)
-We provide three arguments in support of this proposal.
+We provide three arguments in support of this recommendation.
 
 First, 
 the universal luminous weighting function~($U_\lambda$)
@@ -1985,7 +1988,7 @@ uses the photopic luminous weighting function~($V_\lambda$).
 This state of affairs could encourage lighting manufacturers to reduce short wavelength
 output of lamps, even when short wavelength EM radiation would 
 provide physiological benefits.
-Adopting the universal luminous weighting function~($U_\lambda$) will encourage manufactures to include 
+Adopting the universal luminous weighting function~($U_\lambda$) will encourage manufacturers to include 
 blue spikes in lamp designs.
 
 The conventional method for estimating lamp efficiency
@@ -2003,14 +2006,14 @@ we suggest that an approximate method can be used, as discussed in the next sect
 \label{sec:approximate_method}
 %------------------------------
 
-Our third recommendation is for an approximate method to determining 
+Our third recommendation is for an approximate method to determine 
 the valuable exergetic efficiency of lamps~($\eta_{X,L,v}$)
 when SPD data are not available
 but luminous efficacy data~($K$) are.
 Results from the exact method provide guidance for developing an approximate method.
 
 Section~\ref{sec:previous_approach} shows that the conventional method does not require SPD information, 
-but it provides energy efficiency (instead of exergetic efficiency)
+but it produces energy efficiency (instead of exergetic efficiency)
 while requiring the use of photopic luminous weighting function~($\eta_{E,pl}$).
 In contrast, we recommend that,
 in the absence of SPD data,
@@ -2018,7 +2021,8 @@ societal exergy analysts
 calculate exergetic efficiency 
 with the universal luminous weighting function~($\eta_{X,univ}$).
 
-We suggest the following two-step process:
+We suggest the following two-step process, 
+using the conventional method as a starting point:
 %
 \begin{enumerate*}[label={(\alph*)}]
 	
@@ -2107,9 +2111,10 @@ is implemented by the following equation
 \end{equation}
 %
 which is a modification of Equation~\ref{eq:K_over_e_max}
-that accounts for the move from energy to exergy (via $\bar{\phi}_{L,pl}$)
+that approximates the move from energy to exergy
+assuming the photopic luminous weighting function (via $\bar{\phi}_{L,pl}$)
 and the move from the photopic luminous weighting function to the universal luminous weighting function
-(via $\gammaratavg{}$).
+in the exergy space (via $\gammaratavg{}$).
 
 When the lamp technology is unknown, overall average values can be used
 for $\bar{\phi}_{L,pl}$ and $\gammaratavg{}$:
@@ -2139,7 +2144,7 @@ print(xtable::xtable(results_cea_table, digits=2,
                      for each of the three methods
                      (conventional, exact, and approximate) and
                      each of the four example lamps
-                     (INC, HPS, CFL, LED).
+                     (INC, HAL, CFL, LED).
                      Note that the conventional method row is the same as
                      row 3 of Table~\\ref{tab:results_etas}.
                      The exact method row is the same as
@@ -2173,9 +2178,11 @@ Two types of data are required for a given period of interest, typically a year:
 
   \item valuable exergetic efficiency data for each lamp technology~($\eta_{X,univ,i}$) and
 
-  \item proportion of lighting electricity consumption by lamp technology~($\theta_i$).
+  \item proportion of lighting electricity consumption by lamp technology~($\theta_i$),
 
 \end{enumerate*}
+%
+where $i$ denotes individual lighting technologies.
 
 Item (a) is the result of applying the exact method to each lamp technology
 but depends on the availability of each technology's SPD,
@@ -2240,11 +2247,11 @@ We showed that the exact method
   
   \item uses the correct spectral exergy-to-energy ratio~($\phi_{L,\lambda}$), and
   
-  \item allows choices for the spectral luminous weighting function ($f_\lambda$),
+  \item allows choices for the spectral luminous weighting function ($f_\lambda$).
     
 \end{enumerate*}
 %
-all improvements over the conventional method.
+(a)--(c) are improvements over the conventional method.
 The exact method requires the availability of a lamp's spectral power distribution.
 For cases when a spectral power distribution is not available, 
 we developed a novel approximate method,
@@ -2276,7 +2283,7 @@ Future work could include
 	
   \item applying the exact method to understand the evolution
         of lighting technology relative to upper limits to
-        reducing lighting energy consumption~\citet{CullenPhD}
+        reducing lighting energy consumption~\citep{CullenPhD}
         (via gains in 
         lamp luminous efficacy~($K$) and valuable exergetic efficiency, $\eta_{X,L,v}$),
   
