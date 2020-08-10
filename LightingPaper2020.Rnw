@@ -2254,9 +2254,10 @@ all improvements over the conventional method.
 The exact method requires the availability of a lamp's spectral power distribution.
 For cases when a spectral power distribution is not available, 
 we developed a novel approximate method,
-involving surprisingly stable values across lighting technologies 
-of the exergy-to-energy ratio~($\phi_{L,\lambda}$) and 
-the photopic-to-universal factor~($\gammarat{}$).
+involving surprisingly stable values 
+of the exergy-to-energy ratio~($\phi_L$) and 
+the photopic-to-universal factor~($\gammarat{}$)
+across lighting technologies.
 Finally, we provided recommendations for societal exergy analysts, namely to
 %
 \begin{enumerate*}[label={(\alph*)}]
@@ -2275,16 +2276,24 @@ Future work could include
 \begin{enumerate*}[label={(\alph*)}]
 	
 	\item investigating additional lighting technologies to assess the stability of 
-	      the exergy-to-energy ratio~($\phi_L$) and the photopic-to-universal factor~($\gammarat{}$)
+	      the exergy-to-energy ratio~($\bar{\phi}_{L,pl}$) and the photopic-to-universal factor~($\gammaratavg{}$)
 	      across lighting technologies,
 	
   \item applying the exact method to understand the evolution
         of lighting technology relative to upper limits to
-        luminous efficacy~($K$) and lighting efficiency~($\eta_{X,L,v}$),
+        reductions in lighting energy consumption~(see \citet{CullenPhD})
+        via gains in 
+        lamp luminous efficacy~($K$) and valuable exergetic efficiency~($\eta_{X,L,v}$),
   
-  \item **** more here? ****, and 
+  \item understanding the effect of lamp ``waste'' heat on lamp efficiency
+        (lamp heat is beneficial when it displaces energy for winter space heating but
+        detrimental when it adds to summer cooling loads), and 
   
-  \item **** another idea? ****.
+  \item pushing toward the services stage of the energy conversion chain
+        to assess the effects of waste light caused by 
+        excessive intensity, 
+        lighting that falls on surfaces that do not require illumination, and
+        under-utilization of light due to under-occupancy of spaces.
     
 \end{enumerate*}
 
