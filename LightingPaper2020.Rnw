@@ -1574,7 +1574,7 @@ given by Equation~\ref{eq:X_dot_L}.
 Note that exergy (dark green line) is very close to energy (top of the gray regions)
 for all lamps, because
 the exergy-to-energy ratio ($\phi_{L,\lambda}$) is always close to~1 for EM wavelengths relevant to light.
-The difference between energy and exergy is greatest in the upper right of the graphs when both
+The difference between energy and exergy is greatest in the upper right of the graphs where both
 %
 \begin{enumerate*}[label={(\alph*)}]
 	
