@@ -1787,7 +1787,9 @@ is correct under the following conditions only:
 
 \end{enumerate}
 
-Condition~(a) shows that the correct assumption for maximum luminous efficacy is $K_{max} = 683 \text{ lm/W}$.
+Condition~(a) shows that the correct assumption for maximum luminous efficacy 
+in the conventional method 
+is $K_{max} = 683 \text{ lm/W}$.
 Any other assumption is an error.
 Condition~(b) is incorrect;
 the exergy-to-energy ratio for light~($\phi_{L,\lambda}$) is not 1, but the conventional method assumes it is.
@@ -1820,6 +1822,14 @@ by its \emph{energy} efficiency.
 \label{sec:implications_for_sea}
 %------------------------------
 
+<<ErrorCalcs>>=
+correct_eff <- 683 # lm/W
+wrong_eff_220 <- 220 # lm/W
+wrong_eff_400 <- 400 # lm/W
+wrong_rat_220 <- correct_eff / wrong_eff_220
+wrong_rat_400 <- correct_eff / wrong_eff_400
+@
+
 The above comparison between the conventional method (Section~\ref{sec:previous_approach}) and
 the exact method (Section~\ref{sec:framework})
 raises three implications for societal exergy analysis.
@@ -1833,10 +1843,13 @@ We showed in Section~\ref{sec:conventional_method} that
 some authors have assumed $K_{max}$ to be 
 220~lm/W or 400~lm/W,
 thereby incorrectly overestimating exergetic efficiency of lighting~($\eta_{X,L,v}$)
+in the conventional method
 by a factor of
-$\frac{683 \text{ lm/W}}{220 \text{ lm/W}} = 3.1$
+$\frac{\Sexpr{correct_eff} \text{ lm/W}}{\Sexpr{wrong_eff_220} \text{ lm/W}} 
+  = \Sexpr{format(round(wrong_rat_220, 1), nsmall = 1)}$
 or
-$\frac{683 \text{ lm/W}}{400 \text{ lm/W}} = 1.71$,
+$\frac{\Sexpr{correct_eff} \text{ lm/W}}{\Sexpr{wrong_eff_400} \text{ lm/W}} 
+  = \Sexpr{format(round(wrong_rat_400, 1), nsmall = 1)}$,
 respectively.
 
 Second, to obtain the correct exergetic efficiency of lighting, 
