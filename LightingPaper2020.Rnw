@@ -2002,6 +2002,30 @@ Equation~\ref{eq:phi_L}.
 The average value of $\phi_L$ is $\bar{\phi}_L = 0.958$ with a
 remarkably small standard deviation of $\sigma_{\phi_L} = ****$.
 
+****
+MKH:
+I would be very reticent to call the data we have used 'our database' as it is all from the LSPDD. I have rewritten this paragraph below. Let me know if you agree ---ZM
+****
+
+We calculated the exergy-to-energy ratio for a sample of lamps from the LSPDD \cite{aube2013}
+using Equation~\ref{eq:phi_L}. 
+(This sample of 24 lamps with SPDs representing six technologies: 
+INC, Halogen (HAL), HPS, Metal halide (MH), CFL, and LED)
+The average value of $\phi_L$ is $\bar{\phi}_L = 0.958$ with a
+remarkably small standard deviation of $\sigma_{\phi_L} = ****$.
+
+****
+ZM: 
+Please fill the standard deviation values above.---MKH
+****
+
+****
+MKH:
+Before I do this, at the moment we are using the mean phi value across all lamps and weighting functions,
+do we want to change this to the mean value for the universal luminosity function,
+or photopic luminosity function? --- ZM
+****
+
 Similarly, we obtained $\gammarat{}$ for each lamp~($i$) by taking the quotient of efficiencies:
 %
 \begin{equation} \label{eq:conversionuniversal}
@@ -2014,12 +2038,29 @@ as opposed to the photopic luminosity weighting function~($V_\lambda$),
 $\gammarat{}$ is expected to be greater than 1.
 The average value of $\gammarat{}$ across our population of lamps 
 was $\gammaratavg{} = 1.37$,
-with a small standard deviation of $\sigma_{\gammarat{}} = ****$.
-****
-ZM: 
-Please fill the standard deviation values above.---MKH
-****
-Average conversion factors~($\gammaratavg{}$) by lamp technology are given in Table~X.
+with a small standard deviation of $\sigma_{\gammarat{}} = 0.108$.
+
+Average conversion factors~($\gammaratavg{}$) by lamp technology are given in Table~\ref{tab:conversionfactors}.
+
+<<conversionfactors, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/conversion_table.R')>>=
+
+source("Data/conversion_table.R")
+
+print(xtable::xtable(conversion_table, digits=2, 
+                     caption = "The mean and standard deviation across all sample lamps
+                     for factors ($\\gammaratavg{}$) for converting data for the final-to-useful
+                     energy efficiency of a lamp based on the photopic luminosity function,
+                     to final-to useful energy efficiencies based on the universal luminosity function",
+                     label = "tab:conversionfactors"), 
+      size="footnotesize", # Change size; useful for bigger tables
+      include.rownames=TRUE, 
+      include.colnames=TRUE, 
+      caption.placement="top",
+      type = "latex",
+      booktabs = TRUE,
+      sanitize.rownames.function = identity
+      )
+@
 
 The approximate method for determining the valuable exergetic efficiency of a lamp
 is implemented by the following equation
@@ -2042,10 +2083,6 @@ for $\bar{\phi}_{L}$ and $\gammaratavg{}$:
 %
 If the lamp technology is known, 
 $\bar{\phi}_L$ and $\gammaratavg{}$ values from Table~X should be used instead of the overall averages.
-****
-ZM:
-Please complete Table~X---MKH
-****
 
 Table~\ref{tab:threemethods} summarizes 
 the valuable exergetic efficiency 
@@ -2055,25 +2092,6 @@ The ``Approximate method'' row was generated using
 the values for $\bar{\phi}_L$ and $\gammaratavg{}$ shown
 in Equation~\ref{eq:approximate_unknown_tech}.
 
-**** 
-ZM:
-Something is wrong with Table~\ref{tab:threemethods}.
-The conventional row should be the same as row 3 of Table~\ref{tab:results_etas}.
-the exact row should be the same as row 4 of Table~\ref{tab:results_etasX}.
-Can you check to see if something is going wrong?---MKH
-****
-
-**** 
-ZM: 
-Also, can you change the row names to include the correct variable names?
-For example, the first row should be titled
-``Conventional method ($\eta_{E,L,V,pl}$, same as row 3 of Table~\ref{tab:results_etas})''
-The second row should be titled 
-``Exact method ($\eta_{X,L,V,univ}$, same as row 4 of Table~\ref{tab:results_etasX})''.
-I don't think we have a name for the bottom row.
-Just call it ``Approximate method'' for now.
-Note that the second word (``method'') should not be capitalized.---MKH
-****
 
 <<threemethods, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/conv_exact_approx.R')>>=
 source("Data/conv_exact_approx.R")
@@ -2081,14 +2099,19 @@ source("Data/conv_exact_approx.R")
 print(xtable::xtable(results_cea_table, digits=2, 
                      caption = "Valuable exergetic efficiencies (in \\%)
                      for each of the three methods identified in this paper: 
-                     conventional, exact, and approximate.", 
+                     conventional, exact, and approximate. 
+                     Note that values for the conventional method are the same as those 
+                     in row 3 of Table~\\ref{tab:results_etas};
+                     and values for the exact method are the same as those
+                     in row 4 of Table~\\ref{tab:results_etasX}.", 
                      label = "tab:threemethods"), 
       size="footnotesize", # Change size; useful for bigger tables
       include.rownames=TRUE, 
       include.colnames=TRUE, 
       caption.placement="top",
       type = "latex",
-      booktabs = TRUE
+      booktabs = TRUE,
+      sanitize.rownames.function = identity
       )
 @
 
@@ -2139,12 +2162,32 @@ ZM:
 Please verify that I edited the above equation correctly.
 I think you had it wrong.---MKH
 ****
+
+****
+MKH:
+The above equation is correct, but i believe mine was also.
+The difference being that mine expressed the exergy efficiency
+as a product of the energy efficiency and the exergy-to-energy ratio,
+which i believe we should do, so it is the same format as the equation below---ZM 
+****
+
 When SPDs are unavailable, the approximate method can be used as follows:
 %
 \begin{equation} \label{eq:agg_eta_K}
-  \eta_{X,L,v,agg} \approx \sum \limits_{i} \theta_{i} \, \bar{\phi}_{L,i} \, \gammaratavg{}_{,i} \, 
+  \eta_{X,L,univ,agg} \approx \sum \limits_{i} \theta_{i} \, \bar{\phi}_{L} \, \gammaratavg{} \, 
                             \frac{K_{i}}{683 \text{ lm/W}} \; .
 \end{equation}
+
+****
+MKH:
+Here as we have specified that we are converting efficiency values based on luminous efficacy values
+to an efficiency based on the universal luminosity function using $\gammaratavg{}_{,i}$
+the subscript v in $\eta_{X,L,v,agg}$ should become univ, 
+as the valuable portion of light is now determined by the universal luminosity function.
+This reduces the number of subscripts!
+Also as the mean conversion factor and mean exergy-to-energy ratios we have used are averaged across lamps they should not have the subscript i. 
+I have made these changes, let me know if you agree/disagree!----ZM
+****
 
 
 %++++++++++++++++++++++++++++++

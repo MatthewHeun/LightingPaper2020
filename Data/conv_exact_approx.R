@@ -63,6 +63,9 @@ results_cea_table <- results_cea_table[,c(3,2,1,4)]
 
 # Set rownames
 
-results_cea_table <- magrittr::set_rownames(results_cea_table, c("Conventional Method", "Exact Method", "Approximate Method"))
+results_cea_table <- magrittr::set_rownames(results_cea_table, 
+                                            c("Conventional method ($\\eta_{E,L,V,pl}$)", 
+                                              "Exact method ($\\eta_{X,L,V,univ}$)", 
+                                              "Approximate method"))
 
 
