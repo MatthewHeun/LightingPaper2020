@@ -1606,6 +1606,10 @@ Equation~\ref{eq:X_dot_L}.
 
 Valuable energy efficiencies~($\eta_{E,L,v}$) of the various combinations of weighting functions and lamps
 are shown in Table~\ref{tab:results_etas}.
+Note that when a luminous weighting function is specified,
+the lighting~($L$) and valuable~($v$) subscripts are implied and replaced by a weighting function specifier.
+(E.g., the valuable energy efficiency of light for the visible luminous weighting function,
+$\eta_{E,L,v,vis}$ is written as $\eta_{E,vis}$.)
 
 <<results_etas_table, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/results_etas_xtable.R')>>=
 source("Data/results_etas_xtable.R")
@@ -2097,20 +2101,20 @@ in Equation~\ref{eq:approximate_unknown_tech}.
 <<threemethods, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/conv_exact_approx.R')>>=
 source("Data/conv_exact_approx.R")
 
-print(xtable::xtable(results_cea_table, digits=2, 
+print(xtable::xtable(results_cea_table, digits=2,
                      caption = "Valuable exergetic efficiencies (in \\%)
-                     for each of the three methods 
+                     for each of the three methods
                      (conventional, exact, and approximate) and
                      each of the four example lamps
-                     (INC, HPS, CFL, LED). 
-                     Note that the conventional method row is the same as 
+                     (INC, HPS, CFL, LED).
+                     Note that the conventional method row is the same as
                      row 3 of Table~\\ref{tab:results_etas},
-                     and the exact method row is the same as 
-                     row 4 of Table~\\ref{tab:results_etasX}.", 
-                     label = "tab:threemethods"), 
+                     and the exact method row is the same as
+                     row 4 of Table~\\ref{tab:results_etasX}.",
+                     label = "tab:threemethods"),
       size="footnotesize", # Change size; useful for bigger tables
-      include.rownames=TRUE, 
-      include.colnames=TRUE, 
+      include.rownames=TRUE,
+      include.colnames=TRUE,
       caption.placement="top",
       type = "latex",
       booktabs = TRUE,

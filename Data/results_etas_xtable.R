@@ -30,9 +30,9 @@ colnames(results_etas_fin) <- names(lamp_list)
 
 # Replace wf_list wf_name with actual wf name ()
 
-rownames(results_etas_fin) <- c("Unweighted ($\\eta_{E,L,v,uw}$)", 
-                                "Vis. spectrum ($\\eta_{E,L,v,vis}$)", 
-                                "Photopic lum. ($\\eta_{E,L,v,pl}$)", 
-                                "Universal lum. ($\\eta_{E,L,v,univ}$)")
+rownames(results_etas_fin) <- c("Unweighted ($\\eta_{E,uw}$)", 
+                                "Vis. spectrum ($\\eta_{E,vis}$)", 
+                                "Photopic lum. ($\\eta_{E,pl}$)", 
+                                "Universal lum. ($\\eta_{E,univ}$)")
 
 
