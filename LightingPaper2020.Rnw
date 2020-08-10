@@ -561,6 +561,19 @@ three common values are adopted:
 400~lm/W \cite{Ayres2005, Tsao2010solidstate, Summers1971, Guevara2016}, and
 683~lm/W \cite{Kondo2009, Serrenho2014}, based on the maximum efficacy of 
 a ***** PB: find the reason for 200~lm/W.---MKH ****, broad-spectrum white light, and green light at 555~nm, respectively.
+Practically, \citeauthor{Paoli2020} calculated that the upper limit for the luminous efficacy of an LED is 284 - 350 lm/W,
+when considering all stages of energy loss.
+As can be seen from Figure~\ref{fig:LuminousEfficacy_Graph} the exponential improvement 
+in LED luminous efficacies suggest this limit is within reach,
+as predicted by Haitz's law \cite{haitz1999case, graydon2007haitz}, 
+which stated \emph{``Every decade, for a given wavelength of light, 
+the cost per lumen falls by a factor of 10 
+and the amount of light generated per LED package increases by a factor of 20.''}.
+
+**** Is this the best place to include Haitz's law. Or should we still include it? 
+It was mentioned in the meeting the other day that the focus of the paper is on single lamps, 
+not efficacy/efficiency trends over time. ---ZM ****
+
 Obviously, the choice of $K_{max}$ has a large effect on lighting efficiency in the conventional method,
 so getting it right is important.
 
