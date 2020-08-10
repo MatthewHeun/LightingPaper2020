@@ -2142,8 +2142,8 @@ Two types of data are required for a given period of interest, typically a year:
 \end{enumerate*}
 
 Item (a) is the result of applying the exact method to each lamp technology
-but depends on the presence of each lamp's SPD,
-which is rarely reported.
+but depends on the availability of each technology's SPD,
+which are not often known.
 Instead, the most common measure of lighting efficiency reported for lamps is the luminous efficacy~($K$).
 Therefore, to develop an aggregate measure of lighting efficiency, 
 luminous efficacy data must be converted into valuable exergetic efficiency values 
