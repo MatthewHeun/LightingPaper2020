@@ -2000,7 +2000,7 @@ We suggest the following two-step process:
 	
   \item move from valuable energy efficiency~($\eta_{E,L,v,pl}$)
         to valuable exergetic efficiency ($\eta_{X,L,v,pl}$)
-        using an average exergy-to-energy ratio~($\bar{\phi}_L$) and 
+        using an average exergy-to-energy ratio~($\bar{\phi}_{L,pl}$) and 
   
   \item move from valuable exergetic efficiency determined with the photopic luminous weighting function~($\eta_{X,L,v,pl}$)
         to valuable exergetic efficiency determined with the universal luminous weighting function~($\eta_{X,L,v,univ}$)
@@ -2017,15 +2017,22 @@ remarkably small standard deviation of $\sigma_{\phi_L} = ****$.
 
 ****
 MKH:
-I would be very reticent to call the data we have used 'our database' as it is all from the LSPDD. I have rewritten this paragraph below. Let me know if you agree ---ZM
+I would be very reticent to call the data we have used `our database' 
+as it is all from the LSPDD. I have rewritten this paragraph below. Let me know if you agree.---ZM
+****
+
+****
+ZM: 
+Thanks for this point. I agree.
+You can delete the outdated paragarph above and these comments.---MKH
 ****
 
 We calculated the exergy-to-energy ratio for a sample of lamps from the LSPDD \cite{aube2013}
-using Equation~\ref{eq:phi_L}. 
-(This sample of 24 lamps with SPDs representing six technologies: 
+using Equation~\ref{eq:phi_L} with $f_\lambda = V_\lambda$. 
+(This sample consists of 24 lamp SPDs representing six technologies: 
 INC, Halogen (HAL), HPS, Metal halide (MH), CFL, and LED)
-The average value of $\phi_L$ is $\bar{\phi}_L = 0.958$ with a
-remarkably small standard deviation of $\sigma_{\phi_L} = ****$.
+The average value of $\phi_{L,pl}$ is $\bar{\phi}_{L,pl} = 0.958$ **** ZM: Make sure 0.958 is the correct value.---MKH **** with a
+remarkably small standard deviation of $\sigma_{\phi_{L,pl}} = ****$.
 
 ****
 ZM: 
@@ -2038,6 +2045,24 @@ Before I do this, at the moment we are using the mean phi value across all lamps
 do we want to change this to the mean value for the universal luminosity function,
 or photopic luminosity function? --- ZM
 ****
+
+****
+ZM:
+Good question. 
+I think we want to use the mean $\phi_L$ function for the photopic luminosity function~($V_\lambda$), 
+because our proposed approximate method is to FIRST move from energy to exergy under the photopic luminosity function~($V_\lambda$)
+THEN move from photopic to universal in exergy space.
+You'll note that I changed from $\phi_L$ to $\phi_{L,pl}$ to be more explicit about 
+the issue of which luminous weighting function should be used.---MKH
+****
+
+****
+ZM:
+Can you include a table of $\phi_{L,pl}$ by technology, too, similar to Table~\ref{tab:conversionfactors}?
+Should it contain all 6 technologies?---MKH
+****
+
+
 
 Similarly, we obtained $\gammarat{}$ for each lamp~($i$) by taking the quotient of efficiencies:
 %
@@ -2063,7 +2088,14 @@ print(xtable::xtable(conversion_table, digits=2,
                      caption = "The mean and standard deviation across all sample lamps
                      for factors ($\\gammaratavg{}$) for converting data for the final-to-useful
                      energy efficiency of a lamp based on the photopic luminosity function,
-                     to final-to useful energy efficiencies based on the universal luminosity function",
+                     to final-to useful energy efficiencies based on the universal luminosity function.
+                     **** ZM: Can you change the sample size row to be integers?
+                     Also, I would put the sample size on the last row. 
+                     Top row: mean.
+                     Second row: stdev.
+                     Third row: sample size.
+                     Finally, should this table contain all *6* technologies instead of the 
+                     technologies of the four example lamps?---MKH ****",
                      label = "tab:conversionfactors"), 
       size="footnotesize", # Change size; useful for bigger tables
       include.rownames=TRUE, 
@@ -2095,7 +2127,7 @@ for $\bar{\phi}_{L}$ and $\gammaratavg{}$:
 \end{equation}
 %
 If the lamp technology is known, 
-$\bar{\phi}_L$ and $\gammaratavg{}$ values from Table~X should be used instead of the overall averages.
+$\bar{\phi}_L$ and $\gammaratavg{}$ values from **** Tables~X and~Y **** should be used instead of the overall averages.
 
 Table~\ref{tab:threemethods} summarizes 
 the valuable exergetic efficiency 
@@ -2111,12 +2143,14 @@ source("Data/conv_exact_approx.R")
 
 print(xtable::xtable(results_cea_table, digits=2, 
                      caption = "Valuable exergetic efficiencies (in \\%)
-                     for each of the three methods identified in this paper: 
-                     conventional, exact, and approximate. 
-                     Note that values for the conventional method are the same as those 
-                     in row 3 of Table~\\ref{tab:results_etas};
-                     and values for the exact method are the same as those
-                     in row 4 of Table~\\ref{tab:results_etasX}.", 
+                     for each of the three methods 
+                     (conventional, exact, and approximate) and
+                     each of the four example lamps
+                     (INC, HPS, CFL, LED). 
+                     Note that the conventional method row is the same as 
+                     row 3 of Table~\\ref{tab:results_etas},
+                     and the exact method row is the same as 
+                     row 4 of Table~\\ref{tab:results_etasX}.", 
                      label = "tab:threemethods"), 
       size="footnotesize", # Change size; useful for bigger tables
       include.rownames=TRUE, 
