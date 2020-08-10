@@ -1993,23 +1993,23 @@ Results from the exact method provide guidance for developing an approximate met
 
 Section~\ref{sec:previous_approach} shows that the conventional method does not require SPD information, 
 but it provides energy efficiency (instead of exergetic efficiency)
-while requiring the use of photopic luminosity function~($\eta_{E,L,v,pl}$).
+while requiring the use of photopic luminosity function~($\eta_{E,pl}$).
 In contrast, we recommend that,
 in the absence of SPD data,
 societal exergy analysts
 calculate exergetic efficiency 
-with the universal luminous weighting function~($\eta_{X,L,v,univ}$).
+with the universal luminous weighting function~($\eta_{X,univ}$).
 
 We suggest the following two-step process:
 %
 \begin{enumerate*}[label={(\alph*)}]
 	
-  \item move from valuable energy efficiency~($\eta_{E,L,v,pl}$)
-        to valuable exergetic efficiency ($\eta_{X,L,v,pl}$)
+  \item move from valuable energy efficiency~($\eta_{E,pl}$)
+        to valuable exergetic efficiency ($\eta_{X,pl}$)
         using an average exergy-to-energy ratio~($\bar{\phi}_{L,pl}$) and 
   
-  \item move from valuable exergetic efficiency determined with the photopic luminous weighting function~($\eta_{X,L,v,pl}$)
-        to valuable exergetic efficiency determined with the universal luminous weighting function~($\eta_{X,L,v,univ}$)
+  \item move from valuable exergetic efficiency determined with the photopic luminous weighting function~($\eta_{X,pl}$)
+        to valuable exergetic efficiency determined with the universal luminous weighting function~($\eta_{X,univ}$)
         using an average ratio between those efficiencies ($\gammaratavg{}$).
     
 \end{enumerate*}
@@ -2054,7 +2054,7 @@ Should it contain all 6 technologies?---MKH
 Similarly, we obtained $\gammarat{}$ for each lamp~($i$) by taking the quotient of efficiencies:
 %
 \begin{equation} \label{eq:conversionuniversal}
-  \gammarat{}_{,i} = \frac{\eta_{X,L,v,univ,i}}{\eta_{X,L,v,pl,i}} \; .
+  \gammarat{}_{,i} = \frac{\eta_{X,univ,i}}{\eta_{X,pl,i}} \; .
 \end{equation}
 %
 Because a greater proportion of each SPD is considered to be light
@@ -2071,7 +2071,7 @@ The approximate method for determining the valuable exergetic efficiency of a la
 is implemented by the following equation
 %
 \begin{equation} \label{eq:approximate}
-  \eta_{X,L,v} \approx \bar{\phi}_{L,pl} \, \gammaratavg{} \, \frac{K}{683 \text{ lm/W}} \; ,
+  \eta_{X,univ} \approx \bar{\phi}_{L,pl} \, \gammaratavg{} \, \frac{K}{683 \text{ lm/W}} \; ,
 \end{equation}
 %
 which is a modification of Equation~\ref{eq:K_over_e_max}
@@ -2083,7 +2083,7 @@ When the lamp technology is unknown, overall average values can be used
 for $\bar{\phi}_{L,pl}$ and $\gammaratavg{}$:
 %
 \begin{equation} \label{eq:approximate_unknown_tech}
-  \eta_{X,L,v} \approx (0.958) (1.37) \frac{K}{683 \text{ lm/W}} = 1.31 \frac{K}{683 \text{ lm/W}} \; .
+  \eta_{X,univ} \approx (0.958) (1.37) \frac{K}{683 \text{ lm/W}} = 1.31 \frac{K}{683 \text{ lm/W}} \; .
 \end{equation}
 %
 If the lamp technology is known, 
@@ -2135,7 +2135,7 @@ Two types of data are required for a given period of interest, typically a year:
 %
 \begin{enumerate*}[label={(\alph*)}]
 
-  \item valuable exergetic efficiency data for each lamp technology~($\eta_{X,L,v,i}$) and
+  \item valuable exergetic efficiency data for each lamp technology~($\eta_{X,univ,i}$) and
 
   \item proportion of lighting electricity consumption by lamp technology~($\theta_i$).
 
@@ -2163,41 +2163,16 @@ valuable exergetic efficiency of each lighting technology~($i$), and
 the aggregate valuable exergetic lighting efficiency for a particular year can be found by
 %
 \begin{equation} \label{eq:agg_eta}
-  \eta_{X,L,v,agg} = \sum \limits_{i} \theta_{i} \, \eta_{X,L,v,i} \; .
+  \eta_{X,univ,agg} = \sum \limits_{i} \theta_{i} \, \eta_{X,univ,i} \; .
 \end{equation}
 %
 
 When SPDs are not available, the approximate method can be used as follows:
 %
 \begin{equation} \label{eq:agg_eta_K}
-  \eta_{X,L,v,agg} \approx \sum \limits_{i} \theta_{i} \, \bar{\phi}_{L,pl} \, \gammaratavg{} \, 
+  \eta_{X,univ,agg} \approx \sum \limits_{i} \theta_{i} \, \bar{\phi}_{L,pl} \, \gammaratavg{} \, 
                             \frac{K_{i}}{683 \text{ lm/W}} \; .
 \end{equation}
-
-****
-MKH:
-Here as we have specified that we are converting efficiency values based on luminous efficacy values
-to an efficiency based on the universal luminosity function using $\gammaratavg{}_{,i}$
-the subscript v in $\eta_{X,L,v,agg}$ should become univ, 
-as the valuable portion of light is now determined by the universal luminosity function.
-This reduces the number of subscripts!
-Also as the mean conversion factor and mean exergy-to-energy ratios we have used are averaged across lamps they should not have the subscript i. 
-I have made these changes, let me know if you agree/disagree!----ZM
-****
-
-****
-ZM: 
-I agree about removing the subscript $i$.
-I haven't made the $v \rightarrow univ$ change, because I think that requires a broader discussion.
-We would need to make that change in very many places, not just here.
-I'm willing to have that discussion.
-But I don't think I should make a change here only.---MKH
-****
-
-
-
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
