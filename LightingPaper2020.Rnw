@@ -2350,6 +2350,13 @@ in the decision to publish the results.}
 <<test, child='pieces/appendix.Rnw'>>=
 @
 
+****
+ZM:
+Can you change the order of the columns in the Appendix tables? 
+Let's put the four technologies from the body of the paper first 
+(INC, HAL, CFL, LED),
+followed by HPS and MH.---MKH
+****
 <<mean_phi_p2_by_lamp_type, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/phi_table.R')>>=
 
 source("Data/phi_table.R")
