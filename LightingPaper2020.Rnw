@@ -2093,9 +2093,6 @@ Table~\ref{tab:threemethods} summarizes
 the valuable exergetic efficiency 
 for the four representative lamps (INC, HPS, CFL, LED) and
 the three methods (conventional, exact, and approximate).
-The ``Approximate method'' row was generated using
-the values for $\bar{\phi}_{L,pl}$ and $\gammaratavg{}$ shown
-in Equation~\ref{eq:approximate_unknown_tech}.
 
 
 <<threemethods, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/conv_exact_approx.R')>>=
@@ -2108,9 +2105,12 @@ print(xtable::xtable(results_cea_table, digits=2,
                      each of the four example lamps
                      (INC, HPS, CFL, LED).
                      Note that the conventional method row is the same as
-                     row 3 of Table~\\ref{tab:results_etas},
-                     and the exact method row is the same as
-                     row 4 of Table~\\ref{tab:results_etasX}.",
+                     row 3 of Table~\\ref{tab:results_etas}.
+                     The exact method row is the same as
+                     row 4 of Table~\\ref{tab:results_etasX}.
+                     The approximate method row uses
+                     the values for $\\bar{\\phi}_{L,pl}$ and $\\gammaratavg{}$ shown
+                     in Equation~\\ref{eq:approximate_unknown_tech}.",
                      label = "tab:threemethods"),
       size="footnotesize", # Change size; useful for bigger tables
       include.rownames=TRUE,
@@ -2153,7 +2153,7 @@ using conversion factors, namely $\bar{\phi}_{L,pl}$ and $\gammaratavg{}$, in th
 Importantly, data for the usage proportion for each lamp technology~($\theta_i$)
 for each year of the study are needed,
 ideally in the form of the proportion of lighting electricity consumed by each lamp type.
-Such data (and luminous efficacy values)
+Such data (and luminous efficacy values, $K_i$)
 are provided by the US DOE's Lighting Market Characterization reports \citep{DOE2002, DOE2012, DOE2017}
 for the USA for the following lamp technologies: incandescent, halogen, compact fluorescent,
 linear fluorescent, high intensity discharge, LED, and other.
