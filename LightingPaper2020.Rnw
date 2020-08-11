@@ -2440,7 +2440,7 @@ by lighting technology.
 source("Data/conversion_table.R")
 
 # Creates a matrix with each element containing the number of decimal places that the xtable should use.
-mdat_conv<-matrix(2,nrow=3,ncol=7); mdat_conv[3,]<-0
+mdat_conv<-matrix(2,nrow=3,ncol=7); mdat_conv[2,]<-3;  mdat_conv[3,]<-0
 
 print(xtable::xtable(conversion_table, digits=mdat_conv, 
                      caption = "The mean~($\\bar{\\gamma}_{pl\\rightarrow{}univ}$),
