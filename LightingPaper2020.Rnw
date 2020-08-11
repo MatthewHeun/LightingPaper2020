@@ -1035,7 +1035,8 @@ Specifically,
 
 Recent advances in the thermodynamics of radiation community
 enable converting the energy of EM radiation~($\dot{E}_{EM}$)
-into the exergy of EM radiation~($\dot{X}_{EM}$).
+into the exergy of EM radiation~($\dot{X}_{EM}$)~\cite{Shan2019}.
+equals the reference temperature ($T_0$).
 The exergy-to-energy ratio of EM radiation
 ($\phi_{\EM}$, called the ``radiative exergy-energy coefficient'' in that community)
 is given by Petela's Equation~\cite{petela1964exergy}:
@@ -1088,10 +1089,8 @@ We acknowledge this critique,
 but we also note that here $T_\lambda$ is ascribed to a stream of photons
 traveling from a lamp to an eye.
 Thus, for our purposes, $T_\lambda$ can be considered the statistical average effective temperature 
-of that stream of photons.
-****
-Is this a good way to address the critique?---MKH
-****
+of that stream of monochromatic photons in accordance with~\citeauthor{Shan2019}
+equals the reference temperature ($T_0$).
 
 We make the assumption that the mechanism
 by which light is converted into electrical nerve signals
