@@ -59,10 +59,9 @@ results_cea_table <- as.data.frame(t(results_cea[,-1]))
 colnames(results_cea_table) <- info_cea_colnames
 
 # Re-orders columns
-results_cea_table <- results_cea_table[,c(3,2,1,4)]
+results_cea_table <- results_cea_table[,c("INC","HAL","CFL","LED")]
 
 # Set rownames
-
 results_cea_table <- magrittr::set_rownames(results_cea_table, 
                                             c("Conventional method ($\\eta_{E,pl}$)", 
                                               "Exact method ($\\eta_{X,univ}$)", 

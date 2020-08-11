@@ -2034,7 +2034,7 @@ using the conventional method as a starting point:
 \end{enumerate*}
 
 
-<<ConversionX_Calcs, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/univ_conversion.R')>>=
+<<Conversion_Calcs, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/univ_conversion.R')>>=
 source("Data/univ_conversion.R")
 
 conversion_count <- overall_stats$count
@@ -2044,7 +2044,7 @@ conversion_mean <- overall_stats$mean_conv
 conversion_sd <- overall_stats$sd_conv
 @
 
-<<Conversion_Calcs, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/univX_conversion.R')>>=
+<<ConversionX_Calcs, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/univX_conversion.R')>>=
 source("Data/univX_conversion.R")
 
 conversionX_count <- overall_stats_X$count
