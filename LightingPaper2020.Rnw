@@ -41,7 +41,7 @@ library(xtable)
 <<setup-graphs, include=FALSE>>=
 # This variable switches the cache on/off for all R code chunks that are configured for cacheing.
 # Set to FALSE if some plots are not updating as expected, then set back to TRUE.
-use_cache <- FALSE
+use_cache <- TRUE
 
 # Here are some options for the colors to use in the ggspectra graphs.
 # The variable chroma_type is used in all graphs,
@@ -2064,7 +2064,7 @@ using Equation~\ref{eq:phi_L} with $f_\lambda = V_\lambda$.
 (The sample consists of \Sexpr{conversion_count} lamp SPDs representing six technologies: 
 INC, Halogen (HAL), HPS, Metal halide (MH), CFL, and LED)
 The average value is $\bar{\phi}_{L,pl} = \Sexpr{format(round(phi_mean, 2), nsmall = 2)}$ 
-with a remarkably small standard deviation of $\sigma_{\phi_{L,pl}} = \Sexpr{format(round(phi_sd, 2), nsmall = 2)}$.
+with a remarkably small standard deviation of $\sigma_{\phi_{L,pl}} = \Sexpr{format(round(phi_sd, 5), nsmall = 5)}$.
 
 Similarly, we obtained $\gammarat{}$ for each lamp~($i$) by taking the quotient of efficiencies:
 %
@@ -2103,7 +2103,7 @@ for $\bar{\phi}_{L,pl}$ and $\gammaratavg{}$:
 \end{equation}
 %
 If the lamp technology is known, 
-$\bar{\phi}_{L,pl}$ and $\gammaratavg{}$ values from Tables~\ref{mean_phi_p2_by_lamp_type} and~\ref{conversionfactors} should be used instead of the overall averages.
+$\bar{\phi}_{L,pl}$ and $\gammaratavg{}$ values from Tables~\ref{tab:mean_phi_p2_by_lamp_type} and~\ref{tab:conversionfactors} should be used instead of the overall averages.
 
 Table~\ref{tab:threemethods} summarizes 
 the valuable exergetic efficiency 
