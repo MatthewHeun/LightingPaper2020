@@ -490,7 +490,7 @@ and \citet[p.~265]{Tsao2010appetitelight}, who state
 source(file = file.path("Data", "lighting_efficacy.R"))
 @
 
-<<LuminousEfficacy_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 4, fig.cap = "The luminous efficacy of selected lamp technologies from 1880 to 2020. For HPS lamps, data was limited to lamps of less than 100~W as a lamp's luminous efficacy tends to increase in line with its electricity consumption, therefore skewing the results for a particular year, depending on the wattage of the lamp reported. Data were obtained from three sources: the Museum of Electric Lamp Technology (LampTech)~\\cite{hooker_2020}, the ENERGYSTAR database of certified lamps~\\cite{energystar_2020}, and the lighting market characterization reports commissioned by the US Department of Energy (DOE)~\\cite{DOE2002, DOE2012, DOE2017}." >>=
+<<LuminousEfficacy_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 4, fig.cap = "The luminous efficacy of selected lamp technologies from 1880 to 2020. Data were obtained from three sources: the Museum of Electric Lamp Technology (LampTech)~\\cite{hooker_2020}, the ENERGYSTAR database of certified lamps~\\cite{energystar_2020}, and the lighting market characterization reports commissioned by the US Department of Energy (DOE)~\\cite{DOE2002, DOE2012, DOE2017}." >>=
 le_df$Selected <- ifelse(le_df$Type == "LSPDD", "Selected lamps", "Other")
 
 le_df_filtered <- le_df %>% 
@@ -2057,30 +2057,6 @@ ZM:
 Please fill the standard deviation values above.---MKH
 ****
 
-****
-MKH:
-Before I do this, at the moment we are using the mean phi value across all lamps and weighting functions,
-do we want to change this to the mean value for the universal luminous weighting function,
-or photopic luminous weighting function? --- ZM
-****
-
-****
-ZM:
-Good question. 
-I think we want to use the mean $\phi_{L,pl}$ function for the photopic luminous weighting function~($V_\lambda$), 
-because our proposed approximate method is to FIRST move from energy to exergy under the photopic luminous weighting
-function~($V_\lambda$)
-THEN move from photopic to universal in exergy space.
-You'll note that I changed from $\phi_L$ to $\phi_{L,pl}$ to be more explicit about 
-the issue of which luminous weighting function should be used.---MKH
-****
-
-****
-ZM:
-Can you include a table of $\phi_{L,pl}$ by technology, too, similar to Table~\ref{tab:conversionfactors}?
-Should it contain all 6 technologies?---MKH
-****
-
 
 
 Similarly, we obtained $\gammarat{}$ for each lamp~($i$) by taking the quotient of efficiencies:
@@ -2132,7 +2108,7 @@ $\bar{\phi}_{L,pl}$ and $\gammaratavg{}$ values from **** Tables~X and~Y **** sh
 
 Table~\ref{tab:threemethods} summarizes 
 the valuable exergetic efficiency 
-for the four representative lamps (INC, HPS, CFL, LED) and
+for the four representative lamps (INC, HAL, CFL, LED) and
 the three methods (conventional, exact, and approximate).
 
 
