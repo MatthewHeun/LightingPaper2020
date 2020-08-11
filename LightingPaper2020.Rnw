@@ -2069,9 +2069,11 @@ phi_and_gammaX_factor <- conversionX_mean * phi_mean
 We calculated the exergy-to-energy ratio for a sample of lamps from the LSPDD \cite{aube2013}
 using Equation~\ref{eq:phi_L} with $f_\lambda = V_\lambda$. 
 (The sample consists of \Sexpr{conversion_count} lamp SPDs representing six technologies: 
-INC, Halogen (HAL), HPS, Metal halide (MH), CFL, and LED)
+INC, HAL, CFL, LED, HPS (high pressure sodium), and MH (metal halide).
 The average value is $\bar{\phi}_{L,pl} = \Sexpr{format(round(phi_mean, 3), nsmall = 3)}$ 
 with a remarkably small standard deviation of $\sigma_{\phi_{L,pl}} = \Sexpr{format(round(phi_sd, 5), nsmall = 5)}$.
+Average exergy-to-energy ratios~($\bar{\phi}_{L,pl}$) by lamp technology
+are given in Table~\ref{tab:mean_phi_p2_by_lamp_type} in the appendix.
 
 Similarly, we obtained $\gammarat{}$ for each lamp~($i$) by taking the quotient of efficiencies:
 %
@@ -2079,95 +2081,15 @@ Similarly, we obtained $\gammarat{}$ for each lamp~($i$) by taking the quotient 
   \gammarat{}_{,i} = \frac{\eta_{X,univ,i}}{\eta_{X,pl,i}} \; .
 \end{equation}
 %
-
 Because a greater proportion of each SPD is considered to be light
 by the universal luminous weighting function~($U_\lambda$)
 compared to the photopic luminous weighting function~($V_\lambda$), 
 $\gammarat{}$ is expected to be greater than 1.
 The average value of the photopic-to-universal factor across our population of lamps 
 was $\gammaratavg{} = \Sexpr{format(round(conversionX_mean, 2), nsmall = 2)}$,
-with a small standard deviation of $\sigma_{\gammarat{}} = \Sexpr{format(round(conversionX_sd, 2), nsmall = 2)}$.
-
-**** MKH: I believe we need to add a sentence on the approximate equivalency 
-of the photopic-to-universal factor in both the energy and exergy spaces.
-See paragraph below.---ZM ****
-
-**** 
-ZM:
-Thanks for this insight. 
-Several things here.
-
-(1) If we discuss the photopic-to-universal factor in energy space, 
-we will also need to discuss the exergy-to-energy ratio in universal space.
-Doing so will add additional complexity to a paper that is quite tidy at present.
-
-(2) Thus, I suggest that we do \emph{not} discuss the photopic-to-universal factor in energy space,
-but I'm open to hearing other points of view.
-
-(3) If the rest of you think differently to me, 
-I suggest that discussion of the exergy-to-energy ratio in universal space
-be pushed to an appendix.
-We can always add an appendix to discuss this matter if reviewers ask about it. 
-
-(4) If the rest of you think differently to me, 
-we need to be very careful about how we report uncertainty and standard deviation. 
-Typically, $\pm$ indicates an uncertainty interval with normal distribution.
-The uncertainty interval is different from standard deviation,
-which you have reported here.  
-($1 \sigma$ is only about 65\% confidence, typically unacceptably low.)
-
-If you want the uncertainty interval at 95\% confidence (typical) and 
-have an infinite number of samples and
-have a 2-tailed distribution of uncertainty, 
-you need $1.96 \sigma$.
-(See \url{https://www.sjsu.edu/faculty/gerstman/StatPrimer/t-table.pdf} for the student's t distribution table.)
-Given that we have only 5 samples for our technologies (at present), 
-we would need $2.571 \sigma$ to obtain a 95\% confidence interval.
-
-I don't think we want to push into this complexity.
-Thus, I suggest that (if we add this discussion to an appendix)
-we stay away from the confidence interval notation ($\pm$), 
-instead favoring reporting simply the mean and standard deviation values for
-the photopic-to-universal factor in both the energy and exergy space.---MKH
-****
-
-****
-MKH:
-
-Thankyou for your response. I now agree. 
-I believe we should keep things simple in the main text,
-and not include discussion of $\sigma_{\gammarat{}}$ in the energy space.
-I'm open to mentioning $\sigma_{\gammarat{}}$ in the appendix however, 
-but i'll leave that decision up to you, 
-let me know if you'd like me to create the tables for his information.
-
-Thankyou also for clarifying the use of the sd,
-I need to go over my statistics, far too rusty!
-I also agree, for the sake of simplicity we should simply report the mean and sd.
-
-Please delete my comments and text as required!
-
----ZM
-****
-
-
-The photopic-to-universal factor ($\gammaratavg{}$) operates in the exergy space 
-after application of the exergy-to-energy factor ($\bar{\phi}_{L,pl}$).
-However, given that the values of $\gammaratavg{}_{,X}$ and $\gammaratavg{}_{,E}$
-are approximately equal, 
-$\Sexpr{format(round(conversionX_mean, 3), nsmall = 3)}$
-$\pm$ $\Sexpr{format(round(conversionX_sd, 3), nsmall = 3)}$
-, and $\Sexpr{format(round(conversion_mean, 3), nsmall = 3)}$
-$\pm$ $\Sexpr{format(round(conversion_sd, 3), nsmall = 3)}$
-respectively, 
-the analyst may use the photopic-to-universal factors ($\gammaratavg{}$) supplied
-before or after the application of the exergy-to-energy factor.
-
-**** MKH: Alternatively we provide factors for both the energy and exergy space in the appendix
-this is easy enough! ---ZM ****
-
-
-Average conversion factors~($\gammaratavg{}$) by lamp technology are given in Table~\ref{tab:conversionfactors} in the appendix.
+with a small standard deviation of $\sigma_{\gammarat{}} = \Sexpr{format(round(conversionX_sd, 3), nsmall = 3)}$.
+Average conversion factors~($\gammaratavg{}$) by lamp technology
+are given in Table~\ref{tab:conversionfactors} in the appendix.
 
 The approximate method for determining the valuable exergetic efficiency of a lamp
 is implemented by the following equation
