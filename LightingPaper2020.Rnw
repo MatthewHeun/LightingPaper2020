@@ -41,7 +41,7 @@ library(xtable)
 <<setup-graphs, include=FALSE>>=
 # This variable switches the cache on/off for all R code chunks that are configured for cacheing.
 # Set to FALSE if some plots are not updating as expected, then set back to TRUE.
-use_cache <- TRUE
+use_cache <- FALSE
 
 # Here are some options for the colors to use in the ggspectra graphs.
 # The variable chroma_type is used in all graphs,
@@ -2036,28 +2036,35 @@ using the conventional method as a starting point:
     
 \end{enumerate*}
 
+
+<<Conversion_Calcs, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/univX_conversion.R')>>=
+source("Data/univX_conversion.R")
+
+conversion_count <- overall_stats_X$count
+
+conversion_mean <- overall_stats_X$mean_conv
+  
+conversion_sd <- overall_stats_X$sd_conv
+@
+
+<<phi_Calcs, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/phi_conversion.R')>>=
+source("Data/phi_conversion.R")
+
+phi_conversion <- overall_phi$phi_count
+
+phi_mean <- overall_phi$phi_mean
+  
+phi_sd <- overall_phi$phi_sd
+
+phi_and_gamma_factor <- conversion_mean * phi_mean
+@
+
 We calculated the exergy-to-energy ratio for a sample of lamps from the LSPDD \cite{aube2013}
 using Equation~\ref{eq:phi_L} with $f_\lambda = V_\lambda$. 
-(The sample consists of 24
-****
-ZM: Replace ``24'' with Sexpr---MKH
-****
-lamp SPDs representing six technologies: 
+(The sample consists of \Sexpr{conversion_count} lamp SPDs representing six technologies: 
 INC, Halogen (HAL), HPS, Metal halide (MH), CFL, and LED)
-The average value is $\bar{\phi}_{L,pl} = 0.958$ 
-**** 
-ZM: 
-Replace ``0.958'' with Sexpr.---MKH 
-**** 
-with a
-remarkably small standard deviation of $\sigma_{\phi_{L,pl}} = ****$.
-
-****
-ZM: 
-Please fill the standard deviation values above.---MKH
-****
-
-
+The average value is $\bar{\phi}_{L,pl} = \Sexpr{format(round(phi_mean, 2), nsmall = 2)}$ 
+with a remarkably small standard deviation of $\sigma_{\phi_{L,pl}} = \Sexpr{format(round(phi_sd, 2), nsmall = 2)}$.
 
 Similarly, we obtained $\gammarat{}$ for each lamp~($i$) by taking the quotient of efficiencies:
 %
@@ -2070,12 +2077,8 @@ by the universal luminous weighting function~($U_\lambda$)
 compared to the photopic luminous weighting function~($V_\lambda$), 
 $\gammarat{}$ is expected to be greater than 1.
 The average value of the photopic-to-universal factor across our population of lamps 
-was $\gammaratavg{} = 1.37$,
-with a small standard deviation of $\sigma_{\gammarat{}} = 0.108$.
-****
-ZM:
-Replace ``1.37'' and ``0.108'' with Sexpr.---MKH
-****
+was $\gammaratavg{} = \Sexpr{format(round(conversion_mean, 2), nsmall = 2)}$,
+with a small standard deviation of $\sigma_{\gammarat{}} = \Sexpr{format(round(conversion_sd, 2), nsmall = 2)}$.
 
 Average conversion factors~($\gammaratavg{}$) by lamp technology are given in Table~\ref{tab:conversionfactors} in the appendix.
 
@@ -2096,15 +2099,11 @@ When the lamp technology is unknown, overall average values can be used
 for $\bar{\phi}_{L,pl}$ and $\gammaratavg{}$:
 %
 \begin{equation} \label{eq:approximate_unknown_tech}
-  \eta_{X,univ} \approx (0.958) (1.37) \frac{K}{683 \text{ lm/W}} = 1.31 \frac{K}{683 \text{ lm/W}} \; .
+  \eta_{X,univ} \approx (\Sexpr{format(round(phi_mean, 2), nsmall = 2)}) (\Sexpr{format(round(conversion_mean, 2), nsmall = 2)}) \frac{K}{683 \text{ lm/W}} = \Sexpr{format(round(phi_and_gamma_factor, 2), nsmall = 2)} \frac{K}{683 \text{ lm/W}} \; .
 \end{equation}
 %
-****
-ZM:
-Replace ``0.958'' and ``1.37'' and ``1.31'' with Sexpr.---MKH
-****
 If the lamp technology is known, 
-$\bar{\phi}_{L,pl}$ and $\gammaratavg{}$ values from **** Tables~X and~Y **** should be used instead of the overall averages.
+$\bar{\phi}_{L,pl}$ and $\gammaratavg{}$ values from Tables~\ref{mean_phi_p2_by_lamp_type} and~\ref{conversionfactors} should be used instead of the overall averages.
 
 Table~\ref{tab:threemethods} summarizes 
 the valuable exergetic efficiency 
