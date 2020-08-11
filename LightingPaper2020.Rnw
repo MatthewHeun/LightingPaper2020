@@ -2111,6 +2111,7 @@ but I'm open to hearing other points of view.
 (3) If the rest of you think differently to me, 
 I suggest that discussion of the exergy-to-energy ratio in universal space
 be pushed to an appendix.
+We can always add an appendix to discuss this matter if reviewers ask about it. 
 
 (4) If the rest of you think differently to me, 
 we need to be very careful about how we report uncertainty and standard deviation. 
