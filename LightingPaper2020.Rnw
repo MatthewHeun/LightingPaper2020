@@ -2358,9 +2358,10 @@ Future work could include
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \supplementary{The following are available online at \url{https://doi.org/10.5518/865}~\cite{heun2020}:
-data for luminous efficacy values in Figure~\ref{fig:LuminousEfficacy_Graph}, 
-data for the weighting functions and SPDs displayed in Figure~\ref{fig:wfs_and_lamps}, 
-**** More? ****}
+sources for the luminous efficacy values in Figure~\ref{fig:LuminousEfficacy_Graph}, 
+sources for the weighting functions and SPDs displayed in Figure~\ref{fig:wfs_and_lamps}, 
+instructions and R code for reproducing the metrics and figures in this paper, and
+a blank excel workbook template in the required format for the insertion of spectral power distribution data by the user. }
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
