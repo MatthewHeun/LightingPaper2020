@@ -614,7 +614,7 @@ The novel \emph{contributions} of this article include:
 
   \item clear and rigorous definitions of the energy and exergy of light, 
         applicable to the field of
-        societal exergy analysis~(Section~\ref{sec:energy_and_exergy_of_light}),
+        societal exergy analysis~(Section~\ref{sec:phi_light}),
 
   \item presentation of a framework for understanding 
         the exergetic efficiency of lamps
