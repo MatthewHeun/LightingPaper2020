@@ -2395,9 +2395,85 @@ in the decision to publish the results.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \appendix
 
-<<test, child='pieces/appendix.Rnw'>>=
+% The appendix is an optional section that can contain 
+% details and data supplemental to the main text. 
+% For example, explanations of experimental details 
+% that would disrupt the flow of the main text, but 
+% nonetheless remain crucial to understanding and reproducing the research shown; 
+% figures of replicates for experiments 
+% of which representative data is shown in the main text 
+% can be added here if brief, or as Supplementary data. 
+% Mathematical proofs of results not central to the paper can be added as an appendix.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Average exergy-to-energy ratio~($\bar{\phi}_{L,pl}$)
+         and photopic-to-universal factor~($\gammaratavg{}$)
+         by lighting technology}
+\label{sec:non_light}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+% All appendix sections must be cited in the main text. 
+% In the appendixes, Figures, Tables, etc. should be labeled starting with `A', 
+% e.g., Figure A1, Figure A2, etc. 
+
+Table~\ref{tab:mean_phi_p2_by_lamp_type} shows 
+statistics for the exergy-to-energy ratio~($\bar{\phi}_{L,pl}$)
+by lighting technology.
+
+<<mean_phi_p2_by_lamp_type, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/phi_table.R')>>=
+
+source("Data/phi_table.R")
+
+# Creates a matrix with each element containing the number of decimal places that the xtable should use.
+mdat_phi<-matrix(3,nrow=3,ncol=7); mdat_phi[3,]<-0; mdat_phi[2,]<-6
+
+print(xtable::xtable(phi_table, digits=mdat_phi, 
+                     caption = "The mean~($\\bar{\\phi}_{L,pl}$),
+                     standard deviation~($\\sigma_{\\phi_{L,pl}}$), and 
+                     sample size~($n$)
+                     of the exergy-to-energy ratio when using
+                     the photopic luminous weighting function,
+                     by lighting technology.",
+                     label = "tab:mean_phi_p2_by_lamp_type"), 
+      size="footnotesize", # Change size; useful for bigger tables
+      include.rownames=TRUE, 
+      include.colnames=TRUE, 
+      caption.placement="top",
+      type = "latex",
+      booktabs = TRUE,
+      sanitize.rownames.function = identity
+      )
 @
 
+
+Table~\ref{tab:conversionfactors} shows 
+statistics for the photopic-to-universal factor~($\gammaratavg{}$)
+by lighting technology.
+
+<<conversionfactors, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/conversion_table.R')>>=
+
+source("Data/conversion_table.R")
+
+# Creates a matrix with each element containing the number of decimal places that the xtable should use.
+mdat_conv<-matrix(2,nrow=3,ncol=7); mdat_conv[3,]<-0
+
+print(xtable::xtable(conversion_table, digits=mdat_conv, 
+                     caption = "The mean~($\\bar{\\gamma}_{pl\\rightarrow{}univ}$),
+                     standard deviation~($\\sigma_{\\gamma_{pl\\rightarrow{}univ}}$), and 
+                     sample size~($n$)
+                     of the photopic-to-universal factor,
+                     by lighting technology.",
+                     label = "tab:conversionfactors"), 
+      size="footnotesize", # Change size; useful for bigger tables
+      include.rownames=TRUE, 
+      include.colnames=TRUE, 
+      caption.placement="top",
+      type = "latex",
+      booktabs = TRUE,
+      sanitize.rownames.function = identity
+      )
+@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

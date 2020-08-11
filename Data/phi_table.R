@@ -21,6 +21,6 @@ phi_table <- phi_table[c("mean_phi_p2","sd_phi_p2","count"), ]
 
 # Set rownames
 phi_table <- magrittr::set_rownames(phi_table, 
-                                           c("Mean exergy-to-energy factor ($\\bar{\\phi}_{L,pl}$)", 
-                                             "Standard deviation ($\\sigma_{\\phi_{L,pl}}$)",
-                                             "Sample size"))  
+                                           c("$\\bar{\\phi}_{L,pl}$", 
+                                             "$\\sigma_{\\phi_{L,pl}}$",
+                                             "$n$"))  
