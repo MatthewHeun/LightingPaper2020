@@ -340,6 +340,7 @@ Thus, the analysis of the energy and exergetic efficiency of lighting
 is important in many fields, including
 energy history~\cite{Fouquet:2006},
 energy economics~\cite{Nordhaus1996},
+ecological economics~\cite{whiting2020illumination},
 forecasting energy efficiency improvements~\cite{IEA2019}, and 
 societal exergy analysis~\cite{Ayres2005},
 the focus of this article.
