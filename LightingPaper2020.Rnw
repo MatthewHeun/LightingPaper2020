@@ -2094,12 +2094,50 @@ with a small standard deviation of $\sigma_{\gammarat{}} = \Sexpr{format(round(c
 
 **** MKH: I believe we need to add a sentence on the approximate equivalency 
 of the photopic-to-universal factor in both the energy and exergy spaces.
-See paragraph below. ---ZM ****
+See paragraph below.---ZM ****
+
+**** 
+ZM:
+Thanks for this insight. 
+Several things here.
+
+(1) If we discuss the photopic-to-universal factor in energy space, 
+we will also need to discuss the exergy-to-energy ratio in universal space.
+Doing so will add additional complexity to a paper that is quite tidy at present.
+
+(2) Thus, I suggest that we do \emph{not} discuss the photopic-to-universal factor in energy space,
+but I'm open to hearing other points of view.
+
+(3) If the rest of you think differently to me, 
+I suggest that discussion of the exergy-to-energy ratio in universal space
+be pushed to an appendix.
+
+(4) If the rest of you think differently to me, 
+we need to be very careful about how we report uncertainty and standard deviation. 
+Typically, $\pm$ indicates an uncertainty interval with normal distribution.
+The uncertainty interval is different from standard deviation,
+which you have reported here.  
+($1 \sigma$ is only about 65\% confidence, typically unacceptably low.)
+
+If you want the uncertainty interval at 95\% confidence (typical) and 
+have an infinite number of samples and
+have a 2-tailed distribution of uncertainty, 
+you need $1.96 \sigma$.
+(See \url{https://www.sjsu.edu/faculty/gerstman/StatPrimer/t-table.pdf} for the student's t distribution table.)
+Given that we have only 5 samples for our technologies (at present), 
+we would need $2.571 \sigma$ to obtain a 95\% confidence interval.
+
+I don't think we want to push into this complexity.
+Thus, I suggest that (if we add this discussion to an appendix)
+we stay away from the confidence interval notation ($\pm$), 
+instead favoring reporting simply the mean and standard deviation values for
+the photopic-to-universal factor in both the energy and exergy space.---MKH
+****
 
 The photopic-to-universal factor ($\gammaratavg{}$) operates in the exergy space 
 after application of the exergy-to-energy factor ($\bar{\phi}_{L,pl}$).
 However, given that the values of $\gammaratavg{}_{,X}$ and $\gammaratavg{}_{,E}$
-are approximately equivalent, 
+are approximately equal, 
 $\Sexpr{format(round(conversionX_mean, 3), nsmall = 3)}$
 $\pm$ $\Sexpr{format(round(conversionX_sd, 3), nsmall = 3)}$
 , and $\Sexpr{format(round(conversion_mean, 3), nsmall = 3)}$
@@ -2131,11 +2169,17 @@ When the lamp technology is unknown, overall average values can be used
 for $\bar{\phi}_{L,pl}$ and $\gammaratavg{}$:
 %
 \begin{equation} \label{eq:approximate_unknown_tech}
-  \eta_{X,univ} \approx (\Sexpr{format(round(phi_mean, 2), nsmall = 2)}) (\Sexpr{format(round(conversionX_mean, 2), nsmall = 2)}) \frac{K}{683 \text{ lm/W}} = \Sexpr{format(round(phi_and_gammaX_factor, 2), nsmall = 2)} \frac{K}{683 \text{ lm/W}} \; .
+  \eta_{X,univ} \approx (\Sexpr{format(round(phi_mean, 3), nsmall = 3)}) 
+                        (\Sexpr{format(round(conversionX_mean, 2), nsmall = 2)}) 
+                        \frac{K}{683 \text{ lm/W}} 
+                      = \Sexpr{format(round(phi_and_gammaX_factor, 2), nsmall = 2)} 
+                        \frac{K}{683 \text{ lm/W}} \; .
 \end{equation}
 %
 If the lamp technology is known, 
-$\bar{\phi}_{L,pl}$ and $\gammaratavg{}$ values from Tables~\ref{tab:mean_phi_p2_by_lamp_type} and~\ref{tab:conversionfactors} should be used instead of the overall averages.
+$\bar{\phi}_{L,pl}$ and $\gammaratavg{}$ values 
+from Tables~\ref{tab:mean_phi_p2_by_lamp_type} and~\ref{tab:conversionfactors} 
+could be used instead of the overall averages.
 
 Table~\ref{tab:threemethods} summarizes 
 the valuable exergetic efficiency 
@@ -2343,7 +2387,7 @@ All authors have read and agreed to the published version of the manuscript.}
 \funding{Zeke Marshall's and Paul E. Brockway time was 
 funded by the UK's Engineering and Physical Sciences Research Council (EPSRC) 
 fellowship grant RG.EVEA.112727.001.
-Emmanuel Aramendia's time was funded by XXXXXX.
+Emmanuel Aramendia's time was funded by ******.
 Matthew K. Heun has no funding to declare.
 }
 
