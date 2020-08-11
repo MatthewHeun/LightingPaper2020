@@ -2037,14 +2037,24 @@ using the conventional method as a starting point:
 \end{enumerate*}
 
 
+<<ConversionX_Calcs, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/univ_conversion.R')>>=
+source("Data/univ_conversion.R")
+
+conversion_count <- overall_stats$count
+
+conversion_mean <- overall_stats$mean_conv
+  
+conversion_sd <- overall_stats$sd_conv
+@
+
 <<Conversion_Calcs, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/univX_conversion.R')>>=
 source("Data/univX_conversion.R")
 
-conversion_count <- overall_stats_X$count
+conversionX_count <- overall_stats_X$count
 
-conversion_mean <- overall_stats_X$mean_conv
+conversionX_mean <- overall_stats_X$mean_conv
   
-conversion_sd <- overall_stats_X$sd_conv
+conversionX_sd <- overall_stats_X$sd_conv
 @
 
 <<phi_Calcs, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/phi_conversion.R')>>=
@@ -2056,7 +2066,7 @@ phi_mean <- overall_phi$phi_mean
   
 phi_sd <- overall_phi$phi_sd
 
-phi_and_gamma_factor <- conversion_mean * phi_mean
+phi_and_gammaX_factor <- conversionX_mean * phi_mean
 @
 
 We calculated the exergy-to-energy ratio for a sample of lamps from the LSPDD \cite{aube2013}
@@ -2072,13 +2082,34 @@ Similarly, we obtained $\gammarat{}$ for each lamp~($i$) by taking the quotient 
   \gammarat{}_{,i} = \frac{\eta_{X,univ,i}}{\eta_{X,pl,i}} \; .
 \end{equation}
 %
+
 Because a greater proportion of each SPD is considered to be light
 by the universal luminous weighting function~($U_\lambda$)
 compared to the photopic luminous weighting function~($V_\lambda$), 
 $\gammarat{}$ is expected to be greater than 1.
 The average value of the photopic-to-universal factor across our population of lamps 
-was $\gammaratavg{} = \Sexpr{format(round(conversion_mean, 2), nsmall = 2)}$,
-with a small standard deviation of $\sigma_{\gammarat{}} = \Sexpr{format(round(conversion_sd, 2), nsmall = 2)}$.
+was $\gammaratavg{} = \Sexpr{format(round(conversionX_mean, 2), nsmall = 2)}$,
+with a small standard deviation of $\sigma_{\gammarat{}} = \Sexpr{format(round(conversionX_sd, 2), nsmall = 2)}$.
+
+**** MKH: I believe we need to add a sentence on the approximate equivalency 
+of the photopic-to-universal factor in both the energy and exergy spaces.
+See paragraph below. ---ZM ****
+
+The photopic-to-universal factor ($\gammaratavg{}$) operates in the exergy space 
+after application of the exergy-to-energy factor ($\bar{\phi}_{L,pl}$).
+However, given that the values of $\gammaratavg{}_{,X}$ and $\gammaratavg{}_{,E}$
+are approximately equivalent, 
+$\Sexpr{format(round(conversionX_mean, 3), nsmall = 3)}$
+$\pm$ $\Sexpr{format(round(conversionX_sd, 3), nsmall = 3)}$
+, and $\Sexpr{format(round(conversion_mean, 3), nsmall = 3)}$
+$\pm$ $\Sexpr{format(round(conversion_sd, 3), nsmall = 3)}$
+respectively, 
+the analyst may use the photopic-to-universal factors ($\gammaratavg{}$) supplied
+before or after the application of the exergy-to-energy factor.
+
+**** MKH: Alternatively we provide factors for both the energy and exergy space in the appendix
+this is easy enough! ---ZM ****
+
 
 Average conversion factors~($\gammaratavg{}$) by lamp technology are given in Table~\ref{tab:conversionfactors} in the appendix.
 
@@ -2099,7 +2130,7 @@ When the lamp technology is unknown, overall average values can be used
 for $\bar{\phi}_{L,pl}$ and $\gammaratavg{}$:
 %
 \begin{equation} \label{eq:approximate_unknown_tech}
-  \eta_{X,univ} \approx (\Sexpr{format(round(phi_mean, 2), nsmall = 2)}) (\Sexpr{format(round(conversion_mean, 2), nsmall = 2)}) \frac{K}{683 \text{ lm/W}} = \Sexpr{format(round(phi_and_gamma_factor, 2), nsmall = 2)} \frac{K}{683 \text{ lm/W}} \; .
+  \eta_{X,univ} \approx (\Sexpr{format(round(phi_mean, 2), nsmall = 2)}) (\Sexpr{format(round(conversionX_mean, 2), nsmall = 2)}) \frac{K}{683 \text{ lm/W}} = \Sexpr{format(round(phi_and_gammaX_factor, 2), nsmall = 2)} \frac{K}{683 \text{ lm/W}} \; .
 \end{equation}
 %
 If the lamp technology is known, 
