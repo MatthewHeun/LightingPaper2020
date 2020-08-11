@@ -41,7 +41,7 @@ library(xtable)
 <<setup-graphs, include=FALSE>>=
 # This variable switches the cache on/off for all R code chunks that are configured for cacheing.
 # Set to FALSE if some plots are not updating as expected, then set back to TRUE.
-use_cache <- TRUE
+use_cache <- FALSE
 
 # Here are some options for the colors to use in the ggspectra graphs.
 # The variable chroma_type is used in all graphs,
@@ -243,7 +243,7 @@ to be enablers of economic growth, and
 lighting contributes a non-negligible proportion of total useful exergy
 supplied to modern economies.
 In societal exergy analysis, 
-the exergetic efficiency of lamps is central to
+the exergetic efficiency of electric lamps is central to
 determining the exergy contribution of lighting to an economy.
 Conventionally, societal exergy analysts estimate the exergetic efficiency of lamps 
 by an energy efficiency, 
@@ -362,10 +362,10 @@ quantified by the energy of photons via Einstein's equation,
 \end{equation}
 %
 where 
-$h$ is Planck's constant (in Joules-s), 
+$h$ is Planck's constant ($6.626 \times 10^{-34} \text{ J-s}$), 
 $\nu$ is frequency (in 1/s),
 $c$ is the speed of light (in m/s), and
-$\lambda$ is wavelength (in m).
+$\lambda$ is wavelength (in nm).
 The human retina responds to a narrow wavelength range of EM radiation
 (\humaneyesensitivity{}).
 Thus, light is EM radiation within that narrow wavelength range~\cite{campbell2017}, 
@@ -398,7 +398,7 @@ response_data <- weighted_responses_df %>%
 @
 
 
-<<Vis_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="Normalized sensitivity of the human eye to EM radiation~\\cite{schubert2006}, according to the photopic luminous weighting function~($V_\\lambda$).">>=
+<<Vis_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="Normalized sensitivity and color perception of the human eye to EM radiation~\\cite{schubert2006}, according to the photopic luminous weighting function~($V_\\lambda$).">>=
 response_data %>% 
   dplyr::filter(wf_name == "Photopic") %>% 
   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>% 
@@ -537,7 +537,7 @@ Thus, the widespread use of luminous efficacy~($K$) as a measure of lamp efficie
 provides a burden to societal exergy analysis.
 
 Conventionally, societal exergy analysts solve this problem by estimating
-exergetic efficiency~($\eta_{X,L,v}$) by the ratio of
+the valuable~($v$) exergetic~($X$) efficiency~($\eta$) of lighting~($L$) by the ratio of
 the minimum energy required to produce a given output and
 the actual energy required to produce the same given output, 
 as recommended by \citet{Sousa2017}
@@ -581,21 +581,21 @@ its value has a large effect on the valuable exergetic efficiency of lighting
 in the conventional method.
 So getting it right is important.
 
+
+%++++++++++++++++++++++++++++++
+\subsection{Need, aim, contributions, and structure}
+\label{sec:aim_contribution_structure}
+%++++++++++++++++++++++++++++++
+
 Although the confusion around maximum luminous efficacy~($K_{max}$)
 is sufficient motivation to dig deeper to fully understand and define
 the exergy of light and the exergetic efficiency of lamps, 
 further issues and confusions await. 
 (See Section~\ref{sec:discussion}.)
-Thus, there is ample need for clarity and rigor 
+Thus, there is ample \emph{need} for clarity and rigor 
 about the thermodynamics of artificial lighting systems.
 
-
-%++++++++++++++++++++++++++++++
-\subsection{Aim, contributions, and structure}
-\label{sec:aim_contribution_structure}
-%++++++++++++++++++++++++++++++
-
-The need discussed above leads to the \emph{aim} of this article: 
+The need leads to the \emph{aim} of this article: 
 to bring clarity to 
 %
 \begin{enumerate*}[label={(\alph*)}]
@@ -682,14 +682,14 @@ Section~\ref{sec:conclusions} summarizes and concludes.
 Energy and exergy are two ways to quantify the physical property that,
 when transferred to an object,
 changes its temperature or performs work on it.
-(For this discussion, we can't call the ``physical property'' energy, exergy, work, or heat,
+(In this section, we can't call the ``physical property'' energy, exergy, work, or heat,
 because these concepts need to remain separated. 
 So, we use the generic term ``physical property.'')
 We discuss energy and exergy quantifications of the physical property in the sections below, 
 beginning with heat and work, 
 the concepts for which \enaex{} originated.
 Thereafter, we develop a framework for the \enaex{} of light
-in a parallel manner to the \enaex{} of heat and work.
+that parallels the \enaex{} of heat and work.
 
 
 %------------------------------
@@ -752,9 +752,9 @@ Thus, the \emph{valuable} energy efficiency ($\eta_{E,v}$) is
 \end{equation}
 
 Heat (the ability to influence temperature) is 
-only one possible outcome of transferring the physical quantity
+only one possible outcome of transferring the physical property
 from one object to another.
-Heat is certainly valuable to humans, but so is another quantity: 
+Heat is certainly valuable to humans, but so is another property: 
 work, the ability to exert a force on another object.
 Exergy quantifies the physical property by its work potential
 and provides the answer to the question
@@ -775,12 +775,13 @@ where $T_0$ is the ambient temperature and $T_{sys}$ is a heat temperature
 ($T_1$ or $T_2$ in Figure~\ref{fig:heat_engine}).
 The exergy of each stream in Figure~\ref{fig:heat_engine} is then
 %
-\begin{align}
-  \dot{X}_1 &= \phi_1 \dot{Q}_1 = \left(1 - \frac{T_0}{T_1} \right) \dot{Q}_1, \\
-  \dot{X}_2 &= \phi_2 \dot{Q}_2 = \left(1 - \frac{T_0}{T_2} \right) \dot{Q}_2, \; \text{and} \\
-  \dot{X}_3 &= \cancelto{1}{\phi_3} \dot{W}_3 = \dot{W}_3 \; .
-\end{align}
-%
+\begin{equation}
+  \dot{X}_1 = \phi_1 \dot{Q}_1 = \left(1 - \frac{T_0}{T_1} \right) \dot{Q}_1, \; 
+  \dot{X}_2 = \phi_2 \dot{Q}_2 = \left(1 - \frac{T_0}{T_2} \right) \dot{Q}_2, \text{ and} \;
+  \dot{X}_3 = \cancelto{1}{\phi_3} \dot{W}_3 = \dot{W}_3 \; .
+\end{equation}
+
+
 In this context, the Carnot efficiency~($\eta_C$) becomes the exergy-to-energy ratio
 for heat streams ($\phi_Q = \eta_C$).
 The exergy-to-energy ratio for work is $\phi_3 = \phi_W = 1$, 
@@ -960,7 +961,7 @@ The valuable exergetic efficiency of the EM radiation emitted by the lamp in Fig
 Note that the efficiencies are independent of human presence;
 $\eta_{X,EM}$ and $\eta_{X,EM,v}$ would be the same, 
 whether the lamp is illuminating
-an unoccupied room or a crowded bar, 
+an unoccupied room or a crowded bar, or
 whether the illumination stimulates the rods and cones of a human eye or
 excites band gap electrons in an amorphous silicon solar cell.
 
@@ -983,10 +984,10 @@ We noted above that both
 are independent of human presence.
 But what about human \emph{perception}?
 
-Human beings perceive heat by temperature and light by wavelength.
+Human beings perceive conductive and convective heat by temperature and EM radiation by wavelength.
 Human skin can perceive the thermal radiation portion of the broader electromagnetic spectrum,
 approximately 100 nm < $\lambda$ < 10,000 nm, and 
-human skin is differentially responsive to EM spectrum wavelength~\citep{Anderson:1981aa}.  
+human skin is differentially responsive to EM wavelength~\citep{Anderson:1981aa}.  
 Indeed, thermoreceptors in the dermis of skin are important sensors
 for regulation of body temperature~\cite[p.~258]{Jones:2016aa}.
 Similarly, human eyes perceive only a (narrower) portion of the EM radiation spectrum
@@ -1036,15 +1037,16 @@ Specifically,
 Recent advances in the thermodynamics of radiation community
 enable converting the energy of EM radiation~($\dot{E}_{EM}$)
 into the exergy of EM radiation~($\dot{X}_{EM}$)~\cite{Shan2019}.
-equals the reference temperature ($T_0$).
 The exergy-to-energy ratio of EM radiation
 ($\phi_{\EM}$, called the ``radiative exergy-energy coefficient'' in that community)
 is given by Petela's Equation~\cite{petela1964exergy}:
 %
 \begin{equation} \label{eq:petelas_equation}
- \phi_{\EM} = 1 - \frac{4}{3}\frac{T_{0}}{T_{1}} + \frac{1}{3} \left(\frac{T_{0}}{T_{1}}\right)^4 \; .
+ \phi_{\EM} = 1 - \frac{4}{3}\frac{T_{0}}{T_{1}} + \frac{1}{3} \left(\frac{T_{0}}{T_{1}}\right)^4 \; ,
 \end{equation}
-
+%
+where $T_1$ is the temperature of a blackbody emitter and 
+$T_0$ is the temperature of a blackbody absorber.
 Petela's equation has recently been verified via an infinite-staged
 Carnot heat engine model \cite{zhou2017exergy}
 that is powered by radiative energy transfer.
@@ -1058,10 +1060,9 @@ This process repeats until the frequency of the photon equals zero
 and the photon effective temperature ($T_\lambda$)~\cite{Shan2019}
 equals the reference temperature ($T_0$).
 
-However, Petela's equation assumes a blackbody emitter and
-a blackbody absorber 
-at temperatures $T_1$ and $T_0$, respectively.
-To determine $\phi_{\EM}$ for a non-blackbody lamp,
+However, Petela's equation assumes a blackbody emitter~(at $T_1$) and
+a blackbody absorber~(at $T_0$).
+To determine $\phi_{\EM}$ for an emitter that is a non-blackbody lamp,
 the spectral exergy-to-energy ratio ($\phi_{\EM,\lambda}$),
 must be calculated.
 An effective temperature of light photons~\cite{chen2008} ($T_\lambda$) 
@@ -1077,7 +1078,7 @@ is a constant~($c_3$ in \citet{chen2008}) such that
 or
 %
 \begin{equation} \label{eq:T_lambda}
-  T_\lambda = \frac{5.33016 \times 10^{-3} \text{ m-K}}{\lambda} \; .
+  T_\lambda = \frac{c_3}{\lambda} = \frac{5.33016 \times 10^{-3} \text{ m-K}}{\lambda} \; .
 \end{equation}
 
 We note that the photon effective temperature approach has been criticized by 
@@ -1089,8 +1090,8 @@ We acknowledge this critique,
 but we also note that here $T_\lambda$ is ascribed to a stream of photons
 traveling from a lamp to an eye.
 Thus, for our purposes, $T_\lambda$ can be considered the statistical average effective temperature 
-of that stream of monochromatic photons in accordance with~\citeauthor{Shan2019}
-equals the reference temperature ($T_0$).
+of that stream of monochromatic photons,
+in accordance with~\citeauthor{Shan2019}.
 
 We make the assumption that the mechanism
 by which light is converted into electrical nerve signals
@@ -1254,8 +1255,8 @@ which provides the basis for calculating a lamp's output
 of visible light~($\Phi_{pl}$) in the unit of lumens~(lm):
 %
 \begin{equation} \label{eq:lumen}
-  \Phi_{pl} = (683 \text{ lm/W}) \, \dot{E}_{L,pl} 
-            = (683 \text{ lm/W}) \int V_\lambda \dot{E}_{EM,\lambda} \mathrm{d}\lambda \; ,
+  \Phi_{pl} \equiv (683 \text{ lm/W}) \, \dot{E}_{L,pl} 
+                 = (683 \text{ lm/W}) \int V_\lambda \dot{E}_{EM,\lambda} \mathrm{d}\lambda \; ,
 \end{equation}
 %
 where 683~lm/W is the luminous efficiency of a perfect light source
@@ -1622,10 +1623,9 @@ print(xtable::xtable(results_etas_fin, digits=2,
                      ($\\eta_{E,L,v}$, in \\%) for each lamp
                      and each weighting function~($f_\\lambda$),
                      given by Equation~\\ref{eq:eta_E_v_light}.
-                     Note that for the incandescent (INC) and halogen (HAL)
-                     lamps, 
-                     the unweighted energy efficiency~($\\eta_{E,uw}$) is an 
-                     underestimate;
+                     Note that for the incandescent (INC) and halogen (HAL) lamps, 
+                     the unweighted energy efficiency~($\\eta_{E,uw}$) is  
+                     underestimated;
                      the SPD data do not go beyond 899~nm, 
                      despite INC and HAL emission far into 
                      the infrared portion of the EM spectrum.", 
@@ -1683,7 +1683,13 @@ print(xtable::xtable(results_etasX_fin, digits=2,
                      caption = "Valuable exergetic efficiencies
                      ($\\eta_{X,L,v}$, in \\%) for each lamp
                      and weighting function~($f_\\lambda$),
-                     given by Equation~\\ref{eq:eta_X_v_light}.", 
+                     given by Equation~\\ref{eq:eta_X_v_light}.
+                     Similar to Table~\\ref{tab:results_etas}, 
+                     the unweighted exergetic efficiency~($\\eta_{X,uw}$) is 
+                     underestimated for the incandescent (INC) and halogen (HAL) lamps;
+                     the SPD data do not go beyond 899~nm, 
+                     despite INC and HAL emission far into 
+                     the infrared portion of the EM spectrum.", 
                      label= "tab:results_etasX"), 
       size="footnotesize", # Change size; useful for bigger tables
       include.rownames=TRUE, 
@@ -1780,7 +1786,7 @@ is correct under the following conditions only:
 %
 \begin{enumerate}[label={(\alph*)}]
 	
-  \item the maximum luminous efficacy ($K_{max}$) is assumed to be 683~lm/W, 
+  \item the maximum luminous efficacy ($K_{max}$) is taken to be 683~lm/W, 
 
   \item $\phi_{L,\lambda} = 1$ for all wavelengths, and
 
@@ -1807,7 +1813,7 @@ Equation~\ref{eq:prev_eta_X_v_light} simplifies to
   \eta_{X,L,v} \approx \frac{\int V_\lambda \dot{E}_{EM,\lambda,3} \mathrm{d}\lambda}{\dot{W}_{elect,1}}\; .
 \end{equation}
 %
-So, the conventional method's estimate 
+So the conventional method's estimate 
 of a lamp's valuable exergetic efficiency
 (Equation~\ref{eq:K_over_e_max}) 
 reduces to Equation~\ref{eq:prev_eta_X_v_light_final}, 
@@ -1843,7 +1849,7 @@ The choice of $K_{max}$ can make a significant difference to the results.
 The correct value for $K_{max}$ is 683~lm/W,
 as discussed in Section~\ref{sec:previous_approach}.
 We showed in Section~\ref{sec:conventional_method} that
-some authors have incorrectly, we now know, taken $K_{max}$ to be 
+some authors have mistakenly, we now know, taken $K_{max}$ to be 
 220~lm/W or 400~lm/W,
 thereby overestimating exergetic efficiency of lighting~($\eta_{X,L,v}$)
 with the conventional method
@@ -1866,7 +1872,7 @@ Happily, the conventional method was not far wrong.
 
 Third, in the conventional method, 
 the analyst is required to use the photopic luminous weighting function~($V_\lambda$)
-for the spectral weighting function~($f_\lambda$).
+for the spectral luminous weighting function~($f_\lambda$).
 However, it is not certain that the photopic luminous weighting function
 is the best choice.
 In fact, we later recommend replacing the photopic luminous weighting function~($V_\lambda$)
@@ -1884,7 +1890,7 @@ We provide three recommendations for societal exergy analysts:
 \begin{enumerate*}[label={(\alph*)}]
 	
   \item use the exact method of Section~\ref{sec:methods} when possible, 
-        i.e., when SPD data are available for a lamp, 
+        i.e., when SPD data are available for a lamp or lamp technology, 
   
   \item use the universal luminous weighting function~($U_\lambda$) always, and
   
@@ -1913,7 +1919,7 @@ The exact method provides the following benefits over the conventional method:
   
   \item it allows choices for the spectral luminous weighting function~($f_\lambda$), 
         no longer requiring $f_\lambda = V_\lambda$, 
-        thereby enabling our second recommendation ($f_\lambda = U_\lambda$).
+        thereby enabling our second recommendation, namely use the universal luminous weighting function ($U_\lambda$).
 
 \end{enumerate}
 
@@ -1995,19 +2001,13 @@ toward the universal luminous weighting function~($U_\lambda$) is
 made possible by the exact method described in Section~\ref{sec:framework},
 so long as SPD data are available.
 In the absence of SPD data, 
-we suggest that an approximate method can be used, as discussed in the next section.
+we recommend that an approximate method can be used, as discussed in the next section.
 
 
 %------------------------------
 \subsubsection{Recommendation for an approximate method} 
 \label{sec:approximate_method}
 %------------------------------
-
-Our third recommendation is for an approximate method to determine 
-the valuable exergetic efficiency of lamps~($\eta_{X,L,v}$)
-when SPD data are not available
-but luminous efficacy data~($K$) are.
-Results from the exact method provide guidance for developing an approximate method.
 
 Section~\ref{sec:previous_approach} shows that the conventional method does not require SPD information, 
 but it produces energy efficiency (instead of exergetic efficiency)
@@ -2017,9 +2017,15 @@ in the absence of SPD data,
 societal exergy analysts
 calculate exergetic efficiency 
 with the universal luminous weighting function~($\eta_{X,univ}$).
+Thus, our third recommendation is for an approximate method to determine 
+the valuable exergetic efficiency of lamps~($\eta_{X,L,v}$)
+when SPD data are not available
+but luminous efficacy data~($K$) are.
+Results from the exact method provide guidance 
+for development of the approximate method.
 
-We suggest the following two-step process, 
-using the conventional method as a starting point:
+We suggest the following two-step process:  
+using the conventional method as a starting point,
 %
 \begin{enumerate*}[label={(\alph*)}]
 	
@@ -2070,7 +2076,8 @@ We calculated the exergy-to-energy ratio for a sample of lamps from the LSPDD \c
 using Equation~\ref{eq:phi_L} with $f_\lambda = V_\lambda$. 
 (The sample consists of \Sexpr{conversion_count} lamp SPDs representing six technologies: 
 INC, HAL, CFL, LED, HPS (high pressure sodium), and MH (metal halide).
-The average value is $\bar{\phi}_{L,pl} = \Sexpr{format(round(phi_mean, 3), nsmall = 3)}$ 
+The average value for the exergy-to-energy ratio is
+$\bar{\phi}_{L,pl} = \Sexpr{format(round(phi_mean, 3), nsmall = 3)}$ 
 with a remarkably small standard deviation of $\sigma_{\phi_{L,pl}} = \Sexpr{format(round(phi_sd, 5), nsmall = 5)}$.
 Average exergy-to-energy ratios~($\bar{\phi}_{L,pl}$) by lamp technology
 are given in Table~\ref{tab:mean_phi_p2_by_lamp_type} in the appendix.
@@ -2088,7 +2095,7 @@ $\gammarat{}$ is expected to be greater than 1.
 The average value of the photopic-to-universal factor across our population of lamps 
 was $\gammaratavg{} = \Sexpr{format(round(conversionX_mean, 2), nsmall = 2)}$,
 with a small standard deviation of $\sigma_{\gammarat{}} = \Sexpr{format(round(conversionX_sd, 3), nsmall = 3)}$.
-Average conversion factors~($\gammaratavg{}$) by lamp technology
+Average photopic-to-universal conversion factors~($\gammaratavg{}$) by lamp technology
 are given in Table~\ref{tab:conversionfactors} in the appendix.
 
 The approximate method for determining the valuable exergetic efficiency of a lamp
@@ -2109,16 +2116,16 @@ for $\bar{\phi}_{L,pl}$ and $\gammaratavg{}$:
 %
 \begin{equation} \label{eq:approximate_unknown_tech}
   \eta_{X,univ} \approx (\Sexpr{format(round(phi_mean, 3), nsmall = 3)}) 
-                        (\Sexpr{format(round(conversionX_mean, 2), nsmall = 2)}) 
+                        (\Sexpr{format(round(conversionX_mean, 2), nsmall = 2)})
                         \frac{K}{683 \text{ lm/W}} 
-                      = \Sexpr{format(round(phi_and_gammaX_factor, 2), nsmall = 2)} 
+                      = \Sexpr{format(round(phi_and_gammaX_factor, 2), nsmall = 2)} \,
                         \frac{K}{683 \text{ lm/W}} \; .
 \end{equation}
 %
 If the lamp technology is known, 
 $\bar{\phi}_{L,pl}$ and $\gammaratavg{}$ values 
 from Tables~\ref{tab:mean_phi_p2_by_lamp_type} and~\ref{tab:conversionfactors} 
-could be used instead of the overall averages.
+could be used instead of the averages across all technologies shown in Equation~\ref{eq:approximate_unknown_tech}.
 
 Table~\ref{tab:threemethods} summarizes 
 the valuable exergetic efficiency 
@@ -2175,17 +2182,18 @@ Two types of data are required for a given period of interest, typically a year:
 where $i$ denotes individual lighting technologies.
 
 Item (a) is the result of applying the exact method to each lamp technology
-but depends on the availability of each technology's SPD,
+but depends on the availability of representative SPDs for each technology,
 which are not often known.
-Instead, the most common measure of lighting efficiency reported for lamps is the luminous efficacy~($K$).
+Instead, the most common measure of lighting efficiency 
+reported for a lamp technology is the luminous efficacy~($K$).
 Therefore, to develop an aggregate measure of lighting efficiency, 
-luminous efficacy data must be converted into valuable exergetic efficiency values 
-using conversion factors, namely $\bar{\phi}_{L,pl}$ and $\gammaratavg{}$, in the approximate method.
+luminous efficacies must be converted 
+into valuable exergetic efficiencies by the approximate method.
 (See Section~\ref{sec:approximate_method}.)
 
 Importantly, data for the usage proportion for each lamp technology~($\theta_i$)
 for each year of the study are needed,
-ideally in the form of the proportion of lighting electricity consumed by each lamp type.
+ideally in the form of the fraction of lighting electricity consumed by each lamp type.
 Such data (and luminous efficacy values, $K_i$)
 are provided by the US DOE's Lighting Market Characterization reports \citep{DOE2002, DOE2012, DOE2017}
 for the USA for the following lamp technologies: incandescent, halogen, compact fluorescent,
@@ -2217,8 +2225,9 @@ When SPDs are not available, the approximate method can be used as follows:
 
 Several recent developments in the photometry and thermodynamics of radiation literatures 
 (Petela's equation;
-the photon effective temperature, $T_\lambda$; and
-the spectral exergy-to-energy ratio, $\phi_{L,\lambda}$) 
+the spectral exergy-to-energy ratio, $\phi_{L,\lambda}$; and 
+the photon effective temperature, $T_\lambda$
+) 
 have enabled
 a re-evaluation of the exergy of light and the exergetic efficiency of electric lamps
 applicable to societal exergy analysis.
@@ -2272,8 +2281,8 @@ Future work could include
 	      across lighting technologies,
 	
   \item applying the exact method to understand the evolution
-        of lighting technology relative to upper limits to
-        reducing lighting energy consumption~\citep{CullenPhD}
+        of lighting technology relative to the maximum possible reductions 
+        in lighting energy consumption~\citep{CullenPhD}
         (via gains in 
         lamp luminous efficacy~($K$) and valuable exergetic efficiency, $\eta_{X,L,v}$),
   
