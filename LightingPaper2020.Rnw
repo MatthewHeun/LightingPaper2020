@@ -41,7 +41,7 @@ library(xtable)
 <<setup-graphs, include=FALSE>>=
 # This variable switches the cache on/off for all R code chunks that are configured for cacheing.
 # Set to FALSE if some plots are not updating as expected, then set back to TRUE.
-use_cache <- FALSE
+use_cache <- TRUE
 
 # Here are some options for the colors to use in the ggspectra graphs.
 # The variable chroma_type is used in all graphs,
@@ -510,7 +510,7 @@ ggplot2::ggplot(le_df_filtered, mapping = aes(x = Year)) +
                            arrow = arrow(length = unit(0.01, "npc")),
                            box.padding = unit(0.2, "lines"),
                            point.padding = unit(0.3, "lines"),
-                           nudge_x = -69,
+                           nudge_x = -72.5,
                            nudge_y = 0, 
                            colour = "gray50") + 
   
