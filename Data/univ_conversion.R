@@ -1,4 +1,4 @@
-source("Data/spd_metric_calcs.R")
+# source("Data/spd_metric_calcs.R")
 
 # Eta photopic to universal conversion factor 
 

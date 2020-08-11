@@ -1,5 +1,5 @@
 # This script formats the lamp info data into a table for rnw file.
-source("Data/AllData.R")
+# source("Data/AllData.R")
 
 # Filters and selects the lamps in lamp_info. 
 results_lamp_info <- lamp_info %>%
