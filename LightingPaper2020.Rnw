@@ -2071,7 +2071,7 @@ We calculated the exergy-to-energy ratio for a sample of lamps from the LSPDD \c
 using Equation~\ref{eq:phi_L} with $f_\lambda = V_\lambda$. 
 (The sample consists of \Sexpr{conversion_count} lamp SPDs representing six technologies: 
 INC, Halogen (HAL), HPS, Metal halide (MH), CFL, and LED)
-The average value is $\bar{\phi}_{L,pl} = \Sexpr{format(round(phi_mean, 2), nsmall = 2)}$ 
+The average value is $\bar{\phi}_{L,pl} = \Sexpr{format(round(phi_mean, 3), nsmall = 3)}$ 
 with a remarkably small standard deviation of $\sigma_{\phi_{L,pl}} = \Sexpr{format(round(phi_sd, 5), nsmall = 5)}$.
 
 Similarly, we obtained $\gammarat{}$ for each lamp~($i$) by taking the quotient of efficiencies:
