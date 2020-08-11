@@ -1366,10 +1366,7 @@ print(xtable::xtable(results_lamp_info_fin, digits=0,
                      year the SPD data was obtained, 
                      luminous efficacy, 
                      electricity consumption rate, lumen output, and
-                     luminous efficiency~\\cite{aube2013}. 
-                     **** Do we want to change the INC 
-                     so it is in a similar range of lumen output? ---ZM ****
-                     **** Yes.---MKH ****", 
+                     luminous efficiency~\\cite{aube2013}.", 
                      label = "tab:lamps"), 
       size="footnotesize", # Change size; useful for bigger tables
       include.rownames=TRUE, 

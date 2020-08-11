@@ -11,7 +11,7 @@ library(magrittr)
 # 
 wf_list <- c(Unweighted = "wf_nw", Visible = "wf_v",
              Photopic = "wf_p2", Universal = "wf_u")
-lamp_list <- c(INC = "lamp_inc_syl_a21", HAL = "lamp_hal_syl_par38", 
+lamp_list <- c(INC = "lamp_inc_syl_a19_2476k", HAL = "lamp_hal_syl_par38", 
                CFL = "lamp_cfl_es_tw_15", LED = "lamp_led_es_br30")
 
 
