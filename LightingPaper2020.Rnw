@@ -2132,6 +2132,26 @@ instead favoring reporting simply the mean and standard deviation values for
 the photopic-to-universal factor in both the energy and exergy space.---MKH
 ****
 
+****
+MKH:
+
+Thankyou for your response. I now agree. 
+I believe we should keep things simple in the main text,
+and not include discussion of $\sigma_{\gammarat{}}$ in the energy space.
+I'm open to mentioning $\sigma_{\gammarat{}}$ in the appendix however, 
+but i'll leave that decision up to you, 
+let me know if you'd like me to create the tables for his information.
+
+Thankyou also for clarifying the use of the sd,
+I need to go over my statistics, far too rusty!
+I also agree, for the sake of simplicity we should simply report the mean and sd.
+
+Please delete my comments and text as required!
+
+---ZM
+****
+
+
 The photopic-to-universal factor ($\gammaratavg{}$) operates in the exergy space 
 after application of the exergy-to-energy factor ($\bar{\phi}_{L,pl}$).
 However, given that the values of $\gammaratavg{}_{,X}$ and $\gammaratavg{}_{,E}$
