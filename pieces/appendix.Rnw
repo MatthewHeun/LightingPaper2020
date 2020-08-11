@@ -25,15 +25,6 @@
 % In the appendixes, Figures, Tables, etc. should be labeled starting with `A', 
 % e.g., Figure A1, Figure A2, etc. 
 
-****
-ZM:
-Can you change the order of the columns in the Appendix tables? 
-Let's put the four technologies from the body of the paper first 
-(INC, HAL, CFL, LED),
-followed by HPS and MH (in alphabetical order).---MKH
-****
-
-
 Table~\ref{tab:mean_phi_p2_by_lamp_type} shows 
 average exergy-to-energy ratios~($\bar{\phi}_{L,pl}$)
 by lighting technology.
