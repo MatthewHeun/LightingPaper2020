@@ -14,7 +14,7 @@ phi_table <- as.data.frame(t(phi_table[,-1]))
 colnames(phi_table) <- info_phi_colnames
 
 # Re-orders columns
-phi_table <- phi_table[,c(4,2,3,6,1,5)]
+phi_table <- phi_table[,c("INC","HAL","CFL","LED","MH","HPS")]
 
 # Re-orders rows
 phi_table <- phi_table[c("mean_phi_p2","sd_phi_p2","count"), ]

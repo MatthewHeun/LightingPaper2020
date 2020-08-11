@@ -14,7 +14,7 @@ conversion_table <- as.data.frame(t(conversion_table[,-1]))
 colnames(conversion_table) <- info_ct_colnames
 
 # Re-orders columns
-conversion_table <- conversion_table[,c(4,2,3,6,1,5)]
+conversion_table <- conversion_table[,c("INC","HAL","CFL","LED","MH","HPS")]
 
 # Re-orders rows
 conversion_table <- conversion_table[c("mean_conv","sd_conv","count"), ]
@@ -25,3 +25,4 @@ conversion_table <- magrittr::set_rownames(conversion_table,
                                             c("Mean conversion factor ($\\gammaratavg{}$)", 
                                               "Standard deviation ($\\sigma_{\\gammarat}$)",
                                               "Sample size"))  
+
