@@ -41,7 +41,7 @@ library(xtable)
 <<setup-graphs, include=FALSE>>=
 # This variable switches the cache on/off for all R code chunks that are configured for cacheing.
 # Set to FALSE if some plots are not updating as expected, then set back to TRUE.
-use_cache <- TRUE
+use_cache <- FALSE
 
 # Here are some options for the colors to use in the ggspectra graphs.
 # The variable chroma_type is used in all graphs,
@@ -2328,7 +2328,7 @@ All authors have read and agreed to the published version of the manuscript.}
 funded by the UK's Engineering and Physical Sciences Research Council (EPSRC) 
 fellowship grant RG.EVEA.112727.001.
 Emmanuel Aramendia's time was funded by ******.
-Matthew K. Heun has no funding to declare.
+Matthew Kuperus Heun has no funding to declare.
 }
 
 
