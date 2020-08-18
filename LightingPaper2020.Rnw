@@ -331,7 +331,7 @@ enabling activities at times when natural light levels are insufficient.
 Illumination is so valuable that around 20~\% of global grid-connected electricity 
 is consumed for the purpose of making artificial light~\cite{waide2006}.
 With the breakthrough technology of light emitting diode (LED) lamps,
-which now comprise 40~\% of residential lamp sales~\cite{IEA2019},
+which now comprise over 40~\% of lamp sales~\cite{IEA2020},
 applications of artificial lighting have spread beyond illumination to many other fields
 including human physiology and photosynthesis for horticulture~\cite{Pattison2018LEDefficacy}.
 Given the expanding role that artificial lighting plays globally,
