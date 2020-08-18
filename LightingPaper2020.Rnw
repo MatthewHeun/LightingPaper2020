@@ -355,11 +355,11 @@ the focus of this article.
 Ahead of a detailed treatment of the thermodynamics of light in Section~\ref{sec:framework}
 we set out here two fundamental aspects of lighting. 
 The first aspect is clear definitions of electromagnetic~(EM) energy and light.
-EM energy~($E_{EM}$, in J) is broad-spectrum EM radiation
+EM energy~($E$, in J) is broad-spectrum EM radiation
 quantified by the energy of photons via Einstein's equation,
 %
 \begin{equation}
-  E_{EM} = h \nu = \frac{hc}{\lambda} \; ,
+  E = h \nu = \frac{hc}{\lambda} \; ,
 \end{equation}
 %
 where 
@@ -399,7 +399,7 @@ response_data <- weighted_responses_df %>%
 @
 
 
-<<Vis_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="Normalized sensitivity and color perception of the human eye to EM radiation~\\cite{schubert2006}, according to the photopic luminous weighting function~($V_\\lambda$).">>=
+<<Vis_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="Normalized sensitivity and color perception of the human eye to EM radiation~\\cite{schubert2006}, according to the photopic luminous weighting function~($V_\\lambda$). 555~nm is the wavelength of peak human eye visibility, \\humaneyesensitivity{} is the range of human eye sensitivity, and 250~nm < $\\lambda$ < 900~nm is the range of data availability for lamp spectral power distributions (SPDs) in the Light Spectral Power Distribution Database (LSPDD)~\\citep{Roby, miguel2017, aube2013}.">>=
 response_data %>% 
   dplyr::filter(wf_name == "Photopic") %>% 
   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>% 
