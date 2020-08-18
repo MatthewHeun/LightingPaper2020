@@ -246,7 +246,7 @@ supplied to modern economies.
 In societal exergy analysis, 
 the exergetic efficiency of electric lamps is central to
 determining the exergy contribution of lighting to an economy.
-Conventionally, societal exergy analysts estimate the exergetic efficiency of lamps 
+Conventionally, societal exergy practitioners estimate the exergetic efficiency of lamps 
 by an energy efficiency, 
 causing confusion and, sometimes, mistakes.
 In response, 
@@ -262,7 +262,7 @@ which converts broad-spectrum electromagnetic radiation to light.
 The exact method exposes shortcomings inherent to the conventional method and 
 leads to a reasonable approximation of lamp exergetic efficiency, when needed.
 To conclude, we provide three recommendations 
-for societal exergy analysts: use
+for societal exergy practitioners: use
 (a)~the exact method when a lamp's spectral power distribution is available, 
 (b)~the universal luminous weighting function, and
 (c)~the reasonable approximation to the exact method 
@@ -400,7 +400,7 @@ response_data <- weighted_responses_df %>%
 @
 
 
-<<Vis_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="Normalized sensitivity and color perception of the human eye to EM radiation~\\cite{schubert2006}, according to the photopic luminous weighting function~($V_\\lambda$). 555~nm is the wavelength of peak human eye visibility, \\humaneyesensitivity{} is the range of human retina sensitivity, and 250~nm < $\\lambda$ < 900~nm is the range of data availability for lamp spectral power distributions (SPDs) in the Light Spectral Power Distribution Database (LSPDD)~\\citep{Roby, miguel2017, aube2013}.">>=
+<<Vis_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="Normalized sensitivity and color perception of the human eye to EM radiation~\\cite{schubert2006}, according to the photopic luminous weighting function~($V_\\lambda$).  This figure and Figure~\\ref{fig:wfs_and_lamps} utilize the CIE 10 degree color matching function provided in the \\texttt{R} package \\texttt{ggspectra}~\\cite{Aphalo2015}. 555~nm is the wavelength of peak human eye visibility, \\humaneyesensitivity{} is the range of human retina sensitivity, and 250~nm < $\\lambda$ < 900~nm is the range of data availability for lamp spectral power distributions (SPDs) in the Light Spectral Power Distribution Database (LSPDD)~\\citep{Roby, miguel2017, aube2013}.">>=
 response_data %>% 
   dplyr::filter(wf_name == "Photopic") %>% 
   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>% 
@@ -539,7 +539,7 @@ societal exergy analysis is hampered when
 ``the useful output cannot or is not
 typically measured in energy units''~\cite[p.~17]{Sousa2017},
 as is the case with lighting.
-Indeed, societal exergy analysts 
+Indeed, societal exergy practitioners 
 need the valuable energy and exergetic efficiencies 
 of lamps~($\eta_{E,L,v}$ and $\eta_{X,L,v}$), 
 but lighting efficiencies are given in 
@@ -547,7 +547,7 @@ terms of luminous efficacy~($K$).
 Thus, the widespread use of luminous efficacy~($K$) as a measure of lamp efficiency 
 provides a burden to societal exergy analysis.
 
-Conventionally, societal exergy analysts solve this problem by estimating
+Conventionally, societal exergy practitioners solve this problem by estimating
 the valuable~($v$) exergetic~($X$) efficiency~($\eta$) of lighting~($L$) by the ratio of
 the minimum energy required to produce a given output and
 the actual energy required to produce the same given output, 
@@ -1227,7 +1227,7 @@ to enable example calculations.
 (See Section~\ref{sec:results}.)
 
 The first luminous weighting function option is degenerate: 
-the analyst could decide to ignore the nuances of human visual perception altogether,
+the practitioner could decide to ignore the nuances of human visual perception altogether,
 implicitly assuming that all EM radiation emitted from a lamp counts as light, 
 whether or not it is within the visible portion of the EM spectrum.
 For the first option, the degenerate (unweighted, uw) 
@@ -1237,11 +1237,11 @@ luminous weighting function ($f_{\lambda,uw}$) is
   f_{\lambda,uw} = 1 \; .
 \end{equation}
 
-Second, the analyst could 
+Second, the practitioner could 
 deem a lamp's EM radiation to be useful if and only if it \emph{could}
 stimulate photoreceptive cells in the human eye,
 regardless of the spectral sensitivity of those cells.
-In the second option, the analyst excludes wavelengths outside the range of perception by the human eye
+In the second option, the practitioner excludes wavelengths outside the range of perception by the human eye
 when determining the \enoex{} of light.
 For the second option (visible, vis),
 %
@@ -1256,7 +1256,9 @@ f_{\lambda,vis} =
 
 But the human eye is spectrally sensitive to EM radiation, 
 with peak sensitivity at 555~nm (green)
-and lesser sensitivities at both longer (redder) and shorter (bluer) wavelengths.
+and lesser sensitivities at both 
+longer (redder, $\lambda > \; \sim{}620 \text{ nm}$) and
+shorter (bluer, $\lambda < \; \sim{}450 \text{ nm}$) wavelengths.
 A third option weights a lamp's emitted EM radiation 
 by the photopic sensitivity of the human eye.
 The photopic luminous~(pl) weighting function~($V_\lambda$) describes this sensitivity, 
@@ -1801,7 +1803,7 @@ valuable exergetic efficiency for the conventional method:
 With recent advances in photometry and the thermodynamics of radiation 
 (Section~\ref{sec:phi_light}),
 it is now possible to determine the energy and exergy of light exactly, 
-thereby relieving societal exergy analysts
+thereby relieving societal exergy practitioners
 of the need to estimate exergetic efficiency
 by the quotient of
 the minimum energy required to produce a lumen and
@@ -1873,7 +1875,7 @@ The above comparison between the conventional method (Section~\ref{sec:previous_
 the exact method (Section~\ref{sec:framework})
 raises three implications for societal exergy analysis.
 First, with the conventional method, 
-the analyst is required to select a value for maximum luminous efficacy ($K_{max}$), 
+the practitioner is required to select a value for maximum luminous efficacy ($K_{max}$), 
 the denominator of Equation~\ref{eq:K_over_e_max}.
 The choice of $K_{max}$ can make a significant difference to the results.
 The correct value for $K_{max}$ is 683~lm/W,
@@ -1892,7 +1894,7 @@ $\frac{\Sexpr{correct_eff} \text{ lm/W}}{\Sexpr{wrong_eff_400} \text{ lm/W}}
 respectively.
 
 Second, to obtain the correct exergetic efficiency of lighting, 
-analysts must reject the conventional method assumption that $\phi_{L,\lambda} = 1$.
+practitioners must reject the conventional method assumption that $\phi_{L,\lambda} = 1$.
 Recent progress in the exergy of radiation literature enables this rejection, 
 following the methods of Section~\ref{sec:phi_light}.
 Specifically, the spectral exergy-to-energy ratio of light ($\phi_{L,\lambda}$)
@@ -1901,7 +1903,7 @@ We note, however, that $\phi_{L,\lambda}$ is close to~1 for all wavelengths of i
 Happily, the conventional method was not far wrong.
 
 Third, in the conventional method, 
-the analyst is required to use the photopic luminous weighting function~($V_\lambda$)
+the practitioner is required to use the photopic luminous weighting function~($V_\lambda$)
 for the spectral luminous weighting function~($f_\lambda$).
 However, it is not certain that the photopic luminous weighting function
 is the best choice.
@@ -1915,7 +1917,7 @@ with the universal luminous weighting function~($U_\lambda$).
 \label{sec:recommendations}
 %++++++++++++++++++++++++++++++
 
-We provide three recommendations for societal exergy analysts:
+We provide three recommendations for societal exergy practitioners:
 %
 \begin{enumerate*}[label={(\alph*)}]
 	
@@ -1970,9 +1972,6 @@ when the purpose of lamps is illumination.
 For the application of illumination, 
 we note that human perception of light and color diminishes rapidly above 700~nm,
 as shown by Figure~\ref{fig:wfs_and_lamps}.
-(Figure~\ref{fig:wfs_and_lamps}  
-utilizes the CIE 10 degree color matching function 
-provided in the \texttt{R} package \texttt{ggspectra}~\cite{Aphalo2015}.)
 This decline in human eye sensitivity toward the infra-red region
 is captured well by the photopic luminous weighting function~($V_\lambda$).
 
@@ -1990,7 +1989,7 @@ when it applies the conventional method for calculating the exergetic efficiency
 (See Section~\ref{sec:previous_approach}.)
 For lamps whose purpose is illumination, 
 we believe that the universal luminous weighting function ($U_\lambda$)
-is more appropriate.
+is most appropriate.
 (See also \citet{Rea2018}.)
 We provide three arguments in support of this recommendation.
 
@@ -2021,17 +2020,23 @@ uses the photopic luminous weighting function~($V_\lambda$).
 This state of affairs could encourage lighting manufacturers to reduce short wavelength
 output of lamps, even when short wavelength EM radiation would 
 provide physiological benefits.
-Adopting the universal luminous weighting function~($U_\lambda$) will encourage manufacturers to include 
-blue spikes in lamp designs.
+% Adopting the universal luminous weighting function~($U_\lambda$) will encourage manufacturers to include 
+% blue spikes in lamp designs.
+Adopting the universal luminous weighting function will alleviate 
+the need for manufacturers to produce blue spikes
+of the minimum power possible, 
+providing a greater range of options for the design 
+of SPDs for lamps that produce white light.
 
 The conventional method for estimating lamp efficiency
-requires the use of the photopic luminous weighting function and cannot do any different.
+is bound by the use of the photopic luminous weighting function.
 However, a switch away from the photopic luminous weighting function~($V_\lambda$)
 toward the universal luminous weighting function~($U_\lambda$) is
 made possible by the exact method described in Section~\ref{sec:framework},
 so long as SPD data are available.
 In the absence of SPD data, 
-we recommend that an approximate method can be used, as discussed in the next section.
+we recommend that an approximate method can be used, 
+as set out in the next section.
 
 
 %------------------------------
@@ -2044,7 +2049,7 @@ but it produces energy efficiency (instead of exergetic efficiency)
 while requiring the use of photopic luminous weighting function~($\eta_{E,pl}$).
 In contrast, we recommend that,
 in the absence of SPD data,
-societal exergy analysts
+societal exergy practitioners
 calculate exergetic efficiency 
 with the universal luminous weighting function~($\eta_{X,univ}$).
 Thus, our third recommendation is for an approximate method to determine 
@@ -2057,8 +2062,8 @@ for development of the approximate method.
 We suggest the following two-step process:  
 using the conventional method as a starting point,
 %
-\begin{enumerate*}[label={(\alph*)}]
-	
+\begin{enumerate}
+
   \item move from valuable energy efficiency~($\eta_{E,pl}$)
         to valuable exergetic efficiency ($\eta_{X,pl}$)
         using an average exergy-to-energy ratio~($\bar{\phi}_{L,pl}$) and 
@@ -2066,8 +2071,8 @@ using the conventional method as a starting point,
   \item move from valuable exergetic efficiency determined with the photopic luminous weighting function~($\eta_{X,pl}$)
         to valuable exergetic efficiency determined with the universal luminous weighting function~($\eta_{X,univ}$)
         using an average ratio between those efficiencies ($\gammaratavg{}$).
-    
-\end{enumerate*}
+
+\end{enumerate}
 
 
 <<Conversion_Calcs, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/univ_conversion.R')>>=
@@ -2102,6 +2107,11 @@ phi_sd <- overall_phi$phi_sd
 phi_and_gammaX_factor <- conversionX_mean * phi_mean
 @
 
+
+%..............................
+\paragraph{Estimating the average exergy-to-energy ratio~($\bar{\phi}_{L,pl}$)} 
+%..............................
+
 We calculated the exergy-to-energy ratio for a sample of lamps from the LSPDD \cite{aube2013}
 using Equation~\ref{eq:phi_L} with $f_\lambda = V_\lambda$. 
 (The sample consists of \Sexpr{conversion_count} lamp SPDs representing six technologies: 
@@ -2111,6 +2121,11 @@ $\bar{\phi}_{L,pl} = \Sexpr{format(round(phi_mean, 3), nsmall = 3)}$
 with a remarkably small standard deviation of $\sigma_{\phi_{L,pl}} = \Sexpr{format(round(phi_sd, 5), nsmall = 5)}$.
 Average exergy-to-energy ratios~($\bar{\phi}_{L,pl}$) by lamp technology
 are given in Table~\ref{tab:mean_phi_p2_by_lamp_type} in the appendix.
+
+
+%..............................
+\paragraph{Estimating the average photopic-to-universal conversion factor~($\gammaratavg{}$)} 
+%..............................
 
 Similarly, we obtained $\gammarat{}$ for each lamp~($i$) by taking the quotient of efficiencies:
 %
@@ -2127,6 +2142,11 @@ was $\gammaratavg{} = \Sexpr{format(round(conversionX_mean, 2), nsmall = 2)}$,
 with a small standard deviation of $\sigma_{\gammarat{}} = \Sexpr{format(round(conversionX_sd, 3), nsmall = 3)}$.
 Average photopic-to-universal conversion factors~($\gammaratavg{}$) by lamp technology
 are given in Table~\ref{tab:conversionfactors} in the appendix.
+
+
+%..............................
+\paragraph{Implementing the approximate method} 
+%..............................
 
 The approximate method for determining the valuable exergetic efficiency of a lamp
 is implemented by the following equation
@@ -2197,7 +2217,7 @@ print(xtable::xtable(results_cea_table, digits=2,
 %++++++++++++++++++++++++++++++
 
 Societal exergy analyses are normally conducted at the sectoral or economy-wide scale, 
-so analysts must weight per-lamp-technology efficiencies
+so practitioners must weight per-lamp-technology efficiencies
 by each technology's usage fraction.
 Two types of data are required for a given period of interest, typically a year:
 %
@@ -2224,7 +2244,7 @@ into valuable exergetic efficiencies by the approximate method.
 Importantly, data for the usage proportion for each lamp technology~($\theta_i$)
 for each year of the study are needed,
 ideally in the form of the fraction of lighting electricity consumed by each lamp type.
-Such data (and luminous efficacy values, $K_i$)
+For example, such data (and luminous efficacy values, $K_i$)
 are provided by the US DOE's Lighting Market Characterization reports \citep{DOE2002, DOE2012, DOE2017}
 for the USA for the following lamp technologies: incandescent, halogen, compact fluorescent,
 linear fluorescent, high intensity discharge, LED, and other.
@@ -2255,8 +2275,7 @@ When SPDs are not available, the approximate method can be used as follows:
 
 Several recent developments in the 
 fields of photometry and radiation thermodynamics
-(Petela's equation;
-the spectral exergy-to-energy ratio, $\phi_{L,\lambda}$; and 
+(the spectral exergy-to-energy ratio, $\phi_{L,\lambda}$; and 
 the photon effective temperature, $T_\lambda$) 
 have enabled
 a re-evaluation of the exergy of light and the exergetic efficiency of electric lamps
@@ -2274,7 +2293,7 @@ We showed that the exact method
 	
   \item is free of any assumptions for the maximum luminous efficacy ($K_{max}$),
   
-  \item uses the correct spectral exergy-to-energy ratio~($\phi_{L,\lambda}$), and
+  \item uses a spectral exergy-to-energy ratio~($\phi_{L,\lambda}$), and
   
   \item allows choices for the spectral luminous weighting function ($f_\lambda$).
     
@@ -2288,7 +2307,7 @@ involving surprisingly stable values
 of the exergy-to-energy ratio~($\phi_L$) and 
 the photopic-to-universal factor~($\gammarat{}$)
 across lighting technologies.
-Finally, we provided recommendations for societal exergy analysts, namely to
+Finally, we provided recommendations for societal exergy practitioners, namely to
 %
 \begin{enumerate*}[label={(\alph*)}]
 	
