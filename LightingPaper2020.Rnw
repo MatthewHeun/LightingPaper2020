@@ -2356,7 +2356,9 @@ Future work could include
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\supplementary{The following are available online at \url{https://doi.org/10.5518/865}~\cite{heun2020}:
+\supplementary{The following are available online at \url{https://doi.org/10.5518/865}~\cite{heun2020}
+**** URL has been reserved and 
+will be activated by University of Leeds upon acceptance for publication ****:
 sources for the luminous efficacy values in Figure~\ref{fig:LuminousEfficacy_Graph}, 
 sources for the weighting functions and SPDs displayed in Figure~\ref{fig:wfs_and_lamps}, 
 instructions and R code for reproducing the metrics and figures in this paper, and
