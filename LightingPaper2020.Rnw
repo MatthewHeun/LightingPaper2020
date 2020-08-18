@@ -399,7 +399,7 @@ response_data <- weighted_responses_df %>%
 @
 
 
-<<Vis_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="Normalized sensitivity and color perception of the human eye to EM radiation~\\cite{schubert2006}, according to the photopic luminous weighting function~($V_\\lambda$). 555~nm is the wavelength of peak human eye visibility, \\humaneyesensitivity{} is the range of human eye sensitivity, and 250~nm < $\\lambda$ < 900~nm is the range of data availability for lamp spectral power distributions (SPDs) in the Light Spectral Power Distribution Database (LSPDD)~\\citep{Roby, miguel2017, aube2013}.">>=
+<<Vis_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="Normalized sensitivity and color perception of the human eye to EM radiation~\\cite{schubert2006}, according to the photopic luminous weighting function~($V_\\lambda$). 555~nm is the wavelength of peak human eye visibility, \\humaneyesensitivity{} is the range of human retina sensitivity, and 250~nm < $\\lambda$ < 900~nm is the range of data availability for lamp spectral power distributions (SPDs) in the Light Spectral Power Distribution Database (LSPDD)~\\citep{Roby, miguel2017, aube2013}.">>=
 response_data %>% 
   dplyr::filter(wf_name == "Photopic") %>% 
   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>% 
@@ -452,19 +452,20 @@ supplied to modern economies, so
 an essential metric for societal exergy analysis
 is the efficiency with which
 electricity (final stage) is converted to light (useful stage) by lamps.
-Thus, the efficiency of energy and exergy conversion~($\eta$) from electricity
-to light by electric lamps is the focus of this article.
+Thus, the efficiency of energy and exergy conversion from electricity
+to light by electric lamps~($\eta_E$ and $\eta_X$, respectively)
+is the focus of this article.
 Note that both energy services (e.g., illumination) and satisfaction of human needs
 (e.g., comfort, safety, etc.) are downstream of the useful stage 
 and thus outside of scope.
 
 
 %++++++++++++++++++++++++++++++
-\subsection{The conventional method and issues arising}
+\subsection{The conventional method and the thorny issue of luminous efficacy}
 \label{sec:conventional_method}
 %++++++++++++++++++++++++++++++
 
-Valuable energy conversion efficiency ($\eta_v$)
+The valuable \enoex{} conversion efficiency ($\eta_v$)
 is defined in simple terms as
 %
 \begin{equation} \label{eq:eta_basic_eqn}
@@ -478,21 +479,19 @@ an exergy efficiency is obtained~($\eta_{X,v}$).
 
 But light (the valuable output) is rarely quantified in energy terms
 and almost never in exergy terms.
-Instead, light is quantified in lumens.
+Instead, light is quantified in lumens~(lm).
 Indeed, a common interpretation of Equation~\ref{eq:eta_basic_eqn} uses
-light (in lm) as the valuable output in the numerator and electricity (in W) as the energy input in the denominator
+light (in lm) as the valuable output in the numerator and 
+electricity (in watts, W) as the energy input in the denominator
 to obtain luminous efficacy ($K$, in lm/W).
 In fact, most lamps are rated and advertised by their lumen output and their luminous efficacy~($K$).
 Figure~\ref{fig:LuminousEfficacy_Graph} shows the evolution over time 
 of luminous efficacy for four lamp technologies.
-Practitioners
-**** 
-PB: is there a better word than ``practitioners''?
-Maybe ``Analysts''?---MKH
-****
-who use luminous efficacy as a lamp efficiency metric include \citet{Nordhaus1996} 
-and \citet[p.~265]{Tsao2010appetitelight}, who state 
-``[l]uminous efficacy represents the efficiency with which energy is used to produce visible light.''
+Practitioners who use luminous efficacy 
+as a lamp efficiency metric include \citet{Nordhaus1996} 
+and \citeauthor{Tsao2010appetitelight}, who state 
+``[l]uminous efficacy represents the efficiency 
+with which energy is used to produce visible light''~\citep[p.~265]{Tsao2010appetitelight}
 
 
 <<Load_LEData, cache=use_cache, cache.extra.1=tools::md5sum('Data/Lighting_Efficacy_Data.xlsx'), cache.extra.2=tools::md5sum('Data/lighting_efficacy.R')>>=
@@ -500,7 +499,7 @@ and \citet[p.~265]{Tsao2010appetitelight}, who state
 source(file = file.path("Data", "lighting_efficacy.R"))
 @
 
-<<LuminousEfficacy_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 4, fig.cap = "The luminous efficacy of selected lamp technologies from 1880 to 2020. Data were obtained from three sources: the Museum of Electric Lamp Technology (LampTech)~\\cite{hooker_2020}, the ENERGYSTAR database of certified lamps~\\cite{energystar_2020}, and the lighting market characterization reports commissioned by the US Department of Energy (DOE)~\\cite{DOE2002, DOE2012, DOE2017}." >>=
+<<LuminousEfficacy_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 4, fig.cap = "The luminous efficacy of selected lamp technologies from 1880 to 2020. Data were obtained from three sources: the Museum of Electric Lamp Technology (LampTech)~\\cite{hooker_2020}, the ENERGYSTAR database of certified lamps~\\cite{energystar_2020}, and the Lighting Market Characterization Reports commissioned by the US Department of Energy (DOE)~\\cite{DOE2002, DOE2012, DOE2017}. Triangles indicate lamps used as examples in this paper." >>=
 le_df$Selected <- ifelse(le_df$Type == "LSPDD", "Selected lamps", "Other")
 
 le_df_filtered <- le_df %>% 
@@ -512,16 +511,16 @@ ggplot2::ggplot(le_df_filtered, mapping = aes(x = Year)) +
   geom_point(mapping = aes(y = `Luminous Efficacy [lm/W]`, 
                            colour = Technology, 
                            shape = Selected)) +
-  ggrepel::geom_text_repel(data = textdf, 
-                           mapping = aes(x = Year, y = `Luminous Efficacy [lm/W]`, label = Device), 
-                           size = 3, # Size of text label
-                           segment.size = 0.2, # Width of line
-                           arrow = arrow(length = unit(0.01, "npc")),
-                           box.padding = unit(0.2, "lines"),
-                           point.padding = unit(0.3, "lines"),
-                           nudge_x = -70,
-                           nudge_y = +70, 
-                           colour = "gray50") + 
+  # ggrepel::geom_text_repel(data = textdf, 
+  #                          mapping = aes(x = Year, y = `Luminous Efficacy [lm/W]`, label = Device), 
+  #                          size = 3, # Size of text label
+  #                          segment.size = 0.2, # Width of line
+  #                          arrow = arrow(length = unit(0.01, "npc")),
+  #                          box.padding = unit(0.2, "lines"),
+  #                          point.padding = unit(0.3, "lines"),
+  #                          nudge_x = -70,
+  #                          nudge_y = +70, 
+  #                          colour = "gray50") + 
   
   MKHthemes::xy_theme() +
   theme(legend.position = "bottom", legend.box="vertical",
