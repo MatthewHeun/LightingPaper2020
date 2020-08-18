@@ -2383,8 +2383,7 @@ All authors have read and agreed to the published version of the manuscript.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \funding{Zeke Marshall's and Paul E. Brockway time was 
-funded by the UK's Engineering and Physical Sciences Research Council (EPSRC) 
-fellowship grant RG.EVEA.112727.001.
+funded by the UK Research Council under EPSRC Fellowship award EP/R024254/1.
 Emmanuel Aramendia's time was funded by the University of Leeds (School of Earth and Environment).
 Matthew Kuperus Heun has no funding to declare.
 }
