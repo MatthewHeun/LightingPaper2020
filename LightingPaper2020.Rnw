@@ -510,8 +510,8 @@ ggplot2::ggplot(le_df_filtered, mapping = aes(x = Year)) +
                            arrow = arrow(length = unit(0.01, "npc")),
                            box.padding = unit(0.2, "lines"),
                            point.padding = unit(0.3, "lines"),
-                           nudge_x = -72.5,
-                           nudge_y = 0, 
+                           nudge_x = -70,
+                           nudge_y = +70, 
                            colour = "gray50") + 
   
   MKHthemes::xy_theme() +
