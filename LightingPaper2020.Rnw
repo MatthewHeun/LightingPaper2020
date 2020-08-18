@@ -429,6 +429,14 @@ modern lighting is provided via an energy conversion chain:
 primary energy (e.g., coal) is converted to
 final energy (electricity, measured in W) and lastly to
 useful energy (visible light, measured in lumens, lm).
+Furthermore, the useful energy in light must undergo a `quality adjustment` to exergy,
+as radiation contains not only energy, but entropy, 
+which renders a portion of the energy in light unavailable for work. 
+In this regard \citeauthor{Delgado-Bonal:2017aa} has importantly demonstrated that 
+the human eye's peak sensitivity is more closely correlated 
+with a quality-adjusted measure of light, as opposed to simply energy.
+This emphasizes the importance of moving from energy to exergy.
+
 The field of societal exergy analysis evaluates entire energy conversion chains
 at regional, national, or world levels in exergy terms and
 considers light (and many other useful energy products)
@@ -1039,7 +1047,7 @@ enable converting the energy of EM radiation~($\dot{E}_{EM}$)
 into the exergy of EM radiation~($\dot{X}_{EM}$)~\cite{Shan2019}.
 The exergy-to-energy ratio of EM radiation
 ($\phi_{\EM}$, called the ``radiative exergy-energy coefficient'' in that community)
-is given by Petela's Equation~\cite{petela1964exergy}:
+is most commonly given by Petela's Equation~\cite{petela1964exergy, Delgado-Bonal:2017aa, Shan2019}:
 %
 \begin{equation} \label{eq:petelas_equation}
  \phi_{\EM} = 1 - \frac{4}{3}\frac{T_{0}}{T_{1}} + \frac{1}{3} \left(\frac{T_{0}}{T_{1}}\right)^4 \; ,
