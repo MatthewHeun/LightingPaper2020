@@ -327,8 +327,8 @@ for societal exergy analysts: use
 
 Artificial light provides an indispensable energy service (illumination), 
 enabling activities at times when natural light levels are insufficient.
-Artificial illumination is so valuable that around 20~\% of global grid-connected electricity 
-is consumed for the purpose of making light~\cite{waide2006}.
+Illumination is so valuable that around 20~\% of global grid-connected electricity 
+is consumed for the purpose of making artificial light~\cite{waide2006}.
 With the breakthrough technology of light emitting diode (LED) lamps,
 which now comprise 40~\% of residential lamp sales~\cite{IEA2019},
 applications of artificial lighting have spread beyond illumination to many other fields
