@@ -367,10 +367,10 @@ where
 $h$ is Planck's constant ($6.626 \times 10^{-34} \text{ J-s}$), 
 $\nu$ is frequency (in 1/s),
 $c$ is the speed of light (in m/s), and
-$\lambda$ is wavelength (in nm).
+$\lambda$ is wavelength (in m).
 The human retina responds to a narrow wavelength range of EM radiation
 (\humaneyesensitivity{}).
-Thus, light is EM radiation within that narrow wavelength range~\cite{campbell2017}, 
+Thus, light is EM radiation within that narrow wavelength band~\cite{campbell2017}, 
 weighted by the eye's spectral (i.e., wavelength-specific) sensitivity.
 (See Figure~\ref{fig:Vis_Graph}.)
 
@@ -400,7 +400,7 @@ response_data <- weighted_responses_df %>%
 @
 
 
-<<Vis_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="Normalized sensitivity and color perception of the human eye to EM radiation~\\cite{schubert2006}, according to the photopic luminous weighting function~($V_\\lambda$).  This figure and Figure~\\ref{fig:wfs_and_lamps} utilize the CIE 10 degree color matching function provided in the \\texttt{R} package \\texttt{ggspectra}~\\cite{Aphalo2015}. 555~nm is the wavelength of peak human eye visibility, \\humaneyesensitivity{} is the range of human retina sensitivity, and 250~nm < $\\lambda$ < 900~nm is the range of data availability for lamp spectral power distributions (SPDs) in the Light Spectral Power Distribution Database (LSPDD)~\\citep{Roby, miguel2017, aube2013}.">>=
+<<Vis_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="Normalized sensitivity and color perception of the human eye to EM radiation~\\cite{schubert2006}, according to the photopic luminous weighting function~($V_\\lambda$).  This figure and Figure~\\ref{fig:wfs_and_lamps} below utilize the CIE 10 degree color matching function provided in the \\texttt{R} package \\texttt{ggspectra}~\\cite{Aphalo2015}. 555~nm is the wavelength of peak human eye visibility, \\humaneyesensitivity{} is the range of human retina sensitivity, and 250~nm < $\\lambda$ < 900~nm is the range of data availability for lamp spectral power distributions (SPDs) in the Light Spectral Power Distribution Database (LSPDD)~\\citep{Roby, miguel2017, aube2013}.">>=
 response_data %>% 
   dplyr::filter(wf_name == "Photopic") %>% 
   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>% 
@@ -429,16 +429,8 @@ response_data %>%
 The second aspect is to note that 
 modern lighting is provided via an energy conversion chain:
 primary energy (e.g., coal) is converted to
-final energy (electricity, measured in W) and lastly to
+final energy (electricity, measured in watts, W) and lastly to
 useful energy (visible light, measured in lumens, lm).
-Furthermore, the useful energy in light must undergo a `quality adjustment` to exergy,
-as radiation contains not only energy, but entropy, 
-which renders a portion of the energy in light unavailable for work. 
-In this regard \citeauthor{Delgado-Bonal:2017aa} has importantly demonstrated that 
-the human eye's peak sensitivity is more closely correlated 
-with a quality-adjusted measure of light, as opposed to simply energy.
-This emphasizes the importance of moving from energy to exergy.
-
 The field of societal exergy analysis evaluates entire energy conversion chains
 at regional, national, or world levels in exergy terms and
 considers light (and many other useful energy products)
@@ -473,17 +465,17 @@ is defined in simple terms as
  \eta_v = \frac{\text{valuable output}}{\text{energy input}} \; .
 \end{equation}
 %
-When the numerator and denominator are both quantified in energy terms,
+When the numerator and denominator are quantified in energy terms,
 an energy efficiency is obtained~($\eta_{E,v}$).
-When the numerator and denominator are quantified by exergy,
-an exergy efficiency is obtained~($\eta_{X,v}$).
+When the numerator and denominator are quantified in exergy terms,
+an exergetic efficiency is obtained~($\eta_{X,v}$).
 
 But light (the valuable output) is rarely quantified in energy terms
 and almost never in exergy terms.
 Instead, light is quantified in lumens~(lm).
 Indeed, a common interpretation of Equation~\ref{eq:eta_basic_eqn} uses
 light (in lm) as the valuable output in the numerator and 
-electricity (in watts, W) as the energy input in the denominator
+electricity (in W) as the energy input in the denominator
 to obtain luminous efficacy ($K$, in lm/W).
 In fact, most lamps are rated and advertised by their lumen output and their luminous efficacy~($K$).
 Figure~\ref{fig:LuminousEfficacy_Graph} shows the evolution over time 
@@ -492,7 +484,7 @@ Practitioners who use luminous efficacy
 as a lamp efficiency metric include \citet{Nordhaus1996} 
 and \citeauthor{Tsao2010appetitelight}, who state 
 ``[l]uminous efficacy represents the efficiency 
-with which energy is used to produce visible light''~\citep[p.~265]{Tsao2010appetitelight}
+with which energy is used to produce visible light''~\citep[p.~265]{Tsao2010appetitelight}.
 
 
 <<Load_LEData, cache=use_cache, cache.extra.1=tools::md5sum('Data/Lighting_Efficacy_Data.xlsx'), cache.extra.2=tools::md5sum('Data/lighting_efficacy.R')>>=
@@ -534,7 +526,7 @@ ggplot2::ggplot(le_df_filtered, mapping = aes(x = Year)) +
   guides(shape = FALSE)
 @
 
-\citeauthor{Sousa2017} notes that 
+\citeauthor{Sousa2017} note that 
 societal exergy analysis is hampered when 
 ``the useful output cannot or is not
 typically measured in energy units''~\cite[p.~17]{Sousa2017},
@@ -587,7 +579,7 @@ green light at 555~nm, respectively.
 \citeauthor{Paoli2020} estimated 
 the practical upper limit for the luminous efficacy of an LED lamp to be 284--350~lm/W,
 when considering all stages of energy loss~\citep{Paoli2020}.
-Figure~\ref{fig:LuminousEfficacy_Graph} shows this limit is within reach
+Figure~\ref{fig:LuminousEfficacy_Graph} shows that the \citeauthor{Paoli2020} limit is within reach,
 due to the rapid improvement in luminous efficacies for LED technology.
 The development of LED technology is following Haitz's law, 
 which predicts that ``[e]very decade, for a given wavelength of light, 
@@ -702,8 +694,8 @@ Energy and exergy are two ways to quantify the physical property that,
 when transferred to an object,
 changes its temperature or performs work on it.
 (In this section, we can't call the ``physical property'' energy, exergy, work, or heat,
-because these concepts need to remain separated. 
-So, we use the generic term ``physical property.'')
+because these concepts must remain apart,
+so we use the generic term ``physical property.'')
 We discuss energy and exergy quantifications of the physical property in the sections below, 
 beginning with heat and work, 
 the concepts for which \enaex{} originated.
@@ -801,7 +793,6 @@ The exergy of each stream in Figure~\ref{fig:heat_engine} is then
   \dot{X}_3 = \cancelto{1}{\phi_3} \dot{W}_3 = \dot{W}_3 \; .
 \end{equation}
 
-
 In this context, the Carnot efficiency~($\eta_C$) becomes the exergy-to-energy ratio
 for heat streams ($\phi_Q = \eta_C$).
 The exergy-to-energy ratio for work is $\phi_3 = \phi_W = 1$, 
@@ -809,6 +800,15 @@ because work is pure exergy.
 (The exergy-to-energy ratio, $\phi$,
 is exergy divided by energy at a statepoint.
 E.g., $\phi_1 = \dot{X}_1 / \dot{E}_1$.)
+
+Furthermore, the useful energy in light must undergo a `quality adjustment` to exergy,
+as radiation contains not only energy, but entropy, 
+which renders a portion of the energy in light unavailable for work. 
+In this regard \citeauthor{Delgado-Bonal:2017aa} has importantly demonstrated that 
+the human eye's peak sensitivity is more closely correlated 
+with a quality-adjusted measure of light, as opposed to simply energy.
+This emphasizes the importance of moving from energy to exergy.
+
 
 The exergy efficiency of an energy conversion device 
 is defined as $\eta_X \equiv \frac{\text{exergy out}}{\text{exergy in}}$.
@@ -1092,8 +1092,11 @@ a blackbody absorber~(at $T_0$).
 To determine $\phi_{\EM}$ for an emitter that is a non-blackbody lamp,
 the spectral exergy-to-energy ratio ($\phi_{\EM,\lambda}$),
 must be calculated.
-An effective temperature of light photons~\cite{chen2008} ($T_\lambda$) 
-provides the link between Petela's equation (Equation~\ref{eq:petelas_equation})
+Recently, \citeauthor{Delgado-Bonal:2017aa} was the first to quantify
+the spectral entropy of radiation, which 
+reduces to Petela's equation when the full spectrum is considered~\citep{Delgado-Bonal:2017aa}.
+Here, we use an effective temperature of light photons~\cite{chen2008} ($T_\lambda$) 
+to obtain the link between Petela's equation (Equation~\ref{eq:petelas_equation})
 and the spectral exergy-to-energy ratio~($\phi_{\EM,\lambda}$).
 The product of wavelength and photon effective temperature 
 is a constant~($c_3$ in \citet{chen2008}) such that
