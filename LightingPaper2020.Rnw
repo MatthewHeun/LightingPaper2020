@@ -41,7 +41,7 @@ library(xtable)
 <<setup-graphs, include=FALSE>>=
 # This variable switches the cache on/off for all R code chunks that are configured for cacheing.
 # Set to FALSE if some plots are not updating as expected, then set back to TRUE.
-use_cache <- FALSE
+use_cache <- TRUE
 
 # Here are some options for the colors to use in the ggspectra graphs.
 # The variable chroma_type is used in all graphs,
@@ -249,23 +249,24 @@ Conventionally, societal exergy analysts estimate the exergetic efficiency of la
 by an energy efficiency, 
 causing confusion and, sometimes, mistakes.
 In response, 
-we use recent results from the photometry and thermodynamics of radiation literatures to
+we use recent results from the 
+fields of photometry and radiation thermodynamics to
 develop an exact method for calculating 
 the exergy of light and the exergetic efficiency of lamps.
 The exact method 
 (a)~is free of any assumptions for the value of the maximum luminous efficacy, 
-(b)~uses the correct spectral exergy-to-energy ratio, and 
+(b)~uses a spectral exergy-to-energy ratio, and 
 (c)~allows choices for the spectral luminous weighting function, 
 which converts broad-spectrum electromagnetic radiation to light.
 The exact method exposes shortcomings inherent to the conventional method and 
 leads to a reasonable approximation of lamp exergetic efficiency, when needed.
 To conclude, we provide three recommendations 
-for societal exergy analysts:
-(a)~use the exact method when a lamp's spectral power distribution is available, 
-(b)~use the universal luminous weighting function, and
-(c)~use the reasonable approximation to the exact method 
-    when luminous efficacy is known
-    but the spectral power distribution is unavailable.
+for societal exergy analysts: use
+(a)~the exact method when a lamp's spectral power distribution is available, 
+(b)~the universal luminous weighting function, and
+(c)~the reasonable approximation to the exact method 
+    when a lamp's luminous efficacy is known
+    but its spectral power distribution is not.
 }
 
 % Keywords
@@ -2231,11 +2232,11 @@ When SPDs are not available, the approximate method can be used as follows:
 
 % This section is not mandatory, but can be added to the manuscript if the discussion is unusually long or complex.
 
-Several recent developments in the photometry and thermodynamics of radiation literatures 
+Several recent developments in the 
+fields of photometry and radiation thermodynamics
 (Petela's equation;
 the spectral exergy-to-energy ratio, $\phi_{L,\lambda}$; and 
-the photon effective temperature, $T_\lambda$
-) 
+the photon effective temperature, $T_\lambda$) 
 have enabled
 a re-evaluation of the exergy of light and the exergetic efficiency of electric lamps
 applicable to societal exergy analysis.
