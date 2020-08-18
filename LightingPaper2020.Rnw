@@ -1114,7 +1114,7 @@ Thus, for our purposes, $T_\lambda$ can be considered the statistical average ef
 of that stream of photons,
 in accordance with~\citet{Shan2019}.
 
-We make the assumption that the mechanism
+We assume that the mechanism
 by which light is converted into electrical nerve signals
 in the human eye
 is radiative EM energy transfer
@@ -1140,8 +1140,8 @@ which replaces the temperature of the emitter ($T_1$) by photon effective temper
                         + \frac{1}{3} \left(\frac{T_{0}}{T_{\lambda}}\right)^4 \; .
 \end{equation}
 %
-Further, Equation~\ref{eq:T_lambda} can be substituted into Equation~\ref{eq:phi_EM_lambda_shan_zhou}
-(in the form $T_\lambda = c_3 / \lambda$),
+Further, Equation~\ref{eq:T_lambda} (in the form $T_\lambda = c_3 / \lambda$)
+can be substituted into Equation~\ref{eq:phi_EM_lambda_shan_zhou},
 and $T_0$ can be taken as 310~K, the temperature of the human body.
 The result is an equation for $\phi_{L,\lambda}$, the spectral exergy-to-energy ratio of light:
 %
@@ -1287,7 +1287,7 @@ emitting exclusively green light at $\lambda = 555 \text{ nm}$.
 (Note that because lumens are a re-scaling of watts, 
 lumens are also a unit of radiant power, 
 thus $\Phi_{pl}$ is sometimes called luminous power. 
-However, similar to how radiant power is sometimes called ``radiant flux,'' 
+Unfortunately, similar to how radiant power is sometimes called ``radiant flux,'' 
 luminous power is sometimes erroneously called ``luminous flux.'')
 
 When the photopic luminous weighting function~($V_\lambda$) is used 
@@ -1305,7 +1305,7 @@ The photopic luminous weighting function~($V_\lambda$) is the industry standard 
 of lamps, but it has been criticized for under-representing
 the power of wavelengths different from 555~nm. 
 In fact, the photopic luminous weighting function
-neglects the differential sensitivity of the human eye's other light receptors,
+neglects the sensitivity of the human eye's other light receptors,
 namely the short-wave cones,
 rods, and intrinsically photosensitive retinal ganglion cells (ipRGCs),
 which are responsible for vision in low-light settings and
@@ -1332,7 +1332,7 @@ Table~\ref{tab:wfs} summarizes the luminous weighting functions discussed above.
 
 To demonstrate how the spectral luminous weighting function~($f_\lambda$)
 affects the energy and exergetic efficiency of lamps, 
-we need both luminous weighting functions (Section~\ref{sec:weighting_functions}) and
+we need both luminous weighting functions and
 example lamps, the topic of the next section.
 
 
@@ -1360,23 +1360,23 @@ the integral of the spectral radiant power taken from the relative intensity dat
   \mu \equiv \frac{K \, \dot{W}_{elect,1}}{\dot{E}_{EM,rel}} \; .
 \end{equation}
 
-We then applied the scaling factor~($\mu$) to the SPD data for each lamp, 
-yielding a corrected SPD~($\dot{E}_{EM,\lambda}$) for each lamp 
+We then applied the scaling factor~($\mu$) to the SPD for each lamp, 
+yielding a corrected SPD~($\dot{E}_{EM,\lambda}$)
 that matches the manufacturer's reported radiant power. 
 %
 \begin{equation} 
   \dot{E}_{EM,\lambda}  = \mu \dot{E}_{EM,\lambda,rel}
 \end{equation}
 
-Although the corrected SPD data were used for all analyses,
-we later display normalized SPD for each lamp,
+Although the corrected SPDs data were used for all analyses,
+we later display normalized SPDs for each lamp,
 such that the peak of each SPD is 1.
 (See Figure~\ref{fig:wfs_and_lamps}.)
 This normalizing process enables visual comparison 
 of lamps with varying electricity consumption rates
 and SPD profiles.
 
-We selected one representative lamp in the range of 700--950~lm output
+We selected one representative lamp in the range of 700--950~lm
 for each of four common lamp technologies
 (incandescent, INC;
 halogen, HAL;
@@ -1388,8 +1388,8 @@ See Table~\ref{tab:lamps} for details about lamps discussed throughout this arti
 source("Data/results_lamp_info.R")
 
 print(xtable::xtable(results_lamp_info_fin, digits=0, 
-                     caption = "Metadata for lamps, including 
-                     year the SPD data was obtained, 
+                     caption = "Metadata for example lamps, including 
+                     year the SPD data were obtained, 
                      luminous efficacy, 
                      electricity consumption rate, lumen output, and
                      luminous efficiency~\\cite{aube2013}.", 
@@ -1481,7 +1481,7 @@ response_data %>%
   xlab(element_blank()) +
   ylab(expression(dot(E)["EM,"*lambda]*", "*dot(X)["EM,"*lambda]*" [-]")) +
   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
-  #scale_y_continuous(limits = c(-0.002, 0.024), breaks = c(0, 0.005, 0.010, 0.015, 0.020)) +
+  scale_y_continuous(limits = c(0, 1), breaks = c(0, 0.2, 0.4, 0.6, 0.8, 1)) +
   labs(fill = element_blank(), colour = element_blank()) +
   facet_grid(facet~lamp_name) +
 
@@ -1511,7 +1511,7 @@ response_data %>%
   xlab(expression(lambda*" [nm]")) +
   ylab(expression(f[lambda]*" [W/nm]")) +
   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
-  #scale_y_continuous(breaks = c(0, 0.5, 1)) +
+  scale_y_continuous(limits = c(0, 1), breaks = c(0, 0.2, 0.4, 0.6, 0.8, 1)) +
   MKHthemes::xy_theme() +
   theme(strip.text.x = element_text(margin = margin(b = 2.0)),
         # Eliminate labels on right facet. Pick up from lamp radiative powers.
@@ -1541,7 +1541,7 @@ response_data %>%
   # ylab(expression("Spectral radiative energy, "*Phi*" [W/nm]")) +
   ylab(expression(dot(E)["L,"*lambda]*", "*dot(X)["L,"*lambda]*" [-]")) +
   scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
-  #scale_y_continuous(limits = c(-0.002, 0.022)) +
+  scale_y_continuous(limits = c(0, 1), breaks = c(0, 0.2, 0.4, 0.6, 0.8, 1)) +
   labs(fill = element_blank(), colour = element_blank()) +
   facet_grid(rows = vars(wf_name), cols = vars(lamp_name)) +
   MKHthemes::xy_theme() +
