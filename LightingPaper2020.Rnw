@@ -536,11 +536,13 @@ ggplot2::ggplot(le_df_filtered, mapping = aes(x = Year)) +
 \citeauthor{Sousa2017} notes that 
 societal exergy analysis is hampered when 
 ``the useful output cannot or is not
-typically measured in energy units''~\cite[p.~17]{Sousa2017}.
+typically measured in energy units''~\cite[p.~17]{Sousa2017},
+as is the case with lighting.
 Indeed, societal exergy analysts 
 need the valuable energy and exergetic efficiencies 
 of lamps~($\eta_{E,L,v}$ and $\eta_{X,L,v}$), 
-not their luminous efficacy~($K$).
+but lighting efficiencies are given in 
+terms of luminous efficacy~($K$).
 Thus, the widespread use of luminous efficacy~($K$) as a measure of lamp efficiency 
 provides a burden to societal exergy analysis.
 
@@ -550,6 +552,9 @@ the minimum energy required to produce a given output and
 the actual energy required to produce the same given output, 
 as recommended by \citet{Sousa2017}
 for sound, information, and lighting.
+The conventional method is used also to determine the efficiency of 
+ammonia and steel production processes.
+**** Can whoever made this comment provide a reference?---MKH ****
 (See Section~\ref{sec:previous_approach} for additional detail.)
 The conventional method is typically implemented 
 for lighting via luminous efficacy with
@@ -566,10 +571,15 @@ a source of confusion,
 namely what value should be used for $K_{max}$?
 Within the societal exergy analysis literature and beyond,
 three common values are adopted:
-220~lm/W \cite{Ayres2003, USDepartmentofEnergyDoE2011},
-400~lm/W \cite{Ayres2005, Tsao2010solidstate, Summers1971, Guevara2016}, and
+220~lm/W \cite{Summers1971, Ayres2003, USDepartmentofEnergyDoE2011},
+400~lm/W \cite{Summers1971, Ayres2005, Tsao2010solidstate, Summers1971, Guevara2016}, and
 683~lm/W \cite{Kondo2009, Serrenho2014}, based on the maximum efficacy of 
-a ***** PB: find the reason for 220~lm/W.---MKH ****, 
+a ***** PB: I added Summers references to 220 and 400, as requested by PB.
+But I don't think this is done.
+We still need the specific reason why 220 and 400 were chosen.
+I think ``broad-spectrum white light'' came from PB originally.
+I don't know if ``broad-spectrum white light'' is the same as 
+``acceptable white light.''---MKH ****, 
 broad-spectrum white light, and
 green light at 555~nm, respectively.
 
@@ -577,7 +587,7 @@ green light at 555~nm, respectively.
 the practical upper limit for the luminous efficacy of an LED lamp to be 284--350~lm/W,
 when considering all stages of energy loss~\citep{Paoli2020}.
 Figure~\ref{fig:LuminousEfficacy_Graph} shows this limit is within reach
-due to the exponential improvement in luminous efficacies for LED technology.
+due to the rapid improvement in luminous efficacies for LED technology.
 The development of LED technology is following Haitz's law, 
 which predicts that ``[e]very decade, for a given wavelength of light, 
 the cost per lumen falls by a factor of 10 
@@ -601,7 +611,7 @@ the exergy of light and the exergetic efficiency of lamps,
 further issues and confusions await. 
 (See Section~\ref{sec:discussion}.)
 Thus, there is ample \emph{need} for clarity and rigor 
-about the thermodynamics of artificial lighting systems.
+about the thermodynamics of artificial lighting.
 
 The need leads to the \emph{aim} of this article: 
 to bring clarity to 
