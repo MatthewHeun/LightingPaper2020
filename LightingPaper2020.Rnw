@@ -155,6 +155,7 @@ chroma_type <- photobiology::ciexyzCMF10.spct            # Very similar to "CMF"
 \usetikzlibrary{arrows,positioning}         % For diagrams with tikz
 \usepackage{booktabs}                       % For nice table rules
 \usepackage[makeroom]{cancel}               % To show terms go to zero
+\usepackage{circledsteps}                   % To show statepoints in circles.
 \usepackage{pdflscape}                      % For landscape environment \begin{landscape} ... \end{landscape}
 \usepackage{subcaption}                     % For Figure 12 (a), Figure 12 (b), etc.
 \usetikzlibrary{decorations.pathreplacing,angles,quotes}
@@ -721,9 +722,9 @@ Thanks to Thompson's cannon experiment~\cite{Thompson:1798aa},
 we know that work can be converted into heat without loss.
 
 Figure~\ref{fig:heat_engine} shows a heat engine that converts 
-heat at $1$ to 
-work at $3$
-with a waste heat byproduct at $2$. 
+heat at \Circled{1} to 
+work at \Circled{3}
+with a waste heat byproduct at \Circled{2}. 
 All streams can be counted as energy ($\dot{E}$), such that 
 %
 \begin{equation} \label{eq:all_streams_energy}
@@ -747,7 +748,7 @@ All streams can be counted as energy ($\dot{E}$), such that
   \draw[arrows=-triangle 45] (2 -| machine.east) -- node [above] {$\dot{Q}_2$, $T_2$} (2.west);
   \draw[arrows=-triangle 45] (3 -| machine.east) -- node [below] {$\dot{W}_3$} (3.west);
 \end{tikzpicture}
-\caption{A heat engine that uses heat (1) to produce heat (2) and work (3).}
+\caption{A heat engine that uses heat at \Circled{1} to produce heat at \Circled{2} and work at \Circled{3}.}
 \label{fig:heat_engine}
 \end{figure}
 
@@ -783,7 +784,8 @@ The Kelvin-Planck statement of the second law of thermodynamics
 states that heat cannot be converted to work without loss. 
 To find the maximum possible work that can be created from heat 
 (and, therefore, the exergy of heat), 
-we consider the Carnot heat engine which operates at the maximum possible valuable energy efficiency~($\eta_C$), 
+we require the Carnot heat engine which operates
+at the maximum possible valuable energy efficiency~($\eta_C$), 
 %
 \begin{equation} \label{eq:eta_C}
   \eta_C = 1 - \frac{T_0}{T_{sys}} \; ,
@@ -804,8 +806,12 @@ In this context, the Carnot efficiency~($\eta_C$) becomes the exergy-to-energy r
 for heat streams ($\phi_Q = \eta_C$).
 The exergy-to-energy ratio for work is $\phi_3 = \phi_W = 1$, 
 because work is pure exergy.
+(The exergy-to-energy ratio, $\phi$,
+is exergy divided by energy at a statepoint.
+E.g., $\phi_1 = \dot{X}_1 / \dot{E}_1$.)
 
-Exergy efficiency is defined as $\eta_X \equiv \frac{\text{exergy out}}{\text{exergy in}}$.
+The exergy efficiency of an energy conversion device 
+is defined as $\eta_X \equiv \frac{\text{exergy out}}{\text{exergy in}}$.
 For the heat engine in Figure~\ref{fig:heat_engine}, 
 %
 \begin{equation} \label{eq:exergy_efficiency}
@@ -832,7 +838,7 @@ Both
 %
 \begin{enumerate*}[label={(\alph*)}]
 	
-  \item the \enaex{} of the work and heat at statepoints 2 and 3 and
+  \item the \enaex{} of the work and heat at \Circled{2} and \Circled{3} and
   
   \item the \enaex{} efficiencies of the heat engine ($\eta_{E,v}$ and $\eta_{X,v}$)
     
@@ -864,9 +870,9 @@ to the production of light by a lamp.
 Figure~\ref{fig:lamp} replaces the heat engine with a lamp 
 that produces broad-spectrum EM radiation~($\dot{E}_{EM,3}$)
 instead of work~($\dot{W}_3$).
-Electricity powers the lamp at 1, and,
+Electricity powers the lamp at \Circled{1}, and,
 like Figure~\ref{fig:heat_engine},
-waste heat (conduction and convection only) is produced at 2.
+waste heat (conduction and convection only) is produced at \Circled{2}.
 
 \begin{figure}
 \centering
@@ -896,9 +902,9 @@ waste heat (conduction and convection only) is produced at 2.
   \draw[arrows=-triangle 45] (5 -| wf.east) -- node [below] {$\dot{E}_{L,5}$} (5.west);
 
 \end{tikzpicture}
-\caption{A lamp that uses electricity~(1) to produce
-         heat~(2), broad-spectrum EM radiation~(3), 
-         non-light EM radiation~(4), and light~(5).}
+\caption{A lamp that uses electricity at \Circled{1} to produce
+         heat at \Circled{2}, broad-spectrum EM radiation at \Circled{3}, 
+         non-light EM radiation at \Circled{4}, and light at \Circled{5}.}
 \label{fig:lamp}
 \end{figure}
 
@@ -910,7 +916,10 @@ Thus,
 \end{equation}
 %
 where $\dot{E}_{EM,3}$ is the radiant power of broad-spectrum EM radiation
-emitted by the lamp in units of energy per unit time.
+emitted by the lamp in units of energy per unit time~(W).
+(Confusingly, radiant power is sometimes called ``radiant flux'' in the literature,
+despite the fact that radiant power is in units of W,
+whereas flux would be in units of $\text{W} \! /\text{m}^2$.)
 (When exergy is not involved, the photometry literature often denotes
 radiant power by $\Phi$, not $\dot{E}$.
 Here, we need to differentiate between 
@@ -933,7 +942,7 @@ is
   \eta_{E,EM,v} = \frac{\dot{E}_3}{\dot{E}_1} = \frac{\dot{E}_{EM,3}}{\dot{W}_{elect,1}} < 1 \; ,
 \end{equation}
 %
-assuming that broad-spectrum EM radiation at 3 is the valuable output from the lamp.
+assuming that broad-spectrum EM radiation at \Circled{3} is the valuable output from the lamp.
 
 Because electricity can be converted to work without loss in a frictionless motor,
 electricity is considered pure exergy, i.e., $\phi_{elect} = 1$.
@@ -1280,10 +1289,13 @@ of visible light~($\Phi_{pl}$) in the unit of lumens~(lm):
 where 683~lm/W is the luminous efficiency of a perfect light source
 emitting exclusively green light at $\lambda = 555 \text{ nm}$.
 (Note that because lumens are a re-scaling of watts, 
-lumens are also a unit of radiant power.)
+lumens are also a unit of radiant power, 
+thus $\Phi_{pl}$ is sometimes called luminous power. 
+However, similar to how radiant power is sometimes called ``radiant flux,'' 
+luminous power is sometimes erroneously called ``luminous flux.'')
 
 When the photopic luminous weighting function~($V_\lambda$) is used 
-to calculate luminous power, 
+to calculate radiant power, 
 the valuable energy efficiency of a lamp can be written in terms of luminous efficacy~($K$)
 by modifying Equation~\ref{eq:eta_E_v_light} to be (in the context of Figure~\ref{fig:lamp})
 %
@@ -1368,12 +1380,12 @@ This normalizing process enables visual comparison
 of lamps with varying electricity consumption rates
 and SPD profiles.
 
-We selected one representative lamp for each of four common lamp technologies
+We selected one representative lamp in the range of 700--950~lm output
+for each of four common lamp technologies
 (incandescent, INC;
 halogen, HAL;
 compact fluorescent, CFL; and
-light emitting diode, LED), 
-each with a unique SPD.
+light emitting diode, LED).
 See Table~\ref{tab:lamps} for details about lamps discussed throughout this article.
 
 <<lamps, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/results_lamp_info.R')>>=
@@ -1839,9 +1851,9 @@ which is the same as Equation~\ref{eq:eta_E_v_light},
 the valuable energy efficiency of a lamp, 
 if $f_\lambda = V_\lambda$.
 That is to say, one interpretation of the conventional method
-is that it incorrectly estimates the 
-\emph{exergetic} efficiency of a lamp 
-by its \emph{energy} efficiency.
+is that it incorrectly 
+assumes the \emph{exergetic} efficiency of a lamp
+to be its \emph{energy} efficiency.
 
 
 %------------------------------
