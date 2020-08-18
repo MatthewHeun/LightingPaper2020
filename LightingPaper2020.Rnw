@@ -256,7 +256,7 @@ develop an exact method for calculating
 the exergy of light and the exergetic efficiency of lamps.
 The exact method 
 (a)~is free of any assumptions for the value of the maximum luminous efficacy, 
-(b)~uses a spectral exergy-to-energy ratio, and 
+(b)~uses a non-unity spectral exergy-to-energy ratio, and 
 (c)~allows choices for the spectral luminous weighting function, 
 which converts broad-spectrum electromagnetic radiation to light.
 The exact method exposes shortcomings inherent to the conventional method and 
@@ -1947,7 +1947,7 @@ The exact method provides the following benefits over the conventional method:
 	
   \item it is free of any assumptions for the maximum luminous efficacy ($K_{max}$),
 
-  \item it uses the correct spectral exergy-to-energy ratio, no longer assuming $\phi_{L,\lambda} = 1$, and 
+  \item it uses a non-unity spectral exergy-to-energy ratio, no longer assuming $\phi_{L,\lambda} = 1$, and 
   
   \item it allows choices for the spectral luminous weighting function~($f_\lambda$), 
         no longer requiring $f_\lambda = V_\lambda$, 
@@ -2293,7 +2293,7 @@ We showed that the exact method
 	
   \item is free of any assumptions for the maximum luminous efficacy ($K_{max}$),
   
-  \item uses a spectral exergy-to-energy ratio~($\phi_{L,\lambda}$), and
+  \item uses a non-unity spectral exergy-to-energy ratio~($\phi_{L,\lambda}$), and
   
   \item allows choices for the spectral luminous weighting function ($f_\lambda$).
     
