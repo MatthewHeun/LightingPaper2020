@@ -776,14 +776,14 @@ The Kelvin-Planck statement of the second law of thermodynamics
 states that heat cannot be converted to work without loss. 
 To find the maximum possible work that can be created from heat 
 (and, therefore, the exergy of heat), 
-we require the Carnot heat engine which operates
-at the maximum possible valuable energy efficiency~($\eta_C$), 
+we require the Carnot heat engine, which operates
+at the maximum possible valuable energy efficiency~($\eta_C$).
 %
 \begin{equation} \label{eq:eta_C}
-  \eta_C = 1 - \frac{T_0}{T_{sys}} \; ,
+  \eta_C = 1 - \frac{T_0}{T_{sys}}
 \end{equation}
 %
-where $T_0$ is the ambient temperature and $T_{sys}$ is a heat temperature 
+$T_0$ is the ambient temperature, and $T_{sys}$ is a heat temperature 
 ($T_1$ or $T_2$ in Figure~\ref{fig:heat_engine}).
 The exergy of each stream in Figure~\ref{fig:heat_engine} is then
 %
@@ -801,16 +801,7 @@ because work is pure exergy.
 is exergy divided by energy at a statepoint.
 E.g., $\phi_1 = \dot{X}_1 / \dot{E}_1$.)
 
-Furthermore, the useful energy in light must undergo a `quality adjustment` to exergy,
-as radiation contains not only energy, but entropy, 
-which renders a portion of the energy in light unavailable for work. 
-In this regard \citeauthor{Delgado-Bonal:2017aa} has importantly demonstrated that 
-the human eye's peak sensitivity is more closely correlated 
-with a quality-adjusted measure of light, as opposed to simply energy.
-This emphasizes the importance of moving from energy to exergy.
-
-
-The exergy efficiency of an energy conversion device 
+The exergetic efficiency of an energy conversion device 
 is defined as $\eta_X \equiv \frac{\text{exergy out}}{\text{exergy in}}$.
 For the heat engine in Figure~\ref{fig:heat_engine}, 
 %
@@ -919,8 +910,8 @@ where $\dot{E}_{EM,3}$ is the radiant power of broad-spectrum EM radiation
 emitted by the lamp in units of energy per unit time~(W).
 (Confusingly, radiant power is sometimes called ``radiant flux'' in the literature,
 despite the fact that radiant power is in units of W,
-whereas flux would be in units of $\text{W} \! /\text{m}^2$.)
-(When exergy is not involved, the photometry literature often denotes
+whereas flux would be in units of $\text{W} \! /\text{m}^2$.
+When exergy is not involved, the photometry literature often denotes
 radiant power by $\Phi$, not $\dot{E}$.
 Here, we need to differentiate between 
 the energy rate of broad spectrum EM radiation~($\dot{E}_{EM}$) and
@@ -960,7 +951,7 @@ where $\phi_{EM}$ is the exergy-to-energy ratio for broad-spectrum EM radiation.
 In general, the radiant power of a lamp is a spectral quantity,
 meaning that it varies with wavelength.
 Spectral radiant power~($\dot{E}_{EM,\lambda}$)
-is the EM emissive power available at any wavelength
+is the EM emissive power available between any two wavelengths
 and is related~\citep{benenson2006handbook} to radiant power~($\dot{E}_{EM}$) by
 %
 \begin{equation} \label{eq:emissive_power}
@@ -1037,7 +1028,7 @@ and $\dot{E}_{L,\lambda} = f_\lambda \dot{E}_{EM,\lambda}$.
 
 In Equation~\ref{eq:weighted_emissive_power}, 
 the spectral luminous weighting function~($f_\lambda$) converts 
-from broad-spectrum EM radiation~($\dot{E}_{EM}$ and $\dot{X}_{EM}$)
+broad-spectrum EM radiation~($\dot{E}_{EM}$ and $\dot{X}_{EM}$)
 to light~($\dot{E}_{L}$ and $\dot{X}_{L}$), 
 the valuable part of EM radiation for illumination.
 In the context of Figure~\ref{fig:lamp}, 
@@ -1083,7 +1074,7 @@ The photon transfers an infinitesimal quantity of energy to the absorber via the
 The energy enters an infinitesimally small Carnot heat engine and performs work. 
 The absorber then emits another photon at lower energy and frequency,
 and therefore lower photon effective temperature. 
-This process repeats until the frequency of the photon equals zero
+This process repeats until the frequency of the photon is zero
 and the photon effective temperature ($T_\lambda$)~\cite{Shan2019}
 equals the reference temperature ($T_0$).
 
@@ -1120,8 +1111,8 @@ We acknowledge this critique,
 but we also note that here $T_\lambda$ is ascribed to a stream of photons
 traveling from a lamp to an eye.
 Thus, for our purposes, $T_\lambda$ can be considered the statistical average effective temperature 
-of that stream of monochromatic photons,
-in accordance with~\citeauthor{Shan2019}.
+of that stream of photons,
+in accordance with~\citet{Shan2019}.
 
 We make the assumption that the mechanism
 by which light is converted into electrical nerve signals
@@ -1340,7 +1331,7 @@ Table~\ref{tab:wfs} summarizes the luminous weighting functions discussed above.
 \input{pieces/wfs.tex}
 
 To demonstrate how the spectral luminous weighting function~($f_\lambda$)
-affects the energy and exergy efficiency of lamps, 
+affects the energy and exergetic efficiency of lamps, 
 we need both luminous weighting functions (Section~\ref{sec:weighting_functions}) and
 example lamps, the topic of the next section.
 
@@ -1705,7 +1696,7 @@ print(xtable::xtable(results_phi_fin, digits=3,
 
 
 %++++++++++++++++++++++++++++++
-\subsection{Exergy efficiencies ($\eta_{X,L,v}$)}
+\subsection{Exergetic efficiencies ($\eta_{X,L,v}$)}
 \label{sec:results_exergy_efficiencies}
 %++++++++++++++++++++++++++++++
 Valuable exergetic efficiencies~($\eta_{X,L,v}$) of the various combinations of weighting functions and lamps
@@ -1942,7 +1933,7 @@ We provide three recommendations for societal exergy practitioners:
 
 Our first recommendation is for use of the 
 exact method~(Section~\ref{sec:light_efficiency})
-for determining the valuable exergy efficiency of lamps~($\eta_{X,L,v}$)
+for determining the valuable exergetic efficiency of lamps~($\eta_{X,L,v}$)
 when SPD data are available.
 The exact method provides the following benefits over the conventional method:
 %
