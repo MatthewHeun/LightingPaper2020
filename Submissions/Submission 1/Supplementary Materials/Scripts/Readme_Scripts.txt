@@ -1,5 +1,10 @@
-Supplementary Materials
-R Scripts
+R Scripts for the paper
+
+The Energy and Exergy of Light With Application to Societal Exergy Analysis
+by
+Matthew Kuperus Heun, Zeke Marshall, Emmanuel Aramendia, and Paul E. Brockway
+submitted to
+Energies
 
 Contents:
 
