@@ -251,7 +251,7 @@ by an energy efficiency,
 causing confusion and, sometimes, mistakes.
 In response, 
 we use recent results from the 
-fields of photometry and radiation thermodynamics to
+fields of radiation thermodynamics and photometry to
 develop an exact method for calculating 
 the exergy of light and the exergetic efficiency of lamps.
 The exact method 
@@ -600,14 +600,15 @@ the cost per lumen falls by a factor of 10
 and the amount of light generated per LED package increases 
 by a factor of 20''~\citep{haitz1999case, graydon2007haitz}.
 Figure~\ref{fig:LuminousEfficacy_Graph} shows that the 
-Paoli and Cullen
+lower efficacies from Summers (220 lm/W) and
+Paoli and Cullen (284 lm/W)
 % \citeauthor{Paoli2020} 
-limit is within reach,
-due to the rapid improvement in luminous efficacies for LED technology.
+are within reach,
+due to the rapid improvement of LED technology.
 
 Clearly, there are many options for $K_{max}$, and
 its value has a large effect on the valuable exergetic efficiency of lighting
-in the conventional method.
+in the conventional method (Equation~\ref{eq:eta_eqn}).
 So getting it right is important.
 
 
@@ -1816,7 +1817,7 @@ valuable exergetic efficiency for the conventional method:
           \mathrm{d}\lambda}{\dot{W}_{elect,1}} \; \;}{K_{max}} \; .
 \end{equation}
 
-With recent advances in photometry and the thermodynamics of radiation 
+With recent advances in the fields of radiation thermodynamics and photometry
 (Section~\ref{sec:phi_light}),
 it is now possible to determine the energy and exergy of light exactly, 
 thereby relieving societal exergy practitioners
@@ -2287,8 +2288,8 @@ When SPDs are not available, the approximate method can be used as follows:
 % This section is not mandatory, but can be added to the manuscript if the discussion is unusually long or complex.
 
 Several recent developments in the 
-fields of photometry and radiation thermodynamics
-(the spectral exergy-to-energy ratio, $\phi_{L,\lambda}$; and 
+fields of radiation thermodynamics and photometry
+(the spectral exergy-to-energy ratio, $\phi_{L,\lambda}$, and 
 the photon effective temperature, $T_\lambda$) 
 have enabled
 a re-evaluation of the exergy of light and the exergetic efficiency of electric lamps
