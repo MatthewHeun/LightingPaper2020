@@ -1,5 +1,11 @@
 source("Data/spd_metric_calcs.R")
 
+# This script calculates the conversion factors for moving from the exergy efficiency 
+# of a lamp based on the photopic luminous weighting function,
+# to the exergy efficiency of a lamp based on the universal weighting function,
+# for each lamp type and across all lamp types.
+
+# Loads exergy efficiency data and lamp info data into data frames.
 univ_etaX_df <- spd_metrics %>%
   dplyr::filter(wf_name == "wf_u") %>%
   dplyr::select(lamp_name, wrpX_div_ec)
@@ -41,7 +47,7 @@ lamp_type_stats_X <- etaX_ratios %>%
   )
 
 lamps_in_paper_stats_X <- etaX_ratios %>% 
-  dplyr::filter(lamp_type %in% c("INC", "HAL", "HPS", "MH", "CFL", "LED")) %>% 
+  dplyr::filter(lamp_type %in% c("INC", "HAL", "HPS", "MH", "CFL", "LED")) %>% # If additional lamp types are used, add the type codes to this string.
   dplyr::group_by(lamp_type) %>% 
   dplyr::summarise(
     count = dplyr::n(),
