@@ -41,7 +41,7 @@ library(xtable)
 <<setup-graphs, include=FALSE>>=
 # This variable switches the cache on/off for all R code chunks that are configured for cacheing.
 # Set to FALSE if some plots are not updating as expected, then set back to TRUE.
-use_cache <- TRUE
+use_cache <- FALSE
 
 # Here are some options for the colors to use in the ggspectra graphs.
 # The variable chroma_type is used in all graphs,
@@ -326,7 +326,7 @@ for societal exergy practitioners: use
 \label{sec:lighting_importance}
 %++++++++++++++++++++++++++++++
 
-Artificial light provides an indispensable energy service (illumination), 
+Lighting provides an indispensable energy service (illumination), 
 enabling activities at times when natural light levels are insufficient.
 Illumination is so valuable that around 20~\% of global grid-connected electricity 
 is consumed for the purpose of making artificial light~\cite{waide2006}.
@@ -594,16 +594,16 @@ Paoli and Cullen
 % \citeauthor{Paoli2020} 
 estimated the practical upper limit for the luminous efficacy of an LED lamp to be 284--350~lm/W,
 when considering all stages of energy loss~\citep{Paoli2020}.
-Figure~\ref{fig:LuminousEfficacy_Graph} shows that the 
-Paoli and Cullen
-% \citeauthor{Paoli2020} 
-limit is within reach,
-due to the rapid improvement in luminous efficacies for LED technology.
 The development of LED technology is following Haitz's law, 
 which predicts that ``[e]very decade, for a given wavelength of light, 
 the cost per lumen falls by a factor of 10 
 and the amount of light generated per LED package increases 
 by a factor of 20''~\citep{haitz1999case, graydon2007haitz}.
+Figure~\ref{fig:LuminousEfficacy_Graph} shows that the 
+Paoli and Cullen
+% \citeauthor{Paoli2020} 
+limit is within reach,
+due to the rapid improvement in luminous efficacies for LED technology.
 
 Clearly, there are many options for $K_{max}$, and
 its value has a large effect on the valuable exergetic efficiency of lighting
