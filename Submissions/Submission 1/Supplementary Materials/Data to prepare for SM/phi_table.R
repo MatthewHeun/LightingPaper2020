@@ -1,5 +1,7 @@
-# source("Data/phi_conversion.R")
+source("Data/phi_conversion.R")
 
+# This script creates a table with the mean and sd of the exergy-to-energy factor
+# for each lamp type.
 
 # Pulls data fro phi_conversion script
 phi_table <- phi_p2_mean_by_lamp_type

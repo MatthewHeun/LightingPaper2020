@@ -3,7 +3,7 @@
 # doing the integral by wavelength
 
 # Loading data by executing AllData.R script
-# source("Data/AllData.R")
+source("Data/AllData.R")
 
 
 # Calculating the integral of radiant power for each lamp

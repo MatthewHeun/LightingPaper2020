@@ -6,9 +6,9 @@
 # Lamp tabs are prefixed with "lamp_".
 library(magrittr)
 
-# Here we establish the lamp_list and wf_list,
-# AllData is sourced at the beginning of the paper
-# 
+# Here we establish the lamp_list and wf_list.
+# The user should alter this list with the lamps and weighting functions 
+# they wish to assess from the master_lighting_data.xlsx spreadsheet lamp_name column.
 wf_list <- c(Unweighted = "wf_nw", Visible = "wf_v",
              Photopic = "wf_p2", Universal = "wf_u")
 lamp_list <- c(INC = "lamp_inc_syl_a19_2476k", HAL = "lamp_hal_syl_par38", 
