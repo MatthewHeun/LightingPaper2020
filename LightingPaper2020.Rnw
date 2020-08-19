@@ -481,8 +481,10 @@ In fact, most lamps are rated and advertised by their lumen output and their lum
 Figure~\ref{fig:LuminousEfficacy_Graph} shows the evolution over time 
 of luminous efficacy for four lamp technologies.
 Practitioners who use luminous efficacy 
-as a lamp efficiency metric include \citet{Nordhaus1996} 
-and \citeauthor{Tsao2010appetitelight}, who state 
+as a lamp efficiency metric include \citet{Nordhaus1996} and
+Tsao and Waide, 
+% \citeauthor{Tsao2010appetitelight}, 
+who state 
 ``[l]uminous efficacy represents the efficiency 
 with which energy is used to produce visible light''~\citep[p.~265]{Tsao2010appetitelight}.
 
@@ -526,7 +528,9 @@ ggplot2::ggplot(le_df_filtered, mapping = aes(x = Year)) +
   guides(shape = FALSE)
 @
 
-\citeauthor{Sousa2017} note that 
+Sousa~\emph{et al.}
+% \citeauthor{Sousa2017} 
+note that 
 societal exergy analysis is hampered when 
 ``the useful output cannot or is not
 typically measured in energy units''~\cite[p.~17]{Sousa2017},
@@ -576,10 +580,14 @@ I don't know if ``broad-spectrum white light'' is the same as
 broad-spectrum white light, and
 green light at 555~nm, respectively.
 
-\citeauthor{Paoli2020} estimated 
-the practical upper limit for the luminous efficacy of an LED lamp to be 284--350~lm/W,
+Paoli and Cullen
+% \citeauthor{Paoli2020} 
+estimated the practical upper limit for the luminous efficacy of an LED lamp to be 284--350~lm/W,
 when considering all stages of energy loss~\citep{Paoli2020}.
-Figure~\ref{fig:LuminousEfficacy_Graph} shows that the \citeauthor{Paoli2020} limit is within reach,
+Figure~\ref{fig:LuminousEfficacy_Graph} shows that the 
+Paoli and Cullen
+% \citeauthor{Paoli2020} 
+limit is within reach,
 due to the rapid improvement in luminous efficacies for LED technology.
 The development of LED technology is following Haitz's law, 
 which predicts that ``[e]very decade, for a given wavelength of light, 
@@ -1083,7 +1091,10 @@ a blackbody absorber~(at $T_0$).
 To determine $\phi_{\EM}$ for an emitter that is a non-blackbody lamp,
 the spectral exergy-to-energy ratio ($\phi_{\EM,\lambda}$),
 must be calculated.
-Recently, \citeauthor{Delgado-Bonal:2017aa} was the first to quantify
+Recently, 
+Delgado-Bonal
+% \citeauthor{Delgado-Bonal:2017aa} 
+was the first to quantify
 the spectral entropy of radiation, which 
 reduces to Petela's equation when the full spectrum is considered~\citep{Delgado-Bonal:2017aa}.
 Here, we use an effective temperature of light photons~\cite{chen2008} ($T_\lambda$) 
@@ -1103,7 +1114,8 @@ or
 \end{equation}
 
 We note that the photon effective temperature approach has been criticized by 
-\citeauthor{liu2009},
+Liu,
+% \citeauthor{liu2009},
 who argued that it is inappropriate
 ``to endue a single photon with macro-scale thermodynamic parameters
 such as exergy and entropy''~\citep[p.~1810]{liu2009}.
@@ -2102,7 +2114,7 @@ phi_and_gammaX_factor <- conversionX_mean * phi_mean
 
 
 %..............................
-\paragraph{Estimating the average exergy-to-energy ratio~($\bar{\phi}_{L,pl}$)} 
+\paragraph{\emph{Estimating the average exergy-to-energy ratio~($\bar{\phi}_{L,pl}$)}} 
 %..............................
 
 We calculated the exergy-to-energy ratio for a sample of lamps from the LSPDD \cite{aube2013}
@@ -2117,7 +2129,7 @@ are given in Table~\ref{tab:mean_phi_p2_by_lamp_type} in the appendix.
 
 
 %..............................
-\paragraph{Estimating the average photopic-to-universal conversion factor~($\gammaratavg{}$)} 
+\paragraph{\emph{Estimating the average photopic-to-universal conversion factor~($\gammaratavg{}$)}}
 %..............................
 
 Similarly, we obtained $\gammarat{}$ for each lamp~($i$) by taking the quotient of efficiencies:
@@ -2138,7 +2150,7 @@ are given in Table~\ref{tab:conversionfactors} in the appendix.
 
 
 %..............................
-\paragraph{Implementing the approximate method} 
+\paragraph{\emph{Implementing the approximate method}}
 %..............................
 
 The approximate method for determining the valuable exergetic efficiency of a lamp
@@ -2392,8 +2404,10 @@ Pedro J. Aphalo for
   his open-source software suite \texttt{r4phototbiology}~\cite{Aphalo2015}, 
 Martin Aub\`{e} and Johanne Roby for
   the use of their Light Spectral Power Distribution Database (LSPDD)~\cite{aube2013}, 
-Andrew Stockman and other members of the Colour and Vision Research Laboratory for 
-  data for the photopic luminous weighting function~\cite{CVRL2008},
+Andrew Stockman and other members of the Colour and Vision Research 
+  % Laboratory for data for the photopic luminous weighting function~\cite{CVRL2008},
+  Laboratory for their open-source database 
+  from which we obtained data for the photopic luminous weighting function~\cite{CVRL2008},
 Mark S. Rea and Andrew Bierman for
   the use of the universal luminous weighting function~\cite{Rea2018}, and
 Micheal Royer for
