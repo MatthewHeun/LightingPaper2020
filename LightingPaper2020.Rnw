@@ -1586,7 +1586,7 @@ are shown on the left side of Figure~\ref{fig:wfs_and_lamps}.
 \label{sec:results_radiant_power}
 %++++++++++++++++++++++++++++++
 
-The four graphs in the top-right of Figure~\ref{fig:wfs_and_lamps}
+The four graphs at the top of Figure~\ref{fig:wfs_and_lamps}
 show normalized spectral radiant power ($\dot{E}_{EM,\lambda}$) 
 at the top of the gray region for each lamp.
 Applying Equation~\ref{eq:phi_L_lambda_shan_zhou} 
@@ -1621,7 +1621,7 @@ for the four lamps and four weighting functions of
 Sections~\ref{sec:weighting_functions} and~\ref{sec:lamps}
 and Tables~\ref{tab:wfs} and~\ref{tab:lamps}, respectively.
 Each rainbow colored region shows the energy content of light (spectral luminous power) and
-is the spectral product of its row's weighting function and its column's lamp's SPD.
+is the spectral product of its row's weighting function and its column's lamp SPD.
 The areas of the rainbow colored regions ($\dot{E}_L$) are given by Equation~\ref{eq:L_dot_5}.
 The areas beneath the dark green lines ($\dot{X}_L$) are given by 
 Equation~\ref{eq:X_dot_L}.
@@ -1651,7 +1651,7 @@ print(xtable::xtable(results_etas_fin, digits=2,
                      given by Equation~\\ref{eq:eta_E_v_light}.
                      Note that for the incandescent (INC) and halogen (HAL) lamps, 
                      the unweighted energy efficiency~($\\eta_{E,uw}$) is  
-                     underestimated;
+                     underestimated, because
                      the SPD data do not go beyond 899~nm, 
                      despite INC and HAL emission far into 
                      the infrared portion of the EM spectrum.", 
@@ -1712,7 +1712,7 @@ print(xtable::xtable(results_etasX_fin, digits=2,
                      given by Equation~\\ref{eq:eta_X_v_light}.
                      Similar to Table~\\ref{tab:results_etas}, 
                      the unweighted exergetic efficiency~($\\eta_{X,uw}$) is 
-                     underestimated for the incandescent (INC) and halogen (HAL) lamps;
+                     underestimated for the incandescent (INC) and halogen (HAL) lamps, because
                      the SPD data do not go beyond 899~nm, 
                      despite INC and HAL emission far into 
                      the infrared portion of the EM spectrum.", 
@@ -1875,7 +1875,7 @@ The choice of $K_{max}$ can make a significant difference to the results.
 The correct value for $K_{max}$ is 683~lm/W,
 as discussed in Section~\ref{sec:previous_approach}.
 We showed in Section~\ref{sec:conventional_method} that
-some authors have mistakenly, we now know, taken $K_{max}$ to be 
+some practitioners have mistakenly, we now know, taken $K_{max}$ to be 
 220~lm/W or 400~lm/W,
 thereby overestimating exergetic efficiency of lighting~($\eta_{X,L,v}$)
 with the conventional method
@@ -1889,7 +1889,7 @@ respectively.
 
 Second, to obtain the correct exergetic efficiency of lighting, 
 practitioners must reject the conventional method assumption that $\phi_{L,\lambda} = 1$.
-Recent progress in the exergy of radiation literature enables this rejection, 
+Recent progress in the exergy of radiation enables this rejection, 
 following the methods of Section~\ref{sec:phi_light}.
 Specifically, the spectral exergy-to-energy ratio of light ($\phi_{L,\lambda}$)
 of Equation~\ref{eq:phi_L_lambda_shan_zhou} and Figure~\ref{fig:wfs_and_lamps} should be used.
@@ -1902,7 +1902,7 @@ for the spectral luminous weighting function~($f_\lambda$).
 However, it is not certain that the photopic luminous weighting function
 is the best choice.
 In fact, we later recommend replacing the photopic luminous weighting function~($V_\lambda$)
-with the universal luminous weighting function~($U_\lambda$).
+by the universal luminous weighting function~($U_\lambda$).
 (See Section~\ref{sec:reccuniv}.)
 
 
@@ -1945,7 +1945,8 @@ The exact method provides the following benefits over the conventional method:
   
   \item it allows choices for the spectral luminous weighting function~($f_\lambda$), 
         no longer requiring $f_\lambda = V_\lambda$, 
-        thereby enabling our second recommendation, namely use the universal luminous weighting function ($U_\lambda$).
+        thereby enabling our second recommendation, 
+        namely use of the universal luminous weighting function ($U_\lambda$).
 
 \end{enumerate}
 
@@ -1957,7 +1958,7 @@ The exact method provides the following benefits over the conventional method:
 
 We recognize that the choice of spectral weighting function 
 remains contentious~\cite{Delgado-Bonal:2017aa, Pattison2018LEDphotons, Rea2018, Royer2016}.
-But we suggest that the choice of weighting function ($f_\lambda$) in societal exergy analysis
+That said, we suggest that the choice of weighting function ($f_\lambda$) in societal exergy analysis
 should be appropriate for each lamp's application.
 Our second recommendation is for use of
 the universal luminous weighting function~($U_\lambda$) in societal exergy analysis
@@ -1982,7 +1983,7 @@ Societal exergy analysis implicitly adopts the photopic luminous weighting funct
 when it applies the conventional method for calculating the exergetic efficiency of lighting.
 (See Section~\ref{sec:previous_approach}.)
 For lamps whose purpose is illumination, 
-we believe that the universal luminous weighting function ($U_\lambda$)
+we believe that, instead, the universal luminous weighting function ($U_\lambda$)
 is most appropriate.
 (See also \citet{Rea2018}.)
 We provide three arguments in support of this recommendation.
@@ -2011,14 +2012,11 @@ do not get credit for their efforts, because
 the industry-standard measure of lighting efficiency,
 luminous efficacy~($K$), 
 uses the photopic luminous weighting function~($V_\lambda$). 
-This state of affairs could encourage lighting manufacturers to reduce short wavelength
+This state of affairs could encourage lamp manufacturers to reduce short wavelength
 output of lamps, even when short wavelength EM radiation would 
 provide physiological benefits.
-% Adopting the universal luminous weighting function~($U_\lambda$) will encourage manufacturers to include 
-% blue spikes in lamp designs.
 Adopting the universal luminous weighting function will alleviate 
-the need for manufacturers to produce blue spikes
-of the minimum power possible, 
+the incentive for manufacturers to minimize the size of blue spikes,
 providing a greater range of options for the design 
 of SPDs for lamps that produce white light.
 
@@ -2029,7 +2027,7 @@ toward the universal luminous weighting function~($U_\lambda$) is
 made possible by the exact method described in Section~\ref{sec:framework},
 so long as SPD data are available.
 In the absence of SPD data, 
-we recommend that an approximate method can be used, 
+we recommend an approximate method, 
 as set out in the next section.
 
 
@@ -2051,7 +2049,7 @@ the valuable exergetic efficiency of lamps~($\eta_{X,L,v}$)
 when SPD data are not available
 but luminous efficacy data~($K$) are.
 Results from the exact method provide guidance 
-for development of the approximate method.
+for development of an approximate method.
 
 We suggest the following two-step process:  
 using the conventional method as a starting point,
@@ -2064,7 +2062,8 @@ using the conventional method as a starting point,
   
   \item move from valuable exergetic efficiency determined with the photopic luminous weighting function~($\eta_{X,pl}$)
         to valuable exergetic efficiency determined with the universal luminous weighting function~($\eta_{X,univ}$)
-        using an average ratio between those efficiencies ($\gammaratavg{}$).
+        using an average ratio between those efficiencies,
+        the average photopic-to-universal conversion factor~($\gammaratavg{}$).
 
 \end{enumerate}
 
