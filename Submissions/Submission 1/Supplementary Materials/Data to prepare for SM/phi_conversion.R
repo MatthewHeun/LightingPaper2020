@@ -1,4 +1,7 @@
-# source("Data/spd_metric_calcs.R")
+source("Data/spd_metric_calcs.R")
+
+# This script creates data frames for the exergy-to-energy factor for each lamps,
+# the mean for each lamp type, and the mean across all lamps.
 
 # Creates a DF with phi_agg values from spd_metrics for the photopic luminosity function
 p2_phi_df <- spd_metrics %>%
