@@ -1,11 +1,8 @@
 # Loading data by executing spd_metric_calcs.R script
 source("Data/spd_metric_calcs.R")
 
-# Creates a list of lamps for reporting of results based on the original data loaded in the .rnw file.
-# lamp_list_for_results <-  paste("lamp_", lamp_list, sep = "")
-
-# Creates a list of weighting functions for reporting of results based on the original data loaded in the .rnw file.
-# wf_list_for_results <- paste("wf_", wf_list, sep = "")
+# This script creates a table with the mean energy efficiency
+# for each combination of lamp and weighting function used in the analysis.
 
 # Filtering spd_metrics data frame to extract etas data.
 results_etas <- spd_metrics %>%
@@ -30,7 +27,7 @@ colnames(results_etas_fin) <- names(lamp_list)
 
 # Replace wf_list wf_name with actual wf name ()
 
-rownames(results_etas_fin) <- c("Unweighted ($\\eta_{E,uw}$)", 
+rownames(results_etas_fin) <- c("Unweighted ($\\eta_{E,uw}$)", # Here the user will have to manually change the row names based on the weighting functions used.
                                 "Vis. spectrum ($\\eta_{E,vis}$)", 
                                 "Photopic lum. ($\\eta_{E,pl}$)", 
                                 "Universal lum. ($\\eta_{E,univ}$)")
