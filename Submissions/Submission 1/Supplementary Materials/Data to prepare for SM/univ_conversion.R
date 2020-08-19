@@ -1,7 +1,11 @@
-# source("Data/spd_metric_calcs.R")
+source("Data/spd_metric_calcs.R")
 
-# Eta photopic to universal conversion factor 
+# This script calculates the conversion factors for moving from the energy efficiency 
+# of a lamp based on the photopic luminous weighting function,
+# to the energy efficiency of a lamp based on the universal weighting function,
+# for each lamp type and across all lamp types.
 
+# Loads energy efficiency data and lamp info data into data frames.
 univ_eta_df <- spd_metrics %>%
   dplyr::filter(wf_name == "wf_u") %>%
   dplyr::select(lamp_name, wrp_div_ec)
