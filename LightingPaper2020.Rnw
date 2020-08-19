@@ -343,7 +343,7 @@ is important in many fields, including
 energy history~\cite{Fouquet:2006},
 energy economics~\cite{Nordhaus1996},
 ecological economics~\cite{whiting2020illumination},
-forecasting energy efficiency improvements~\cite{IEA2019}, and 
+forecasting energy efficiency improvements~\cite{IEA2020}, and 
 societal exergy analysis~\cite{Ayres2005},
 the focus of this article.
 
@@ -549,9 +549,6 @@ the minimum energy required to produce a given output and
 the actual energy required to produce the same given output, 
 as recommended by \citet{Sousa2017}
 for sound, information, and lighting.
-The conventional method is used also to determine the efficiency of 
-ammonia and steel production processes.
-**** Can whoever made this comment provide a reference?---MKH ****
 (See Section~\ref{sec:previous_approach} for additional detail.)
 The conventional method is typically implemented 
 for lighting via luminous efficacy with
@@ -566,19 +563,32 @@ $K_{max}$ is the theoretical maximum luminous efficacy.
 However, Equation~\ref{eq:eta_eqn} exposes 
 a source of confusion, 
 namely what value should be used for $K_{max}$?
-Within the societal exergy analysis literature and beyond,
-three common values are adopted:
+% Within the societal exergy analysis literature and beyond,
+% three common values are adopted:
+% 220~lm/W \cite{Summers1971, Ayres2003, USDepartmentofEnergyDoE2011},
+% 400~lm/W \cite{Summers1971, Ayres2005, Tsao2010solidstate, Guevara2016}, and
+% 683~lm/W \cite{Kondo2009, Serrenho2014}, based on the maximum efficacy of 
+% a ***** PB: I added Summers references to 220 and 400, as requested by PB.
+% But I don't think this is done.
+% We still need the specific reason why 220 and 400 were chosen.
+% I think ``broad-spectrum white light'' came from PB originally.
+% I don't know if ``broad-spectrum white light'' is the same as 
+% ``acceptable white light.''---MKH ****, 
+% broad-spectrum white light, and
+% green light at 555~nm, respectively.
+Within the societal exergy analysis literature and beyond, 
+three common values are adopted: 
 220~lm/W \cite{Summers1971, Ayres2003, USDepartmentofEnergyDoE2011},
-400~lm/W \cite{Summers1971, Ayres2005, Tsao2010solidstate, Summers1971, Guevara2016}, and
-683~lm/W \cite{Kondo2009, Serrenho2014}, based on the maximum efficacy of 
-a ***** PB: I added Summers references to 220 and 400, as requested by PB.
-But I don't think this is done.
-We still need the specific reason why 220 and 400 were chosen.
-I think ``broad-spectrum white light'' came from PB originally.
-I don't know if ``broad-spectrum white light'' is the same as 
-``acceptable white light.''---MKH ****, 
-broad-spectrum white light, and
-green light at 555~nm, respectively.
+400 lm/W \cite{Summers1971, Ayres2005, Tsao2010solidstate, Guevara2016}, and
+683 lm/W \cite{Kondo2009, Serrenho2014}.
+To our knowledge, 
+the earliest reference for 220~lm/W and 400~lm/W is \citet[p.~151]{Summers1971},
+who stated ``[t]he efficiencies \ldots{} assume that the maximum attainable efficiency
+for an acceptable white light is about
+400 lumens per watt rather than the theoretical value 
+of 220 lumens per watt 
+for a perfectly `flat' white light.''
+The value of 683~lm/W is the maximum efficacy of green light at 555~nm.
 
 Paoli and Cullen
 % \citeauthor{Paoli2020} 
