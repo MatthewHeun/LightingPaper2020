@@ -65,6 +65,6 @@ results_cea_table <- results_cea_table[,c("INC","HAL","CFL","LED")]
 results_cea_table <- magrittr::set_rownames(results_cea_table, 
                                             c("Conventional method ($\\eta_{E,pl}$)", 
                                               "Exact method ($\\eta_{X,univ}$)", 
-                                              "Approximate method"))
+                                              "Approximate method (Equation~\\ref{eq:approximate_unknown_tech})"))
 
 

@@ -2212,7 +2212,7 @@ print(xtable::xtable(results_cea_table, digits=2,
 Societal exergy analyses are normally conducted at the sectoral or economy-wide scale, 
 so practitioners must weight per-lamp-technology efficiencies
 by each technology's usage fraction.
-Two types of data are required for a given period of interest, typically a year:
+Two types of data are needed for a given period of interest, typically a year:
 %
 \begin{enumerate*}[label={(\alph*)}]
 
@@ -2234,11 +2234,9 @@ luminous efficacies must be converted
 into valuable exergetic efficiencies by the approximate method.
 (See Section~\ref{sec:approximate_method}.)
 
-Importantly, data for the usage proportion for each lamp technology~($\theta_i$)
-for each year of the study are needed,
-ideally in the form of the fraction of lighting electricity consumed by each lamp type.
-For example, such data (and luminous efficacy values, $K_i$)
-are provided by the US DOE's Lighting Market Characterization reports \citep{DOE2002, DOE2012, DOE2017}
+Data for item~(b) are in the form of the fraction of lighting electricity consumed by each lamp technology.
+Such data (and luminous efficacy values, $K_i$)
+can be obtained from the US DOE's Lighting Market Characterization reports \citep{DOE2002, DOE2012, DOE2017}
 for the USA for the following lamp technologies: incandescent, halogen, compact fluorescent,
 linear fluorescent, high intensity discharge, LED, and other.
 
@@ -2292,23 +2290,23 @@ We showed that the exact method
     
 \end{enumerate*}
 %
-(a)--(c) are improvements over the conventional method.
+Items (a)--(c) are improvements over the conventional method.
 The exact method requires the availability of a lamp's spectral power distribution.
 For cases when a spectral power distribution is not available, 
 we developed a novel approximate method,
 involving surprisingly stable values 
 of the exergy-to-energy ratio~($\phi_L$) and 
-the photopic-to-universal factor~($\gammarat{}$)
+the photopic-to-universal conversion factor~($\gammarat{}$)
 across lighting technologies.
-Finally, we provided recommendations for societal exergy practitioners, namely to
+Finally, we provided recommendations for societal exergy practitioners, namely to use
 %
 \begin{enumerate*}[label={(\alph*)}]
 	
-  \item use the exact method when a lamp's spectral power distribution is available, 
+  \item the exact method when a lamp's spectral power distribution is available, 
   
-  \item use the universal luminous weighting weighting function~($U_\lambda$), and
+  \item the universal luminous weighting weighting function~($U_\lambda$), and
   
-  \item use the approximate method when luminous efficacy is known
+  \item the approximate method when luminous efficacy is known
         but spectral power distribution is not.
   
 \end{enumerate*}
@@ -2319,7 +2317,7 @@ Future work could include
 	
 	\item investigating additional lighting technologies to assess the stability of 
 	      the average exergy-to-energy ratio~($\bar{\phi}_{L,pl}$) and 
-	      the average photopic-to-universal factor~($\gammaratavg{}$)
+	      the average photopic-to-universal conversion factor~($\gammaratavg{}$)
 	      across lighting technologies,
 	
   \item applying the exact method to understand the evolution
