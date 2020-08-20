@@ -41,7 +41,7 @@ library(xtable)
 <<setup-graphs, include=FALSE>>=
 # This variable switches the cache on/off for all R code chunks that are configured for cacheing.
 # Set to FALSE if some plots are not updating as expected, then set back to TRUE.
-use_cache <- FALSE
+use_cache <- TRUE
 
 # Here are some options for the colors to use in the ggspectra graphs.
 # The variable chroma_type is used in all graphs,
@@ -358,7 +358,7 @@ we set out here two fundamental aspects of lighting.
 The first aspect is clear definitions of electromagnetic~(EM) energy and light.
 EM energy~($E$, in J) is broad-spectrum EM radiation
 quantified by the energy of photons via Einstein's equation,
-%
+
 \begin{equation}
   E = h \nu = \frac{hc}{\lambda} \; ,
 \end{equation}
@@ -460,7 +460,7 @@ and thus outside of scope.
 
 The valuable \enoex{} conversion efficiency ($\eta_v$)
 is defined in simple terms as
-%
+
 \begin{equation} \label{eq:eta_basic_eqn}
  \eta_v = \frac{\text{valuable output}}{\text{energy input}} \; .
 \end{equation}
@@ -552,7 +552,7 @@ for sound, information, and lighting.
 (See Section~\ref{sec:previous_approach} for additional detail.)
 The conventional method is typically implemented 
 for lighting via luminous efficacy with
-%
+
 \begin{equation} \label{eq:eta_eqn}
   \eta_{X,L,v} \approx \frac{K}{K_{max}} \; ,
 \end{equation}
@@ -737,7 +737,7 @@ heat at \Circled{1} to
 work at \Circled{3}
 with a waste heat byproduct at \Circled{2}. 
 All streams can be counted as energy ($\dot{E}$), such that 
-%
+
 \begin{equation} \label{eq:all_streams_energy}
   \dot{E}_1 = \dot{Q}_1, \; \dot{E}_2 = \dot{Q}_2, \; \text{and} \; \dot{E}_3 = \dot{W}_3 \; .
 \end{equation}
@@ -765,7 +765,7 @@ All streams can be counted as energy ($\dot{E}$), such that
 
 Energy efficiency is defined as $\eta_E \equiv \frac{\text{energy out}}{\text{energy in}}$.
 For the example of Figure~\ref{fig:heat_engine}, 
-%
+
 \begin{equation} \label{eq:energy_efficiency}
   \eta_E = \frac{\dot{E}_2 + \dot{E}_3}{\dot{E}_1} = \frac{\dot{Q}_2 + \dot{W}_3}{\dot{Q}_1} = 1 \; ,
 \end{equation}
@@ -776,7 +776,7 @@ requires that energy is conserved ($\dot{Q}_1 = \dot{Q}_2 + \dot{W}_3$).
 That said, typically only one of the products in Figure~\ref{fig:heat_engine} 
 is deemed valuable: the work produced by the heat engine ($\dot{W}_3$).
 Thus, the \emph{valuable} energy efficiency ($\eta_{E,v}$) is 
-%
+
 \begin{equation} \label{eq:valuable_energy_efficiency}
   \eta_{E,v} = \frac{\dot{E}_3}{\dot{E}_1} = \frac{\dot{W}_3}{\dot{Q}_1} < 1 \; .
 \end{equation}
@@ -797,7 +797,7 @@ To find the maximum possible work that can be created from heat
 (and, therefore, the exergy of heat), 
 we require the Carnot heat engine, which operates
 at the maximum possible valuable energy efficiency~($\eta_C$).
-%
+
 \begin{equation} \label{eq:eta_C}
   \eta_C = 1 - \frac{T_0}{T_{sys}}
 \end{equation}
@@ -805,7 +805,7 @@ at the maximum possible valuable energy efficiency~($\eta_C$).
 $T_0$ is the ambient temperature, and $T_{sys}$ is a heat temperature 
 ($T_1$ or $T_2$ in Figure~\ref{fig:heat_engine}).
 The exergy of each stream in Figure~\ref{fig:heat_engine} is then
-%
+
 \begin{equation}
   \dot{X}_1 = \phi_1 \dot{Q}_1 = \left(1 - \frac{T_0}{T_1} \right) \dot{Q}_1, \; 
   \dot{X}_2 = \phi_2 \dot{Q}_2 = \left(1 - \frac{T_0}{T_2} \right) \dot{Q}_2, \text{ and} \;
@@ -823,7 +823,7 @@ E.g., $\phi_1 = \dot{X}_1 / \dot{E}_1$.)
 The exergetic efficiency of an energy conversion device 
 is defined as $\eta_X \equiv \frac{\text{exergy out}}{\text{exergy in}}$.
 For the heat engine in Figure~\ref{fig:heat_engine}, 
-%
+
 \begin{equation} \label{eq:exergy_efficiency}
   \eta_X = \frac{\dot{X}_2 + \dot{X}_3}{\dot{X}_1} = \frac{\dot{Q}_2 \left( 1 - \frac{T_0}{T_2} \right)  + \dot{W}_3}
                 {\dot{Q}_1 \left( 1 - \frac{T_0}{T_1} \right) } < 1 \; ,
@@ -834,7 +834,7 @@ states that exergy is always destroyed ($\dot{X}_1 > \dot{X}_2 + \dot{X}_3$ or
 $\dot{X}_D = \dot{X}_1 - (\dot{X}_2 + \dot{X}_3)$).
 
 Assuming, again, that work is the valuable output gives
-%
+
 \begin{equation} \label{eq:valuable_exergy_efficiency}
   \eta_{X,v} = \frac{\dot{W}_3}{\dot{Q}_1 \left( 1 - \frac{T_0}{T_1} \right) } < \eta_X < 1\; .
 \end{equation}
@@ -920,7 +920,7 @@ waste heat (conduction and convection only) is produced at \Circled{2}.
 
 Both electricity and EM radiation can be converted to heat without loss, so they are pure energy.
 Thus,
-%
+
 \begin{equation}
   \dot{E}_1 = \dot{W}_{elect,1}, \; \dot{E}_2 = \dot{Q}_2, \; \text{and} \; \dot{E}_3 = \dot{E}_{EM,3} \; ,
 \end{equation}
@@ -939,7 +939,7 @@ so we reserve $\Phi$ for lumen output of a lamp.
 See Section~\ref{sec:weighting_functions}.)
 
 The lamp's energy efficiency~($\eta_{E,EM}$) is 
-%
+
 \begin{equation}  
   \eta_{E,EM} = \frac{\dot{E}_2 + \dot{E}_3}{\dot{E}_1} = \frac{\dot{Q}_2 + \dot{E}_{EM,3}}{\dot{W}_{elect,1}} = 1 \; .
 \end{equation}
@@ -947,7 +947,7 @@ The lamp's energy efficiency~($\eta_{E,EM}$) is
 The valuable energy efficiency of the lamp
 in Figure~\ref{fig:lamp}~($\eta_{E,EM,v}$, also called the wall plug efficiency)
 is
-%
+
 \begin{equation} \label{eq:eta_E_v}
   \eta_{E,EM,v} = \frac{\dot{E}_3}{\dot{E}_1} = \frac{\dot{E}_{EM,3}}{\dot{W}_{elect,1}} < 1 \; ,
 \end{equation}
@@ -957,7 +957,7 @@ assuming that broad-spectrum EM radiation at \Circled{3} is the valuable output 
 Because electricity can be converted to work without loss in a frictionless motor,
 electricity is considered pure exergy, i.e., $\phi_{elect} = 1$.
 Thus, the exergy of the first three streams in Figure~\ref{fig:lamp} is given by 
-%
+
 \begin{equation}
   \dot{X}_1 = \cancelto{1}{\phi_{elect}} \dot{W}_{elect,1} = \dot{W}_{elect,1}, \; 
               \dot{X}_2 = \left( 1 - \frac{T_0}{T_2} \right) \dot{Q}_2, \; \text{and} \; 
@@ -972,7 +972,7 @@ meaning that it varies with wavelength.
 Spectral radiant power~($\dot{E}_{EM,\lambda}$)
 is the EM emissive power available between any two wavelengths
 and is related~\citep{benenson2006handbook} to radiant power~($\dot{E}_{EM}$) by
-%
+
 \begin{equation} \label{eq:emissive_power}
   \dot{E}_{EM} = \int \dot{E}_{EM,\lambda} \mathrm{d}\lambda \; .
 \end{equation}
@@ -980,7 +980,7 @@ and is related~\citep{benenson2006handbook} to radiant power~($\dot{E}_{EM}$) by
 Visually, $\dot{E}_{EM}$ is the area under the $\dot{E}_{EM,\lambda}$ vs.\ $\lambda$ curve.
 
 The exergetic efficiency of EM radiation emitted by the lamp in Figure~\ref{fig:lamp} is given by
-%
+
 \begin{equation}
   \eta_{X,EM} = \frac{\dot{X}_2 + \dot{X}_3}{\dot{X}_1} 
           = \frac{\left( 1 - \frac{T_0}{T_2} \right) \dot{Q}_2 + \phi_{EM} \dot{E}_{EM,3} }{\dot{W}_{elect,1}} < 1 \; ,
@@ -989,7 +989,7 @@ The exergetic efficiency of EM radiation emitted by the lamp in Figure~\ref{fig:
 In general, $\phi_{EM}$ is also a spectral quantity.
 (See Section~\ref{sec:phi_light}.)
 The valuable exergetic efficiency of the EM radiation emitted by the lamp in Figure~\ref{fig:lamp} is given by
-%
+
 \begin{equation} \label{eq:eta_X_v}
   \eta_{X,EM,v} = \frac{\dot{X}_3}{\dot{X}_1} 
               = \frac{\phi_{EM} \dot{E}_{EM,3} }{\dot{W}_{elect,1}} < \eta_{X,EM} < 1 \; .
@@ -1037,7 +1037,7 @@ But how?
 Knowing that visual perception of light is a function of wavelength
 leads to modifying Equation~\ref{eq:emissive_power}
 to include a spectral luminous weighting function~($f_\lambda$) such that
-%
+
 \begin{equation} \label{eq:weighted_emissive_power}
   \dot{E}_L = \int \dot{E}_{L,\lambda} \mathrm{d}\lambda = \int f_\lambda \dot{E}_{EM,\lambda} \mathrm{d}\lambda \; ,
 \end{equation}
@@ -1051,7 +1051,7 @@ broad-spectrum EM radiation~($\dot{E}_{EM}$ and $\dot{X}_{EM}$)
 to light~($\dot{E}_{L}$ and $\dot{X}_{L}$), 
 the valuable part of EM radiation for illumination.
 In the context of Figure~\ref{fig:lamp}, 
-%
+
 \begin{equation} \label{eq:L_dot_5}
   \dot{E}_{L,5} = \int f_\lambda \dot{E}_{EM,\lambda,3} \, \mathrm{d}\lambda \; .
 \end{equation}
@@ -1060,7 +1060,7 @@ In Figure~\ref{fig:lamp}, any EM radiation at statepoint 3
 \emph{not} converted to light
 is quantified as non-light EM radiation at statepoint 4~($\dot{E}_{N,4}$).
 Specifically,
-%
+
 \begin{equation} \label{eq:N_dot_5}
   \dot{E}_{N,4} = \int (1 - f_\lambda) \dot{E}_{EM,\lambda,3} \, \mathrm{d}\lambda \; .
 \end{equation}
@@ -1077,7 +1077,7 @@ into the exergy of EM radiation~($\dot{X}_{EM}$)~\cite{Shan2019}.
 The exergy-to-energy ratio of EM radiation
 ($\phi_{\EM}$, called the ``radiative exergy-energy coefficient'' in that community)
 is most commonly given by Petela's Equation~\cite{petela1964exergy, Delgado-Bonal:2017aa, Shan2019}:
-%
+
 \begin{equation} \label{eq:petelas_equation}
  \phi_{\EM} = 1 - \frac{4}{3}\frac{T_{0}}{T_{1}} + \frac{1}{3} \left(\frac{T_{0}}{T_{1}}\right)^4 \; ,
 \end{equation}
@@ -1113,13 +1113,13 @@ to obtain the link between Petela's equation (Equation~\ref{eq:petelas_equation}
 and the spectral exergy-to-energy ratio~($\phi_{\EM,\lambda}$).
 The product of wavelength and photon effective temperature 
 is a constant~($c_3$ in \citet{chen2008}) such that
-%
+
 \begin{equation}
   \lambda T_{\lambda} = c_{3} = 5.33016 \times 10^{-3} \text{ m-K} \; ,
 \end{equation}
 %
 or
-%
+
 \begin{equation} \label{eq:T_lambda}
   T_\lambda = \frac{c_3}{\lambda} = \frac{5.33016 \times 10^{-3} \text{ m-K}}{\lambda} \; .
 \end{equation}
@@ -1157,7 +1157,7 @@ being a small aperture on a larger cavity.
 the pupil looks black because most light entering it is trapped and absorbed.'')
 Thus, we use Shan and Zhou's~\cite{Shan2019} spectral formulation of Petela's equation,
 which replaces the temperature of the emitter ($T_1$) by photon effective temperature~($T_\lambda$):
-%
+
 \begin{equation} \label{eq:phi_EM_lambda_shan_zhou}
  \phi_{\EM,\lambda} = 1 - \frac{4}{3} \left( \frac{T_{0}}{T_{\lambda}} \right)
                         + \frac{1}{3} \left(\frac{T_{0}}{T_{\lambda}}\right)^4 \; .
@@ -1167,7 +1167,7 @@ Further, Equation~\ref{eq:T_lambda} (in the form $T_\lambda = c_3 / \lambda$)
 can be substituted into Equation~\ref{eq:phi_EM_lambda_shan_zhou},
 and $T_0$ can be taken as 310~K, the temperature of the human body.
 The result is an equation for $\phi_{L,\lambda}$, the spectral exergy-to-energy ratio of light:
-%
+
 \begin{equation} \label{eq:phi_L_lambda_shan_zhou}
  \phi_{L,\lambda} = 1 
                     - \frac{4}{3} \left( \frac{310 \text{ K}}{c_3} \right) \lambda 
@@ -1180,7 +1180,7 @@ the spectral radiant power~($\dot{E}_{EM,\lambda}$),
 a spectral luminous weighting function~($f_\lambda$), and
 the spectral exergy-to-energy ratio~($\phi_{L,\lambda}$)
 with respect to wavelength.
-%
+
 \begin{equation} \label{eq:X_dot_L}
   \dot{X}_L = \int \phi_{L,\lambda} \, f_\lambda \, \dot{E}_{EM,\lambda} \mathrm{d}\lambda
 \end{equation}
@@ -1211,14 +1211,14 @@ If the valuable product of a lamp is considered to be its light~($\dot{E}_L$ or 
 as opposed to its broad-spectrum EM radiation~($\dot{E}_{EM}$ or $\dot{X}_{EM}$),
 Equations~\ref{eq:eta_E_v} and~\ref{eq:eta_X_v} require modification.
 In the context of Figure~\ref{fig:lamp}, the valuable energy efficiency of a lamp becomes
-%
+
 \begin{equation} \label{eq:eta_E_v_light}
   \eta_{E,L,v} = \frac{\dot{E}_5}{\dot{E}_{elect,1}} 
                = \frac{\int f_\lambda \dot{E}_{EM,\lambda,3} \, \mathrm{d}\lambda}{\dot{W}_{elect,1}} \; ,
 \end{equation}
 %
 and the valuable exergetic efficiency of a lamp becomes
-%
+
 \begin{equation} \label{eq:eta_X_v_light}
   \eta_{X,L,v} = \frac{\dot{X}_5}{\dot{X}_{elect,1}} 
                = \frac{\int \phi_{L,\lambda} f_\lambda \dot{E}_{EM,\lambda,3} \, \mathrm{d}\lambda}{\dot{W}_{elect,1}} \; .
@@ -1249,7 +1249,7 @@ implicitly assuming that all EM radiation emitted from a lamp counts as light,
 whether or not it is within the visible portion of the EM spectrum.
 For the first option, the degenerate (unweighted, uw) 
 luminous weighting function ($f_{\lambda,uw}$) is
-%
+
 \begin{equation} \label{eq:f1}
   f_{\lambda,uw} = 1 \; .
 \end{equation}
@@ -1261,7 +1261,7 @@ regardless of the spectral sensitivity of those cells.
 In the second option, the practitioner excludes wavelengths outside the range of perception by the human eye
 when determining the \enoex{} of light.
 For the second option (visible, vis),
-%
+
 \begin{equation} \label{eq:f2}
 f_{\lambda,vis} =
   \begin{cases}
@@ -1285,21 +1285,21 @@ was defined by the Commission Internationale de l' \'{E}clairage (CIE) in 1931
 and represents the sensitivity of M and L cones
 at daytime light levels \cite{CVRL2008}.
 So for Option 3,
-%
+
 \begin{equation} \label{eq:f3}
   f_{\lambda,pl} = V_\lambda \; .
 \end{equation}
 
 Substituting Equation~\ref{eq:f3} into Equation~\ref{eq:weighted_emissive_power}
 yields
-%
+
 \begin{equation}
   \dot{E}_{L,pl} = \int V_\lambda \dot{E}_{EM,\lambda} \mathrm{d}\lambda \; ,
 \end{equation}
 %
 which provides the basis for calculating a lamp's output 
 of visible light~($\Phi_{pl}$) in the unit of lumens~(lm):
-%
+
 \begin{equation} \label{eq:lumen}
   \Phi_{pl} \equiv (683 \text{ lm/W}) \, \dot{E}_{L,pl} 
                  = (683 \text{ lm/W}) \int V_\lambda \dot{E}_{EM,\lambda} \mathrm{d}\lambda \; ,
@@ -1317,7 +1317,7 @@ When the photopic luminous weighting function~($V_\lambda$) is used
 to calculate radiant power, 
 the valuable energy efficiency of a lamp can be written in terms of luminous efficacy~($K$)
 by modifying Equation~\ref{eq:eta_E_v_light} to be (in the context of Figure~\ref{fig:lamp})
-%
+
 \begin{equation} \label{eq:lum_effic_def}
   K \equiv \frac{(683 \text{ lm/W}) \int V_\lambda \dot{E}_{EM,\lambda,3} \, \mathrm{d}\lambda}{\dot{W}_{elect,1}} \; ,
 \end{equation}
@@ -1344,7 +1344,7 @@ by the spectral sensitivity of all five light receptors in the human eye
 The universal luminous weighting function ($U_\lambda$) \cite{Rea2018}
 captures the actual, broader sensitivity of the human eye.
 So for option 4,
-%
+
 \begin{equation} \label{eq:f4}
   f_{\lambda,univ} = U_\lambda \; .
 \end{equation}
@@ -1378,7 +1378,7 @@ we applied the standard procedure of scaling the SPD
 by the ratio ($\mu$) of
 the radiant power given by the manufacturer~($K \, \dot{W}_{elect,1}$) to  
 the integral of the spectral radiant power taken from the relative intensity data~($\dot{E}_{EM,\lambda,rel}$).
-%
+
 \begin{equation} 
   \mu \equiv \frac{K \, \dot{W}_{elect,1}}{\dot{E}_{EM,rel}} \; .
 \end{equation}
@@ -1386,7 +1386,7 @@ the integral of the spectral radiant power taken from the relative intensity dat
 We then applied the scaling factor~($\mu$) to the SPD for each lamp, 
 yielding a corrected SPD~($\dot{E}_{EM,\lambda}$)
 that matches the manufacturer's reported radiant power. 
-%
+
 \begin{equation} 
   \dot{E}_{EM,\lambda}  = \mu \dot{E}_{EM,\lambda,rel}
 \end{equation}
@@ -1795,7 +1795,7 @@ by inverting luminous efficacies.
 For a lamp, the quotient is between the lamp's luminous efficacy~($K$)
 and the maximum luminous efficacy~($K_{max}$).
 Thus, 
-%
+
 \begin{equation} \label{eq:K_over_e_max}
   \eta_{X,L,v} \approx \frac{\; \; \frac{1}{K_{max}} \; \; }{\frac{1}{K}}
        = \frac{K}{K_{max}} \; ,
@@ -1811,7 +1811,7 @@ the electricity consumption rate of the device
 Substituting Equation~\ref{eq:lum_effic_def} into Equation~\ref{eq:K_over_e_max} restates
 (with reference to Figure~\ref{fig:lamp})
 valuable exergetic efficiency for the conventional method:
-%
+
 \begin{equation} \label{eq:prev_eta_X_v_light}
   \eta_{X,L,v} \approx \frac{ \; \; \frac{(683 \text{ lm/W}) \int V_\lambda \dot{E}_{EM,\lambda,3} \,
           \mathrm{d}\lambda}{\dot{W}_{elect,1}} \; \;}{K_{max}} \; .
@@ -1857,7 +1857,7 @@ When $K_{max}$ is equal to 683~lm/W and
 the weighting function is taken to be the photopic luminous weighting function~($V_\lambda$),
 as they should for the conventional method,
 Equation~\ref{eq:prev_eta_X_v_light} simplifies to 
-%
+
 \begin{equation} \label{eq:prev_eta_X_v_light_final}
   \eta_{X,L,v} \approx \frac{\int V_\lambda \dot{E}_{EM,\lambda,3} \mathrm{d}\lambda}{\dot{W}_{elect,1}}\; .
 \end{equation}
@@ -2144,7 +2144,7 @@ are given in Table~\ref{tab:mean_phi_p2_by_lamp_type} in the appendix.
 %..............................
 
 Similarly, we obtained $\gammarat{}$ for each lamp~($i$) by taking the quotient of efficiencies:
-%
+
 \begin{equation} \label{eq:conversionuniversal}
   \gammarat{}_{,i} = \frac{\eta_{X,univ,i}}{\eta_{X,pl,i}} \; .
 \end{equation}
@@ -2166,7 +2166,7 @@ are given in Table~\ref{tab:conversionfactors} in the appendix.
 
 The approximate method for determining the valuable exergetic efficiency of a lamp
 is implemented by the following equation
-%
+
 \begin{equation} \label{eq:approximate}
   \eta_{X,univ} \approx \bar{\phi}_{L,pl} \, \gammaratavg{} \, \frac{K}{683 \text{ lm/W}} \; ,
 \end{equation}
@@ -2179,7 +2179,7 @@ in the exergy space (via $\gammaratavg{}$).
 
 When the lamp technology is unknown, overall average values can be used
 for $\bar{\phi}_{L,pl}$ and $\gammaratavg{}$:
-%
+
 \begin{equation} \label{eq:approximate_unknown_tech}
   \eta_{X,univ} \approx (\Sexpr{format(round(phi_mean, 3), nsmall = 3)}) 
                         (\Sexpr{format(round(conversionX_mean, 2), nsmall = 2)})
@@ -2266,14 +2266,14 @@ linear fluorescent, high intensity discharge, LED, and other.
 When SPDs are available, the exact method can be used to determine the 
 valuable exergetic efficiency of each lighting technology~($i$), and
 the aggregate valuable exergetic lighting efficiency for a particular year can be found by
-%
+
 \begin{equation} \label{eq:agg_eta}
   \eta_{X,univ,agg} = \sum \limits_{i} \theta_{i} \, \eta_{X,univ,i} \; .
 \end{equation}
 %
 
 When SPDs are not available, the approximate method can be used as follows:
-%
+
 \begin{equation} \label{eq:agg_eta_K}
   \eta_{X,univ,agg} \approx \sum \limits_{i} \theta_{i} \, \bar{\phi}_{L,pl} \, \gammaratavg{} \, 
                             \frac{K_{i}}{683 \text{ lm/W}} \; .
