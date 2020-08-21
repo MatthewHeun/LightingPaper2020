@@ -1,0 +1,39 @@
+Submission process information for lighting paper
+
+M.K. Heun
+20 August 2020
+
+
+
+
+
+
+
+
+address, homepage, phone, e-mail address
+
+
+Suggested reviewers:
+
+Societal Exergy Analysis: 
+Laura Felicio
+MARETEC—Marine, Environment and Technology Center, LARSyS, Instituto Superior Técnico, Universidade de Lisboa, 1049-001 Lisboa, Portugal
++351 21 8419428
+laura.felicio@tecnico.ulisboa.pt
+
+Photometry: 
+Jeffrey Tsao
+Sandia National Laboratories, New Mexico, P.O. Box 5800, Albuquerque, NM 87185
+https://www.sandia.gov/~jytsao/
+(505) 844-7092
+jytsao@sandia.gov
+
+Thermodynamics of radiation:
+Zhijun Zhao
+State Key Laboratory of Clean Energy Utilization, Zhejiang University, Hangzhou 310027, China
+zhouzj@zju.edu.cn
+
+
+
+Excluded reviewer:
+
