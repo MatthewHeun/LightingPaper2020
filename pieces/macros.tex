@@ -75,7 +75,19 @@
 
 
 
+% From https://tex.stackexchange.com/questions/130623/crossing-out-using-different-colour,
+% Change the \sout color to red
+\newcommand{\redsout}{\bgroup\markoverwith{\textcolor{red}{\rule[0.5ex]{2pt}{0.4pt}}}\ULon}
 
+% Use these versions to display changes.
+\newcommand{\del}[1]{\textcolor{gray}{\redsout{#1}}}
+\newcommand{\ins}[1]{\textcolor{red}{#1}}
+\newcommand{\rev}[2]{\del{#1}\ins{#2}}
+
+% Use these versions for a clean copy.
+% \newcommand{\del}[1]{}
+% \newcommand{\ins}[1]{#1}
+% \newcommand{\rev}[2]{#2}
 
 
 
