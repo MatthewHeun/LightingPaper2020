@@ -456,11 +456,11 @@ electricity (final stage) is converted to light (useful stage) by lamps.
 \rev{Thus}{Therefore}, the efficiency of energy and exergy conversion from electricity
 to light by electric lamps~($\eta_E$ and $\eta_X$, respectively)
 is the focus of this article.
-Note that both energy services (e.g., illumination)~\ins{, the stage of the energy conversion chain
-termed `application efficacy' in photometry \cite{rea2001application},} 
+Note that both energy services (e.g., illumination\ins{, the stage of the energy conversion chain
+termed ``application efficacy' in photometry \cite{rea2001application}}) 
 and satisfaction of human needs
 (e.g., comfort, safety, etc.) are downstream of the useful stage 
-and thus outside of scope.
+and thus \rev{outside of}{beyond the} scope \ins{of this paper}.
 
 
 %++++++++++++++++++++++++++++++
