@@ -156,6 +156,7 @@ chroma_type <- photobiology::ciexyzCMF10.spct            # Very similar to "CMF"
 \usepackage{booktabs}                       % For nice table rules
 \usepackage[makeroom]{cancel}               % To show terms go to zero
 \usepackage{circledsteps}                   % To show statepoints in circles.
+\usepackage{longtable}                      % For tables that span multiple pages.
 \usepackage{pdflscape}                      % For landscape environment \begin{landscape} ... \end{landscape}
 \usepackage{subcaption}                     % For Figure 12 (a), Figure 12 (b), etc.
 \usetikzlibrary{decorations.pathreplacing,angles,quotes}
@@ -353,7 +354,7 @@ the focus of this article.
 \label{sec:light_ECC}
 %++++++++++++++++++++++++++++++
 
-Ahead of a detailed treatment of the thermodynamics of light in Section~\ref{sec:framework}
+Ahead of a detailed treatment of the thermodynamics of light in Section~\ref{sec:framework},
 we set out here two fundamental aspects of lighting. 
 The first aspect is clear definitions of electromagnetic~(EM) energy and light.
 EM energy~($E$, in J) is broad-spectrum EM radiation
