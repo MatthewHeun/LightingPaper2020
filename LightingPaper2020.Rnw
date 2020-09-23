@@ -404,7 +404,7 @@ response_data <- weighted_responses_df %>%
 @
 
 
-<<Vis_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="Normalized sensitivity and color perception of the human eye to EM radiation~\\cite{schubert2006}, according to the photopic luminous weighting function~($V_\\lambda$).  This figure and Figure~\\ref{fig:wfs_and_lamps} below utilize the CIE 10 degree color matching function~\\ins{~\\cite{CIE2006}}. \\ins{The \\texttt{R} package \\texttt{ggspectra}~\\cite{Aphalo2015} was used to generate both figures.} 555~nm is the wavelength of peak human eye visibility, \\humaneyesensitivity{} is the range of human retina sensitivity, and 250~nm < $\\lambda$ < 900~nm is the range of data availability for lamp spectral power distributions (SPDs) in the Light Spectral Power Distribution Database (LSPDD)~\\citep{Roby, miguel2017, aube2013}.">>=
+<<Vis_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="Normalized sensitivity and color perception of the human eye to EM radiation~\\cite{schubert2006}, according to the photopic luminous weighting function~($V_\\lambda$). This figure and Figure~\\ref{fig:wfs_and_lamps} below utilize the CIE 10 degree color matching function \\ins{(CMF)~\\cite{CIE2006}.We note that wavelengths of light are not inherently colored, but we have adopted this approach for demonstration purposes.} \\ins{The \\texttt{R} package \\texttt{ggspectra}~\\cite{Aphalo2015} was used to generate both figures.} 555~nm \\rev{is the wavelength of peak human eye visibility}{represents the peak of the combined sensitivities of two of the human eyes five light recpetors, the long-wavelength and medium-wavelength cones}, \\humaneyesensitivity{} is the range of human retina sensitivity, and 250~nm < $\\lambda$ < 900~nm is the range of data availability for lamp spectral power distributions (SPDs) in the Light Spectral Power Distribution Database (LSPDD)~\\citep{Roby, miguel2017, aube2013}.">>=
 response_data %>% 
   dplyr::filter(wf_name == "Photopic") %>% 
   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>% 
@@ -456,7 +456,9 @@ electricity (final stage) is converted to light (useful stage) by lamps.
 \rev{Thus}{Therefore}, the efficiency of energy and exergy conversion from electricity
 to light by electric lamps~($\eta_E$ and $\eta_X$, respectively)
 is the focus of this article.
-Note that both energy services (e.g., illumination) and satisfaction of human needs
+Note that both energy services (e.g., illumination)~\ins{, the stage of the energy conversion chain
+termed `application efficacy' in photometry \\cite{rea2001application},} 
+and satisfaction of human needs
 (e.g., comfort, safety, etc.) are downstream of the useful stage 
 and thus outside of scope.
 
@@ -596,7 +598,10 @@ for an acceptable white light is about
 400 lumens per watt rather than the theoretical value 
 of 220 lumens per watt 
 for a perfectly `flat' white light.''
-The value of 683~lm/W is the maximum efficacy of green light at 555~nm.
+The value of 683~lm/W is \\rev{the maximum efficacy} {derived from the definition of the lumen. 
+It represents the luminous efficacy of a lamp 
+emitting light at 555~nm, the peak of the photopic luminous weighting function, 
+with electricity is converted into radiation with at 100~\% efficiency.}
 
 Paoli and Cullen
 % \citeauthor{Paoli2020} 
@@ -1285,7 +1290,7 @@ f_{\lambda,vis} =
 \end{equation}
 
 But the human eye is spectrally sensitive to EM radiation, 
-with peak sensitivity at 555~nm (green)
+with peak sensitivity at 555~nm \del{(green)}
 and lesser sensitivities at both 
 longer (redder, $\lambda > \; \sim{}620 \text{ nm}$) and
 shorter (bluer, $\lambda < \; \sim{}450 \text{ nm}$) wavelengths.
@@ -1318,8 +1323,8 @@ of visible light~($\Phi_{pl}$) in the unit of lumens~(lm):
                  = (683 \text{ lm/W}) \int V_\lambda \dot{E}_{EM,\lambda} \mathrm{d}\lambda \; ,
 \end{equation}
 %
-where 683~lm/W is the luminous efficiency of a perfect light source
-emitting exclusively green light at $\lambda = 555 \text{ nm}$.
+where 683~lm/W is the luminous efficacy of a perfect light source
+emitting \del{exclusively green} light at $\lambda = 555 \text{ nm}$.
 (Note that because lumens are a re-scaling of watts, 
 lumens are also a unit of radiant power, 
 thus $\Phi_{pl}$ is sometimes called luminous power. 
@@ -1382,7 +1387,7 @@ Light Spectral Power Distribution Database (LSPDD)~\cite{Roby, miguel2017, aube2
 The data in the LSPDD are provided 
 in terms of \emph{relative intensity} ($\dot{E}_{EM,\lambda,rel}$) 
 as opposed to \emph{absolute intensity} ($\dot{E}_{EM,\lambda}$).
-Because lamps in the LSPDD are not measured using an integration sphere,
+Because lamps in the LSPDD are not measured using an \rev{integration}{integrating} sphere,
 the integral of the SPD may not match the radiant power of the lamp
 reported by the manufacturer.
 To ensure that the integral of each lamp's SPD 
