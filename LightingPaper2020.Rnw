@@ -41,7 +41,7 @@ library(xtable)
 <<setup-graphs, include=FALSE>>=
 # This variable switches the cache on/off for all R code chunks that are configured for cacheing.
 # Set to FALSE if some plots are not updating as expected, then set back to TRUE.
-use_cache <- TRUE
+use_cache <- FALSE
 
 # Here are some options for the colors to use in the ggspectra graphs.
 # The variable chroma_type is used in all graphs,
@@ -420,7 +420,7 @@ response_data %>%
   geom_vline(xintercept = 555, size = 0.2, color = "darkgray") +
   xlab(expression(lambda*" [nm]")) +
   ylab("Normalized sensitivity [-]") +
-  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) + 
+  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 780, 900)) + 
   scale_y_continuous(breaks = c(0, 0.2, 0.4, 0.6, 0.8, 1)) +
   MKHthemes::xy_theme() + 
   theme(axis.text.x = element_text(size = rel(0.8), angle = 90), 
@@ -1272,8 +1272,8 @@ For the second option (visible, vis),
 f_{\lambda,vis} =
   \begin{cases}
     0 \; , & \text{for } \lambda < 380 \text{ nm} \\
-    1 \; , & \text{for } 380 \text{ nm} \le \lambda \le 750 \text{ nm} \\
-    0 \; , & \text{for } 750 \text{ nm} < \lambda \\
+    1 \; , & \text{for } 380 \text{ nm} \le \lambda \le 780 \text{ nm} \\
+    0 \; , & \text{for } 780 \text{ nm} < \lambda \\
   \end{cases} \; .
 \end{equation}
 
@@ -1482,7 +1482,7 @@ tibble::tibble(lambda = seq(250, 900, by = 0.5)*10^(-9)) %>%
   ggplot2::ggplot(mapping = aes(x = lambda*10^(9), y = phi_L_lambda)) + 
   geom_vline(xintercept = 555, size = 0.2, color = "darkgray") +
   geom_line(linetype = 1, color = "darkgreen") + 
-  scale_x_continuous(limits = c(250, 900.01), breaks = c(250, 380, 555, 750, 900)) +
+  scale_x_continuous(limits = c(250, 900.01), breaks = c(250, 380, 555, 780, 900)) +
   scale_y_continuous(limits = c(0.9, 1.0), breaks = c(0.9, 0.95, 1)) +
   # xlab(expression(lambda*" [nm]")) +
   xlab(element_blank()) +
@@ -1509,7 +1509,7 @@ response_data %>%
   geom_line(mapping = aes(y = normalised_awe), linetype = 1, colour = "darkgreen", size = 0.1) +
   xlab(element_blank()) +
   ylab(expression(dot(E)["EM,"*lambda]*", "*dot(X)["EM,"*lambda]*" [-]")) +
-  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
+  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 780, 900)) +
   scale_y_continuous(limits = c(0, 1), breaks = c(0, 0.2, 0.4, 0.6, 0.8, 1)) +
   labs(fill = element_blank(), colour = element_blank()) +
   facet_grid(facet~lamp_name) +
@@ -1539,7 +1539,7 @@ response_data %>%
   facet_grid(rows = vars(wf_name), cols = vars(header)) +
   xlab(expression(lambda*" [nm]")) +
   ylab(expression(f[lambda]*" [W/nm]")) +
-  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
+  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 780, 900)) +
   scale_y_continuous(limits = c(0, 1), breaks = c(0, 0.2, 0.4, 0.6, 0.8, 1)) +
   MKHthemes::xy_theme() +
   theme(strip.text.x = element_text(margin = margin(b = 2.0)),
@@ -1569,7 +1569,7 @@ response_data %>%
   xlab(expression(lambda*" [nm]")) +
   # ylab(expression("Spectral radiative energy, "*Phi*" [W/nm]")) +
   ylab(expression(dot(E)["L,"*lambda]*", "*dot(X)["L,"*lambda]*" [-]")) +
-  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 750, 900)) +
+  scale_x_continuous(limits = c(250, 900), breaks = c(250, 380, 555, 780, 900)) +
   scale_y_continuous(limits = c(0, 1), breaks = c(0, 0.2, 0.4, 0.6, 0.8, 1)) +
   labs(fill = element_blank(), colour = element_blank()) +
   facet_grid(rows = vars(wf_name), cols = vars(lamp_name)) +
