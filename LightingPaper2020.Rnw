@@ -354,7 +354,7 @@ the focus of this article.
 \label{sec:light_ECC}
 %++++++++++++++++++++++++++++++
 
-Ahead of a detailed treatment of the thermodynamics of light in Section~\ref{sec:framework},
+Ahead of a detailed treatment of the thermodynamics of light in Section~\ref{sec:framework}\ins{,}
 we set out here two fundamental aspects of lighting. 
 The first aspect is clear definitions of electromagnetic~(EM) energy and light.
 EM energy~($E$, in J) is broad-spectrum EM radiation
@@ -745,8 +745,8 @@ All streams can be counted as energy ($\dot{E}$), such that
   \dot{E}_3 &= \dot{W}_3 \; .
 \end{align}
 %
-(Note that the overdot notation, such as $\dot{E}$ and $\dot{X}$,
-indicates a steady state rate of energy or exergy flow.)
+\ins{(Note that the overdot notation, such as $\dot{E}$ and $\dot{X}$,
+indicates a steady state rate of energy or exergy flow.)}
 
 
 \begin{figure}
