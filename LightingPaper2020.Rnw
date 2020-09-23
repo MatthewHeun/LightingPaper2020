@@ -594,7 +594,7 @@ The value of 683~lm/W is the maximum efficacy of green light at 555~nm.
 Paoli and Cullen
 % \citeauthor{Paoli2020} 
 estimated the practical upper limit for the luminous efficacy of an LED lamp to be 284--350~lm/W,
-when considering all stages of energy loss~\citep{Paoli2020}.
+when considering all stages of energy loss \ins{(driver efficiency, wall plug efficiency, optical efficiency, and spectral efficiency)}~\citep{Paoli2020}.
 The development of LED technology is following Haitz's law, 
 which predicts that ``[e]very decade, for a given wavelength of light, 
 the cost per lumen falls by a factor of 10 
