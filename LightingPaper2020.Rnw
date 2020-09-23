@@ -41,7 +41,7 @@ library(xtable)
 <<setup-graphs, include=FALSE>>=
 # This variable switches the cache on/off for all R code chunks that are configured for cacheing.
 # Set to FALSE if some plots are not updating as expected, then set back to TRUE.
-use_cache <- FALSE
+use_cache <- TRUE
 
 # Here are some options for the colors to use in the ggspectra graphs.
 # The variable chroma_type is used in all graphs,
@@ -404,7 +404,7 @@ response_data <- weighted_responses_df %>%
 @
 
 
-<<Vis_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="Normalized sensitivity and color perception of the human eye to EM radiation~\\cite{schubert2006}, according to the photopic luminous weighting function~($V_\\lambda$). This figure and Figure~\\ref{fig:wfs_and_lamps} below utilize the CIE 10 degree color matching function \\ins{(CMF)~\\cite{CIE2006}.We note that wavelengths of light are not inherently colored, but we have adopted this approach for demonstration purposes.} \\ins{The \\texttt{R} package \\texttt{ggspectra}~\\cite{Aphalo2015} was used to generate both figures.} 555~nm \\rev{is the wavelength of peak human eye visibility}{represents the peak of the combined sensitivities of two of the human eyes five light recpetors, the long-wavelength and medium-wavelength cones}, \\humaneyesensitivity{} is the range of human retina sensitivity, and 250~nm < $\\lambda$ < 900~nm is the range of data availability for lamp spectral power distributions (SPDs) in the Light Spectral Power Distribution Database (LSPDD)~\\citep{Roby, miguel2017, aube2013}. ">>=
+<<Vis_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="Normalized sensitivity and color perception of the human eye to EM radiation~\\cite{schubert2006}, according to the photopic luminous weighting function~($V_\\lambda$). \\ins{This figure and Figure~\\ref{fig:wfs_and_lamps} utilize the CIE 10 degree color matching function (CMF)~\\cite{CIE2006}. We note that wavelengths of light are not inherently colored, but we have adopted this approach for demonstration purposes. The \\texttt{R} package \\texttt{ggspectra}~\\cite{Aphalo2015} was used to generate both figures.} 555~nm represents the peak of the combined sensitivities of two of the human eyes' five light receptors, the long-wavelength and medium-wavelength cones. The range of human eye sensitivity is \\ins{\\humaneyesensitivity{}}, and 250~nm < $\\lambda$ < 900~nm is the range of data availability for lamp spectral power distributions (SPDs) in the Light Spectral Power Distribution Database (LSPDD)~\\citep{Roby, miguel2017, aube2013}.">>=
 response_data %>% 
   dplyr::filter(wf_name == "Photopic") %>% 
   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>% 
