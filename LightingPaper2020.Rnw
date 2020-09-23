@@ -401,7 +401,7 @@ response_data <- weighted_responses_df %>%
 @
 
 
-<<Vis_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="Normalized sensitivity and color perception of the human eye to EM radiation~\\cite{schubert2006}, according to the photopic luminous weighting function~($V_\\lambda$).  This figure and Figure~\\ref{fig:wfs_and_lamps} below utilize the CIE 10 degree color matching function provided in the \\texttt{R} package \\texttt{ggspectra}~\\cite{Aphalo2015}. 555~nm is the wavelength of peak human eye visibility, \\humaneyesensitivity{} is the range of human retina sensitivity, and 250~nm < $\\lambda$ < 900~nm is the range of data availability for lamp spectral power distributions (SPDs) in the Light Spectral Power Distribution Database (LSPDD)~\\citep{Roby, miguel2017, aube2013}.">>=
+<<Vis_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="Normalized sensitivity and color perception of the human eye to EM radiation~\\cite{schubert2006}, according to the photopic luminous weighting function~($V_\\lambda$).  This figure and Figure~\\ref{fig:wfs_and_lamps} below utilize the CIE 10 degree color matching function~\\cite{CIE2006}, and the \\texttt{R} package \\texttt{ggspectra}~\\cite{Aphalo2015}. 555~nm is the wavelength of peak human eye visibility, \\humaneyesensitivity{} is the range of human retina sensitivity, and 250~nm < $\\lambda$ < 900~nm is the range of data availability for lamp spectral power distributions (SPDs) in the Light Spectral Power Distribution Database (LSPDD)~\\citep{Roby, miguel2017, aube2013}.">>=
 response_data %>% 
   dplyr::filter(wf_name == "Photopic") %>% 
   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>% 
