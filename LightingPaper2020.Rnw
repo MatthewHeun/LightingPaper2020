@@ -251,7 +251,8 @@ the exergetic efficiency of electric lamps is central to
 determining the exergy contribution of lighting to an economy.
 Conventionally, societal exergy practitioners estimate the exergetic efficiency of lamps 
 by an energy efficiency, 
-causing confusion and, sometimes, mistakes.
+causing confusion and, sometimes,
+\ins{overestimation of exergetic efficiency by a factor of 3.}
 In response, 
 we use recent results from the 
 fields of radiation thermodynamics and photometry to
@@ -403,7 +404,7 @@ response_data <- weighted_responses_df %>%
 @
 
 
-<<Vis_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="Normalized sensitivity and color perception of the human eye to EM radiation~\\cite{schubert2006}, according to the photopic luminous weighting function~($V_\\lambda$).  This figure and Figure~\\ref{fig:wfs_and_lamps} below utilize the CIE 10 degree color matching function~\\ins{~\\cite{CIE2006}}, \\ins{and} the \\texttt{R} package \\texttt{ggspectra}~\\cite{Aphalo2015}. 555~nm is the wavelength of peak human eye visibility, \\humaneyesensitivity{} is the range of human retina sensitivity, and 250~nm < $\\lambda$ < 900~nm is the range of data availability for lamp spectral power distributions (SPDs) in the Light Spectral Power Distribution Database (LSPDD)~\\citep{Roby, miguel2017, aube2013}.">>=
+<<Vis_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="Normalized sensitivity and color perception of the human eye to EM radiation~\\cite{schubert2006}, according to the photopic luminous weighting function~($V_\\lambda$).  This figure and Figure~\\ref{fig:wfs_and_lamps} below utilize the CIE 10 degree color matching function~\\ins{~\\cite{CIE2006}}. \\ins{The \\texttt{R} package \\texttt{ggspectra}~\\cite{Aphalo2015} was used to generate both figures.} 555~nm is the wavelength of peak human eye visibility, \\humaneyesensitivity{} is the range of human retina sensitivity, and 250~nm < $\\lambda$ < 900~nm is the range of data availability for lamp spectral power distributions (SPDs) in the Light Spectral Power Distribution Database (LSPDD)~\\citep{Roby, miguel2017, aube2013}.">>=
 response_data %>% 
   dplyr::filter(wf_name == "Photopic") %>% 
   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>% 
@@ -442,13 +443,17 @@ to be enablers of economic growth.
 whereas exergy quantifies the potential to do work.
 See \citet{Nakicenovic1996} for an early example of societal exergy analysis and
 \citet{Heun:2019aa} for a recent example.)
+\ins{Thus, societal exergy analysis 
+relies upon results from the energy and exergy analysis of 
+lamps and lighting to assess the ways in which useful energy products 
+enable economic growth.}
 
 Lighting contributes a non-negligible proportion of total useful exergy
 supplied to modern economies, so
 an essential metric for societal exergy analysis
 is the efficiency with which
 electricity (final stage) is converted to light (useful stage) by lamps.
-Thus, the efficiency of energy and exergy conversion from electricity
+\rev{Thus}{Therefore}, the efficiency of energy and exergy conversion from electricity
 to light by electric lamps~($\eta_E$ and $\eta_X$, respectively)
 is the focus of this article.
 Note that both energy services (e.g., illumination) and satisfaction of human needs
@@ -596,7 +601,8 @@ The value of 683~lm/W is the maximum efficacy of green light at 555~nm.
 Paoli and Cullen
 % \citeauthor{Paoli2020} 
 estimated the practical upper limit for the luminous efficacy of an LED lamp to be 284--350~lm/W,
-when considering all stages of energy loss \ins{(driver efficiency, wall plug efficiency, optical efficiency, and spectral efficiency)}~\citep{Paoli2020}.
+when considering all \rev{stages}{sources} of energy loss
+\ins{(driver efficiency, wall plug efficiency, optical efficiency, and spectral efficiency)}~\citep{Paoli2020}.
 The development of LED technology is following Haitz's law, 
 which predicts that ``[e]very decade, for a given wavelength of light, 
 the cost per lumen falls by a factor of 10 
@@ -747,9 +753,8 @@ All streams can be counted as energy ($\dot{E}$), such that
   \dot{E}_3 &= \dot{W}_3 \; .
 \end{align}
 %
-\ins{(Note that the overdot notation, such as $\dot{E}$ and $\dot{X}$,
+\ins{(Note that the overdot notation, as in $\dot{E}$, $\dot{Q}$, and $\dot{W}$,
 indicates a steady state rate of energy or exergy flow.)}
-
 
 \begin{figure}
 \centering
@@ -778,8 +783,8 @@ For the example of Figure~\ref{fig:heat_engine},
   \eta_E = \frac{\dot{E}_2 + \dot{E}_3}{\dot{E}_1} = \frac{\dot{Q}_2 + \dot{W}_3}{\dot{Q}_1} = 1 \; ,
 \end{equation}
 %
-because the first law of thermodynamics 
-requires that energy is conserved ($\dot{Q}_1 = \dot{Q}_2 + \dot{W}_3$).
+because the first law of thermodynamics requires
+that energy is conserved ($\dot{Q}_1 = \dot{Q}_2 + \dot{W}_3$).
 
 That said, typically only one of the products in Figure~\ref{fig:heat_engine} 
 is deemed valuable: the work produced by the heat engine ($\dot{W}_3$).
@@ -840,6 +845,13 @@ For the heat engine in Figure~\ref{fig:heat_engine},
 because the second law of thermodynamics 
 states that exergy is always destroyed ($\dot{X}_1 > \dot{X}_2 + \dot{X}_3$ or 
 $\dot{X}_D = \dot{X}_1 - (\dot{X}_2 + \dot{X}_3)$).
+
+
+because exergy is destroyed by all real processes, 
+according to the second law of thermodynamics. 
+(Exergy destruction is the equivalent of entropy generation for all real processes.)
+
+
 
 Assuming, again, that work is the valuable output gives
 
