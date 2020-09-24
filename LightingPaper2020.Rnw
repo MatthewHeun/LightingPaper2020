@@ -41,7 +41,7 @@ library(xtable)
 <<setup-graphs, include=FALSE>>=
 # This variable switches the cache on/off for all R code chunks that are configured for cacheing.
 # Set to FALSE if some plots are not updating as expected, then set back to TRUE.
-use_cache <- FALSE
+use_cache <- TRUE
 
 # Here are some options for the colors to use in the ggspectra graphs.
 # The variable chroma_type is used in all graphs,
@@ -1670,7 +1670,7 @@ Note that when a luminous weighting function is specified,
 the lighting~($L$) and valuable~($v$) subscripts are implied and replaced by the weighting function specifier.
 (E.g., the valuable~($v$) energy~($E$) efficiency~($\eta$) of light~($L$) 
 using the visible luminous weighting function~($vis$),
-$\eta_{E,L,v,vis}$, is written unambiguously as $\eta_{E,vis}$,
+$\eta_{E,L,v,vis}$, is written unambiguously as $\eta_{E,vis}$
 for simplicity.)
 
 <<results_etas_table, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/results_etas_xtable.R')>>=
@@ -1858,7 +1858,8 @@ in the conventional method
 is $K_{max} = 683 \text{ lm/W}$.
 Any other assumption is a mistake.
 The assumption in condition~(b) is incorrect;
-the exergy-to-energy ratio for light~($\phi_{L,\lambda}$) is not 1, but the conventional method assumes it is.
+the exergy-to-energy ratio for light~($\phi_{L,\lambda}$) is not 1
+\ins{(as shown in Equation~\ref{eq:phi_L_lambda_shan_zhou})}, but the conventional method assumes it is.
 Condition~(c) highlights an unfortunate requirement of the conventional method, 
 one that is lifted by the exact method.
 
@@ -1948,7 +1949,7 @@ We provide three recommendations for societal exergy practitioners:
 \begin{enumerate*}[label={(\alph*)}]
 	
   \item use the exact method of Section~\ref{sec:methods} when possible, 
-        i.e., when SPD data are available for a lamp or lamp technology, 
+        i.e. when SPD data are available for a lamp or lamp technology, 
   
   \item use the universal luminous weighting function~($U_\lambda$) always, and
   
@@ -1988,9 +1989,9 @@ The exact method provides the following benefits over the conventional method:
 \label{sec:reccuniv}
 %------------------------------
 
-We recognize that the choice of spectral weighting function 
+We recognize that the choice of spectral weighting function~($f_\lambda$)
 remains contentious~\cite{Delgado-Bonal:2017aa, Pattison2018LEDphotons, Rea2018, Royer2016}.
-That said, we suggest that the choice of weighting function ($f_\lambda$) in societal exergy analysis
+That said, we suggest that the choice of weighting function\del{ ($f_\lambda$)} in societal exergy analysis
 should be appropriate for each lamp's application.
 Our second recommendation is for use of
 the universal luminous weighting function~($U_\lambda$) in societal exergy analysis
@@ -2379,13 +2380,11 @@ Future work could include
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\supplementary{The following are available online at \url{https://doi.org/10.5518/865}~\cite{heun2020}
-**** URL has been reserved and 
-will be activated by University of Leeds upon acceptance for publication ****:
+\supplementary{The following are available online at \url{https://doi.org/10.5518/865}~\cite{heun2020}:
 sources for the luminous efficacy values in Figure~\ref{fig:LuminousEfficacy_Graph}, 
 sources for the weighting functions and SPDs displayed in Figure~\ref{fig:wfs_and_lamps}, 
 instructions and R code for reproducing the metrics and figures in this paper, and
-a blank excel workbook template in the required format for the insertion of spectral power distribution data by the user. }
+a blank excel workbook template in the required format for the insertion of spectral power distribution data by the user.}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
