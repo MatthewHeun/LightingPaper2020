@@ -41,7 +41,7 @@ library(xtable)
 <<setup-graphs, include=FALSE>>=
 # This variable switches the cache on/off for all R code chunks that are configured for cacheing.
 # Set to FALSE if some plots are not updating as expected, then set back to TRUE.
-use_cache <- TRUE
+use_cache <- FALSE
 
 # Here are some options for the colors to use in the ggspectra graphs.
 # The variable chroma_type is used in all graphs,
@@ -252,7 +252,7 @@ determining the exergy contribution of lighting to an economy.
 Conventionally, societal exergy practitioners estimate the exergetic efficiency of lamps 
 by an energy efficiency, 
 causing confusion and, sometimes,
-\ins{overestimation of exergetic efficiency by a factor of 3.}
+\ins{overestimation of exergetic efficiency by a factor as large as 3.}
 In response, 
 we use recent results from the 
 fields of radiation thermodynamics and photometry to
@@ -361,7 +361,7 @@ Ahead of a detailed treatment of the thermodynamics of light in Section~\ref{sec
 we set out here two fundamental aspects of lighting. 
 The first aspect is clear definitions of electromagnetic~(EM) energy and light.
 EM energy~($E$, in J) is broad-spectrum EM radiation
-quantified by the energy of photons via Einstein's equation,
+quantified by the energy of photons via Einstein's equation:
 
 \begin{equation}
   E = h \nu = \frac{hc}{\lambda} \; ,
@@ -453,8 +453,8 @@ supplied to modern economies, so
 an essential metric for societal exergy analysis
 is the efficiency with which
 electricity (final stage) is converted to light (useful stage) by lamps.
-\rev{Thus}{Therefore}, the efficiency of energy and exergy conversion from electricity
-to light by electric lamps~($\eta_E$ and $\eta_X$, respectively)
+\rev{Thus}{Therefore}, the efficiency of energy and exergy conversion of electricity
+into light by electric lamps~($\eta_E$ and $\eta_X$, respectively)
 is the focus of this article.
 Note that both energy services (e.g., illumination\ins{, the stage of the energy conversion chain
 termed ``application efficacy' in photometry \cite{rea2001application}}) 
@@ -472,7 +472,7 @@ The valuable \enoex{} conversion efficiency ($\eta_v$)
 is defined in simple terms as
 
 \begin{equation} \label{eq:eta_basic_eqn}
- \eta_v = \frac{\text{valuable output}}{\text{energy input}} \; .
+ \eta_v = \frac{\text{valuable output}}{\text{input}} \; .
 \end{equation}
 %
 When the numerator and denominator are quantified in energy terms,
@@ -485,7 +485,7 @@ and almost never in exergy terms.
 Instead, light is quantified in lumens~(lm).
 Indeed, a common interpretation of Equation~\ref{eq:eta_basic_eqn} uses
 light (in lm) as the valuable output in the numerator and 
-electricity (in W) as the energy input in the denominator
+electricity (in W) as the input in the denominator
 to obtain luminous efficacy ($K$, in lm/W).
 In fact, most lamps are rated and advertised by their lumen output and their luminous efficacy~($K$).
 Figure~\ref{fig:LuminousEfficacy_Graph} shows the evolution over time 
@@ -493,7 +493,6 @@ of luminous efficacy for four lamp technologies.
 Practitioners who use luminous efficacy 
 as a lamp efficiency metric include \citet{Nordhaus1996} and
 Tsao and Waide, 
-% \citeauthor{Tsao2010appetitelight}, 
 who state 
 ``[l]uminous efficacy represents the efficiency 
 with which energy is used to produce visible light''~\citep[p.~265]{Tsao2010appetitelight}.
@@ -573,19 +572,6 @@ $K_{max}$ is the theoretical maximum luminous efficacy.
 However, Equation~\ref{eq:eta_eqn} exposes 
 a source of confusion, 
 namely what value should be used for $K_{max}$?
-% Within the societal exergy analysis literature and beyond,
-% three common values are adopted:
-% 220~lm/W \cite{Summers1971, Ayres2003, USDepartmentofEnergyDoE2011},
-% 400~lm/W \cite{Summers1971, Ayres2005, Tsao2010solidstate, Guevara2016}, and
-% 683~lm/W \cite{Kondo2009, Serrenho2014}, based on the maximum efficacy of 
-% a ***** PB: I added Summers references to 220 and 400, as requested by PB.
-% But I don't think this is done.
-% We still need the specific reason why 220 and 400 were chosen.
-% I think ``broad-spectrum white light'' came from PB originally.
-% I don't know if ``broad-spectrum white light'' is the same as 
-% ``acceptable white light.''---MKH ****, 
-% broad-spectrum white light, and
-% green light at 555~nm, respectively.
 Within the societal exergy analysis literature and beyond, 
 three common values are adopted: 
 220~lm/W \cite{Summers1971, Ayres2003, USDepartmentofEnergyDoE2011},
@@ -598,13 +584,12 @@ for an acceptable white light is about
 400 lumens per watt rather than the theoretical value 
 of 220 lumens per watt 
 for a perfectly `flat' white light.''
-The value of 683~lm/W is \\rev{the maximum efficacy} {derived from the definition of the lumen. 
+The value of 683~lm/W is \rev{the maximum efficacy}{derived from the definition of the lumen. 
 It represents the luminous efficacy of a lamp 
 emitting light at 555~nm, the peak of the photopic luminous weighting function, 
-with electricity is converted into radiation with at 100~\% efficiency.}
+with electricity converted EM radiation at 100~\% efficiency.}
 
 Paoli and Cullen
-% \citeauthor{Paoli2020} 
 estimated the practical upper limit for the luminous efficacy of an LED lamp to be 284--350~lm/W,
 when considering all \rev{stages}{sources} of energy loss
 \ins{(driver efficiency, wall plug efficiency, optical efficiency, and spectral efficiency)}~\citep{Paoli2020}.
@@ -613,12 +598,12 @@ which predicts that ``[e]very decade, for a given wavelength of light,
 the cost per lumen falls by a factor of 10 
 and the amount of light generated per LED package increases 
 by a factor of 20''~\citep{haitz1999case, graydon2007haitz}.
-Figure~\ref{fig:LuminousEfficacy_Graph} shows that the 
+Figure~\ref{fig:LuminousEfficacy_Graph} shows that 
+\ins{LED technology is nearing} the 
 lower efficacies from Summers (220 lm/W) and
-Paoli and Cullen (284 lm/W)
-% \citeauthor{Paoli2020} 
-are within reach,
-due to the rapid improvement of LED technology.
+Paoli and Cullen (284 lm/W).
+\del{are within reach,
+due to the rapid improvement of LED technology.}
 
 Clearly, there are many options for $K_{max}$, and
 its value has a large effect on the valuable exergetic efficiency of lighting
@@ -806,7 +791,7 @@ Heat is certainly valuable to humans, but so is another property:
 work, the ability to exert a force on another object.
 Exergy quantifies the physical property by its work potential
 and provides the answer to the question
-``what is the maximum work we could obtain from a stream of this physical property?''
+``what is the maximum work we could obtain from a stream of \rev{this}{the} physical property?''
 Thus, work is pure exergy.
 
 The Kelvin-Planck statement of the second law of thermodynamics 
@@ -847,9 +832,12 @@ For the heat engine in Figure~\ref{fig:heat_engine},
                 {\dot{Q}_1 \left( 1 - \frac{T_0}{T_1} \right) } < 1 \; ,
 \end{equation}
 %
-because the second law of thermodynamics 
+\del{because the second law of thermodynamics 
 states that exergy is always destroyed ($\dot{X}_1 > \dot{X}_2 + \dot{X}_3$ or 
-$\dot{X}_D = \dot{X}_1 - (\dot{X}_2 + \dot{X}_3)$).
+$\dot{X}_D = \dot{X}_1 - (\dot{X}_2 + \dot{X}_3)$).}
+\ins{because all real processes are internally irreversible, such that 
+$\dot{X}_1 > \dot{X}_2 + \dot{X}_3$ or 
+$\dot{X}_D = \dot{X}_1 - (\dot{X}_2 + \dot{X}_3)$.}
 
 Assuming, again, that work is the valuable output gives
 
@@ -939,9 +927,11 @@ waste heat (conduction and convection only) is produced at \Circled{2}.
 Both electricity and EM radiation can be converted to heat without loss, so they are pure energy.
 Thus,
 
-\begin{equation}
-  \dot{E}_1 = \dot{W}_{elect,1}, \; \dot{E}_2 = \dot{Q}_2, \; \text{and} \; \dot{E}_3 = \dot{E}_{EM,3} \; ,
-\end{equation}
+\begin{align}
+  \dot{E}_1 &= \dot{W}_{elect,1}, \\
+  \dot{E}_2 &= \dot{Q}_2, \; \text{and} \\
+  \dot{E}_3 &= \dot{E}_{EM,3} \; ,
+\end{align}
 %
 where $\dot{E}_{EM,3}$ is the radiant power of broad-spectrum EM radiation
 emitted by the lamp in units of energy per unit time~(W).
@@ -976,11 +966,11 @@ Because electricity can be converted to work without loss in a frictionless moto
 electricity is considered pure exergy, i.e., $\phi_{elect} = 1$.
 Thus, the exergy of the first three streams in Figure~\ref{fig:lamp} is given by 
 
-\begin{equation}
-  \dot{X}_1 = \cancelto{1}{\phi_{elect}} \dot{W}_{elect,1} = \dot{W}_{elect,1}, \; 
-              \dot{X}_2 = \left( 1 - \frac{T_0}{T_2} \right) \dot{Q}_2, \; \text{and} \; 
-              \dot{X}_3 = \phi_{\EM} \dot{E}_{EM,3} \; ,
-\end{equation}
+\begin{align}
+  \dot{X}_1 &= \cancelto{1}{\phi_{elect}} \dot{W}_{elect,1} = \dot{W}_{elect,1}, \\
+  \dot{X}_2 &= \left( 1 - \frac{T_0}{T_2} \right) \dot{Q}_2, \; \text{and} \\
+  \dot{X}_3 &= \phi_{\EM} \dot{E}_{EM,3} \; ,
+\end{align}
 %
 where $\phi_{EM}$ is the exergy-to-energy ratio for broad-spectrum EM radiation. 
 (See Section~\ref{sec:phi_light} for details.)
@@ -989,12 +979,13 @@ In general, the radiant power of a lamp is a spectral quantity,
 meaning that it varies with wavelength.
 Spectral radiant power~($\dot{E}_{EM,\lambda}$)
 is the EM emissive power available between any two wavelengths
-and is related~\citep{benenson2006handbook} to radiant power~($\dot{E}_{EM}$) by
+and is related to radiant power~($\dot{E}_{EM}$) by
 
 \begin{equation} \label{eq:emissive_power}
   \dot{E}_{EM} = \int \dot{E}_{EM,\lambda} \mathrm{d}\lambda \; .
 \end{equation}
 %
+\ins{(See~\citet{benenson2006handbook}.)}
 Visually, $\dot{E}_{EM}$ is the area under the $\dot{E}_{EM,\lambda}$ vs.\ $\lambda$ curve.
 
 The exergetic efficiency of EM radiation emitted by the lamp in Figure~\ref{fig:lamp} is given by
@@ -1112,8 +1103,8 @@ The energy enters an infinitesimally small Carnot heat engine and performs work.
 The absorber then emits another photon at lower energy and frequency,
 and therefore lower photon effective temperature. 
 This process repeats until the frequency of the photon is zero
-and the photon effective temperature ($T_\lambda$)~\cite{Shan2019}
-equals the reference temperature ($T_0$).
+and the photon effective temperature~($T_\lambda$)
+equals the reference temperature ($T_0$)~\cite{Shan2019}.
 
 However, Petela's equation assumes a blackbody emitter~(at $T_1$) and
 a blackbody absorber~(at $T_0$).
@@ -1477,7 +1468,7 @@ All graphs were constructed and calculations were performed using \texttt{R}~\ci
 
 The upper-left graph in Figure~\ref{fig:wfs_and_lamps} shows 
 Equation~\ref{eq:phi_L_lambda_shan_zhou}.
-Note that exergy-to-exergy ratio for light~($\phi_{L,\lambda}$) is
+Note that exergy-to-\rev{exergy}{energy} ratio for light~($\phi_{L,\lambda}$) is
 nearly~1 for all wavelengths of interest for illumination.
 
 \begin{figure}
