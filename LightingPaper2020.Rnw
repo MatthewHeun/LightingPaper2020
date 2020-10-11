@@ -378,6 +378,34 @@ The human retina responds to a narrow wavelength range of EM radiation
 Thus, light is EM radiation within that narrow wavelength band~\cite{campbell2017}, 
 weighted by the eye's spectral (i.e., wavelength-specific) sensitivity.
 (See Figure~\ref{fig:Vis_Graph}.)
+\ins{We note that wavelengths of light are not inherently colored, 
+but we have adopted a color representation in Figures~\ref{fig:Vis_Graph} 
+and~\ref{fig:wfs_and_lamps} for demonstration purposes.
+The \texttt{R} package \texttt{ggspectra}~\cite{Aphalo2015} 
+was used to generate both figures.
+In the figures, 555~nm represents the peak of the combined sensitivities 
+of two of the human eyes' five light receptors, 
+the long-wavelength and medium-wavelength cones.}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <<Load_Data, cache=use_cache, cache.extra.1=tools::md5sum('Data/master_lighting_data.xlsx'), cache.extra.2=tools::md5sum('Data/AllData.R')>>=
@@ -1371,7 +1399,10 @@ example lamps, the topic of the next section.
 
 We obtained spectral power distributions (SPDs) of the lamps in Table~\ref{tab:lamps} from the 
 Light Spectral Power Distribution Database (LSPDD)~\cite{Roby, miguel2017, aube2013}. 
-The data in the LSPDD are provided 
+\ins{In the LSPDD, 
+lamp spectral power distributions (SPDs) are available in the range of 
+250~nm < $\lambda$ < 900~nm, and}
+\del{The} data \del{in the LSPDD }are provided 
 in terms of \emph{relative intensity} ($\dot{E}_{EM,\lambda,rel}$) 
 as opposed to \emph{absolute intensity} ($\dot{E}_{EM,\lambda}$).
 Because lamps in the LSPDD are not measured using an integrating sphere,
