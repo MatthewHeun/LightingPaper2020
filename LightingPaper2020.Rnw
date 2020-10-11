@@ -379,33 +379,15 @@ Thus, light is EM radiation within that narrow wavelength band~\cite{campbell201
 weighted by the eye's spectral (i.e., wavelength-specific) sensitivity.
 (See Figure~\ref{fig:Vis_Graph}.)
 \ins{We note that wavelengths of light are not inherently colored, 
-but we have adopted a color representation in Figures~\ref{fig:Vis_Graph} 
+but we have adopted the color representation
+of the CIE 10 degree color matching function (CMF)~\cite{CIE2006}
+in Figures~\ref{fig:Vis_Graph} 
 and~\ref{fig:wfs_and_lamps} for demonstration purposes.
 The \texttt{R} package \texttt{ggspectra}~\cite{Aphalo2015} 
 was used to generate both figures.
 In the figures, 555~nm represents the peak of the combined sensitivities 
 of two of the human eyes' five light receptors, 
 the long-wavelength and medium-wavelength cones.}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <<Load_Data, cache=use_cache, cache.extra.1=tools::md5sum('Data/master_lighting_data.xlsx'), cache.extra.2=tools::md5sum('Data/AllData.R')>>=
@@ -433,7 +415,7 @@ response_data <- weighted_responses_df %>%
 @
 
 
-<<Vis_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="Normalized sensitivity and color perception of the human eye to EM radiation~\\cite{schubert2006}, according to the photopic luminous weighting function~($V_\\lambda$). This figure and Figure~\\ref{fig:wfs_and_lamps} utilize the CIE 10 degree color matching function (CMF)~\\cite{CIE2006}. We note that wavelengths of light are not inherently colored, but we have adopted this approach for demonstration purposes. The \\texttt{R} package \\texttt{ggspectra}~\\cite{Aphalo2015} was used to generate both figures. 555~nm represents the peak of the combined sensitivities of two of the human eyes' five light receptors, the long-wavelength and medium-wavelength cones. The range of human eye sensitivity is \\humaneyesensitivity{}, and 250~nm < $\\lambda$ < 900~nm is the range of data availability for lamp spectral power distributions (SPDs) in the Light Spectral Power Distribution Database (LSPDD)~\\citep{Roby, miguel2017, aube2013}.">>=
+<<Vis_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="Normalized sensitivity and color perception of the human eye to EM radiation~\\cite{schubert2006}, according to the photopic luminous weighting function~($V_\\lambda$).">>=
 response_data %>% 
   dplyr::filter(wf_name == "Photopic") %>% 
   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>% 
