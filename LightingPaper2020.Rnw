@@ -501,12 +501,17 @@ to obtain luminous efficacy ($K$, in lm/W).
 In fact, most lamps are rated and advertised by their lumen output and their luminous efficacy~($K$).
 Figure~\ref{fig:LuminousEfficacy_Graph} shows the evolution over time 
 of luminous efficacy for four lamp technologies.
+\ins{(Data for Figure~\ref{fig:LuminousEfficacy_Graph} were obtained from three sources: 
+the Museum of Electric Lamp Technology (LampTech)~\cite{hooker_2020}, 
+the ENERGYSTAR database of certified lamps~\cite{energystar_2020}, and 
+the Lighting Market Characterization Reports commissioned by the 
+US Department of Energy (DOE)~\cite{DOE2002, DOE2012, DOE2017}.)}
 Practitioners who use luminous efficacy 
 as a lamp efficiency metric include \citet{Nordhaus1996} and
 Tsao and Waide, 
 who state 
 ``[l]uminous efficacy represents the efficiency 
-with which energy is used to produce visible light''~\citep[p.~265]{Tsao2010appetitelight}.
+with which energy is used to produce visible light''~\citep{Tsao2010appetitelight} (p.~265).
 
 
 <<Load_LEData, cache=use_cache, cache.extra.1=tools::md5sum('Data/Lighting_Efficacy_Data.xlsx'), cache.extra.2=tools::md5sum('Data/lighting_efficacy.R')>>=
@@ -514,7 +519,7 @@ with which energy is used to produce visible light''~\citep[p.~265]{Tsao2010appe
 source(file = file.path("Data", "lighting_efficacy.R"))
 @
 
-<<LuminousEfficacy_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 4, fig.cap = "The luminous efficacy of selected lamp technologies from 1880 to 2020. Data were obtained from three sources: the Museum of Electric Lamp Technology (LampTech)~\\cite{hooker_2020}, the ENERGYSTAR database of certified lamps~\\cite{energystar_2020}, and the Lighting Market Characterization Reports commissioned by the US Department of Energy (DOE)~\\cite{DOE2002, DOE2012, DOE2017}. Triangles indicate lamps used as examples in this paper." >>=
+<<LuminousEfficacy_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 4, fig.cap = "The luminous efficacy of selected lamp technologies from 1880 to 2020. Triangles indicate lamps used as examples in this paper." >>=
 le_df$Selected <- ifelse(le_df$Type == "LSPDD", "Selected lamps", "Other")
 
 le_df_filtered <- le_df %>% 
@@ -553,7 +558,7 @@ Sousa~\emph{et al.}
 note that 
 societal exergy analysis is hampered when 
 ``the useful output cannot or is not
-typically measured in energy units''~\cite[p.~17]{Sousa2017},
+typically measured in energy units''~\cite{Sousa2017} (p.~17),
 as is the case with lighting.
 Indeed, societal exergy practitioners 
 need the valuable energy and exergetic efficiencies 
@@ -589,7 +594,7 @@ three common values are adopted:
 400 lm/W \cite{Summers1971, Ayres2005, Tsao2010solidstate, Guevara2016}, and
 683 lm/W \cite{Kondo2009, Serrenho2014}.
 To our knowledge, 
-the earliest reference for 220~lm/W and 400~lm/W is \citet[p.~151]{Summers1971},
+the earliest reference for 220~lm/W and 400~lm/W is \citet{Summers1971} (p.~151),
 who stated ``[t]he efficiencies \ldots{} assume that the maximum attainable efficiency
 for an acceptable white light is about
 400 lumens per watt rather than the theoretical value 
@@ -1041,7 +1046,7 @@ Human skin can perceive the thermal radiation portion of the broader electromagn
 approximately 100 nm < $\lambda$ < 10,000 nm, and 
 human skin is differentially responsive to EM wavelength~\citep{Anderson:1981aa}.  
 Indeed, thermoreceptors in the dermis of skin are important sensors
-for regulation of body temperature~\cite[p.~258]{Jones:2016aa}.
+for regulation of body temperature~\cite{Jones:2016aa} (p.~258).
 Similarly, human eyes perceive only a (narrower) portion of the EM radiation spectrum
 (approximately \humaneyesensitivity).
 To quantify the energy (and exergy) of light, 
@@ -1144,7 +1149,7 @@ Liu,
 % \citeauthor{liu2009},
 who argued that it is inappropriate
 ``to endue a single photon with macro-scale thermodynamic parameters
-such as exergy and entropy''~\citep[p.~1810]{liu2009}.
+such as exergy and entropy''~\citep{liu2009} (p.~1810).
 We acknowledge this critique, 
 but we also note that here $T_\lambda$ is ascribed to a stream of photons
 traveling from a lamp to an eye.
@@ -1167,7 +1172,7 @@ over longer distances.)
 We further assume that the human iris is a blackbody absorber 
 (absorbing all wavelengths of radiation perfectly \cite{benenson2006handbook}), 
 being a small aperture on a larger cavity.
-(In this assumption, we follow \citet[p.~172]{Rossing2020} who state
+(In this assumption, we follow \citet{Rossing2020} (p.~172) who state
 ``another good example of [a blackbody absorber] is the human eye;
 the pupil looks black because most light entering it is trapped and absorbed.'')
 Thus, we use Shan and Zhou's~\cite{Shan2019} spectral formulation of Petela's equation,
