@@ -351,7 +351,7 @@ supplied by the \texttt{R} package \texttt{ggspectra}~\cite{Aphalo2015},
 for demonstration purposes
 in Figures~\ref{fig:Vis_Graph} 
 and~\ref{fig:wfs_and_lamps}.
-In the figures, 555~nm represents the peak of the combined sensitivities 
+The figures show 555~nm, the wavelength of the peak of the combined sensitivities 
 of two of the human eyes' five light receptors, 
 the long-wavelength and medium-wavelength cones.}
 
@@ -426,9 +426,10 @@ considers light (and many other useful energy products)
 to be enablers of economic growth.
 (Energy quantifies the potential to change temperature,
 whereas exergy quantifies the potential to do work.)
-See \citet{Nakicenovic1996} for an early example of societal exergy analysis and
+See \citet{Nakicenovic1996} for an early example and
 \ins{\citet{Guevara:2016a},}
-\citet{Heun:2019aa}\ins{, and \citet{Ver-Beek:2020aa}} for \del{a }recent example\ins{s}.
+\citet{Heun:2019aa}\ins{, and \citet{Ver-Beek:2020aa}} for \del{a }later example\ins{s}
+of societal exergy analysis.
 Thus, societal exergy analysis 
 relies upon results from the energy and exergy analysis of 
 lamps and lighting to assess the ways in which useful energy products 
@@ -648,7 +649,7 @@ In Section~\ref{sec:methods}, we
 %
 In Section~\ref{sec:results}, we show results for luminous weighting functions and example lamps before
 presenting a discussion in Section~\ref{sec:discussion}.
-Section~\ref{sec:conclusions} summarizes and concludes.
+Section~\ref{sec:conclusions} summarizes and \rev{concludes}{suggest future work}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1353,7 +1354,7 @@ that matches the manufacturer's reported radiant power.
   \dot{E}_{EM,\lambda}  = \mu \dot{E}_{EM,\lambda,rel}
 \end{equation}
 
-Although the corrected SPDs data were used for all analyses,
+Although \del{the }corrected SPDs \del{data }were used for all analyses,
 we later display normalized SPDs for each lamp,
 such that the peak of each SPD is 1.
 (See Figure~\ref{fig:wfs_and_lamps}.)
