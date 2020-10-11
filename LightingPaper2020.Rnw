@@ -346,11 +346,11 @@ weighted by the eye's spectral (i.e., wavelength-specific) sensitivity.
 (See Figure~\ref{fig:Vis_Graph}.)
 \ins{We note that wavelengths of light are not inherently colored, 
 but we have adopted the color representation
-of the CIE 10 degree color matching function (CMF)~\cite{CIE2006}
+of the CIE 10 degree color matching function (CMF)~\cite{CIE2006},
+supplied by the \texttt{R} package \texttt{ggspectra}~\cite{Aphalo2015},
+for demonstration purposes
 in Figures~\ref{fig:Vis_Graph} 
-and~\ref{fig:wfs_and_lamps} for demonstration purposes.
-The \texttt{R} package \texttt{ggspectra}~\cite{Aphalo2015} 
-was used to generate both figures.
+and~\ref{fig:wfs_and_lamps}.
 In the figures, 555~nm represents the peak of the combined sensitivities 
 of two of the human eyes' five light receptors, 
 the long-wavelength and medium-wavelength cones.}
@@ -409,17 +409,26 @@ response_data %>%
 
 The second aspect is to note that 
 modern lighting is provided via an energy conversion chain:
-primary energy (e.g., coal) is converted to
+primary energy \ins{carriers} (e.g., coal) \rev{is}{are} converted to
 final energy (electricity, measured in watts, W) and lastly to
 useful energy (visible light, measured in lumens, lm).
-The field of societal exergy analysis evaluates entire energy conversion chains
+\ins{The field of exergy analysis has long analyzed individual machines
+and power plants in the energy conversion chain 
+for their exergetic efficiency and performance, e.g.,
+co-generation power plants~\cite{Bejan:1996},
+nuclear power plants~\cite{Durmayaz:2001}, 
+refrigerators~\cite{joybari2013exergy},
+heat pumps~\cite{bobbo2019energetic}, and 
+energy storage systems~\cite{zwierzchowski2020energy}.
+In contrast,} the field of societal exergy analysis evaluates entire energy conversion chains
 at regional, national, or world levels in exergy terms and
 considers light (and many other useful energy products)
 to be enablers of economic growth.
 (Energy quantifies the potential to change temperature,
-whereas exergy quantifies the potential to do work.
+whereas exergy quantifies the potential to do work.)
 See \citet{Nakicenovic1996} for an early example of societal exergy analysis and
-\citet{Heun:2019aa} for a recent example.)
+\ins{\citet{Guevara:2016a},}
+\citet{Heun:2019aa}\ins{, and \citet{Ver-Beek:2020aa}} for \del{a }recent example\ins{s}.
 Thus, societal exergy analysis 
 relies upon results from the energy and exergy analysis of 
 lamps and lighting to assess the ways in which useful energy products 
