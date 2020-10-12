@@ -22,7 +22,7 @@ univ_conversion.R - This script calculates the conversion factors for moving fro
 
 spd_metrics_calcs.R - This script calculates the radiant power for each lamp 
                       output and the weighted radiant power for each pair 
-                      (lamp, weighting function) doing the integral by wavelength
+                      (lamp, weighting function) taking the integral by wavelength
 
 results_phi_xtable.R - This script creates a table with the mean exergy-to-energy 
                        factor for each combination of lamp and weighting function 
@@ -55,5 +55,5 @@ conv_exact_approx.R - This script constructs a DF which contains information for
                       Then creates a table containing this information.
 
 AllData.R - This script pulls data from the master_lighting_data.xlsx spreadsheet 
-            and builds a massive data frame containing weighting functions, 
+            and builds a data frame containing weighting functions, 
             lamps, and weighted emission spectra.
