@@ -54,4 +54,4 @@ remains on p. 5.
 * p. 22, reference 9: Fixed author (was interpreted as a person, not an organization). 
 Corrected year from 2006 --> 2005.  See http://www.cvrl.org/people/stockman/pubs/tc136_14.pdf
 
-* p. 
+* p. 23, reference 18: removed duplicate Guevara reference (33).
