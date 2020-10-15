@@ -57,3 +57,7 @@ Corrected year from 2006 --> 2005.  See http://www.cvrl.org/people/stockman/pubs
 * p. 23, reference 18: removed duplicate Guevara reference (33).
 
 * p. 24: reference 36 (Haitz): added accessed on date (17 August 2020).
+
+* p. 24: reference 37 (Graydon): Added DOI.
+
+* 
