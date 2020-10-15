@@ -1,6 +1,7 @@
 Changes made in 
-The energy and exergy of light
-Heun et al.
+Heun et al., The energy and exergy of light
+2020-10-15
+
 
 * p. 1: Author names are accurate as written.  
 Heun and Brockway have published under those names hundreds of times. 
