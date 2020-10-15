@@ -49,6 +49,9 @@ provided that the sentence
 remains on p. 5.  
 (See above.)
 
-* p. 22, reference 8: Fixed publisher name ("Pearson Higher" --> "Pearson"), author list (added Reese), title ("Biology" --> "Campbell Biology").  See https://www.amazon.com/dp/B01M7RPDQQ/ref=rdr_kindle_ext_tmb for details.  Added city (New York).
+* p. 22, reference 8: Fixed publisher name ("Pearson Higher" --> "Pearson"), author list (added Reese), title ("Biology" --> "Campbell Biology").  Added city (New York).  See https://www.amazon.com/dp/B01M7RPDQQ/ref=rdr_kindle_ext_tmb for details. 
 
-* p. 22
+* p. 22, reference 9: Fixed author (was interpreted as a person, not an organization). 
+Corrected year from 2006 --> 2005.  See http://www.cvrl.org/people/stockman/pubs/tc136_14.pdf
+
+* p. 
