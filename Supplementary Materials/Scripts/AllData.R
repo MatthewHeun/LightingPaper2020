@@ -42,7 +42,7 @@ weighted_power <- function(weighting_function, lamp) {
 }
 
 # Get names of all tabs in a list
-master_lighting_data_path <- file.path("Data", "master_lighting_data.xlsx")
+master_lighting_data_path <- file.path("Data", "master_lighting_data.xlsx") # Here the user should replace "Data" with their own specific file path
 tabs <- readxl::excel_sheets(path = master_lighting_data_path)
 
 # Get the weighting functions list

@@ -159,6 +159,7 @@ chroma_type <- photobiology::ciexyzCMF10.spct            # Very similar to "CMF"
 \usepackage{longtable}                      % For tables that span multiple pages.
 \usepackage{pdflscape}                      % For landscape environment \begin{landscape} ... \end{landscape}
 \usepackage{subcaption}                     % For Figure 12 (a), Figure 12 (b), etc.
+\usepackage{textcomp}                       % For the single vertical apostrophe (')
 \usepackage[normalem]{ulem}                 % For \sout command (strikethrough)
 \usepackage{xcolor}                         % For coloured text.
 \usetikzlibrary{decorations.pathreplacing,angles,quotes}
@@ -252,7 +253,7 @@ determining the exergy contribution of lighting to an economy.
 Conventionally, societal exergy practitioners estimate the exergetic efficiency of lamps 
 by an energy efficiency, 
 causing confusion and, sometimes,
-\ins{overestimation of exergetic efficiency by a factor as large as 3.}
+overestimation of exergetic efficiency by a factor as large as 3.
 In response, 
 we use recent results from the 
 fields of radiation thermodynamics and photometry to
@@ -279,51 +280,17 @@ for societal exergy practitioners: use
         exergy; efficiency; light; radiation; thermodynamics; illumination; lumen; luminous efficacy; spectrum
         }
 
-% (list three to ten pertinent keywords specific to the article, yet reasonably common within the subject discipline.)
-% The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
-%\PACS{J0101}
-%\MSC{}
-%\JEL{}
 
 
-%\datasetlicense{license under which the data set is made available (CC0, CC-BY, CC-BY-SA, CC-BY-NC, etc.)}
-
-
-%\setcounter{secnumdepth}{4}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \setcounter{section}{-1} %% Remove this when starting to work on the template.
-% \section{How to Use this Template}
-% The template details the sections that can be used in a manuscript. 
-% Note that the order and names of article sections may differ
-% from the requirements of the journal 
-% (e.g., the positioning of the Materials and Methods section). 
-% Please check the instructions for authors page of the journal 
-% to verify the correct order and names. 
-% For any questions, please contact the editorial office of the journal or
-% support@mdpi.com. For LaTeX related questions please contact latex@mdpi.com.
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 \label{sec:introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% The introduction should briefly place the study in a broad context and
-% highlight why it is important.
-% It should define the purpose of the work and its significance. 
-% The current state of the research field should be reviewed carefully and
-% key publications cited.
-% Please highlight controversial and diverging hypotheses when necessary. 
-% Finally, briefly mention the main aim of the work and highlight the principal conclusions. 
-% As far as possible, please keep the introduction comprehensible 
-% to scientists outside your particular field of research. 
-
 
 %++++++++++++++++++++++++++++++
 \subsection{The importance of light and the issue of lighting efficiency}
@@ -357,7 +324,7 @@ the focus of this article.
 \label{sec:light_ECC}
 %++++++++++++++++++++++++++++++
 
-Ahead of a detailed treatment of the thermodynamics of light in Section~\ref{sec:framework}\ins{,}
+Ahead of a detailed treatment of the thermodynamics of light in Section~\ref{sec:framework}, 
 we set out here two fundamental aspects of lighting. 
 The first aspect is clear definitions of electromagnetic~(EM) energy and light.
 EM energy~($E$, in J) is broad-spectrum EM radiation
@@ -377,6 +344,16 @@ The human retina responds to a narrow wavelength range of EM radiation
 Thus, light is EM radiation within that narrow wavelength band~\cite{campbell2017}, 
 weighted by the eye's spectral (i.e., wavelength-specific) sensitivity.
 (See Figure~\ref{fig:Vis_Graph}.)
+\ins{We note that wavelengths of light are not inherently colored, 
+but we have adopted the color representation
+of the CIE 10 degree color matching function (CMF)~\cite{CIE2006},
+supplied by the \texttt{R} package \texttt{ggspectra}~\cite{Aphalo2015},
+for demonstration purposes
+in Figures~\ref{fig:Vis_Graph} 
+and~\ref{fig:wfs_and_lamps}.
+The figures show 555~nm, the wavelength of the peak of the combined sensitivities 
+of two of the human eyes' five light receptors, 
+the long-wavelength and medium-wavelength cones.}
 
 
 <<Load_Data, cache=use_cache, cache.extra.1=tools::md5sum('Data/master_lighting_data.xlsx'), cache.extra.2=tools::md5sum('Data/AllData.R')>>=
@@ -404,7 +381,7 @@ response_data <- weighted_responses_df %>%
 @
 
 
-<<Vis_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="Normalized sensitivity and color perception of the human eye to EM radiation~\\cite{schubert2006}, according to the photopic luminous weighting function~($V_\\lambda$). \\ins{This figure and Figure~\\ref{fig:wfs_and_lamps} utilize the CIE 10 degree color matching function (CMF)~\\cite{CIE2006}. We note that wavelengths of light are not inherently colored, but we have adopted this approach for demonstration purposes. The \\texttt{R} package \\texttt{ggspectra}~\\cite{Aphalo2015} was used to generate both figures.} 555~nm represents the peak of the combined sensitivities of two of the human eyes' five light receptors, the long-wavelength and medium-wavelength cones. The range of human eye sensitivity is \\ins{\\humaneyesensitivity{}}, and 250~nm < $\\lambda$ < 900~nm is the range of data availability for lamp spectral power distributions (SPDs) in the Light Spectral Power Distribution Database (LSPDD)~\\citep{Roby, miguel2017, aube2013}.">>=
+<<Vis_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 3, fig.cap="Normalized sensitivity and color perception of the human eye to EM radiation~\\cite{schubert2006}, according to the photopic luminous weighting function~($V_\\lambda$).">>=
 response_data %>% 
   dplyr::filter(wf_name == "Photopic") %>% 
   dplyr::select("Wavelength [nm]", "normalized_response", "wf_name") %>% 
@@ -432,35 +409,45 @@ response_data %>%
 
 The second aspect is to note that 
 modern lighting is provided via an energy conversion chain:
-primary energy (e.g., coal) is converted to
+primary energy \ins{carriers} (e.g., coal) \rev{is}{are} converted to
 final energy (electricity, measured in watts, W) and lastly to
 useful energy (visible light, measured in lumens, lm).
-The field of societal exergy analysis evaluates entire energy conversion chains
+\ins{The field of exergy analysis has long analyzed individual machines
+and power plants in the energy conversion chain 
+for their exergetic efficiency and performance, e.g.,
+co-generation power plants~\cite{Bejan:1996},
+nuclear power plants~\cite{Durmayaz:2001}, 
+refrigerators~\cite{joybari2013exergy},
+heat pumps~\cite{bobbo2019energetic}, and 
+energy storage systems~\cite{zwierzchowski2020energy}.
+In contrast,} the field of societal exergy analysis evaluates entire energy conversion chains
 at regional, national, or world levels in exergy terms and
 considers light (and many other useful energy products)
 to be enablers of economic growth.
 (Energy quantifies the potential to change temperature,
-whereas exergy quantifies the potential to do work.
-See \citet{Nakicenovic1996} for an early example of societal exergy analysis and
-\citet{Heun:2019aa} for a recent example.)
-\ins{Thus, societal exergy analysis 
+whereas exergy quantifies the potential to do work.)
+See \citet{Nakicenovic1996} for an early example and
+\ins{\citet{Guevara:2016a},}
+\citet{Heun:2019aa}\ins{, and \citet{Ver-Beek:2020aa}} for \del{a }later example\ins{s}
+of societal exergy analysis.
+Thus, societal exergy analysis 
 relies upon results from the energy and exergy analysis of 
 lamps and lighting to assess the ways in which useful energy products 
-enable economic growth.}
+enable economic growth.
 
 Lighting contributes a non-negligible proportion of total useful exergy
 supplied to modern economies, so
 an essential metric for societal exergy analysis
 is the efficiency with which
 electricity (final stage) is converted to light (useful stage) by lamps.
-\rev{Thus}{Therefore}, the efficiency of energy and exergy conversion of electricity
+Therefore, the efficiency of energy and exergy conversion of electricity
 into light by electric lamps~($\eta_E$ and $\eta_X$, respectively)
 is the focus of this article.
-Note that both energy services (e.g., illumination\ins{, the stage of the energy conversion chain
-termed ``application efficacy' in photometry \cite{rea2001application}}) 
+Note that both energy services (e.g., illumination, the stage of the energy conversion chain
+termed ``application efficacy'' in photometry \cite{rea2001application}) 
 and satisfaction of human needs
 (e.g., comfort, safety, etc.) are downstream of the useful stage 
-and thus \rev{outside of}{beyond the} scope \ins{of this paper}.
+and thus beyond the scope of this paper.
 
 
 %++++++++++++++++++++++++++++++
@@ -490,12 +477,17 @@ to obtain luminous efficacy ($K$, in lm/W).
 In fact, most lamps are rated and advertised by their lumen output and their luminous efficacy~($K$).
 Figure~\ref{fig:LuminousEfficacy_Graph} shows the evolution over time 
 of luminous efficacy for four lamp technologies.
+\ins{(Data for Figure~\ref{fig:LuminousEfficacy_Graph} were obtained from three sources: 
+the Museum of Electric Lamp Technology (LampTech)~\cite{hooker_2020}, 
+the ENERGYSTAR database of certified lamps~\cite{energystar_2020}, and 
+the Lighting Market Characterization Reports commissioned by the 
+US Department of Energy (DOE)~\cite{DOE2002, DOE2012, DOE2017}.)}
 Practitioners who use luminous efficacy 
 as a lamp efficiency metric include \citet{Nordhaus1996} and
 Tsao and Waide, 
 who state 
 ``[l]uminous efficacy represents the efficiency 
-with which energy is used to produce visible light''~\citep[p.~265]{Tsao2010appetitelight}.
+with which energy is used to produce visible light''~\citep{Tsao2010appetitelight} (p.~265).
 
 
 <<Load_LEData, cache=use_cache, cache.extra.1=tools::md5sum('Data/Lighting_Efficacy_Data.xlsx'), cache.extra.2=tools::md5sum('Data/lighting_efficacy.R')>>=
@@ -503,7 +495,7 @@ with which energy is used to produce visible light''~\citep[p.~265]{Tsao2010appe
 source(file = file.path("Data", "lighting_efficacy.R"))
 @
 
-<<LuminousEfficacy_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 4, fig.cap = "The luminous efficacy of selected lamp technologies from 1880 to 2020. Data were obtained from three sources: the Museum of Electric Lamp Technology (LampTech)~\\cite{hooker_2020}, the ENERGYSTAR database of certified lamps~\\cite{energystar_2020}, and the Lighting Market Characterization Reports commissioned by the US Department of Energy (DOE)~\\cite{DOE2002, DOE2012, DOE2017}. Triangles indicate lamps used as examples in this paper." >>=
+<<LuminousEfficacy_Graph, cache=use_cache, fig.align="center", fig.width = 5, fig.height = 4, fig.cap = "The luminous efficacy of selected lamp technologies from 1880 to 2020. Triangles indicate lamps used as examples in this paper." >>=
 le_df$Selected <- ifelse(le_df$Type == "LSPDD", "Selected lamps", "Other")
 
 le_df_filtered <- le_df %>% 
@@ -515,17 +507,6 @@ ggplot2::ggplot(le_df_filtered, mapping = aes(x = Year)) +
   geom_point(mapping = aes(y = `Luminous Efficacy [lm/W]`, 
                            colour = Technology, 
                            shape = Selected)) +
-  # ggrepel::geom_text_repel(data = textdf, 
-  #                          mapping = aes(x = Year, y = `Luminous Efficacy [lm/W]`, label = Device), 
-  #                          size = 3, # Size of text label
-  #                          segment.size = 0.2, # Width of line
-  #                          arrow = arrow(length = unit(0.01, "npc")),
-  #                          box.padding = unit(0.2, "lines"),
-  #                          point.padding = unit(0.3, "lines"),
-  #                          nudge_x = -70,
-  #                          nudge_y = +70, 
-  #                          colour = "gray50") + 
-  
   MKHthemes::xy_theme() +
   theme(legend.position = "bottom", legend.box="vertical",
         legend.text = element_text(size = 8),
@@ -537,12 +518,10 @@ ggplot2::ggplot(le_df_filtered, mapping = aes(x = Year)) +
   guides(shape = FALSE)
 @
 
-Sousa~\emph{et al.}
-% \citeauthor{Sousa2017} 
-note that 
+Sousa~\emph{et al.} note that 
 societal exergy analysis is hampered when 
 ``the useful output cannot or is not
-typically measured in energy units''~\cite[p.~17]{Sousa2017},
+typically measured in energy units''~\cite{Sousa2017} (p.~17),
 as is the case with lighting.
 Indeed, societal exergy practitioners 
 need the valuable energy and exergetic efficiencies 
@@ -578,32 +557,30 @@ three common values are adopted:
 400 lm/W \cite{Summers1971, Ayres2005, Tsao2010solidstate, Guevara2016}, and
 683 lm/W \cite{Kondo2009, Serrenho2014}.
 To our knowledge, 
-the earliest reference for 220~lm/W and 400~lm/W is \citet[p.~151]{Summers1971},
+the earliest reference for 220~lm/W and 400~lm/W is \citet{Summers1971} (p.~151),
 who stated ``[t]he efficiencies \ldots{} assume that the maximum attainable efficiency
 for an acceptable white light is about
 400 lumens per watt rather than the theoretical value 
 of 220 lumens per watt 
 for a perfectly `flat' white light.''
-The value of 683~lm/W is \rev{the maximum efficacy}{derived from the definition of the lumen. 
+The value of 683~lm/W is derived from the definition of the lumen. 
 It represents the luminous efficacy of a lamp 
 emitting light at 555~nm, the peak of the photopic luminous weighting function, 
-with electricity converted EM radiation at 100~\% efficiency.}
+with electricity converted EM radiation at 100~\% efficiency.
 
 Paoli and Cullen
 estimated the practical upper limit for the luminous efficacy of an LED lamp to be 284--350~lm/W,
-when considering all \rev{stages}{sources} of energy loss
-\ins{(driver efficiency, wall plug efficiency, optical efficiency, and spectral efficiency)}~\citep{Paoli2020}.
+when considering all sources of energy loss
+(driver efficiency, wall plug efficiency, optical efficiency, and spectral efficiency)~\citep{Paoli2020}.
 The development of LED technology is following Haitz's law, 
 which predicts that ``[e]very decade, for a given wavelength of light, 
 the cost per lumen falls by a factor of 10 
 and the amount of light generated per LED package increases 
 by a factor of 20''~\citep{haitz1999case, graydon2007haitz}.
 Figure~\ref{fig:LuminousEfficacy_Graph} shows that 
-\ins{LED technology is nearing} the 
+LED technology is nearing the 
 lower efficacies from Summers (220 lm/W) and
 Paoli and Cullen (284 lm/W).
-\del{are within reach,
-due to the rapid improvement of LED technology.}
 
 Clearly, there are many options for $K_{max}$, and
 its value has a large effect on the valuable exergetic efficiency of lighting
@@ -672,36 +649,13 @@ In Section~\ref{sec:methods}, we
 %
 In Section~\ref{sec:results}, we show results for luminous weighting functions and example lamps before
 presenting a discussion in Section~\ref{sec:discussion}.
-Section~\ref{sec:conclusions} summarizes and concludes.
+Section~\ref{sec:conclusions} summarizes and \rev{concludes}{suggest future work}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Methods}
 \label{sec:methods}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-
-% Materials and Methods should be described with sufficient details 
-% to allow others to replicate and build on published results. 
-% Please note that publication of your manuscript implicates 
-% that you must make all materials, data, computer code, and protocols
-% associated with the publication available to readers. 
-% Please disclose at the submission stage any restrictions 
-% on the availability of materials or information. 
-% New methods and protocols should be described 
-% in detail while well-established methods 
-% can be briefly described and appropriately cited.
-% 
-% Research manuscripts reporting large datasets that are deposited
-% in a publicly available database should specify 
-% where the data have been deposited and provide the relevant accession numbers. 
-% If the accession numbers have not yet been obtained at the time of submission, 
-% please state that they will be provided during review. 
-% They must be provided prior to publication.
-% 
-% Interventionary studies involving animals or humans, and other studies
-% require ethical approval must list the authority 
-% that provided approval and the corresponding ethical approval code. 
-
 
 %++++++++++++++++++++++++++++++
 \subsection{Exergy theory}
@@ -743,8 +697,8 @@ All streams can be counted as energy ($\dot{E}$), such that
   \dot{E}_3 &= \dot{W}_3 \; .
 \end{align}
 %
-\ins{(Note that the overdot notation, as in $\dot{E}$, $\dot{Q}$, and $\dot{W}$,
-indicates a steady state rate of energy or exergy flow.)}
+(Note that the overdot notation, as in $\dot{E}$, $\dot{Q}$, and $\dot{W}$,
+indicates a steady state rate of energy or exergy flow.)
 
 \begin{figure}
 \centering
@@ -791,7 +745,7 @@ Heat is certainly valuable to humans, but so is another property:
 work, the ability to exert a force on another object.
 Exergy quantifies the physical property by its work potential
 and provides the answer to the question
-``what is the maximum work we could obtain from a stream of \rev{this}{the} physical property?''
+``what is the maximum work we could obtain from a stream of the physical property?''
 Thus, work is pure exergy.
 
 The Kelvin-Planck statement of the second law of thermodynamics 
@@ -832,12 +786,9 @@ For the heat engine in Figure~\ref{fig:heat_engine},
                 {\dot{Q}_1 \left( 1 - \frac{T_0}{T_1} \right) } < 1 \; ,
 \end{equation}
 %
-\del{because the second law of thermodynamics 
-states that exergy is always destroyed ($\dot{X}_1 > \dot{X}_2 + \dot{X}_3$ or 
-$\dot{X}_D = \dot{X}_1 - (\dot{X}_2 + \dot{X}_3)$).}
-\ins{because all real processes are internally irreversible, such that 
+because all real processes are internally irreversible, such that 
 $\dot{X}_1 > \dot{X}_2 + \dot{X}_3$ or 
-$\dot{X}_D = \dot{X}_1 - (\dot{X}_2 + \dot{X}_3)$.}
+$\dot{X}_D = \dot{X}_1 - (\dot{X}_2 + \dot{X}_3)$.
 
 Assuming, again, that work is the valuable output gives
 
@@ -985,7 +936,7 @@ and is related to radiant power~($\dot{E}_{EM}$) by
   \dot{E}_{EM} = \int \dot{E}_{EM,\lambda} \mathrm{d}\lambda \; .
 \end{equation}
 %
-\ins{(See~\citet{benenson2006handbook}.)}
+See~\citet{benenson2006handbook}.)
 Visually, $\dot{E}_{EM}$ is the area under the $\dot{E}_{EM,\lambda}$ vs.\ $\lambda$ curve.
 
 The exergetic efficiency of EM radiation emitted by the lamp in Figure~\ref{fig:lamp} is given by
@@ -1035,7 +986,7 @@ Human skin can perceive the thermal radiation portion of the broader electromagn
 approximately 100 nm < $\lambda$ < 10,000 nm, and 
 human skin is differentially responsive to EM wavelength~\citep{Anderson:1981aa}.  
 Indeed, thermoreceptors in the dermis of skin are important sensors
-for regulation of body temperature~\cite[p.~258]{Jones:2016aa}.
+for regulation of body temperature~\cite{Jones:2016aa} (p.~258).
 Similarly, human eyes perceive only a (narrower) portion of the EM radiation spectrum
 (approximately \humaneyesensitivity).
 To quantify the energy (and exergy) of light, 
@@ -1138,7 +1089,7 @@ Liu,
 % \citeauthor{liu2009},
 who argued that it is inappropriate
 ``to endue a single photon with macro-scale thermodynamic parameters
-such as exergy and entropy''~\citep[p.~1810]{liu2009}.
+such as exergy and entropy''~\citep{liu2009} (p.~1810).
 We acknowledge this critique, 
 but we also note that here $T_\lambda$ is ascribed to a stream of photons
 traveling from a lamp to an eye.
@@ -1161,7 +1112,7 @@ over longer distances.)
 We further assume that the human iris is a blackbody absorber 
 (absorbing all wavelengths of radiation perfectly \cite{benenson2006handbook}), 
 being a small aperture on a larger cavity.
-(In this assumption, we follow \citet[p.~172]{Rossing2020} who state
+(In this assumption, we follow \citet{Rossing2020} (p.~172) who state
 ``another good example of [a blackbody absorber] is the human eye;
 the pupil looks black because most light entering it is trapped and absorbed.'')
 Thus, we use Shan and Zhou's~\cite{Shan2019} spectral formulation of Petela's equation,
@@ -1281,7 +1232,7 @@ f_{\lambda,vis} =
 \end{equation}
 
 But the human eye is spectrally sensitive to EM radiation, 
-with peak sensitivity at 555~nm \del{(green)}
+with peak sensitivity at 555~nm 
 and lesser sensitivities at both 
 longer (redder, $\lambda > \; \sim{}620 \text{ nm}$) and
 shorter (bluer, $\lambda < \; \sim{}450 \text{ nm}$) wavelengths.
@@ -1290,7 +1241,7 @@ by the photopic sensitivity of the human eye.
 The photopic luminous~(pl) weighting function~($V_\lambda$) describes this sensitivity, 
 as shown in Figure~\ref{fig:Vis_Graph}.
 The photopic luminous weighting function 
-was defined by the Commission Internationale de l' \'{E}clairage (CIE) in 1931
+was defined by the Commission Internationale de l\textquotesingle{}Eclairage (CIE) in 1931
 and represents the sensitivity of M and L cones
 at daytime light levels \cite{CVRL2008}.
 So for Option 3,
@@ -1315,7 +1266,7 @@ of visible light~($\Phi_{pl}$) in the unit of lumens~(lm):
 \end{equation}
 %
 where 683~lm/W is the luminous efficacy of a perfect light source
-emitting \del{exclusively green} light at $\lambda = 555 \text{ nm}$.
+emitting light at $\lambda = 555 \text{ nm}$.
 (Note that because lumens are a re-scaling of watts, 
 lumens are also a unit of radiant power, 
 thus $\Phi_{pl}$ is sometimes called luminous power. 
@@ -1375,10 +1326,13 @@ example lamps, the topic of the next section.
 
 We obtained spectral power distributions (SPDs) of the lamps in Table~\ref{tab:lamps} from the 
 Light Spectral Power Distribution Database (LSPDD)~\cite{Roby, miguel2017, aube2013}. 
-The data in the LSPDD are provided 
+\ins{In the LSPDD, 
+lamp spectral power distributions (SPDs) are available in the range of 
+250~nm < $\lambda$ < 900~nm, and}
+\del{The} data \del{in the LSPDD }are provided 
 in terms of \emph{relative intensity} ($\dot{E}_{EM,\lambda,rel}$) 
 as opposed to \emph{absolute intensity} ($\dot{E}_{EM,\lambda}$).
-Because lamps in the LSPDD are not measured using an \rev{integration}{integrating} sphere,
+Because lamps in the LSPDD are not measured using an integrating sphere,
 the integral of the SPD may not match the radiant power of the lamp
 reported by the manufacturer.
 To ensure that the integral of each lamp's SPD 
@@ -1400,7 +1354,7 @@ that matches the manufacturer's reported radiant power.
   \dot{E}_{EM,\lambda}  = \mu \dot{E}_{EM,\lambda,rel}
 \end{equation}
 
-Although the corrected SPDs data were used for all analyses,
+Although \del{the }corrected SPDs \del{data }were used for all analyses,
 we later display normalized SPDs for each lamp,
 such that the peak of each SPD is 1.
 (See Figure~\ref{fig:wfs_and_lamps}.)
@@ -1441,16 +1395,6 @@ print(xtable::xtable(results_lamp_info_fin, digits=0,
 \label{sec:results}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% This section may be divided by subheadings.
-% It should provide a concise and precise description of
-% the experimental results,
-% their interpretation as well as the experimental conclusions that can be drawn.
-% \begin{quote}
-% This section may be divided by subheadings.
-% It should provide a concise and precise description of the experimental results,
-% their interpretation as well as the experimental conclusions that can be drawn.
-% \end{quote}
-
 Results are provided in Figure~\ref{fig:wfs_and_lamps} for 
 the spectral exergy-to-energy ratio for light~($\phi_{L,\lambda}$), 
 spectral luminous weighting functions~($f_\lambda$),
@@ -1468,7 +1412,7 @@ All graphs were constructed and calculations were performed using \texttt{R}~\ci
 
 The upper-left graph in Figure~\ref{fig:wfs_and_lamps} shows 
 Equation~\ref{eq:phi_L_lambda_shan_zhou}.
-Note that exergy-to-\rev{exergy}{energy} ratio for light~($\phi_{L,\lambda}$) is
+Note that exergy-to-energy ratio for light~($\phi_{L,\lambda}$) is
 nearly~1 for all wavelengths of interest for illumination.
 
 \begin{figure}
@@ -1859,7 +1803,7 @@ is $K_{max} = 683 \text{ lm/W}$.
 Any other assumption is a mistake.
 The assumption in condition~(b) is incorrect;
 the exergy-to-energy ratio for light~($\phi_{L,\lambda}$) is not 1
-\ins{(as shown in Equation~\ref{eq:phi_L_lambda_shan_zhou})}, but the conventional method assumes it is.
+(as shown in Equation~\ref{eq:phi_L_lambda_shan_zhou}), but the conventional method assumes it is.
 Condition~(c) highlights an unfortunate requirement of the conventional method, 
 one that is lifted by the exact method.
 
@@ -1991,7 +1935,7 @@ The exact method provides the following benefits over the conventional method:
 
 We recognize that the choice of spectral weighting function~($f_\lambda$)
 remains contentious~\cite{Delgado-Bonal:2017aa, Pattison2018LEDphotons, Rea2018, Royer2016}.
-That said, we suggest that the choice of weighting function\del{ ($f_\lambda$)} in societal exergy analysis
+That said, we suggest that the choice of weighting function in societal exergy analysis
 should be appropriate for each lamp's application.
 Our second recommendation is for use of
 the universal luminous weighting function~($U_\lambda$) in societal exergy analysis
@@ -2145,8 +2089,36 @@ INC, HAL, CFL, LED, HPS (high pressure sodium), and MH (metal halide).
 The average value for the exergy-to-energy ratio is
 $\bar{\phi}_{L,pl} = \Sexpr{format(round(phi_mean, 3), nsmall = 3)}$ 
 with a remarkably small standard deviation of $\sigma_{\phi_{L,pl}} = \Sexpr{format(round(phi_sd, 5), nsmall = 5)}$.
-Average exergy-to-energy ratios~($\bar{\phi}_{L,pl}$) by lamp technology
-are given in Table~\ref{tab:mean_phi_p2_by_lamp_type} in the appendix.
+\del{Average exergy-to-energy ratios~($\bar{\phi}_{L,pl}$) by lamp technology
+are given in Table~\ref{tab:mean_phi_p2_by_lamp_type} in the appendix.}
+\ins{Table~\ref{tab:mean_phi_p2_by_lamp_type} shows 
+statistics for the exergy-to-energy ratio~($\bar{\phi}_{L,pl}$)
+by lighting technology.}
+
+<<mean_phi_p2_by_lamp_type, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/phi_table.R')>>=
+
+source("Data/phi_table.R")
+
+# Creates a matrix with each element containing the number of decimal places that the xtable should use.
+mdat_phi<-matrix(3,nrow=3,ncol=7); mdat_phi[3,]<-0; mdat_phi[2,]<-6
+
+print(xtable::xtable(phi_table, digits=mdat_phi, 
+                     caption = "The mean~($\\bar{\\phi}_{L,pl}$),
+                     standard deviation~($\\sigma_{\\phi_{L,pl}}$), and 
+                     sample size~($n$)
+                     of the exergy-to-energy ratio when using
+                     the photopic luminous weighting function,
+                     by lighting technology.",
+                     label = "tab:mean_phi_p2_by_lamp_type"), 
+      size="footnotesize", # Change size; useful for bigger tables
+      include.rownames=TRUE, 
+      include.colnames=TRUE, 
+      caption.placement="top",
+      type = "latex",
+      booktabs = TRUE,
+      sanitize.rownames.function = identity
+      )
+@
 
 
 %..............................
@@ -2166,8 +2138,35 @@ $\gammarat{}$ is expected to be greater than 1.
 The average value of the photopic-to-universal factor across our population of lamps 
 was $\gammaratavg{} = \Sexpr{format(round(conversionX_mean, 2), nsmall = 2)}$,
 with a small standard deviation of $\sigma_{\gammarat{}} = \Sexpr{format(round(conversionX_sd, 3), nsmall = 3)}$.
-Average photopic-to-universal conversion factors~($\gammaratavg{}$) by lamp technology
-are given in Table~\ref{tab:conversionfactors} in the appendix.
+\del{Average photopic-to-universal conversion factors~($\gammaratavg{}$) by lamp technology
+are given in Table~\ref{tab:conversionfactors} in the appendix.}
+\ins{Table~\ref{tab:conversionfactors} shows 
+statistics for the photopic-to-universal factor~($\gammaratavg{}$)
+by lighting technology.}
+
+<<conversionfactors, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/conversion_table.R')>>=
+
+source("Data/conversion_table.R")
+
+# Creates a matrix with each element containing the number of decimal places that the xtable should use.
+mdat_conv<-matrix(2,nrow=3,ncol=7); mdat_conv[2,]<-3;  mdat_conv[3,]<-0
+
+print(xtable::xtable(conversion_table, digits=mdat_conv, 
+                     caption = "The mean~($\\bar{\\gamma}_{pl\\rightarrow{}univ}$),
+                     standard deviation~($\\sigma_{\\gamma_{pl\\rightarrow{}univ}}$), and 
+                     sample size~($n$)
+                     of the photopic-to-universal factor,
+                     by lighting technology.",
+                     label = "tab:conversionfactors"), 
+      size="footnotesize", # Change size; useful for bigger tables
+      include.rownames=TRUE, 
+      include.colnames=TRUE, 
+      caption.placement="top",
+      type = "latex",
+      booktabs = TRUE,
+      sanitize.rownames.function = identity
+      )
+@
 
 
 %..............................
@@ -2461,87 +2460,77 @@ in the decision to publish the results.}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\appendix
-
-% The appendix is an optional section that can contain 
-% details and data supplemental to the main text. 
-% For example, explanations of experimental details 
-% that would disrupt the flow of the main text, but 
-% nonetheless remain crucial to understanding and reproducing the research shown; 
-% figures of replicates for experiments 
-% of which representative data is shown in the main text 
-% can be added here if brief, or as Supplementary data. 
-% Mathematical proofs of results not central to the paper can be added as an appendix.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Average exergy-to-energy ratio~($\bar{\phi}_{L,pl}$)
-         and photopic-to-universal factor~($\gammaratavg{}$)
-         by lighting technology}
-\label{sec:non_light}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  
-% All appendix sections must be cited in the main text. 
-% In the appendixes, Figures, Tables, etc. should be labeled starting with `A', 
-% e.g., Figure A1, Figure A2, etc. 
-
-Table~\ref{tab:mean_phi_p2_by_lamp_type} shows 
-statistics for the exergy-to-energy ratio~($\bar{\phi}_{L,pl}$)
-by lighting technology.
-
-<<mean_phi_p2_by_lamp_type, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/phi_table.R')>>=
-
-source("Data/phi_table.R")
-
-# Creates a matrix with each element containing the number of decimal places that the xtable should use.
-mdat_phi<-matrix(3,nrow=3,ncol=7); mdat_phi[3,]<-0; mdat_phi[2,]<-6
-
-print(xtable::xtable(phi_table, digits=mdat_phi, 
-                     caption = "The mean~($\\bar{\\phi}_{L,pl}$),
-                     standard deviation~($\\sigma_{\\phi_{L,pl}}$), and 
-                     sample size~($n$)
-                     of the exergy-to-energy ratio when using
-                     the photopic luminous weighting function,
-                     by lighting technology.",
-                     label = "tab:mean_phi_p2_by_lamp_type"), 
-      size="footnotesize", # Change size; useful for bigger tables
-      include.rownames=TRUE, 
-      include.colnames=TRUE, 
-      caption.placement="top",
-      type = "latex",
-      booktabs = TRUE,
-      sanitize.rownames.function = identity
-      )
-@
-
-
-Table~\ref{tab:conversionfactors} shows 
-statistics for the photopic-to-universal factor~($\gammaratavg{}$)
-by lighting technology.
-
-<<conversionfactors, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/conversion_table.R')>>=
-
-source("Data/conversion_table.R")
-
-# Creates a matrix with each element containing the number of decimal places that the xtable should use.
-mdat_conv<-matrix(2,nrow=3,ncol=7); mdat_conv[2,]<-3;  mdat_conv[3,]<-0
-
-print(xtable::xtable(conversion_table, digits=mdat_conv, 
-                     caption = "The mean~($\\bar{\\gamma}_{pl\\rightarrow{}univ}$),
-                     standard deviation~($\\sigma_{\\gamma_{pl\\rightarrow{}univ}}$), and 
-                     sample size~($n$)
-                     of the photopic-to-universal factor,
-                     by lighting technology.",
-                     label = "tab:conversionfactors"), 
-      size="footnotesize", # Change size; useful for bigger tables
-      include.rownames=TRUE, 
-      include.colnames=TRUE, 
-      caption.placement="top",
-      type = "latex",
-      booktabs = TRUE,
-      sanitize.rownames.function = identity
-      )
-@
+% \appendix
+% 
+% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{Average exergy-to-energy ratio~($\bar{\phi}_{L,pl}$)
+%          and photopic-to-universal factor~($\gammaratavg{}$)
+%          by lighting technology}
+% \label{sec:non_light}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   
+% % All appendix sections must be cited in the main text. 
+% % In the appendixes, Figures, Tables, etc. should be labeled starting with `A', 
+% % e.g., Figure A1, Figure A2, etc. 
+% 
+% Table~\ref{tab:mean_phi_p2_by_lamp_type} shows 
+% statistics for the exergy-to-energy ratio~($\bar{\phi}_{L,pl}$)
+% by lighting technology.
+% 
+% <<mean_phi_p2_by_lamp_type_appendix, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/phi_table.R')>>=
+% 
+% source("Data/phi_table.R")
+% 
+% # Creates a matrix with each element containing the number of decimal places that the xtable should use.
+% mdat_phi<-matrix(3,nrow=3,ncol=7); mdat_phi[3,]<-0; mdat_phi[2,]<-6
+% 
+% print(xtable::xtable(phi_table, digits=mdat_phi, 
+%                      caption = "The mean~($\\bar{\\phi}_{L,pl}$),
+%                      standard deviation~($\\sigma_{\\phi_{L,pl}}$), and 
+%                      sample size~($n$)
+%                      of the exergy-to-energy ratio when using
+%                      the photopic luminous weighting function,
+%                      by lighting technology.",
+%                      label = "tab:mean_phi_p2_by_lamp_type"), 
+%       size="footnotesize", # Change size; useful for bigger tables
+%       include.rownames=TRUE, 
+%       include.colnames=TRUE, 
+%       caption.placement="top",
+%       type = "latex",
+%       booktabs = TRUE,
+%       sanitize.rownames.function = identity
+%       )
+% @
+% 
+% 
+% Table~\ref{tab:conversionfactors} shows 
+% statistics for the photopic-to-universal factor~($\gammaratavg{}$)
+% by lighting technology.
+% 
+% <<conversionfactors_appendix, cache=use_cache, results="asis", cache.extra.2=tools::md5sum('Data/conversion_table.R')>>=
+% 
+% source("Data/conversion_table.R")
+% 
+% # Creates a matrix with each element containing the number of decimal places that the xtable should use.
+% mdat_conv<-matrix(2,nrow=3,ncol=7); mdat_conv[2,]<-3;  mdat_conv[3,]<-0
+% 
+% print(xtable::xtable(conversion_table, digits=mdat_conv, 
+%                      caption = "The mean~($\\bar{\\gamma}_{pl\\rightarrow{}univ}$),
+%                      standard deviation~($\\sigma_{\\gamma_{pl\\rightarrow{}univ}}$), and 
+%                      sample size~($n$)
+%                      of the photopic-to-universal factor,
+%                      by lighting technology.",
+%                      label = "tab:conversionfactors"), 
+%       size="footnotesize", # Change size; useful for bigger tables
+%       include.rownames=TRUE, 
+%       include.colnames=TRUE, 
+%       caption.placement="top",
+%       type = "latex",
+%       booktabs = TRUE,
+%       sanitize.rownames.function = identity
+%       )
+% @
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
