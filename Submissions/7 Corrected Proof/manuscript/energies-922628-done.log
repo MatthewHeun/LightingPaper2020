@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.10.15)  15 OCT 2020 09:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.10.15)  15 OCT 2020 14:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1145,11 +1145,11 @@ Package: ltcaption 2020/05/30 v1.4b longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
 Package epstopdf Info: Source file: <Definitions/energies-logo.eps>
-(epstopdf)                    date: 2015-12-11 10:56:50
+(epstopdf)                    date: 2020-10-15 12:53:55
 (epstopdf)                    size: 244770 bytes
 (epstopdf)             Output file: <Definitions/energies-logo-eps-converted-to
 .pdf>
-(epstopdf)                    date: 2020-10-13 16:31:06
+(epstopdf)                    date: 2020-10-15 12:53:55
 (epstopdf)                    size: 12825 bytes
 (epstopdf)             Command: <repstopdf --outfile=Definitions/energies-logo-
 eps-converted-to.pdf Definitions/energies-logo.eps>
@@ -1163,11 +1163,11 @@ Package pdftex.def Info: Definitions/energies-logo-eps-converted-to.pdf  used o
 n input line 488.
 (pdftex.def)             Requested size: 125.19629pt x 34.14322pt.
 Package epstopdf Info: Source file: <Definitions/logo-mdpi.eps>
-(epstopdf)                    date: 2018-07-22 06:33:52
+(epstopdf)                    date: 2020-10-15 12:53:55
 (epstopdf)                    size: 736786 bytes
 (epstopdf)             Output file: <Definitions/logo-mdpi-eps-converted-to.pdf
 >
-(epstopdf)                    date: 2020-05-22 20:51:52
+(epstopdf)                    date: 2020-10-15 12:53:55
 (epstopdf)                    size: 44165 bytes
 (epstopdf)             Command: <repstopdf --outfile=Definitions/logo-mdpi-eps-
 converted-to.pdf Definitions/logo-mdpi.eps>
@@ -1224,11 +1224,11 @@ LaTeX Font Info:    Font shape `U/msb/m/n' will be
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
 (Font)              scaled to size 6.25204pt on input line 488.
 Package epstopdf Info: Source file: <Definitions/logo-orcid.eps>
-(epstopdf)                    date: 2018-07-22 06:33:52
+(epstopdf)                    date: 2020-10-15 12:53:55
 (epstopdf)                    size: 284378 bytes
 (epstopdf)             Output file: <Definitions/logo-orcid-eps-converted-to.pd
 f>
-(epstopdf)                    date: 2020-05-22 20:51:54
+(epstopdf)                    date: 2020-10-15 12:53:55
 (epstopdf)                    size: 12610 bytes
 (epstopdf)             Command: <repstopdf --outfile=Definitions/logo-orcid-eps
 -converted-to.pdf Definitions/logo-orcid.eps>
@@ -1241,11 +1241,11 @@ Package pdftex.def Info: Definitions/logo-orcid-eps-converted-to.pdf  used on i
 nput line 488.
 (pdftex.def)             Requested size: 9.10509pt x 9.10466pt.
 Package epstopdf Info: Source file: <Definitions/logo-orcid.eps>
-(epstopdf)                    date: 2018-07-22 06:33:52
+(epstopdf)                    date: 2020-10-15 12:53:55
 (epstopdf)                    size: 284378 bytes
 (epstopdf)             Output file: <Definitions/logo-orcid-eps-converted-to.pd
 f>
-(epstopdf)                    date: 2020-05-22 20:51:54
+(epstopdf)                    date: 2020-10-15 12:53:55
 (epstopdf)                    size: 12610 bytes
 (epstopdf)             Command: <repstopdf --outfile=Definitions/logo-orcid-eps
 -converted-to.pdf Definitions/logo-orcid.eps>
@@ -1257,11 +1257,11 @@ Package pdftex.def Info: Definitions/logo-orcid-eps-converted-to.pdf  used on i
 nput line 488.
 (pdftex.def)             Requested size: 9.10509pt x 9.10466pt.
 Package epstopdf Info: Source file: <Definitions/logo-orcid.eps>
-(epstopdf)                    date: 2018-07-22 06:33:52
+(epstopdf)                    date: 2020-10-15 12:53:55
 (epstopdf)                    size: 284378 bytes
 (epstopdf)             Output file: <Definitions/logo-orcid-eps-converted-to.pd
 f>
-(epstopdf)                    date: 2020-05-22 20:51:54
+(epstopdf)                    date: 2020-10-15 12:53:55
 (epstopdf)                    size: 12610 bytes
 (epstopdf)             Command: <repstopdf --outfile=Definitions/logo-orcid-eps
 -converted-to.pdf Definitions/logo-orcid.eps>
@@ -1273,11 +1273,11 @@ Package pdftex.def Info: Definitions/logo-orcid-eps-converted-to.pdf  used on i
 nput line 488.
 (pdftex.def)             Requested size: 9.10509pt x 9.10466pt.
 Package epstopdf Info: Source file: <Definitions/logo-orcid.eps>
-(epstopdf)                    date: 2018-07-22 06:33:52
+(epstopdf)                    date: 2020-10-15 12:53:55
 (epstopdf)                    size: 284378 bytes
 (epstopdf)             Output file: <Definitions/logo-orcid-eps-converted-to.pd
 f>
-(epstopdf)                    date: 2020-05-22 20:51:54
+(epstopdf)                    date: 2020-10-15 12:53:55
 (epstopdf)                    size: 12610 bytes
 (epstopdf)             Command: <repstopdf --outfile=Definitions/logo-orcid-eps
 -converted-to.pdf Definitions/logo-orcid.eps>
@@ -1682,11 +1682,11 @@ is-i-bil-ity.  \T1/ppl/m/it/9 (+20) PLoS ONE \T1/ppl/b/n/9 2013\T1/ppl/m/n/9 (+
 
 [24]
 Package epstopdf Info: Source file: <Definitions/logo-ccby.eps>
-(epstopdf)                    date: 2018-07-22 06:33:50
+(epstopdf)                    date: 2020-10-15 12:53:55
 (epstopdf)                    size: 484140 bytes
 (epstopdf)             Output file: <Definitions/logo-ccby-eps-converted-to.pdf
 >
-(epstopdf)                    date: 2020-10-13 16:31:10
+(epstopdf)                    date: 2020-10-15 12:53:55
 (epstopdf)                    size: 11987 bytes
 (epstopdf)             Command: <repstopdf --outfile=Definitions/logo-ccby-eps-
 converted-to.pdf Definitions/logo-ccby.eps>
@@ -1713,7 +1713,7 @@ Package rerunfilecheck Info: File `energies-922628-done.out' has not changed.
 Here is how much of TeX's memory you used:
  29281 strings out of 479917
  527159 string characters out of 5882726
- 868876 words of memory out of 5000000
+ 868869 words of memory out of 5000000
  44678 multiletter control sequences out of 15000+600000
  616630 words of font info for 382 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191

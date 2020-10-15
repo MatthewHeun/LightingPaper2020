@@ -1,0 +1,50 @@
+Changes made in 
+The energy and exergy of light
+Heun et al.
+
+* p. 2: "Figures 1 and 5" --> "Figure 1 and others" (to eliminate the figure reference order problem)
+
+* last line of p. 2: "forlater"" --> "for later"" (added space)
+
+* p. 5: The sentence "Note that the overdo notation ... exergy flow." should NOT be removed. 
+That sentence was inserted in response to reviewer comments. 
+See .tex file for details.
+
+* p. 7: "See Benenson et al. [40])" --> "(See Benenson et al. [40])"  (Added opening parentheses, as requested.)
+
+* p. 9:  "(p. 172)who state"" --> "(p. 172) who state"" (added space)
+
+* p. 12: "(See Figure 5.)" --> "(See Section 3.)"  (Addresses comment "mdpi:Figure 5 and its first mention crossed the first level title, please change position of it."  Rather than move the figure, which would be inappropriate, we decided to change the reference.)
+
+* p. 18 and 19:  The question was asked whether the headings 
+
+  - Estimating the average exergy-to-energy ratio
+
+  - Estimating the average photopic-to-universal conversion factor
+
+  - Implementing the approximate method
+
+can be changed to a 4th level section.
+In fact, that is our intent.
+At present, these headings are coded as \{paragraph}, 
+which is a 4th-level section, according to https://www.overleaf.com/learn/latex/Sections_and_chapters
+We're not sure how to make this change ourselves, 
+so the editor or typesetter should feel free to make the change.
+
+* p. 20:  We confirm that supplementary materials will be available online.  
+In fact, the repository at https://doi.org/10.5518/865 is ready to go.
+The only missing piece is the DOI of the paper.
+As soon as we get the DOI of the paper, 
+we will flip the switch to make the supplementary materials available.
+
+p. 21:  Your changes to the nomenclature table are acceptable,
+provided that the sentence
+
+"Note that the overdo notation ... exergy flow."
+
+remains on p. 5.  
+(See above.)
+
+* p. 22, reference 8: Fixed publisher name ("Pearson Higher" --> "Pearson"), author list (added Reese), title ("Biology" --> "Campbell Biology").  See https://www.amazon.com/dp/B01M7RPDQQ/ref=rdr_kindle_ext_tmb for details.  Added city (New York).
+
+* p. 22
