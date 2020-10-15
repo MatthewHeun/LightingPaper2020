@@ -60,4 +60,8 @@ Corrected year from 2006 --> 2005.  See http://www.cvrl.org/people/stockman/pubs
 
 * p. 24: reference 37 (Graydon): Added DOI.
 
+* p. 24: reference 39 (Benenson):  This looks to be published by Springer in New York. See 
+https://www.amazon.com/Handbook-Physics-Walter-Benenson/dp/0387952691
+We changed from "Berlin/Heidelberg, Germany" to "New York".
+
 * 
