@@ -64,4 +64,4 @@ Corrected year from 2006 --> 2005.  See http://www.cvrl.org/people/stockman/pubs
 https://www.amazon.com/Handbook-Physics-Walter-Benenson/dp/0387952691
 We changed from "Berlin/Heidelberg, Germany" to "New York".
 
-* 
+* p. 25: reference 59:  Added "Leeds University: Leeds, England", per recommendation from editor.
