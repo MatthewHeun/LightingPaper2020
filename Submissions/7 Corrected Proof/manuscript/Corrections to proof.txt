@@ -34,6 +34,7 @@ At present, these headings are coded as \{paragraph},
 which is a 4th-level section, according to https://www.overleaf.com/learn/latex/Sections_and_chapters
 We're not sure how to make this change ourselves, 
 so the editor or typesetter should feel free to make the change.
+We left highlighting in place for this comment.
 
 * p. 20:  We confirm that supplementary materials will be available online.  
 In fact, the repository at https://doi.org/10.5518/865 is ready to go.
