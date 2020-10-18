@@ -17,6 +17,8 @@ Marshall and Aramendia want their names to appear as they do now.
 
 * last line of p. 2: "forlater"" --> "for later"" (added space)
 
+* p. 3: an essential metric for societal exergy analysis --> an essential metric in societal exergy analysis  ("in" sounds better than "for" to us)
+
 * p. 5: The sentence "Note that the overdot notation ... exergy flow." should NOT be removed. 
 That sentence was inserted in response to reviewer comments. 
 See .tex file for details.
