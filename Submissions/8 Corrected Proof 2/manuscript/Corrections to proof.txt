@@ -1,11 +1,13 @@
 Changes made in 
 Heun et al., The energy and exergy of light
-2020-10-15
+2020-10-18
 
 
 * p. 1: Author names are accurate as written.  
 Heun and Brockway have published under those names hundreds of times. 
 Marshall and Aramendia want their names to appear as they do now.
+
+* p. 1: P.E.Brockway@leeds.ac.uk --> p.e.brockway@leeds.ac.uk  (Paul Brockway's email address should be lower case.)
 
 * p. 2: "Figures 1 and 5" --> "Figure 1 and others" (to eliminate the figure reference order problem)
 
