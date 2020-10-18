@@ -163,6 +163,7 @@
 \usetikzlibrary{decorations.pathreplacing,angles,quotes}
 
 
+
 %=================================================================
 %% Please use the following mathematics environments: 
 %% Theorem, Lemma, Corollary, Proposition, Characterization, Property, 
@@ -1788,8 +1789,7 @@ nearly~1 for all wavelengths of interest for illumination.
                      \mbox{the unweighted} energy efficiency~($\eta_{E,uw}$) is  
                      underestimated, because
                      the SPD data do not go beyond 899~nm, 
-                     \mbox{despite INC} and HAL emission far into 
-                     the infrared portion of the EM spectrum.} 
+                     \mbox{despite INC} and HAL emission beyond 900~nm.} 
 \label{tab:results_etas}
 \begingroup\footnotesize
 \begin{tabular}{ccccc}
@@ -1836,8 +1836,7 @@ Unweighted ($\phi_{L,uw}$) & 0.943 & 0.944 & 0.953 & 0.954 \\
                      the unweighted exergetic efficiency~($\eta_{X,uw}$) is 
                      underestimated for the incandescent (INC) and halogen (HAL) lamps, because
                      the SPD data do not go beyond 899~nm, 
-                     \mbox{despite INC} and HAL emission far into 
-                     the infrared portion of the EM spectrum.} 
+                     \mbox{despite INC} and HAL emission beyond 900~nm.} 
 \label{tab:results_etasX}
 \begingroup\footnotesize
 \begin{tabular}{ccccc}
@@ -2138,12 +2137,14 @@ We provide three recommendations for societal exergy practitioners:
 \begin{enumerate*}[label={(\alph*)}]
 
   \item use the exact method of Section~\ref{sec:methods} when possible, 
-        i.e., when SPD data are available for a lamp or lamp technology, 
+        i.e., when SPD data are available for a lamp or lamp technology
+        (Section \ref{sec:recommend_exact_method}), 
 
-  \item use the universal luminous weighting function~($U_\lambda$) always, and
+  \item use the universal luminous weighting function~($U_\lambda$) always
+           (Section \ref{sec:reccuniv}), and
 
   \item use an approximate method when luminous efficacy~($K$) data are available, but
-        SPD data are not.
+        SPD data are not (Section \ref{sec:approximate_method}).
 
 \end{enumerate*}
 
@@ -2295,18 +2296,18 @@ using the conventional method as a starting point,
 
 
 
-
-
-
+% It is not necessary to number these paragraphs (4.2.3.1., 4.2.3.2., and 4.2.3.3.).
+% But if the editor would like to number these paragraphs, that is OK with us.
+% If the headings are not numbered, we still want the headings set apart and italicized, as originally submitted.
 
 %..............................
-\paragraph{\emph{\hl{Estimating} the average exergy-to-energy ratio~($\bar{\phi}_{L,pl}$)}} %mdpi:please confirm whether it should be changed to 4th title
+\paragraph{\emph{Estimating the average exergy-to-energy ratio~($\bar{\phi}_{L,pl}$)}} %mdpi:please confirm whether it should be changed to 4th title
 %..............................
 
 We calculated the exergy-to-energy ratio for a sample of lamps from the LSPDD \cite{aube2013}
 using Equation~(\ref{eq:phi_L}) with $f_\lambda = V_\lambda$. 
 (The sample consists of 45 lamp SPDs representing six technologies: 
-INC, HAL, CFL, LED, HPS (high pressure sodium), and MH (metal halide).
+INC, HAL, CFL, LED, MH (metal halide), and HPS (high pressure sodium).
 The average value for the exergy-to-energy ratio is
 $\bar{\phi}_{L,pl} = 0.956$ 
 with a remarkably small standard deviation of $\sigma_{\phi_{L,pl}} = 0.00037$. Table~\ref{tab:mean_phi_p2_by_lamp_type} shows 
@@ -2341,7 +2342,7 @@ by lighting technology.
 
 
 %..............................
-\paragraph{\emph{\hl{Estimating} the average photopic-to-universal conversion factor~($\gammaratavg{}$)}}
+\paragraph{\emph{Estimating the average photopic-to-universal conversion factor~($\gammaratavg{}$)}}
 %..............................
 
 Similarly, we obtained $\gammarat{}$ for each lamp~($i$) by taking the quotient of efficiencies:
@@ -2386,7 +2387,7 @@ by lighting technology.
 
 
 %..............................
-\paragraph{\emph{\hl{Implementing} the approximate method}}
+\paragraph{\emph{Implementing the approximate method}}
 %..............................
 
 The approximate method for determining the valuable exergetic efficiency of a lamp
@@ -2709,6 +2710,7 @@ Symbol & Meaning [example units] \\
   $\dot{X}$ & exergy rate [W] \\
 %
 %\midrule
+\\
 \multicolumn{2}{l}{\emph{Greek}} \\ 
 %
   $\eta$ & efficiency [--] \\
@@ -2723,6 +2725,7 @@ Symbol & Meaning [example units] \\
   $\sigma$ & standard deviation \\
 %
 %\midrule
+\\
 \multicolumn{2}{l}{\emph{Subscripts}} \\ 
 %
   $0$ & ambient temperature or absorber temperature \\
@@ -2755,6 +2758,7 @@ Symbol & Meaning [example units] \\
   $X$ & exergy \\
 %
 %\midrule
+\\
 \multicolumn{2}{l}{\emph{Abbreviations}} \\ 
 %
   CFL & compact fluorescent light \\
@@ -3481,7 +3485,8 @@ Royer, M.
   Czeisler, Figueiro, Gamlin, Lockley, O'Hagan, Price, Provencio, D.J., and
   G.C.]{lucas2014}
 Lucas, R.J.; Peirson, S.N.; Berson, D.M.; Brown, T.M.; Cooper, H.M.; Czeisler,
-  C.A.; Figueiro, M.G.; \mbox{Gamlin, P.D.}; Lockley, S.W.; O'Hagan, J.B.; et al.
+  C.A.; Figueiro, M.G.; \mbox{Gamlin, P.D.}; Lockley, S.W.; O'Hagan, J.B.; 
+  Price, L.L.A ; Provencio, I.; Skene, D.J.; Brainard, G.C.  
 \newblock Measuring and using light in the melanopsin age.
 \newblock {\em \mbox{Trends Neurosci.}} {\bf 2014}, {\em 37},~1--9.
 \newblock

@@ -35,6 +35,13 @@ See .tex file for details.
 
 * p. 12: "(See Figure 5.)" --> "(See Section 3.)"  (Addresses comment "mdpi:Figure 5 and its first mention crossed the first level title, please change position of it."  Rather than move the figure, which would be inappropriate, we decided to change the reference.)
 
+
+* p. 14 Table 4 and Table 6 captions: "far into infrared portion of the EM spectrum" --> "beyond 900 nm"
+
+
+* p. 16: Added section references for recommendations in the opening sentence of Section 4.2.
+
+
 * p. 18 and 19:  The question was asked whether the headings 
 
   - Estimating the average exergy-to-energy ratio
@@ -53,6 +60,10 @@ We left highlighting in place for this comment.
 
 * p. 13, Figure 5 catpion:  "for for" --> "for"
 
+
+* p. 18:  HPS (high pressure sodium), and MH (metal halide). --> MH (metal halide), and HPS (high pressure sodium).  (Text now reflects the order of columns in Tables 7 and 8.)
+
+
 * p. 20:  We confirm that supplementary materials will be available online.  
 In fact, the repository at https://doi.org/10.5518/865 is ready to go.
 The only missing piece is the DOI of the paper.
@@ -62,10 +73,14 @@ we will flip the switch to make the supplementary materials available.
 p. 21:  Your changes to the nomenclature table are acceptable,
 provided that the sentence
 
-"Note that the overdo notation ... exergy flow."
+"Note that the overdot notation ... exergy flow."
 
 remains on p. 5.  
 (See above.)
+
+
+* p. 21 and 22:  We added a line break above "Greek", "Subscripts", and "Abbreviations" to set them apart.  The sections were lost in the busy-ness of the nomenclature section.
+
 
 * p. 22, reference 8: Fixed publisher name ("Pearson Higher" --> "Pearson"), author list (added Reese), title ("Biology" --> "Campbell Biology").  Added city (New York).  See https://www.amazon.com/dp/B01M7RPDQQ/ref=rdr_kindle_ext_tmb for details. 
 
@@ -81,5 +96,7 @@ Corrected year from 2006 --> 2005.  See http://www.cvrl.org/people/stockman/pubs
 * p. 24: reference 39 (Benenson):  This looks to be published by Springer in New York. See 
 https://www.amazon.com/Handbook-Physics-Walter-Benenson/dp/0387952691
 We changed from "Berlin/Heidelberg, Germany" to "New York".
+
+* p. 24: reference 57: Added additional authors to remove "et al.".
 
 * p. 25: reference 59:  Added "Leeds University: Leeds, England", per recommendation from editor.
