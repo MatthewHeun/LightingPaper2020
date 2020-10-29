@@ -1,0 +1,101 @@
+Changes made in 
+Heun et al., The energy and exergy of light
+2020-10-18
+
+
+* p. 1: Author names are accurate as written.  
+Heun and Brockway have published under those names hundreds of times. 
+Marshall and Aramendia want their names to appear as they do now.
+
+* p. 1: P.E.Brockway@leeds.ac.uk --> p.e.brockway@leeds.ac.uk  (Paul Brockway's email address should be lower case.)
+
+* p. 2: "Figures 1 and 5" --> "Figure 1 and others" (to eliminate the figure reference order problem)
+
+* p. 2: CIE --> Commission Internationale de l\textquotesingle{}Eclairage (CIE) (to define the acronym at first use.
+
+* p. 2: the long-wavelength and medium-wavelength cones --> the long-wavelength (L) and medium-wavelength (M) cones   (to better connect with "M and L cones" used later in the paper.
+
+* last line of p. 2: "forlater"" --> "for later"" (added space)
+
+* p. 3: an essential metric for societal exergy analysis --> an essential metric in societal exergy analysis  ("in" sounds better than "for" to us)
+
+* p. 3: Therefore , the efficiency --> Therefore, the efficiency  (deleted an extra space character)
+
+* p. 5: The sentence "Note that the overdot notation ... exergy flow." should NOT be removed. 
+That sentence was inserted in response to reviewer comments. 
+See .tex file for details.
+
+* p. 7: "See Benenson et al. [40])" --> "(See Benenson et al. [40])"  (Added opening parentheses, as requested.)
+
+* p. 9:  "(p. 172)who state"" --> "(p. 172) who state"" (added space)
+
+* p. 11:  Move sentence-ending period for Equation 39 from end of second option in the piecewise equation definition to end of third piecewise option.
+
+* p. 11: So for Option 3, --> So for option 3,  (O --> o to be consistent with options 1 and 2.
+
+* p. 12: "(See Figure 5.)" --> "(See Section 3.)"  (Addresses comment "mdpi:Figure 5 and its first mention crossed the first level title, please change position of it."  Rather than move the figure, which would be inappropriate, we decided to change the reference.)
+
+
+* p. 13, Figure 5 caption:  "for for" --> "for"
+
+
+* p. 14 Table 4 and Table 6 captions: "far into infrared portion of the EM spectrum" --> "beyond 900 nm"
+
+
+* p. 16: Added section references for recommendations in the opening sentence of Section 4.2.
+
+
+* p. 18 and 19:  The question was asked whether the headings 
+
+  - Estimating the average exergy-to-energy ratio
+
+  - Estimating the average photopic-to-universal conversion factor
+
+  - Implementing the approximate method
+
+can be changed to a 4th level section.
+It is not necessary to number these paragraphs (4.2.3.1., 4.2.3.2., and 4.2.3.3.).
+But if the editor would like to number these paragraphs, that is OK with us.
+If the headings are not numbered, we still want the headings set apart and italicized, as originally submitted.
+
+
+* p. 18:  HPS (high pressure sodium), and MH (metal halide). --> MH (metal halide), and HPS (high pressure sodium).  (Text now reflects the order of columns in Tables 7 and 8.)
+
+
+* p. 20:  We confirm that supplementary materials will be available online.  
+In fact, the repository at https://doi.org/10.5518/865 is ready to go.
+The only missing piece is the DOI of the paper.
+As soon as we get the DOI of the paper, 
+we will flip the switch to make the supplementary materials available.
+
+
+p. 21:  Your changes to the nomenclature table are acceptable,
+provided that the sentence
+
+"Note that the overdot notation ... exergy flow."
+
+remains on p. 5.  
+(See above.)
+
+
+* p. 21 and 22:  We added a line break above "Greek", "Subscripts", and "Abbreviations" to set them apart.  The sections were lost in the busy-ness of the nomenclature section.
+
+
+* p. 22, reference 8: Fixed publisher name ("Pearson Higher" --> "Pearson"), author list (added Reese), title ("Biology" --> "Campbell Biology").  Added city (New York).  See https://www.amazon.com/dp/B01M7RPDQQ/ref=rdr_kindle_ext_tmb for details. 
+
+* p. 22, reference 9: Fixed author (was interpreted as a person, not an organization). 
+Corrected year from 2006 --> 2005.  See http://www.cvrl.org/people/stockman/pubs/tc136_14.pdf
+
+* p. 23, reference 18: removed duplicate Guevara reference (33).
+
+* p. 24: reference 36 (Haitz): added accessed on date (17 August 2020).
+
+* p. 24: reference 37 (Graydon): Added DOI.
+
+* p. 24: reference 39 (Benenson):  This looks to be published by Springer in New York. See 
+https://www.amazon.com/Handbook-Physics-Walter-Benenson/dp/0387952691
+We changed from "Berlin/Heidelberg, Germany" to "New York".
+
+* p. 24: reference 57: Added additional authors to remove "et al.".
+
+* p. 25: reference 59:  Added "Leeds University: Leeds, England", per recommendation from editor.
